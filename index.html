@@ -1155,20 +1155,70 @@
 
             border-top:
                 1px solid
-                rgba(255,255,255,0.08);
+                rgba(169,130,255,0.15);
 
             background:
-                #050607;
+                linear-gradient(
+                    180deg,
+                    rgba(12,9,18,0.98),
+                    #050607 70%
+                );
 
             color: #666970;
 
             font-size: 12px;
+
+            box-shadow:
+                0 -15px 50px
+                rgba(100,55,190,0.05);
         }
 
 
         footer strong {
 
             color: white;
+        }
+
+
+        /* =====================================================
+           CRÉDITOS
+        ===================================================== */
+
+        .creditos {
+
+            margin-top: 9px;
+
+            color: #666970;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        .creditos span {
+
+            color: #a982ff;
+
+            font-weight: 900;
+
+            text-shadow:
+                0 0 12px
+                rgba(169,130,255,0.25);
+
+            transition:
+                color 0.25s ease,
+                text-shadow 0.25s ease;
+        }
+
+
+        .creditos span:hover {
+
+            color: #c4afff;
+
+            text-shadow:
+                0 0 18px
+                rgba(169,130,255,0.55);
         }
 
 
@@ -1307,6 +1357,7 @@
 
 
         <!-- SOLO DONACIONES -->
+
         <a
             href="https://www.paypal.com/invoice/p/#3YXT5YHUGCTP5VYK"
             target="_blank"
@@ -1382,12 +1433,13 @@
                 <div class="info-item">
 
                     <strong>
-    
-                        <div>- SURVIVALOP,</div>       
+
+                        <div>- SURVIVALOP,</div>
                         <div>- KOTHS,</div>
-                        <div>- SURVIVALPvP,</div>            
+                        <div>- SURVIVALPvP,</div>
                         <div>- PROXIMAMENTE</div>
-              </strong>
+
+                    </strong>
 
                     <span>
                         Modo de juego
@@ -1466,7 +1518,7 @@
                 </h3>
 
                 <p>
-                    Copia la Ip oficial, para unirte a 
+                    Copia la Ip oficial, para unirte a
                     nuestra historia y crees tu propio camino.
                 </p>
 
@@ -1579,7 +1631,7 @@
                     <span class="discount">
                         20% DE DESCUENTO
                     </span>
-        
+
                     <div class="rank-price">
                         $2.99
                     </div>
@@ -2136,16 +2188,23 @@
 
         </p>
 
-      <p style="margin-top:9px;">
-    Servidor de Minecraft independiente.
-</p>
 
-<p class="creditos">
-    Creado y desarrollado por:
-    <span>YoSoyAnthony</span>
-</p>
+        <p style="margin-top:9px;">
 
-</footer>
+            Servidor de Minecraft independiente.
+
+        </p>
+
+
+        <p class="creditos">
+
+            Creado y desarrollado por:
+            <span>YoSoyAnthony</span>
+
+        </p>
+
+    </footer>
+
 
     <!-- =====================================================
          JAVASCRIPT
@@ -2207,5 +2266,4 @@
 
 </body>
 
-</html>
 </html>
