@@ -36,87 +36,34 @@
 
 
         /* =====================================================
-           FONDO NEGRO + MORADO
+           FONDO KAIZORA
         ===================================================== */
 
         .minecraft-background {
 
             position: fixed;
+
             inset: 0;
 
             z-index: -10;
 
             background:
-
-                radial-gradient(
-                    circle at 72% 35%,
-                    rgba(147, 101, 255, 0.28) 0%,
-                    rgba(147, 101, 255, 0.12) 25%,
-                    transparent 58%
-                ),
-
-                radial-gradient(
-                    circle at 25% 75%,
-                    rgba(100, 55, 190, 0.20) 0%,
-                    transparent 50%
-                ),
-
-                radial-gradient(
-                    circle at 50% 50%,
-                    rgba(112, 67, 210, 0.10) 0%,
-                    transparent 60%
-                ),
-
                 linear-gradient(
-                    135deg,
-                    #030305 0%,
-                    #08060d 45%,
-                    #050308 100%
-                );
+                    rgba(3, 3, 8, 0.48),
+                    rgba(3, 3, 8, 0.68)
+                ),
+                url("kaizora-logo.png");
 
-            background-size: 140% 140%;
-            background-position: center;
+            background-size: cover;
+
+            background-position: center center;
+
             background-repeat: no-repeat;
 
             transform: scale(1.04);
 
             transition:
                 transform 0.8s ease-out;
-        }
-
-
-        /* =====================================================
-           LOGO DE KAIZORA COMO MARCA DE AGUA
-           ===================================================== */
-
-        .minecraft-background::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background-image:
-                url("logo-kaizora.png");
-
-            background-repeat: no-repeat;
-
-            background-position:
-                center center;
-
-            background-size:
-                min(720px, 65vw);
-
-            opacity: 0.055;
-
-            filter:
-                drop-shadow(
-                    0 0 45px
-                    rgba(147,101,255,0.35)
-                );
-
-            pointer-events: none;
         }
 
 
@@ -131,24 +78,24 @@
             background:
                 radial-gradient(
                     ellipse at center,
-                    transparent 20%,
-                    rgba(0,0,0,0.35) 75%,
-                    rgba(0,0,0,0.75) 100%
+                    transparent 15%,
+                    rgba(0,0,0,0.18) 55%,
+                    rgba(0,0,0,0.72) 100%
                 );
 
-            pointer-events: none;
         }
 
 
         /* =====================================================
            EFECTO DE LUZ
-           ===================================================== */
+        ===================================================== */
 
         .light-effect {
 
             position: fixed;
 
             width: 550px;
+
             height: 550px;
 
             border-radius: 50%;
@@ -175,21 +122,24 @@
 
         /* =====================================================
            NAVEGACIÓN
-           ===================================================== */
+        ===================================================== */
 
         nav {
 
             position: fixed;
 
             top: 0;
+
             left: 0;
 
             width: 100%;
+
             height: 78px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
 
             padding:
@@ -204,8 +154,7 @@
             backdrop-filter: blur(12px);
 
             border-bottom:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid rgba(255,255,255,0.08);
 
             z-index: 100;
         }
@@ -222,6 +171,7 @@
 
 
         .logo span {
+
             color: #b49cff;
         }
 
@@ -237,6 +187,7 @@
             list-style: none;
 
             margin-left: auto;
+
             margin-right: 28px;
         }
 
@@ -256,6 +207,7 @@
 
 
         nav ul a:hover {
+
             color: white;
         }
 
@@ -265,6 +217,7 @@
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             padding:
@@ -304,7 +257,7 @@
 
         /* =====================================================
            HERO
-           ===================================================== */
+        ===================================================== */
 
         .hero {
 
@@ -320,7 +273,9 @@
 
 
         .hero-content {
+
             max-width: 720px;
+
             text-align: left;
         }
 
@@ -364,6 +319,7 @@
         .online-dot {
 
             width: 7px;
+
             height: 7px;
 
             border-radius: 50%;
@@ -398,6 +354,7 @@
 
 
         .hero h1 span {
+
             color: #a982ff;
         }
 
@@ -435,6 +392,7 @@
             display: inline-flex;
 
             align-items: center;
+
             justify-content: center;
 
             padding:
@@ -503,7 +461,7 @@
 
         /* =====================================================
            INFORMACIÓN HERO
-           ===================================================== */
+        ===================================================== */
 
         .hero-info {
 
@@ -534,6 +492,7 @@
 
 
         .info-item strong {
+
             font-size: 15px;
         }
 
@@ -548,10 +507,12 @@
 
         /* =====================================================
            SECCIONES
-           ===================================================== */
+        ===================================================== */
 
         section {
-            padding: 120px 7%;
+
+            padding:
+                120px 7%;
         }
 
 
@@ -605,7 +566,7 @@
 
         /* =====================================================
            SERVIDOR
-           ===================================================== */
+        ===================================================== */
 
         .server-section {
 
@@ -680,6 +641,7 @@
 
 
         .server-ip span {
+
             color: #a982ff;
         }
 
@@ -700,7 +662,7 @@
 
         /* =====================================================
            RANGOS
-           ===================================================== */
+        ===================================================== */
 
         .ranks-section {
 
@@ -715,7 +677,8 @@
 
             margin-bottom: 30px;
 
-            padding: 18px 22px;
+            padding:
+                18px 22px;
 
             border:
                 1px solid
@@ -735,6 +698,7 @@
 
 
         .rank-notice strong {
+
             color: #c4afff;
         }
 
@@ -762,7 +726,8 @@
 
             justify-content: space-between;
 
-            padding: 28px 24px;
+            padding:
+                28px 24px;
 
             border:
                 1px solid
@@ -915,7 +880,7 @@
 
         /* =====================================================
            COLORES DE RANGOS
-           ===================================================== */
+        ===================================================== */
 
         .origin {
             color: #ffffff;
@@ -952,7 +917,7 @@
 
         /* =====================================================
            REDES SOCIALES
-           ===================================================== */
+        ===================================================== */
 
         .social-section {
 
@@ -978,7 +943,8 @@
 
             min-height: 210px;
 
-            padding: 28px 24px;
+            padding:
+                28px 24px;
 
             display: flex;
 
@@ -1099,7 +1065,7 @@
 
         /* =====================================================
            COMUNIDAD
-           ===================================================== */
+        ===================================================== */
 
         .community {
 
@@ -1162,7 +1128,7 @@
 
         /* =====================================================
            FOOTER
-           ===================================================== */
+        ===================================================== */
 
         footer {
 
@@ -1183,15 +1149,16 @@
 
 
         footer strong {
+
             color: white;
         }
 
 
         .creator {
 
-            margin-top: 10px;
+            margin-top: 9px;
 
-            color: #777980;
+            color: #777a81;
 
             font-size: 12px;
         }
@@ -1205,7 +1172,7 @@
 
         /* =====================================================
            RESPONSIVE
-           ===================================================== */
+        ===================================================== */
 
         @media (max-width: 1000px) {
 
@@ -1272,15 +1239,6 @@
                     35px 25px;
             }
 
-            .minecraft-background::before {
-
-                background-size:
-                    420px;
-
-                opacity:
-                    0.045;
-            }
-
         }
 
     </style>
@@ -1293,7 +1251,7 @@
 
     <!-- =====================================================
          FONDO
-         ===================================================== -->
+    ===================================================== -->
 
     <div class="minecraft-background"></div>
 
@@ -1302,7 +1260,7 @@
 
     <!-- =====================================================
          NAVBAR
-         ===================================================== -->
+    ===================================================== -->
 
     <nav>
 
@@ -1346,6 +1304,8 @@
         </ul>
 
 
+        <!-- SOLO DONACIONES -->
+
         <a
             href="https://www.paypal.com/invoice/p/#3YXT5YHUGCTP5VYK"
             target="_blank"
@@ -1359,7 +1319,7 @@
 
     <!-- =====================================================
          HERO
-         ===================================================== -->
+    ===================================================== -->
 
     <section
         class="hero"
@@ -1406,7 +1366,7 @@
 
 
                 <a
-                    href="https://discord.gg/cbVSS22NE7"
+                    href="https://discord.gg/DkZKK2kXU"
                     target="_blank"
                     class="button secondary-button"
                 >
@@ -1465,7 +1425,7 @@
 
     <!-- =====================================================
          SERVIDOR
-         ===================================================== -->
+    ===================================================== -->
 
     <section
         class="server-section"
@@ -1543,7 +1503,7 @@
 
     <!-- =====================================================
          RANGOS
-         ===================================================== -->
+    ===================================================== -->
 
     <section
         class="ranks-section"
@@ -1568,6 +1528,8 @@
         </div>
 
 
+        <!-- AVISO DE COMPRA -->
+
         <div class="rank-notice">
 
             <strong>
@@ -1584,6 +1546,8 @@
 
         <div class="ranks">
 
+
+            <!-- ORIGIN -->
 
             <div class="rank origin">
 
@@ -1628,6 +1592,8 @@
             </div>
 
 
+            <!-- ELITE -->
+
             <div class="rank elite">
 
                 <div>
@@ -1671,6 +1637,8 @@
             </div>
 
 
+            <!-- CELESTIAL -->
+
             <div class="rank celestial">
 
                 <div>
@@ -1713,6 +1681,8 @@
             </div>
 
 
+            <!-- MAJESTAD -->
+
             <div class="rank majestad">
 
                 <div>
@@ -1754,6 +1724,8 @@
 
             </div>
 
+
+            <!-- GUARDIAN -->
 
             <div class="rank guardian">
 
@@ -1798,6 +1770,8 @@
             </div>
 
 
+            <!-- SEMIDIOS -->
+
             <div class="rank semidios">
 
                 <div>
@@ -1839,6 +1813,8 @@
 
             </div>
 
+
+            <!-- DIOS -->
 
             <div class="rank dios">
 
@@ -1882,6 +1858,8 @@
             </div>
 
 
+            <!-- PRÓXIMAMENTE -->
+
             <div class="rank soon">
 
                 <div>
@@ -1919,7 +1897,7 @@
 
     <!-- =====================================================
          REDES SOCIALES
-         ===================================================== -->
+    ===================================================== -->
 
     <section
         class="social-section"
@@ -1946,6 +1924,8 @@
 
         <div class="social-grid">
 
+
+            <!-- YOUTUBE -->
 
             <div class="social-card">
 
@@ -1978,6 +1958,8 @@
             </div>
 
 
+            <!-- KICK -->
+
             <div class="social-card">
 
                 <div>
@@ -2009,6 +1991,8 @@
             </div>
 
 
+            <!-- TIKTOK -->
+
             <div class="social-card">
 
                 <div>
@@ -2039,6 +2023,8 @@
 
             </div>
 
+
+            <!-- INSTAGRAM -->
 
             <div class="social-card">
 
@@ -2078,7 +2064,7 @@
 
     <!-- =====================================================
          COMUNIDAD
-         ===================================================== -->
+    ===================================================== -->
 
     <section id="comunidad">
 
@@ -2115,7 +2101,7 @@
             <div class="community-button">
 
                 <a
-                    href="https://discord.gg/cbVSS22NE7"
+                    href="https://discord.gg/DkZKK2kXU"
                     target="_blank"
                     class="button primary-button"
                 >
@@ -2132,7 +2118,7 @@
 
     <!-- =====================================================
          FOOTER
-         ===================================================== -->
+    ===================================================== -->
 
     <footer>
 
@@ -2153,7 +2139,7 @@
 
         <p class="creator">
 
-            Creado y desarrollado por
+            Diseñado y desarrollado por
             <strong>YoSoyAnthonyyy</strong>.
 
         </p>
@@ -2163,7 +2149,7 @@
 
     <!-- =====================================================
          JAVASCRIPT
-         ===================================================== -->
+    ===================================================== -->
 
     <script>
 
