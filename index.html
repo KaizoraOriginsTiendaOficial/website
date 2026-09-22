@@ -280,25 +280,34 @@
         }
 
         .modality-button {
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(15,17,20,0.78);
-            color: #d9d9dd;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid rgba(198,150,255,0.75);
+            background: linear-gradient(135deg, #6f35d9, #a855f7);
+            color: #ffffff;
             padding: 10px 15px;
             border-radius: 8px;
             font-size: 13px;
             font-weight: 900;
             cursor: pointer;
             transition: 0.25s;
+            box-shadow: 0 0 20px rgba(145,75,255,0.25);
         }
 
         .modality-button:hover {
-            border-color: rgba(169,130,255,0.65);
-            color: white;
+            border-color: rgba(220,190,255,0.95);
+            background: linear-gradient(135deg, #8246e8, #b565ff);
+            color: #ffffff;
+            box-shadow: 0 0 28px rgba(145,75,255,0.40);
         }
 
         .modality-button span {
-            margin-left: 5px;
-            color: #b49cff;
+            margin-left: 0;
+            color: #ffffff;
+            line-height: 1;
+            transform: translateY(-1px);
         }
 
         .modality-menu {
@@ -1012,6 +1021,33 @@
 
 
         /* =====================================================
+           COLORES DE TIENDA
+        ===================================================== */
+
+        .shop-white {
+            color: #ffffff;
+        }
+
+        .shop-purple {
+            color: #b49cff;
+        }
+
+        .shop-purple .rank-name {
+            color: #b49cff;
+        }
+
+        .shop-buy {
+            color: #b49cff !important;
+            border-color: #b49cff !important;
+        }
+
+        .shop-buy:hover {
+            background: #b49cff !important;
+            color: #08090a !important;
+        }
+
+
+        /* =====================================================
            COLORES DE RANGOS
         ===================================================== */
 
@@ -1523,7 +1559,19 @@
 
         }
 
-    </style>
+    
+        .modalidad-purple {
+            background: linear-gradient(135deg, #6f35d9, #a855f7) !important;
+            border: 1px solid rgba(198, 150, 255, 0.75) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 20px rgba(145, 75, 255, 0.25);
+        }
+
+        .modalidad-purple:hover {
+            background: linear-gradient(135deg, #8246e8, #b565ff) !important;
+            box-shadow: 0 0 28px rgba(145, 75, 255, 0.40);
+        }
+</style>
 
 </head>
 
@@ -1554,7 +1602,7 @@
         <ul>
 
             <li>
-                <a href="#inicio">
+                <a href="kaizora.html">
                     Inicio
                 </a>
             </li>
@@ -2188,6 +2236,14 @@
 
                 <div>
 
+                    <span class="old-price">
+                        $62.49
+                    </span>
+
+                    <span class="discount">
+                        20% DE DESCUENTO
+                    </span>
+
                     <div class="rank-price">
                         $49.99
                     </div>
@@ -2232,19 +2288,19 @@
 
         <div class="ranks">
 
-            <div class="rank origin">
+            <div class="rank shop-purple">
                 <div>
                     <div class="rank-name">PERSONALIZAR ITEMS / KITS</div>
                     <div class="rank-description">Solicita la personalización de tus items o kits y consulta las opciones disponibles.</div>
                 </div>
                 <div>
                     <div class="rank-actions">
-                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" class="rank-buy">Personalizar</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" class="rank-buy shop-buy">Personalizar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="rank celestial">
+            <div class="rank shop-purple">
                 <div>
                     <div class="rank-name">ITEMS POR SEPARADO</div>
                     <div class="rank-description">Llaves de crates, espadas, herramientas, armaduras y otros productos disponibles individualmente.</div>
@@ -2252,7 +2308,7 @@
                 <div>
                     <div class="rank-actions">
                         <a href="tienda-items.html" class="rank-info">Ver tienda</a>
-                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" class="rank-buy">Comprar</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" class="rank-buy shop-buy">Comprar</a>
                     </div>
                 </div>
             </div>
