@@ -897,6 +897,54 @@
         }
 
 
+        .rank-actions {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 8px;
+        }
+
+
+        .rank-info {
+
+            display: block;
+
+            width: 100%;
+
+            padding: 10px;
+
+            text-align: center;
+
+            border: 1px solid rgba(255,255,255,0.14);
+
+            border-radius: 7px;
+
+            color: #b8bac1;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            transition: 0.2s;
+        }
+
+
+        .rank-info:hover {
+
+            border-color: currentColor;
+
+            color: inherit;
+
+            background: rgba(255,255,255,0.04);
+        }
+
+
         /* =====================================================
            COLORES DE RANGOS
         ===================================================== */
@@ -929,8 +977,117 @@
             color: #ff5363;
         }
 
-        .soon {
-            color: #9b9da4;
+        .kaizora {
+            color: #ff6de1;
+            text-shadow: 0 0 18px rgba(255,109,225,0.22);
+        }
+
+
+        /* =====================================================
+           RANGO STREAMER
+        ===================================================== */
+
+        .streamer-section {
+
+            background: rgba(5,7,8,0.88);
+        }
+
+
+        .streamer-card {
+
+            max-width: 1150px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding: 42px;
+
+            border: 1px solid rgba(255,255,255,0.10);
+
+            border-radius: 18px;
+
+            background: linear-gradient(120deg, rgba(15,18,21,0.92), rgba(10,12,15,0.75));
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .streamer-content small {
+
+            display: block;
+
+            color: #ff6de1;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .streamer-content h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+
+            color: #ff6de1;
+        }
+
+
+        .streamer-content p {
+
+            color: #85868d;
+
+            line-height: 1.7;
+
+            max-width: 700px;
+        }
+
+
+        .streamer-info-button {
+
+            flex-shrink: 0;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 13px 22px;
+
+            border: 1px solid rgba(255,109,225,0.55);
+
+            border-radius: 8px;
+
+            color: #ff6de1;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            transition: 0.2s;
+        }
+
+
+        .streamer-info-button:hover {
+
+            background: #ff6de1;
+
+            color: #08090a;
         }
 
 
@@ -1246,6 +1403,11 @@
                     1fr;
             }
 
+            .streamer-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
         }
 
 
@@ -1434,10 +1596,7 @@
 
                     <strong>
 
-                        <div>- SURVIVALOP,</div>
-                        <div>- KOTHS,</div>
-                        <div>- SURVIVALPvP,</div>
-                        <div>- PROXIMAMENTE</div>
+                        SURVIVALOP
 
                     </strong>
 
@@ -1461,17 +1620,6 @@
                 </div>
 
 
-                <div class="info-item">
-
-                    <strong>
-                        PRÓXIMAMENTE
-                    </strong>
-
-                    <span>
-                        Apertura
-                    </span>
-
-                </div>
 
             </div>
 
@@ -1524,17 +1672,10 @@
 
 
                 <div class="server-ip">
-                    <span>KaizoraOrigins.net</span>
+                    <span>IP oficial</span>
                 </div>
 
 
-                <div class="status">
-
-                    <span class="online-dot"></span>
-
-                    Apertura "PROXIMAMENTE"
-
-                </div>
 
             </div>
 
@@ -1635,6 +1776,7 @@
                     <div class="rank-price">
                         $2.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#JUVJMSVVEHNNPD6M"
@@ -1643,6 +1785,11 @@
                     >
                         Comprar
                     </a>
+
+                        <a href="rango-origin.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
 
                 </div>
 
@@ -1680,6 +1827,7 @@
                     <div class="rank-price">
                         $4.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#BQZMWEWCDUFNLUPN"
@@ -1688,6 +1836,11 @@
                     >
                         Comprar
                     </a>
+
+                        <a href="rango-elite.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
 
                 </div>
 
@@ -1724,6 +1877,7 @@
                     <div class="rank-price">
                         $7.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#W7F9ZWMW86VEXQHJ"
@@ -1732,6 +1886,11 @@
                     >
                         Comprar
                     </a>
+
+                        <a href="rango-celestial.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
 
                 </div>
 
@@ -1768,6 +1927,7 @@
                     <div class="rank-price">
                         $11.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#BQK374XAZDU6RTXA"
@@ -1776,6 +1936,11 @@
                     >
                         Comprar
                     </a>
+
+                        <a href="rango-majestad.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
 
                 </div>
 
@@ -1813,6 +1978,7 @@
                     <div class="rank-price">
                         $15.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#JGX4ZQA5NKSEYVG3"
@@ -1821,6 +1987,11 @@
                     >
                         Comprar
                     </a>
+
+                        <a href="rango-guardian.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
 
                 </div>
 
@@ -1857,6 +2028,7 @@
                     <div class="rank-price">
                         $24.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#B3L9RUEAVMG3U3CZ"
@@ -1865,6 +2037,11 @@
                     >
                         Comprar
                     </a>
+
+                        <a href="rango-semidios.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
 
                 </div>
 
@@ -1901,6 +2078,7 @@
                     <div class="rank-price">
                         $34.99
                     </div>
+                    <div class="rank-actions">
 
                     <a
                         href="https://www.paypal.com/invoice/p/#J9CWUBGCQ5MLVBDB"
@@ -1910,24 +2088,30 @@
                         Comprar
                     </a>
 
+                        <a href="rango-dios.html" class="rank-info">
+                            Info
+                        </a>
+                    </div>
+
                 </div>
 
             </div>
 
 
-            <!-- PRÓXIMAMENTE -->
+            <!-- KAIZORA -->
 
-            <div class="rank soon">
+            <div class="rank kaizora">
 
                 <div>
 
                     <div class="rank-name">
-                        PRÓXIMAMENTE
+                        KAIZORA
                     </div>
 
                     <div class="rank-description">
-                        Un nuevo nivel está siendo
-                        preparado para Kaizora Origins.
+                        El rango más exclusivo de Kaizora Origins,
+                        reservado para quienes quieren llevar
+                        su experiencia al máximo.
                     </div>
 
                 </div>
@@ -1935,17 +2119,48 @@
                 <div>
 
                     <div class="rank-price">
-                        ---
+                        Precio por definir
                     </div>
 
-                    <span class="rank-buy">
-                        Próximamente
-                    </span>
+                    <a href="rango-kaizora.html" class="rank-info">
+                        Info
+                    </a>
 
                 </div>
 
             </div>
 
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RANGO STREAMER
+    ===================================================== -->
+
+    <section class="streamer-section" id="streamer">
+
+        <div class="streamer-card">
+
+            <div class="streamer-content">
+
+                <small>RANGO ESPECIAL</small>
+
+                <h2>STREAMER</h2>
+
+                <p>
+                    Un rango especial para creadores de contenido
+                    que formen parte de la comunidad de Kaizora Origins.
+                    Aquí podrás consultar los requisitos para solicitarlo.
+                </p>
+
+            </div>
+
+            <a href="rango-streamer.html" class="streamer-info-button">
+                Ver información
+            </a>
 
         </div>
 
