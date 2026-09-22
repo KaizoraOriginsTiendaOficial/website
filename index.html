@@ -275,6 +275,72 @@
                 rgba(139,92,246,0.35);
         }
 
+        .modality-dropdown {
+            position: relative;
+        }
+
+        .modality-button {
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(15,17,20,0.78);
+            color: #d9d9dd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .modality-button:hover {
+            border-color: rgba(169,130,255,0.65);
+            color: white;
+        }
+
+        .modality-button span {
+            margin-left: 5px;
+            color: #b49cff;
+        }
+
+        .modality-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 9px);
+            min-width: 170px;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 10px;
+            background: rgba(9,11,14,0.97);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: 0.2s;
+        }
+
+        .modality-dropdown:hover .modality-menu,
+        .modality-dropdown:focus-within .modality-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .modality-menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 7px;
+            color: #c9c9ce;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            transition: 0.2s;
+        }
+
+        .modality-menu a:hover {
+            background: rgba(169,130,255,0.12);
+            color: white;
+        }
+
+
 
         /* =====================================================
            HERO
@@ -1520,15 +1586,17 @@
         </ul>
 
 
-        <!-- SOLO DONACIONES -->
+        <div class="modality-dropdown">
 
-        <a
-            href="https://www.paypal.com/invoice/p/#3YXT5YHUGCTP5VYK"
-            target="_blank"
-            class="discord-button"
-        >
-            DONACIONES
-        </a>
+            <button class="modality-button" type="button">
+                Modalidad <span>⌄</span>
+            </button>
+
+            <div class="modality-menu">
+                <a href="survivalop.html">SURVIVALOP</a>
+            </div>
+
+        </div>
 
     </nav>
 
@@ -2151,6 +2219,50 @@
 
 
     <!-- =====================================================
+         OTROS PRODUCTOS
+    ===================================================== -->
+
+    <section class="ranks-section" id="tienda-extra">
+
+        <div class="section-title">
+            <small>TIENDA</small>
+            <h2>Personaliza tu experiencia.</h2>
+            <p>También podrás adquirir productos y personalizar tus kits e items directamente mediante nuestro Discord de ventas.</p>
+        </div>
+
+        <div class="ranks">
+
+            <div class="rank origin">
+                <div>
+                    <div class="rank-name">PERSONALIZAR ITEMS / KITS</div>
+                    <div class="rank-description">Solicita la personalización de tus items o kits y consulta las opciones disponibles.</div>
+                </div>
+                <div>
+                    <div class="rank-actions">
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" class="rank-buy">Personalizar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rank celestial">
+                <div>
+                    <div class="rank-name">ITEMS POR SEPARADO</div>
+                    <div class="rank-description">Llaves de crates, espadas, herramientas, armaduras y otros productos disponibles individualmente.</div>
+                </div>
+                <div>
+                    <div class="rank-actions">
+                        <a href="tienda-items.html" class="rank-info">Ver tienda</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" class="rank-buy">Comprar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
          RANGO STREAMER
     ===================================================== -->
 
@@ -2162,7 +2274,7 @@
 
                 <small>RANGO ESPECIAL</small>
 
-                <h2>STREAMER</h2>
+                <h2><strong>STREAMER</strong></h2>
 
                 <p>
                     Un rango especial para creadores de contenido
