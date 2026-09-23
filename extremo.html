@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaizora Origins | Extremo</title>
+    <meta name="description" content="Kaizora Origins — Modalidad Extremo.">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07090a;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .minecraft-background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            background:
+                radial-gradient(circle at 72% 35%, rgba(147,101,255,0.28) 0%, rgba(147,101,255,0.12) 25%, transparent 58%),
+                radial-gradient(circle at 25% 75%, rgba(100,55,190,0.20) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(112,67,210,0.10) 0%, transparent 60%),
+                linear-gradient(135deg, #030305 0%, #08060d 45%, #050308 100%);
+            background-size: 140% 140%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scale(1.04);
+            transition: transform 0.8s ease-out;
+        }
+
+        .minecraft-background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,0.75) 100%);
+        }
+
+        .light-effect {
+            position: fixed;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -5;
+            background: radial-gradient(circle, rgba(147,101,255,0.12), transparent 68%);
+            transform: translate(-50%, -50%);
+            transition: left 0.25s ease-out, top 0.25s ease-out;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: linear-gradient(rgba(5,7,8,0.82), rgba(5,7,8,0.35));
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: #b49cff; }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            list-style: none;
+            margin-left: auto;
+            margin-right: 28px;
+        }
+
+        nav ul a {
+            color: #c5c5c9;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        nav ul a:hover { color: white; }
+
+        .modality-dropdown { position: relative; }
+
+        .modality-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid rgba(198,150,255,0.75);
+            background: linear-gradient(135deg, #6f35d9, #a855f7);
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 0 20px rgba(145,75,255,0.25);
+        }
+
+        .modality-button:hover {
+            border-color: rgba(220,190,255,0.95);
+            background: linear-gradient(135deg, #8246e8, #b565ff);
+            color: #ffffff;
+            box-shadow: 0 0 28px rgba(145,75,255,0.40);
+        }
+
+        .modality-button span {
+            margin-left: 0;
+            color: #ffffff;
+            line-height: 1;
+            transform: translateY(-1px);
+        }
+
+        .modality-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 9px);
+            min-width: 170px;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 10px;
+            background: rgba(9,11,14,0.97);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: 0.2s;
+        }
+
+        .modality-dropdown:hover .modality-menu,
+        .modality-dropdown:focus-within .modality-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .modality-menu a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 7px;
+            color: #c9c9ce;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            transition: 0.2s;
+        }
+
+        .modality-menu a:hover {
+            background: rgba(169,130,255,0.12);
+            color: white;
+        }
+
+        .empty-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 7% 80px;
+        }
+
+        .empty-content {
+            width: 100%;
+            max-width: 1150px;
+        }
+
+        @media (max-width: 1000px) {
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="minecraft-background"></div>
+    <div class="light-effect" id="light"></div>
+
+    <nav>
+        <div class="logo">
+            KAIZORA <span>ORIGINS</span>
+        </div>
+
+        <ul>
+            <li><a href="kaizora.html">Inicio</a></li>
+        </ul>
+
+        <div class="modality-dropdown">
+            <button class="modality-button" type="button">
+                Modalidades <span>⌄</span>
+            </button>
+
+            <div class="modality-menu">
+                <a href="survivalop.html">SurvivalOP</a>
+                <a href="extremo.html">Extremo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="empty-page">
+        <div class="empty-content">
+            <!-- TODO: contenido de la modalidad Extremo -->
+        </div>
+    </main>
+
+    <script>
+        const background = document.querySelector('.minecraft-background');
+        const light = document.getElementById('light');
+
+        document.addEventListener('mousemove', function(event) {
+            const x = event.clientX / window.innerWidth;
+            const y = event.clientY / window.innerHeight;
+            const moveX = (x - 0.5) * 18;
+            const moveY = (y - 0.5) * 12;
+
+            background.style.transform = `scale(1.04) translate(${moveX}px, ${moveY}px)`;
+            light.style.left = event.clientX + 'px';
+            light.style.top = event.clientY + 'px';
+        });
+    </script>
+
+</body>
+</html>
