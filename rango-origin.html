@@ -1,13 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ORIGIN | Kaizora Origins</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
@@ -25,8 +27,16 @@ a{
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 20% 20%,rgba(147,101,255,.16),transparent 35%),
-        radial-gradient(circle at 80% 70%,rgba(255,109,225,.10),transparent 35%);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(147,101,255,.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,109,225,.10),
+            transparent 35%
+        );
     z-index:-1;
 }
 
@@ -63,6 +73,12 @@ nav a{
     border-radius:8px;
     background:#9365ff;
     color:white!important;
+    transition:.2s;
+}
+
+.discord:hover{
+    background:#a982ff;
+    transform:translateY(-1px);
 }
 
 main{
@@ -112,6 +128,7 @@ h1{
     font-weight:900;
     font-size:12px;
     border:1px solid rgba(255,255,255,.14);
+    transition:.2s;
 }
 
 .primary{
@@ -139,25 +156,25 @@ h1{
 
 .box h2{
     margin-top:0;
-    margin-bottom:28px;
+    margin-bottom:30px;
     font-size:26px;
 }
 
 .box h3{
-    margin:0 0 14px;
+    margin:0 0 15px;
     color:#ffffff;
-    font-size:17px;
+    font-size:18px;
 }
 
-.box p,
-.box li{
+.box p{
     color:#aaaeb6;
     line-height:1.7;
+    margin:8px 0;
 }
 
 .section{
     margin-top:38px;
-    padding-top:28px;
+    padding-top:30px;
     border-top:1px solid rgba(255,255,255,.07);
 }
 
@@ -174,8 +191,10 @@ h1{
 }
 
 .info-list li{
-    padding:8px 0;
+    padding:10px 0;
     border-bottom:1px solid rgba(255,255,255,.045);
+    color:#aaaeb6;
+    line-height:1.6;
 }
 
 .info-list li:last-child{
@@ -201,6 +220,11 @@ h1{
 
 .inherit strong{
     color:#ffffff;
+}
+
+.kit-title{
+    font-size:21px!important;
+    color:#ffffff!important;
 }
 
 footer{
@@ -241,65 +265,423 @@ footer{
 <div class="bg"></div>
 
 <nav>
+
     <div class="logo">
         KAIZORA <span>ORIGINS</span>
     </div>
 
-    <a class="home"
-       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+    <a
+        class="home"
+        href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
+    >
         Inicio
     </a>
 
-    <a class="discord"
-       href="https://discord.gg/sHvWgW7AE4"
-       target="_blank">
+    <a
+        class="discord"
+        href="https://discord.gg/sHvWgW7AE4"
+        target="_blank"
+    >
         Comprar por Discord
     </a>
+
 </nav>
 
 <main>
 
-    <div class="label">RANGO</div>
+    <div class="label">
+        RANGO
+    </div>
 
-    <h1>ORIGIN</h1>
+    <h1>
+        ORIGIN
+    </h1>
 
     <p class="desc">
         El comienzo de tu camino. Da tus primeros pasos y empieza a destacar
-        en Kaizora Origins con ventajas exclusivas, comandos adicionales y un
-        kit preparado para comenzar con ventaja.
+        en Kaizora Origins con ventajas exclusivas, comandos adicionales y
+        un kit preparado para comenzar con ventaja.
     </p>
 
-    <div class="price">$2.99</div>
+    <div class="price">
+        $2.99
+    </div>
 
     <div class="actions">
 
-        <a class="btn primary"
-           href="https://discord.gg/sHvWgW7AE4"
-           target="_blank">
+        <a
+            class="btn primary"
+            href="https://discord.gg/sHvWgW7AE4"
+            target="_blank"
+        >
             Comprar ORIGIN
         </a>
 
-        <a class="btn back"
-           href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+        <a
+            class="btn back"
+            href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
+        >
             Volver a rangos
         </a>
 
     </div>
 
 
+    <!-- INFORMACIÓN COMPLETA -->
+
     <div class="box">
 
-        <h2>Información del rango</h2>
+        <h2>
+            Información del rango
+        </h2>
 
 
-        <!-- HERENCIA -->
+        <!-- RANGO USER -->
 
         <div class="section">
 
-            <h3>Incluye todo lo del rango User</h3>
+            <h3>
+                Incluye todo lo del rango User
+            </h3>
 
             <p>
                 ORIGIN incluye todos los permisos, beneficios y comandos
-                disponibles para el rango User, incluyendo su kit y todos
-                sus comandos.
+                disponibles para el rango User.
             </p>
+
+            <div class="inherit">
+
+                <strong>Incluye:</strong>
+
+                rango User +
+                <strong>/kit User</strong> +
+                todos sus comandos y permisos.
+
+            </div>
+
+        </div>
+
+
+        <!-- KIT ORIGIN -->
+
+        <div class="section">
+
+            <h3 class="kit-title">
+                /kit Origin
+            </h3>
+
+            <p>
+                El kit exclusivo del rango ORIGIN incluye equipamiento,
+                comida, minerales, polvos y una Piedra de Protección.
+            </p>
+
+        </div>
+
+
+        <!-- ARMADURA -->
+
+        <div class="section">
+
+            <h3>
+                Full Armor Diamante
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Casco de Diamante
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pechera de Diamante
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pantalones de Diamante
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Botas de Diamante
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- HERRAMIENTAS -->
+
+        <div class="section">
+
+            <h3>
+                Herramientas de Diamante
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Espada
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Filo III · Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pico
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Eficiencia V · Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Hacha
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Eficiencia V · Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pala
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Eficiencia V · Irrompibilidad III · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- ESCUDO -->
+
+        <div class="section">
+
+            <h3>
+                Escudo
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Escudo
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad V · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- COMIDA -->
+
+        <div class="section">
+
+            <h3>
+                Comida
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Papas
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Filetes Asados
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Zanahorias Doradas
+                    </span>
+                    <span class="item-details">
+                        ×32
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Manzanas Doradas
+                    </span>
+                    <span class="item-details">
+                        ×32
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- MINERALES -->
+
+        <div class="section">
+
+            <h3>
+                Minerales
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Lingotes de Hierro
+                    </span>
+                    <span class="item-details">
+                        ×32
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Lingotes de Oro
+                    </span>
+                    <span class="item-details">
+                        ×16
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Diamantes
+                    </span>
+                    <span class="item-details">
+                        ×32
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Esmeraldas
+                    </span>
+                    <span class="item-details">
+                        ×8
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- POLVOS -->
+
+        <div class="section">
+
+            <h3>
+                Polvos
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Esencia Eléctrica
+                    </span>
+                    <span class="item-details">
+                        ×4
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Esencia Arcana
+                    </span>
+                    <span class="item-details">
+                        ×8
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- PIEDRA DE PROTECCIÓN -->
+
+        <div class="section">
+
+            <h3>
+                Piedra de Protección
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Mena de Hierro
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Protección de 20 × 20 bloques
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+<footer>
+    © 2026 Kaizora Origins · Servidor de Minecraft independiente.
+</footer>
+
+
+</body>
+</html>
