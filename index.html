@@ -1,4 +1,3 @@
-<```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -594,6 +593,22 @@
         }
 
 
+        .game-modes {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 5px;
+        }
+
+
+        .game-modes span {
+
+            color: white;
+        }
+
+
         .info-item span {
 
             color: #8d8d94;
@@ -740,6 +755,54 @@
         .server-ip span {
 
             color: #a982ff;
+        }
+
+
+        .copy-ip-button {
+
+            display: block;
+
+            margin-top: 12px;
+
+            padding: 10px 15px;
+
+            border: 1px solid #a982ff;
+
+            border-radius: 7px;
+
+            background: rgba(169,130,255,0.08);
+
+            color: #a982ff;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .copy-ip-button:hover {
+
+            background: #a982ff;
+
+            color: #08090a;
+        }
+
+
+        .copy-message {
+
+            display: none;
+
+            margin-top: 8px;
+
+            color: #48df8b;
+
+            font-size: 11px;
+
+            font-weight: 800;
         }
 
 
@@ -1716,8 +1779,8 @@
 
                     <strong>
 
-                        SurvivalOP,
-                        Extremo
+                        <span>SURVIVALOP</span>
+                        <span>⌛ EXTREMO</span>
 
                     </strong>
 
@@ -1793,12 +1856,22 @@
 
 
                 <div class="server-ip">
-                    <span>kaizora.duckdns.org</span>
+
+                    <span id="server-ip-text">kaizora.duckdns.org</span>
+
+                    <button
+                        type="button"
+                        class="copy-ip-button"
+                        onclick="copyServerIP()"
+                    >
+                        COPIAR IP
+                    </button>
+
                 </div>
 
-
-
-            </div>
+                <div id="copy-message" class="copy-message">
+                    IP copiada correctamente.
+                </div>
 
 
             <div class="server-card">
