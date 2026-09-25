@@ -4,9 +4,685 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAJESTAD | Kaizora Origins</title>
+
 <style>
-*{box-sizing:border-box} body{margin:0;background:#07090a;color:#f4f4f6;font-family:Arial,Helvetica,sans-serif;min-height:100vh} a{color:inherit} .bg{position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,rgba(147,101,255,.16),transparent 35%),radial-gradient(circle at 80% 70%,rgba(255,109,225,.10),transparent 35%);z-index:-1} nav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(5,7,8,.8);backdrop-filter:blur(12px)} .logo{font-size:21px;font-weight:900;letter-spacing:1px} .logo span{color:#b49cff} nav a{text-decoration:none;color:#c8c8cd;font-size:13px;font-weight:800} .discord{padding:11px 17px;border-radius:8px;background:#9365ff;color:white!important} main{max-width:1050px;margin:0 auto;padding:90px 6% 100px} .label{color:#ffd34d;font-size:11px;font-weight:900;letter-spacing:4px;margin-bottom:14px} h1{font-size:clamp(48px,8vw,86px);margin:0 0 18px;letter-spacing:-4px} .desc{max-width:700px;color:#bfc0c6;font-size:17px;line-height:1.7} .price{font-size:42px;font-weight:950;margin:35px 0 22px;color:#ffd34d} .actions{display:flex;gap:12px;flex-wrap:wrap} .btn{padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:900;font-size:12px;border:1px solid rgba(255,255,255,.14)} .primary{border-color:#ffd34d;color:#ffd34d} .primary:hover{background:#ffd34d;color:#08090a} .back:hover{border-color:#aaa;color:white} .box{margin-top:55px;padding:32px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(13,15,18,.78)} .box h2{margin-top:0} .box p,.box li{color:#aaaeb6;line-height:1.7} footer{text-align:center;padding:30px;color:#6f7178;font-size:12px;border-top:1px solid rgba(255,255,255,.07)}
-@media(max-width:600px){nav{padding:0 5%}nav a.home{display:none}main{padding-top:65px}h1{letter-spacing:-2px}}
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:#07090a;
+    color:#f4f4f6;
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh
+}
+
+a{color:inherit}
+
+.bg{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(147,101,255,.16),transparent 35%),
+        radial-gradient(circle at 80% 70%,rgba(255,109,225,.10),transparent 35%);
+    z-index:-1
+}
+
+nav{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(5,7,8,.8);
+    backdrop-filter:blur(12px)
+}
+
+.logo{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:1px
+}
+
+.logo span{
+    color:#b49cff
+}
+
+nav a{
+    text-decoration:none;
+    color:#c8c8cd;
+    font-size:13px;
+    font-weight:800
+}
+
+.discord{
+    padding:11px 17px;
+    border-radius:8px;
+    background:#9365ff;
+    color:white!important
+}
+
+main{
+    max-width:1050px;
+    margin:0 auto;
+    padding:90px 6% 100px
+}
+
+.label{
+    color:#ffd34d;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:4px;
+    margin-bottom:14px
+}
+
+h1{
+    font-size:clamp(48px,8vw,86px);
+    margin:0 0 18px;
+    letter-spacing:-4px
+}
+
+.desc{
+    max-width:700px;
+    color:#bfc0c6;
+    font-size:17px;
+    line-height:1.7
+}
+
+.price{
+    font-size:42px;
+    font-weight:950;
+    margin:35px 0 22px;
+    color:#ffd34d
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap
+}
+
+.btn{
+    padding:14px 22px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:900;
+    font-size:12px;
+    border:1px solid rgba(255,255,255,.14);
+    transition:.2s
+}
+
+.primary{
+    border-color:#ffd34d;
+    color:#ffd34d
+}
+
+.primary:hover{
+    background:#ffd34d;
+    color:#08090a
+}
+
+.back:hover{
+    border-color:#aaa;
+    color:white
+}
+
+.box{
+    margin-top:55px;
+    padding:32px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;
+    background:rgba(13,15,18,.78)
+}
+
+.box h2{
+    margin-top:0;
+    margin-bottom:30px;
+    font-size:26px
+}
+
+.box h3{
+    margin:0 0 15px;
+    color:#ffffff;
+    font-size:18px
+}
+
+.box p{
+    color:#aaaeb6;
+    line-height:1.7;
+    margin:8px 0
+}
+
+.section{
+    margin-top:38px;
+    padding-top:30px;
+    border-top:1px solid rgba(255,255,255,.07)
+}
+
+.section:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none
+}
+
+.info-list{
+    list-style:none;
+    padding:0;
+    margin:0
+}
+
+.info-list li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.045);
+    color:#aaaeb6;
+    line-height:1.6
+}
+
+.info-list li:last-child{
+    border-bottom:none
+}
+
+.item-name{
+    color:#ffffff;
+    font-weight:800
+}
+
+.item-details{
+    color:#969aa3
+}
+
+.inherit{
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:10px;
+    background:rgba(255,255,255,.025)
+}
+
+.inherit strong{
+    color:#ffffff
+}
+
+.kit-title{
+    font-size:21px!important;
+    color:#ffffff!important
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#6f7178;
+    font-size:12px;
+    border-top:1px solid rgba(255,255,255,.07)
+}
+
+@media(max-width:600px){
+    nav{padding:0 5%}
+    nav a.home{display:none}
+    main{padding-top:65px}
+    h1{letter-spacing:-2px}
+    .box{padding:24px}
+}
 </style>
 </head>
-<body><div class="bg"></div><nav><div class="logo">KAIZORA <span>ORIGINS</span></div><a class="home" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Inicio</a><a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank">Comprar por Discord</a></nav><main><div class="label">RANGO</div><h1>MAJESTAD</h1><p class="desc">Prestigio, reconocimiento y nuevas ventajas dentro de Kaizora.</p><div class="price">$11.99</div><div class="actions"><a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank">Comprar MAJESTAD</a><a class="btn back" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Volver a rangos</a></div><div class="box"><h2>Información del rango</h2><p>Esta página será el apartado oficial de MAJESTAD. Aquí colocaremos el listado completo de ventajas, permisos, kits y demás contenido que incluye el rango.</p><p>Las compras y la gestión del rango se realizan directamente mediante nuestro Discord oficial.</p></div></main><footer>© 2026 Kaizora Origins · Servidor de Minecraft independiente.</footer></body></html>
+
+<body>
+
+<div class="bg"></div>
+
+<nav>
+
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
+
+    <a
+        class="home"
+        href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
+    >
+        Inicio
+    </a>
+
+    <a
+        class="discord"
+        href="https://discord.gg/sHvWgW7AE4"
+        target="_blank"
+    >
+        Comprar por Discord
+    </a>
+
+</nav>
+
+<main>
+
+    <div class="label">
+        RANGO
+    </div>
+
+    <h1>
+        MAJESTAD
+    </h1>
+
+    <p class="desc">
+        Prestigio, reconocimiento y nuevas ventajas dentro de Kaizora.
+    </p>
+
+    <div class="price">
+        $11.99
+    </div>
+
+    <div class="actions">
+
+        <a
+            class="btn primary"
+            href="https://discord.gg/sHvWgW7AE4"
+            target="_blank"
+        >
+            Comprar MAJESTAD
+        </a>
+
+        <a
+            class="btn back"
+            href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
+        >
+            Volver a rangos
+        </a>
+
+    </div>
+
+
+    <!-- INFORMACIÓN COMPLETA -->
+
+    <div class="box">
+
+        <h2>
+            Información del rango
+        </h2>
+
+
+        <!-- HERENCIA -->
+
+        <div class="section">
+
+            <h3>
+                Herencia
+            </h3>
+
+            <p>
+                MAJESTAD incluye todos los permisos, comandos, kits y beneficios
+                de todos los rangos anteriores, además de todos los beneficios
+                propios del rango MAJESTAD.
+            </p>
+
+        </div>
+
+
+        <!-- KIT MAJESTAD -->
+
+        <div class="section">
+
+            <h3 class="kit-title">
+                /kit Majestad
+            </h3>
+
+            <p>
+                El kit exclusivo del rango MAJESTAD incluye equipamiento
+                avanzado, recursos, materiales, polvos, protección y
+                objetos adicionales.
+            </p>
+
+        </div>
+
+
+        <!-- ARMADURA -->
+
+        <div class="section">
+
+            <h3>
+                Armadura Diamante
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Armadura 1
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Protección VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Armadura 2
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Protección IV · Irrompibilidad V · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- HERRAMIENTAS -->
+
+        <div class="section">
+
+            <h3>
+                Herramientas y armas
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Espada de Diamante
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Aspecto Ígneo III · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pico
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Eficiencia VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Hacha
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Eficiencia VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pala
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Eficiencia VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Escudo
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Protección VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Arco
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Ballesta
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Mazo
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- COMIDA -->
+
+        <div class="section">
+
+            <h3>
+                Comida
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Manzanas Doradas
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Manzanas Encantadas
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Zanahorias Doradas
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Pan
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Papas
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- MINERALES -->
+
+        <div class="section">
+
+            <h3>
+                Minerales
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Bloques de Oro
+                    </span>
+                    <span class="item-details">
+                        ×8
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Bloques de Diamante
+                    </span>
+                    <span class="item-details">
+                        ×8
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Esmeraldas
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Fragmentos de Netherite
+                    </span>
+                    <span class="item-details">
+                        ×12
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- POLVOS -->
+
+        <div class="section">
+
+            <h3>
+                Polvos
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Polvo Celestial
+                    </span>
+                    <span class="item-details">
+                        ×4
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Semilla Natural
+                    </span>
+                    <span class="item-details">
+                        ×2
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Polvo Espectral
+                    </span>
+                    <span class="item-details">
+                        ×2
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- PIEDRA DE PROTECCIÓN -->
+
+        <div class="section">
+
+            <h3>
+                Piedra de Protección
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Mena de Oro
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        Protección de 50 × 50 bloques
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- AÑADIDOS -->
+
+        <div class="section">
+
+            <h3>
+                Añadidos
+            </h3>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">
+                        Carga de Viento
+                    </span>
+                    <span class="item-details">
+                        ×64
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">
+                        Shulker (Kit Majestad)
+                    </span>
+                    <br>
+                    <span class="item-details">
+                        27 pociones
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+<footer>
+    © 2026 Kaizora Origins · Servidor de Minecraft independiente.
+</footer>
+
+</body>
+</html>
