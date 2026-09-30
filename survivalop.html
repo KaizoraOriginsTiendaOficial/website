@@ -350,18 +350,18 @@
         }
 
         .section-description {
-            max-width: 650px;
+            max-width: 760px;
 
             color: #9c9ca3;
 
             font-size: 15px;
-            line-height: 1.6;
+            line-height: 1.65;
 
             font-weight: 700;
         }
 
         /* =========================
-           HERO SURVIVALOP
+           HERO
         ========================= */
 
         .survival-hero {
@@ -497,7 +497,7 @@
         }
 
         /* =========================
-           LLAVES
+           CRATES
         ========================= */
 
         .products-grid {
@@ -570,6 +570,10 @@
                 0 15px 45px rgba(0,0,0,0.25);
         }
 
+        /* =========================
+           FONDO DE CADA CRATE
+        ========================= */
+
         .key-image {
             width: 100%;
             height: 125px;
@@ -582,13 +586,27 @@
 
             border-radius: 10px;
 
-            background:
-                rgba(147,101,255,0.06);
-
-            border:
-                1px solid rgba(169,130,255,0.10);
-
             overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,0.10);
+
+            position: relative;
+        }
+
+        .key-image::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.14),
+                    transparent 65%
+                );
+
+            pointer-events: none;
         }
 
         .key-image img {
@@ -599,11 +617,88 @@
 
             image-rendering: pixelated;
 
+            position: relative;
+            z-index: 2;
+
             transition: transform 0.25s;
         }
 
         .product-card:hover .key-image img {
             transform: scale(1.08);
+        }
+
+        /* COLORES */
+
+        .origin .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #dcdcdc
+                );
+        }
+
+        .elite .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #071a45,
+                    #0d357f
+                );
+        }
+
+        .celestial .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #00aeca,
+                    #39e4ff
+                );
+        }
+
+        .majestad .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #d49b00,
+                    #ffe45b
+                );
+        }
+
+        .guardian .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0a3d25,
+                    #176f43
+                );
+        }
+
+        .semidios .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #b92e6d,
+                    #ff79b3
+                );
+        }
+
+        .dios .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #4b0000,
+                    #a80000
+                );
+        }
+
+        .kaizora .key-image {
+            background:
+                linear-gradient(
+                    135deg,
+                    #7f3fc7,
+                    #e48aff
+                );
         }
 
         .key-placeholder {
@@ -681,7 +776,7 @@
         }
 
         /* =========================
-           COLORES DE LLAVES
+           COLORES DE NOMBRES
         ========================= */
 
         .origin h3 {
@@ -697,15 +792,15 @@
         }
 
         .majestad h3 {
-            color: #b66cff;
-        }
-
-        .guardian h3 {
             color: #ffd34d;
         }
 
+        .guardian h3 {
+            color: #218c55;
+        }
+
         .semidios h3 {
-            color: #ff5555;
+            color: #ff72b1;
         }
 
         .dios h3 {
@@ -713,7 +808,7 @@
         }
 
         .kaizora h3 {
-            color: #c58cff;
+            color: #d48aff;
         }
 
         /* =========================
@@ -861,6 +956,17 @@
 
             background:
                 rgba(12,12,16,0.78);
+
+            transition:
+                transform 0.25s,
+                border-color 0.25s;
+        }
+
+        .how-card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(169,130,255,0.28);
         }
 
         .how-number {
@@ -877,7 +983,7 @@
         .how-card h3 {
             font-size: 19px;
 
-            margin-bottom: 10px;
+            margin-bottom: 12px;
 
             font-weight: 900;
         }
@@ -887,7 +993,7 @@
 
             font-size: 13px;
 
-            line-height: 1.7;
+            line-height: 1.75;
 
             font-weight: 700;
         }
@@ -1120,8 +1226,9 @@
 
                 <p class="section-description">
                     Consigue llaves de las diferentes crates disponibles
-                    en SurvivalOP. Selecciona la que quieras adquirir y
-                    completa tu compra a través de nuestro Discord.
+                    en SurvivalOP. Cada crate cuenta con recompensas
+                    diferentes y niveles de rareza que aumentan conforme
+                    avanzas dentro de la modalidad.
                 </p>
 
             </div>
@@ -1137,14 +1244,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-origin.png"
+                            src="images/gancho.png"
                             alt="Llave Origin"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE ORIGIN
-                        </div>
 
                     </div>
 
@@ -1183,14 +1285,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-elite.png"
+                            src="images/gancho.png"
                             alt="Llave Elite"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE ELITE
-                        </div>
 
                     </div>
 
@@ -1229,14 +1326,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-celestial.png"
+                            src="images/gancho.png"
                             alt="Llave Celestial"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE CELESTIAL
-                        </div>
 
                     </div>
 
@@ -1275,14 +1367,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-majestad.png"
+                            src="images/gancho.png"
                             alt="Llave Majestad"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE MAJESTAD
-                        </div>
 
                     </div>
 
@@ -1321,14 +1408,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-guardian.png"
+                            src="images/gancho.png"
                             alt="Llave Guardian"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE GUARDIAN
-                        </div>
 
                     </div>
 
@@ -1367,14 +1449,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-semidios.png"
+                            src="images/gancho.png"
                             alt="Llave SemiDios"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE SEMIDIOS
-                        </div>
 
                     </div>
 
@@ -1413,14 +1490,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-dios.png"
+                            src="images/gancho.png"
                             alt="Llave Dios"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE DIOS
-                        </div>
 
                     </div>
 
@@ -1459,14 +1531,9 @@
                     <div class="key-image">
 
                         <img
-                            src="images/llave-kaizora.png"
+                            src="images/gancho.png"
                             alt="Llave Kaizora"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
                         >
-
-                        <div class="key-placeholder" style="display:none;">
-                            LLAVE KAIZORA
-                        </div>
 
                     </div>
 
@@ -1550,7 +1617,7 @@
                     </ul>
 
                     <div class="kit-price">
-                        $9.99
+                        $0.00
                     </div>
 
                     <a
@@ -1583,7 +1650,7 @@
                     </ul>
 
                     <div class="kit-price">
-                        $14.99
+                        $0.00
                     </div>
 
                     <a
@@ -1616,7 +1683,7 @@
                     </ul>
 
                     <div class="kit-price">
-                        $24.99
+                        $0.00
                     </div>
 
                     <a
@@ -1655,14 +1722,19 @@
                 </h2>
 
                 <p class="section-description">
-                    Todo lo que necesitas saber para comenzar
-                    tu aventura en Kaizora Origins.
+                    SurvivalOP toma la base del Survival tradicional
+                    y la convierte en una experiencia mucho más completa,
+                    con sistemas de progreso, actividades, economía,
+                    competencias y contenido adicional.
                 </p>
 
             </div>
 
 
             <div class="how-grid">
+
+
+                <!-- 01 -->
 
                 <div class="how-card">
 
@@ -1671,17 +1743,22 @@
                     </div>
 
                     <h3>
-                        Entra al Survival
+                        Empieza tu supervivencia
                     </h3>
 
                     <p>
-                        Comienza tu aventura desde cero. Consigue
-                        recursos, construye tu base y prepárate
-                        para progresar dentro del servidor.
+                        Al entrar comenzarás como en cualquier Survival:
+                        tendrás que conseguir recursos, construir tu base,
+                        conseguir comida y preparar tu equipamiento.
+                        La diferencia es que aquí la supervivencia es solo
+                        el comienzo. A medida que avances encontrarás nuevos
+                        sistemas y formas de progresar.
                     </p>
 
                 </div>
 
+
+                <!-- 02 -->
 
                 <div class="how-card">
 
@@ -1690,32 +1767,183 @@
                     </div>
 
                     <h3>
-                        Mejora tu progreso
+                        Mejora mucho más allá del Survival
                     </h3>
 
                     <p>
-                        Consigue mejores recursos, utiliza los
-                        sistemas disponibles y desarrolla tu
-                        equipamiento para avanzar.
+                        En SurvivalOP no estás limitado a los encantamientos
+                        y progresión del Survival vanilla. Podrás conseguir
+                        mejores herramientas, utilizar sistemas especiales
+                        y acceder a encantamientos que superan los límites
+                        habituales del juego para crear un progreso mucho
+                        más profundo.
                     </p>
 
                 </div>
 
 
+                <!-- 03 -->
+
                 <div class="how-card">
 
                     <div class="how-number">
-                        03 · DOMINA
+                        03 · MINAS
                     </div>
 
                     <h3>
-                        Llega más lejos
+                        Consigue recursos automáticamente
                     </h3>
 
                     <p>
-                        Participa en las diferentes actividades
-                        de Kaizora Origins y demuestra hasta dónde
-                        puedes llegar.
+                        Las minas son una parte importante de SurvivalOP.
+                        En lugar de depender únicamente de una mina
+                        tradicional, podrás utilizar sistemas de minería
+                        automática para conseguir recursos de forma mucho
+                        más eficiente y continuar avanzando dentro de la
+                        economía del servidor.
+                    </p>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        04 · KOTH
+                    </div>
+
+                    <h3>
+                        Compite por el control
+                    </h3>
+
+                    <p>
+                        Los KOTH son eventos en los que los jugadores
+                        compiten por controlar una zona durante un periodo
+                        de tiempo. Mantener el control puede otorgar
+                        recompensas y convertir una simple sesión de
+                        Survival en una verdadera competición entre
+                        jugadores y clanes.
+                    </p>
+
+                </div>
+
+
+                <!-- 05 -->
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        05 · EVENTOS
+                    </div>
+
+                    <h3>
+                        Juega incluso desde el chat
+                    </h3>
+
+                    <p>
+                        SurvivalOP también cuenta con actividades y juegos
+                        que pueden aparecer directamente en el chat.
+                        Podrás participar en diferentes dinámicas, responder
+                        preguntas y competir por recompensas mientras
+                        juegas normalmente, sin tener que abandonar tu
+                        aventura.
+                    </p>
+
+                </div>
+
+
+                <!-- 06 -->
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        06 · CLANES
+                    </div>
+
+                    <h3>
+                        Forma tu propio equipo
+                    </h3>
+
+                    <p>
+                        Crea o únete a un clan junto a otros jugadores.
+                        Trabajen juntos, compartan objetivos y compitan
+                        contra otros grupos dentro del servidor. Los clanes
+                        añaden una parte social y competitiva que no existe
+                        en el Survival vanilla.
+                    </p>
+
+                </div>
+
+
+                <!-- 07 -->
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        07 · ECONOMÍA
+                    </div>
+
+                    <h3>
+                        Compra, vende y genera dinero
+                    </h3>
+
+                    <p>
+                        Los recursos que consigues tienen valor. Podrás
+                        participar en la economía del servidor, conseguir
+                        dinero, comprar objetos y utilizar tus ganancias
+                        para mejorar tu progreso. Tu forma de jugar puede
+                        influir directamente en la velocidad con la que
+                        avanzas.
+                    </p>
+
+                </div>
+
+
+                <!-- 08 -->
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        08 · ACTIVIDADES
+                    </div>
+
+                    <h3>
+                        Siempre hay algo que hacer
+                    </h3>
+
+                    <p>
+                        Además de construir y conseguir recursos, podrás
+                        participar en diferentes actividades del servidor:
+                        eventos, KOTH, juegos, sistemas de progreso y otras
+                        funciones que hacen que cada sesión sea diferente.
+                        No tienes que limitarte a jugar como en un Survival
+                        tradicional.
+                    </p>
+
+                </div>
+
+
+                <!-- 09 -->
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        09 · DOMINA
+                    </div>
+
+                    <h3>
+                        Llega hasta el máximo nivel
+                    </h3>
+
+                    <p>
+                        El objetivo no es simplemente sobrevivir. Mejora
+                        tu equipamiento, desarrolla tu progreso, consigue
+                        mejores recursos, participa en eventos y construye
+                        tu reputación dentro de Kaizora Origins. Cuanto más
+                        avances, más sistemas tendrás disponibles para
+                        seguir progresando.
                     </p>
 
                 </div>
