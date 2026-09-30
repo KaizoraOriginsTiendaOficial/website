@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Kaizora Origins | SurvivalOP</title>
     <meta name="description" content="Kaizora Origins — Modalidad SurvivalOP.">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -19,18 +26,43 @@
             min-height: 100vh;
         }
 
+        /* =========================
+           FONDO
+        ========================= */
+
         .minecraft-background {
             position: fixed;
             inset: 0;
             z-index: -10;
+
             background:
-                radial-gradient(circle at 72% 35%, rgba(147,101,255,0.28) 0%, rgba(147,101,255,0.12) 25%, transparent 58%),
-                radial-gradient(circle at 25% 75%, rgba(100,55,190,0.20) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(112,67,210,0.10) 0%, transparent 60%),
-                linear-gradient(135deg, #030305 0%, #08060d 45%, #050308 100%);
+                radial-gradient(
+                    circle at 72% 35%,
+                    rgba(147,101,255,0.28) 0%,
+                    rgba(147,101,255,0.12) 25%,
+                    transparent 58%
+                ),
+                radial-gradient(
+                    circle at 25% 75%,
+                    rgba(100,55,190,0.20) 0%,
+                    transparent 50%
+                ),
+                radial-gradient(
+                    circle at 50% 50%,
+                    rgba(112,67,210,0.10) 0%,
+                    transparent 60%
+                ),
+                linear-gradient(
+                    135deg,
+                    #030305 0%,
+                    #08060d 45%,
+                    #050308 100%
+                );
+
             background-size: 140% 140%;
             background-position: center;
             background-repeat: no-repeat;
+
             transform: scale(1.04);
             transition: transform 0.8s ease-out;
         }
@@ -39,35 +71,71 @@
             content: "";
             position: absolute;
             inset: 0;
+
             background:
-                radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,0.75) 100%);
+                radial-gradient(
+                    ellipse at center,
+                    transparent 20%,
+                    rgba(0,0,0,0.35) 75%,
+                    rgba(0,0,0,0.75) 100%
+                );
         }
 
         .light-effect {
             position: fixed;
+
             width: 550px;
             height: 550px;
+
             border-radius: 50%;
             pointer-events: none;
+
             z-index: -5;
-            background: radial-gradient(circle, rgba(147,101,255,0.12), transparent 68%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(147,101,255,0.12),
+                    transparent 68%
+                );
+
             transform: translate(-50%, -50%);
-            transition: left 0.25s ease-out, top 0.25s ease-out;
+
+            transition:
+                left 0.25s ease-out,
+                top 0.25s ease-out;
         }
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
             position: fixed;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 78px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 0 6%;
-            background: linear-gradient(rgba(5,7,8,0.82), rgba(5,7,8,0.35));
+
+            background:
+                linear-gradient(
+                    rgba(5,7,8,0.82),
+                    rgba(5,7,8,0.35)
+                );
+
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
+
             z-index: 100;
         }
 
@@ -77,13 +145,17 @@
             letter-spacing: 1px;
         }
 
-        .logo span { color: #b49cff; }
+        .logo span {
+            color: #b49cff;
+        }
 
         nav ul {
             display: flex;
             align-items: center;
             gap: 34px;
+
             list-style: none;
+
             margin-left: auto;
             margin-right: 28px;
         }
@@ -91,37 +163,72 @@
         nav ul a {
             color: #c5c5c9;
             text-decoration: none;
+
             font-size: 14px;
             font-weight: 700;
+
             transition: 0.25s;
         }
 
-        nav ul a:hover { color: white; }
+        nav ul a:hover {
+            color: white;
+        }
 
-        .modality-dropdown { position: relative; }
+        /* =========================
+           MODALIDADES
+        ========================= */
+
+        .modality-dropdown {
+            position: relative;
+        }
 
         .modality-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+
             gap: 8px;
-            border: 1px solid rgba(198,150,255,0.75);
-            background: linear-gradient(135deg, #6f35d9, #a855f7);
+
+            border:
+                1px solid rgba(198,150,255,0.75);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6f35d9,
+                    #a855f7
+                );
+
             color: #ffffff;
+
             padding: 10px 15px;
+
             border-radius: 8px;
+
             font-size: 13px;
             font-weight: 900;
+
             cursor: pointer;
+
             transition: 0.25s;
-            box-shadow: 0 0 20px rgba(145,75,255,0.25);
+
+            box-shadow:
+                0 0 20px rgba(145,75,255,0.25);
         }
 
         .modality-button:hover {
-            border-color: rgba(220,190,255,0.95);
-            background: linear-gradient(135deg, #8246e8, #b565ff);
-            color: #ffffff;
-            box-shadow: 0 0 28px rgba(145,75,255,0.40);
+            border-color:
+                rgba(220,190,255,0.95);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8246e8,
+                    #b565ff
+                );
+
+            box-shadow:
+                0 0 28px rgba(145,75,255,0.40);
         }
 
         .modality-button span {
@@ -133,17 +240,30 @@
 
         .modality-menu {
             position: absolute;
+
             right: 0;
             top: calc(100% + 9px);
+
             min-width: 170px;
+
             padding: 8px;
-            border: 1px solid rgba(255,255,255,0.10);
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+
             border-radius: 10px;
-            background: rgba(9,11,14,0.97);
-            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+
+            background:
+                rgba(9,11,14,0.97);
+
+            box-shadow:
+                0 18px 45px rgba(0,0,0,0.45);
+
             opacity: 0;
             visibility: hidden;
+
             transform: translateY(-6px);
+
             transition: 0.2s;
         }
 
@@ -156,35 +276,627 @@
 
         .modality-menu a {
             display: block;
+
             padding: 10px 12px;
+
             border-radius: 7px;
+
             color: #c9c9ce;
+
             text-decoration: none;
+
             font-size: 12px;
             font-weight: 900;
+
             transition: 0.2s;
         }
 
         .modality-menu a:hover {
-            background: rgba(169,130,255,0.12);
+            background:
+                rgba(169,130,255,0.12);
+
             color: white;
         }
 
-        .empty-page {
-            min-height: 100vh;
+        /* =========================
+           CONTENIDO GENERAL
+        ========================= */
+
+        main {
+            width: 100%;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding:
+                125px 7% 90px;
+        }
+
+        .section-header {
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            color: #a982ff;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 4vw, 46px);
+
+            line-height: 1.05;
+
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #a982ff;
+        }
+
+        .section-description {
+            max-width: 650px;
+
+            color: #9c9ca3;
+
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           HERO SURVIVALOP
+        ========================= */
+
+        .survival-hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+
+            padding:
+                150px 7% 100px;
+
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            padding: 8px 13px;
+
+            margin-bottom: 22px;
+
+            border:
+                1px solid rgba(169,130,255,0.35);
+
+            background:
+                rgba(147,101,255,0.08);
+
+            border-radius: 7px;
+
+            color: #b49cff;
+
+            font-size: 11px;
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 7vw, 86px);
+
+            line-height: 0.95;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero-title span {
+            color: #a982ff;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: #aaaab0;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 21px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 900;
+
+            transition: 0.25s;
+        }
+
+        .hero-button.primary {
+            background:
+                linear-gradient(
+                    135deg,
+                    #7037dc,
+                    #a855f7
+                );
+
+            color: white;
+
+            box-shadow:
+                0 0 25px rgba(145,75,255,0.20);
+        }
+
+        .hero-button.primary:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 35px rgba(145,75,255,0.35);
+        }
+
+        .hero-button.secondary {
+            border:
+                1px solid rgba(255,255,255,0.12);
+
+            background:
+                rgba(255,255,255,0.04);
+
+            color: #d0d0d4;
+        }
+
+        .hero-button.secondary:hover {
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+        }
+
+        /* =========================
+           PRODUCTOS
+        ========================= */
+
+        .products-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .product-card {
+            position: relative;
+
+            padding: 27px;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20,17,27,0.92),
+                    rgba(10,10,13,0.88)
+                );
+
+            overflow: hidden;
+
+            transition:
+                transform 0.25s,
+                border-color 0.25s,
+                box-shadow 0.25s;
+        }
+
+        .product-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: -80px;
+            right: -80px;
+
+            width: 180px;
+            height: 180px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(147,101,255,0.16),
+                    transparent 70%
+                );
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(169,130,255,0.30);
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,0.25);
+        }
+
+        .product-icon {
+            width: 50px;
+            height: 50px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 7% 80px;
+
+            margin-bottom: 22px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(147,101,255,0.10);
+
+            border:
+                1px solid rgba(169,130,255,0.18);
+
+            color: #b49cff;
+
+            font-size: 20px;
+            font-weight: 900;
         }
 
-        .empty-content {
-            width: 100%;
-            max-width: 1150px;
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 9px;
         }
+
+        .product-card p {
+            color: #8f8f97;
+
+            font-size: 13px;
+            line-height: 1.6;
+
+            margin-bottom: 23px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            color: white;
+
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .product-buy {
+            padding: 9px 13px;
+
+            border:
+                1px solid rgba(169,130,255,0.25);
+
+            border-radius: 7px;
+
+            background:
+                rgba(147,101,255,0.10);
+
+            color: #b49cff;
+
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 900;
+
+            transition: 0.2s;
+        }
+
+        .product-buy:hover {
+            background:
+                rgba(147,101,255,0.20);
+
+            color: white;
+        }
+
+        /* =========================
+           KITS
+        ========================= */
+
+        .kits-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .kit-card {
+            padding: 30px;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18,15,25,0.95),
+                    rgba(9,9,12,0.95)
+                );
+
+            transition:
+                transform 0.25s,
+                border-color 0.25s;
+        }
+
+        .kit-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(169,130,255,0.32);
+        }
+
+        .kit-name {
+            font-size: 22px;
+            font-weight: 900;
+
+            margin-bottom: 8px;
+        }
+
+        .kit-subtitle {
+            color: #a982ff;
+
+            font-size: 11px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 20px;
+        }
+
+        .kit-card ul {
+            list-style: none;
+
+            margin-bottom: 25px;
+        }
+
+        .kit-card li {
+            color: #9a9aa1;
+
+            font-size: 13px;
+
+            padding: 9px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.05);
+        }
+
+        .kit-card li:last-child {
+            border-bottom: none;
+        }
+
+        .kit-price {
+            font-size: 22px;
+            font-weight: 900;
+
+            margin-bottom: 16px;
+        }
+
+        .kit-button {
+            display: block;
+
+            width: 100%;
+
+            padding: 11px;
+
+            text-align: center;
+
+            border-radius: 7px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7037dc,
+                    #9b52e9
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            transition: 0.2s;
+        }
+
+        .kit-button:hover {
+            filter: brightness(1.12);
+        }
+
+        /* =========================
+           COMO SE JUEGA
+        ========================= */
+
+        .how-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .how-card {
+            padding: 30px;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 13px;
+
+            background:
+                rgba(12,12,16,0.78);
+        }
+
+        .how-number {
+            color: #a982ff;
+
+            font-size: 13px;
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 20px;
+        }
+
+        .how-card h3 {
+            font-size: 19px;
+
+            margin-bottom: 10px;
+        }
+
+        .how-card p {
+            color: #94949b;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           SEPARADORES
+        ========================= */
+
+        .section-divider {
+            width: 86%;
+            max-width: 1200px;
+
+            height: 1px;
+
+            margin: 0 auto;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(169,130,255,0.20),
+                    transparent
+                );
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 45px 7%;
+
+            text-align: center;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+
+            color: #66666d;
+
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #a982ff;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 1000px) {
-            nav ul { display: none; }
+
+            nav ul {
+                display: none;
+            }
+
+            .products-grid,
+            .kits-grid,
+            .how-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .survival-hero {
+                min-height: auto;
+                padding-top: 140px;
+            }
+
+            .hero-title {
+                font-size: 52px;
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .products-grid,
+            .kits-grid,
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
         }
     </style>
 </head>
@@ -194,47 +906,467 @@
     <div class="minecraft-background"></div>
     <div class="light-effect" id="light"></div>
 
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
     <nav>
+
         <div class="logo">
             KAIZORA <span>ORIGINS</span>
         </div>
 
         <ul>
-            <li><a href="kaizora.html">Inicio</a></li>
+            <li>
+                <a href="kaizora.html">Inicio</a>
+            </li>
         </ul>
 
         <div class="modality-dropdown">
+
             <button class="modality-button" type="button">
                 Modalidades <span>⌄</span>
             </button>
 
             <div class="modality-menu">
-                <a href="survivalop.html">SurvivalOP</a>
-                <a href="extremo.html">Extremo</a>
+                <a href="survivalop.html">
+                    SurvivalOP
+                </a>
+
+                <a href="extremo.html">
+                    Extremo
+                </a>
             </div>
+
         </div>
+
     </nav>
 
-    <main class="empty-page">
-        <div class="empty-content">
-            <!-- TODO: contenido de la modalidad SurvivalOP -->
-        </div>
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================= -->
+
+        <section class="survival-hero">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    MODALIDAD · SURVIVALOP
+                </div>
+
+                <h1 class="hero-title">
+                    SURVIVAL<span>OP</span>
+                </h1>
+
+                <p class="hero-description">
+                    Construye, progresa, consigue recursos y lleva
+                    tu supervivencia al siguiente nivel. En Kaizora
+                    Origins, tu progreso depende de cómo decidas jugar.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#como-se-juega"
+                       class="hero-button primary">
+                        ¿CÓMO SE JUEGA?
+                    </a>
+
+                    <a href="#items"
+                       class="hero-button secondary">
+                        VER TIENDA
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ITEMS DE COMPRA
+        ========================= -->
+
+        <section class="section" id="items">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    TIENDA
+                </div>
+
+                <h2 class="section-title">
+                    Items de <span>compra</span>
+                </h2>
+
+                <p class="section-description">
+                    Adquiere objetos especiales para mejorar tu
+                    experiencia dentro de SurvivalOP.
+                </p>
+
+            </div>
+
+
+            <div class="products-grid">
+
+                <div class="product-card">
+
+                    <div class="product-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Item especial
+                    </h3>
+
+                    <p>
+                        Descripción temporal del objeto.
+                        Aquí explicaremos exactamente qué
+                        hace y cómo funciona.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $1.99
+                        </div>
+
+                        <a href="#" class="product-buy">
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Item especial
+                    </h3>
+
+                    <p>
+                        Descripción temporal del objeto.
+                        Aquí explicaremos exactamente qué
+                        hace y cómo funciona.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $2.99
+                        </div>
+
+                        <a href="#" class="product-buy">
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card">
+
+                    <div class="product-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Item especial
+                    </h3>
+
+                    <p>
+                        Descripción temporal del objeto.
+                        Aquí explicaremos exactamente qué
+                        hace y cómo funciona.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $4.99
+                        </div>
+
+                        <a href="#" class="product-buy">
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="section-divider"></div>
+
+
+        <!-- =========================
+             KITS
+        ========================= -->
+
+        <section class="section" id="kits">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    TIENDA
+                </div>
+
+                <h2 class="section-title">
+                    Kits de <span>compra</span>
+                </h2>
+
+                <p class="section-description">
+                    Kits exclusivos diseñados para darte diferentes
+                    ventajas y recursos dentro de SurvivalOP.
+                </p>
+
+            </div>
+
+
+            <div class="kits-grid">
+
+                <div class="kit-card">
+
+                    <div class="kit-name">
+                        Kaizora Superior
+                    </div>
+
+                    <div class="kit-subtitle">
+                        Kit premium
+                    </div>
+
+                    <ul>
+                        <li>Equipamiento especial</li>
+                        <li>Herramientas mejoradas</li>
+                        <li>Objetos exclusivos</li>
+                        <li>Recompensas adicionales</li>
+                    </ul>
+
+                    <div class="kit-price">
+                        $9.99
+                    </div>
+
+                    <a href="#" class="kit-button">
+                        COMPRAR KIT
+                    </a>
+
+                </div>
+
+
+                <div class="kit-card">
+
+                    <div class="kit-name">
+                        Kaizora Supremo
+                    </div>
+
+                    <div class="kit-subtitle">
+                        Kit premium
+                    </div>
+
+                    <ul>
+                        <li>Equipamiento avanzado</li>
+                        <li>Herramientas especiales</li>
+                        <li>Objetos exclusivos</li>
+                        <li>Recompensas adicionales</li>
+                    </ul>
+
+                    <div class="kit-price">
+                        $14.99
+                    </div>
+
+                    <a href="#" class="kit-button">
+                        COMPRAR KIT
+                    </a>
+
+                </div>
+
+
+                <div class="kit-card">
+
+                    <div class="kit-name">
+                        Kaizora Infinity
+                    </div>
+
+                    <div class="kit-subtitle">
+                        Kit premium
+                    </div>
+
+                    <ul>
+                        <li>Equipamiento Infinity</li>
+                        <li>Herramientas avanzadas</li>
+                        <li>Objetos exclusivos</li>
+                        <li>Recompensas especiales</li>
+                    </ul>
+
+                    <div class="kit-price">
+                        $24.99
+                    </div>
+
+                    <a href="#" class="kit-button">
+                        COMPRAR KIT
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="section-divider"></div>
+
+
+        <!-- =========================
+             COMO SE JUEGA
+        ========================= -->
+
+        <section class="section" id="como-se-juega">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    SUPERVIVENCIA
+                </div>
+
+                <h2 class="section-title">
+                    ¿Cómo se <span>juega?</span>
+                </h2>
+
+                <p class="section-description">
+                    Todo lo que necesitas saber para comenzar
+                    tu aventura en Kaizora Origins.
+                </p>
+
+            </div>
+
+
+            <div class="how-grid">
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        01 · COMIENZA
+                    </div>
+
+                    <h3>
+                        Entra al Survival
+                    </h3>
+
+                    <p>
+                        Comienza tu aventura desde cero. Consigue
+                        recursos, construye tu base y prepárate
+                        para progresar dentro del servidor.
+                    </p>
+
+                </div>
+
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        02 · PROGRESA
+                    </div>
+
+                    <h3>
+                        Mejora tu progreso
+                    </h3>
+
+                    <p>
+                        Consigue mejores recursos, utiliza los
+                        sistemas disponibles y desarrolla tu
+                        equipamiento para avanzar.
+                    </p>
+
+                </div>
+
+
+                <div class="how-card">
+
+                    <div class="how-number">
+                        03 · DOMINA
+                    </div>
+
+                    <h3>
+                        Llega más lejos
+                    </h3>
+
+                    <p>
+                        Participa en las diferentes actividades
+                        de Kaizora Origins y demuestra hasta dónde
+                        puedes llegar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+        © 2026 <span>Kaizora Origins</span> · SurvivalOP
+    </footer>
+
+
     <script>
-        const background = document.querySelector('.minecraft-background');
-        const light = document.getElementById('light');
 
-        document.addEventListener('mousemove', function(event) {
-            const x = event.clientX / window.innerWidth;
-            const y = event.clientY / window.innerHeight;
-            const moveX = (x - 0.5) * 18;
-            const moveY = (y - 0.5) * 12;
+        const background =
+            document.querySelector('.minecraft-background');
 
-            background.style.transform = `scale(1.04) translate(${moveX}px, ${moveY}px)`;
-            light.style.left = event.clientX + 'px';
-            light.style.top = event.clientY + 'px';
-        });
+        const light =
+            document.getElementById('light');
+
+
+        document.addEventListener(
+            'mousemove',
+            function(event) {
+
+                const x =
+                    event.clientX / window.innerWidth;
+
+                const y =
+                    event.clientY / window.innerHeight;
+
+                const moveX =
+                    (x - 0.5) * 18;
+
+                const moveY =
+                    (y - 0.5) * 12;
+
+
+                background.style.transform =
+                    `scale(1.04) translate(${moveX}px, ${moveY}px)`;
+
+
+                light.style.left =
+                    event.clientX + 'px';
+
+                light.style.top =
+                    event.clientY + 'px';
+
+            }
+        );
+
     </script>
 
 </body>
