@@ -8,6 +8,7 @@
     <meta name="description" content="Kaizora Origins — Modalidad SurvivalOP.">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -165,7 +166,7 @@
             text-decoration: none;
 
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 900;
 
             transition: 0.25s;
         }
@@ -313,17 +314,17 @@
             margin: 0 auto;
 
             padding:
-                125px 7% 90px;
+                75px 7% 60px;
         }
 
         .section-header {
-            margin-bottom: 45px;
+            margin-bottom: 30px;
         }
 
         .section-label {
             display: inline-block;
 
-            margin-bottom: 12px;
+            margin-bottom: 10px;
 
             color: #a982ff;
 
@@ -335,11 +336,13 @@
         }
 
         .section-title {
-            font-size: clamp(30px, 4vw, 46px);
+            font-size: clamp(32px, 4vw, 48px);
 
             line-height: 1.05;
 
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+
+            font-weight: 900;
         }
 
         .section-title span {
@@ -352,7 +355,9 @@
             color: #9c9ca3;
 
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.6;
+
+            font-weight: 700;
         }
 
         /* =========================
@@ -360,53 +365,55 @@
         ========================= */
 
         .survival-hero {
-            min-height: 90vh;
+            min-height: 78vh;
 
             display: flex;
             align-items: center;
 
             padding:
-                150px 7% 100px;
+                125px 7% 65px;
 
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .hero-content {
-            max-width: 750px;
+            max-width: 850px;
         }
 
         .hero-label {
             display: inline-block;
 
-            padding: 8px 13px;
+            padding: 9px 14px;
 
-            margin-bottom: 22px;
+            margin-bottom: 18px;
 
             border:
-                1px solid rgba(169,130,255,0.35);
+                1px solid rgba(169,130,255,0.40);
 
             background:
-                rgba(147,101,255,0.08);
+                rgba(147,101,255,0.10);
 
             border-radius: 7px;
 
             color: #b49cff;
 
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 900;
 
             letter-spacing: 2px;
         }
 
         .hero-title {
-            font-size: clamp(48px, 7vw, 86px);
+            font-size: clamp(65px, 9vw, 115px);
 
-            line-height: 0.95;
+            line-height: 0.88;
 
-            letter-spacing: -3px;
+            letter-spacing: -5px;
 
-            margin-bottom: 25px;
+            margin-bottom: 24px;
+
+            font-weight: 900;
         }
 
         .hero-title span {
@@ -414,15 +421,17 @@
         }
 
         .hero-description {
-            max-width: 650px;
+            max-width: 720px;
 
             color: #aaaab0;
 
             font-size: 17px;
 
-            line-height: 1.7;
+            line-height: 1.65;
 
-            margin-bottom: 32px;
+            margin-bottom: 27px;
+
+            font-weight: 700;
         }
 
         .hero-buttons {
@@ -488,22 +497,27 @@
         }
 
         /* =========================
-           PRODUCTOS
+           LLAVES
         ========================= */
 
         .products-grid {
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(4, 1fr);
 
-            gap: 18px;
+            gap: 16px;
         }
 
         .product-card {
             position: relative;
 
-            padding: 27px;
+            padding: 22px;
+
+            min-height: 285px;
+
+            display: flex;
+            flex-direction: column;
 
             border:
                 1px solid rgba(255,255,255,0.08);
@@ -513,8 +527,8 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(20,17,27,0.92),
-                    rgba(10,10,13,0.88)
+                    rgba(20,17,27,0.94),
+                    rgba(10,10,13,0.90)
                 );
 
             overflow: hidden;
@@ -542,6 +556,8 @@
                     rgba(147,101,255,0.16),
                     transparent 70%
                 );
+
+            pointer-events: none;
         }
 
         .product-card:hover {
@@ -554,54 +570,85 @@
                 0 15px 45px rgba(0,0,0,0.25);
         }
 
-        .product-icon {
-            width: 50px;
-            height: 50px;
+        .key-image {
+            width: 100%;
+            height: 125px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            margin-bottom: 22px;
+            margin-bottom: 15px;
 
             border-radius: 10px;
 
             background:
-                rgba(147,101,255,0.10);
+                rgba(147,101,255,0.06);
 
             border:
-                1px solid rgba(169,130,255,0.18);
+                1px solid rgba(169,130,255,0.10);
 
-            color: #b49cff;
+            overflow: hidden;
+        }
 
-            font-size: 20px;
+        .key-image img {
+            width: 105px;
+            height: 105px;
+
+            object-fit: contain;
+
+            image-rendering: pixelated;
+
+            transition: transform 0.25s;
+        }
+
+        .product-card:hover .key-image img {
+            transform: scale(1.08);
+        }
+
+        .key-placeholder {
+            font-size: 12px;
             font-weight: 900;
+
+            color: #66666d;
+
+            text-align: center;
         }
 
         .product-card h3 {
             font-size: 18px;
-            margin-bottom: 9px;
+
+            margin-bottom: 8px;
+
+            font-weight: 900;
         }
 
         .product-card p {
             color: #8f8f97;
 
-            font-size: 13px;
-            line-height: 1.6;
+            font-size: 12px;
 
-            margin-bottom: 23px;
+            line-height: 1.5;
+
+            margin-bottom: 18px;
+
+            font-weight: 700;
         }
 
         .product-bottom {
+            margin-top: auto;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            gap: 10px;
         }
 
         .product-price {
             color: white;
 
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 900;
         }
 
@@ -631,6 +678,42 @@
                 rgba(147,101,255,0.20);
 
             color: white;
+        }
+
+        /* =========================
+           COLORES DE LLAVES
+        ========================= */
+
+        .origin h3 {
+            color: #ffffff;
+        }
+
+        .elite h3 {
+            color: #4d8dff;
+        }
+
+        .celestial h3 {
+            color: #2bd7f5;
+        }
+
+        .majestad h3 {
+            color: #b66cff;
+        }
+
+        .guardian h3 {
+            color: #ffd34d;
+        }
+
+        .semidios h3 {
+            color: #ff5555;
+        }
+
+        .dios h3 {
+            color: #d92828;
+        }
+
+        .kaizora h3 {
+            color: #c58cff;
         }
 
         /* =========================
@@ -708,6 +791,8 @@
 
             border-bottom:
                 1px solid rgba(255,255,255,0.05);
+
+            font-weight: 700;
         }
 
         .kit-card li:last-child {
@@ -793,6 +878,8 @@
             font-size: 19px;
 
             margin-bottom: 10px;
+
+            font-weight: 900;
         }
 
         .how-card p {
@@ -801,6 +888,8 @@
             font-size: 13px;
 
             line-height: 1.7;
+
+            font-weight: 700;
         }
 
         /* =========================
@@ -839,6 +928,8 @@
             color: #66666d;
 
             font-size: 12px;
+
+            font-weight: 700;
         }
 
         footer span {
@@ -848,6 +939,14 @@
         /* =========================
            RESPONSIVE
         ========================= */
+
+        @media (max-width: 1100px) {
+
+            .products-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+        }
 
         @media (max-width: 1000px) {
 
@@ -875,12 +974,15 @@
 
             .survival-hero {
                 min-height: auto;
-                padding-top: 140px;
+
+                padding-top: 125px;
+                padding-bottom: 55px;
             }
 
             .hero-title {
-                font-size: 52px;
-                letter-spacing: -2px;
+                font-size: 56px;
+
+                letter-spacing: -3px;
             }
 
             .hero-description {
@@ -898,12 +1000,14 @@
                 padding-right: 6%;
             }
         }
+
     </style>
 </head>
 
 <body>
 
     <div class="minecraft-background"></div>
+
     <div class="light-effect" id="light"></div>
 
 
@@ -918,9 +1022,13 @@
         </div>
 
         <ul>
+
             <li>
-                <a href="kaizora.html">Inicio</a>
+                <a href="kaizora.html">
+                    Inicio
+                </a>
             </li>
+
         </ul>
 
         <div class="modality-dropdown">
@@ -930,6 +1038,7 @@
             </button>
 
             <div class="modality-menu">
+
                 <a href="survivalop.html">
                     SurvivalOP
                 </a>
@@ -937,6 +1046,7 @@
                 <a href="extremo.html">
                     Extremo
                 </a>
+
             </div>
 
         </div>
@@ -945,6 +1055,7 @@
 
 
     <main>
+
 
         <!-- =========================
              HERO
@@ -970,13 +1081,17 @@
 
                 <div class="hero-buttons">
 
-                    <a href="#como-se-juega"
-                       class="hero-button primary">
+                    <a
+                        href="#como-se-juega"
+                        class="hero-button primary"
+                    >
                         ¿CÓMO SE JUEGA?
                     </a>
 
-                    <a href="#items"
-                       class="hero-button secondary">
+                    <a
+                        href="#items"
+                        class="hero-button secondary"
+                    >
                         VER TIENDA
                     </a>
 
@@ -988,7 +1103,7 @@
 
 
         <!-- =========================
-             ITEMS DE COMPRA
+             LLAVES / ITEMS
         ========================= -->
 
         <section class="section" id="items">
@@ -1000,12 +1115,13 @@
                 </div>
 
                 <h2 class="section-title">
-                    Items de <span>compra</span>
+                    Llaves de <span>Crates</span>
                 </h2>
 
                 <p class="section-description">
-                    Adquiere objetos especiales para mejorar tu
-                    experiencia dentro de SurvivalOP.
+                    Consigue llaves de las diferentes crates disponibles
+                    en SurvivalOP. Selecciona la que quieras adquirir y
+                    completa tu compra a través de nuestro Discord.
                 </p>
 
             </div>
@@ -1013,29 +1129,45 @@
 
             <div class="products-grid">
 
-                <div class="product-card">
 
-                    <div class="product-icon">
-                        +
+                <!-- ORIGIN -->
+
+                <div class="product-card origin">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-origin.png"
+                            alt="Llave Origin"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE ORIGIN
+                        </div>
+
                     </div>
 
                     <h3>
-                        Item especial
+                        ORIGIN
                     </h3>
 
                     <p>
-                        Descripción temporal del objeto.
-                        Aquí explicaremos exactamente qué
-                        hace y cómo funciona.
+                        Llave para la Crate Origin.
                     </p>
 
                     <div class="product-bottom">
 
                         <div class="product-price">
-                            $1.99
+                            $0.00
                         </div>
 
-                        <a href="#" class="product-buy">
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
                             COMPRAR
                         </a>
 
@@ -1044,29 +1176,44 @@
                 </div>
 
 
-                <div class="product-card">
+                <!-- ELITE -->
 
-                    <div class="product-icon">
-                        +
+                <div class="product-card elite">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-elite.png"
+                            alt="Llave Elite"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE ELITE
+                        </div>
+
                     </div>
 
                     <h3>
-                        Item especial
+                        ELITE
                     </h3>
 
                     <p>
-                        Descripción temporal del objeto.
-                        Aquí explicaremos exactamente qué
-                        hace y cómo funciona.
+                        Llave para la Crate Elite.
                     </p>
 
                     <div class="product-bottom">
 
                         <div class="product-price">
-                            $2.99
+                            $0.00
                         </div>
 
-                        <a href="#" class="product-buy">
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
                             COMPRAR
                         </a>
 
@@ -1075,35 +1222,281 @@
                 </div>
 
 
-                <div class="product-card">
+                <!-- CELESTIAL -->
 
-                    <div class="product-icon">
-                        +
+                <div class="product-card celestial">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-celestial.png"
+                            alt="Llave Celestial"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE CELESTIAL
+                        </div>
+
                     </div>
 
                     <h3>
-                        Item especial
+                        CELESTIAL
                     </h3>
 
                     <p>
-                        Descripción temporal del objeto.
-                        Aquí explicaremos exactamente qué
-                        hace y cómo funciona.
+                        Llave para la Crate Celestial.
                     </p>
 
                     <div class="product-bottom">
 
                         <div class="product-price">
-                            $4.99
+                            $0.00
                         </div>
 
-                        <a href="#" class="product-buy">
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
                             COMPRAR
                         </a>
 
                     </div>
 
                 </div>
+
+
+                <!-- MAJESTAD -->
+
+                <div class="product-card majestad">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-majestad.png"
+                            alt="Llave Majestad"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE MAJESTAD
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        MAJESTAD
+                    </h3>
+
+                    <p>
+                        Llave para la Crate Majestad.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $0.00
+                        </div>
+
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GUARDIAN -->
+
+                <div class="product-card guardian">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-guardian.png"
+                            alt="Llave Guardian"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE GUARDIAN
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        GUARDIAN
+                    </h3>
+
+                    <p>
+                        Llave para la Crate Guardian.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $0.00
+                        </div>
+
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEMIDIOS -->
+
+                <div class="product-card semidios">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-semidios.png"
+                            alt="Llave SemiDios"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE SEMIDIOS
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        SEMIDIOS
+                    </h3>
+
+                    <p>
+                        Llave para la Crate SemiDios.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $0.00
+                        </div>
+
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DIOS -->
+
+                <div class="product-card dios">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-dios.png"
+                            alt="Llave Dios"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE DIOS
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        DIOS
+                    </h3>
+
+                    <p>
+                        Llave para la Crate Dios.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $0.00
+                        </div>
+
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KAIZORA -->
+
+                <div class="product-card kaizora">
+
+                    <div class="key-image">
+
+                        <img
+                            src="images/llave-kaizora.png"
+                            alt="Llave Kaizora"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                        >
+
+                        <div class="key-placeholder" style="display:none;">
+                            LLAVE KAIZORA
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        KAIZORA
+                    </h3>
+
+                    <p>
+                        Llave para la Crate Kaizora.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <div class="product-price">
+                            $0.00
+                        </div>
+
+                        <a
+                            href="https://discord.gg/rUsjAeeUMY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="product-buy"
+                        >
+                            COMPRAR
+                        </a>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
@@ -1160,7 +1553,12 @@
                         $9.99
                     </div>
 
-                    <a href="#" class="kit-button">
+                    <a
+                        href="https://discord.gg/rUsjAeeUMY"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="kit-button"
+                    >
                         COMPRAR KIT
                     </a>
 
@@ -1188,7 +1586,12 @@
                         $14.99
                     </div>
 
-                    <a href="#" class="kit-button">
+                    <a
+                        href="https://discord.gg/rUsjAeeUMY"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="kit-button"
+                    >
                         COMPRAR KIT
                     </a>
 
@@ -1216,7 +1619,12 @@
                         $24.99
                     </div>
 
-                    <a href="#" class="kit-button">
+                    <a
+                        href="https://discord.gg/rUsjAeeUMY"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="kit-button"
+                    >
                         COMPRAR KIT
                     </a>
 
