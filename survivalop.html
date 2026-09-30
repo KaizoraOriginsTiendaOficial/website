@@ -591,6 +591,10 @@
             border: 1px solid rgba(255,255,255,0.10);
 
             position: relative;
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s;
         }
 
         .key-image::after {
@@ -601,33 +605,21 @@
 
             background:
                 radial-gradient(
-                    circle,
-                    rgba(255,255,255,0.14),
-                    transparent 65%
+                    circle at center,
+                    rgba(255,255,255,0.18),
+                    transparent 62%
                 );
 
             pointer-events: none;
         }
 
-        .key-image img {
-            width: 105px;
-            height: 105px;
-
-            object-fit: contain;
-
-            image-rendering: pixelated;
-
-            position: relative;
-            z-index: 2;
-
-            transition: transform 0.25s;
+        .product-card:hover .key-image {
+            transform: scale(1.015);
         }
 
-        .product-card:hover .key-image img {
-            transform: scale(1.08);
-        }
-
-        /* COLORES */
+        /* =========================
+           COLORES DE LAS CRATES
+        ========================= */
 
         .origin .key-image {
             background:
@@ -636,6 +628,9 @@
                     #ffffff,
                     #dcdcdc
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(255,255,255,0.35);
         }
 
         .elite .key-image {
@@ -645,6 +640,9 @@
                     #071a45,
                     #0d357f
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(40,100,255,0.20);
         }
 
         .celestial .key-image {
@@ -654,6 +652,9 @@
                     #00aeca,
                     #39e4ff
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(100,240,255,0.28);
         }
 
         .majestad .key-image {
@@ -663,6 +664,9 @@
                     #d49b00,
                     #ffe45b
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(255,235,100,0.30);
         }
 
         .guardian .key-image {
@@ -672,6 +676,9 @@
                     #0a3d25,
                     #176f43
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(50,180,100,0.20);
         }
 
         .semidios .key-image {
@@ -681,6 +688,9 @@
                     #b92e6d,
                     #ff79b3
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(255,120,180,0.25);
         }
 
         .dios .key-image {
@@ -690,24 +700,21 @@
                     #4b0000,
                     #a80000
                 );
+
+            box-shadow:
+                inset 0 0 35px rgba(255,50,50,0.20);
         }
 
         .kaizora .key-image {
             background:
                 linear-gradient(
                     135deg,
-                    #7f3fc7,
-                    #e48aff
+                    #c52b82,
+                    #ff75b8
                 );
-        }
 
-        .key-placeholder {
-            font-size: 12px;
-            font-weight: 900;
-
-            color: #66666d;
-
-            text-align: center;
+            box-shadow:
+                inset 0 0 35px rgba(255,120,200,0.25);
         }
 
         .product-card h3 {
@@ -808,7 +815,7 @@
         }
 
         .kaizora h3 {
-            color: #d48aff;
+            color: #ff75b8;
         }
 
         /* =========================
@@ -1105,6 +1112,7 @@
                 padding-left: 6%;
                 padding-right: 6%;
             }
+
         }
 
     </style>
@@ -1241,14 +1249,7 @@
 
                 <div class="product-card origin">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Origin"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         ORIGIN
@@ -1282,14 +1283,7 @@
 
                 <div class="product-card elite">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Elite"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         ELITE
@@ -1323,14 +1317,7 @@
 
                 <div class="product-card celestial">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Celestial"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         CELESTIAL
@@ -1364,14 +1351,7 @@
 
                 <div class="product-card majestad">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Majestad"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         MAJESTAD
@@ -1405,14 +1385,7 @@
 
                 <div class="product-card guardian">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Guardian"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         GUARDIAN
@@ -1446,14 +1419,7 @@
 
                 <div class="product-card semidios">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave SemiDios"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         SEMIDIOS
@@ -1487,14 +1453,7 @@
 
                 <div class="product-card dios">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Dios"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         DIOS
@@ -1528,14 +1487,7 @@
 
                 <div class="product-card kaizora">
 
-                    <div class="key-image">
-
-                        <img
-                            src="images/gancho.png"
-                            alt="Llave Kaizora"
-                        >
-
-                    </div>
+                    <div class="key-image"></div>
 
                     <h3>
                         KAIZORA
@@ -1947,6 +1899,7 @@
                     </p>
 
                 </div>
+
 
             </div>
 
