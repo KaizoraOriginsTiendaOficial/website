@@ -265,14 +265,17 @@ nav ul a:hover {
     transform: translateY(0);
 }
 
-.modality-menu a {
+.modality-menu a,
+.modality-menu a:visited,
+.modality-menu a:hover,
+.modality-menu a:active {
     display: block;
 
     padding: 10px 12px;
 
     border-radius: 7px;
 
-    color: #ffffff;
+    color: #ffffff !important;
 
     text-decoration: none;
 
@@ -288,7 +291,7 @@ nav ul a:hover {
     background:
         rgba(169,130,255,0.12);
 
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .hero {
@@ -484,6 +487,12 @@ nav ul a:hover {
     display: flex;
     flex-direction: column;
     gap: 3px;
+}
+
+/* SURVIVALOP Y EXTREMO EN BLANCO */
+.game-modes span {
+    color: #ffffff !important;
+    font-weight: 900;
 }
 
 section {
