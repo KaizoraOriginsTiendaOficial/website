@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kaizora Origins | Minecraft</title>
 
-<meta name="description"
-      content="Kaizora Origins — Un nuevo mundo, una nueva historia.">
+<meta name="description" content="Kaizora Origins — Un nuevo mundo, una nueva historia.">
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 * {
     margin: 0;
@@ -34,11 +26,6 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =====================================================
-   FONDO
-===================================================== */
-
 .minecraft-background {
     position: fixed;
     inset: 0;
@@ -51,19 +38,16 @@ body {
             rgba(147, 101, 255, 0.12) 25%,
             transparent 58%
         ),
-
         radial-gradient(
             circle at 25% 75%,
             rgba(100, 55, 190, 0.20) 0%,
             transparent 50%
         ),
-
         radial-gradient(
             circle at 50% 50%,
             rgba(112, 67, 210, 0.10) 0%,
             transparent 60%
         ),
-
         linear-gradient(
             135deg,
             #030305 0%,
@@ -76,7 +60,6 @@ body {
     background-repeat: no-repeat;
 
     transform: scale(1.04);
-
     transition: transform 0.8s ease-out;
 }
 
@@ -94,11 +77,6 @@ body {
         );
 }
 
-
-/* =====================================================
-   EFECTO DE LUZ
-===================================================== */
-
 .light-effect {
     position: fixed;
 
@@ -108,7 +86,6 @@ body {
     border-radius: 50%;
 
     pointer-events: none;
-
     z-index: -5;
 
     background:
@@ -124,11 +101,6 @@ body {
         left 0.25s ease-out,
         top 0.25s ease-out;
 }
-
-
-/* =====================================================
-   NAVEGACIÓN
-===================================================== */
 
 nav {
     position: fixed;
@@ -195,11 +167,6 @@ nav ul a {
 nav ul a:hover {
     color: white;
 }
-
-
-/* =====================================================
-   MODALIDADES
-===================================================== */
 
 .modality-dropdown {
     position: relative;
@@ -305,12 +272,14 @@ nav ul a:hover {
 
     border-radius: 7px;
 
-    color: #c9c9ce;
+    color: #ffffff;
 
     text-decoration: none;
 
     font-size: 12px;
     font-weight: 900;
+
+    text-transform: uppercase;
 
     transition: 0.2s;
 }
@@ -319,13 +288,8 @@ nav ul a:hover {
     background:
         rgba(169,130,255,0.12);
 
-    color: white;
+    color: #ffffff;
 }
-
-
-/* =====================================================
-   HERO
-===================================================== */
 
 .hero {
     min-height: 100vh;
@@ -483,11 +447,6 @@ nav ul a:hover {
     transform: translateY(-3px);
 }
 
-
-/* =====================================================
-   INFORMACIÓN HERO
-===================================================== */
-
 .hero-info {
     display: flex;
 
@@ -526,11 +485,6 @@ nav ul a:hover {
     flex-direction: column;
     gap: 3px;
 }
-
-
-/* =====================================================
-   SECCIONES
-===================================================== */
 
 section {
     padding: 120px 7%;
@@ -573,11 +527,6 @@ section {
 
     font-size: 15px;
 }
-
-
-/* =====================================================
-   SERVIDOR
-===================================================== */
 
 .server-section {
     background:
@@ -687,11 +636,6 @@ section {
 .copy-message.show {
     opacity: 1;
 }
-
-
-/* =====================================================
-   RANGOS
-===================================================== */
 
 .ranks-section {
     background:
@@ -913,11 +857,6 @@ section {
         rgba(255,255,255,0.04);
 }
 
-
-/* =====================================================
-   COLORES
-===================================================== */
-
 .origin {
     color: #ffffff;
 }
@@ -972,11 +911,6 @@ section {
 
     color: #08090a !important;
 }
-
-
-/* =====================================================
-   STREAMER
-===================================================== */
 
 .streamer-section {
     background:
@@ -1077,11 +1011,6 @@ section {
 
     color: #08090a;
 }
-
-
-/* =====================================================
-   REDES
-===================================================== */
 
 .social-section {
     background:
@@ -1201,11 +1130,6 @@ section {
     border-color: #a982ff;
 }
 
-
-/* =====================================================
-   COMUNIDAD
-===================================================== */
-
 .community {
     max-width: 1150px;
 
@@ -1255,11 +1179,6 @@ section {
     justify-content: center;
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
 footer {
     padding: 45px 7%;
 
@@ -1303,11 +1222,6 @@ footer strong {
     text-shadow:
         0 0 12px rgba(169,130,255,0.25);
 }
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
 
 @media (max-width: 1000px) {
 
@@ -1369,22 +1283,12 @@ footer strong {
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- =====================================================
-     FONDO
-===================================================== -->
-
 <div class="minecraft-background"></div>
 <div class="light-effect" id="light"></div>
-
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
 
 <nav>
 
@@ -1428,10 +1332,7 @@ footer strong {
 
     <div class="modality-dropdown">
 
-        <button
-            class="modality-button"
-            type="button"
-        >
+        <button class="modality-button" type="button">
             Modalidades <span>⌄</span>
         </button>
 
@@ -1451,15 +1352,7 @@ footer strong {
 
 </nav>
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section
-    class="hero"
-    id="inicio"
->
+<section class="hero" id="inicio">
 
     <div class="hero-content">
 
@@ -1503,14 +1396,13 @@ footer strong {
 
         </div>
 
-
         <div class="hero-info">
 
             <div class="info-item">
 
                 <strong class="game-modes">
                     <span>SURVIVALOP</span>
-                    <span>EXTREMO </span>
+                    <span>EXTREMO</span>
                 </strong>
 
                 <span>
@@ -1537,15 +1429,7 @@ footer strong {
 
 </section>
 
-
-<!-- =====================================================
-     SERVIDOR
-===================================================== -->
-
-<section
-    class="server-section"
-    id="servidor"
->
+<section class="server-section" id="servidor">
 
     <div class="section-title">
 
@@ -1564,7 +1448,6 @@ footer strong {
         </p>
 
     </div>
-
 
     <div class="server-grid">
 
@@ -1595,15 +1478,11 @@ footer strong {
 
             </div>
 
-            <div
-                id="copy-message"
-                class="copy-message"
-            >
+            <div id="copy-message" class="copy-message">
                 IP copiada correctamente.
             </div>
 
         </div>
-
 
         <div class="server-card">
 
@@ -1623,15 +1502,7 @@ footer strong {
 
 </section>
 
-
-<!-- =====================================================
-     RANGOS
-===================================================== -->
-
-<section
-    class="ranks-section"
-    id="rangos"
->
+<section class="ranks-section" id="rangos">
 
     <div class="section-title">
 
@@ -1651,7 +1522,6 @@ footer strong {
 
     </div>
 
-
     <div class="rank-notice">
 
         <strong>
@@ -1665,10 +1535,7 @@ footer strong {
 
     </div>
 
-
     <div class="ranks">
-
-        <!-- ORIGIN -->
 
         <div class="rank origin">
 
@@ -1723,9 +1590,6 @@ footer strong {
 
         </div>
 
-
-        <!-- ELITE -->
-
         <div class="rank elite">
 
             <div>
@@ -1779,9 +1643,6 @@ footer strong {
 
         </div>
 
-
-        <!-- CELESTIAL -->
-
         <div class="rank celestial">
 
             <div>
@@ -1834,9 +1695,6 @@ footer strong {
 
         </div>
 
-
-        <!-- MAJESTAD -->
-
         <div class="rank majestad">
 
             <div>
@@ -1888,9 +1746,6 @@ footer strong {
             </div>
 
         </div>
-
-
-        <!-- GUARDIAN -->
 
         <div class="rank guardian">
 
@@ -1945,9 +1800,6 @@ footer strong {
 
         </div>
 
-
-        <!-- SEMIDIOS -->
-
         <div class="rank semidios">
 
             <div>
@@ -2000,9 +1852,6 @@ footer strong {
 
         </div>
 
-
-        <!-- DIOS -->
-
         <div class="rank dios">
 
             <div>
@@ -2054,9 +1903,6 @@ footer strong {
             </div>
 
         </div>
-
-
-        <!-- KAIZORA -->
 
         <div class="rank kaizora">
 
@@ -2115,15 +1961,7 @@ footer strong {
 
 </section>
 
-
-<!-- =====================================================
-     OTROS PRODUCTOS
-===================================================== -->
-
-<section
-    class="ranks-section"
-    id="tienda-extra"
->
+<section class="ranks-section" id="tienda-extra">
 
     <div class="section-title">
 
@@ -2142,7 +1980,6 @@ footer strong {
         </p>
 
     </div>
-
 
     <div class="ranks">
 
@@ -2178,7 +2015,6 @@ footer strong {
             </div>
 
         </div>
-
 
         <div class="rank shop-purple">
 
@@ -2225,15 +2061,7 @@ footer strong {
 
 </section>
 
-
-<!-- =====================================================
-     STREAMER
-===================================================== -->
-
-<section
-    class="streamer-section"
-    id="streamer"
->
+<section class="streamer-section" id="streamer">
 
     <div class="streamer-card">
 
@@ -2266,15 +2094,7 @@ footer strong {
 
 </section>
 
-
-<!-- =====================================================
-     REDES
-===================================================== -->
-
-<section
-    class="social-section"
-    id="redes"
->
+<section class="social-section" id="redes">
 
     <div class="section-title">
 
@@ -2292,7 +2112,6 @@ footer strong {
         </p>
 
     </div>
-
 
     <div class="social-grid">
 
@@ -2325,7 +2144,6 @@ footer strong {
 
         </div>
 
-
         <div class="social-card">
 
             <div>
@@ -2355,7 +2173,6 @@ footer strong {
 
         </div>
 
-
         <div class="social-card">
 
             <div>
@@ -2384,7 +2201,6 @@ footer strong {
             </a>
 
         </div>
-
 
         <div class="social-card">
 
@@ -2419,11 +2235,6 @@ footer strong {
 
 </section>
 
-
-<!-- =====================================================
-     COMUNIDAD
-===================================================== -->
-
 <section id="comunidad">
 
     <div class="community">
@@ -2454,7 +2265,6 @@ footer strong {
 
         </div>
 
-
         <div class="community-button">
 
             <a
@@ -2470,11 +2280,6 @@ footer strong {
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
@@ -2495,11 +2300,6 @@ footer strong {
 
 </footer>
 
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
 const background =
@@ -2507,11 +2307,6 @@ const background =
 
 const light =
     document.getElementById("light");
-
-
-/* =====================================================
-   EFECTO DEL RATÓN
-===================================================== */
 
 document.addEventListener(
     "mousemove",
@@ -2543,11 +2338,6 @@ document.addEventListener(
 
     }
 );
-
-
-/* =====================================================
-   COPIAR IP
-===================================================== */
 
 function copyServerIP() {
 
@@ -2586,5 +2376,4 @@ function copyServerIP() {
 </script>
 
 </body>
-
 </html>
