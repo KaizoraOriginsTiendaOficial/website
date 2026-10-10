@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaizora Origins | Kit Infinity</title>
+    <meta name="description" content="Descubre el contenido completo del Kit Kaizora Infinity de SurvivalOP.">
+
+    <style>
+        :root {
+            --bg: #07050d;
+            --card: rgba(17, 13, 27, 0.94);
+            --purple: #a855f7;
+            --purple-light: #c084fc;
+            --cyan: #43e8ff;
+            --pink: #ff4fd8;
+            --text: #ffffff;
+            --muted: #a5a1b1;
+            --border: rgba(192, 132, 252, 0.19);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(ellipse at 15% 15%, rgba(168, 85, 247, 0.15), transparent 40%),
+                radial-gradient(ellipse at 85% 35%, rgba(67, 232, 255, 0.08), transparent 35%),
+                linear-gradient(135deg, #050309, #0b0714 50%, #05040a);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.18;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: linear-gradient(to bottom, black, transparent 90%);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            min-height: 76px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: rgba(6, 4, 12, 0.86);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(192, 132, 252, 0.15);
+        }
+
+        .logo {
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--purple-light);
+            text-shadow: 0 0 18px rgba(168, 85, 247, 0.45);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #c8c2d3;
+            font-size: 12px;
+            font-weight: 900;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 95px 7% 70px;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            width: 360px;
+            height: 260px;
+            transform: translateX(-50%);
+            pointer-events: none;
+            background: radial-gradient(ellipse, rgba(168,85,247,0.18), transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 9px 15px;
+            border: 1px solid rgba(67,232,255,0.30);
+            border-radius: 6px;
+            background: rgba(67,232,255,0.06);
+            color: var(--cyan);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            margin-bottom: 18px;
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 0.98;
+            letter-spacing: -3px;
+            font-weight: 900;
+            text-shadow: 0 0 40px rgba(168,85,247,0.17);
+        }
+
+        .hero h1 span {
+            color: var(--purple-light);
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-badge {
+            padding: 9px 13px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: rgba(255,255,255,0.025);
+            color: #ded6eb;
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        /* CONTENIDO */
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 7% 75px;
+        }
+
+        .section-heading {
+            margin: 0 0 25px;
+        }
+
+        .section-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 10px;
+            font-size: clamp(27px, 4vw, 38px);
+            font-weight: 900;
+        }
+
+        .section-heading h2 span {
+            color: var(--purple-light);
+        }
+
+        .section-heading p {
+            max-width: 700px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        /* TARJETAS DE EQUIPO */
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .equipment-card {
+            position: relative;
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            background: linear-gradient(145deg, var(--card), rgba(8,7,13,0.97));
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            overflow: hidden;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .equipment-card::before {
+            content: "";
+            position: absolute;
+            top: -85px;
+            right: -75px;
+            width: 190px;
+            height: 190px;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(168,85,247,0.13), transparent 70%);
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(67,232,255,0.32);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .equipment-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .equipment-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .equipment-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(192,132,252,0.27);
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(168,85,247,0.17), rgba(67,232,255,0.07));
+            color: var(--purple-light);
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+        .equipment-header h3 {
+            margin-bottom: 5px;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .equipment-header p {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .level-tag {
+            display: inline-flex;
+            align-items: center;
+            margin-left: auto;
+            padding: 7px 9px;
+            border: 1px solid rgba(67,232,255,0.25);
+            border-radius: 6px;
+            background: rgba(67,232,255,0.06);
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        /* LISTA DE ENCANTAMIENTOS */
+
+        .enchant-list {
+            list-style: none;
+            position: relative;
+        }
+
+        .enchant-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.055);
+            color: #ded9e7;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .enchant-list li:last-child {
+            border-bottom: none;
+        }
+
+        .enchant-level {
+            flex-shrink: 0;
+            color: var(--purple-light);
+            font-size: 11px;
+            font-weight: 900;
+        }
+
+        .subheading {
+            margin: 18px 0 6px;
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* DESPLEGABLES */
+
+        .equipment-details {
+            position: relative;
+        }
+
+        .equipment-details summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+        }
+
+        .equipment-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .equipment-details summary::after {
+            content: "+";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            border: 1px solid rgba(192,132,252,0.28);
+            border-radius: 7px;
+            color: var(--cyan);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .equipment-details[open] summary::after {
+            content: "−";
+        }
+
+        .equipment-details summary .equipment-header {
+            flex: 1;
+            min-width: 0;
+            margin-bottom: 0;
+        }
+
+        .equipment-details[open] .equipment-content {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+
+        /* AGREGADOS */
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .extra-card {
+            position: relative;
+            padding: 24px 18px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(19,14,29,0.94), rgba(8,7,13,0.95));
+            overflow: hidden;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .extra-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(192,132,252,0.42);
+        }
+
+        .extra-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(192,132,252,0.25);
+            border-radius: 13px;
+            background: rgba(168,85,247,0.10);
+            color: var(--purple-light);
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .extra-card h3 {
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        .extra-card p {
+            margin-bottom: 13px;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .extra-quantity {
+            color: var(--cyan);
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .extra-note {
+            margin-top: 5px;
+            color: #8e899a;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* RESUMEN */
+
+        .kit-summary {
+            margin-top: 25px;
+            padding: 24px;
+            border: 1px solid rgba(168,85,247,0.26);
+            border-radius: 12px;
+            background:
+                radial-gradient(ellipse at right, rgba(168,85,247,0.11), transparent 60%),
+                rgba(13,10,20,0.88);
+        }
+
+        .kit-summary h3 {
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .kit-summary h3 span {
+            color: var(--purple-light);
+        }
+
+        .summary-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 20px;
+            list-style: none;
+        }
+
+        .summary-list li {
+            color: #c7c0d2;
+            font-size: 12px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .summary-list li::before {
+            content: "◆";
+            margin-right: 9px;
+            color: var(--cyan);
+            font-size: 9px;
+        }
+
+        /* COMPRA */
+
+        .purchase-panel {
+            margin-top: 28px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid rgba(168,85,247,0.34);
+            border-radius: 14px;
+            background:
+                radial-gradient(ellipse at top, rgba(168,85,247,0.15), transparent 70%),
+                rgba(12,9,19,0.92);
+            box-shadow: 0 0 45px rgba(168,85,247,0.06);
+        }
+
+        .purchase-panel h2 {
+            margin-bottom: 10px;
+            font-size: clamp(23px, 4vw, 34px);
+            font-weight: 900;
+        }
+
+        .purchase-panel h2 span {
+            color: var(--purple-light);
+        }
+
+        .purchase-panel p {
+            max-width: 600px;
+            margin: 0 auto 22px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            min-height: 44px;
+            padding: 13px 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 900;
+            transition: transform 0.2s, filter 0.2s, border-color 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.12);
+        }
+
+        .button-primary {
+            color: white;
+            background: linear-gradient(135deg, #7138d8, #a855f7);
+            box-shadow: 0 0 24px rgba(168,85,247,0.18);
+        }
+
+        .button-secondary {
+            color: #d9c5ff;
+            border: 1px solid rgba(192,132,252,0.34);
+            background: rgba(168,85,247,0.07);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 28px 7%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            color: #777181;
+            font-size: 11px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        footer span {
+            color: var(--purple-light);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 760px) {
+            .navbar {
+                padding: 0 5%;
+                min-height: 70px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .equipment-card.full-width {
+                grid-column: auto;
+            }
+
+            .extras-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .extra-card {
+                padding: 22px;
+            }
+
+            .summary-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                gap: 12px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 47px;
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .container {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .equipment-card {
+                padding: 18px;
+            }
+
+            .equipment-header {
+                gap: 10px;
+            }
+
+            .equipment-header h3 {
+                font-size: 14px;
+            }
+
+            .level-tag {
+                font-size: 9px;
+                padding: 6px;
+            }
+
+            .purchase-panel {
+                padding: 24px 18px;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+        <a href="./index.html" class="logo">
+            KAIZORA <span>ORIGINS</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="./survivalop.html">SURVIVALOP</a>
+            <a href="./extremo.html">EXTREMO</a>
+            <a href="https://discord.gg/rUsjAeeUMY"
+               target="_blank"
+               rel="noopener noreferrer">DISCORD</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-label">
+                    KIT PREMIUM · SURVIVALOP
+                </div>
+
+                <h1>
+                    KAIZORA <span>INFINITY</span>
+                </h1>
+
+                <p class="hero-description">
+                    El máximo poder dentro de Kaizora Origins.
+                    Descubre todo el equipamiento, los encantamientos
+                    y las recompensas incluidas en el Kit Infinity.
+                </p>
+
+                <div class="hero-badges">
+                    <div class="hero-badge">ENCANTAMIENTOS NIVEL XV</div>
+                    <div class="hero-badge">EQUIPAMIENTO NETHERITE</div>
+                    <div class="hero-badge">RECOMPENSAS EXCLUSIVAS</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+
+            <!-- ARMADURA -->
+
+            <section>
+                <div class="section-heading">
+                    <span class="section-label">EQUIPAMIENTO</span>
+                    <h2>Armadura <span>Infinity</span></h2>
+                    <p>
+                        Armadura completa de netherite con encantamientos
+                        de nivel XV. Pulsa la tarjeta para desplegar
+                        todos los encantamientos de cada pieza.
+                    </p>
+                </div>
+
+                <div class="equipment-grid">
+
+                    <details class="equipment-card equipment-details full-width">
+                        <summary>
+                            <div class="equipment-header">
+                                <div class="equipment-icon">N</div>
+                                <div>
+                                    <h3>Armadura Full Netherite</h3>
+                                    <p>Casco · Pechera · Pantalones · Botas</p>
+                                </div>
+                                <span class="level-tag">NIVEL XV</span>
+                            </div>
+                        </summary>
+
+                        <div class="equipment-content">
+
+                            <h4 class="subheading">Encantamientos generales</h4>
+                            <ul class="enchant-list">
+                                <li>Protección <span class="enchant-level">XV</span></li>
+                                <li>Protección contra explosiones <span class="enchant-level">XV</span></li>
+                                <li>Protección contra el fuego <span class="enchant-level">XV</span></li>
+                                <li>Protección contra proyectiles <span class="enchant-level">XV</span></li>
+                                <li>Espinas <span class="enchant-level">XV</span></li>
+                                <li>Irrompibilidad <span class="enchant-level">XV</span></li>
+                                <li>Reparación <span class="enchant-level">XV</span></li>
+                            </ul>
+
+                            <h4 class="subheading">Casco</h4>
+                            <ul class="enchant-list">
+                                <li>Respiración <span class="enchant-level">XV</span></li>
+                                <li>Afinidad acuática <span class="enchant-level">XV</span></li>
+                            </ul>
+
+                            <h4 class="subheading">Pantalones</h4>
+                            <ul class="enchant-list">
+                                <li>Agilidad furtiva <span class="enchant-level">XV</span></li>
+                            </ul>
+
+                            <h4 class="subheading">Botas</h4>
+                            <ul class="enchant-list">
+                                <li>Caída de pluma <span class="enchant-level">XV</span></li>
+                                <li>Velocidad de almas <span class="enchant-level">XV</span></li>
+                                <li>Agilidad acuática <span class="enchant-level">XV</span></li>
+                            </ul>
+
+                        </div>
+                    </details>
+
+                </div>
+            </section>
+
+            <!-- HERRAMIENTAS -->
+
+            <section style="margin-top: 55px;">
+                <div class="section-heading">
+                    <span class="section-label">ARSENAL</span>
+                    <h2>Herramientas <span>Infinity</span></h2>
+                    <p>
+                        Despliega cada herramienta para consultar sus
+                        encantamientos. Todo el arsenal utiliza el nivel XV.
+                    </p>
+                </div>
+
+                <div class="equipment-grid">
+
+                    <!-- ESPADA -->
+
+                    <details class="equipment-card equipment-details">
+                        <summary>
+                            <div class="equipment-header">
+                                <div class="equipment-icon">⚔</div>
+                                <div>
+                                    <h3>Espada Infinity</h3>
+                                    <p>Netherite · Combate</p>
+                                </div>
+                                <span class="level-tag">XV</span>
+                            </div>
+                        </summary>
+
+                        <div class="equipment-content">
+                            <ul class="enchant-list">
+                                <li>Filo <span class="enchant-level">XV</span></li>
+                                <li>Castigo <span class="enchant-level">XV</span></li>
+                                <li>Perdición de los artrópodos <span class="enchant-level">XV</span></li>
+                                <li>Filo arrasador <span class="enchant-level">XV</span></li>
+                                <li>Aspecto ígneo <span class="enchant-level">XV</span></li>
+                                <li>Empuje <span class="enchant-level">XV</span></li>
+                                <li>Irrompibilidad <span class="enchant-level">XV</span></li>
+                                <li>Reparación <span class="enchant-level">XV</span></li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- PICO -->
+
+                    <details class="equipment-card equipment-details">
+                        <summary>
+                            <div class="equipment-header">
+                                <div class="equipment-icon">⛏</div>
+                                <div>
+                                    <h3>Pico Infinity</h3>
+                                    <p>Netherite · Minería</p>
+                                </div>
+                                <span class="level-tag">XV</span>
+                            </div>
+                        </summary>
+
+                        <div class="equipment-content">
+                            <ul class="enchant-list">
+                                <li>Fortuna <span class="enchant-level">XV</span></li>
+                                <li>Eficiencia <span class="enchant-level">XV</span></li>
+                                <li>Irrompibilidad <span class="enchant-level">XV</span></li>
+                                <li>Reparación <span class="enchant-level">XV</span></li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- HACHA -->
+
+                    <details class="equipment-card equipment-details">
+                        <summary>
+                            <div class="equipment-header">
+                                <div class="equipment-icon">A</div>
+                                <div>
+                                    <h3>Hacha Infinity</h3>
+                                    <p>Netherite · Combate y recursos</p>
+                                </div>
+                                <span class="level-tag">XV</span>
+                            </div>
+                        </summary>
+
+                        <div class="equipment-content">
+                            <ul class="enchant-list">
+                                <li>Filo <span class="enchant-level">XV</span></li>
+                                <li>Castigo <span class="enchant-level">XV</span></li>
+                                <li>Perdición de los artrópodos <span class="enchant-level">XV</span></li>
+                                <li>Eficiencia <span class="enchant-level">XV</span></li>
+                                <li>Irrompibilidad <span class="enchant-level">XV</span></li>
+                                <li>Reparación <span class="enchant-level">XV</span></li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- PALA -->
+
+                    <details class="equipment-card equipment-details">
+                        <summary>
+                            <div class="equipment-header">
+                                <div class="equipment-icon">P</div>
+                                <div>
+                                    <h3>Pala Infinity</h3>
+                                    <p>Netherite · Excavación</p>
+                                </div>
+                                <span class="level-tag">XV</span>
+                            </div>
+                        </summary>
+
+                        <div class="equipment-content">
+                            <ul class="enchant-list">
+                                <li>Eficiencia <span class="enchant-level">XV</span></li>
+                                <li>Irrompibilidad <span class="enchant-level">XV</span></li>
+                                <li>Reparación <span class="enchant-level">XV</span></li>
+                                <li>Toque de seda <span class="enchant-level">XV</span></li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <!-- ARCO -->
+
+                    <details class="equipment-card equipment-details">
+                        <summary>
+                            <div class="equipment-header">
+                                <div class="equipment-icon">➶</div>
+                                <div>
+                                    <h3>Arco Infinity</h3>
+                                    <p>Combate a distancia</p>
+                                </div>
+                                <span class="level-tag">XV</span>
+                            </div>
+                        </summary>
+
+                        <div class="equipment-content">
+                            <ul class="enchant-list">
+                                <li>Poder <span class="enchant-level">XV</span></li>
+                                <li>Puñetazo <span class="enchant-level">XV</span></li>
+                                <li>Llama <span class="enchant-level">XV</span></li>
+                                <li>Irrompibilidad <span class="enchant-level">XV</span></li>
+                                <li>Reparación <span class="enchant-level">XV</span></li>
+                                <li>Infinidad <span class="enchant-level">XV</span></li>
+                            </ul>
+                        </div>
+                    </details>
+
+                </div>
+            </section>
+
+            <!-- AGREGADOS -->
+
+            <section style="margin-top: 55px;">
+                <div class="section-heading">
+                    <span class="section-label">RECOMPENSAS</span>
+                    <h2>Agregados <span>Infinity</span></h2>
+                    <p>
+                        Estos objetos forman parte del kit y permanecen
+                        visibles sin necesidad de desplegar ninguna tarjeta.
+                    </p>
+                </div>
+
+                <div class="extras-grid">
+
+                    <div class="extra-card">
+                        <div class="extra-icon">✦</div>
+                        <h3>Tótems de la inmortalidad</h3>
+                        <p>Protección adicional para tus combates y aventuras.</p>
+                        <div class="extra-quantity">×14</div>
+                        <div class="extra-note">14 tótems</div>
+                    </div>
+
+                    <div class="extra-card">
+                        <div class="extra-icon">✧</div>
+                        <h3>Manzanas doradas encantadas</h3>
+                        <p>Reserva de manzanas para enfrentamientos intensos.</p>
+                        <div class="extra-quantity">×2 stacks</div>
+                        <div class="extra-note">128 unidades en total</div>
+                    </div>
+
+                    <div class="extra-card">
+                        <div class="extra-icon">✧</div>
+                        <h3>Llaves Semidios</h3>
+                        <p>Llaves para conseguir recompensas de la Crate Semidios.</p>
+                        <div class="extra-quantity">×10</div>
+                        <div class="extra-note">10 llaves Semidios</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- RESUMEN -->
+
+            <section class="kit-summary">
+                <h3>Contenido del Kit <span>Infinity</span></h3>
+
+                <ul class="summary-list">
+                    <li>Armadura completa de netherite</li>
+                    <li>Espada de netherite encantada</li>
+                    <li>Pico de netherite encantado</li>
+                    <li>Hacha de netherite encantada</li>
+                    <li>Pala de netherite encantada</li>
+                    <li>Arco encantado</li>
+                    <li>Todos los encantamientos mostrados a nivel XV</li>
+                    <li>14 tótems de la inmortalidad</li>
+                    <li>128 manzanas doradas encantadas</li>
+                    <li>10 llaves de la Crate Semidios</li>
+                </ul>
+            </section>
+
+            <!-- COMPRA -->
+
+            <section class="purchase-panel">
+                <h2>Consigue el Kit <span>Infinity</span></h2>
+
+                <p>
+                    ¿Quieres obtener este equipamiento para SurvivalOP?
+                    Entra al Discord oficial de Kaizora Origins y abre
+                    un ticket para consultar la compra.
+                </p>
+
+                <div class="button-row">
+                    <a href="https://discord.gg/rUsjAeeUMY"
+                       class="button button-primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        COMPRAR KIT
+                    </a>
+
+                    <a href="./survivalop.html#kits"
+                       class="button button-secondary">
+                        VOLVER A LOS KITS
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 <span>Kaizora Origins</span> · Kit Infinity · SurvivalOP
+    </footer>
+
+</body>
+</html>
