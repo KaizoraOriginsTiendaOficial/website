@@ -1,521 +1,542 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAIZORA | Kaizora Origins</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Superior | Kaizora Origins</title>
 
-<style>
-*{
-    box-sizing:border-box
-}
+    <style>
+        :root {
+            --bg: #07090a;
+            --panel: #101014;
+            --purple: #9365ff;
+            --pink: #ff6de1;
+            --white: #f5f3ff;
+            --muted: #aaa6b8;
+            --border: rgba(147, 101, 255, 0.25);
+        }
 
-body{
-    margin:0;
-    background:#07090a;
-    color:#f4f4f6;
-    font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh
-}
+        * {
+            box-sizing: border-box;
+        }
 
-a{
-    color:inherit
-}
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--white);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
 
-.bg{
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 20%,rgba(147,101,255,.16),transparent 35%),
-        radial-gradient(circle at 80% 70%,rgba(255,109,225,.10),transparent 35%);
-    z-index:-1
-}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-nav{
-    height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(5,7,8,.8);
-    backdrop-filter:blur(12px)
-}
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 7%;
+            border-bottom: 1px solid var(--border);
+            background: #09090d;
+        }
 
-.logo{
-    font-size:21px;
-    font-weight:900;
-    letter-spacing:1px
-}
+        .logo {
+            color: var(--pink);
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
 
-.logo span{
-    color:#b49cff
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-nav a{
-    text-decoration:none;
-    color:#c8c8cd;
-    font-size:13px;
-    font-weight:800
-}
+        .nav-links a {
+            font-weight: bold;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
 
-.discord{
-    padding:11px 17px;
-    border-radius:8px;
-    background:#9365ff;
-    color:white!important
-}
+        .nav-links a:hover {
+            color: var(--pink);
+        }
 
-main{
-    max-width:1050px;
-    margin:0 auto;
-    padding:90px 6% 100px
-}
+        .discord-button,
+        .back-button {
+            display: inline-block;
+            padding: 11px 18px;
+            border-radius: 8px;
+            background: var(--purple);
+            color: white !important;
+            font-weight: 800;
+            text-align: center;
+            transition: 0.2s;
+        }
 
-.label{
-    color:#ff6de1;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:4px;
-    margin-bottom:14px
-}
+        .discord-button:hover,
+        .back-button:hover {
+            background: var(--pink);
+            transform: translateY(-2px);
+        }
 
-h1{
-    font-size:clamp(48px,8vw,86px);
-    margin:0 0 18px;
-    letter-spacing:-4px
-}
+        .hero {
+            max-width: 1000px;
+            margin: auto;
+            padding: 65px 24px 35px;
+            text-align: center;
+        }
 
-.desc{
-    max-width:700px;
-    color:#bfc0c6;
-    font-size:17px;
-    line-height:1.7
-}
+        .tag {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 13px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: rgba(147, 101, 255, 0.09);
+            color: var(--pink);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
 
-.price{
-    font-size:42px;
-    font-weight:950;
-    margin:35px 0 22px;
-    color:#ff6de1
-}
+        h1 {
+            margin: 0;
+            color: var(--white);
+            font-size: clamp(36px, 7vw, 64px);
+            font-weight: 900;
+            line-height: 1.1;
+        }
 
-.actions{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap
-}
+        h1 span {
+            color: var(--purple);
+        }
 
-.btn{
-    padding:14px 22px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:900;
-    font-size:12px;
-    border:1px solid rgba(255,255,255,.14)
-}
+        .description {
+            max-width: 680px;
+            margin: 20px auto;
+            color: var(--muted);
+            font-size: 16px;
+        }
 
-.primary{
-    border-color:#ff6de1;
-    color:#ff6de1
-}
+        .price {
+            margin: 25px 0 8px;
+            color: var(--pink);
+            font-size: 25px;
+            font-weight: 900;
+        }
 
-.primary:hover{
-    background:#ff6de1;
-    color:#08090a
-}
+        .price-note {
+            margin: 0 0 24px;
+            color: var(--muted);
+            font-size: 13px;
+        }
 
-.back:hover{
-    border-color:#aaa;
-    color:white
-}
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
 
-.box{
-    margin-top:55px;
-    padding:32px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:16px;
-    background:rgba(13,15,18,.78)
-}
+        .content {
+            width: min(850px, 90%);
+            margin: 0 auto;
+            padding: 20px 0 70px;
+        }
 
-.box h2{
-    margin-top:0
-}
+        .box {
+            margin-bottom: 22px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--panel);
+        }
 
-.box h3{
-    color:#f4f4f6;
-    margin-top:30px;
-    margin-bottom:12px
-}
+        .box h2 {
+            margin: 0 0 18px;
+            color: var(--pink);
+            font-size: 22px;
+            font-weight: 900;
+        }
 
-.box p,
-.box li{
-    color:#aaaeb6;
-    line-height:1.7
-}
+        .section-number {
+            margin-right: 8px;
+            color: var(--purple);
+        }
 
-.box ul{
-    padding-left:22px
-}
+        .box-description {
+            margin: -8px 0 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
 
-/* DESPLEGABLES */
+        details {
+            margin: 10px 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #0b0b10;
+        }
 
-details{
-    margin-top:20px;
-    border:1px solid rgba(255,109,225,.20);
-    border-radius:12px;
-    background:rgba(8,11,12,.55);
-    overflow:hidden
-}
+        summary {
+            position: relative;
+            padding: 15px 42px 15px 16px;
+            color: var(--white);
+            font-weight: 800;
+            cursor: pointer;
+            list-style: none;
+            transition: background 0.2s, color 0.2s;
+        }
 
-summary{
-    cursor:pointer;
-    list-style:none;
-    padding:17px 20px;
-    font-weight:900;
-    color:#ff6de1;
-    font-size:14px;
-    user-select:none;
-    transition:.2s
-}
+        summary::-webkit-details-marker {
+            display: none;
+        }
 
-summary::-webkit-details-marker{
-    display:none
-}
+        summary::after {
+            content: "+";
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            color: var(--pink);
+            font-size: 22px;
+            font-weight: 900;
+            transform: translateY(-50%);
+        }
 
-summary::after{
-    content:"+";
-    float:right;
-    font-size:20px;
-    line-height:14px
-}
+        details[open] summary::after {
+            content: "−";
+        }
 
-details[open] summary::after{
-    content:"−"
-}
+        summary:hover,
+        details[open] summary {
+            background: rgba(147, 101, 255, 0.12);
+            color: var(--pink);
+        }
 
-summary:hover{
-    background:rgba(255,109,225,.06)
-}
+        .shulker-content {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+        }
 
-.shulker-content{
-    padding:5px 22px 22px;
-    border-top:1px solid rgba(255,255,255,.07)
-}
+        .shulker-content h3 {
+            margin: 10px 0 8px;
+            color: var(--purple);
+            font-size: 15px;
+            font-weight: 900;
+        }
 
-.shulker-content h3{
-    margin-top:22px;
-    color:#f4f4f6
-}
+        .shulker-content h3:first-child {
+            margin-top: 0;
+        }
 
-.shulker-content ul{
-    margin-bottom:15px
-}
+        .shulker-content ul {
+            margin: 0 0 15px;
+            padding-left: 22px;
+            color: #e5e1ef;
+        }
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#6f7178;
-    font-size:12px;
-    border-top:1px solid rgba(255,255,255,.07)
-}
+        .shulker-content ul:last-child {
+            margin-bottom: 0;
+        }
 
-@media(max-width:600px){
+        .shulker-content li {
+            margin: 4px 0;
+        }
 
-    nav{
-        padding:0 5%
-    }
+        .aggregate-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    nav a.home{
-        display:none
-    }
+        .aggregate-item {
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #0b0b10;
+            color: var(--white);
+            font-weight: 700;
+        }
 
-    main{
-        padding-top:65px
-    }
+        .aggregate-item strong {
+            color: var(--pink);
+        }
 
-    h1{
-        letter-spacing:-2px
-    }
+        .footer {
+            padding: 25px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            font-size: 13px;
+        }
 
-}
-</style>
+        .footer strong {
+            color: var(--pink);
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 18px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .box {
+                padding: 17px;
+            }
+
+            .box h2 {
+                font-size: 19px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+    <header class="navbar">
+        <a href="survivalop.html" class="logo">KAIZORA ORIGINS</a>
 
-<nav>
+        <nav class="nav-links">
+            <a href="survivalop.html">SurvivalOP</a>
+            <a href="survivalop.html#kits">Kits</a>
+            <a
+                href="https://discord.gg/rUsjAeeUMY"
+                class="discord-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Discord
+            </a>
+        </nav>
+    </header>
 
-    <div class="logo">
-        KAIZORA <span>ORIGINS</span>
-    </div>
+    <main>
+        <section class="hero">
+            <span class="tag">KIT PREMIUM · SURVIVALOP</span>
 
-    <a class="home"
-       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
-        Inicio
-    </a>
+            <h1>KIT <span>SUPERIOR</span></h1>
 
-    <a class="discord"
-       href="https://discord.gg/sHvWgW7AE4"
-       target="_blank">
-        Comprar por Discord
-    </a>
+            <p class="description">
+                Equípate con armamento y protección de alto nivel.
+                El Kit Superior está diseñado para quienes buscan dominar
+                el mundo de Kaizora Origins.
+            </p>
 
-</nav>
+            <div class="price">KIT PREMIUM</div>
 
-<main>
+            <p class="price-note">
+                Consulta la disponibilidad y el precio en nuestro Discord.
+            </p>
 
-    <div class="label">RANGO MÁXIMO</div>
+            <div class="hero-buttons">
+                <a href="https://discord.gg/rUsjAeeUMY"
+                   class="discord-button"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    CONSEGUIR KIT
+                </a>
 
-    <h1>KAIZORA</h1>
+                <a href="survivalop.html" class="back-button">
+                    VOLVER A SURVIVALOP
+                </a>
+            </div>
+        </section>
 
-    <p class="desc">
-        El rango más exclusivo y poderoso de Kaizora Origins,
-        reservado para quienes quieren llevar su experiencia al máximo.
-    </p>
+        <div class="content">
 
-    <div class="price">$49.99</div>
+            <!-- ARMADURA -->
+            <section class="box">
+                <h2><span class="section-number">01 ·</span> Armadura</h2>
 
-    <div class="actions">
-
-        <a class="btn primary"
-           href="https://discord.gg/sHvWgW7AE4"
-           target="_blank">
-            Comprar KAIZORA
-        </a>
-
-        <a class="btn back"
-           href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
-            Volver a rangos
-        </a>
-
-    </div>
-
-    <div class="box">
-
-        <h2>Información del rango</h2>
-
-        <p>
-            KAIZORA es el rango más alto de todo Kaizora Origins.
-            Al obtenerlo, recibirás todos los permisos, comandos, kits
-            y beneficios de todos los rangos existentes del servidor,
-            desde USER hasta DIOS, incluyendo todo el contenido y ventajas
-            de cada rango anterior.
-        </p>
-
-        <p>
-            Además de todo lo anterior, KAIZORA incluye los siguientes
-            beneficios exclusivos:
-        </p>
-
-
-        <!-- HERRAMIENTAS -->
-
-        <h3>Dos Sets de Herramientas de Netherite</h3>
-
-        <details>
-
-            <summary>
-                Ver contenido de los 2 Sets de Herramientas
-            </summary>
-
-            <div class="shulker-content">
-
-                <p>
-                    Todos los siguientes objetos se entregan en cantidad ×2.
+                <p class="box-description">
+                    Armadura completa de netherite con encantamientos de nivel XI.
                 </p>
 
-                <h3>Espada de Netherite</h3>
+                <details>
+                    <summary>Casco de Netherite</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Protección XI</li>
+                            <li>Protección contra explosiones XI</li>
+                            <li>Protección contra fuego XI</li>
+                            <li>Protección contra proyectiles XI</li>
+                            <li>Respiración XI</li>
+                            <li>Afinidad acuática XI</li>
+                            <li>Espinas XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <ul>
-                    <li>Filo X (10)</li>
-                    <li>Golpeo X</li>
-                    <li>Aspecto Ígneo 8</li>
-                    <li>Irrompibilidad 10</li>
-                    <li>Reparación</li>
-                </ul>
+                <details>
+                    <summary>Pechera de Netherite</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Protección XI</li>
+                            <li>Protección contra explosiones XI</li>
+                            <li>Protección contra fuego XI</li>
+                            <li>Protección contra proyectiles XI</li>
+                            <li>Espinas XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <h3>Pico de Netherite</h3>
+                <details>
+                    <summary>Pantalones de Netherite</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Protección XI</li>
+                            <li>Protección contra explosiones XI</li>
+                            <li>Protección contra fuego XI</li>
+                            <li>Protección contra proyectiles XI</li>
+                            <li>Espinas XI</li>
+                            <li>Sigilo veloz XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <ul>
-                    <li>Fortuna 8</li>
-                    <li>Eficiencia 10</li>
-                    <li>Irrompibilidad 10</li>
-                </ul>
+                <details>
+                    <summary>Botas de Netherite</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Protección XI</li>
+                            <li>Protección contra explosiones XI</li>
+                            <li>Protección contra fuego XI</li>
+                            <li>Protección contra proyectiles XI</li>
+                            <li>Espinas XI</li>
+                            <li>Caída de pluma XI</li>
+                            <li>Velocidad del alma XI</li>
+                            <li>Agilidad acuática XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
 
-                <h3>Hacha de Netherite</h3>
+            <!-- HERRAMIENTAS -->
+            <section class="box">
+                <h2><span class="section-number">02 ·</span> Herramientas</h2>
 
-                <ul>
-                    <li>Eficiencia 10</li>
-                    <li>Irrompibilidad 10</li>
-                    <li>Reparación</li>
-                </ul>
-
-                <h3>Pala de Netherite</h3>
-
-                <ul>
-                    <li>Eficiencia 10</li>
-                    <li>Irrompibilidad 10</li>
-                    <li>Reparación</li>
-                </ul>
-
-            </div>
-
-        </details>
-
-
-        <!-- ARMADURAS -->
-
-        <h3>Dos Sets de Armaduras de Netherite</h3>
-
-        <details>
-
-            <summary>
-                Ver contenido de los 2 Sets de Armaduras
-            </summary>
-
-            <div class="shulker-content">
-
-                <p>
-                    Cada pieza de armadura se entrega en cantidad ×2.
+                <p class="box-description">
+                    Herramientas y armas encantadas para el combate y la minería.
                 </p>
 
-                <h3>Casco de Netherite</h3>
+                <details>
+                    <summary>Espada</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Filo XI</li>
+                            <li>Golpeo XI</li>
+                            <li>Perdición de los artrópodos XI</li>
+                            <li>Filo arrasador XI</li>
+                            <li>Aspecto ígneo XI</li>
+                            <li>Empuje XI</li>
+                            <li>Irrompibilidad</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <ul>
-                    <li>Protección 10</li>
-                    <li>Protección contra proyectiles 10</li>
-                    <li>Espinas 8</li>
-                    <li>Irrompibilidad 9</li>
-                    <li>Reparación</li>
-                </ul>
+                <details>
+                    <summary>Pico</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Fortuna XI</li>
+                            <li>Eficiencia XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <h3>Pechera de Netherite</h3>
+                <details>
+                    <summary>Hacha</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Filo XI</li>
+                            <li>Golpeo XI</li>
+                            <li>Perdición de los artrópodos XI</li>
+                            <li>Eficiencia XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <ul>
-                    <li>Protección 10</li>
-                    <li>Protección contra proyectiles 10</li>
-                    <li>Espinas 8</li>
-                    <li>Irrompibilidad 9</li>
-                    <li>Reparación</li>
-                </ul>
+                <details>
+                    <summary>Pala</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Eficiencia XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
 
-                <h3>Pantalón de Netherite</h3>
+                <details>
+                    <summary>Arco</summary>
+                    <div class="shulker-content">
+                        <ul>
+                            <li>Poder XI</li>
+                            <li>Fuego I</li>
+                            <li>Retroceso XI</li>
+                            <li>Irrompibilidad XI</li>
+                            <li>Infinidad</li>
+                            <li>Reparación</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
 
-                <ul>
-                    <li>Protección 10</li>
-                    <li>Protección contra proyectiles 10</li>
-                    <li>Espinas 8</li>
-                    <li>Irrompibilidad 9</li>
-                    <li>Reparación</li>
-                </ul>
+            <!-- AGREGADOS: VISIBLES, SIN DESPLEGABLES -->
+            <section class="box">
+                <h2><span class="section-number">03 ·</span> Agregados</h2>
 
-                <h3>Botas de Netherite</h3>
+                <div class="aggregate-list">
+                    <div class="aggregate-item">
+                        <strong>10x</strong> Tótems de la inmortalidad
+                    </div>
 
-                <ul>
-                    <li>Protección 10</li>
-                    <li>Protección contra proyectiles 10</li>
-                    <li>Espinas 8</li>
-                    <li>Irrompibilidad 9</li>
-                    <li>Reparación</li>
-                </ul>
+                    <div class="aggregate-item">
+                        <strong>6x</strong> Llaves Semidios
+                    </div>
 
-            </div>
+                    <div class="aggregate-item">
+                        <strong>4x</strong> Manzanas encantadas
+                    </div>
+                </div>
+            </section>
 
-        </details>
+        </div>
+    </main>
 
-
-        <!-- TOTEMS -->
-
-        <h3>+2 Tótems personalizados</h3>
-
-        <details>
-
-            <summary>
-                Ver contenido de los Tótems
-            </summary>
-
-            <div class="shulker-content">
-
-                <ul>
-                    <li>Tótems de la Inmortalidad ×2</li>
-                    <li>
-                        Tótems personalizados con una bonificación de
-                        <strong>+2 corazones</strong> al ser sostenidos en la mano.
-                    </li>
-                    <li>
-                        Con esta bonificación se alcanza un total de
-                        <strong>12 corazones</strong>.
-                    </li>
-                </ul>
-
-            </div>
-
-        </details>
-
-
-        <!-- ESCUDOS -->
-
-        <h3>+2 Escudos personalizados</h3>
-
-        <details>
-
-            <summary>
-                Ver contenido de los Escudos
-            </summary>
-
-            <div class="shulker-content">
-
-                <p>
-                    Escudos personalizados ×2.
-                </p>
-
-                <ul>
-                    <li>Protección 10</li>
-                    <li>Protección contra proyectiles 10</li>
-                    <li>Espinas 10</li>
-                </ul>
-
-            </div>
-
-        </details>
-
-
-        <!-- LLAVE -->
-
-        <h3>+1 Llave Kaizora</h3>
-
-        <details>
-
-            <summary>
-                Ver contenido de la Llave Kaizora
-            </summary>
-
-            <div class="shulker-content">
-
-                <ul>
-                    <li>Llave Kaizora ×1</li>
-                </ul>
-
-            </div>
-
-        </details>
-
-
-        <p style="margin-top:35px;">
-            Las compras y la gestión del rango se realizan directamente
-            mediante nuestro Discord oficial.
-        </p>
-
-    </div>
-
-</main>
-
-<footer>
-    © 2026 Kaizora Origins · Servidor de Minecraft independiente.
-</footer>
+    <footer class="footer">
+        <strong>KAIZORA ORIGINS</strong>
+        <p>Un mundo donde cada jugador escribe su propia historia.</p>
+        <p>© 2026 Kaizora Origins. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
