@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,9 +14,7 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -28,7 +25,6 @@
         }
 
         /* FONDO */
-
         .minecraft-background {
             position: fixed;
             inset: 0;
@@ -65,7 +61,6 @@
         }
 
         /* NAVBAR */
-
         nav {
             position: fixed;
             top: 0;
@@ -88,9 +83,7 @@
             letter-spacing: 1px;
         }
 
-        .logo span {
-            color: #b49cff;
-        }
+        .logo span { color: #b49cff; }
 
         nav ul {
             display: flex;
@@ -109,15 +102,10 @@
             transition: 0.25s;
         }
 
-        nav ul a:hover {
-            color: white;
-        }
+        nav ul a:hover { color: white; }
 
         /* MODALIDADES */
-
-        .modality-dropdown {
-            position: relative;
-        }
+        .modality-dropdown { position: relative; }
 
         .modality-button {
             display: inline-flex;
@@ -189,10 +177,7 @@
         }
 
         /* CONTENIDO GENERAL */
-
-        main {
-            width: 100%;
-        }
+        main { width: 100%; }
 
         .section {
             width: 100%;
@@ -201,9 +186,7 @@
             padding: 75px 7% 60px;
         }
 
-        .section-header {
-            margin-bottom: 30px;
-        }
+        .section-header { margin-bottom: 30px; }
 
         .section-label {
             display: inline-block;
@@ -222,9 +205,7 @@
             font-weight: 900;
         }
 
-        .section-title span {
-            color: #a982ff;
-        }
+        .section-title span { color: #a982ff; }
 
         .section-description {
             max-width: 760px;
@@ -235,7 +216,6 @@
         }
 
         /* HERO */
-
         .survival-hero {
             min-height: 78vh;
             display: flex;
@@ -245,9 +225,7 @@
             margin: 0 auto;
         }
 
-        .hero-content {
-            max-width: 850px;
-        }
+        .hero-content { max-width: 850px; }
 
         .hero-label {
             display: inline-block;
@@ -270,9 +248,7 @@
             font-weight: 900;
         }
 
-        .hero-title span {
-            color: #a982ff;
-        }
+        .hero-title span { color: #a982ff; }
 
         .hero-description {
             max-width: 720px;
@@ -324,7 +300,6 @@
         }
 
         /* CRATES */
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -380,12 +355,9 @@
             pointer-events: none;
         }
 
-        .product-card:hover .key-image {
-            transform: scale(1.015);
-        }
+        .product-card:hover .key-image { transform: scale(1.015); }
 
         /* COLORES DE CRATES */
-
         .origin .key-image {
             background: linear-gradient(135deg, #ffffff, #dcdcdc);
             box-shadow: inset 0 0 35px rgba(255,255,255,0.35);
@@ -427,7 +399,6 @@
         }
 
         /* COLORES DE ESTRELLAS */
-
         .estrella-minas .key-image {
             background: linear-gradient(135deg, #06152f, #0d3570);
             box-shadow: inset 0 0 35px rgba(40,100,255,0.20);
@@ -459,7 +430,6 @@
         }
 
         /* COLORES DE NOMBRES */
-
         .origin h3 { color: #ffffff; }
         .elite h3 { color: #4d8dff; }
         .celestial h3 { color: #2bd7f5; }
@@ -521,7 +491,6 @@
         }
 
         /* KITS */
-
         .kits-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -569,9 +538,7 @@
             font-weight: 700;
         }
 
-        .kit-card li:last-child {
-            border-bottom: none;
-        }
+        .kit-card li:last-child { border-bottom: none; }
 
         .kit-price {
             font-size: 22px;
@@ -580,7 +547,6 @@
         }
 
         /* BOTONES COMPRAR KIT Y VER KIT */
-
         .kit-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -624,7 +590,6 @@
         }
 
         /* VENTANA DE INFORMACIÓN */
-
         .kit-modal {
             position: fixed;
             inset: 0;
@@ -637,9 +602,7 @@
             backdrop-filter: blur(8px);
         }
 
-        .kit-modal.is-open {
-            display: flex;
-        }
+        .kit-modal.is-open { display: flex; }
 
         .kit-modal-content {
             position: relative;
@@ -655,14 +618,8 @@
         }
 
         @keyframes kitModalIn {
-            from {
-                opacity: 0;
-                transform: translateY(12px) scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(12px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .kit-modal-close {
@@ -679,9 +636,7 @@
             cursor: pointer;
         }
 
-        .kit-modal-close:hover {
-            background: rgba(169,130,255,0.18);
-        }
+        .kit-modal-close:hover { background: rgba(169,130,255,0.18); }
 
         .kit-modal-label {
             margin-bottom: 9px;
@@ -714,13 +669,8 @@
             line-height: 1.9;
         }
 
-        .kit-modal-list li {
-            padding-left: 3px;
-        }
-
-        .kit-modal-list li::marker {
-            color: #a982ff;
-        }
+        .kit-modal-list li { padding-left: 3px; }
+        .kit-modal-list li::marker { color: #a982ff; }
 
         .kit-modal-buy {
             display: block;
@@ -741,7 +691,6 @@
         }
 
         /* CÓMO SE JUEGA */
-
         .how-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -783,7 +732,6 @@
         }
 
         /* SEPARADORES */
-
         .section-divider {
             width: 86%;
             max-width: 1200px;
@@ -793,7 +741,6 @@
         }
 
         /* FOOTER */
-
         footer {
             padding: 45px 7%;
             text-align: center;
@@ -803,22 +750,15 @@
             font-weight: 700;
         }
 
-        footer span {
-            color: #a982ff;
-        }
+        footer span { color: #a982ff; }
 
         /* RESPONSIVE */
-
         @media (max-width: 1100px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 1000px) {
-            nav ul {
-                display: none;
-            }
+            nav ul { display: none; }
 
             .products-grid,
             .kits-grid,
@@ -828,13 +768,8 @@
         }
 
         @media (max-width: 650px) {
-            nav {
-                padding: 0 5%;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
+            nav { padding: 0 5%; }
+            .logo { font-size: 18px; }
 
             .survival-hero {
                 min-height: auto;
@@ -847,9 +782,7 @@
                 letter-spacing: -3px;
             }
 
-            .hero-description {
-                font-size: 15px;
-            }
+            .hero-description { font-size: 15px; }
 
             .products-grid,
             .kits-grid,
@@ -864,13 +797,9 @@
         }
 
         @media (max-width: 480px) {
-            .kit-actions {
-                grid-template-columns: 1fr;
-            }
+            .kit-actions { grid-template-columns: 1fr; }
 
-            .kit-modal-content {
-                padding: 26px 20px;
-            }
+            .kit-modal-content { padding: 26px 20px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -886,16 +815,12 @@
 </head>
 
 <body>
-
     <div class="minecraft-background"></div>
     <div class="light-effect" id="light"></div>
 
     <!-- NAVBAR -->
-
     <nav>
-        <div class="logo">
-            KAIZORA <span>ORIGINS</span>
-        </div>
+        <div class="logo">KAIZORA <span>ORIGINS</span></div>
 
         <ul>
             <li><a href="index.html">Inicio</a></li>
@@ -914,19 +839,12 @@
     </nav>
 
     <main>
-
         <!-- HERO -->
-
         <section class="survival-hero">
             <div class="hero-content">
+                <div class="hero-label">MODALIDAD · SURVIVALOP</div>
 
-                <div class="hero-label">
-                    MODALIDAD · SURVIVALOP
-                </div>
-
-                <h1 class="hero-title">
-                    SURVIVAL<span>OP</span>
-                </h1>
+                <h1 class="hero-title">SURVIVAL<span>OP</span></h1>
 
                 <p class="hero-description">
                     Construye, progresa, consigue recursos y lleva
@@ -938,25 +856,19 @@
                     <a href="#como-se-juega" class="hero-button primary">
                         ¿CÓMO SE JUEGA?
                     </a>
-
                     <a href="#items" class="hero-button secondary">
                         VER TIENDA
                     </a>
                 </div>
-
             </div>
         </section>
 
         <!-- LLAVES / ITEMS -->
-
         <section class="section" id="items">
             <div class="section-header">
-
                 <div class="section-label">TIENDA</div>
 
-                <h2 class="section-title">
-                    Llaves de <span>Crates</span>
-                </h2>
+                <h2 class="section-title">Llaves de <span>Crates</span></h2>
 
                 <p class="section-description">
                     Consigue llaves de las diferentes crates disponibles
@@ -967,11 +879,9 @@
                     llave que sea comprada) (para mas explicacion, abre ticket
                     en el discord oificial)
                 </p>
-
             </div>
 
             <div class="products-grid">
-
                 <div class="product-card origin">
                     <div class="key-image"></div>
                     <h3>ORIGIN</h3>
@@ -1051,33 +961,26 @@
                         <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <div class="section-divider"></div>
 
         <!-- ESTRELLAS -->
-
         <section class="section" id="estrellas">
             <div class="section-header">
-
                 <div class="section-label">TIENDA</div>
 
-                <h2 class="section-title">
-                    <span>Estrellas</span> de Minas
-                </h2>
+                <h2 class="section-title"><span>Estrellas</span> de Minas</h2>
 
                 <p class="section-description">
                     Consigue estrellas para los picos de las minas
                     automáticas. Podrás utilizarlas para progresar
                     y comerciar dentro del sistema de minas.
                 </p>
-
             </div>
 
             <div class="products-grid">
-
                 <div class="product-card estrella-minas">
                     <div class="key-image"></div>
                     <h3>ESTRELLA MINAS</h3>
@@ -1137,43 +1040,36 @@
                         <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <div class="section-divider"></div>
 
         <!-- KITS -->
-
         <section class="section" id="kits">
             <div class="section-header">
-
                 <div class="section-label">TIENDA</div>
 
-                <h2 class="section-title">
-                    Kits de <span>compra</span>
-                </h2>
+                <h2 class="section-title">Kits de <span>compra</span></h2>
 
                 <p class="section-description">
                     Kits exclusivos diseñados para darte diferentes
                     ventajas y recursos dentro de SurvivalOP.
                 </p>
-
             </div>
 
             <div class="kits-grid">
-
                 <!-- KAIZORA SUPERIOR -->
-
                 <div class="kit-card">
                     <div class="kit-name">Kaizora Superior</div>
                     <div class="kit-subtitle">Kit premium</div>
 
                     <ul>
-                        <li>Equipamiento especial</li>
-                        <li>Herramientas mejoradas</li>
-                        <li>Objetos exclusivos</li>
-                        <li>Recompensas adicionales</li>
+                        <li>Armadura completa de Netherite</li>
+                        <li>Herramientas con encantamientos especiales</li>
+                        <li>10 tótems de la inmortalidad</li>
+                        <li>6 llaves Semidios</li>
+                        <li>4 manzanas encantadas</li>
                     </ul>
 
                     <div class="kit-price">$0.00</div>
@@ -1186,18 +1082,14 @@
                             COMPRAR KIT
                         </a>
 
-                        <button type="button"
-                                class="kit-info-button"
-                                data-kit="Kaizora Superior"
-                                data-description="Un kit pensado para quienes quieren avanzar con una ventaja extra en SurvivalOP."
-                                data-items="Equipamiento especial|Herramientas mejoradas|Objetos exclusivos|Recompensas adicionales">
+                        <!-- CAMBIO: ENLACE A LA PÁGINA SUPERIOR -->
+                        <a href="superior.html" class="kit-info-button">
                             VER KIT
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                 <!-- KAIZORA SUPREMO -->
-
                 <div class="kit-card">
                     <div class="kit-name">Kaizora Supremo</div>
                     <div class="kit-subtitle">Kit premium</div>
@@ -1230,7 +1122,6 @@
                 </div>
 
                 <!-- KAIZORA INFINITY -->
-
                 <div class="kit-card">
                     <div class="kit-name">Kaizora Infinity</div>
                     <div class="kit-subtitle">Kit premium</div>
@@ -1261,22 +1152,17 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </section>
 
         <div class="section-divider"></div>
 
         <!-- CÓMO SE JUEGA -->
-
         <section class="section" id="como-se-juega">
             <div class="section-header">
-
                 <div class="section-label">SUPERVIVENCIA</div>
 
-                <h2 class="section-title">
-                    ¿Cómo se <span>juega?</span>
-                </h2>
+                <h2 class="section-title">¿Cómo se <span>juega?</span></h2>
 
                 <p class="section-description">
                     SurvivalOP toma la base del Survival tradicional
@@ -1284,11 +1170,9 @@
                     con sistemas de progreso, actividades, economía,
                     competencias y contenido adicional.
                 </p>
-
             </div>
 
             <div class="how-grid">
-
                 <div class="how-card">
                     <div class="how-number">01 · COMIENZA</div>
                     <h3>Empieza tu supervivencia</h3>
@@ -1404,18 +1288,12 @@
                         seguir progresando.
                     </p>
                 </div>
-
             </div>
         </section>
-
     </main>
 
     <!-- VENTANA DE INFORMACIÓN DE KITS -->
-
-    <div class="kit-modal"
-         id="kitInfoModal"
-         aria-hidden="true">
-
+    <div class="kit-modal" id="kitInfoModal" aria-hidden="true">
         <div class="kit-modal-content"
              role="dialog"
              aria-modal="true"
@@ -1429,9 +1307,7 @@
                 &times;
             </button>
 
-            <div class="kit-modal-label">
-                KAIZORA ORIGINS · TIENDA
-            </div>
+            <div class="kit-modal-label">KAIZORA ORIGINS · TIENDA</div>
 
             <h2 class="kit-modal-title" id="kitModalTitle">
                 Información del kit
@@ -1448,12 +1324,10 @@
                rel="noopener noreferrer">
                 COMPRAR KIT
             </a>
-
         </div>
     </div>
 
     <!-- FOOTER -->
-
     <footer>
         © 2026 <span>Kaizora Origins</span> · SurvivalOP
     </footer>
@@ -1463,7 +1337,6 @@
         const light = document.getElementById('light');
 
         /* EFECTO DEL FONDO CON EL RATÓN */
-
         document.addEventListener('mousemove', function(event) {
             const x = event.clientX / window.innerWidth;
             const y = event.clientY / window.innerHeight;
@@ -1479,13 +1352,11 @@
         });
 
         /* VENTANA VER KIT */
-
         const kitModal = document.getElementById('kitInfoModal');
         const kitModalTitle = document.getElementById('kitModalTitle');
         const kitModalDescription = document.getElementById('kitModalDescription');
         const kitModalItems = document.getElementById('kitModalItems');
         const kitModalClose = document.getElementById('kitModalClose');
-        const kitModalBuy = document.getElementById('kitModalBuy');
 
         let previousFocus = null;
 
@@ -1521,7 +1392,12 @@
             }
         }
 
-        document.querySelectorAll('.kit-info-button').forEach(function(button) {
+        /*
+         * IMPORTANTE:
+         * Solo los botones <button> abren la ventana informativa.
+         * El enlace <a href="superior.html"> navega a la página Superior.
+         */
+        document.querySelectorAll('button.kit-info-button').forEach(function(button) {
             button.addEventListener('click', function() {
                 openKitModal(button);
             });
@@ -1547,6 +1423,5 @@
             }
         });
     </script>
-
 </body>
 </html>
