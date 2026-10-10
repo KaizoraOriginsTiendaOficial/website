@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +9,6 @@
     <meta name="description" content="Kaizora Origins — Modalidad SurvivalOP.">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -27,43 +27,20 @@
             min-height: 100vh;
         }
 
-        /* =========================
-           FONDO
-        ========================= */
+        /* FONDO */
 
         .minecraft-background {
             position: fixed;
             inset: 0;
             z-index: -10;
-
             background:
-                radial-gradient(
-                    circle at 72% 35%,
-                    rgba(147,101,255,0.28) 0%,
-                    rgba(147,101,255,0.12) 25%,
-                    transparent 58%
-                ),
-                radial-gradient(
-                    circle at 25% 75%,
-                    rgba(100,55,190,0.20) 0%,
-                    transparent 50%
-                ),
-                radial-gradient(
-                    circle at 50% 50%,
-                    rgba(112,67,210,0.10) 0%,
-                    transparent 60%
-                ),
-                linear-gradient(
-                    135deg,
-                    #030305 0%,
-                    #08060d 45%,
-                    #050308 100%
-                );
-
+                radial-gradient(circle at 72% 35%, rgba(147,101,255,0.28) 0%, rgba(147,101,255,0.12) 25%, transparent 58%),
+                radial-gradient(circle at 25% 75%, rgba(100,55,190,0.20) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(112,67,210,0.10) 0%, transparent 60%),
+                linear-gradient(135deg, #030305 0%, #08060d 45%, #050308 100%);
             background-size: 140% 140%;
             background-position: center;
             background-repeat: no-repeat;
-
             transform: scale(1.04);
             transition: transform 0.8s ease-out;
         }
@@ -72,71 +49,36 @@
             content: "";
             position: absolute;
             inset: 0;
-
-            background:
-                radial-gradient(
-                    ellipse at center,
-                    transparent 20%,
-                    rgba(0,0,0,0.35) 75%,
-                    rgba(0,0,0,0.75) 100%
-                );
+            background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,0.75) 100%);
         }
 
         .light-effect {
             position: fixed;
-
             width: 550px;
             height: 550px;
-
             border-radius: 50%;
             pointer-events: none;
-
             z-index: -5;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(147,101,255,0.12),
-                    transparent 68%
-                );
-
+            background: radial-gradient(circle, rgba(147,101,255,0.12), transparent 68%);
             transform: translate(-50%, -50%);
-
-            transition:
-                left 0.25s ease-out,
-                top 0.25s ease-out;
+            transition: left 0.25s ease-out, top 0.25s ease-out;
         }
 
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* NAVBAR */
 
         nav {
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100%;
             height: 78px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 0 6%;
-
-            background:
-                linear-gradient(
-                    rgba(5,7,8,0.82),
-                    rgba(5,7,8,0.35)
-                );
-
+            background: linear-gradient(rgba(5,7,8,0.82), rgba(5,7,8,0.35));
             backdrop-filter: blur(12px);
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.08);
-
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             z-index: 100;
         }
 
@@ -154,9 +96,7 @@
             display: flex;
             align-items: center;
             gap: 34px;
-
             list-style: none;
-
             margin-left: auto;
             margin-right: 28px;
         }
@@ -164,10 +104,8 @@
         nav ul a {
             color: #c5c5c9;
             text-decoration: none;
-
             font-size: 14px;
             font-weight: 900;
-
             transition: 0.25s;
         }
 
@@ -175,9 +113,7 @@
             color: white;
         }
 
-        /* =========================
-           MODALIDADES
-        ========================= */
+        /* MODALIDADES */
 
         .modality-dropdown {
             position: relative;
@@ -187,49 +123,23 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             gap: 8px;
-
-            border:
-                1px solid rgba(198,150,255,0.75);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #6f35d9,
-                    #a855f7
-                );
-
+            border: 1px solid rgba(198,150,255,0.75);
+            background: linear-gradient(135deg, #6f35d9, #a855f7);
             color: #ffffff;
-
             padding: 10px 15px;
-
             border-radius: 8px;
-
             font-size: 13px;
             font-weight: 900;
-
             cursor: pointer;
-
             transition: 0.25s;
-
-            box-shadow:
-                0 0 20px rgba(145,75,255,0.25);
+            box-shadow: 0 0 20px rgba(145,75,255,0.25);
         }
 
         .modality-button:hover {
-            border-color:
-                rgba(220,190,255,0.95);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #8246e8,
-                    #b565ff
-                );
-
-            box-shadow:
-                0 0 28px rgba(145,75,255,0.40);
+            border-color: rgba(220,190,255,0.95);
+            background: linear-gradient(135deg, #8246e8, #b565ff);
+            box-shadow: 0 0 28px rgba(145,75,255,0.40);
         }
 
         .modality-button span {
@@ -241,30 +151,17 @@
 
         .modality-menu {
             position: absolute;
-
             right: 0;
             top: calc(100% + 9px);
-
             min-width: 170px;
-
             padding: 8px;
-
-            border:
-                1px solid rgba(255,255,255,0.10);
-
+            border: 1px solid rgba(255,255,255,0.10);
             border-radius: 10px;
-
-            background:
-                rgba(9,11,14,0.97);
-
-            box-shadow:
-                0 18px 45px rgba(0,0,0,0.45);
-
+            background: rgba(9,11,14,0.97);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
             opacity: 0;
             visibility: hidden;
-
             transform: translateY(-6px);
-
             transition: 0.2s;
         }
 
@@ -277,31 +174,21 @@
 
         .modality-menu a {
             display: block;
-
             padding: 10px 12px;
-
             border-radius: 7px;
-
             color: #c9c9ce;
-
             text-decoration: none;
-
             font-size: 12px;
             font-weight: 900;
-
             transition: 0.2s;
         }
 
         .modality-menu a:hover {
-            background:
-                rgba(169,130,255,0.12);
-
+            background: rgba(169,130,255,0.12);
             color: white;
         }
 
-        /* =========================
-           CONTENIDO GENERAL
-        ========================= */
+        /* CONTENIDO GENERAL */
 
         main {
             width: 100%;
@@ -310,11 +197,8 @@
         .section {
             width: 100%;
             max-width: 1200px;
-
             margin: 0 auto;
-
-            padding:
-                75px 7% 60px;
+            padding: 75px 7% 60px;
         }
 
         .section-header {
@@ -323,25 +207,18 @@
 
         .section-label {
             display: inline-block;
-
             margin-bottom: 10px;
-
             color: #a982ff;
-
             font-size: 12px;
             font-weight: 900;
-
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .section-title {
             font-size: clamp(32px, 4vw, 48px);
-
             line-height: 1.05;
-
             margin-bottom: 12px;
-
             font-weight: 900;
         }
 
@@ -351,28 +228,19 @@
 
         .section-description {
             max-width: 760px;
-
             color: #9c9ca3;
-
             font-size: 15px;
             line-height: 1.65;
-
             font-weight: 700;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
 
         .survival-hero {
             min-height: 78vh;
-
             display: flex;
             align-items: center;
-
-            padding:
-                125px 7% 65px;
-
+            padding: 125px 7% 65px;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -383,36 +251,22 @@
 
         .hero-label {
             display: inline-block;
-
             padding: 9px 14px;
-
             margin-bottom: 18px;
-
-            border:
-                1px solid rgba(169,130,255,0.40);
-
-            background:
-                rgba(147,101,255,0.10);
-
+            border: 1px solid rgba(169,130,255,0.40);
+            background: rgba(147,101,255,0.10);
             border-radius: 7px;
-
             color: #b49cff;
-
             font-size: 12px;
             font-weight: 900;
-
             letter-spacing: 2px;
         }
 
         .hero-title {
             font-size: clamp(65px, 9vw, 115px);
-
             line-height: 0.88;
-
             letter-spacing: -5px;
-
             margin-bottom: 24px;
-
             font-weight: 900;
         }
 
@@ -422,15 +276,10 @@
 
         .hero-description {
             max-width: 720px;
-
             color: #aaaab0;
-
             font-size: 17px;
-
             line-height: 1.65;
-
             margin-bottom: 27px;
-
             font-weight: 700;
         }
 
@@ -442,170 +291,92 @@
 
         .hero-button {
             display: inline-flex;
-
             align-items: center;
             justify-content: center;
-
             padding: 13px 21px;
-
             border-radius: 8px;
-
             text-decoration: none;
-
             font-size: 13px;
             font-weight: 900;
-
             transition: 0.25s;
         }
 
         .hero-button.primary {
-            background:
-                linear-gradient(
-                    135deg,
-                    #7037dc,
-                    #a855f7
-                );
-
+            background: linear-gradient(135deg, #7037dc, #a855f7);
             color: white;
-
-            box-shadow:
-                0 0 25px rgba(145,75,255,0.20);
+            box-shadow: 0 0 25px rgba(145,75,255,0.20);
         }
 
         .hero-button.primary:hover {
             transform: translateY(-2px);
-
-            box-shadow:
-                0 0 35px rgba(145,75,255,0.35);
+            box-shadow: 0 0 35px rgba(145,75,255,0.35);
         }
 
         .hero-button.secondary {
-            border:
-                1px solid rgba(255,255,255,0.12);
-
-            background:
-                rgba(255,255,255,0.04);
-
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
             color: #d0d0d4;
         }
 
         .hero-button.secondary:hover {
-            background:
-                rgba(255,255,255,0.08);
-
+            background: rgba(255,255,255,0.08);
             color: white;
         }
 
-        /* =========================
-           CRATES
-        ========================= */
+        /* CRATES */
 
         .products-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 16px;
         }
 
         .product-card {
             position: relative;
-
             padding: 22px;
-
             min-height: 285px;
-
             display: flex;
             flex-direction: column;
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 13px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(20,17,27,0.94),
-                    rgba(10,10,13,0.90)
-                );
-
+            background: linear-gradient(145deg, rgba(20,17,27,0.94), rgba(10,10,13,0.90));
             overflow: hidden;
-
-            transition:
-                transform 0.25s,
-                border-color 0.25s,
-                box-shadow 0.25s;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
         }
 
         .product-card::before {
             content: "";
-
             position: absolute;
-
             top: -80px;
             right: -80px;
-
             width: 180px;
             height: 180px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(147,101,255,0.16),
-                    transparent 70%
-                );
-
+            background: radial-gradient(circle, rgba(147,101,255,0.16), transparent 70%);
             pointer-events: none;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-
-            border-color:
-                rgba(169,130,255,0.30);
-
-            box-shadow:
-                0 15px 45px rgba(0,0,0,0.25);
+            border-color: rgba(169,130,255,0.30);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.25);
         }
-
-        /* =========================
-           FONDO DE CADA CRATE
-        ========================= */
 
         .key-image {
             width: 100%;
             height: 125px;
-
             margin-bottom: 15px;
-
             border-radius: 10px;
-
             overflow: hidden;
-
             border: 1px solid rgba(255,255,255,0.10);
-
             position: relative;
-
-            transition:
-                transform 0.25s,
-                box-shadow 0.25s;
+            transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .key-image::after {
             content: "";
-
             position: absolute;
             inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255,255,255,0.18),
-                    transparent 62%
-                );
-
+            background: radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 62%);
             pointer-events: none;
         }
 
@@ -613,241 +384,96 @@
             transform: scale(1.015);
         }
 
-        /* =========================
-           COLORES DE LAS CRATES
-        ========================= */
+        /* COLORES DE CRATES */
 
         .origin .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #ffffff,
-                    #dcdcdc
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,255,255,0.35);
+            background: linear-gradient(135deg, #ffffff, #dcdcdc);
+            box-shadow: inset 0 0 35px rgba(255,255,255,0.35);
         }
 
         .elite .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #071a45,
-                    #0d357f
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(40,100,255,0.20);
+            background: linear-gradient(135deg, #071a45, #0d357f);
+            box-shadow: inset 0 0 35px rgba(40,100,255,0.20);
         }
 
         .celestial .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #00aeca,
-                    #39e4ff
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(100,240,255,0.28);
+            background: linear-gradient(135deg, #00aeca, #39e4ff);
+            box-shadow: inset 0 0 35px rgba(100,240,255,0.28);
         }
 
         .majestad .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #d49b00,
-                    #ffe45b
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,235,100,0.30);
+            background: linear-gradient(135deg, #d49b00, #ffe45b);
+            box-shadow: inset 0 0 35px rgba(255,235,100,0.30);
         }
 
         .guardian .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #0a3d25,
-                    #176f43
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(50,180,100,0.20);
+            background: linear-gradient(135deg, #0a3d25, #176f43);
+            box-shadow: inset 0 0 35px rgba(50,180,100,0.20);
         }
 
         .semidios .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #b92e6d,
-                    #ff79b3
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,120,180,0.25);
+            background: linear-gradient(135deg, #b92e6d, #ff79b3);
+            box-shadow: inset 0 0 35px rgba(255,120,180,0.25);
         }
 
         .dios .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #4b0000,
-                    #a80000
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,50,50,0.20);
+            background: linear-gradient(135deg, #4b0000, #a80000);
+            box-shadow: inset 0 0 35px rgba(255,50,50,0.20);
         }
 
         .kaizora .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #c52b82,
-                    #ff75b8
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,120,200,0.25);
+            background: linear-gradient(135deg, #c52b82, #ff75b8);
+            box-shadow: inset 0 0 35px rgba(255,120,200,0.25);
         }
 
-        /* =========================
-           COLORES DE LAS ESTRELLAS
-        ========================= */
+        /* COLORES DE ESTRELLAS */
 
         .estrella-minas .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #06152f,
-                    #0d3570
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(40,100,255,0.20);
+            background: linear-gradient(135deg, #06152f, #0d3570);
+            box-shadow: inset 0 0 35px rgba(40,100,255,0.20);
         }
 
         .earth .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #0a301d,
-                    #17603a
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(50,180,100,0.20);
+            background: linear-gradient(135deg, #0a301d, #17603a);
+            box-shadow: inset 0 0 35px rgba(50,180,100,0.20);
         }
 
         .estrella-soleada .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #c58a00,
-                    #ffe45b
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,235,100,0.30);
+            background: linear-gradient(135deg, #c58a00, #ffe45b);
+            box-shadow: inset 0 0 35px rgba(255,235,100,0.30);
         }
 
         .angelical .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #00aeca,
-                    #48eaff
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(100,240,255,0.28);
+            background: linear-gradient(135deg, #00aeca, #48eaff);
+            box-shadow: inset 0 0 35px rgba(100,240,255,0.28);
         }
 
         .galaxy .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #7d2fa8,
-                    #ff6fcf
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,120,220,0.25);
+            background: linear-gradient(135deg, #7d2fa8, #ff6fcf);
+            box-shadow: inset 0 0 35px rgba(255,120,220,0.25);
         }
 
         .supernova .key-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #c54d00,
-                    #ff9d3d
-                );
-
-            box-shadow:
-                inset 0 0 35px rgba(255,140,50,0.25);
+            background: linear-gradient(135deg, #c54d00, #ff9d3d);
+            box-shadow: inset 0 0 35px rgba(255,140,50,0.25);
         }
 
-        /* =========================
-           COLORES DE NOMBRES
-        ========================= */
+        /* COLORES DE NOMBRES */
 
-        .origin h3 {
-            color: #ffffff;
-        }
-
-        .elite h3 {
-            color: #4d8dff;
-        }
-
-        .celestial h3 {
-            color: #2bd7f5;
-        }
-
-        .majestad h3 {
-            color: #ffd34d;
-        }
-
-        .guardian h3 {
-            color: #218c55;
-        }
-
-        .semidios h3 {
-            color: #ff72b1;
-        }
-
-        .dios h3 {
-            color: #d92828;
-        }
-
-        .kaizora h3 {
-            color: #ff75b8;
-        }
-
-        .estrella-minas h3 {
-            color: #3d78c9;
-        }
-
-        .earth h3 {
-            color: #2d9b5f;
-        }
-
-        .estrella-soleada h3 {
-            color: #ffd34d;
-        }
-
-        .angelical h3 {
-            color: #2bd7f5;
-        }
-
-        .galaxy h3 {
-            color: #e276ff;
-        }
-
-        .supernova h3 {
-            color: #ff8a32;
-        }
+        .origin h3 { color: #ffffff; }
+        .elite h3 { color: #4d8dff; }
+        .celestial h3 { color: #2bd7f5; }
+        .majestad h3 { color: #ffd34d; }
+        .guardian h3 { color: #218c55; }
+        .semidios h3 { color: #ff72b1; }
+        .dios h3 { color: #d92828; }
+        .kaizora h3 { color: #ff75b8; }
+        .estrella-minas h3 { color: #3d78c9; }
+        .earth h3 { color: #2d9b5f; }
+        .estrella-soleada h3 { color: #ffd34d; }
+        .angelical h3 { color: #2bd7f5; }
+        .galaxy h3 { color: #e276ff; }
+        .supernova h3 { color: #ff8a32; }
 
         .product-card h3 {
             font-size: 18px;
@@ -865,11 +491,9 @@
 
         .product-bottom {
             margin-top: auto;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 10px;
         }
 
@@ -881,35 +505,22 @@
 
         .product-buy {
             padding: 9px 13px;
-
-            border:
-                1px solid rgba(169,130,255,0.25);
-
+            border: 1px solid rgba(169,130,255,0.25);
             border-radius: 7px;
-
-            background:
-                rgba(147,101,255,0.10);
-
+            background: rgba(147,101,255,0.10);
             color: #b49cff;
-
             text-decoration: none;
-
             font-size: 11px;
             font-weight: 900;
-
             transition: 0.2s;
         }
 
         .product-buy:hover {
-            background:
-                rgba(147,101,255,0.20);
-
+            background: rgba(147,101,255,0.20);
             color: white;
         }
 
-        /* =========================
-           KITS
-        ========================= */
+        /* KITS */
 
         .kits-grid {
             display: grid;
@@ -919,29 +530,15 @@
 
         .kit-card {
             padding: 30px;
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 13px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(18,15,25,0.95),
-                    rgba(9,9,12,0.95)
-                );
-
-            transition:
-                transform 0.25s,
-                border-color 0.25s;
+            background: linear-gradient(145deg, rgba(18,15,25,0.95), rgba(9,9,12,0.95));
+            transition: transform 0.25s, border-color 0.25s;
         }
 
         .kit-card:hover {
             transform: translateY(-5px);
-
-            border-color:
-                rgba(169,130,255,0.32);
+            border-color: rgba(169,130,255,0.32);
         }
 
         .kit-name {
@@ -952,13 +549,10 @@
 
         .kit-subtitle {
             color: #a982ff;
-
             font-size: 11px;
             font-weight: 900;
-
             text-transform: uppercase;
             letter-spacing: 1.5px;
-
             margin-bottom: 20px;
         }
 
@@ -969,14 +563,9 @@
 
         .kit-card li {
             color: #9a9aa1;
-
             font-size: 13px;
-
             padding: 9px 0;
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.05);
-
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             font-weight: 700;
         }
 
@@ -990,41 +579,168 @@
             margin-bottom: 16px;
         }
 
-        .kit-button {
-            display: block;
+        /* BOTONES COMPRAR KIT Y VER KIT */
 
+        .kit-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .kit-button,
+        .kit-info-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-
-            padding: 11px;
-
+            min-height: 42px;
+            padding: 11px 8px;
             text-align: center;
-
             border-radius: 7px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #7037dc,
-                    #9b52e9
-                );
-
             color: white;
-
             text-decoration: none;
-
-            font-size: 12px;
+            font-family: inherit;
+            font-size: 11px;
             font-weight: 900;
-
+            cursor: pointer;
             transition: 0.2s;
         }
 
-        .kit-button:hover {
-            filter: brightness(1.12);
+        .kit-button {
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, #7037dc, #9b52e9);
         }
 
-        /* =========================
-           COMO SE JUEGA
-        ========================= */
+        .kit-info-button {
+            border: 1px solid rgba(169,130,255,0.42);
+            background: rgba(147,101,255,0.09);
+        }
+
+        .kit-button:hover,
+        .kit-info-button:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+        }
+
+        /* VENTANA DE INFORMACIÓN */
+
+        .kit-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            background: rgba(0,0,0,0.78);
+            backdrop-filter: blur(8px);
+        }
+
+        .kit-modal.is-open {
+            display: flex;
+        }
+
+        .kit-modal-content {
+            position: relative;
+            width: min(100%, 520px);
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 32px;
+            border: 1px solid rgba(169,130,255,0.35);
+            border-radius: 14px;
+            background: linear-gradient(145deg, #171220, #09090c);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.55);
+            animation: kitModalIn 0.22s ease-out;
+        }
+
+        @keyframes kitModalIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .kit-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            width: 34px;
+            height: 34px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .kit-modal-close:hover {
+            background: rgba(169,130,255,0.18);
+        }
+
+        .kit-modal-label {
+            margin-bottom: 9px;
+            color: #b49cff;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .kit-modal-title {
+            margin: 0 40px 12px 0;
+            color: white;
+            font-size: 27px;
+            font-weight: 900;
+        }
+
+        .kit-modal-description {
+            margin-bottom: 18px;
+            color: #b9b5c3;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .kit-modal-list {
+            margin: 0 0 24px;
+            padding-left: 20px;
+            color: #ded9e8;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .kit-modal-list li {
+            padding-left: 3px;
+        }
+
+        .kit-modal-list li::marker {
+            color: #a982ff;
+        }
+
+        .kit-modal-buy {
+            display: block;
+            padding: 13px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, #7037dc, #9b52e9);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            transition: 0.2s;
+        }
+
+        .kit-modal-buy:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+        }
+
+        /* CÓMO SE JUEGA */
 
         .how-grid {
             display: grid;
@@ -1034,35 +750,22 @@
 
         .how-card {
             padding: 30px;
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 13px;
-
-            background:
-                rgba(12,12,16,0.78);
-
-            transition:
-                transform 0.25s,
-                border-color 0.25s;
+            background: rgba(12,12,16,0.78);
+            transition: transform 0.25s, border-color 0.25s;
         }
 
         .how-card:hover {
             transform: translateY(-4px);
-
-            border-color:
-                rgba(169,130,255,0.28);
+            border-color: rgba(169,130,255,0.28);
         }
 
         .how-number {
             color: #a982ff;
-
             font-size: 13px;
             font-weight: 900;
-
             letter-spacing: 1px;
-
             margin-bottom: 20px;
         }
 
@@ -1074,51 +777,29 @@
 
         .how-card p {
             color: #94949b;
-
             font-size: 13px;
-
             line-height: 1.75;
-
             font-weight: 700;
         }
 
-        /* =========================
-           SEPARADORES
-        ========================= */
+        /* SEPARADORES */
 
         .section-divider {
             width: 86%;
             max-width: 1200px;
-
             height: 1px;
-
             margin: 0 auto;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(169,130,255,0.20),
-                    transparent
-                );
+            background: linear-gradient(90deg, transparent, rgba(169,130,255,0.20), transparent);
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             padding: 45px 7%;
-
             text-align: center;
-
-            border-top:
-                1px solid rgba(255,255,255,0.06);
-
+            border-top: 1px solid rgba(255,255,255,0.06);
             color: #66666d;
-
             font-size: 12px;
-
             font-weight: 700;
         }
 
@@ -1126,19 +807,15 @@
             color: #a982ff;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* RESPONSIVE */
 
         @media (max-width: 1100px) {
-
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 1000px) {
-
             nav ul {
                 display: none;
             }
@@ -1151,7 +828,6 @@
         }
 
         @media (max-width: 650px) {
-
             nav {
                 padding: 0 5%;
             }
@@ -1162,7 +838,6 @@
 
             .survival-hero {
                 min-height: auto;
-
                 padding-top: 125px;
                 padding-bottom: 55px;
             }
@@ -1186,71 +861,63 @@
                 padding-left: 6%;
                 padding-right: 6%;
             }
-
         }
 
+        @media (max-width: 480px) {
+            .kit-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .kit-modal-content {
+                padding: 26px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <div class="minecraft-background"></div>
-
     <div class="light-effect" id="light"></div>
 
-
-    <!-- =========================
-         NAVBAR
-    ========================= -->
+    <!-- NAVBAR -->
 
     <nav>
-
         <div class="logo">
             KAIZORA <span>ORIGINS</span>
         </div>
 
         <ul>
-
-            <li>
-                <a href="index.html">
-                    Inicio
-                </a>
-            </li>
-
+            <li><a href="index.html">Inicio</a></li>
         </ul>
 
         <div class="modality-dropdown">
-
             <button class="modality-button" type="button">
                 Modalidades <span>⌄</span>
             </button>
 
             <div class="modality-menu">
-
-                <a href="survivalop.html">
-                    SurvivalOP
-                </a>
-
-                <a href="extremo.html">
-                    Extremo
-                </a>
-
+                <a href="index.html">Pagina Inicial</a>
+                <a href="survivalop.html">SurvivalOP</a>
             </div>
-
         </div>
-
     </nav>
-
 
     <main>
 
-
-        <!-- =========================
-             HERO
-        ========================= -->
+        <!-- HERO -->
 
         <section class="survival-hero">
-
             <div class="hero-content">
 
                 <div class="hero-label">
@@ -1268,39 +935,24 @@
                 </p>
 
                 <div class="hero-buttons">
-
-                    <a
-                        href="#como-se-juega"
-                        class="hero-button primary"
-                    >
+                    <a href="#como-se-juega" class="hero-button primary">
                         ¿CÓMO SE JUEGA?
                     </a>
 
-                    <a
-                        href="#items"
-                        class="hero-button secondary"
-                    >
+                    <a href="#items" class="hero-button secondary">
                         VER TIENDA
                     </a>
-
                 </div>
 
             </div>
-
         </section>
 
-
-        <!-- =========================
-             LLAVES / ITEMS
-        ========================= -->
+        <!-- LLAVES / ITEMS -->
 
         <section class="section" id="items">
-
             <div class="section-header">
 
-                <div class="section-label">
-                    TIENDA
-                </div>
+                <div class="section-label">TIENDA</div>
 
                 <h2 class="section-title">
                     Llaves de <span>Crates</span>
@@ -1310,7 +962,7 @@
                     Consigue llaves de las diferentes crates disponibles
                     en SurvivalOP. Cada crate cuenta con recompensas
                     diferentes y niveles de rareza que aumentan conforme
-                    avanzas dentro de la modalidad. (cada llave que compres, 
+                    avanzas dentro de la modalidad. (cada llave que compres,
                     se resta $0.30 al pago final, minimo 5 rebajas por cada
                     llave que sea comprada) (para mas explicacion, abre ticket
                     en el discord oificial)
@@ -1318,301 +970,99 @@
 
             </div>
 
-
             <div class="products-grid">
 
-
-                <!-- ORIGIN -->
-
                 <div class="product-card origin">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        ORIGIN
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Origin.
-                    </p>
-
+                    <h3>ORIGIN</h3>
+                    <p>Llave para la Crate Origin.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $0.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$0.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- ELITE -->
 
                 <div class="product-card elite">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        ELITE
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Elite.
-                    </p>
-
+                    <h3>ELITE</h3>
+                    <p>Llave para la Crate Elite.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $1.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$1.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- CELESTIAL -->
 
                 <div class="product-card celestial">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        CELESTIAL
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Celestial.
-                    </p>
-
+                    <h3>CELESTIAL</h3>
+                    <p>Llave para la Crate Celestial.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $2.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$2.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- MAJESTAD -->
 
                 <div class="product-card majestad">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        MAJESTAD
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Majestad.
-                    </p>
-
+                    <h3>MAJESTAD</h3>
+                    <p>Llave para la Crate Majestad.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $3.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$3.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- GUARDIAN -->
 
                 <div class="product-card guardian">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        GUARDIAN
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Guardian.
-                    </p>
-
+                    <h3>GUARDIAN</h3>
+                    <p>Llave para la Crate Guardian.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $5.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$5.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- SEMIDIOS -->
 
                 <div class="product-card semidios">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        SEMIDIOS
-                    </h3>
-
-                    <p>
-                        Llave para la Crate SemiDios.
-                    </p>
-
+                    <h3>SEMIDIOS</h3>
+                    <p>Llave para la Crate SemiDios.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $6.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$6.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- DIOS -->
 
                 <div class="product-card dios">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        DIOS
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Dios.
-                    </p>
-
+                    <h3>DIOS</h3>
+                    <p>Llave para la Crate Dios.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $7.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$7.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- KAIZORA -->
 
                 <div class="product-card kaizora">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        KAIZORA
-                    </h3>
-
-                    <p>
-                        Llave para la Crate Kaizora.
-                    </p>
-
+                    <h3>KAIZORA</h3>
+                    <p>Llave para la Crate Kaizora.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $9.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$9.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
 
-
             </div>
-
         </section>
-
 
         <div class="section-divider"></div>
 
-
-        <!-- =========================
-             ESTRELLAS
-        ========================= -->
+        <!-- ESTRELLAS -->
 
         <section class="section" id="estrellas">
-
             <div class="section-header">
 
-                <div class="section-label">
-                    TIENDA
-                </div>
+                <div class="section-label">TIENDA</div>
 
                 <h2 class="section-title">
                     <span>Estrellas</span> de Minas
@@ -1626,233 +1076,79 @@
 
             </div>
 
-
             <div class="products-grid">
 
-
-                <!-- ESTRELLA MINAS -->
-
                 <div class="product-card estrella-minas">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        ESTRELLA MINAS
-                    </h3>
-
-                    <p>
-                        Estrella para los picos de las minas automáticas.
-                    </p>
-
+                    <h3>ESTRELLA MINAS</h3>
+                    <p>Estrella para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $0.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$0.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- EARTH -->
 
                 <div class="product-card earth">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        EARTH
-                    </h3>
-
-                    <p>
-                        Estrella Earth para los picos de las minas automáticas.
-                    </p>
-
+                    <h3>EARTH</h3>
+                    <p>Estrella Earth para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $1.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$1.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- ESTRELLA SOLEADA -->
 
                 <div class="product-card estrella-soleada">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        ESTRELLA SOLEADA
-                    </h3>
-
-                    <p>
-                        Estrella soleada para los picos de las minas automáticas.
-                    </p>
-
+                    <h3>ESTRELLA SOLEADA</h3>
+                    <p>Estrella soleada para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $2.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$2.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- ANGELICAL -->
 
                 <div class="product-card angelical">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        ANGELICAL
-                    </h3>
-
-                    <p>
-                        Estrella angelical para los picos de las minas automáticas.
-                    </p>
-
+                    <h3>ANGELICAL</h3>
+                    <p>Estrella angelical para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $3.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$3.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- GALAXY -->
 
                 <div class="product-card galaxy">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        GALAXY
-                    </h3>
-
-                    <p>
-                        Estrella Galaxy para los picos de las minas automáticas.
-                    </p>
-
+                    <h3>GALAXY</h3>
+                    <p>Estrella Galaxy para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $4.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$4.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
-
-
-                <!-- SUPERNOVA -->
 
                 <div class="product-card supernova">
-
                     <div class="key-image"></div>
-
-                    <h3>
-                        SUPERNOVA
-                    </h3>
-
-                    <p>
-                        Estrella Supernova para los picos de las minas automáticas.
-                    </p>
-
+                    <h3>SUPERNOVA</h3>
+                    <p>Estrella Supernova para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
-
-                        <div class="product-price">
-                            $5.99
-                        </div>
-
-                        <a
-                            href="https://discord.gg/rUsjAeeUMY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="product-buy"
-                        >
-                            COMPRAR
-                        </a>
-
+                        <div class="product-price">$5.99</div>
+                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
-
                 </div>
 
-
             </div>
-
         </section>
-
 
         <div class="section-divider"></div>
 
-
-        <!-- =========================
-             KITS
-        ========================= -->
+        <!-- KITS -->
 
         <section class="section" id="kits">
-
             <div class="section-header">
 
-                <div class="section-label">
-                    TIENDA
-                </div>
+                <div class="section-label">TIENDA</div>
 
                 <h2 class="section-title">
                     Kits de <span>compra</span>
@@ -1865,18 +1161,13 @@
 
             </div>
 
-
             <div class="kits-grid">
 
+                <!-- KAIZORA SUPERIOR -->
+
                 <div class="kit-card">
-
-                    <div class="kit-name">
-                        Kaizora Superior
-                    </div>
-
-                    <div class="kit-subtitle">
-                        Kit premium
-                    </div>
+                    <div class="kit-name">Kaizora Superior</div>
+                    <div class="kit-subtitle">Kit premium</div>
 
                     <ul>
                         <li>Equipamiento especial</li>
@@ -1885,31 +1176,31 @@
                         <li>Recompensas adicionales</li>
                     </ul>
 
-                    <div class="kit-price">
-                        $0.00
+                    <div class="kit-price">$0.00</div>
+
+                    <div class="kit-actions">
+                        <a href="https://discord.gg/rUsjAeeUMY"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="kit-button">
+                            COMPRAR KIT
+                        </a>
+
+                        <button type="button"
+                                class="kit-info-button"
+                                data-kit="Kaizora Superior"
+                                data-description="Un kit pensado para quienes quieren avanzar con una ventaja extra en SurvivalOP."
+                                data-items="Equipamiento especial|Herramientas mejoradas|Objetos exclusivos|Recompensas adicionales">
+                            VER KIT
+                        </button>
                     </div>
-
-                    <a
-                        href="https://discord.gg/rUsjAeeUMY"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="kit-button"
-                    >
-                        COMPRAR KIT
-                    </a>
-
                 </div>
 
+                <!-- KAIZORA SUPREMO -->
 
                 <div class="kit-card">
-
-                    <div class="kit-name">
-                        Kaizora Supremo
-                    </div>
-
-                    <div class="kit-subtitle">
-                        Kit premium
-                    </div>
+                    <div class="kit-name">Kaizora Supremo</div>
+                    <div class="kit-subtitle">Kit premium</div>
 
                     <ul>
                         <li>Equipamiento avanzado</li>
@@ -1918,31 +1209,31 @@
                         <li>Recompensas adicionales</li>
                     </ul>
 
-                    <div class="kit-price">
-                        $0.00
+                    <div class="kit-price">$0.00</div>
+
+                    <div class="kit-actions">
+                        <a href="https://discord.gg/rUsjAeeUMY"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="kit-button">
+                            COMPRAR KIT
+                        </a>
+
+                        <button type="button"
+                                class="kit-info-button"
+                                data-kit="Kaizora Supremo"
+                                data-description="Un kit avanzado para jugadores que buscan potenciar su progreso y prepararse para los desafíos de SurvivalOP."
+                                data-items="Equipamiento avanzado|Herramientas especiales|Objetos exclusivos|Recompensas adicionales">
+                            VER KIT
+                        </button>
                     </div>
-
-                    <a
-                        href="https://discord.gg/rUsjAeeUMY"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="kit-button"
-                    >
-                        COMPRAR KIT
-                    </a>
-
                 </div>
 
+                <!-- KAIZORA INFINITY -->
 
                 <div class="kit-card">
-
-                    <div class="kit-name">
-                        Kaizora Infinity
-                    </div>
-
-                    <div class="kit-subtitle">
-                        Kit premium
-                    </div>
+                    <div class="kit-name">Kaizora Infinity</div>
+                    <div class="kit-subtitle">Kit premium</div>
 
                     <ul>
                         <li>Equipamiento Infinity</li>
@@ -1951,40 +1242,37 @@
                         <li>Recompensas especiales</li>
                     </ul>
 
-                    <div class="kit-price">
-                        $0.00
+                    <div class="kit-price">$0.00</div>
+
+                    <div class="kit-actions">
+                        <a href="https://discord.gg/rUsjAeeUMY"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="kit-button">
+                            COMPRAR KIT
+                        </a>
+
+                        <button type="button"
+                                class="kit-info-button"
+                                data-kit="Kaizora Infinity"
+                                data-description="El kit de mayor categoría de esta selección, pensado para jugadores que quieren acceder a equipamiento y recompensas especiales."
+                                data-items="Equipamiento Infinity|Herramientas avanzadas|Objetos exclusivos|Recompensas especiales">
+                            VER KIT
+                        </button>
                     </div>
-
-                    <a
-                        href="https://discord.gg/rUsjAeeUMY"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="kit-button"
-                    >
-                        COMPRAR KIT
-                    </a>
-
                 </div>
 
             </div>
-
         </section>
-
 
         <div class="section-divider"></div>
 
-
-        <!-- =========================
-             COMO SE JUEGA
-        ========================= -->
+        <!-- CÓMO SE JUEGA -->
 
         <section class="section" id="como-se-juega">
-
             <div class="section-header">
 
-                <div class="section-label">
-                    SUPERVIVENCIA
-                </div>
+                <div class="section-label">SUPERVIVENCIA</div>
 
                 <h2 class="section-title">
                     ¿Cómo se <span>juega?</span>
@@ -1999,19 +1287,11 @@
 
             </div>
 
-
             <div class="how-grid">
 
                 <div class="how-card">
-
-                    <div class="how-number">
-                        01 · COMIENZA
-                    </div>
-
-                    <h3>
-                        Empieza tu supervivencia
-                    </h3>
-
+                    <div class="how-number">01 · COMIENZA</div>
+                    <h3>Empieza tu supervivencia</h3>
                     <p>
                         Al entrar comenzarás como en cualquier Survival:
                         tendrás que conseguir recursos, construir tu base,
@@ -2020,20 +1300,11 @@
                         el comienzo. A medida que avances encontrarás nuevos
                         sistemas y formas de progresar.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        02 · PROGRESA
-                    </div>
-
-                    <h3>
-                        Mejora mucho más allá del Survival
-                    </h3>
-
+                    <div class="how-number">02 · PROGRESA</div>
+                    <h3>Mejora mucho más allá del Survival</h3>
                     <p>
                         En SurvivalOP no estás limitado a los encantamientos
                         y progresión del Survival vanilla. Podrás conseguir
@@ -2042,20 +1313,11 @@
                         habituales del juego para crear un progreso mucho
                         más profundo.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        03 · MINAS
-                    </div>
-
-                    <h3>
-                        Consigue recursos automáticamente
-                    </h3>
-
+                    <div class="how-number">03 · MINAS</div>
+                    <h3>Consigue recursos automáticamente</h3>
                     <p>
                         Las minas son una parte importante de SurvivalOP.
                         En lugar de depender únicamente de una mina
@@ -2064,20 +1326,11 @@
                         más eficiente y continuar avanzando dentro de la
                         economía del servidor.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        04 · KOTH
-                    </div>
-
-                    <h3>
-                        Compite por el control
-                    </h3>
-
+                    <div class="how-number">04 · KOTH</div>
+                    <h3>Compite por el control</h3>
                     <p>
                         Los KOTH son eventos en los que los jugadores
                         compiten por controlar una zona durante un periodo
@@ -2086,20 +1339,11 @@
                         Survival en una verdadera competición entre
                         jugadores y clanes.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        05 · EVENTOS
-                    </div>
-
-                    <h3>
-                        Juega incluso desde el chat
-                    </h3>
-
+                    <div class="how-number">05 · EVENTOS</div>
+                    <h3>Juega incluso desde el chat</h3>
                     <p>
                         SurvivalOP también cuenta con actividades y juegos
                         que pueden aparecer directamente en el chat.
@@ -2108,20 +1352,11 @@
                         juegas normalmente, sin tener que abandonar tu
                         aventura.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        06 · CLANES
-                    </div>
-
-                    <h3>
-                        Forma tu propio equipo
-                    </h3>
-
+                    <div class="how-number">06 · CLANES</div>
+                    <h3>Forma tu propio equipo</h3>
                     <p>
                         Crea o únete a un clan junto a otros jugadores.
                         Trabajen juntos, compartan objetivos y compitan
@@ -2129,20 +1364,11 @@
                         añaden una parte social y competitiva que no existe
                         en el Survival vanilla.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        07 · ECONOMÍA
-                    </div>
-
-                    <h3>
-                        Compra, vende y genera dinero
-                    </h3>
-
+                    <div class="how-number">07 · ECONOMÍA</div>
+                    <h3>Compra, vende y genera dinero</h3>
                     <p>
                         Los recursos que consigues tienen valor. Podrás
                         participar en la economía del servidor, conseguir
@@ -2151,20 +1377,11 @@
                         influir directamente en la velocidad con la que
                         avanzas.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        08 · ACTIVIDADES
-                    </div>
-
-                    <h3>
-                        Siempre hay algo que hacer
-                    </h3>
-
+                    <div class="how-number">08 · ACTIVIDADES</div>
+                    <h3>Siempre hay algo que hacer</h3>
                     <p>
                         Además de construir y conseguir recursos, podrás
                         participar en diferentes actividades del servidor:
@@ -2173,20 +1390,11 @@
                         No tienes que limitarte a jugar como en un Survival
                         tradicional.
                     </p>
-
                 </div>
 
-
                 <div class="how-card">
-
-                    <div class="how-number">
-                        09 · DOMINA
-                    </div>
-
-                    <h3>
-                        Llega hasta el máximo nivel
-                    </h3>
-
+                    <div class="how-number">09 · DOMINA</div>
+                    <h3>Llega hasta el máximo nivel</h3>
                     <p>
                         El objetivo no es simplemente sobrevivir. Mejora
                         tu equipamiento, desarrolla tu progreso, consigue
@@ -2195,64 +1403,149 @@
                         avances, más sistemas tendrás disponibles para
                         seguir progresando.
                     </p>
-
                 </div>
 
             </div>
-
         </section>
 
     </main>
 
+    <!-- VENTANA DE INFORMACIÓN DE KITS -->
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <div class="kit-modal"
+         id="kitInfoModal"
+         aria-hidden="true">
+
+        <div class="kit-modal-content"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="kitModalTitle"
+             aria-describedby="kitModalDescription">
+
+            <button class="kit-modal-close"
+                    id="kitModalClose"
+                    type="button"
+                    aria-label="Cerrar ventana">
+                &times;
+            </button>
+
+            <div class="kit-modal-label">
+                KAIZORA ORIGINS · TIENDA
+            </div>
+
+            <h2 class="kit-modal-title" id="kitModalTitle">
+                Información del kit
+            </h2>
+
+            <p class="kit-modal-description" id="kitModalDescription"></p>
+
+            <ul class="kit-modal-list" id="kitModalItems"></ul>
+
+            <a class="kit-modal-buy"
+               id="kitModalBuy"
+               href="https://discord.gg/rUsjAeeUMY"
+               target="_blank"
+               rel="noopener noreferrer">
+                COMPRAR KIT
+            </a>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
 
     <footer>
         © 2026 <span>Kaizora Origins</span> · SurvivalOP
     </footer>
 
-
     <script>
+        const background = document.querySelector('.minecraft-background');
+        const light = document.getElementById('light');
 
-        const background =
-            document.querySelector('.minecraft-background');
+        /* EFECTO DEL FONDO CON EL RATÓN */
 
-        const light =
-            document.getElementById('light');
+        document.addEventListener('mousemove', function(event) {
+            const x = event.clientX / window.innerWidth;
+            const y = event.clientY / window.innerHeight;
 
+            const moveX = (x - 0.5) * 18;
+            const moveY = (y - 0.5) * 12;
 
-        document.addEventListener(
-            'mousemove',
-            function(event) {
+            background.style.transform =
+                `scale(1.04) translate(${moveX}px, ${moveY}px)`;
 
-                const x =
-                    event.clientX / window.innerWidth;
+            light.style.left = event.clientX + 'px';
+            light.style.top = event.clientY + 'px';
+        });
 
-                const y =
-                    event.clientY / window.innerHeight;
+        /* VENTANA VER KIT */
 
-                const moveX =
-                    (x - 0.5) * 18;
+        const kitModal = document.getElementById('kitInfoModal');
+        const kitModalTitle = document.getElementById('kitModalTitle');
+        const kitModalDescription = document.getElementById('kitModalDescription');
+        const kitModalItems = document.getElementById('kitModalItems');
+        const kitModalClose = document.getElementById('kitModalClose');
+        const kitModalBuy = document.getElementById('kitModalBuy');
 
-                const moveY =
-                    (y - 0.5) * 12;
+        let previousFocus = null;
 
+        function openKitModal(button) {
+            previousFocus = button;
 
-                background.style.transform =
-                    `scale(1.04) translate(${moveX}px, ${moveY}px)`;
+            kitModalTitle.textContent = button.dataset.kit;
+            kitModalDescription.textContent = button.dataset.description;
 
+            /* Limpia la lista antes de cargar el kit seleccionado */
+            kitModalItems.replaceChildren();
 
-                light.style.left =
-                    event.clientX + 'px';
+            button.dataset.items.split('|').forEach(function(item) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                kitModalItems.appendChild(li);
+            });
 
-                light.style.top =
-                    event.clientY + 'px';
+            kitModal.classList.add('is-open');
+            kitModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
 
+            kitModalClose.focus();
+        }
+
+        function closeKitModal() {
+            kitModal.classList.remove('is-open');
+            kitModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+
+            if (previousFocus) {
+                previousFocus.focus();
             }
-        );
+        }
 
+        document.querySelectorAll('.kit-info-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                openKitModal(button);
+            });
+        });
+
+        /* Cerrar con la X */
+        kitModalClose.addEventListener('click', closeKitModal);
+
+        /* Cerrar al pulsar fuera de la ventana */
+        kitModal.addEventListener('click', function(event) {
+            if (event.target === kitModal) {
+                closeKitModal();
+            }
+        });
+
+        /* Cerrar con Escape */
+        document.addEventListener('keydown', function(event) {
+            if (
+                event.key === 'Escape' &&
+                kitModal.classList.contains('is-open')
+            ) {
+                closeKitModal();
+            }
+        });
     </script>
 
 </body>
