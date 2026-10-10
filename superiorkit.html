@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kit Premium Superior | Kaizora Origins</title>
-    <meta name="description" content="Consulta todo el contenido del Kit Premium Superior de Kaizora Origins SurvivalOP.">
+    <title>Kaizora Origins | Kit Superior</title>
+    <meta name="description" content="Descubre el contenido del Kit Superior de Kaizora Origins SurvivalOP.">
 
     <style>
         * {
@@ -20,7 +20,7 @@
             --pink: #ff4fd8;
             --white: #f8f7ff;
             --muted: #b8b2c9;
-            --panel: rgba(20, 13, 34, 0.86);
+            --panel: rgba(20, 13, 34, 0.88);
             --border: rgba(168, 85, 247, 0.3);
         }
 
@@ -34,9 +34,9 @@
             font-family: Arial, Helvetica, sans-serif;
             color: var(--white);
             background:
-                radial-gradient(ellipse at 15% 10%, rgba(134, 40, 255, 0.24), transparent 38%),
-                radial-gradient(ellipse at 85% 30%, rgba(255, 45, 210, 0.15), transparent 35%),
-                radial-gradient(ellipse at 50% 85%, rgba(112, 35, 220, 0.17), transparent 42%),
+                radial-gradient(ellipse at 15% 10%, rgba(134, 40, 255, .25), transparent 38%),
+                radial-gradient(ellipse at 85% 30%, rgba(255, 45, 210, .17), transparent 35%),
+                radial-gradient(ellipse at 50% 85%, rgba(112, 35, 220, .18), transparent 42%),
                 #07050d;
         }
 
@@ -46,15 +46,14 @@
             inset: -50%;
             z-index: -2;
             pointer-events: none;
-            background:
-                conic-gradient(
-                    from 0deg,
-                    transparent,
-                    rgba(168, 85, 247, 0.08),
-                    transparent,
-                    rgba(255, 79, 216, 0.07),
-                    transparent
-                );
+            background: conic-gradient(
+                from 0deg,
+                transparent,
+                rgba(168, 85, 247, .09),
+                transparent,
+                rgba(255, 79, 216, .08),
+                transparent
+            );
             filter: blur(75px);
             animation: ambient 22s linear infinite;
         }
@@ -65,7 +64,7 @@
             inset: 0;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.38;
+            opacity: .38;
             background-image:
                 radial-gradient(2px 2px at 10% 20%, #d9a7ff 50%, transparent 100%),
                 radial-gradient(2px 2px at 75% 30%, #ff8be9 50%, transparent 100%),
@@ -88,10 +87,10 @@
 
         @keyframes glow {
             0%, 100% {
-                box-shadow: 0 0 18px rgba(168, 85, 247, 0.13);
+                box-shadow: 0 0 18px rgba(168, 85, 247, .13);
             }
             50% {
-                box-shadow: 0 0 28px rgba(255, 79, 216, 0.23);
+                box-shadow: 0 0 28px rgba(255, 79, 216, .23);
             }
         }
 
@@ -109,8 +108,8 @@
             justify-content: space-between;
             gap: 20px;
             padding: 17px 7%;
-            border-bottom: 1px solid rgba(192, 132, 252, 0.2);
-            background: rgba(7, 5, 13, 0.82);
+            border-bottom: 1px solid rgba(192, 132, 252, .2);
+            background: rgba(7, 5, 13, .84);
             backdrop-filter: blur(18px);
         }
 
@@ -119,7 +118,7 @@
             font-weight: 900;
             letter-spacing: 1px;
             color: var(--purple-light);
-            text-shadow: 0 0 18px rgba(168, 85, 247, 0.55);
+            text-shadow: 0 0 18px rgba(168, 85, 247, .55);
             white-space: nowrap;
         }
 
@@ -132,13 +131,13 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 22px;
-            font-size: 0.88rem;
+            font-size: .88rem;
             font-weight: 700;
             color: #d8d1e8;
         }
 
         .nav-links a {
-            transition: color 0.2s ease;
+            transition: color .2s ease;
         }
 
         .nav-links a:hover {
@@ -148,18 +147,18 @@
         .page {
             width: min(1120px, 90%);
             margin: 0 auto;
-            padding: 48px 0 70px;
+            padding: 42px 0 70px;
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 28px;
+            margin-bottom: 26px;
             color: var(--purple-light);
+            font-size: .9rem;
             font-weight: 800;
-            font-size: 0.9rem;
-            transition: color 0.2s ease, transform 0.2s ease;
+            transition: color .2s ease, transform .2s ease;
         }
 
         .back-link:hover {
@@ -176,9 +175,9 @@
             border: 1px solid var(--border);
             border-radius: 24px;
             background:
-                radial-gradient(ellipse at top left, rgba(168, 85, 247, 0.18), transparent 55%),
-                radial-gradient(ellipse at bottom right, rgba(255, 79, 216, 0.12), transparent 50%),
-                rgba(15, 9, 24, 0.88);
+                radial-gradient(ellipse at top left, rgba(168, 85, 247, .19), transparent 55%),
+                radial-gradient(ellipse at bottom right, rgba(255, 79, 216, .13), transparent 50%),
+                rgba(15, 9, 24, .9);
             animation: glow 6s ease-in-out infinite;
         }
 
@@ -190,13 +189,13 @@
             right: 15%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--purple), var(--pink), transparent);
-            box-shadow: 0 0 22px rgba(255, 79, 216, 0.65);
+            box-shadow: 0 0 22px rgba(255, 79, 216, .65);
         }
 
         .eyebrow {
             margin-bottom: 13px;
             color: var(--pink);
-            font-size: 0.76rem;
+            font-size: .76rem;
             font-weight: 900;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -208,11 +207,11 @@
             font-weight: 1000;
             line-height: 1.08;
             letter-spacing: -1.5px;
-            background: linear-gradient(100deg, #ffffff 8%, #d8b4fe 48%, #ff79df 92%);
+            background: linear-gradient(100deg, #fff 8%, #d8b4fe 48%, #ff79df 92%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.2));
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, .2));
         }
 
         .hero-description {
@@ -233,11 +232,11 @@
 
         .hero-badge {
             padding: 8px 13px;
-            border: 1px solid rgba(192, 132, 252, 0.28);
+            border: 1px solid rgba(192, 132, 252, .28);
             border-radius: 999px;
             color: #e9d5ff;
-            background: rgba(168, 85, 247, 0.1);
-            font-size: 0.79rem;
+            background: rgba(168, 85, 247, .1);
+            font-size: .79rem;
             font-weight: 800;
         }
 
@@ -245,7 +244,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin: 36px 0 17px;
+            margin: 35px 0 17px;
             font-size: 1.32rem;
             font-weight: 900;
         }
@@ -257,19 +256,19 @@
             flex-shrink: 0;
             border-radius: 10px;
             background: linear-gradient(var(--purple), var(--pink));
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 0 15px rgba(168, 85, 247, .5);
         }
 
         .section-description {
             margin: -6px 0 18px;
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: .9rem;
             line-height: 1.7;
         }
 
         .item-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr;
             gap: 15px;
         }
 
@@ -279,14 +278,13 @@
             border: 1px solid var(--border);
             border-radius: 17px;
             background: var(--panel);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-            transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+            transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
         }
 
         .item-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 79, 216, 0.55);
-            box-shadow: 0 14px 35px rgba(139, 45, 220, 0.12);
+            border-color: rgba(255, 79, 216, .55);
+            box-shadow: 0 14px 35px rgba(139, 45, 220, .12);
         }
 
         details {
@@ -294,12 +292,11 @@
         }
 
         summary {
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 15px;
-            min-height: 76px;
+            min-height: 78px;
             padding: 17px 19px;
             list-style: none;
             cursor: pointer;
@@ -321,21 +318,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 43px;
-            height: 43px;
+            width: 45px;
+            height: 45px;
             flex-shrink: 0;
-            border: 1px solid rgba(192, 132, 252, 0.3);
+            border: 1px solid rgba(192, 132, 252, .3);
             border-radius: 12px;
-            background: linear-gradient(145deg, rgba(168, 85, 247, 0.19), rgba(255, 79, 216, 0.08));
+            background: linear-gradient(145deg, rgba(168, 85, 247, .19), rgba(255, 79, 216, .08));
             color: #e9d5ff;
-            font-size: 0.76rem;
+            font-size: .76rem;
             font-weight: 1000;
             text-align: center;
         }
 
         .item-title {
             color: #f7f1ff;
-            font-size: 0.98rem;
+            font-size: 1rem;
             font-weight: 900;
             line-height: 1.4;
         }
@@ -343,15 +340,15 @@
         .item-subtitle {
             margin-top: 4px;
             color: #a99bbd;
-            font-size: 0.77rem;
+            font-size: .78rem;
         }
 
         .expand-icon {
             flex-shrink: 0;
             color: var(--purple-light);
-            font-size: 1.2rem;
+            font-size: 1.45rem;
             font-weight: 900;
-            transition: transform 0.2s ease;
+            transition: transform .2s ease, color .2s ease;
         }
 
         details[open] .expand-icon {
@@ -360,17 +357,20 @@
         }
 
         .details-content {
-            padding: 0 19px 20px;
-            border-top: 1px solid rgba(192, 132, 252, 0.14);
+            padding: 8px 19px 22px;
+            border-top: 1px solid rgba(192, 132, 252, .14);
         }
 
-        .enchant-title {
-            margin: 16px 0 10px;
+        .details-content h3 {
+            margin: 17px 0 10px;
             color: var(--purple-light);
-            font-size: 0.76rem;
+            font-size: .88rem;
             font-weight: 900;
-            letter-spacing: 1.3px;
-            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .details-content h3:first-child {
+            margin-top: 12px;
         }
 
         .enchant-list {
@@ -381,14 +381,14 @@
 
         .enchant {
             display: inline-flex;
-            padding: 7px 9px;
-            border: 1px solid rgba(192, 132, 252, 0.17);
+            padding: 8px 10px;
+            border: 1px solid rgba(192, 132, 252, .17);
             border-radius: 8px;
             color: #e8def6;
-            background: rgba(168, 85, 247, 0.075);
-            font-size: 0.76rem;
+            background: rgba(168, 85, 247, .075);
+            font-size: .79rem;
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         .enchant strong {
@@ -405,44 +405,45 @@
         .extra-card {
             position: relative;
             overflow: hidden;
-            min-height: 175px;
+            min-height: 170px;
             padding: 23px 17px;
             border: 1px solid var(--border);
             border-radius: 17px;
             background:
-                radial-gradient(ellipse at top right, rgba(255, 79, 216, 0.11), transparent 55%),
-                rgba(20, 13, 34, 0.86);
+                radial-gradient(ellipse at top right, rgba(255, 79, 216, .11), transparent 55%),
+                rgba(20, 13, 34, .88);
             text-align: center;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: transform .2s ease, border-color .2s ease;
         }
 
         .extra-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(255, 79, 216, 0.55);
+            border-color: rgba(255, 79, 216, .55);
         }
 
         .extra-icon {
             margin-bottom: 12px;
             color: var(--purple-light);
-            font-size: 1.9rem;
+            font-size: 1.65rem;
             font-weight: 1000;
-            text-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+            text-shadow: 0 0 20px rgba(168, 85, 247, .35);
         }
 
         .extra-name {
-            margin-bottom: 9px;
-            font-size: 0.95rem;
+            margin-bottom: 12px;
+            font-size: .95rem;
             font-weight: 900;
+            line-height: 1.5;
         }
 
         .extra-quantity {
             display: inline-block;
-            padding: 6px 12px;
-            border: 1px solid rgba(255, 79, 216, 0.3);
+            padding: 7px 12px;
+            border: 1px solid rgba(255, 79, 216, .3);
             border-radius: 999px;
             color: #ffb5ed;
-            background: rgba(255, 79, 216, 0.09);
-            font-size: 0.82rem;
+            background: rgba(255, 79, 216, .09);
+            font-size: .82rem;
             font-weight: 900;
         }
 
@@ -451,11 +452,11 @@
             overflow: hidden;
             margin-top: 35px;
             padding: 30px 22px;
-            border: 1px solid rgba(255, 79, 216, 0.3);
+            border: 1px solid rgba(255, 79, 216, .3);
             border-radius: 20px;
             background:
-                radial-gradient(ellipse at 0% 100%, rgba(168, 85, 247, 0.19), transparent 55%),
-                rgba(17, 10, 27, 0.92);
+                radial-gradient(ellipse at 0% 100%, rgba(168, 85, 247, .19), transparent 55%),
+                rgba(17, 10, 27, .92);
             text-align: center;
         }
 
@@ -469,7 +470,7 @@
             max-width: 600px;
             margin: 0 auto;
             color: var(--muted);
-            font-size: 0.92rem;
+            font-size: .92rem;
             line-height: 1.7;
         }
 
@@ -489,9 +490,9 @@
             padding: 12px 20px;
             border: 1px solid transparent;
             border-radius: 10px;
-            font-size: 0.88rem;
+            font-size: .88rem;
             font-weight: 900;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform .2s ease, box-shadow .2s ease;
         }
 
         .button:hover {
@@ -501,24 +502,24 @@
         .button-primary {
             color: #fff;
             background: linear-gradient(105deg, #8b35e8, #d946ef, #f044b8);
-            box-shadow: 0 7px 25px rgba(168, 85, 247, 0.22);
+            box-shadow: 0 7px 25px rgba(168, 85, 247, .22);
         }
 
         .button-primary:hover {
-            box-shadow: 0 9px 30px rgba(255, 79, 216, 0.28);
+            box-shadow: 0 9px 30px rgba(255, 79, 216, .28);
         }
 
         .button-secondary {
-            border-color: rgba(192, 132, 252, 0.3);
+            border-color: rgba(192, 132, 252, .3);
             color: #e9d5ff;
-            background: rgba(168, 85, 247, 0.08);
+            background: rgba(168, 85, 247, .08);
         }
 
         footer {
             padding: 24px 15px;
-            border-top: 1px solid rgba(192, 132, 252, 0.15);
+            border-top: 1px solid rgba(192, 132, 252, .15);
             color: #92869f;
-            font-size: 0.78rem;
+            font-size: .78rem;
             text-align: center;
             line-height: 1.8;
         }
@@ -537,7 +538,7 @@
             .nav-links {
                 justify-content: center;
                 gap: 15px;
-                font-size: 0.82rem;
+                font-size: .82rem;
             }
 
             .page {
@@ -547,10 +548,6 @@
 
             .hero {
                 padding: 34px 18px;
-            }
-
-            .item-grid {
-                grid-template-columns: 1fr;
             }
 
             .extras-grid {
@@ -567,10 +564,10 @@
             *,
             *::before,
             *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
+                animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
             }
         }
     </style>
@@ -597,289 +594,113 @@
         <header class="hero">
             <div class="eyebrow">Kaizora Origins · SurvivalOP</div>
 
-            <h1>KIT PREMIUM SUPERIOR</h1>
+            <h1>KIT SUPERIOR</h1>
 
             <p class="hero-description">
-                Equípate con el poder del Kit Superior. Explora todo su contenido,
-                revisa los encantamientos de cada pieza y descubre los objetos
-                incluidos en este kit de Kaizora Origins.
+                Equípate con el Kit Superior de Kaizora Origins.
+                Consulta la armadura, las herramientas y todos los objetos
+                adicionales incluidos en este kit.
             </p>
 
             <div class="hero-badges">
-                <span class="hero-badge">ARMADURA NETHERITE</span>
+                <span class="hero-badge">FULL NETHERITE</span>
                 <span class="hero-badge">ENCANTAMIENTOS NIVEL XI</span>
-                <span class="hero-badge">KIT PREMIUM</span>
+                <span class="hero-badge">KIT SUPERIOR</span>
             </div>
         </header>
 
+        <!-- ARMADURA: DESPLEGABLE -->
         <section>
-            <h2 class="section-heading">Armadura Superior</h2>
-
-            <p class="section-description">
-                Pulsa cada pieza para desplegar la lista de encantamientos.
-            </p>
+            <h2 class="section-heading">Contenido del kit</h2>
 
             <div class="item-grid">
                 <article class="item-card">
                     <details>
                         <summary>
                             <div class="item-heading">
-                                <div class="item-icon">CASCO</div>
+                                <div class="item-icon">ARM</div>
                                 <div>
-                                    <div class="item-title">Casco de Netherite</div>
-                                    <div class="item-subtitle">Armadura · Nivel XI</div>
+                                    <div class="item-title">Armadura Full Netherite</div>
+                                    <div class="item-subtitle">Ver todos los encantamientos</div>
                                 </div>
                             </div>
                             <span class="expand-icon">+</span>
                         </summary>
 
                         <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
+                            <h3>Encantamientos generales · Todas las piezas</h3>
                             <div class="enchant-list">
                                 <span class="enchant">Protección <strong>XI</strong></span>
-                                <span class="enchant">Protección contra el fuego <strong>XI</strong></span>
                                 <span class="enchant">Protección contra explosiones <strong>XI</strong></span>
+                                <span class="enchant">Protección contra el fuego <strong>XI</strong></span>
                                 <span class="enchant">Protección contra proyectiles <strong>XI</strong></span>
+                                <span class="enchant">Espinas <strong>XI</strong></span>
+                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
+                                <span class="enchant">Reparación</span>
+                            </div>
+
+                            <h3>Casco</h3>
+                            <div class="enchant-list">
                                 <span class="enchant">Respiración <strong>XI</strong></span>
                                 <span class="enchant">Afinidad acuática <strong>XI</strong></span>
-                                <span class="enchant">Espinas <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
                             </div>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">PECHO</div>
-                                <div>
-                                    <div class="item-title">Pechera de Netherite</div>
-                                    <div class="item-subtitle">Armadura · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
+                            <h3>Pantalón</h3>
                             <div class="enchant-list">
-                                <span class="enchant">Protección <strong>XI</strong></span>
-                                <span class="enchant">Protección contra el fuego <strong>XI</strong></span>
-                                <span class="enchant">Protección contra explosiones <strong>XI</strong></span>
-                                <span class="enchant">Protección contra proyectiles <strong>XI</strong></span>
-                                <span class="enchant">Espinas <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
-                            </div>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">PIERNAS</div>
-                                <div>
-                                    <div class="item-title">Pantalones de Netherite</div>
-                                    <div class="item-subtitle">Armadura · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
-                            <div class="enchant-list">
-                                <span class="enchant">Protección <strong>XI</strong></span>
-                                <span class="enchant">Protección contra el fuego <strong>XI</strong></span>
-                                <span class="enchant">Protección contra explosiones <strong>XI</strong></span>
-                                <span class="enchant">Protección contra proyectiles <strong>XI</strong></span>
                                 <span class="enchant">Sigilo veloz <strong>XI</strong></span>
-                                <span class="enchant">Espinas <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
                             </div>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">BOTAS</div>
-                                <div>
-                                    <div class="item-title">Botas de Netherite</div>
-                                    <div class="item-subtitle">Armadura · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
+                            <h3>Botas</h3>
                             <div class="enchant-list">
-                                <span class="enchant">Protección <strong>XI</strong></span>
-                                <span class="enchant">Protección contra el fuego <strong>XI</strong></span>
-                                <span class="enchant">Protección contra explosiones <strong>XI</strong></span>
-                                <span class="enchant">Protección contra proyectiles <strong>XI</strong></span>
                                 <span class="enchant">Caída de pluma <strong>XI</strong></span>
-                                <span class="enchant">Agilidad acuática <strong>XI</strong></span>
-                                <span class="enchant">Paso helado <strong>XI</strong></span>
                                 <span class="enchant">Velocidad del alma <strong>XI</strong></span>
-                                <span class="enchant">Espinas <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
+                                <span class="enchant">Agilidad acuática <strong>XI</strong></span>
                             </div>
                         </div>
                     </details>
                 </article>
-            </div>
-        </section>
 
-        <section>
-            <h2 class="section-heading">Armas y herramientas</h2>
-
-            <p class="section-description">
-                Abre cada objeto para consultar sus encantamientos.
-            </p>
-
-            <div class="item-grid">
+                <!-- HERRAMIENTAS: DESPLEGABLE -->
                 <article class="item-card">
                     <details>
                         <summary>
                             <div class="item-heading">
-                                <div class="item-icon">ESPADA</div>
+                                <div class="item-icon">HER</div>
                                 <div>
-                                    <div class="item-title">Espada de Netherite</div>
-                                    <div class="item-subtitle">Arma cuerpo a cuerpo · Nivel XI</div>
+                                    <div class="item-title">Herramientas</div>
+                                    <div class="item-subtitle">Espada, pico y hacha</div>
                                 </div>
                             </div>
                             <span class="expand-icon">+</span>
                         </summary>
 
                         <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
+                            <h3>Espada de Netherite</h3>
                             <div class="enchant-list">
                                 <span class="enchant">Filo <strong>XI</strong></span>
-                                <span class="enchant">Castigo <strong>XI</strong></span>
+                                <span class="enchant">Golpeo <strong>XI</strong></span>
                                 <span class="enchant">Perdición de los artrópodos <strong>XI</strong></span>
-                                <span class="enchant">Empuje <strong>XI</strong></span>
+                                <span class="enchant">Barrido <strong>XI</strong></span>
                                 <span class="enchant">Aspecto ígneo <strong>XI</strong></span>
-                                <span class="enchant">Saqueo <strong>XI</strong></span>
-                                <span class="enchant">Filo arrasador <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
+                                <span class="enchant">Empuje <strong>XI</strong></span>
+                                <span class="enchant">Irrompibilidad</span>
+                                <span class="enchant">Reparación</span>
                             </div>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">PICO</div>
-                                <div>
-                                    <div class="item-title">Pico de Netherite</div>
-                                    <div class="item-subtitle">Herramienta · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
+                            <h3>Pico de Netherite</h3>
                             <div class="enchant-list">
-                                <span class="enchant">Eficiencia <strong>XI</strong></span>
                                 <span class="enchant">Fortuna <strong>XI</strong></span>
-                                <span class="enchant">Toque de seda <strong>XI</strong></span>
+                                <span class="enchant">Eficiencia <strong>XI</strong></span>
                                 <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
+                                <span class="enchant">Reparación</span>
                             </div>
-                        </div>
-                    </details>
-                </article>
 
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">HACHA</div>
-                                <div>
-                                    <div class="item-title">Hacha de Netherite</div>
-                                    <div class="item-subtitle">Herramienta · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
+                            <h3>Hacha de Netherite</h3>
                             <div class="enchant-list">
-                                <span class="enchant">Eficiencia <strong>XI</strong></span>
-                                <span class="enchant">Fortuna <strong>XI</strong></span>
-                                <span class="enchant">Toque de seda <strong>XI</strong></span>
                                 <span class="enchant">Filo <strong>XI</strong></span>
-                                <span class="enchant">Castigo <strong>XI</strong></span>
+                                <span class="enchant">Golpeo <strong>XI</strong></span>
                                 <span class="enchant">Perdición de los artrópodos <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
-                            </div>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">PALA</div>
-                                <div>
-                                    <div class="item-title">Pala de Netherite</div>
-                                    <div class="item-subtitle">Herramienta · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
-                            <div class="enchant-list">
                                 <span class="enchant">Eficiencia <strong>XI</strong></span>
-                                <span class="enchant">Fortuna <strong>XI</strong></span>
-                                <span class="enchant">Toque de seda <strong>XI</strong></span>
-                                <span class="enchant">Irrompibilidad <strong>XI</strong></span>
-                                <span class="enchant">Reparación <strong>XI</strong></span>
-                            </div>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="item-card">
-                    <details>
-                        <summary>
-                            <div class="item-heading">
-                                <div class="item-icon">ARCO</div>
-                                <div>
-                                    <div class="item-title">Arco Superior</div>
-                                    <div class="item-subtitle">Arma a distancia · Nivel XI</div>
-                                </div>
-                            </div>
-                            <span class="expand-icon">+</span>
-                        </summary>
-
-                        <div class="details-content">
-                            <div class="enchant-title">Encantamientos</div>
-                            <div class="enchant-list">
-                                <span class="enchant">Poder <strong>XI</strong></span>
-                                <span class="enchant">Retroceso <strong>XI</strong></span>
-                                <span class="enchant">Llama <strong>XI</strong></span>
-                                <span class="enchant">Infinidad <strong>I</strong></span>
                                 <span class="enchant">Irrompibilidad <strong>XI</strong></span>
                             </div>
                         </div>
@@ -888,11 +709,12 @@
             </div>
         </section>
 
+        <!-- AGREGADOS: SIEMPRE VISIBLES -->
         <section>
-            <h2 class="section-heading">Objetos adicionales</h2>
+            <h2 class="section-heading">Agregados</h2>
 
             <p class="section-description">
-                Estos objetos también forman parte del Kit Premium Superior.
+                Objetos adicionales incluidos en el Kit Superior.
             </p>
 
             <div class="extras-grid">
@@ -919,8 +741,8 @@
         <section class="discord-panel">
             <h2>¿Listo para entrar a Kaizora?</h2>
             <p>
-                Únete a nuestra comunidad, conoce las novedades del servidor
-                y prepárate para vivir la experiencia SurvivalOP.
+                Únete a nuestra comunidad y prepárate para vivir
+                la experiencia SurvivalOP de Kaizora Origins.
             </p>
 
             <div class="button-row">
