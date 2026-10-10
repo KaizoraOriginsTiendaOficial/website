@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaizora Origins | Kit Supremo</title>
+    <meta name="description" content="Descubre el contenido del Kit Supremo de Kaizora Origins SurvivalOP.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #a855f7;
+            --purple-light: #c084fc;
+            --pink: #ff4fd8;
+            --white: #f8f7ff;
+            --muted: #b8b2c9;
+            --panel: rgba(20, 13, 34, 0.88);
+            --border: rgba(168, 85, 247, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--white);
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(134, 40, 255, .25), transparent 38%),
+                radial-gradient(ellipse at 85% 30%, rgba(255, 45, 210, .17), transparent 35%),
+                radial-gradient(ellipse at 50% 85%, rgba(112, 35, 220, .18), transparent 42%),
+                #07050d;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -50%;
+            z-index: -2;
+            pointer-events: none;
+            background: conic-gradient(
+                from 0deg,
+                transparent,
+                rgba(168, 85, 247, .09),
+                transparent,
+                rgba(255, 79, 216, .08),
+                transparent
+            );
+            filter: blur(75px);
+            animation: ambient 22s linear infinite;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .38;
+            background-image:
+                radial-gradient(2px 2px at 10% 20%, #d9a7ff 50%, transparent 100%),
+                radial-gradient(2px 2px at 75% 30%, #ff8be9 50%, transparent 100%),
+                radial-gradient(2px 2px at 35% 70%, #c084fc 50%, transparent 100%),
+                radial-gradient(2px 2px at 90% 80%, #e879f9 50%, transparent 100%),
+                radial-gradient(2px 2px at 55% 45%, #d8b4fe 50%, transparent 100%);
+            background-size: 280px 280px;
+            animation: particles 18s linear infinite;
+        }
+
+        @keyframes ambient {
+            from { transform: rotate(0deg) scale(1); }
+            to { transform: rotate(360deg) scale(1.08); }
+        }
+
+        @keyframes particles {
+            from { background-position: 0 0; }
+            to { background-position: 0 -560px; }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 18px rgba(168, 85, 247, .13);
+            }
+            50% {
+                box-shadow: 0 0 28px rgba(255, 79, 216, .23);
+            }
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 7%;
+            border-bottom: 1px solid rgba(192, 132, 252, .2);
+            background: rgba(7, 5, 13, .84);
+            backdrop-filter: blur(18px);
+        }
+
+        .brand {
+            font-size: 1.12rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: var(--purple-light);
+            text-shadow: 0 0 18px rgba(168, 85, 247, .55);
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--pink);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            font-size: .88rem;
+            font-weight: 700;
+            color: #d8d1e8;
+        }
+
+        .nav-links a {
+            transition: color .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+
+        .page {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+            padding: 42px 0 70px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 26px;
+            color: var(--purple-light);
+            font-size: .9rem;
+            font-weight: 800;
+            transition: color .2s ease, transform .2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--pink);
+            transform: translateX(-3px);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 42px 28px;
+            margin-bottom: 32px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at top left, rgba(168, 85, 247, .19), transparent 55%),
+                radial-gradient(ellipse at bottom right, rgba(255, 79, 216, .13), transparent 50%),
+                rgba(15, 9, 24, .9);
+            animation: glow 6s ease-in-out infinite;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--purple), var(--pink), transparent);
+            box-shadow: 0 0 22px rgba(255, 79, 216, .65);
+        }
+
+        .eyebrow {
+            margin-bottom: 13px;
+            color: var(--pink);
+            font-size: .76rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-bottom: 14px;
+            font-size: clamp(2.1rem, 6vw, 3.7rem);
+            font-weight: 1000;
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            background: linear-gradient(100deg, #fff 8%, #d8b4fe 48%, #ff79df 92%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, .2));
+        }
+
+        .hero-description {
+            max-width: 690px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 9px;
+            margin-top: 23px;
+        }
+
+        .hero-badge {
+            padding: 8px 13px;
+            border: 1px solid rgba(192, 132, 252, .28);
+            border-radius: 999px;
+            color: #e9d5ff;
+            background: rgba(168, 85, 247, .1);
+            font-size: .79rem;
+            font-weight: 800;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 35px 0 17px;
+            font-size: 1.32rem;
+            font-weight: 900;
+        }
+
+        .section-heading::before {
+            content: "";
+            width: 5px;
+            height: 25px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: linear-gradient(var(--purple), var(--pink));
+            box-shadow: 0 0 15px rgba(168, 85, 247, .5);
+        }
+
+        .section-description {
+            margin: -6px 0 18px;
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.7;
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .item-card {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: var(--panel);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .item-card:hover {
+            border-color: rgba(255, 79, 216, .55);
+            box-shadow: 0 14px 35px rgba(139, 45, 220, .12);
+        }
+
+        details {
+            width: 100%;
+        }
+
+        summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            min-height: 78px;
+            padding: 17px 19px;
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .item-heading {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            min-width: 0;
+        }
+
+        .item-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            border: 1px solid rgba(192, 132, 252, .3);
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(168, 85, 247, .19), rgba(255, 79, 216, .08));
+            color: #e9d5ff;
+            font-size: .76rem;
+            font-weight: 1000;
+            text-align: center;
+        }
+
+        .item-title {
+            color: #f7f1ff;
+            font-size: 1rem;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .item-subtitle {
+            margin-top: 4px;
+            color: #a99bbd;
+            font-size: .78rem;
+        }
+
+        .expand-icon {
+            flex-shrink: 0;
+            color: var(--purple-light);
+            font-size: 1.45rem;
+            font-weight: 900;
+            transition: transform .2s ease, color .2s ease;
+        }
+
+        details[open] .expand-icon {
+            transform: rotate(45deg);
+            color: var(--pink);
+        }
+
+        .details-content {
+            padding: 8px 19px 22px;
+            border-top: 1px solid rgba(192, 132, 252, .14);
+        }
+
+        .details-content h3 {
+            margin: 17px 0 10px;
+            color: var(--purple-light);
+            font-size: .88rem;
+            font-weight: 900;
+            letter-spacing: .5px;
+        }
+
+        .details-content h3:first-child {
+            margin-top: 12px;
+        }
+
+        .enchant-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .enchant {
+            display: inline-flex;
+            padding: 8px 10px;
+            border: 1px solid rgba(192, 132, 252, .17);
+            border-radius: 8px;
+            color: #e8def6;
+            background: rgba(168, 85, 247, .075);
+            font-size: .79rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .enchant strong {
+            margin-left: 4px;
+            color: var(--pink);
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .extra-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 170px;
+            padding: 23px 17px;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background:
+                radial-gradient(ellipse at top right, rgba(255, 79, 216, .11), transparent 55%),
+                rgba(20, 13, 34, .88);
+            text-align: center;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .extra-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 79, 216, .55);
+        }
+
+        .extra-icon {
+            margin-bottom: 12px;
+            color: var(--purple-light);
+            font-size: 1.65rem;
+            font-weight: 1000;
+            text-shadow: 0 0 20px rgba(168, 85, 247, .35);
+        }
+
+        .extra-name {
+            margin-bottom: 12px;
+            font-size: .95rem;
+            font-weight: 900;
+            line-height: 1.5;
+        }
+
+        .extra-quantity {
+            display: inline-block;
+            padding: 7px 12px;
+            border: 1px solid rgba(255, 79, 216, .3);
+            border-radius: 999px;
+            color: #ffb5ed;
+            background: rgba(255, 79, 216, .09);
+            font-size: .82rem;
+            font-weight: 900;
+        }
+
+        .discord-panel {
+            position: relative;
+            overflow: hidden;
+            margin-top: 35px;
+            padding: 30px 22px;
+            border: 1px solid rgba(255, 79, 216, .3);
+            border-radius: 20px;
+            background:
+                radial-gradient(ellipse at 0% 100%, rgba(168, 85, 247, .19), transparent 55%),
+                rgba(17, 10, 27, .92);
+            text-align: center;
+        }
+
+        .discord-panel h2 {
+            margin-bottom: 10px;
+            font-size: 1.45rem;
+            font-weight: 900;
+        }
+
+        .discord-panel p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: .92rem;
+            line-height: 1.7;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 45px;
+            padding: 12px 20px;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            font-size: .88rem;
+            font-weight: 900;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: #fff;
+            background: linear-gradient(105deg, #8b35e8, #d946ef, #f044b8);
+            box-shadow: 0 7px 25px rgba(168, 85, 247, .22);
+        }
+
+        .button-primary:hover {
+            box-shadow: 0 9px 30px rgba(255, 79, 216, .28);
+        }
+
+        .button-secondary {
+            border-color: rgba(192, 132, 252, .3);
+            color: #e9d5ff;
+            background: rgba(168, 85, 247, .08);
+        }
+
+        footer {
+            padding: 24px 15px;
+            border-top: 1px solid rgba(192, 132, 252, .15);
+            color: #92869f;
+            font-size: .78rem;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: var(--purple-light);
+        }
+
+        @media (max-width: 760px) {
+            .navbar {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 13px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 15px;
+                font-size: .82rem;
+            }
+
+            .page {
+                width: 92%;
+                padding-top: 30px;
+            }
+
+            .hero {
+                padding: 34px 18px;
+            }
+
+            .extras-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .extra-card {
+                min-height: auto;
+                padding: 22px 15px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="brand" href="./survivalop.html">
+            KAIZORA <span>ORIGINS</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="./survivalop.html">Inicio</a>
+            <a href="./survivalop.html#kits">Kits</a>
+            <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <a class="back-link" href="./survivalop.html">
+            ← Volver a SurvivalOP
+        </a>
+
+        <header class="hero">
+            <div class="eyebrow">Kaizora Origins · SurvivalOP</div>
+
+            <h1>KIT SUPREMO</h1>
+
+            <p class="hero-description">
+                Desbloquea el poder del Kit Supremo de Kaizora Origins.
+                Revisa la armadura, las herramientas y todos los objetos
+                adicionales incluidos en este kit.
+            </p>
+
+            <div class="hero-badges">
+                <span class="hero-badge">FULL NETHERITE</span>
+                <span class="hero-badge">ENCANTAMIENTOS NIVEL XII</span>
+                <span class="hero-badge">KIT SUPREMO</span>
+            </div>
+        </header>
+
+        <!-- ARMADURA: DESPLEGABLE -->
+        <section>
+            <h2 class="section-heading">Contenido del kit</h2>
+
+            <div class="item-grid">
+                <article class="item-card">
+                    <details>
+                        <summary>
+                            <div class="item-heading">
+                                <div class="item-icon">ARM</div>
+                                <div>
+                                    <div class="item-title">Armadura Full Netherite</div>
+                                    <div class="item-subtitle">Ver todos los encantamientos</div>
+                                </div>
+                            </div>
+                            <span class="expand-icon">+</span>
+                        </summary>
+
+                        <div class="details-content">
+                            <h3>Encantamientos generales · Todas las piezas</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Protección <strong>XII</strong></span>
+                                <span class="enchant">Protección contra explosiones <strong>XII</strong></span>
+                                <span class="enchant">Protección contra el fuego <strong>XII</strong></span>
+                                <span class="enchant">Protección contra proyectiles <strong>XII</strong></span>
+                                <span class="enchant">Espinas <strong>XII</strong></span>
+                                <span class="enchant">Irrompibilidad <strong>XII</strong></span>
+                                <span class="enchant">Reparación</span>
+                            </div>
+
+                            <h3>Casco</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Respiración <strong>XII</strong></span>
+                                <span class="enchant">Afinidad acuática <strong>XII</strong></span>
+                            </div>
+
+                            <h3>Pantalón</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Sigilo veloz <strong>XII</strong></span>
+                            </div>
+
+                            <h3>Botas</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Caída de pluma <strong>XII</strong></span>
+                                <span class="enchant">Velocidad del alma <strong>XII</strong></span>
+                                <span class="enchant">Agilidad acuática <strong>XII</strong></span>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- HERRAMIENTAS: DESPLEGABLE -->
+                <article class="item-card">
+                    <details>
+                        <summary>
+                            <div class="item-heading">
+                                <div class="item-icon">HER</div>
+                                <div>
+                                    <div class="item-title">Herramientas</div>
+                                    <div class="item-subtitle">Espada, pico y hacha</div>
+                                </div>
+                            </div>
+                            <span class="expand-icon">+</span>
+                        </summary>
+
+                        <div class="details-content">
+                            <h3>Espada de Netherite</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Filo <strong>XII</strong></span>
+                                <span class="enchant">Golpeo <strong>XII</strong></span>
+                                <span class="enchant">Perdición de los artrópodos <strong>XII</strong></span>
+                                <span class="enchant">Barrido <strong>XII</strong></span>
+                                <span class="enchant">Aspecto ígneo <strong>XII</strong></span>
+                                <span class="enchant">Empuje <strong>XII</strong></span>
+                                <span class="enchant">Irrompibilidad</span>
+                                <span class="enchant">Reparación</span>
+                            </div>
+
+                            <h3>Pico de Netherite</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Fortuna <strong>XII</strong></span>
+                                <span class="enchant">Eficiencia <strong>XII</strong></span>
+                                <span class="enchant">Irrompibilidad <strong>XII</strong></span>
+                                <span class="enchant">Reparación</span>
+                            </div>
+
+                            <h3>Hacha de Netherite</h3>
+                            <div class="enchant-list">
+                                <span class="enchant">Filo <strong>XII</strong></span>
+                                <span class="enchant">Golpeo <strong>XII</strong></span>
+                                <span class="enchant">Perdición de los artrópodos <strong>XII</strong></span>
+                                <span class="enchant">Eficiencia <strong>XII</strong></span>
+                                <span class="enchant">Irrompibilidad <strong>XII</strong></span>
+                            </div>
+                        </div>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <!-- AGREGADOS: SIEMPRE VISIBLES -->
+        <section>
+            <h2 class="section-heading">Agregados</h2>
+
+            <p class="section-description">
+                Objetos adicionales incluidos en el Kit Supremo.
+            </p>
+
+            <div class="extras-grid">
+                <article class="extra-card">
+                    <div class="extra-icon">TÓTEMS</div>
+                    <h3 class="extra-name">Tótems de inmortalidad</h3>
+                    <span class="extra-quantity">×14 unidades</span>
+                </article>
+
+                <article class="extra-card">
+                    <div class="extra-icon">LLAVES</div>
+                    <h3 class="extra-name">Llaves Semidios</h3>
+                    <span class="extra-quantity">×8 unidades</span>
+                </article>
+
+                <article class="extra-card">
+                    <div class="extra-icon">MANZANAS</div>
+                    <h3 class="extra-name">Manzanas doradas encantadas</h3>
+                    <span class="extra-quantity">×2 stacks · 128 unidades</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="discord-panel">
+            <h2>¿Listo para entrar a Kaizora?</h2>
+            <p>
+                Únete a nuestra comunidad y prepárate para vivir
+                la experiencia SurvivalOP de Kaizora Origins.
+            </p>
+
+            <div class="button-row">
+                <a
+                    class="button button-primary"
+                    href="https://discord.gg/rUsjAeeUMY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    UNIRME A DISCORD
+                </a>
+
+                <a class="button button-secondary" href="./survivalop.html">
+                    VOLVER A SURVIVALOP
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <strong>KAIZORA ORIGINS</strong><br>
+        Un mundo donde cada jugador escribe su propia historia.<br>
+        © Kaizora Origins · Todos los derechos reservados.
+    </footer>
+</body>
+</html>
