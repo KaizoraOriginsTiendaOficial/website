@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Kaizora Origins | SurvivalOP</title>
-    <meta name="description" content="Kaizora Origins — Modalidad SurvivalOP.">
+    <meta name="description" content="Kaizora Origins SurvivalOP: economía, rankeos entre jugadores, crates, estrellas de minas, kits y progresión.">
 
     <style>
         * {
@@ -16,6 +16,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 95px;
         }
 
         body {
@@ -26,6 +27,13 @@
             min-height: 100vh;
         }
 
+        :root {
+            --purple: #a982ff;
+            --purple-dark: #7037dc;
+            --pink: #ff6de1;
+            --muted: #9c9ca3;
+        }
+
         /* FONDO */
 
         .minecraft-background {
@@ -34,7 +42,7 @@
             z-index: -10;
             background:
                 radial-gradient(circle at 72% 35%, rgba(147,101,255,0.28) 0%, rgba(147,101,255,0.12) 25%, transparent 58%),
-                radial-gradient(circle at 25% 75%, rgba(100,55,190,0.20) 0%, transparent 50%),
+                radial-gradient(circle at 25% 75%, rgba(255,80,210,0.09) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(112,67,210,0.10) 0%, transparent 60%),
                 linear-gradient(135deg, #030305 0%, #08060d 45%, #050308 100%);
             background-size: 140% 140%;
@@ -75,12 +83,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 78px;
+            min-height: 78px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 6%;
-            background: linear-gradient(rgba(5,7,8,0.82), rgba(5,7,8,0.35));
+            gap: 15px;
+            padding: 12px 6%;
+            background: linear-gradient(rgba(5,7,8,0.92), rgba(5,7,8,0.70));
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255,255,255,0.08);
             z-index: 100;
@@ -90,25 +99,28 @@
             font-size: 22px;
             font-weight: 900;
             letter-spacing: 1px;
+            white-space: nowrap;
+            color: white;
+            text-decoration: none;
         }
 
         .logo span {
-            color: #b49cff;
+            color: var(--pink);
         }
 
         nav ul {
             display: flex;
             align-items: center;
-            gap: 34px;
+            gap: 22px;
             list-style: none;
             margin-left: auto;
-            margin-right: 28px;
+            margin-right: 12px;
         }
 
         nav ul a {
             color: #c5c5c9;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 900;
             transition: 0.25s;
         }
@@ -116,8 +128,6 @@
         nav ul a:hover {
             color: white;
         }
-
-        /* MENÚ DE MODALIDADES */
 
         .modality-dropdown {
             position: relative;
@@ -128,8 +138,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            border: 1px solid rgba(198,150,255,0.75);
-            background: linear-gradient(135deg, #6f35d9, #a855f7);
+            border: 1px solid rgba(255,109,225,0.55);
+            background: linear-gradient(135deg, #7037dc, #b63de0);
             color: #ffffff;
             padding: 10px 15px;
             border-radius: 8px;
@@ -137,18 +147,11 @@
             font-weight: 900;
             cursor: pointer;
             transition: 0.25s;
-            box-shadow: 0 0 20px rgba(145,75,255,0.25);
+            box-shadow: 0 0 20px rgba(145,75,255,0.20);
         }
 
         .modality-button:hover {
-            border-color: rgba(220,190,255,0.95);
-            background: linear-gradient(135deg, #8246e8, #b565ff);
-            box-shadow: 0 0 28px rgba(145,75,255,0.40);
-        }
-
-        .modality-button span {
-            color: #ffffff;
-            line-height: 1;
+            box-shadow: 0 0 28px rgba(255,109,225,0.25);
             transform: translateY(-1px);
         }
 
@@ -156,11 +159,11 @@
             position: absolute;
             right: 0;
             top: calc(100% + 9px);
-            min-width: 170px;
+            min-width: 205px;
             padding: 8px;
             border: 1px solid rgba(255,255,255,0.10);
             border-radius: 10px;
-            background: rgba(9,11,14,0.97);
+            background: rgba(9,11,14,0.98);
             box-shadow: 0 18px 45px rgba(0,0,0,0.45);
             opacity: 0;
             visibility: hidden;
@@ -211,7 +214,7 @@
         .section-label {
             display: inline-block;
             margin-bottom: 10px;
-            color: #a982ff;
+            color: var(--pink);
             font-size: 12px;
             font-weight: 900;
             letter-spacing: 2px;
@@ -226,7 +229,7 @@
         }
 
         .section-title span {
-            color: #a982ff;
+            color: var(--pink);
         }
 
         .section-description {
@@ -256,10 +259,10 @@
             display: inline-block;
             padding: 9px 14px;
             margin-bottom: 18px;
-            border: 1px solid rgba(169,130,255,0.40);
-            background: rgba(147,101,255,0.10);
+            border: 1px solid rgba(255,109,225,0.35);
+            background: rgba(255,109,225,0.07);
             border-radius: 7px;
-            color: #b49cff;
+            color: var(--pink);
             font-size: 12px;
             font-weight: 900;
             letter-spacing: 2px;
@@ -274,7 +277,7 @@
         }
 
         .hero-title span {
-            color: #a982ff;
+            color: var(--pink);
         }
 
         .hero-description {
@@ -305,14 +308,14 @@
         }
 
         .hero-button.primary {
-            background: linear-gradient(135deg, #7037dc, #a855f7);
+            background: linear-gradient(135deg, #7037dc, #c13cdd);
             color: white;
             box-shadow: 0 0 25px rgba(145,75,255,0.20);
         }
 
         .hero-button.primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 35px rgba(145,75,255,0.35);
+            box-shadow: 0 0 35px rgba(255,109,225,0.25);
         }
 
         .hero-button.secondary {
@@ -326,7 +329,7 @@
             color: white;
         }
 
-        /* PRODUCTOS */
+        /* TARJETAS DE PRODUCTOS */
 
         .products-grid {
             display: grid;
@@ -360,7 +363,7 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(169,130,255,0.30);
+            border-color: rgba(255,109,225,0.30);
             box-shadow: 0 15px 45px rgba(0,0,0,0.25);
         }
 
@@ -433,43 +436,37 @@
 
         .estrella-minas .key-image {
             background: linear-gradient(135deg, #06152f, #0d3570);
-            box-shadow: inset 0 0 35px rgba(40,100,255,0.20);
         }
 
         .earth .key-image {
             background: linear-gradient(135deg, #0a301d, #17603a);
-            box-shadow: inset 0 0 35px rgba(50,180,100,0.20);
         }
 
         .estrella-soleada .key-image {
             background: linear-gradient(135deg, #c58a00, #ffe45b);
-            box-shadow: inset 0 0 35px rgba(255,235,100,0.30);
         }
 
         .angelical .key-image {
             background: linear-gradient(135deg, #00aeca, #48eaff);
-            box-shadow: inset 0 0 35px rgba(100,240,255,0.28);
         }
 
         .galaxy .key-image {
             background: linear-gradient(135deg, #7d2fa8, #ff6fcf);
-            box-shadow: inset 0 0 35px rgba(255,120,220,0.25);
         }
 
         .supernova .key-image {
             background: linear-gradient(135deg, #c54d00, #ff9d3d);
-            box-shadow: inset 0 0 35px rgba(255,140,50,0.25);
         }
 
-        /* COLORES DE NOMBRES */
+        /* NOMBRES DE PRODUCTOS */
 
         .origin h3 { color: #ffffff; }
         .elite h3 { color: #4d8dff; }
         .celestial h3 { color: #2bd7f5; }
         .majestad h3 { color: #ffd34d; }
-        .guardian h3 { color: #218c55; }
+        .guardian h3 { color: #40bd7b; }
         .semidios h3 { color: #ff72b1; }
-        .dios h3 { color: #d92828; }
+        .dios h3 { color: #ff4242; }
         .kaizora h3 { color: #ff75b8; }
         .estrella-minas h3 { color: #3d78c9; }
         .earth h3 { color: #2d9b5f; }
@@ -511,16 +508,262 @@
             border: 1px solid rgba(169,130,255,0.25);
             border-radius: 7px;
             background: rgba(147,101,255,0.10);
-            color: #b49cff;
+            color: #d4bfff;
             text-decoration: none;
             font-size: 11px;
             font-weight: 900;
             transition: 0.2s;
+            text-align: center;
         }
 
         .product-buy:hover {
-            background: rgba(147,101,255,0.20);
+            background: rgba(255,109,225,0.18);
             color: white;
+        }
+
+        /* BANCO DE KAIZORA */
+
+        .bank-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,109,225,0.22);
+            border-radius: 12px;
+            background: linear-gradient(110deg, rgba(112,55,220,0.13), rgba(255,109,225,0.06));
+        }
+
+        .bank-notice-icon {
+            flex-shrink: 0;
+            font-size: 25px;
+            color: var(--pink);
+        }
+
+        .bank-notice strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .bank-notice p {
+            color: #aaaab4;
+            font-size: 13px;
+            line-height: 1.65;
+            font-weight: 700;
+        }
+
+        .money-card {
+            min-height: 250px;
+            border-color: rgba(255,109,225,0.14);
+        }
+
+        .money-card .money-symbol {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255,109,225,0.25);
+            border-radius: 13px;
+            background: linear-gradient(135deg, rgba(112,55,220,0.25), rgba(255,109,225,0.12));
+            color: var(--pink);
+            font-size: 26px;
+            font-weight: 900;
+        }
+
+        .money-card h3 {
+            color: white;
+        }
+
+        .money-amount {
+            color: #e7d6ff;
+            font-size: 21px;
+            font-weight: 900;
+            margin: 3px 0 9px;
+        }
+
+        .money-card.featured {
+            border-color: rgba(255,109,225,0.48);
+            box-shadow: 0 0 28px rgba(255,109,225,0.06);
+        }
+
+        .popular-tag {
+            display: inline-block;
+            width: fit-content;
+            padding: 5px 8px;
+            margin-bottom: 13px;
+            border-radius: 5px;
+            background: rgba(255,109,225,0.13);
+            color: var(--pink);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .bank-footer-note {
+            margin-top: 22px;
+            color: #777780;
+            font-size: 12px;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        /* RANKEOS ENTRE JUGADORES */
+
+        .rank-intro {
+            padding: 25px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255,109,225,0.20);
+            border-radius: 13px;
+            background: linear-gradient(120deg, rgba(112,55,220,0.12), rgba(255,109,225,0.04));
+        }
+
+        .rank-intro h3 {
+            font-size: 21px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .rank-intro p {
+            color: #a5a5ad;
+            font-size: 13px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .rank-flow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .rank-step {
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            background: rgba(12,12,16,0.82);
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .rank-step:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,109,225,0.28);
+        }
+
+        .rank-step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 17px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #7037dc, #c13cdd);
+            color: white;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .rank-step h3 {
+            margin-bottom: 10px;
+            font-size: 17px;
+            font-weight: 900;
+        }
+
+        .rank-step p {
+            color: #96969f;
+            font-size: 13px;
+            line-height: 1.75;
+            font-weight: 700;
+        }
+
+        .rank-example {
+            padding: 23px;
+            margin-top: 22px;
+            border: 1px solid rgba(169,130,255,0.20);
+            border-radius: 12px;
+            background: rgba(112,55,220,0.07);
+        }
+
+        .rank-example-label {
+            color: var(--pink);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .rank-example h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .rank-example p {
+            color: #a3a3ac;
+            font-size: 13px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .rank-example strong {
+            color: #f0dcff;
+        }
+
+        .rank-rules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .rank-rule {
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 11px;
+            background: rgba(12,12,16,0.82);
+        }
+
+        .rank-rule h3 {
+            margin-bottom: 9px;
+            font-size: 15px;
+            font-weight: 900;
+        }
+
+        .rank-rule p {
+            color: #9b9ba4;
+            font-size: 12px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .rank-rule.owner {
+            border-color: rgba(255,109,225,0.38);
+            background: linear-gradient(135deg, rgba(112,55,220,0.13), rgba(255,109,225,0.05));
+        }
+
+        .rank-rule.owner h3 {
+            color: var(--pink);
+        }
+
+        .rank-warning {
+            padding: 18px 20px;
+            margin-top: 20px;
+            border-left: 3px solid var(--pink);
+            border-radius: 0 8px 8px 0;
+            background: rgba(255,109,225,0.055);
+            color: #a6a6ae;
+            font-size: 12px;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .rank-warning strong {
+            color: var(--pink);
         }
 
         /* KITS */
@@ -541,7 +784,7 @@
 
         .kit-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(169,130,255,0.32);
+            border-color: rgba(255,109,225,0.32);
         }
 
         .kit-name {
@@ -551,7 +794,7 @@
         }
 
         .kit-subtitle {
-            color: #a982ff;
+            color: var(--pink);
             font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
@@ -588,7 +831,7 @@
             padding: 11px;
             text-align: center;
             border-radius: 7px;
-            background: linear-gradient(135deg, #7037dc, #9b52e9);
+            background: linear-gradient(135deg, #7037dc, #b63de0);
             color: white;
             text-decoration: none;
             font-size: 12px;
@@ -599,8 +842,6 @@
         .kit-button:hover {
             filter: brightness(1.12);
         }
-
-        /* BOTONES DE LOS KITS */
 
         .kit-actions {
             display: grid;
@@ -620,7 +861,7 @@
             border: 1px solid rgba(169,130,255,0.42);
             border-radius: 7px;
             background: rgba(147,101,255,0.10);
-            color: #c7adff;
+            color: #d4bfff;
             text-decoration: none;
             font-size: 11px;
             font-weight: 900;
@@ -663,7 +904,7 @@
         }
 
         .how-number {
-            color: #a982ff;
+            color: var(--pink);
             font-size: 13px;
             font-weight: 900;
             letter-spacing: 1px;
@@ -690,7 +931,7 @@
             max-width: 1200px;
             height: 1px;
             margin: 0 auto;
-            background: linear-gradient(90deg, transparent, rgba(169,130,255,0.20), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,109,225,0.24), transparent);
         }
 
         /* FOOTER */
@@ -705,7 +946,16 @@
         }
 
         footer span {
-            color: #a982ff;
+            color: var(--pink);
+        }
+
+        footer a {
+            color: #aaaab4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--pink);
         }
 
         /* RESPONSIVE */
@@ -713,6 +963,14 @@
         @media (max-width: 1100px) {
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            nav ul {
+                gap: 13px;
+            }
+
+            nav ul a {
+                font-size: 11px;
             }
         }
 
@@ -723,23 +981,30 @@
 
             .products-grid,
             .kits-grid,
-            .how-grid {
+            .how-grid,
+            .rank-flow {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 650px) {
             nav {
-                padding: 0 5%;
+                padding: 12px 5%;
             }
 
             .logo {
-                font-size: 18px;
+                font-size: 17px;
+                letter-spacing: 0;
+            }
+
+            .modality-button {
+                padding: 10px;
+                font-size: 11px;
             }
 
             .survival-hero {
                 min-height: auto;
-                padding-top: 125px;
+                padding-top: 140px;
                 padding-bottom: 55px;
             }
 
@@ -754,7 +1019,9 @@
 
             .products-grid,
             .kits-grid,
-            .how-grid {
+            .how-grid,
+            .rank-flow,
+            .rank-rules {
                 grid-template-columns: 1fr;
             }
 
@@ -765,6 +1032,26 @@
 
             .kit-card {
                 padding: 24px;
+            }
+
+            .bank-notice {
+                padding: 16px;
+            }
+
+            .rank-intro {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -777,24 +1064,28 @@
     <!-- NAVBAR -->
 
     <nav>
-        <div class="logo">
+        <a href="index.html" class="logo">
             KAIZORA <span>ORIGINS</span>
-        </div>
+        </a>
 
         <ul>
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
+            <li><a href="#banco">Banco</a></li>
+            <li><a href="#rankeos">Rankeos</a></li>
+            <li><a href="#items">Crates</a></li>
+            <li><a href="#estrellas">Estrellas</a></li>
+            <li><a href="#kits">Kits</a></li>
+            <li><a href="#como-se-juega">Cómo jugar</a></li>
         </ul>
 
         <div class="modality-dropdown">
-            <button class="modality-button" type="button">
+            <button class="modality-button" type="button" aria-label="Abrir modalidades">
                 Modalidades <span>⌄</span>
             </button>
 
             <div class="modality-menu">
                 <a href="survivalop.html">SurvivalOP</a>
                 <a href="extremo.html">Extremo</a>
+                <a href="index.html">Página principal</a>
             </div>
         </div>
     </nav>
@@ -804,9 +1095,7 @@
 
         <section class="survival-hero">
             <div class="hero-content">
-                <div class="hero-label">
-                    MODALIDAD · SURVIVALOP
-                </div>
+                <div class="hero-label">MODALIDAD · SURVIVALOP</div>
 
                 <h1 class="hero-title">
                     SURVIVAL<span>OP</span>
@@ -816,6 +1105,9 @@
                     Construye, progresa, consigue recursos y lleva
                     tu supervivencia al siguiente nivel. En Kaizora
                     Origins, tu progreso depende de cómo decidas jugar.
+                    Desarrolla tu economía, consigue equipamiento y
+                    participa en una comunidad donde los acuerdos
+                    entre jugadores también forman parte del juego.
                 </p>
 
                 <div class="hero-buttons">
@@ -823,14 +1115,295 @@
                         ¿CÓMO SE JUEGA?
                     </a>
 
-                    <a href="#items" class="hero-button secondary">
-                        VER TIENDA
+                    <a href="#banco" class="hero-button secondary">
+                        BANCO DE KAIZORA
+                    </a>
+
+                    <a href="#rankeos" class="hero-button secondary">
+                        RANKEOS ENTRE JUGADORES
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- LLAVES / ITEMS -->
+        <div class="section-divider"></div>
+
+        <!-- BANCO DE KAIZORA -->
+
+        <section class="section" id="banco">
+            <div class="section-header">
+                <div class="section-label">ECONOMÍA · TIENDA OFICIAL</div>
+
+                <h2 class="section-title">
+                    Banco de <span>Kaizora</span>
+                </h2>
+
+                <p class="section-description">
+                    Consigue dinero para utilizarlo dentro de la economía
+                    de SurvivalOP. Compra recursos, comercia con otros
+                    jugadores y financia tus próximos proyectos.
+                </p>
+            </div>
+
+            <div class="bank-notice">
+                <div class="bank-notice-icon">◆</div>
+                <div>
+                    <strong>Equivalencia económica</strong>
+                    <p>
+                        <b style="color:#ff6de1;">1 USD = 1.000.000 de monedas.</b>
+                        Los paquetes de esta sección representan dinero
+                        del juego. Para solicitar una compra, abre un ticket
+                        en el Discord oficial e indica tu nombre de jugador
+                        y el paquete que deseas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card money-card">
+                    <div class="money-symbol">$</div>
+                    <h3>Capital inicial</h3>
+                    <div class="money-amount">1.000.000 monedas</div>
+                    <p>Una primera inversión para comenzar a desarrollar tu economía.</p>
+                    <div class="product-bottom">
+                        <div class="product-price">$1 USD</div>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="product-buy">COMPRAR</a>
+                    </div>
+                </div>
+
+                <div class="product-card money-card">
+                    <div class="money-symbol">$</div>
+                    <h3>Capital avanzado</h3>
+                    <div class="money-amount">5.000.000 monedas</div>
+                    <p>Más capital para comerciar, invertir y mejorar tu equipamiento.</p>
+                    <div class="product-bottom">
+                        <div class="product-price">$5 USD</div>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="product-buy">COMPRAR</a>
+                    </div>
+                </div>
+
+                <div class="product-card money-card featured">
+                    <div class="popular-tag">PAQUETE DESTACADO</div>
+                    <div class="money-symbol">$</div>
+                    <h3>Capital de élite</h3>
+                    <div class="money-amount">10.000.000 monedas</div>
+                    <p>Una inversión considerable para tus próximos objetivos.</p>
+                    <div class="product-bottom">
+                        <div class="product-price">$10 USD</div>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="product-buy">COMPRAR</a>
+                    </div>
+                </div>
+
+                <div class="product-card money-card">
+                    <div class="money-symbol">$</div>
+                    <h3>Capital superior</h3>
+                    <div class="money-amount">20.000.000 monedas</div>
+                    <p>Para jugadores que buscan disponer de más recursos económicos.</p>
+                    <div class="product-bottom">
+                        <div class="product-price">$20 USD</div>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="product-buy">COMPRAR</a>
+                    </div>
+                </div>
+
+                <div class="product-card money-card">
+                    <div class="money-symbol">$</div>
+                    <h3>Capital máximo</h3>
+                    <div class="money-amount">50.000.000 monedas</div>
+                    <p>El paquete más grande de dinero disponible en esta selección.</p>
+                    <div class="product-bottom">
+                        <div class="product-price">$50 USD</div>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="product-buy">COMPRAR</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="bank-footer-note">
+                Las compras se coordinan mediante Discord. La entrega
+                del dinero se realiza después de verificar el pago y
+                el nombre del jugador. El dinero comprado no concede
+                automáticamente rangos de tienda ni sustituye los
+                procedimientos oficiales de traspaso.
+            </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- RANKEOS ENTRE JUGADORES -->
+
+        <section class="section" id="rankeos">
+            <div class="section-header">
+                <div class="section-label">TRASPASOS · RANGOS DE TIENDA</div>
+
+                <h2 class="section-title">
+                    Rankeos entre <span>jugadores</span>
+                </h2>
+
+                <p class="section-description">
+                    ¿Quieres conseguir un rango de tienda y recibir
+                    dinero del juego a cambio? En Kaizora Origins,
+                    dos jugadores pueden llegar a un acuerdo para
+                    realizar un traspaso de rango, siempre con la
+                    autorización y supervisión directa del OWNER.
+                </p>
+            </div>
+
+            <div class="rank-intro">
+                <h3>¿Cómo funciona un rankeo?</h3>
+                <p>
+                    Un jugador acuerda con otro el traspaso de un rango
+                    de tienda a cambio de una cantidad de dinero del juego.
+                    Por ejemplo, pueden acordar que un rango Origin se
+                    transfiera a cambio de 3.000.000 o 4.000.000 de monedas.
+                    El importe depende del acuerdo entre ambos jugadores:
+                    no existe una tarifa fija establecida por el servidor.
+                </p>
+            </div>
+
+            <div class="rank-flow">
+                <div class="rank-step">
+                    <div class="rank-step-number">01</div>
+                    <h3>Lleguen a un acuerdo</h3>
+                    <p>
+                        El Jugador 1 y el Jugador 2 acuerdan qué rango
+                        se va a transferir y cuánto dinero del juego
+                        recibirá el Jugador 1. Antes de continuar,
+                        deben comunicar el acuerdo al OWNER.
+                    </p>
+                </div>
+
+                <div class="rank-step">
+                    <div class="rank-step-number">02</div>
+                    <h3>El Jugador 1 paga el rango</h3>
+                    <p>
+                        El Jugador 1 realiza el pago correspondiente
+                        al rango en la tienda oficial. El traspaso
+                        debe coordinarse con el OWNER para verificar
+                        el pago, el rango y las condiciones acordadas.
+                    </p>
+                </div>
+
+                <div class="rank-step">
+                    <div class="rank-step-number">03</div>
+                    <h3>Se completa el traspaso</h3>
+                    <p>
+                        Una vez verificado y autorizado el procedimiento,
+                        el Jugador 2 recibe el rango y sus beneficios.
+                        El Jugador 1 recibe la cantidad de monedas
+                        acordada entre ambos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="rank-example">
+                <div class="rank-example-label">EJEMPLO DE UN TRASPASO</div>
+                <h3>Rango Origin a cambio de 3.000.000 de monedas</h3>
+                <p>
+                    <strong>Jugador 1:</strong> paga el rango Origin
+                    en la tienda oficial y, después de completar el
+                    procedimiento autorizado, recibe los 3.000.000
+                    de monedas acordados.
+                </p>
+                <p style="margin-top:10px;">
+                    <strong>Jugador 2:</strong> recibe el rango Origin
+                    con sus beneficios correspondientes, pero no recibe
+                    el dinero extra que normalmente pudiera venir incluido
+                    en la compra original del rango.
+                </p>
+                <p style="margin-top:10px;">
+                    <strong>Resultado:</strong> el rango se transfiere
+                    al Jugador 2 y el dinero acordado se entrega al
+                    Jugador 1. Todo queda coordinado y supervisado
+                    por el OWNER.
+                </p>
+            </div>
+
+            <h3 style="font-size:21px;font-weight:900;margin:30px 0 12px;">
+                Normas obligatorias del rankeo
+            </h3>
+
+            <div class="rank-rules">
+                <div class="rank-rule">
+                    <h3>01 · Ticket o sala privada</h3>
+                    <p>
+                        El procedimiento debe coordinarse mediante un
+                        ticket oficial de Discord en el que participen
+                        los dos jugadores y el OWNER, o mediante una
+                        sala privada autorizada por el OWNER donde
+                        estén presentes los tres.
+                    </p>
+                </div>
+
+                <div class="rank-rule owner">
+                    <h3>02 · Solo el OWNER puede gestionarlo</h3>
+                    <p>
+                        La autorización, verificación y gestión del
+                        traspaso corresponde exclusivamente al OWNER
+                        del servidor. Ningún Admin, Mod o Mod Jr.
+                        está autorizado para aprobarlo o realizarlo
+                        en su nombre.
+                    </p>
+                </div>
+
+                <div class="rank-rule">
+                    <h3>03 · El rango se entrega sin dinero extra</h3>
+                    <p>
+                        El jugador que recibe el rango obtiene sus
+                        beneficios correspondientes, pero no el dinero
+                        extra que pudiera incluir el paquete de la tienda.
+                        El dinero del acuerdo se entrega al jugador
+                        que pagó el rango para efectuar el traspaso.
+                    </p>
+                </div>
+
+                <div class="rank-rule">
+                    <h3>04 · El precio lo acuerdan los jugadores</h3>
+                    <p>
+                        La cantidad de monedas se decide entre ambos
+                        jugadores antes de iniciar el procedimiento.
+                        El acuerdo debe quedar claro y ser confirmado
+                        por ambas partes ante el OWNER.
+                    </p>
+                </div>
+            </div>
+
+            <div class="rank-warning">
+                <strong>IMPORTANTE — LEE ANTES DE HACER UN RANKEO:</strong>
+                no entregues dinero, rangos ni datos de tu cuenta a
+                terceros por promesas de traspaso. Primero abre el ticket
+                o solicita una sala privada y espera la intervención
+                directa del OWNER. Los miembros del staff, incluidos
+                Admins, Mods y Mods Jr., no pueden sustituir al OWNER
+                ni autorizar estos procedimientos. Si alguien afirma
+                que puede hacer un rankeo sin el OWNER, no continúes
+                con la operación y comunícalo por el canal oficial.
+            </div>
+
+            <div class="hero-buttons" style="margin-top:25px;">
+                <a href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank" rel="noopener noreferrer"
+                   class="hero-button primary">
+                    ABRIR DISCORD OFICIAL
+                </a>
+
+                <a href="#banco" class="hero-button secondary">
+                    VER BANCO DE KAIZORA
+                </a>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- LLAVES / CRATES -->
 
         <section class="section" id="items">
             <div class="section-header">
@@ -844,10 +1417,9 @@
                     Consigue llaves de las diferentes crates disponibles
                     en SurvivalOP. Cada crate cuenta con recompensas
                     diferentes y niveles de rareza que aumentan conforme
-                    avanzas dentro de la modalidad. (Cada llave extra que
-                    compres resta $0.50 al pago final. Mínimo 5 rebajas por
-                    cada llave comprada). Para más información, abre un 
-                    ticket en el Discord oficial.
+                    avanzas dentro de la modalidad. Para consultar los
+                    descuentos por compras múltiples y las condiciones
+                    vigentes, abre un ticket en el Discord oficial.
                 </p>
             </div>
 
@@ -858,7 +1430,7 @@
                     <p>Llave para la Crate Origin.</p>
                     <div class="product-bottom">
                         <div class="product-price">$0.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -868,7 +1440,7 @@
                     <p>Llave para la Crate Elite.</p>
                     <div class="product-bottom">
                         <div class="product-price">$1.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -878,7 +1450,7 @@
                     <p>Llave para la Crate Celestial.</p>
                     <div class="product-bottom">
                         <div class="product-price">$2.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -888,7 +1460,7 @@
                     <p>Llave para la Crate Majestad.</p>
                     <div class="product-bottom">
                         <div class="product-price">$3.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -898,7 +1470,7 @@
                     <p>Llave para la Crate Guardian.</p>
                     <div class="product-bottom">
                         <div class="product-price">$5.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -908,7 +1480,7 @@
                     <p>Llave para la Crate SemiDios.</p>
                     <div class="product-bottom">
                         <div class="product-price">$6.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -918,7 +1490,7 @@
                     <p>Llave para la Crate Dios.</p>
                     <div class="product-bottom">
                         <div class="product-price">$7.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -928,7 +1500,7 @@
                     <p>Llave para la Crate Kaizora.</p>
                     <div class="product-bottom">
                         <div class="product-price">$9.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -936,7 +1508,7 @@
 
         <div class="section-divider"></div>
 
-        <!-- ESTRELLAS -->
+        <!-- ESTRELLAS DE MINAS -->
 
         <section class="section" id="estrellas">
             <div class="section-header">
@@ -949,8 +1521,9 @@
                 <p class="section-description">
                     Consigue estrellas para los picos de las minas
                     automáticas. Podrás utilizarlas para progresar
-                    y comerciar dentro del sistema de minas. (descuentos
-                    de 0.50 por cada llave que compres extra)
+                    dentro del sistema de minas. Para consultar descuentos
+                    por compras múltiples, contacta con el equipo mediante
+                    el Discord oficial.
                 </p>
             </div>
 
@@ -961,7 +1534,7 @@
                     <p>Estrella para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
                         <div class="product-price">$0.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -971,7 +1544,7 @@
                     <p>Estrella Earth para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
                         <div class="product-price">$1.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -981,7 +1554,7 @@
                     <p>Estrella soleada para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
                         <div class="product-price">$2.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -991,7 +1564,7 @@
                     <p>Estrella angelical para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
                         <div class="product-price">$3.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -1001,7 +1574,7 @@
                     <p>Estrella Galaxy para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
                         <div class="product-price">$4.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
 
@@ -1011,7 +1584,7 @@
                     <p>Estrella Supernova para los picos de las minas automáticas.</p>
                     <div class="product-bottom">
                         <div class="product-price">$5.99</div>
-                        <a href="https://discord.gg/rUsjAeeUMY" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
+                        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="product-buy">COMPRAR</a>
                     </div>
                 </div>
             </div>
@@ -1036,9 +1609,6 @@
             </div>
 
             <div class="kits-grid">
-
-                <!-- KIT SUPERIOR -->
-
                 <div class="kit-card">
                     <div class="kit-name">Kaizora Superior</div>
                     <div class="kit-subtitle">Kit premium</div>
@@ -1053,20 +1623,12 @@
                     <div class="kit-price">$19.99</div>
 
                     <div class="kit-actions">
-                        <a href="./superiorkit.html" class="kit-info-button">
-                            VER KIT
-                        </a>
-
-                        <a href="https://discord.gg/rUsjAeeUMY"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="kit-button">
-                            COMPRAR KIT
-                        </a>
+                        <a href="./superiorkit.html" class="kit-info-button">VER KIT</a>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="kit-button">COMPRAR KIT</a>
                     </div>
                 </div>
-
-                <!-- KIT SUPREMO -->
 
                 <div class="kit-card">
                     <div class="kit-name">Kaizora Supremo</div>
@@ -1082,20 +1644,12 @@
                     <div class="kit-price">$24.99</div>
 
                     <div class="kit-actions">
-                        <a href="./supremokit.html" class="kit-info-button">
-                            VER KIT
-                        </a>
-
-                        <a href="https://discord.gg/rUsjAeeUMY"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="kit-button">
-                            COMPRAR KIT
-                        </a>
+                        <a href="./supremokit.html" class="kit-info-button">VER KIT</a>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="kit-button">COMPRAR KIT</a>
                     </div>
                 </div>
-
-                <!-- KIT INFINITY -->
 
                 <div class="kit-card">
                     <div class="kit-name">Kaizora Infinity</div>
@@ -1111,19 +1665,12 @@
                     <div class="kit-price">$29.99</div>
 
                     <div class="kit-actions">
-                        <a href="./infinitykit.html" class="kit-info-button">
-                            VER KIT
-                        </a>
-
-                        <a href="https://discord.gg/rUsjAeeUMY"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="kit-button">
-                            COMPRAR KIT
-                        </a>
+                        <a href="./infinitykit.html" class="kit-info-button">VER KIT</a>
+                        <a href="https://discord.gg/sHvWgW7AE4"
+                           target="_blank" rel="noopener noreferrer"
+                           class="kit-button">COMPRAR KIT</a>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -1141,9 +1688,9 @@
 
                 <p class="section-description">
                     SurvivalOP toma la base del Survival tradicional
-                    y la convierte en una experiencia mucho más completa,
-                    con sistemas de progreso, actividades, economía,
-                    competencias y contenido adicional.
+                    y la convierte en una experiencia más completa,
+                    con sistemas de progreso, economía, competencias,
+                    actividades y contenido adicional.
                 </p>
             </div>
 
@@ -1152,38 +1699,30 @@
                     <div class="how-number">01 · COMIENZA</div>
                     <h3>Empieza tu supervivencia</h3>
                     <p>
-                        Al entrar comenzarás como en cualquier Survival:
-                        tendrás que conseguir recursos, construir tu base,
-                        conseguir comida y preparar tu equipamiento.
-                        La diferencia es que aquí la supervivencia es solo
-                        el comienzo. A medida que avances encontrarás nuevos
-                        sistemas y formas de progresar.
+                        Consigue recursos, construye tu base, busca comida
+                        y prepara tu equipamiento. La supervivencia es
+                        solo el comienzo de todo lo que puedes desarrollar
+                        dentro de Kaizora Origins.
                     </p>
                 </div>
 
                 <div class="how-card">
                     <div class="how-number">02 · PROGRESA</div>
-                    <h3>Mejora mucho más allá del Survival</h3>
+                    <h3>Mejora tu equipamiento</h3>
                     <p>
-                        En SurvivalOP no estás limitado a los encantamientos
-                        y progresión del Survival vanilla. Podrás conseguir
-                        mejores herramientas, utilizar sistemas especiales
-                        y acceder a encantamientos que superan los límites
-                        habituales del juego para crear un progreso mucho
-                        más profundo.
+                        Consigue herramientas mejoradas, utiliza sistemas
+                        especiales y aprovecha los encantamientos disponibles
+                        para construir tu propio estilo de progreso.
                     </p>
                 </div>
 
                 <div class="how-card">
                     <div class="how-number">03 · MINAS</div>
-                    <h3>Consigue recursos automáticamente</h3>
+                    <h3>Consigue recursos</h3>
                     <p>
-                        Las minas son una parte importante de SurvivalOP.
-                        En lugar de depender únicamente de una mina
-                        tradicional, podrás utilizar sistemas de minería
-                        automática para conseguir recursos de forma mucho
-                        más eficiente y continuar avanzando dentro de la
-                        economía del servidor.
+                        Utiliza los sistemas de minería disponibles para
+                        conseguir recursos de forma eficiente y continuar
+                        desarrollando tu economía.
                     </p>
                 </div>
 
@@ -1191,37 +1730,29 @@
                     <div class="how-number">04 · KOTH</div>
                     <h3>Compite por el control</h3>
                     <p>
-                        Los KOTH son eventos en los que los jugadores
-                        compiten por controlar una zona durante un periodo
-                        de tiempo. Mantener el control puede otorgar
-                        recompensas y convertir una simple sesión de
-                        Survival en una verdadera competición entre
-                        jugadores y clanes.
+                        Participa en eventos donde los jugadores compiten
+                        por controlar una zona y conseguir las recompensas
+                        establecidas para el evento.
                     </p>
                 </div>
 
                 <div class="how-card">
                     <div class="how-number">05 · EVENTOS</div>
-                    <h3>Juega incluso desde el chat</h3>
+                    <h3>Participa en actividades</h3>
                     <p>
-                        SurvivalOP también cuenta con actividades y juegos
-                        que pueden aparecer directamente en el chat.
-                        Podrás participar en diferentes dinámicas, responder
-                        preguntas y competir por recompensas mientras
-                        juegas normalmente, sin tener que abandonar tu
-                        aventura.
+                        Descubre las dinámicas y juegos disponibles,
+                        responde preguntas y compite por recompensas
+                        mientras continúas con tu aventura.
                     </p>
                 </div>
 
                 <div class="how-card">
                     <div class="how-number">06 · CLANES</div>
-                    <h3>Forma tu propio equipo</h3>
+                    <h3>Forma tu equipo</h3>
                     <p>
-                        Crea o únete a un clan junto a otros jugadores.
-                        Trabajen juntos, compartan objetivos y compitan
-                        contra otros grupos dentro del servidor. Los clanes
-                        añaden una parte social y competitiva que no existe
-                        en el Survival vanilla.
+                        Crea o únete a un clan, colabora con otros jugadores,
+                        comparte objetivos y compite contra otros grupos
+                        dentro del servidor.
                     </p>
                 </div>
 
@@ -1229,38 +1760,31 @@
                     <div class="how-number">07 · ECONOMÍA</div>
                     <h3>Compra, vende y genera dinero</h3>
                     <p>
-                        Los recursos que consigues tienen valor. Podrás
-                        participar en la economía del servidor, conseguir
-                        dinero, comprar objetos y utilizar tus ganancias
-                        para mejorar tu progreso. Tu forma de jugar puede
-                        influir directamente en la velocidad con la que
-                        avanzas.
+                        Participa en la economía del servidor, consigue
+                        monedas, comercia y utiliza tus ganancias para
+                        mejorar tu equipamiento y tus proyectos.
                     </p>
                 </div>
 
                 <div class="how-card">
-                    <div class="how-number">08 · ACTIVIDADES</div>
-                    <h3>Siempre hay algo que hacer</h3>
+                    <div class="how-number">08 · RANKEOS</div>
+                    <h3>Acuerda traspasos de rangos</h3>
                     <p>
-                        Además de construir y conseguir recursos, podrás
-                        participar en diferentes actividades del servidor:
-                        eventos, KOTH, juegos, sistemas de progreso y otras
-                        funciones que hacen que cada sesión sea diferente.
-                        No tienes que limitarte a jugar como en un Survival
-                        tradicional.
+                        Puedes llegar a un acuerdo con otro jugador para
+                        transferir un rango de tienda a cambio de monedas.
+                        Estos traspasos requieren un procedimiento oficial
+                        coordinado exclusivamente por el OWNER.
                     </p>
                 </div>
 
                 <div class="how-card">
                     <div class="how-number">09 · DOMINA</div>
-                    <h3>Llega hasta el máximo nivel</h3>
+                    <h3>Construye tu reputación</h3>
                     <p>
-                        El objetivo no es simplemente sobrevivir. Mejora
-                        tu equipamiento, desarrolla tu progreso, consigue
-                        mejores recursos, participa en eventos y construye
-                        tu reputación dentro de Kaizora Origins. Cuanto más
-                        avances, más sistemas tendrás disponibles para
-                        seguir progresando.
+                        Mejora tu equipamiento, desarrolla tu economía,
+                        participa en eventos y colabora con otros jugadores
+                        para convertirte en una figura destacada de
+                        Kaizora Origins.
                     </p>
                 </div>
             </div>
@@ -1271,6 +1795,13 @@
 
     <footer>
         © 2026 <span>Kaizora Origins</span> · SurvivalOP
+
+        <div style="margin-top:12px;">
+            <a href="https://discord.gg/sHvWgW7AE4"
+               target="_blank" rel="noopener noreferrer">
+                Discord oficial
+            </a>
+        </div>
     </footer>
 
     <script>
