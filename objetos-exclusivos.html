@@ -12,7 +12,8 @@
   --panel:rgba(20,12,30,.94);
   --purple:#a855f7;
   --purple-light:#c084fc;
-  --pink:#ff4fd8;
+  --pink:#ff00cc;
+  --pink-light:#ff4fd8;
   --white:#fff;
   --muted:#c4b5d4;
   --border:rgba(192,132,252,.22);
@@ -22,18 +23,22 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   min-height:100vh;
   overflow-x:hidden;
   background:
     radial-gradient(ellipse at 12% 15%,rgba(168,85,247,.15),transparent 35%),
-    radial-gradient(ellipse at 88% 45%,rgba(255,79,216,.09),transparent 35%),
+    radial-gradient(ellipse at 88% 45%,rgba(255,0,204,.09),transparent 35%),
     var(--bg);
   color:var(--white);
   font-family:Arial,Helvetica,sans-serif;
   line-height:1.6;
 }
+
 a{color:inherit;text-decoration:none}
+
+/* NAVEGACIÓN */
 
 .navbar{
   position:sticky;
@@ -43,6 +48,7 @@ a{color:inherit;text-decoration:none}
   border-bottom:1px solid var(--border);
   backdrop-filter:blur(16px);
 }
+
 .nav-inner{
   width:min(1150px,calc(100% - 32px));
   min-height:72px;
@@ -52,32 +58,50 @@ a{color:inherit;text-decoration:none}
   justify-content:space-between;
   gap:18px;
 }
+
+/* KAIZORA BLANCO + ORIGINS MAGENTA */
+
 .brand{
   font-size:1.08rem;
   font-weight:1000;
   letter-spacing:1px;
-  color:var(--purple-light);
+  color:#ffffff;
 }
-.brand span,.footer-brand span{color:var(--pink)}
-.nav-links{display:flex;gap:20px;align-items:center}
+
+.brand span,
+.footer-brand span{
+  color:#ff00cc;
+}
+
+.nav-links{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
 .nav-links a{
   font-size:.86rem;
   font-weight:800;
   color:var(--muted);
 }
-.nav-links a:hover{color:var(--pink)}
+
+.nav-links a:hover{color:#ff00cc}
+
 .nav-discord{
   padding:9px 14px;
-  border:1px solid rgba(255,79,216,.4);
+  border:1px solid rgba(255,0,204,.45);
   border-radius:9px;
-  background:rgba(255,79,216,.08);
+  background:rgba(255,0,204,.08);
 }
+
+/* PÁGINA */
 
 .page{
   width:min(1150px,calc(100% - 32px));
   margin:auto;
   padding:38px 0 65px;
 }
+
 .back-link{
   display:inline-block;
   color:var(--muted);
@@ -85,7 +109,10 @@ a{color:inherit;text-decoration:none}
   font-weight:800;
   margin-bottom:25px;
 }
-.back-link:hover{color:var(--pink)}
+
+.back-link:hover{color:#ff00cc}
+
+/* PORTADA */
 
 .hero{
   position:relative;
@@ -93,13 +120,14 @@ a{color:inherit;text-decoration:none}
   text-align:center;
   padding:54px 25px;
   margin-bottom:42px;
-  border:1px solid rgba(192,132,252,.3);
+  border:1px solid rgba(255,0,204,.3);
   border-radius:23px;
   background:
     radial-gradient(ellipse at top,rgba(168,85,247,.2),transparent 65%),
     linear-gradient(145deg,rgba(31,17,46,.96),rgba(12,8,19,.97));
   box-shadow:0 20px 65px rgba(0,0,0,.25);
 }
+
 .hero:before{
   content:"";
   position:absolute;
@@ -108,10 +136,12 @@ a{color:inherit;text-decoration:none}
   top:-170px;
   right:-70px;
   border-radius:50%;
-  background:rgba(255,79,216,.17);
+  background:rgba(255,0,204,.17);
   filter:blur(30px);
 }
+
 .hero-content{position:relative;z-index:1}
+
 .badges{
   display:flex;
   justify-content:center;
@@ -119,6 +149,7 @@ a{color:inherit;text-decoration:none}
   gap:9px;
   margin-bottom:19px;
 }
+
 .badge{
   padding:6px 11px;
   border:1px solid rgba(192,132,252,.3);
@@ -129,22 +160,27 @@ a{color:inherit;text-decoration:none}
   font-weight:900;
   letter-spacing:1px;
 }
+
 .badge.pink{
-  color:var(--pink);
-  border-color:rgba(255,79,216,.3);
+  color:#ff4fd8;
+  border-color:rgba(255,0,204,.35);
+  background:rgba(255,0,204,.07);
 }
+
 .hero h1{
   font-size:clamp(2.2rem,6vw,4.3rem);
   font-weight:1000;
   line-height:1.13;
   letter-spacing:1px;
 }
+
 .gradient-text{
-  background:linear-gradient(90deg,var(--purple-light),var(--pink));
+  background:linear-gradient(90deg,#ff4fd8,#ff00cc);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
+
 .hero p{
   max-width:680px;
   margin:15px auto 0;
@@ -152,30 +188,39 @@ a{color:inherit;text-decoration:none}
   font-size:.98rem;
 }
 
+/* TÍTULOS */
+
 .section-heading{margin-bottom:23px}
+
 .eyebrow{
-  color:var(--pink);
+  color:#ff00cc;
   font-size:.73rem;
   font-weight:1000;
   letter-spacing:2px;
   text-transform:uppercase;
 }
+
 .section-heading h2{
   font-size:clamp(1.6rem,4vw,2.2rem);
   font-weight:1000;
   line-height:1.25;
 }
+
 .section-heading p{
   margin-top:7px;
   color:var(--muted);
   font-size:.91rem;
 }
 
+/* TARJETAS */
+
 .item-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:15px;
+  align-items:start;
 }
+
 .item-card{
   align-self:start;
   overflow:hidden;
@@ -184,11 +229,14 @@ a{color:inherit;text-decoration:none}
   background:var(--panel);
   transition:border-color .22s,transform .22s,background .22s;
 }
+
 .item-card:hover{
-  border-color:rgba(192,132,252,.55);
+  border-color:rgba(255,0,204,.48);
   transform:translateY(-2px);
 }
+
 .item-card details{width:100%}
+
 .item-card summary{
   display:flex;
   align-items:center;
@@ -198,29 +246,35 @@ a{color:inherit;text-decoration:none}
   list-style:none;
   user-select:none;
 }
+
 .item-card summary::-webkit-details-marker{display:none}
+
 .item-icon{
   flex-shrink:0;
   width:48px;
   height:48px;
   display:grid;
   place-items:center;
-  border:1px solid rgba(192,132,252,.27);
+  border:1px solid rgba(255,0,204,.25);
   border-radius:12px;
-  background:rgba(168,85,247,.13);
+  background:rgba(255,0,204,.08);
   font-size:1.45rem;
 }
+
 .item-info{flex:1;min-width:0}
+
 .item-info h3{
   font-size:.98rem;
   font-weight:1000;
   line-height:1.35;
 }
+
 .item-info p{
   margin-top:4px;
   color:var(--muted);
   font-size:.78rem;
 }
+
 .toggle-icon{
   flex-shrink:0;
   width:29px;
@@ -229,26 +283,37 @@ a{color:inherit;text-decoration:none}
   place-items:center;
   border:1px solid var(--border);
   border-radius:8px;
-  color:var(--purple-light);
+  color:#ff4fd8;
   font-size:1.2rem;
   font-weight:900;
   transition:transform .2s,color .2s;
 }
+
 details[open] .toggle-icon{
   transform:rotate(45deg);
-  color:var(--pink);
+  color:#ff00cc;
 }
+
+/* DETALLES */
+
 .item-content{
   padding:0 17px 19px;
-  border-top:1px solid rgba(192,132,252,.13);
+  border-top:1px solid rgba(255,0,204,.13);
 }
+
 .content-label{
   margin:17px 0 9px;
-  color:var(--purple-light);
+  color:#ff4fd8;
   font-size:.83rem;
   font-weight:1000;
 }
-.enchantments{display:flex;flex-wrap:wrap;gap:7px}
+
+.enchantments{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
 .enchant{
   padding:6px 9px;
   border:1px solid rgba(192,132,252,.18);
@@ -258,21 +323,26 @@ details[open] .toggle-icon{
   font-size:.77rem;
   font-weight:800;
 }
+
 .special-enchant{
-  border-color:rgba(255,79,216,.35);
-  background:rgba(255,79,216,.09);
-  color:#ffb4ed;
+  border-color:rgba(255,0,204,.35);
+  background:rgba(255,0,204,.08);
+  color:#ff9be8;
 }
+
 .item-description{
   margin-top:15px;
   padding:12px 13px;
-  border-left:3px solid var(--pink);
+  border-left:3px solid #ff00cc;
   border-radius:0 9px 9px 0;
-  background:rgba(255,79,216,.055);
+  background:rgba(255,0,204,.045);
   color:var(--muted);
   font-size:.84rem;
 }
+
 .item-description strong{color:var(--white)}
+
+/* COMPRA */
 
 .purchase-row{
   display:flex;
@@ -281,11 +351,21 @@ details[open] .toggle-icon{
   gap:12px;
   margin-top:17px;
   padding:13px;
-  border:1px solid rgba(255,79,216,.28);
+  border:1px solid rgba(255,0,204,.28);
   border-radius:11px;
-  background:linear-gradient(120deg,rgba(168,85,247,.12),rgba(255,79,216,.07));
+  background:linear-gradient(
+    120deg,
+    rgba(168,85,247,.10),
+    rgba(255,0,204,.07)
+  );
 }
-.purchase-price{display:flex;flex-direction:column;gap:1px}
+
+.purchase-price{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+}
+
 .purchase-price small{
   color:var(--muted);
   font-size:.68rem;
@@ -293,11 +373,13 @@ details[open] .toggle-icon{
   letter-spacing:1px;
   text-transform:uppercase;
 }
+
 .purchase-price strong{
   font-size:1.35rem;
   line-height:1.2;
   font-weight:1000;
 }
+
 .purchase-button{
   display:inline-flex;
   align-items:center;
@@ -305,45 +387,63 @@ details[open] .toggle-icon{
   text-align:center;
   padding:11px 13px;
   border-radius:8px;
-  background:linear-gradient(90deg,var(--purple),var(--pink));
+  background:linear-gradient(90deg,#a855f7,#ff00cc);
   color:#fff;
   font-size:.77rem;
   font-weight:1000;
-  box-shadow:0 7px 20px rgba(168,85,247,.18);
+  box-shadow:0 7px 20px rgba(255,0,204,.13);
   transition:transform .2s,filter .2s;
   white-space:nowrap;
 }
+
 .purchase-button:hover{
   transform:translateY(-2px);
   filter:brightness(1.1);
 }
+
 .purchase-note{
   margin-top:8px;
   color:var(--muted);
   font-size:.72rem;
 }
 
+/* PRÓXIMAMENTE */
+
 .coming-card{
   border-color:rgba(255,52,52,.55);
-  background:linear-gradient(145deg,rgba(48,9,15,.72),rgba(18,7,13,.96));
+  background:linear-gradient(
+    145deg,
+    rgba(48,9,15,.72),
+    rgba(18,7,13,.96)
+  );
 }
+
 .coming-card:hover{
   border-color:rgba(255,80,80,.85);
-  background:linear-gradient(145deg,rgba(65,10,17,.8),rgba(18,7,13,.96));
+  background:linear-gradient(
+    145deg,
+    rgba(65,10,17,.8),
+    rgba(18,7,13,.96)
+  );
 }
+
 .coming-card .item-icon{
   border-color:rgba(255,52,52,.42);
   background:rgba(255,52,52,.1);
 }
+
 .coming-card .item-info h3{color:#ff7777}
+
 .coming-card .toggle-icon{
   border-color:rgba(255,52,52,.4);
   color:var(--red-light);
 }
+
 .coming-content{
   padding:0 17px 19px;
   border-top:1px solid rgba(255,52,52,.2);
 }
+
 .coming-label{
   display:inline-flex;
   align-items:center;
@@ -358,32 +458,38 @@ details[open] .toggle-icon{
   font-weight:1000;
   letter-spacing:1px;
 }
+
 .coming-content p{
   margin-top:11px;
   color:#d9a6ac;
   font-size:.82rem;
 }
 
+/* DISCORD */
+
 .discord-panel{
   margin-top:44px;
   padding:32px 20px;
   text-align:center;
-  border:1px solid rgba(255,79,216,.28);
+  border:1px solid rgba(255,0,204,.28);
   border-radius:19px;
   background:
-    radial-gradient(ellipse at top right,rgba(255,79,216,.1),transparent 60%),
+    radial-gradient(ellipse at top right,rgba(255,0,204,.1),transparent 60%),
     linear-gradient(145deg,rgba(31,17,46,.92),rgba(12,8,19,.95));
 }
+
 .discord-panel h2{
   font-size:clamp(1.4rem,4vw,2rem);
   font-weight:1000;
 }
+
 .discord-panel p{
   max-width:610px;
   margin:9px auto 0;
   color:var(--muted);
   font-size:.9rem;
 }
+
 .button{
   display:inline-flex;
   align-items:center;
@@ -391,19 +497,23 @@ details[open] .toggle-icon{
   margin-top:20px;
   padding:12px 18px;
   border-radius:9px;
-  background:linear-gradient(90deg,var(--purple),var(--pink));
+  background:linear-gradient(90deg,#a855f7,#ff00cc);
   color:#fff;
   font-size:.83rem;
   font-weight:1000;
-  box-shadow:0 8px 24px rgba(168,85,247,.16);
+  box-shadow:0 8px 24px rgba(255,0,204,.13);
   transition:transform .2s;
 }
+
 .button:hover{transform:translateY(-2px)}
+
+/* PIE DE PÁGINA */
 
 footer{
   border-top:1px solid var(--border);
   background:rgba(8,6,13,.7);
 }
+
 .footer-inner{
   width:min(1150px,calc(100% - 32px));
   min-height:76px;
@@ -415,41 +525,69 @@ footer{
   color:var(--muted);
   font-size:.8rem;
 }
+
 .footer-brand{
-  color:var(--purple-light);
+  color:#fff;
   font-weight:1000;
 }
+
+/* RESPONSIVE */
 
 @media(min-width:950px){
   .item-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
 @media(max-width:600px){
   .nav-inner{
     padding:12px 0;
     flex-direction:column;
     gap:9px;
   }
+
   .nav-links{
     justify-content:center;
     flex-wrap:wrap;
     gap:12px 16px;
   }
+
   .nav-links a{font-size:.79rem}
   .page{padding-top:25px}
-  .hero{padding:38px 18px;border-radius:17px}
-  .item-grid{grid-template-columns:1fr;gap:12px}
-  .item-card summary{padding:15px;gap:11px}
-  .item-icon{width:43px;height:43px;font-size:1.2rem}
+
+  .hero{
+    padding:38px 18px;
+    border-radius:17px;
+  }
+
+  .item-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .item-card summary{
+    padding:15px;
+    gap:11px;
+  }
+
+  .item-icon{
+    width:43px;
+    height:43px;
+    font-size:1.2rem;
+  }
+
   .item-info h3{font-size:.91rem}
+
   .item-content,.coming-content{
     padding-left:15px;
     padding-right:15px;
   }
+
   .purchase-row{
     align-items:stretch;
     flex-direction:column;
   }
+
   .purchase-button{width:100%}
+
   .footer-inner{
     padding:18px 0;
     flex-direction:column;
@@ -457,6 +595,7 @@ footer{
     text-align:center;
   }
 }
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
     scroll-behavior:auto!important;
@@ -467,37 +606,50 @@ footer{
 </head>
 
 <body>
+
 <nav class="navbar">
   <div class="nav-inner">
     <a href="./survivalop.html" class="brand">KAIZORA <span>ORIGINS</span></a>
+
     <div class="nav-links">
       <a href="./index.html">Inicio</a>
       <a href="./survivalop.html#kits">Kits</a>
-      <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="nav-discord">Discord</a>
+      <a
+        href="https://discord.gg/sHvWgW7AE4"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-discord"
+      >Discord</a>
     </div>
   </div>
 </nav>
 
 <main class="page">
+
   <a href="./index.html" class="back-link">← Página principal</a>
 
   <section class="hero">
     <div class="hero-content">
+
       <div class="badges">
         <span class="badge">OBJETOS EXCLUSIVOS</span>
         <span class="badge pink">ENCANTAMIENTOS ESPECIALES</span>
         <span class="badge">KAIZORA ORIGINS</span>
       </div>
+
       <h1>ARSENAL <span class="gradient-text">KAIZORA</span></h1>
+
       <p>
         Descubre armas y equipamiento con encantamientos especiales.
         Abre cada objeto para conocer sus encantamientos y habilidades.
         Nuevos objetos llegarán próximamente.
       </p>
+
     </div>
   </section>
 
   <section>
+
     <div class="section-heading">
       <div class="eyebrow">Armas y equipamiento</div>
       <h2>Objetos <span class="gradient-text">especiales</span></h2>
@@ -507,6 +659,7 @@ footer{
     <div class="item-grid">
 
       <!-- 01: ARRANCA ALMAS -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -517,8 +670,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">⚔️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Filo VI</span>
               <span class="enchant">Aspecto ígneo II</span>
@@ -527,21 +682,28 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">Lifesteal</span>
             </div>
+
             <div class="item-description">
-              <strong>🩸 Lifesteal:</strong> permite recuperar vida al infligir daño a tu enemigo. La curación depende del efecto configurado en el servidor.
+              <strong>🩸 Lifesteal:</strong>
+              permite recuperar vida al infligir daño a tu enemigo.
+              La curación depende del efecto configurado en el servidor.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$11.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$11.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
-      <!-- 02: ESPADA COLOSAL ELIMINADA -->
-
       <!-- 02: ESPADA METEORITO -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -552,8 +714,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">⚔️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Filo VI</span>
               <span class="enchant">Aspecto ígneo II</span>
@@ -562,19 +726,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">MeteorStrike</span>
             </div>
+
             <div class="item-description">
-              <strong>☄️ MeteorStrike:</strong> está pensado para hacer caer un meteorito sobre el objetivo con clic izquierdo.
+              <strong>☄️ MeteorStrike:</strong>
+              está pensado para hacer caer un meteorito sobre el objetivo con clic izquierdo.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$15.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$15.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 03: EL ANCIANO -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -585,8 +757,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">🛡️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Protección VI</span>
               <span class="enchant">Espinas III</span>
@@ -594,19 +768,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">FreezeAura</span>
             </div>
+
             <div class="item-description">
-              <strong>❄️ FreezeAura:</strong> aplica lentitud a los enemigos que se acercan lo suficiente al portador.
+              <strong>❄️ FreezeAura:</strong>
+              aplica lentitud a los enemigos que se acercan lo suficiente al portador.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$13.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$13.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 04: CORAZA QUEMADORA -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -617,8 +799,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">🛡️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Protección VI</span>
               <span class="enchant">Espinas III</span>
@@ -626,19 +810,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">FireAura</span>
             </div>
+
             <div class="item-description">
-              <strong>🔥 FireAura:</strong> quema a los enemigos que se acercan demasiado al portador de la coraza.
+              <strong>🔥 FireAura:</strong>
+              quema a los enemigos que se acercan demasiado al portador de la coraza.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$13.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$13.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 05: BOTAS ANTICAÍDAS -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -649,8 +841,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">🥾 Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Protección V</span>
               <span class="enchant">Caída de pluma VI</span>
@@ -660,19 +854,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">NoFallDamage</span>
             </div>
+
             <div class="item-description">
-              <strong>🪶 NoFallDamage:</strong> está pensado para anular el daño por caída, sin importar la altura.
+              <strong>🪶 NoFallDamage:</strong>
+              está pensado para anular el daño por caída, sin importar la altura.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$14.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$14.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 06: LANZA BOMBAS -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -683,8 +885,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">🏹 Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Poder VI</span>
               <span class="enchant">Llama</span>
@@ -693,19 +897,27 @@ footer{
               <span class="enchant">Infinidad</span>
               <span class="enchant special-enchant">ExplosiveArrow</span>
             </div>
+
             <div class="item-description">
-              <strong>💥 ExplosiveArrow:</strong> provoca una explosión donde impacta la flecha, contra un enemigo o una superficie.
+              <strong>💥 ExplosiveArrow:</strong>
+              provoca una explosión donde impacta la flecha, contra un enemigo o una superficie.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$12.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$12.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
-      <!-- 07: ARCO DE THOR -->
+      <!-- 07: EL ARCO DE THOR -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -716,8 +928,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">🏹 Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Poder VI</span>
               <span class="enchant">Llama</span>
@@ -726,19 +940,27 @@ footer{
               <span class="enchant">Infinidad</span>
               <span class="enchant special-enchant">LightningArrow</span>
             </div>
+
             <div class="item-description">
-              <strong>⚡ LightningArrow:</strong> está pensado para invocar un rayo donde impacta la flecha.
+              <strong>⚡ LightningArrow:</strong>
+              está pensado para invocar un rayo donde impacta la flecha.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$9.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$9.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 08: METEOROTRIENTE -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -749,8 +971,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">🔱 Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Conductividad</span>
               <span class="enchant">Empalamiento VII</span>
@@ -759,19 +983,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">MeteorStrike</span>
             </div>
+
             <div class="item-description">
-              <strong>☄️ MeteorStrike:</strong> está pensado para hacer caer un meteorito en la dirección u objetivo indicado con clic izquierdo.
+              <strong>☄️ MeteorStrike:</strong>
+              está pensado para hacer caer un meteorito en la dirección u objetivo indicado con clic izquierdo.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$17.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$17.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 09: PICO 3X3 -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -782,8 +1014,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">⛏️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Fortuna V</span>
               <span class="enchant">Eficiencia VI</span>
@@ -791,19 +1025,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">Mining3x3 III</span>
             </div>
+
             <div class="item-description">
-              <strong>⛏️ Mining3x3 III:</strong> permite minar bloques en un área de 3×3, ideal para avanzar más rápido en tus excavaciones.
+              <strong>⛏️ Mining3x3 III:</strong>
+              permite minar bloques en un área de 3×3, ideal para avanzar más rápido en tus excavaciones.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$9.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$9.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 10: PICO TELEKINESIS -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -814,8 +1056,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">⛏️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Fortuna IV</span>
               <span class="enchant">Eficiencia VII</span>
@@ -823,19 +1067,27 @@ footer{
               <span class="enchant">Reparación</span>
               <span class="enchant special-enchant">Telepathy III</span>
             </div>
+
             <div class="item-description">
-              <strong>✨ Telepathy III:</strong> recoge automáticamente los bloques minados en tu inventario para que no tengas que recogerlos del suelo.
+              <strong>✨ Telepathy III:</strong>
+              recoge automáticamente los bloques minados en tu inventario para que no tengas que recogerlos del suelo.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$8.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$8.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
       <!-- 11: PICO TELEKINESIS 3X3 -->
+
       <article class="item-card">
         <details>
           <summary>
@@ -846,8 +1098,10 @@ footer{
             </div>
             <span class="toggle-icon">+</span>
           </summary>
+
           <div class="item-content">
             <div class="content-label">⛏️ Encantamientos</div>
+
             <div class="enchantments">
               <span class="enchant">Fortuna VI</span>
               <span class="enchant">Eficiencia VI</span>
@@ -856,24 +1110,122 @@ footer{
               <span class="enchant special-enchant">Mining3x3 III</span>
               <span class="enchant special-enchant">Telepathy III</span>
             </div>
+
             <div class="item-description">
-              <strong>💎 Dos habilidades en un solo pico:</strong> mina en un área de 3×3 y recoge automáticamente los bloques en tu inventario. Incluye Fortuna VI para aumentar las recompensas de los bloques compatibles.
+              <strong>💎 Dos habilidades en un solo pico:</strong>
+              mina en un área de 3×3 y recoge automáticamente los bloques en tu inventario.
+              Incluye Fortuna VI para aumentar las recompensas de los bloques compatibles.
             </div>
+
             <div class="purchase-row">
-              <div class="purchase-price"><small>Precio</small><strong>$17.99 USD</strong></div>
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$17.99 USD</strong>
+              </div>
               <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
             </div>
+
             <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
           </div>
         </details>
       </article>
 
-      <!-- 12-24: PRÓXIMAMENTE -->
+      <!-- 12: PICO 5X5 -->
+
+      <article class="item-card">
+        <details>
+          <summary>
+            <div class="item-icon">💠</div>
+            <div class="item-info">
+              <h3>PICO 5X5</h3>
+              <p>Pico de Netherite · Minería en área 5×5</p>
+            </div>
+            <span class="toggle-icon">+</span>
+          </summary>
+
+          <div class="item-content">
+            <div class="content-label">⛏️ Encantamientos</div>
+
+            <div class="enchantments">
+              <span class="enchant">Fortuna VI</span>
+              <span class="enchant">Eficiencia VIII</span>
+              <span class="enchant">Irrompibilidad X</span>
+              <span class="enchant">Reparación</span>
+              <span class="enchant special-enchant">Mining 5x5 III</span>
+            </div>
+
+            <div class="item-description">
+              <strong>💠 Mining 5x5 III:</strong>
+              permite excavar un área de 5×5 bloques para despejar grandes zonas mucho más rápido.
+              Diseñado para mineros que quieren maximizar su rendimiento.
+            </div>
+
+            <div class="purchase-row">
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$19.99 USD</strong>
+              </div>
+              <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
+            </div>
+
+            <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
+          </div>
+        </details>
+      </article>
+
+      <!-- 13: PICO 6X6 -->
+
+      <article class="item-card">
+        <details>
+          <summary>
+            <div class="item-icon">💎</div>
+            <div class="item-info">
+              <h3>PICO 6X6</h3>
+              <p>Pico de Netherite · Minería en área 6×6</p>
+            </div>
+            <span class="toggle-icon">+</span>
+          </summary>
+
+          <div class="item-content">
+            <div class="content-label">⛏️ Encantamientos</div>
+
+            <div class="enchantments">
+              <span class="enchant">Fortuna VIII</span>
+              <span class="enchant">Eficiencia X</span>
+              <span class="enchant">Irrompibilidad X</span>
+              <span class="enchant">Reparación</span>
+              <span class="enchant special-enchant">Mining 6x6 III</span>
+            </div>
+
+            <div class="item-description">
+              <strong>💎 Mining 6x6 III:</strong>
+              permite minar un área de 6×6 bloques con cada activación.
+              Es el pico de minería de mayor alcance del arsenal, pensado para excavaciones masivas.
+            </div>
+
+            <div class="purchase-row">
+              <div class="purchase-price">
+                <small>Precio</small>
+                <strong>$24.99 USD</strong>
+              </div>
+              <a class="purchase-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 COMPRAR</a>
+            </div>
+
+            <p class="purchase-note">La compra y entrega se coordinan por Discord.</p>
+          </div>
+        </details>
+      </article>
+
+      <!-- 14: PRÓXIMAMENTE -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #12</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #14</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -883,11 +1235,16 @@ footer{
         </details>
       </article>
 
+      <!-- 15 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #13</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #15</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -897,11 +1254,16 @@ footer{
         </details>
       </article>
 
+      <!-- 16 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #14</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #16</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -911,11 +1273,16 @@ footer{
         </details>
       </article>
 
+      <!-- 17 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #15</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #17</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -925,11 +1292,16 @@ footer{
         </details>
       </article>
 
+      <!-- 18 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #16</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #18</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -939,11 +1311,16 @@ footer{
         </details>
       </article>
 
+      <!-- 19 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #17</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #19</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -953,11 +1330,16 @@ footer{
         </details>
       </article>
 
+      <!-- 20 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #18</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #20</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -967,11 +1349,16 @@ footer{
         </details>
       </article>
 
+      <!-- 21 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #19</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #21</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -981,11 +1368,16 @@ footer{
         </details>
       </article>
 
+      <!-- 22 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #20</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #22</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -995,11 +1387,16 @@ footer{
         </details>
       </article>
 
+      <!-- 23 -->
+
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #21</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #23</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -1009,39 +1406,16 @@ footer{
         </details>
       </article>
 
-      <article class="item-card coming-card">
-        <details>
-          <summary>
-            <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #22</h3><p>Nuevo objeto especial</p></div>
-            <span class="toggle-icon">+</span>
-          </summary>
-          <div class="coming-content">
-            <span class="coming-label">● PRÓXIMAMENTE</span>
-            <p>Estamos preparando nuevos objetos para el arsenal de Kaizora Origins.</p>
-          </div>
-        </details>
-      </article>
+      <!-- 24 -->
 
       <article class="item-card coming-card">
         <details>
           <summary>
             <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #23</h3><p>Nuevo objeto especial</p></div>
-            <span class="toggle-icon">+</span>
-          </summary>
-          <div class="coming-content">
-            <span class="coming-label">● PRÓXIMAMENTE</span>
-            <p>Estamos preparando nuevos objetos para el arsenal de Kaizora Origins.</p>
-          </div>
-        </details>
-      </article>
-
-      <article class="item-card coming-card">
-        <details>
-          <summary>
-            <div class="item-icon">🔒</div>
-            <div class="item-info"><h3>OBJETO EXCLUSIVO #24</h3><p>Nuevo objeto especial</p></div>
+            <div class="item-info">
+              <h3>OBJETO EXCLUSIVO #24</h3>
+              <p>Nuevo objeto especial</p>
+            </div>
             <span class="toggle-icon">+</span>
           </summary>
           <div class="coming-content">
@@ -1054,11 +1428,24 @@ footer{
     </div>
   </section>
 
+  <!-- PANEL DISCORD -->
+
   <section class="discord-panel">
     <h2>¿Listo para descubrir <span class="gradient-text">Kaizora</span>?</h2>
-    <p>Únete a nuestra comunidad para conocer nuevos objetos, eventos y actualizaciones de Kaizora Origins.</p>
-    <a class="button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">💬 UNIRME A DISCORD</a>
+
+    <p>
+      Únete a nuestra comunidad para conocer nuevos objetos,
+      eventos y actualizaciones de Kaizora Origins.
+    </p>
+
+    <a
+      class="button"
+      href="https://discord.gg/sHvWgW7AE4"
+      target="_blank"
+      rel="noopener noreferrer"
+    >💬 UNIRME A DISCORD</a>
   </section>
+
 </main>
 
 <footer>
@@ -1067,5 +1454,6 @@ footer{
     <p>© 2026 Kaizora Origins. Todos los derechos reservados.</p>
   </div>
 </footer>
+
 </body>
 </html>
