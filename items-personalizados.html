@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,47 +9,29 @@
 
 <style>
 :root{
-  --bg:#09070e;
-  --panel:#14101d;
-  --panel2:#1b1426;
-  --purple:#9b5de5;
-  --pink:#ff6de1;
-  --text:#faf6ff;
-  --muted:#b7a9c8;
+  --bg:#09070e;--panel:#14101d;--purple:#9b5de5;
+  --pink:#ff6de1;--text:#faf6ff;--muted:#b7a9c8;
   --border:#ffffff13;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
   margin:0;min-height:100vh;overflow-x:hidden;
-  background:
-    radial-gradient(ellipse at 10% 0%,#35164b66,transparent 36%),
-    radial-gradient(ellipse at 100% 25%,#50143833,transparent 32%),
-    var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
+  background:radial-gradient(ellipse at 10% 0%,#35164b66,transparent 36%),
+  radial-gradient(ellipse at 100% 25%,#50143833,transparent 32%),var(--bg);
+  color:var(--text);font-family:Arial,Helvetica,sans-serif;
 }
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
 button{cursor:pointer}
 .wrap{width:min(1180px,calc(100% - 36px));margin:auto}
-
-/* NAVEGACIÓN */
 header{
-  position:sticky;top:0;z-index:20;
-  background:#09070ef2;
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:20;background:#09070ef2;
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--border);
 }
-.nav{
-  min-height:70px;display:flex;align-items:center;
-  justify-content:space-between;gap:18px;
-}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
 .logo{font-size:19px;font-weight:1000;letter-spacing:1px}
-.logo span{
-  color:var(--pink);
-  text-shadow:0 0 20px #ff6de155;
-}
+.logo span{color:var(--pink);text-shadow:0 0 20px #ff6de155}
 .navlinks{display:flex;gap:22px;font-size:13px;color:#d0c2df}
 .navlinks a:hover{color:var(--pink)}
 .discord,.gradient-btn{
@@ -58,97 +41,56 @@ header{
   color:white;font-weight:900;font-size:12px;
 }
 .discord:hover,.gradient-btn:hover{filter:brightness(1.12)}
-
-/* PORTADA */
 .hero{text-align:center;padding:76px 0 45px}
 .eyebrow{
   display:inline-block;padding:8px 13px;border-radius:30px;
   border:1px solid #9b5de55c;background:#9b5de515;
   color:#e7d1ff;font-size:10px;font-weight:900;letter-spacing:1.6px;
 }
-h1{
-  font-size:clamp(37px,7vw,72px);line-height:1.02;
-  letter-spacing:-2px;margin:22px 0 16px;font-weight:1000;
-}
+h1{font-size:clamp(37px,7vw,72px);line-height:1.02;letter-spacing:-2px;margin:22px 0 16px;font-weight:1000}
 .gradient-text{
-  color:transparent;
-  background:linear-gradient(100deg,#c9a0ff,#ff6de1);
+  color:transparent;background:linear-gradient(100deg,#c9a0ff,#ff6de1);
   background-clip:text;-webkit-background-clip:text;
 }
-.hero p{
-  max-width:720px;margin:0 auto;color:var(--muted);
-  font-size:15px;line-height:1.8;
-}
-.hero-actions{
-  display:flex;justify-content:center;gap:11px;
-  flex-wrap:wrap;margin-top:25px;
-}
+.hero p{max-width:720px;margin:0 auto;color:var(--muted);font-size:15px;line-height:1.8}
+.hero-actions{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:25px}
 .secondary-btn{
   display:inline-flex;align-items:center;justify-content:center;
-  border:1px solid #49345f;background:#171120;
-  color:white;padding:12px 17px;border-radius:10px;
-  font-size:12px;font-weight:900;
+  border:1px solid #49345f;background:#171120;color:white;
+  padding:12px 17px;border-radius:10px;font-size:12px;font-weight:900;
 }
-.stats{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:12px;max-width:760px;margin:36px auto 0;
-}
-.stat{
-  padding:17px 10px;border:1px solid var(--border);
-  background:#ffffff06;border-radius:13px;
-}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px;margin:36px auto 0}
+.stat{padding:17px 10px;border:1px solid var(--border);background:#ffffff06;border-radius:13px}
 .stat strong{display:block;font-size:23px}
-.stat small{
-  display:block;margin-top:5px;color:var(--muted);
-  font-size:10px;text-transform:uppercase;letter-spacing:.8px;
-}
-
-/* SECCIONES */
+.stat small{display:block;margin-top:5px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.8px}
 section{padding:35px 0}
-.section-heading{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  gap:16px;margin-bottom:20px;
-}
+.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
 .section-heading h2{font-size:26px;margin:0 0 7px;font-weight:950}
 .section-heading p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
-.tag{
-  border:1px solid #54366b;border-radius:8px;padding:8px 10px;
-  color:#e5caff;font-size:10px;font-weight:900;white-space:nowrap;
-}
+.tag{border:1px solid #54366b;border-radius:8px;padding:8px 10px;color:#e5caff;font-size:10px;font-weight:900;white-space:nowrap}
 .notice{
-  border:1px solid #9b5de54d;border-radius:13px;padding:16px;
-  margin:16px 0 20px;
+  border:1px solid #9b5de54d;border-radius:13px;padding:16px;margin:16px 0 20px;
   background:linear-gradient(110deg,#9b5de518,#ff6de10b);
   color:#d9cce8;font-size:12px;line-height:1.8;
 }
 .notice strong{color:white}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
 .toolbar input,.toolbar select{
-  min-width:0;background:#100d17;color:white;
-  border:1px solid #382b49;border-radius:10px;
-  padding:12px 13px;outline:none;
+  min-width:0;background:#100d17;color:white;border:1px solid #382b49;
+  border-radius:10px;padding:12px 13px;outline:none;
 }
 .toolbar input{flex:1;min-width:200px}
 .toolbar input:focus,.toolbar select:focus{border-color:var(--purple)}
-.toolbar option{background:#100d17}
-
-/* TARJETAS */
-.grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;align-items:start;
-}
+.toolbar option,.level-fields option{background:#100d17}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;align-items:start}
 .card{
-  min-width:0;overflow:hidden;
-  border:1px solid var(--border);border-radius:15px;
+  min-width:0;overflow:hidden;border:1px solid var(--border);border-radius:15px;
   background:linear-gradient(145deg,#191423,#100d17);
   transition:border-color .2s,transform .2s;
 }
 .card:hover{border-color:#9b5de577;transform:translateY(-2px)}
 .card[hidden]{display:none}
-.card summary{
-  display:flex;align-items:center;gap:12px;
-  list-style:none;padding:16px;cursor:pointer;
-}
+.card summary{display:flex;align-items:center;gap:12px;list-style:none;padding:16px;cursor:pointer}
 .card summary::-webkit-details-marker{display:none}
 .glyph{
   flex-shrink:0;width:43px;height:43px;border-radius:12px;
@@ -162,148 +104,71 @@ section{padding:35px 0}
 .card[open] .chevron{transform:rotate(180deg)}
 .card-body{padding:0 16px 16px;border-top:1px solid #ffffff0c}
 .description{font-size:12px;color:#c8bbd6;line-height:1.75;margin:13px 0}
-.meta-row{
-  display:flex;justify-content:space-between;gap:10px;
-  padding:9px 0;border-bottom:1px solid #ffffff0c;font-size:11px;
-}
+.meta-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #ffffff0c;font-size:11px}
 .meta-row span{color:var(--muted)}
 .meta-row strong{color:#f5eaff;text-align:right}
 .price{color:#ffc4f4!important;font-weight:950}
-.level-fields{
-  display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px;
-}
+.level-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
 .level-fields label{color:var(--muted);font-size:10px;line-height:1.6}
 .level-fields select{
   display:block;width:100%;margin-top:5px;padding:9px 7px;
-  color:white;background:#0b0910;border:1px solid #423052;
-  border-radius:8px;outline:none;
+  color:white;background:#0b0910;border:1px solid #423052;border-radius:8px;outline:none;
 }
-.level-fields option{background:#100d17}
-.level-explanation{
-  margin-top:11px;padding:10px;border-radius:9px;
-  background:#ffffff05;color:#bfb0d0;font-size:10px;line-height:1.7;
-}
+.level-explanation{margin-top:11px;padding:10px;border-radius:9px;background:#ffffff05;color:#bfb0d0;font-size:10px;line-height:1.7}
 .add-btn{
   width:100%;margin-top:12px;padding:11px;border-radius:9px;
   border:1px solid #9b5de566;background:#9b5de51a;
   color:#f4e8ff;font-size:11px;font-weight:950;
 }
 .add-btn:hover{background:#9b5de53a}
-.empty-results{
-  display:none;padding:25px;border:1px dashed #49345f;
-  border-radius:12px;color:var(--muted);text-align:center;
-  font-size:13px;
-}
+.empty-results{display:none;padding:25px;border:1px dashed #49345f;border-radius:12px;color:var(--muted);text-align:center;font-size:13px}
 .empty-results.visible{display:block}
-
-/* DESCUENTOS */
-.discount-panel{
-  border:1px solid #ffffff15;border-radius:15px;padding:19px;
-  background:linear-gradient(140deg,#171221,#100d17);
-}
-.discount-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px;
-}
-.discount{
-  border:1px solid #39294a;background:#100d17;
-  padding:13px;border-radius:11px;
-}
+.discount-panel{border:1px solid #ffffff15;border-radius:15px;padding:19px;background:linear-gradient(140deg,#171221,#100d17)}
+.discount-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}
+.discount{border:1px solid #39294a;background:#100d17;padding:13px;border-radius:11px}
 .discount b{display:block;color:#a8f3c6;font-size:20px;margin-bottom:5px}
 .discount span{color:var(--muted);font-size:11px;line-height:1.5}
-
-/* CARRITO */
 .cart-fab{
   position:fixed;right:20px;bottom:20px;z-index:40;
-  display:flex;align-items:center;gap:10px;
-  border:1px solid #bd81ff66;border-radius:13px;
-  padding:13px 16px;color:white;font-weight:950;font-size:12px;
-  background:linear-gradient(110deg,#7540b9,#bc439d);
-  box-shadow:0 8px 35px #0009;
+  display:flex;align-items:center;gap:10px;border:1px solid #bd81ff66;
+  border-radius:13px;padding:13px 16px;color:white;font-weight:950;font-size:12px;
+  background:linear-gradient(110deg,#7540b9,#bc439d);box-shadow:0 8px 35px #0009;
 }
-.cart-count{
-  display:grid;place-items:center;width:22px;height:22px;
-  border-radius:50%;background:#fff;color:#3b174f;font-size:11px;
-}
-.cart-overlay{
-  position:fixed;inset:0;z-index:49;background:#000a;
-  opacity:0;pointer-events:none;transition:opacity .2s;
-}
+.cart-count{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:#3b174f;font-size:11px}
+.cart-overlay{position:fixed;inset:0;z-index:49;background:#000a;opacity:0;pointer-events:none;transition:opacity .2s}
 .cart-overlay.open{opacity:1;pointer-events:auto}
 .cart-drawer{
-  position:fixed;top:0;right:0;bottom:0;z-index:50;
-  width:min(420px,100%);padding:22px;
-  display:flex;flex-direction:column;
-  background:#100d17;border-left:1px solid #69458a;
-  box-shadow:-15px 0 50px #0007;
+  position:fixed;top:0;right:0;bottom:0;z-index:50;width:min(420px,100%);
+  padding:22px;display:flex;flex-direction:column;background:#100d17;
+  border-left:1px solid #69458a;box-shadow:-15px 0 50px #0007;
   transform:translateX(105%);transition:transform .25s;
 }
 .cart-drawer.open{transform:translateX(0)}
-.cart-header{
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--border);padding-bottom:16px;
-}
+.cart-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:16px}
 .cart-header h2{font-size:20px;margin:0}
-.close-cart{
-  border:0;background:#ffffff0b;color:white;border-radius:8px;
-  width:36px;height:36px;font-size:20px;
-}
+.close-cart{border:0;background:#ffffff0b;color:white;border-radius:8px;width:36px;height:36px;font-size:20px}
 .cart-items{overflow-y:auto;flex:1;padding:8px 0}
-.cart-empty{
-  color:var(--muted);font-size:13px;line-height:1.8;padding:20px 0;
-}
-.cart-item{
-  padding:13px 0;border-bottom:1px solid var(--border);
-  display:grid;grid-template-columns:1fr auto;gap:8px;
-}
+.cart-empty{color:var(--muted);font-size:13px;line-height:1.8;padding:20px 0}
+.cart-item{padding:13px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:8px}
 .cart-item strong{display:block;font-size:12px}
 .cart-item small{display:block;color:var(--muted);margin-top:5px;font-size:10px}
 .cart-item .item-cost{font-weight:950;color:#ffc4f4;font-size:12px}
-.remove-item{
-  border:0;background:none;color:#ff8bdc;font-size:11px;
-  margin-top:8px;padding:0;
-}
+.remove-item{border:0;background:none;color:#ff8bdc;font-size:11px;margin-top:8px;padding:0}
 .cart-summary{border-top:1px solid var(--border);padding-top:14px}
-.total-row{
-  display:flex;justify-content:space-between;gap:12px;
-  padding:6px 0;color:#d0c3de;font-size:12px;
-}
+.total-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;color:#d0c3de;font-size:12px}
 .total-row.final{font-size:16px;font-weight:950;color:white}
 .total-row.final strong{color:var(--pink)}
 .cart-note{font-size:10px;color:var(--muted);line-height:1.6;margin:10px 0}
-.checkout-btn{
-  display:block;width:100%;text-align:center;padding:14px;
-  border:0;border-radius:10px;
-  background:linear-gradient(110deg,var(--purple),var(--pink));
-  color:white;font-weight:950;font-size:12px;
-}
-.clear-btn{
-  width:100%;padding:10px;margin-top:8px;
-  border:1px solid #ffffff1c;border-radius:9px;
-  background:transparent;color:#cbbdd9;font-size:11px;
-}
-
-/* PIE */
-footer{
-  margin-top:45px;padding:28px 0 100px;
-  border-top:1px solid var(--border);
-  color:#9485a5;font-size:11px;line-height:1.8;
-}
+.checkout-btn{display:block;width:100%;text-align:center;padding:14px;border:0;border-radius:10px;background:linear-gradient(110deg,var(--purple),var(--pink));color:white;font-weight:950;font-size:12px}
+.clear-btn{width:100%;padding:10px;margin-top:8px;border:1px solid #ffffff1c;border-radius:9px;background:transparent;color:#cbbdd9;font-size:11px}
+footer{margin-top:45px;padding:28px 0 100px;border-top:1px solid var(--border);color:#9485a5;font-size:11px;line-height:1.8}
 footer strong{color:#ddc5f5}
-footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-
-@media(max-width:850px){
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .navlinks{display:none}
-  .discount-grid{grid-template-columns:repeat(2,1fr)}
-}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{display:none}.discount-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){
-  .wrap{width:calc(100% - 26px)}
-  .grid{grid-template-columns:1fr}
-  .hero{padding-top:52px}
-  h1{letter-spacing:-1.4px}
-  .stats{gap:7px}
-  .stat{padding:13px 5px}
-  .stat strong{font-size:19px}
+  .wrap{width:calc(100% - 26px)}.grid{grid-template-columns:1fr}
+  .hero{padding-top:52px}h1{letter-spacing:-1.4px}
+  .stats{gap:7px}.stat{padding:13px 5px}.stat strong{font-size:19px}
   .stat small{font-size:8px;letter-spacing:.3px}
   .section-heading{align-items:flex-start;flex-direction:column}
   .discount-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -311,8 +176,8 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
 }
 </style>
 </head>
-
 <body>
+
 <header>
   <div class="wrap nav">
     <a href="kaizora.html" class="logo"><span>KAIZORA</span> ORIGINS</a>
@@ -329,11 +194,7 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
   <section class="hero">
     <div class="eyebrow">✦ FORJA TU PROPIO EQUIPAMIENTO</div>
     <h1>PERSONALIZA<br><span class="gradient-text">TU PODER.</span></h1>
-    <p>
-      Diseña armas, armaduras y herramientas con encantamientos especiales
-      y mejoras que superan los límites tradicionales de Minecraft.
-      Elige tus efectos, selecciona los niveles y prepara tu solicitud.
-    </p>
+    <p>Diseña armas, armaduras y herramientas con encantamientos especiales y mejoras que superan los límites tradicionales de Minecraft. Elige tus efectos, selecciona los niveles y prepara tu solicitud.</p>
     <div class="hero-actions">
       <a class="gradient-btn" href="#especiales">EXPLORAR ENCANTAMIENTOS ↓</a>
       <a class="secondary-btn" href="#como-funciona">¿CÓMO FUNCIONA?</a>
@@ -347,20 +208,10 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
 
   <section id="especiales">
     <div class="section-heading">
-      <div>
-        <h2>✧ Encantamientos especiales</h2>
-        <p>Habilidades personalizadas para crear un objeto diferente.</p>
-      </div>
+      <div><h2>✧ Encantamientos especiales</h2><p>Habilidades personalizadas para crear un objeto diferente.</p></div>
       <span class="tag">PRECIOS BASE EN USD</span>
     </div>
-
-    <div class="notice">
-      <strong>Importante:</strong> los encantamientos especiales utilizan los
-      niveles máximos definidos para cada habilidad. Los precios de esta página
-      son una propuesta inicial y deben confirmarse antes de realizar el pedido.
-      La disponibilidad real depende de la configuración y compatibilidad del servidor.
-    </div>
-
+    <div class="notice"><strong>Importante:</strong> los encantamientos especiales utilizan los niveles máximos definidos para cada habilidad. Los precios son una propuesta inicial. La compatibilidad depende de la configuración del servidor.</div>
     <div class="toolbar">
       <input id="searchSpecial" type="search" placeholder="Buscar encantamiento especial...">
       <select id="filterSpecial" aria-label="Filtrar categoría">
@@ -379,27 +230,16 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
 
   <section id="vanilla">
     <div class="section-heading">
-      <div>
-        <h2>✧ Encantamientos Minecraft Vanilla+</h2>
-        <p>Encantamientos originales de Minecraft con selección de niveles superiores a los normales.</p>
-      </div>
+      <div><h2>✧ Encantamientos Minecraft Vanilla+</h2><p>Encantamientos originales con selección de niveles superiores a los normales.</p></div>
       <span class="tag">HASTA NIVEL 100*</span>
     </div>
-
     <div class="notice">
-      <strong>¿Qué significa Vanilla+?</strong> Puedes seleccionar niveles superiores
-      al máximo habitual de cada encantamiento. Por ejemplo, si Eficiencia normalmente
-      llega a V, aquí podrás solicitar Eficiencia VI, VII y superiores. El nivel 100
-      es un límite de selección para los encantamientos compatibles, no una garantía
-      de que todos los niveles funcionen en cualquier plugin o servidor.
-      <br><br>
-      Cada tarjeta explica qué hace el encantamiento y qué cambia al subir de nivel.
-      En niveles muy altos, el beneficio puede variar y no siempre será proporcional.
+      <strong>¿Qué significa Vanilla+?</strong> Puedes solicitar niveles superiores al máximo habitual. Por ejemplo, Eficiencia V normalmente es el máximo y aquí podrás solicitar Eficiencia VI o superior. El nivel 100 es un límite de solicitud, no una garantía de que todos los niveles funcionen en cualquier plugin.
+      <br><br>Cada tarjeta explica el efecto del encantamiento y qué podría cambiar al subir de nivel. Los resultados dependen de cómo se implemente el encantamiento en el servidor.
     </div>
-
     <div class="toolbar">
       <input id="searchVanilla" type="search" placeholder="Buscar Protección, Fortuna, Reparación...">
-      <select id="filterVanilla" aria-label="Filtrar tipo de encantamiento">
+      <select id="filterVanilla" aria-label="Filtrar tipo">
         <option value="all">Todos los tipos</option>
         <option value="Combate">Combate</option>
         <option value="Armadura">Armadura</option>
@@ -415,10 +255,7 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
 
   <section id="descuentos">
     <div class="section-heading">
-      <div>
-        <h2>✧ Descuentos por combinación</h2>
-        <p>Cuantas más mejoras añadas al mismo pedido, mayor será el descuento.</p>
-      </div>
+      <div><h2>✧ Descuentos por combinación</h2><p>Cuantas más mejoras añadas, mayor será el descuento aplicado.</p></div>
     </div>
     <div class="discount-panel">
       <div class="discount-grid">
@@ -427,27 +264,20 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
         <div class="discount"><b>10%</b><span>4–5 encantamientos</span></div>
         <div class="discount"><b>15%</b><span>6 o más encantamientos</span></div>
       </div>
-      <p style="font-size:11px;color:var(--muted);line-height:1.8;margin:16px 0 0">
-        El descuento se calcula sobre el subtotal de las mejoras añadidas al presupuesto.
-        Estos porcentajes son orientativos y pueden cambiar según los precios definitivos.
-      </p>
+      <p style="font-size:11px;color:var(--muted);line-height:1.8;margin:16px 0 0">Descuentos ilustrativos calculados sobre el subtotal de las mejoras del presupuesto.</p>
     </div>
   </section>
 
   <section id="como-funciona">
     <div class="section-heading">
-      <div>
-        <h2>✧ ¿Cómo funciona?</h2>
-        <p>Prepara tu solicitud antes de contactar con el equipo de Kaizora.</p>
-      </div>
+      <div><h2>✧ ¿Cómo funciona?</h2><p>Prepara tu solicitud antes de contactar con el equipo.</p></div>
     </div>
     <div class="notice">
-      <strong>1.</strong> Abre una tarjeta y elige el nivel que quieras.<br>
-      <strong>2.</strong> Añade al presupuesto todos los encantamientos que necesites.<br>
-      <strong>3.</strong> Revisa el subtotal y el descuento calculado.<br>
-      <strong>4.</strong> Pulsa “Solicitar por Discord”. Se preparará un texto con tu selección para que puedas enviarlo al equipo.<br><br>
-      El presupuesto mostrado no representa un pago ni confirma automáticamente el pedido.
-      El equipo deberá verificar el precio final, la compatibilidad y la disponibilidad.
+      <strong>1.</strong> Abre una tarjeta y selecciona el nivel.<br>
+      <strong>2.</strong> Elige un objeto compatible con ese encantamiento.<br>
+      <strong>3.</strong> Añade las mejoras al presupuesto y revisa el descuento.<br>
+      <strong>4.</strong> Pulsa “Solicitar por Discord” y pega el texto generado en nuestro Discord.<br><br>
+      El presupuesto no constituye un pago ni confirma automáticamente el pedido. El equipo debe verificar el precio final y la compatibilidad.
     </div>
   </section>
 </main>
@@ -455,29 +285,25 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
 <footer>
   <div class="wrap footer-inner">
     <div><strong>KAIZORA ORIGINS</strong><br>Tu aventura. Tu poder. Tu historia.</div>
-    <div>Los precios mostrados son orientativos.<br>La solicitud debe confirmarse con el equipo.</div>
+    <div>Precios orientativos.<br>La solicitud debe confirmarse con el equipo.</div>
     <div><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener">Discord oficial ↗</a></div>
   </div>
 </footer>
 
-<button class="cart-fab" id="openCart" type="button">
-  <span>VER PRESUPUESTO</span><span class="cart-count" id="cartCount">0</span>
-</button>
-
+<button class="cart-fab" id="openCart" type="button"><span>VER PRESUPUESTO</span><span class="cart-count" id="cartCount">0</span></button>
 <div class="cart-overlay" id="cartOverlay"></div>
+
 <aside class="cart-drawer" id="cartDrawer" aria-label="Tu presupuesto" aria-hidden="true">
   <div class="cart-header">
     <h2>Tu presupuesto</h2>
     <button class="close-cart" id="closeCart" type="button" aria-label="Cerrar">×</button>
   </div>
-  <div class="cart-items" id="cartItems">
-    <div class="cart-empty">Todavía no has añadido ningún encantamiento.<br>Explora el catálogo para empezar.</div>
-  </div>
+  <div class="cart-items" id="cartItems"><div class="cart-empty">Todavía no has añadido ningún encantamiento.<br>Explora el catálogo para empezar.</div></div>
   <div class="cart-summary">
     <div class="total-row"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
     <div class="total-row"><span>Descuento</span><strong id="discountAmount">−$0.00</strong></div>
     <div class="total-row final"><span>Total estimado</span><strong id="grandTotal">$0.00</strong></div>
-    <p class="cart-note">Importes orientativos en USD. La selección se mantiene mientras esta página esté abierta.</p>
+    <p class="cart-note">Importes orientativos en USD. La selección se mantiene mientras la página esté abierta.</p>
     <button class="checkout-btn" id="checkout" type="button">SOLICITAR POR DISCORD ↗</button>
     <button class="clear-btn" id="clearCart" type="button">Vaciar presupuesto</button>
   </div>
@@ -486,330 +312,193 @@ footer .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wr
 <script>
 "use strict";
 
-/*
-  CATÁLOGO DE ENCANTAMIENTOS ESPECIALES.
-  Los precios son propuestas iniciales, no tarifas oficiales.
-*/
 const specialEnchants = [
-  {name:"LightningStrike",cat:"Armas",icon:"ϟ",rarity:"Raro",max:3,price:8,
-   desc:"Otorga una probabilidad de invocar un rayo al golpear a un enemigo. Cada nivel aumenta la probabilidad y el daño según la configuración del plugin.",
-   effect:"Probabilidad base: 5%. Incremento por nivel: 2 puntos porcentuales y +2 de daño configurado."},
-  {name:"Lifesteal",cat:"Armas",icon:"♥",rarity:"Épico",max:5,price:12,
-   desc:"Recupera vida al golpear a un enemigo. Una habilidad útil para combates prolongados.",
-   effect:"Curación base configurada: 1; cada nivel añade 0,5."},
-  {name:"Bleed",cat:"Armas",icon:"✦",rarity:"Poco común",max:3,price:7,
-   desc:"Aplica un efecto de sangrado que inflige daño durante un tiempo.",
-   effect:"Duración configurada: 60 ticks; daño por tick: 1."},
-  {name:"Execute",cat:"Armas",icon:"⚔",rarity:"Legendario",max:1,price:15,
-   desc:"Habilidad diseñada para causar daño adicional a enemigos que se encuentran por debajo del umbral de vida configurado.",
-   effect:"Umbral de vida: 30%; multiplicador configurado: 1,5."},
-  {name:"Combo",cat:"Armas",icon:"✧",rarity:"Raro",max:5,price:9,
-   desc:"Aumenta el daño por golpes consecutivos mientras se mantiene la cadena de ataques.",
-   effect:"Incremento configurado: 0,5 por nivel; reinicio tras 40 ticks."},
-  {name:"KnockbackControl",cat:"Armas",icon:"◈",rarity:"Común",max:2,price:5,
-   desc:"Reduce el retroceso recibido para ayudarte a mantener la posición en combate.",
-   effect:"Reducción configurada: 20% por nivel."},
+ {name:"LightningStrike",cat:"Armas",icon:"ϟ",rarity:"Raro",max:3,price:8,items:["Espada","Hacha"],desc:"Probabilidad de invocar un rayo al golpear a un enemigo.",effect:"Probabilidad base: 5%; incremento por nivel: 2 puntos porcentuales y +2 de daño configurado."},
+ {name:"Lifesteal",cat:"Armas",icon:"♥",rarity:"Épico",max:5,price:12,items:["Espada","Hacha"],desc:"Recupera vida al golpear a un enemigo.",effect:"Curación base configurada: 1; cada nivel añade 0,5."},
+ {name:"Bleed",cat:"Armas",icon:"✦",rarity:"Poco común",max:3,price:7,items:["Espada","Hacha"],desc:"Aplica sangrado que inflige daño durante un tiempo.",effect:"Duración configurada: 60 ticks; daño por tick: 1."},
+ {name:"Execute",cat:"Armas",icon:"⚔",rarity:"Legendario",max:1,price:15,items:["Espada","Hacha"],desc:"Habilidad de daño adicional contra enemigos con poca vida.",effect:"Umbral de vida: 30%; multiplicador configurado: 1,5."},
+ {name:"Combo",cat:"Armas",icon:"✧",rarity:"Raro",max:5,price:9,items:["Espada","Hacha"],desc:"Aumenta el daño de golpes consecutivos mientras se mantiene la cadena de ataques.",effect:"Incremento configurado: 0,5 por nivel; reinicio tras 40 ticks."},
+ {name:"KnockbackControl",cat:"Armas",icon:"◈",rarity:"Común",max:2,price:5,items:["Espada","Hacha"],desc:"Reduce el retroceso recibido por el objetivo al que golpeas, según la implementación.",effect:"Reducción configurada: 20% por nivel."},
 
-  {name:"Mining3x3",cat:"Picos",icon:"▦",rarity:"Raro",max:1,price:10,
-   desc:"Permite minar un área de 3×3 con un pico compatible.",
-   effect:"Área: 3×3 bloques."},
-  {name:"Mining5x5",cat:"Picos",icon:"▦",rarity:"Épico",max:1,price:20,
-   desc:"Permite minar un área de 5×5 con un pico compatible.",
-   effect:"Área: 5×5 bloques."},
-  {name:"Mining6x6",cat:"Picos",icon:"▦",rarity:"Legendario",max:1,price:28,
-   desc:"Permite minar un área de 6×6 con un pico compatible, si el plugin y el bloque admiten la operación.",
-   effect:"Área: 6×6 bloques."},
-  {name:"VeinMiner",cat:"Picos",icon:"⛏",rarity:"Raro",max:1,price:10,
-   desc:"Rompe un conjunto de bloques conectados del mismo tipo, sujeto a los límites del plugin.",
-   effect:"Máximo configurado: 64 bloques."},
-  {name:"AutoSmelt",cat:"Picos",icon:"♨",rarity:"Poco común",max:1,price:7,
-   desc:"Convierte determinados minerales en sus productos fundidos al extraerlos, cuando el bloque es compatible.",
-   effect:"Nivel único."},
-  {name:"Telepathy",cat:"Picos",icon:"✧",rarity:"Épico",max:1,price:12,
-   desc:"Envía directamente al inventario los objetos extraídos, si hay espacio y el plugin admite el resultado.",
-   effect:"Nivel único."},
-  {name:"HasteBoost",cat:"Picos",icon:"➤",rarity:"Común",max:3,price:6,
-   desc:"Aplica un impulso temporal de velocidad de minería según el nivel.",
-   effect:"Duración configurada: 5 segundos."},
+ {name:"Mining3x3",cat:"Picos",icon:"▦",rarity:"Raro",max:1,price:10,items:["Pico"],desc:"Permite minar un área de 3×3 con un pico compatible.",effect:"Área: 3×3 bloques."},
+ {name:"Mining5x5",cat:"Picos",icon:"▦",rarity:"Épico",max:1,price:20,items:["Pico"],desc:"Permite minar un área de 5×5 con un pico compatible.",effect:"Área: 5×5 bloques."},
+ {name:"Mining6x6",cat:"Picos",icon:"▦",rarity:"Legendario",max:1,price:28,items:["Pico"],desc:"Permite minar un área de 6×6 cuando el bloque y el plugin lo admiten.",effect:"Área: 6×6 bloques."},
+ {name:"VeinMiner",cat:"Picos",icon:"⛏",rarity:"Raro",max:1,price:10,items:["Pico"],desc:"Rompe bloques conectados del mismo tipo, dentro del límite configurado.",effect:"Máximo configurado: 64 bloques."},
+ {name:"AutoSmelt",cat:"Picos",icon:"♨",rarity:"Poco común",max:1,price:7,items:["Pico"],desc:"Funde automáticamente determinados minerales al extraerlos.",effect:"Nivel único."},
+ {name:"Telepathy",cat:"Picos",icon:"✧",rarity:"Épico",max:1,price:12,items:["Pico"],desc:"Envía directamente al inventario los objetos extraídos cuando hay espacio.",effect:"Nivel único."},
+ {name:"HasteBoost",cat:"Picos",icon:"➤",rarity:"Común",max:3,price:6,items:["Pico"],desc:"Aplica un impulso temporal a la velocidad de minería.",effect:"Duración configurada: 5 segundos."},
 
-  {name:"ThornsPlus",cat:"Armaduras",icon:"❖",rarity:"Raro",max:3,price:9,
-   desc:"Devuelve una parte del daño recibido al atacante.",
-   effect:"Reflejo base: 10%; incremento configurado: 5 por nivel."},
-  {name:"FreezeAura",cat:"Armaduras",icon:"❄",rarity:"Épico",max:2,price:12,
-   desc:"Aplica un efecto de congelación a enemigos cercanos cuando se activa la habilidad.",
-   effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
-  {name:"FireAura",cat:"Armaduras",icon:"♨",rarity:"Épico",max:2,price:12,
-   desc:"Genera un efecto de fuego alrededor del portador contra objetivos cercanos, según las reglas del plugin.",
-   effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
-  {name:"RegenBoost",cat:"Armaduras",icon:"♥",rarity:"Legendario",max:3,price:15,
-   desc:"Regenera vida en intervalos periódicos.",
-   effect:"Curación configurada: 1 cada 100 ticks."},
-  {name:"AntiKnockback",cat:"Armaduras",icon:"◈",rarity:"Poco común",max:1,price:8,
-   desc:"Reduce o anula el retroceso recibido según la implementación del plugin.",
-   effect:"Nivel único."},
-  {name:"DamageReduction",cat:"Armaduras",icon:"⬡",rarity:"Mítico",max:4,price:18,
-   desc:"Reduce una parte del daño recibido. Su efectividad final depende de cómo el plugin calcule la reducción.",
-   effect:"Reducción configurada: 5% más 2 por nivel."},
+ {name:"ThornsPlus",cat:"Armaduras",icon:"❖",rarity:"Raro",max:3,price:9,items:["Casco","Pechera","Pantalones","Botas"],desc:"Devuelve parte del daño recibido al atacante.",effect:"Reflejo base: 10%; incremento configurado: 5 por nivel."},
+ {name:"FreezeAura",cat:"Armaduras",icon:"❄",rarity:"Épico",max:2,price:12,items:["Casco","Pechera","Pantalones","Botas"],desc:"Aplica congelación a enemigos cercanos cuando se activa.",effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
+ {name:"FireAura",cat:"Armaduras",icon:"♨",rarity:"Épico",max:2,price:12,items:["Casco","Pechera","Pantalones","Botas"],desc:"Genera un efecto de fuego contra objetivos cercanos.",effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
+ {name:"RegenBoost",cat:"Armaduras",icon:"♥",rarity:"Legendario",max:3,price:15,items:["Casco","Pechera","Pantalones","Botas"],desc:"Regenera vida en intervalos periódicos.",effect:"Curación configurada: 1 cada 100 ticks."},
+ {name:"AntiKnockback",cat:"Armaduras",icon:"◈",rarity:"Poco común",max:1,price:8,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce o anula el retroceso recibido según el plugin.",effect:"Nivel único."},
+ {name:"DamageReduction",cat:"Armaduras",icon:"⬡",rarity:"Mítico",max:4,price:18,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce parte del daño recibido.",effect:"La reducción final depende de la fórmula del plugin; valores configurados: 5 y 2 por nivel."},
 
-  {name:"SpeedBoost",cat:"Botas",icon:"➤",rarity:"Común",max:2,price:6,
-   desc:"Concede un impulso de velocidad de movimiento.",
-   effect:"Máximo configurado: nivel 2."},
-  {name:"JumpBoost",cat:"Botas",icon:"↟",rarity:"Común",max:2,price:6,
-   desc:"Aumenta la capacidad de salto del jugador.",
-   effect:"Máximo configurado: nivel 2."},
-  {name:"NoFallDamage",cat:"Botas",icon:"↓",rarity:"Épico",max:1,price:12,
-   desc:"Evita el daño por caída cuando se activa correctamente y el plugin reconoce el evento.",
-   effect:"Nivel único."},
-  {name:"DashAbility",cat:"Botas",icon:"➤",rarity:"Legendario",max:1,price:15,
-   desc:"Permite realizar un impulso rápido de movimiento con un tiempo de reutilización.",
-   effect:"Cooldown configurado: 10 segundos; multiplicador de velocidad: 1,5."},
+ {name:"SpeedBoost",cat:"Botas",icon:"➤",rarity:"Común",max:2,price:6,items:["Botas"],desc:"Concede un impulso de velocidad de movimiento.",effect:"Máximo configurado: nivel 2."},
+ {name:"JumpBoost",cat:"Botas",icon:"↟",rarity:"Común",max:2,price:6,items:["Botas"],desc:"Aumenta la capacidad de salto del jugador.",effect:"Máximo configurado: nivel 2."},
+ {name:"NoFallDamage",cat:"Botas",icon:"↓",rarity:"Épico",max:1,price:12,items:["Botas"],desc:"Evita el daño por caída cuando la habilidad está activa.",effect:"Nivel único."},
+ {name:"DashAbility",cat:"Botas",icon:"➤",rarity:"Legendario",max:1,price:15,items:["Botas"],desc:"Permite realizar un impulso rápido de movimiento.",effect:"Cooldown configurado: 10 segundos; multiplicador: 1,5."},
 
-  {name:"ExplosiveArrow",cat:"Arcos",icon:"✹",rarity:"Raro",max:3,price:10,
-   desc:"Hace explotar las flechas al impactar, con un radio que aumenta según el nivel.",
-   effect:"Radio base: 2; incremento configurado: 0,5 por nivel."},
-  {name:"LightningArrow",cat:"Arcos",icon:"ϟ",rarity:"Épico",max:1,price:12,
-   desc:"Invoca un efecto de rayo al impactar con una flecha, si el mundo y el plugin lo permiten.",
-   effect:"Nivel único."},
-  {name:"PoisonArrow",cat:"Arcos",icon:"☠",rarity:"Poco común",max:3,price:8,
-   desc:"Aplica veneno a los objetivos alcanzados por la flecha.",
-   effect:"Duración configurada: 60 ticks."},
-  {name:"PiercingArrow",cat:"Arcos",icon:"➶",rarity:"Raro",max:1,price:8,
-   desc:"Permite que la flecha atraviese objetivos, según la implementación de la habilidad.",
-   effect:"Nivel único."},
+ {name:"ExplosiveArrow",cat:"Arcos",icon:"✹",rarity:"Raro",max:3,price:10,items:["Arco"],desc:"Hace explotar las flechas al impactar.",effect:"Radio base: 2; incremento configurado: 0,5 por nivel."},
+ {name:"LightningArrow",cat:"Arcos",icon:"ϟ",rarity:"Épico",max:1,price:12,items:["Arco"],desc:"Invoca un efecto de rayo al impactar con una flecha.",effect:"Nivel único."},
+ {name:"PoisonArrow",cat:"Arcos",icon:"☠",rarity:"Poco común",max:3,price:8,items:["Arco"],desc:"Aplica veneno a los objetivos alcanzados por las flechas.",effect:"Duración configurada: 60 ticks."},
+ {name:"PiercingArrow",cat:"Arcos",icon:"➶",rarity:"Raro",max:1,price:8,items:["Arco"],desc:"Permite que la flecha atraviese objetivos si la implementación lo admite.",effect:"Nivel único."},
 
-  {name:"TeleportStrike",cat:"Especiales",icon:"✧",rarity:"Mítico",max:1,price:20,
-   desc:"Habilidad de ataque basada en teletransporte. El funcionamiento exacto depende de la implementación instalada.",
-   effect:"Cooldown configurado: 15 segundos."},
-  {name:"MeteorStrike",cat:"Especiales",icon:"☄",rarity:"Divino",max:1,price:25,
-   desc:"Invoca un impacto de meteorito con daño de área.",
-   effect:"Radio configurado: 5 bloques; daño: 10; cooldown: 30 segundos."},
-  {name:"TimeWarp",cat:"Especiales",icon:"◷",rarity:"Divino",max:1,price:25,
-   desc:"Crea un efecto temporal de área. Su efecto real depende de la implementación del plugin.",
-   effect:"Radio configurado: 10 bloques; duración: 5; cooldown: 45 segundos."},
-  {name:"GodMode",cat:"Especiales",icon:"✦",rarity:"Divino",max:1,price:35,
-   desc:"Habilidad de duración limitada destinada a proporcionar un efecto defensivo extraordinario.",
-   effect:"Duración configurada: 5; cooldown: 60 segundos."}
+ {name:"TeleportStrike",cat:"Especiales",icon:"✧",rarity:"Mítico",max:1,price:20,items:["Espada","Hacha"],desc:"Habilidad de combate basada en teletransporte; debe confirmarse su implementación.",effect:"Cooldown configurado: 15 segundos."},
+ {name:"MeteorStrike",cat:"Especiales",icon:"☄",rarity:"Divino",max:1,price:25,items:["Espada","Hacha"],desc:"Invoca un impacto de meteorito con daño de área.",effect:"Radio: 5 bloques; daño: 10; cooldown: 30 segundos."},
+ {name:"TimeWarp",cat:"Especiales",icon:"◷",rarity:"Divino",max:1,price:25,items:["Espada","Hacha"],desc:"Crea un efecto temporal de área; el resultado depende del plugin.",effect:"Radio: 10 bloques; duración: 5; cooldown: 45 segundos."},
+ {name:"GodMode",cat:"Especiales",icon:"✦",rarity:"Divino",max:1,price:35,items:["Casco","Pechera","Pantalones","Botas"],desc:"Habilidad defensiva de duración limitada.",effect:"Duración configurada: 5; cooldown: 60 segundos."}
 ];
 
-/*
-  ENCANTAMIENTOS VANILLA.
-  max es el nivel normal aproximado. Solo se muestran niveles superiores
-  a ese máximo; el selector llega hasta 100 como límite de solicitud.
-*/
+/* Las listas de objetos permitidos son específicas para cada encantamiento. */
 const vanillaEnchants = [
-  {name:"Protección",cat:"Armadura",max:4,price:1.50,desc:"Reduce el daño recibido de muchas fuentes.",effect:"Cada nivel adicional puede mejorar la protección, si la implementación admite niveles superiores."},
-  {name:"Protección contra el fuego",cat:"Armadura",max:4,price:1.50,desc:"Reduce el daño y los efectos relacionados con el fuego.",effect:"Los niveles superiores pueden mejorar la protección compatible."},
-  {name:"Protección contra explosiones",cat:"Armadura",max:4,price:1.50,desc:"Reduce el daño de explosiones y su retroceso.",effect:"La mejora depende de cómo se apliquen los niveles extra."},
-  {name:"Protección contra proyectiles",cat:"Armadura",max:4,price:1.50,desc:"Reduce el daño recibido de flechas y otros proyectiles compatibles.",effect:"Los niveles superiores pueden aumentar la reducción."},
-  {name:"Espinas",cat:"Armadura",max:3,price:2,desc:"Puede infligir daño a quien te ataque.",effect:"Un nivel superior puede aumentar la probabilidad o el efecto según la implementación."},
-  {name:"Respiración",cat:"Armadura",max:3,price:1.50,desc:"Permite permanecer más tiempo bajo el agua.",effect:"Los niveles extra pueden mejorar el efecto si el servidor los admite."},
-  {name:"Afinidad acuática",cat:"Armadura",max:1,price:2,desc:"Mejora la velocidad de minería bajo el agua.",effect:"Los niveles superiores no garantizan una mejora adicional."},
-  {name:"Agilidad acuática",cat:"Movimiento",max:3,price:2,desc:"Aumenta la velocidad de movimiento bajo el agua.",effect:"Los niveles superiores pueden aumentar el beneficio compatible."},
-  {name:"Paso helado",cat:"Movimiento",max:2,price:2,desc:"Convierte el agua bajo tus pies en hielo al caminar.",effect:"Los niveles superiores no garantizan más alcance."},
-  {name:"Caída de pluma",cat:"Armadura",max:4,price:2,desc:"Reduce el daño por caída.",effect:"Los niveles extra pueden aumentar la reducción compatible."},
-  {name:"Velocidad de almas",cat:"Movimiento",max:3,price:2,desc:"Aumenta la velocidad al caminar sobre arena de almas y tierra de almas.",effect:"Los niveles extra pueden aumentar la velocidad compatible."},
-  {name:"Sigilo veloz",cat:"Movimiento",max:3,price:2,desc:"Aumenta la velocidad al desplazarte agachado.",effect:"Los niveles extra pueden aumentar el efecto compatible."},
-  {name:"Eficiencia",cat:"Herramientas",max:5,price:2,desc:"Aumenta la velocidad de minería con herramientas compatibles.",effect:"Los niveles superiores pueden acelerar la minería si el bloque y el servidor lo permiten."},
-  {name:"Fortuna",cat:"Herramientas",max:3,price:3,desc:"Puede aumentar la cantidad de ciertos recursos obtenidos al minar.",effect:"Los niveles superiores pueden aumentar las probabilidades o cantidades en bloques compatibles."},
-  {name:"Toque de seda",cat:"Herramientas",max:1,price:3,desc:"Permite obtener ciertos bloques directamente en lugar de sus drops habituales.",effect:"Los niveles superiores no garantizan una función nueva."},
-  {name:"Irrompibilidad",cat:"Herramientas",max:3,price:2,desc:"Reduce la probabilidad de que el objeto pierda durabilidad.",effect:"Los niveles extra pueden reducir aún más el desgaste si el servidor lo admite."},
-  {name:"Reparación",cat:"Otros",max:1,price:4,desc:"Usa experiencia para reparar la durabilidad del objeto.",effect:"No tiene un beneficio progresivo garantizado al superar el nivel I."},
-  {name:"Toque de recolección",cat:"Herramientas",max:1,price:3,desc:"Nombre utilizado aquí como referencia comercial para telequinesis o recolección automática; no es un encantamiento vanilla estándar.",effect:"Su disponibilidad depende del plugin que lo implemente."},
-  {name:"Afilado",cat:"Combate",max:5,price:2.50,desc:"Aumenta el daño de ataques cuerpo a cuerpo.",effect:"Los niveles superiores pueden incrementar el daño si el servidor los permite."},
-  {name:"Castigo",cat:"Combate",max:5,price:2,desc:"Aumenta el daño contra no muertos.",effect:"Los niveles superiores pueden aumentar el daño contra objetivos compatibles."},
-  {name:"Perdición de los artrópodos",cat:"Combate",max:5,price:2,desc:"Aumenta el daño contra artrópodos y puede aplicar lentitud.",effect:"Los niveles superiores pueden aumentar el daño compatible."},
-  {name:"Empuje",cat:"Combate",max:2,price:1.50,desc:"Aumenta el retroceso que reciben los enemigos.",effect:"Los niveles extra pueden aumentar el retroceso si el servidor los admite."},
-  {name:"Aspecto ígneo",cat:"Combate",max:2,price:2,desc:"Prende fuego a los objetivos golpeados.",effect:"Los niveles superiores no garantizan una duración mayor."},
-  {name:"Saqueo",cat:"Combate",max:3,price:3,desc:"Puede aumentar el botín que sueltan las criaturas.",effect:"Los niveles extra pueden mejorar los drops compatibles."},
-  {name:"Filo arrasador",cat:"Combate",max:3,price:3,desc:"Mejora el daño de los ataques de barrido con espada en las ediciones compatibles.",effect:"Los niveles superiores pueden aumentar el daño de barrido."},
-  {name:"Retroceso",cat:"Arco",max:2,price:1.50,desc:"Aumenta el retroceso de las flechas.",effect:"Los niveles extra pueden aumentar el retroceso compatible."},
-  {name:"Poder",cat:"Arco",max:5,price:2.50,desc:"Aumenta el daño de las flechas.",effect:"Los niveles superiores pueden incrementar el daño."},
-  {name:"Llama",cat:"Arco",max:1,price:2,desc:"Prende fuego a los objetivos alcanzados por las flechas.",effect:"Los niveles superiores no garantizan una mejora adicional."},
-  {name:"Infinidad",cat:"Arco",max:1,price:4,desc:"Permite disparar flechas normales sin consumirlas, conservando al menos una.",effect:"No tiene un beneficio progresivo garantizado."},
-  {name:"Perforación",cat:"Arco",max:4,price:2,desc:"Permite que las flechas de ballesta atraviesen objetivos.",effect:"Los niveles extra pueden aumentar la penetración compatible."},
-  {name:"Multidisparo",cat:"Arco",max:1,price:3,desc:"Dispara varias flechas a la vez con una ballesta.",effect:"Los niveles superiores no garantizan proyectiles adicionales."},
-  {name:"Carga rápida",cat:"Arco",max:3,price:2,desc:"Reduce el tiempo necesario para cargar una ballesta.",effect:"Los niveles superiores pueden reducir aún más el tiempo si se admiten."},
-  {name:"Lealtad",cat:"Combate",max:3,price:2,desc:"Hace que el tridente regrese al lanzador.",effect:"Los niveles superiores pueden mejorar el retorno compatible."},
-  {name:"Propulsión acuática",cat:"Movimiento",max:3,price:3,desc:"Impulsa al jugador al lanzar un tridente bajo lluvia o agua.",effect:"Los niveles extra pueden aumentar la propulsión compatible."},
-  {name:"Conductividad",cat:"Combate",max:1,price:3,desc:"Invoca un rayo sobre un objetivo alcanzado bajo condiciones de tormenta.",effect:"Los niveles superiores no garantizan una nueva función."},
-  {name:"Empalamiento",cat:"Combate",max:5,price:2,desc:"Aumenta el daño del tridente contra objetivos acuáticos o según la edición.",effect:"Los niveles superiores pueden incrementar el daño compatible."},
-  {name:"Maldición de desaparición",cat:"Otros",max:1,price:1,desc:"Hace que el objeto desaparezca al morir su portador.",effect:"No se recomienda superar el nivel I; no garantiza un beneficio adicional."},
-  {name:"Maldición de ligamiento",cat:"Otros",max:1,price:1,desc:"Impide quitarse determinadas piezas de equipo mientras se llevan puestas.",effect:"No tiene un beneficio progresivo garantizado."},
-  {name:"Velocidad de ataque",cat:"Combate",max:1,price:2,desc:"No es un encantamiento vanilla estándar. Puede solicitarse como mejora personalizada si existe un plugin compatible.",effect:"El efecto depende del plugin que lo implemente."},
-  {name:"Suerte marina",cat:"Otros",max:3,price:1.50,desc:"Aumenta la probabilidad de obtener tesoros al pescar.",effect:"Los niveles extra pueden mejorar la probabilidad compatible."},
-  {name:"Atracción",cat:"Otros",max:3,price:1.50,desc:"Reduce el tiempo de espera para que algo pique al pescar.",effect:"Los niveles extra pueden reducir la espera compatible."},
-  {name:"Barrido de área",cat:"Combate",max:1,price:3,desc:"No es un encantamiento vanilla independiente; se ofrece como solicitud de mejora de área si hay soporte compatible.",effect:"Debe confirmarse la implementación antes de aprobar el pedido."}
+ {name:"Protección",cat:"Armadura",max:4,price:1.50,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce el daño recibido de muchas fuentes.",effect:"Los niveles extra pueden mejorar la protección si el servidor los admite."},
+ {name:"Protección contra el fuego",cat:"Armadura",max:4,price:1.50,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce el daño relacionado con el fuego.",effect:"La mejora depende del soporte para niveles extra."},
+ {name:"Protección contra explosiones",cat:"Armadura",max:4,price:1.50,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce el daño de explosiones y su retroceso.",effect:"Los niveles extra pueden mejorar la reducción compatible."},
+ {name:"Protección contra proyectiles",cat:"Armadura",max:4,price:1.50,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce el daño de proyectiles.",effect:"Los niveles superiores pueden aumentar la reducción."},
+ {name:"Espinas",cat:"Armadura",max:3,price:2,items:["Casco","Pechera","Pantalones","Botas"],desc:"Puede dañar a quien te ataque.",effect:"Los niveles extra pueden alterar la probabilidad o el efecto."},
+ {name:"Respiración",cat:"Armadura",max:3,price:1.50,items:["Casco"],desc:"Permite permanecer más tiempo bajo el agua.",effect:"Los niveles extra pueden mejorar el efecto si se admiten."},
+ {name:"Afinidad acuática",cat:"Armadura",max:1,price:2,items:["Casco"],desc:"Mejora la velocidad de minería bajo el agua.",effect:"Los niveles superiores no garantizan una mejora adicional."},
+ {name:"Agilidad acuática",cat:"Movimiento",max:3,price:2,items:["Botas"],desc:"Aumenta la velocidad de movimiento bajo el agua.",effect:"Los niveles superiores pueden aumentar el beneficio compatible."},
+ {name:"Paso helado",cat:"Movimiento",max:2,price:2,items:["Botas"],desc:"Convierte el agua bajo tus pies en hielo al caminar.",effect:"Los niveles superiores no garantizan más alcance."},
+ {name:"Caída de pluma",cat:"Armadura",max:4,price:2,items:["Botas"],desc:"Reduce el daño por caída.",effect:"Los niveles extra pueden aumentar la reducción."},
+ {name:"Velocidad de almas",cat:"Movimiento",max:3,price:2,items:["Botas"],desc:"Aumenta la velocidad sobre arena de almas y tierra de almas.",effect:"Los niveles extra pueden aumentar la velocidad compatible."},
+ {name:"Sigilo veloz",cat:"Movimiento",max:3,price:2,items:["Pantalones"],desc:"Aumenta la velocidad al desplazarte agachado. El soporte depende de la versión y edición.",effect:"Los niveles extra pueden mejorar el efecto compatible."},
+
+ {name:"Eficiencia",cat:"Herramientas",max:5,price:2,items:["Pico","Hacha","Pala","Azada","Tijeras"],desc:"Aumenta la velocidad de minería con herramientas compatibles.",effect:"Los niveles extra pueden acelerar la minería."},
+ {name:"Fortuna",cat:"Herramientas",max:3,price:3,items:["Pico","Hacha","Pala","Azada"],desc:"Puede aumentar los recursos obtenidos de ciertos bloques.",effect:"Los niveles superiores pueden alterar drops compatibles."},
+ {name:"Toque de seda",cat:"Herramientas",max:1,price:3,items:["Pico","Hacha","Pala","Azada","Tijeras"],desc:"Permite obtener ciertos bloques directamente.",effect:"Los niveles extra no garantizan una función nueva."},
+ {name:"Irrompibilidad",cat:"Otros",max:3,price:2,items:["Espada","Hacha","Pico","Pala","Azada","Casco","Pechera","Pantalones","Botas","Arco","Ballesta","Tridente","Caña de pescar","Tijeras","Escudo","Elytra","Maza"],desc:"Reduce la probabilidad de perder durabilidad.",effect:"Los niveles extra pueden reducir el desgaste si se admiten."},
+ {name:"Reparación",cat:"Otros",max:1,price:4,items:["Espada","Hacha","Pico","Pala","Azada","Casco","Pechera","Pantalones","Botas","Arco","Ballesta","Tridente","Caña de pescar","Tijeras","Escudo","Elytra","Maza"],desc:"Utiliza experiencia para reparar la durabilidad del objeto.",effect:"No tiene un beneficio progresivo garantizado por encima de I."},
+
+ {name:"Afilado",cat:"Combate",max:5,price:2.50,items:["Espada","Hacha"],desc:"Aumenta el daño de ataques cuerpo a cuerpo.",effect:"Los niveles extra pueden incrementar el daño si el servidor los permite."},
+ {name:"Castigo",cat:"Combate",max:5,price:2,items:["Espada","Hacha","Maza"],desc:"Aumenta el daño contra no muertos.",effect:"Los niveles superiores pueden aumentar el daño compatible."},
+ {name:"Perdición de los artrópodos",cat:"Combate",max:5,price:2,items:["Espada","Hacha","Maza"],desc:"Aumenta el daño contra artrópodos.",effect:"Los niveles extra pueden incrementar el daño compatible."},
+ {name:"Empuje",cat:"Combate",max:2,price:1.50,items:["Espada"],desc:"Aumenta el retroceso que reciben los enemigos.",effect:"Los niveles extra pueden aumentar el retroceso."},
+ {name:"Aspecto ígneo",cat:"Combate",max:2,price:2,items:["Espada"],desc:"Prende fuego a los objetivos golpeados.",effect:"Los niveles superiores no garantizan una duración mayor."},
+ {name:"Saqueo",cat:"Combate",max:3,price:3,items:["Espada"],desc:"Puede aumentar el botín de las criaturas.",effect:"Los niveles extra pueden mejorar los drops compatibles."},
+ {name:"Filo arrasador",cat:"Combate",max:3,price:3,items:["Espada"],desc:"Mejora el daño de barrido con espada en ediciones compatibles.",effect:"Los niveles extra pueden aumentar el daño de barrido."},
+
+ {name:"Poder",cat:"Arco",max:5,price:2.50,items:["Arco"],desc:"Aumenta el daño de las flechas.",effect:"Los niveles extra pueden incrementar el daño."},
+ {name:"Retroceso de flechas",cat:"Arco",max:2,price:1.50,items:["Arco"],desc:"Aumenta el retroceso causado por las flechas.",effect:"Los niveles extra pueden aumentar el retroceso."},
+ {name:"Llama",cat:"Arco",max:1,price:2,items:["Arco"],desc:"Prende fuego a los objetivos alcanzados por las flechas.",effect:"Los niveles superiores no garantizan una mejora adicional."},
+ {name:"Infinidad",cat:"Arco",max:1,price:4,items:["Arco"],desc:"Permite disparar flechas normales sin consumirlas, conservando una en el inventario.",effect:"No tiene un beneficio progresivo garantizado."},
+ {name:"Perforación",cat:"Arco",max:4,price:2,items:["Ballesta"],desc:"Permite que las flechas de ballesta atraviesen objetivos.",effect:"Los niveles extra pueden aumentar la penetración."},
+ {name:"Multidisparo",cat:"Arco",max:1,price:3,items:["Ballesta"],desc:"Dispara varias flechas a la vez con una ballesta.",effect:"Los niveles superiores no garantizan proyectiles adicionales."},
+ {name:"Carga rápida",cat:"Arco",max:3,price:2,items:["Ballesta"],desc:"Reduce el tiempo necesario para cargar una ballesta.",effect:"Los niveles extra pueden reducir aún más el tiempo."},
+
+ {name:"Lealtad",cat:"Combate",max:3,price:2,items:["Tridente"],desc:"Hace que el tridente regrese al lanzador.",effect:"Los niveles superiores pueden mejorar el retorno compatible."},
+ {name:"Propulsión acuática",cat:"Movimiento",max:3,price:3,items:["Tridente"],desc:"Impulsa al jugador al lanzar un tridente bajo lluvia o agua.",effect:"Los niveles extra pueden aumentar la propulsión."},
+ {name:"Conductividad",cat:"Combate",max:1,price:3,items:["Tridente"],desc:"Invoca un rayo al impactar bajo condiciones de tormenta.",effect:"Los niveles superiores no garantizan una función nueva."},
+ {name:"Empalamiento",cat:"Combate",max:5,price:2,items:["Tridente"],desc:"Aumenta el daño del tridente contra objetivos compatibles.",effect:"Los niveles extra pueden aumentar el daño."},
+
+ {name:"Suerte marina",cat:"Otros",max:3,price:1.50,items:["Caña de pescar"],desc:"Aumenta la probabilidad de obtener tesoros al pescar.",effect:"Los niveles extra pueden mejorar la probabilidad compatible."},
+ {name:"Atracción",cat:"Otros",max:3,price:1.50,items:["Caña de pescar"],desc:"Reduce el tiempo de espera al pescar.",effect:"Los niveles extra pueden reducir la espera."},
+ {name:"Sigilo veloz",cat:"Movimiento",max:3,price:2,items:["Pantalones"],desc:"Encantamiento relacionado con la velocidad al agacharse; requiere soporte de la versión o plugin.",effect:"No es universal en todas las ediciones y versiones."},
+
+ {name:"Maldición de desaparición",cat:"Otros",max:1,price:1,items:["Espada","Hacha","Pico","Pala","Azada","Casco","Pechera","Pantalones","Botas","Arco","Ballesta","Tridente","Caña de pescar","Tijeras","Escudo","Elytra","Maza"],desc:"Hace que el objeto desaparezca al morir su portador.",effect:"No se recomienda superar el nivel I."},
+ {name:"Maldición de ligamiento",cat:"Otros",max:1,price:1,items:["Casco","Pechera","Pantalones","Botas","Elytra"],desc:"Impide quitarse determinadas piezas de equipo mientras se llevan puestas.",effect:"No tiene un beneficio progresivo garantizado."},
+
+ {name:"Densidad",cat:"Combate",max:5,price:3,items:["Maza"],desc:"Aumenta el daño de impacto de la maza según la caída.",effect:"Los niveles extra pueden aumentar el daño compatible."},
+ {name:"Brecha",cat:"Combate",max:4,price:3,items:["Maza"],desc:"Reduce la eficacia de la armadura del objetivo al golpear con la maza.",effect:"Los niveles extra pueden aumentar el efecto compatible."},
+ {name:"Ráfaga de viento",cat:"Combate",max:3,price:3,items:["Maza"],desc:"Genera una ráfaga que impulsa al usuario al acertar un golpe de caída.",effect:"Los niveles extra pueden modificar el efecto si se admiten."}
 ];
 
-const cart = [];
-const money = n => "$" + n.toFixed(2);
-const escapeHTML = value => String(value).replace(/[&<>"']/g, ch => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-}[ch]));
+const cart=[];
+const money=n=>"$"+n.toFixed(2);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-function createSpecialCard(item,index){
-  const options = Array.from({length:item.max},(_,i)=>{
-    const level=i+1;
-    return `<option value="${level}">${level}</option>`;
-  }).join("");
-  return `
-  <details class="card" data-name="${escapeHTML(item.name.toLowerCase())}" data-cat="${item.cat}">
-    <summary>
-      <span class="glyph">${item.icon}</span>
-      <span>
-        <span class="card-title">${escapeHTML(item.name)}</span>
-        <span class="card-sub">${escapeHTML(item.cat)} · ${escapeHTML(item.rarity)}</span>
-      </span>
-      <span class="chevron">⌄</span>
-    </summary>
+function makeSpecial(item,index){
+  const levels=Array.from({length:item.max},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join("");
+  const objects=item.items.map(x=>`<option>${esc(x)}</option>`).join("");
+  return `<details class="card" data-name="${esc(item.name.toLowerCase())}" data-cat="${esc(item.cat)}">
+    <summary><span class="glyph">${item.icon}</span><span><span class="card-title">${esc(item.name)}</span><span class="card-sub">${esc(item.cat)} · ${esc(item.rarity)}</span></span><span class="chevron">⌄</span></summary>
     <div class="card-body">
-      <p class="description">${escapeHTML(item.desc)}</p>
-      <div class="meta-row"><span>Rareza</span><strong>${escapeHTML(item.rarity)}</strong></div>
+      <p class="description">${esc(item.desc)}</p>
+      <div class="meta-row"><span>Rareza</span><strong>${esc(item.rarity)}</strong></div>
       <div class="meta-row"><span>Nivel máximo</span><strong>${item.max}</strong></div>
       <div class="meta-row"><span>Precio base</span><strong class="price">${money(item.price)}</strong></div>
       <div class="level-fields">
-        <label>Nivel
-          <select class="special-level">${options}</select>
-        </label>
-        <label>Objeto
-          <select class="special-item">
-            <option>Espada</option>
-            <option>Hacha</option>
-            <option>Pico</option>
-            <option>Armadura</option>
-            <option>Botas</option>
-            <option>Arco</option>
-            <option>Ballesta</option>
-            <option>Tridente</option>
-            <option>Otro</option>
-          </select>
-        </label>
+        <label>Nivel<select class="special-level">${levels}</select></label>
+        <label>Objeto compatible<select class="special-item">${objects}</select></label>
       </div>
-      <div class="level-explanation">${escapeHTML(item.effect)}</div>
+      <div class="level-explanation">${esc(item.effect)}<br><br>El equipo confirmará la compatibilidad de la habilidad antes de aprobar el pedido.</div>
       <button class="add-btn" type="button" data-special="${index}">+ AÑADIR AL PRESUPUESTO</button>
-    </div>
-  </details>`;
+    </div></details>`;
 }
 
-function createVanillaCard(item,index){
-  const options = Array.from({length:100-item.max},(_,i)=>{
+function makeVanilla(item,index){
+  const levels=Array.from({length:100-item.max},(_,i)=>{
     const level=item.max+i+1;
     return `<option value="${level}" ${level===item.max+1?"selected":""}>Nivel ${level}</option>`;
   }).join("");
-  return `
-  <details class="card" data-name="${escapeHTML(item.name.toLowerCase())}" data-cat="${item.cat}">
-    <summary>
-      <span class="glyph">✧</span>
-      <span>
-        <span class="card-title">${escapeHTML(item.name)}</span>
-        <span class="card-sub">${escapeHTML(item.cat)} · Normal: ${item.max}</span>
-      </span>
-      <span class="chevron">⌄</span>
-    </summary>
+  const objects=item.items.map(x=>`<option>${esc(x)}</option>`).join("");
+  return `<details class="card" data-name="${esc(item.name.toLowerCase())}" data-cat="${esc(item.cat)}">
+    <summary><span class="glyph">✧</span><span><span class="card-title">${esc(item.name)}</span><span class="card-sub">${esc(item.cat)} · Normal: ${item.max}</span></span><span class="chevron">⌄</span></summary>
     <div class="card-body">
-      <p class="description">${escapeHTML(item.desc)}</p>
+      <p class="description">${esc(item.desc)}</p>
       <div class="meta-row"><span>Máximo habitual</span><strong>Nivel ${item.max}</strong></div>
-      <div class="meta-row"><span>Precio base por nivel solicitado</span><strong class="price">${money(item.price)}</strong></div>
+      <div class="meta-row"><span>Precio base</span><strong class="price">${money(item.price)}</strong></div>
       <div class="level-fields">
-        <label>Nivel personalizado
-          <select class="vanilla-level">${options}</select>
-        </label>
-        <label>Objeto
-          <select class="vanilla-item">
-            <option>Espada</option>
-            <option>Hacha</option>
-            <option>Pico</option>
-            <option>Pala</option>
-            <option>Azada</option>
-            <option>Casco</option>
-            <option>Pechera</option>
-            <option>Pantalones</option>
-            <option>Botas</option>
-            <option>Arco</option>
-            <option>Ballesta</option>
-            <option>Tridente</option>
-            <option>Otro</option>
-          </select>
-        </label>
+        <label>Nivel personalizado<select class="vanilla-level">${levels}</select></label>
+        <label>Objeto compatible<select class="vanilla-item">${objects}</select></label>
       </div>
-      <div class="level-explanation">
-        <strong>¿Qué cambia al subir de nivel?</strong><br>
-        ${escapeHTML(item.effect)}
-        <br><br>Los niveles superiores al máximo habitual pueden requerir soporte especial
-        y no siempre producen una mejora lineal. El resultado debe confirmarse antes del pedido.
-      </div>
+      <div class="level-explanation"><strong>¿Qué cambia al subir de nivel?</strong><br>${esc(item.effect)}<br><br>Los niveles superiores al máximo habitual pueden necesitar soporte especial y no siempre producen una mejora lineal.</div>
       <button class="add-btn" type="button" data-vanilla="${index}">+ AÑADIR AL PRESUPUESTO</button>
-    </div>
-  </details>`;
+    </div></details>`;
 }
 
-document.getElementById("specialGrid").innerHTML =
-  specialEnchants.map(createSpecialCard).join("");
-document.getElementById("vanillaGrid").innerHTML =
-  vanillaEnchants.map(createVanillaCard).join("");
+document.getElementById("specialGrid").innerHTML=specialEnchants.map(makeSpecial).join("");
+document.getElementById("vanillaGrid").innerHTML=vanillaEnchants.map(makeVanilla).join("");
 
-function filterCards(gridId,searchId,filterId,emptyId){
-  const query=document.getElementById(searchId).value.trim().toLowerCase();
-  const category=document.getElementById(filterId).value;
-  const cards=[...document.querySelectorAll(`#${gridId} .card`)];
-  let shown=0;
+function filterCards(grid,search,filter,empty){
+  const q=document.getElementById(search).value.trim().toLowerCase();
+  const cat=document.getElementById(filter).value;
+  const cards=[...document.querySelectorAll("#"+grid+" .card")];
+  let count=0;
   cards.forEach(card=>{
-    const matchesName=card.dataset.name.includes(query);
-    const matchesCat=category==="all"||card.dataset.cat===category;
-    card.hidden=!(matchesName&&matchesCat);
-    if(!card.hidden)shown++;
+    const show=card.dataset.name.includes(q)&&(cat==="all"||card.dataset.cat===cat);
+    card.hidden=!show;if(show)count++;
   });
-  document.getElementById(emptyId).classList.toggle("visible",shown===0);
+  document.getElementById(empty).classList.toggle("visible",count===0);
 }
-
-document.getElementById("searchSpecial").addEventListener("input",()=>{
-  filterCards("specialGrid","searchSpecial","filterSpecial","specialEmpty");
-});
-document.getElementById("filterSpecial").addEventListener("change",()=>{
-  filterCards("specialGrid","searchSpecial","filterSpecial","specialEmpty");
-});
-document.getElementById("searchVanilla").addEventListener("input",()=>{
-  filterCards("vanillaGrid","searchVanilla","filterVanilla","vanillaEmpty");
-});
-document.getElementById("filterVanilla").addEventListener("change",()=>{
-  filterCards("vanillaGrid","searchVanilla","filterVanilla","vanillaEmpty");
+[
+ ["searchSpecial","specialGrid","filterSpecial","specialEmpty"],
+ ["filterSpecial","specialGrid","filterSpecial","specialEmpty"],
+ ["searchVanilla","vanillaGrid","filterVanilla","vanillaEmpty"],
+ ["filterVanilla","vanillaGrid","filterVanilla","vanillaEmpty"]
+].forEach(([id,grid,filter,empty])=>{
+  document.getElementById(id).addEventListener(id.startsWith("search")?"input":"change",()=>filterCards(grid,id.startsWith("search")?id:id.replace("filter","search"),filter,empty));
 });
 
-/* PRESUPUESTO */
-function addToCart(entry){
-  cart.push({...entry,id:Date.now()+Math.random()});
-  renderCart();
-  openCart();
+/* Ajuste para que los filtros funcionen también si solo cambia la categoría. */
+document.getElementById("filterSpecial").addEventListener("change",()=>filterCards("specialGrid","searchSpecial","filterSpecial","specialEmpty"));
+document.getElementById("filterVanilla").addEventListener("change",()=>filterCards("vanillaGrid","searchVanilla","filterVanilla","vanillaEmpty"));
+
+function addItem(item){
+  cart.push({...item,id:Date.now()+Math.random()});
+  renderCart();openCart();
 }
 
 document.getElementById("specialGrid").addEventListener("click",event=>{
-  const button=event.target.closest("[data-special]");
-  if(!button)return;
-  const item=specialEnchants[Number(button.dataset.special)];
-  const card=button.closest(".card");
+  const btn=event.target.closest("[data-special]");if(!btn)return;
+  const item=specialEnchants[Number(btn.dataset.special)];
+  const card=btn.closest(".card");
   const level=Number(card.querySelector(".special-level").value);
   const object=card.querySelector(".special-item").value;
-  // El precio base se escala suavemente por nivel para representar la solicitud.
   const price=Number((item.price*(1+(level-1)*0.35)).toFixed(2));
-  addToCart({
-    name:item.name,level,object,price,
-    kind:"Especial",details:item.rarity
-  });
+  addItem({name:item.name,level,object,price,kind:"Especial"});
 });
 
 document.getElementById("vanillaGrid").addEventListener("click",event=>{
-  const button=event.target.closest("[data-vanilla]");
-  if(!button)return;
-  const item=vanillaEnchants[Number(button.dataset.vanilla)];
-  const card=button.closest(".card");
+  const btn=event.target.closest("[data-vanilla]");if(!btn)return;
+  const item=vanillaEnchants[Number(btn.dataset.vanilla)];
+  const card=btn.closest(".card");
   const level=Number(card.querySelector(".vanilla-level").value);
   const object=card.querySelector(".vanilla-item").value;
-  // Precio ilustrativo: base más un incremento por cada nivel por encima del normal.
-  const price=Number((item.price+(Math.max(0,level-item.max)*0.15)).toFixed(2));
-  addToCart({
-    name:item.name,level,object,price,
-    kind:"Vanilla+",details:"Máximo normal: "+item.max
-  });
+  const price=Number((item.price+Math.max(0,level-item.max)*0.15).toFixed(2));
+  addItem({name:item.name,level,object,price,kind:"Vanilla+"});
 });
 
 function discountRate(count){
@@ -821,106 +510,51 @@ function discountRate(count){
 function renderCart(){
   const container=document.getElementById("cartItems");
   document.getElementById("cartCount").textContent=cart.length;
-  if(!cart.length){
-    container.innerHTML='<div class="cart-empty">Todavía no has añadido ningún encantamiento.<br>Explora el catálogo para empezar.</div>';
-  }else{
-    container.innerHTML=cart.map((item,index)=>`
-      <div class="cart-item">
-        <div>
-          <strong>${escapeHTML(item.name)} ${item.level>1?"· Nivel "+item.level:"· Nivel "+item.level}</strong>
-          <small>${escapeHTML(item.kind)} · ${escapeHTML(item.object)} · ${escapeHTML(item.details)}</small>
-          <button type="button" class="remove-item" data-remove="${index}">Eliminar</button>
-        </div>
-        <span class="item-cost">${money(item.price)}</span>
-      </div>
-    `).join("");
-  }
+  container.innerHTML=cart.length?cart.map((item,i)=>`
+    <div class="cart-item"><div><strong>${esc(item.name)} · Nivel ${item.level}</strong><small>${esc(item.kind)} · ${esc(item.object)}</small><button type="button" class="remove-item" data-remove="${i}">Eliminar</button></div><span class="item-cost">${money(item.price)}</span></div>
+  `).join(""):'<div class="cart-empty">Todavía no has añadido ningún encantamiento.<br>Explora el catálogo para empezar.</div>';
   const subtotal=cart.reduce((sum,item)=>sum+item.price,0);
-  const rate=discountRate(cart.length);
-  const discount=subtotal*rate;
-  const total=subtotal-discount;
+  const rate=discountRate(cart.length),discount=subtotal*rate,total=subtotal-discount;
   document.getElementById("subtotal").textContent=money(subtotal);
   document.getElementById("discountAmount").textContent="−"+money(discount);
   document.getElementById("grandTotal").textContent=money(total);
 }
 document.getElementById("cartItems").addEventListener("click",event=>{
-  const button=event.target.closest("[data-remove]");
-  if(!button)return;
-  cart.splice(Number(button.dataset.remove),1);
-  renderCart();
+  const btn=event.target.closest("[data-remove]");if(!btn)return;
+  cart.splice(Number(btn.dataset.remove),1);renderCart();
 });
-document.getElementById("clearCart").addEventListener("click",()=>{
-  cart.length=0;
-  renderCart();
-});
+document.getElementById("clearCart").addEventListener("click",()=>{cart.length=0;renderCart()});
 
-/* PANEL LATERAL: NO BLOQUEA EL DESPLAZAMIENTO DE LA PÁGINA */
 const drawer=document.getElementById("cartDrawer");
 const overlay=document.getElementById("cartOverlay");
-function openCart(){
-  drawer.classList.add("open");
-  overlay.classList.add("open");
-  drawer.setAttribute("aria-hidden","false");
-}
-function closeCart(){
-  drawer.classList.remove("open");
-  overlay.classList.remove("open");
-  drawer.setAttribute("aria-hidden","true");
-}
+function openCart(){drawer.classList.add("open");overlay.classList.add("open");drawer.setAttribute("aria-hidden","false")}
+function closeCart(){drawer.classList.remove("open");overlay.classList.remove("open");drawer.setAttribute("aria-hidden","true")}
 document.getElementById("openCart").addEventListener("click",openCart);
 document.getElementById("closeCart").addEventListener("click",closeCart);
 overlay.addEventListener("click",closeCart);
-document.addEventListener("keydown",event=>{
-  if(event.key==="Escape")closeCart();
-});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 
-/*
-  El botón genera una solicitud legible y abre Discord.
-  Por seguridad, no publica mensajes automáticamente ni procesa pagos.
-*/
 document.getElementById("checkout").addEventListener("click",()=>{
-  if(!cart.length){
-    alert("Añade al menos un encantamiento antes de solicitar tu objeto.");
-    return;
-  }
+  if(!cart.length){alert("Añade al menos un encantamiento antes de solicitar tu objeto.");return}
   const subtotal=cart.reduce((sum,item)=>sum+item.price,0);
-  const rate=discountRate(cart.length);
-  const discount=subtotal*rate;
-  const total=subtotal-discount;
-  const lines=cart.map(item=>
-    "- "+item.name+" nivel "+item.level+
-    " | Objeto: "+item.object+
-    " | Tipo: "+item.kind+
-    " | Precio estimado: "+money(item.price)
-  );
+  const rate=discountRate(cart.length),discount=subtotal*rate,total=subtotal-discount;
+  const lines=cart.map(item=>"- "+item.name+" nivel "+item.level+" | Objeto: "+item.object+" | Tipo: "+item.kind+" | "+money(item.price));
   const message=[
-    "SOLICITUD DE ITEM PERSONALIZADO — KAIZORA ORIGINS",
-    "",
-    ...lines,
-    "",
-    "Subtotal estimado: "+money(subtotal),
-    "Descuento aplicado: "+Math.round(rate*100)+"% ("+money(discount)+")",
-    "Total estimado: "+money(total),
-    "",
-    "Solicito confirmar precio, compatibilidad y disponibilidad con el equipo."
+    "SOLICITUD DE ITEM PERSONALIZADO — KAIZORA ORIGINS","",
+    ...lines,"","Subtotal estimado: "+money(subtotal),
+    "Descuento: "+Math.round(rate*100)+"% ("+money(discount)+")",
+    "Total estimado: "+money(total),"",
+    "Por favor, confirmar precio, compatibilidad y disponibilidad."
   ].join("\n");
-
-  // Copiar la solicitud para poder pegarla en Discord.
-  const openDiscord=()=>window.open("https://discord.gg/sHvWgW7AE4","_blank","noopener");
+  const discord=()=>window.open("https://discord.gg/sHvWgW7AE4","_blank","noopener");
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(message).then(()=>{
-      alert("¡Solicitud copiada! Ahora pégala en el canal correspondiente de nuestro Discord.");
-      openDiscord();
-    }).catch(()=>{
-      window.prompt("Copia este texto y pégalo en Discord:",message);
-      openDiscord();
-    });
+      alert("¡Solicitud copiada! Pégala en el canal correspondiente de nuestro Discord.");discord();
+    }).catch(()=>{window.prompt("Copia esta solicitud y pégala en Discord:",message);discord()});
   }else{
-    window.prompt("Copia este texto y pégalo en Discord:",message);
-    openDiscord();
+    window.prompt("Copia esta solicitud y pégala en Discord:",message);discord();
   }
 });
-
 renderCart();
 </script>
 </body>
