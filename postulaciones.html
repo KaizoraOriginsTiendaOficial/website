@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09070e">
+  <meta name="description" content="Postúlate al equipo de Kaizora Origins. Buscamos personas responsables para nuestro staff.">
+  <title>Postulaciones Staff | Kaizora Origins</title>
+
+  <style>
+    :root {
+      --bg: #09070e;
+      --panel: #110d19;
+      --panel2: #171020;
+      --purple: #9b5de5;
+      --pink: #ff6de1;
+      --text: #f8f3ff;
+      --muted: #a69ab5;
+      --border: rgba(180, 117, 255, .19);
+      --gradient: linear-gradient(110deg, #9b5de5, #ff6de1);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(125, 54, 189, .17), transparent 43%),
+        var(--bg);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button, input, select, textarea { font: inherit; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .navbar {
+      min-height: 76px;
+      padding: 16px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 7, 14, .88);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      font-weight: 950;
+      letter-spacing: 1.5px;
+      font-size: 19px;
+    }
+
+    .brand span {
+      background: var(--gradient);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: #d6c8e5;
+      border: 1px solid var(--border);
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: .2s;
+    }
+
+    .nav-link:hover {
+      border-color: var(--pink);
+      color: white;
+    }
+
+    .hero {
+      max-width: 940px;
+      margin: auto;
+      padding: 78px 22px 42px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 109, 225, .25);
+      border-radius: 100px;
+      color: #f1b9ff;
+      background: rgba(155, 93, 229, .08);
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1.6px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 0 0 12px var(--pink);
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin: 23px 0 18px;
+      font-weight: 950;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 880px;
+      margin: 35px auto 0;
+      text-align: left;
+    }
+
+    .role {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #181022, #100c17);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 19px;
+      transition: .2s;
+    }
+
+    .role:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 109, 225, .6);
+    }
+
+    .role-symbol {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .role h3 { margin: 0 0 5px; font-size: 17px; }
+
+    .role p {
+      font-size: 12px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .role small {
+      display: inline-block;
+      margin-top: 13px;
+      color: #e5b7ff;
+      font-weight: 750;
+      font-size: 11px;
+    }
+
+    .container {
+      width: min(820px, calc(100% - 32px));
+      margin: 20px auto 80px;
+    }
+
+    .form-card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      background: linear-gradient(155deg, rgba(25, 17, 37, .97), rgba(13, 10, 19, .98));
+      box-shadow: 0 25px 100px rgba(99, 39, 155, .12);
+    }
+
+    .form-heading {
+      padding: 28px 30px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(155, 93, 229, .045);
+    }
+
+    .form-heading h2 { margin: 0 0 5px; font-size: 24px; }
+
+    .form-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    form { padding: 28px 30px 32px; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 15px;
+      font-weight: 850;
+      margin: 8px 0 20px;
+    }
+
+    .section-number {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      border-radius: 9px;
+      color: white;
+      background: linear-gradient(135deg, #7c3fc4, #c44ec9);
+      font-size: 12px;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 19px;
+      margin-bottom: 31px;
+    }
+
+    .field { min-width: 0; }
+
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 750;
+      color: #e9dff5;
+    }
+
+    .required { color: var(--pink); }
+
+    .hint {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: #8f829e;
+    }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      color: var(--text);
+      background: #0c0912;
+      border: 1px solid #30213f;
+      border-radius: 11px;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    input, select { min-height: 48px; }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    input::placeholder, textarea::placeholder { color: #756780; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(155, 93, 229, .12);
+    }
+
+    select option { background: #130d1c; }
+
+    .notice {
+      display: flex;
+      gap: 12px;
+      padding: 15px;
+      border: 1px solid rgba(255, 109, 225, .22);
+      background: rgba(155, 93, 229, .07);
+      border-radius: 12px;
+      margin: -3px 0 26px;
+      color: #d6c6e7;
+      font-size: 12px;
+    }
+
+    .notice strong { color: #f2c2ff; }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin: 16px 0;
+      font-size: 12px;
+      color: #c8bad7;
+    }
+
+    .check-row input {
+      width: 17px;
+      min-height: 17px;
+      height: 17px;
+      margin: 2px 0 0;
+      flex-shrink: 0;
+      accent-color: var(--purple);
+    }
+
+    .check-row label {
+      margin: 0;
+      font-weight: 500;
+      color: inherit;
+    }
+
+    .submit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: white;
+      background: var(--gradient);
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 9px 28px rgba(155, 93, 229, .2);
+      transition: transform .2s, filter .2s;
+    }
+
+    .submit-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
+    .submit-btn:disabled { opacity: .65; cursor: wait; transform: none; }
+
+    .form-message {
+      display: none;
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 11px;
+      font-size: 13px;
+    }
+
+    .form-message.success {
+      display: block;
+      border: 1px solid rgba(93, 220, 156, .3);
+      color: #a7f0c7;
+      background: rgba(45, 180, 110, .08);
+    }
+
+    .form-message.error {
+      display: block;
+      border: 1px solid rgba(255, 90, 120, .3);
+      color: #ffb7c4;
+      background: rgba(255, 70, 100, .08);
+    }
+
+    .privacy {
+      text-align: center;
+      color: #82758f;
+      font-size: 11px;
+      margin: 17px 0 0;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 20px;
+      text-align: center;
+      color: #82758f;
+      font-size: 12px;
+    }
+
+    .footer strong {
+      color: #c5a1ed;
+      letter-spacing: 1px;
+    }
+
+    .hidden-trap {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    @media (max-width: 650px) {
+      .navbar { padding: 14px 18px; }
+      .brand { font-size: 16px; }
+      .nav-link { font-size: 11px; padding: 9px 10px; }
+      .hero { padding-top: 55px; }
+      .roles { grid-template-columns: 1fr; }
+      .role { padding: 17px; }
+      .role-symbol { display: inline-block; margin-right: 8px; }
+      .role h3 { display: inline-block; }
+      .role p { margin-top: 4px; }
+      form { padding: 23px 18px; }
+      .form-heading { padding: 23px 18px; }
+      .fields { grid-template-columns: 1fr; gap: 17px; }
+      .full { grid-column: auto; }
+      h1 { letter-spacing: -1.5px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="index.html" aria-label="Kaizora Origins, inicio">
+      KAIZORA <span>ORIGINS</span>
+    </a>
+    <a class="nav-link" href="index.html">← Volver a la web</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span> Reclutamiento oficial</div>
+      <h1>Forma parte del <span class="gradient-text">staff.</span></h1>
+      <p>
+        Kaizora busca personas responsables, maduras y comprometidas.
+        Si quieres ayudar a construir una mejor comunidad, este puede ser tu lugar.
+      </p>
+
+      <div class="roles">
+        <article class="role">
+          <div class="role-symbol">🛡️</div>
+          <h3>Mod Jr</h3>
+          <p>Tu primera oportunidad para aprender, ayudar a los jugadores y demostrar tu compromiso.</p>
+          <small>INICIO EN EL STAFF</small>
+        </article>
+        <article class="role">
+          <div class="role-symbol">⚔️</div>
+          <h3>Moderador</h3>
+          <p>Ayuda a mantener el orden, resolver reportes y garantizar que se respeten las normas.</p>
+          <small>MODERACIÓN ACTIVA</small>
+        </article>
+        <article class="role">
+          <div class="role-symbol">👑</div>
+          <h3>Administrador</h3>
+          <p>Un puesto de mayor responsabilidad, criterio, confianza y experiencia de gestión.</p>
+          <small>ALTA RESPONSABILIDAD</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="form-card">
+        <div class="form-heading">
+          <h2>Solicitud de ingreso</h2>
+          <p>Completa todos los campos obligatorios con información real.</p>
+        </div>
+
+        <form id="applicationForm">
+          <div class="notice">
+            <span>✦</span>
+            <div>
+              <strong>Antes de comenzar</strong><br>
+              La edad mínima para postularse es de <strong>16 años</strong>.
+              Enviar una solicitud no garantiza la aceptación. Se valorarán
+              la madurez, la actividad, el respeto y la honestidad.
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span class="section-number">01</span>
+            Datos personales y contacto
+          </div>
+
+          <div class="fields">
+            <div class="field">
+              <label for="minecraft">Usuario de Minecraft <span class="required">*</span></label>
+              <input id="minecraft" name="minecraft" maxlength="32"
+                     placeholder="TuNick" autocomplete="off" required>
+            </div>
+
+            <div class="field">
+              <label for="discord">Usuario de Discord <span class="required">*</span></label>
+              <input id="discord" name="discord" maxlength="80"
+                     placeholder="usuario o @usuario" required>
+              <span class="hint">Indica cómo podemos encontrarte en Discord.</span>
+            </div>
+
+            <div class="field">
+              <label for="age">Edad <span class="required">*</span></label>
+              <input id="age" name="age" type="number" min="16" max="99"
+                     placeholder="Mínimo 16 años" required>
+            </div>
+
+            <div class="field">
+              <label for="country">País o zona horaria <span class="required">*</span></label>
+              <input id="country" name="country" maxlength="80"
+                     placeholder="Ej. México, UTC-6" required>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span class="section-number">02</span>
+            Tu postulación
+          </div>
+
+          <div class="fields">
+            <div class="field full">
+              <label for="position">¿A qué puesto quieres postularte? <span class="required">*</span></label>
+              <select id="position" name="position" required>
+                <option value="">Selecciona un puesto</option>
+                <option value="Mod Jr">Mod Jr</option>
+                <option value="Moderador">Moderador</option>
+                <option value="Administrador">Administrador</option>
+              </select>
+              <span class="hint">Selecciona el puesto que mejor se adapte a tu experiencia.</span>
+            </div>
+
+            <div class="field full">
+              <label for="motivation">¿Por qué quieres formar parte del staff de Kaizora? <span class="required">*</span></label>
+              <textarea id="motivation" name="motivation" minlength="30" maxlength="1500"
+                placeholder="Cuéntanos qué te motiva, qué puedes aportar y por qué te interesa este puesto..." required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="experience">¿Tienes experiencia en otros servidores o equipos? <span class="required">*</span></label>
+              <textarea id="experience" name="experience" minlength="10" maxlength="1200"
+                placeholder="Explica tu experiencia. Si no tienes, sé sincero y cuéntanos qué te gustaría aprender." required></textarea>
+            </div>
+
+            <div class="field">
+              <label for="availability">¿Cuánto tiempo puedes dedicar diariamente? <span class="required">*</span></label>
+              <select id="availability" name="availability" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Menos de 1 hora">Menos de 1 hora</option>
+                <option value="1-2 horas">1–2 horas</option>
+                <option value="3-4 horas">3–4 horas</option>
+                <option value="5 o más horas">5 o más horas</option>
+                <option value="Horario variable">Horario variable</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="activity">¿Cuándo sueles estar disponible? <span class="required">*</span></label>
+              <select id="activity" name="activity" required>
+                <option value="">Selecciona un horario</option>
+                <option value="Mañanas">Mañanas</option>
+                <option value="Tardes">Tardes</option>
+                <option value="Noches">Noches</option>
+                <option value="Fines de semana">Fines de semana</option>
+                <option value="Horario flexible">Horario flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span class="section-number">03</span>
+            Situaciones de moderación
+          </div>
+
+          <div class="fields">
+            <div class="field full">
+              <label for="hacker">Un jugador está usando hacks y lo niega. ¿Qué harías? <span class="required">*</span></label>
+              <textarea id="hacker" name="hacker" minlength="20" maxlength="1200"
+                placeholder="Explica cómo investigarías la situación y qué medidas tomarías..." required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="friend">Un amigo tuyo rompe las normas. ¿Cómo actuarías? <span class="required">*</span></label>
+              <textarea id="friend" name="friend" minlength="20" maxlength="1200"
+                placeholder="¿Cómo mantendrías la imparcialidad?" required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="conflict">Dos jugadores discuten y ambos te piden que sanciones al otro. ¿Qué harías? <span class="required">*</span></label>
+              <textarea id="conflict" name="conflict" minlength="20" maxlength="1200"
+                placeholder="Describe cómo revisarías el caso y resolverías el conflicto..." required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="qualities">¿Cuáles son tus principales cualidades y qué necesitas mejorar? <span class="required">*</span></label>
+              <textarea id="qualities" name="qualities" minlength="20" maxlength="1200"
+                placeholder="Queremos conocer tu criterio, tus fortalezas y tu disposición para aprender..." required></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="additional">¿Hay algo más que quieras contarnos?</label>
+              <textarea id="additional" name="additional" maxlength="1200"
+                placeholder="Información adicional (opcional)..."></textarea>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span class="section-number">04</span>
+            Confirmación
+          </div>
+
+          <label class="check-row">
+            <input type="checkbox" name="truthful" value="Sí" required>
+            <span>Confirmo que la información proporcionada es verdadera y que responderé con honestidad. <span class="required">*</span></span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="rules" value="Sí" required>
+            <span>Entiendo que el staff debe respetar las normas, actuar de forma imparcial y no abusar de sus permisos. <span class="required">*</span></span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="review" value="Sí" required>
+            <span>Acepto que mi solicitud sea revisada por el equipo responsable de Kaizora Origins. <span class="required">*</span></span>
+          </label>
+
+          <!-- Campo trampa antispam. No lo rellenes. -->
+          <div class="hidden-trap" aria-hidden="true">
+            <label for="website">Deja este campo vacío</label>
+            <input id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="submit-btn" id="submitButton" type="submit">
+            Enviar postulación <span aria-hidden="true">→</span>
+          </button>
+
+          <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+
+          <p class="privacy">
+            Utiliza únicamente información necesaria para evaluar tu solicitud.
+            No incluyas contraseñas ni información sensible.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>KAIZORA ORIGINS</strong>
+    <p>Tu historia. Tu equipo. Tu origen.</p>
+    <p>© <span id="year"></span> Kaizora Origins. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    /*
+     * CONEXIÓN SEGURA PENDIENTE
+     *
+     * Cuando configuremos el intermediario seguro que enviará las
+     * postulaciones a Discord, coloca aquí su URL pública.
+     *
+     * Ejemplo:
+     * const API_URL = "https://tu-servicio.example/api/postulaciones";
+     *
+     * No coloques aquí una URL secreta de webhook de Discord.
+     */
+    const API_URL = "";
+
+    const form = document.getElementById("applicationForm");
+    const submitButton = document.getElementById("submitButton");
+    const formMessage = document.getElementById("formMessage");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function showMessage(message, type) {
+      formMessage.textContent = message;
+      formMessage.className = "form-message " + type;
+      formMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const age = Number(document.getElementById("age").value);
+
+      if (!Number.isInteger(age) || age < 16 || age > 99) {
+        showMessage("Debes tener al menos 16 años para postularte.", "error");
+        return;
+      }
+
+      if (form.elements.website.value.trim() !== "") {
+        showMessage("No se pudo procesar la solicitud.", "error");
+        return;
+      }
+
+      if (!API_URL) {
+        showMessage(
+          "El formulario está preparado, pero aún falta conectar el servicio seguro de Discord. Tu solicitud NO se ha enviado. Cuando configuremos la conexión, podrás enviarla desde aquí.",
+          "error"
+        );
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando postulación...";
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+      delete payload.website;
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error("El servicio no aceptó la solicitud.");
+        }
+
+        form.reset();
+        showMessage(
+          "¡Tu postulación se ha enviado correctamente! Gracias por querer formar parte de Kaizora Origins.",
+          "success"
+        );
+      } catch (error) {
+        showMessage(
+          "No se pudo confirmar el envío. Inténtalo de nuevo más tarde. No cierres esta página hasta revisar el mensaje.",
+          "error"
+        );
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Enviar postulación <span aria-hidden="true">→</span>';
+      }
+    });
+  </script>
+</body>
+</html>
