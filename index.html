@@ -3,746 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08060d">
-<meta name="description" content="Kaizora Origins: un mundo donde cada jugador escribe su propia historia.">
-<title>Kaizora Origins | Halloween</title>
+<title>Kaizora Origins | Minecraft</title>
+<meta name="description" content="Kaizora Origins — Un nuevo mundo, una nueva historia.">
 
 <style>
-:root {
-    --purple: #a982ff;
-    --pink: #ff6de1;
-    --orange: #ff812e;
-    --orange-light: #ffb15c;
-    --background: #07060b;
-    --panel: rgba(13, 11, 19, .88);
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#07090a;color:white;overflow-x:hidden}
+.minecraft-background{position:fixed;inset:0;z-index:-10;background:radial-gradient(circle at 72% 35%,rgba(147,101,255,.28) 0%,rgba(147,101,255,.12) 25%,transparent 58%),radial-gradient(circle at 25% 75%,rgba(100,55,190,.20) 0%,transparent 50%),radial-gradient(circle at 50% 50%,rgba(112,67,210,.10) 0%,transparent 60%),linear-gradient(135deg,#030305 0%,#08060d 45%,#050308 100%);background-size:140% 140%;background-position:center;background-repeat:no-repeat;transform:scale(1.04);transition:transform .8s ease-out}
+.minecraft-background::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.35) 75%,rgba(0,0,0,.75) 100%)}
+.light-effect{position:fixed;width:550px;height:550px;border-radius:50%;pointer-events:none;z-index:-5;background:radial-gradient(circle,rgba(147,101,255,.12),transparent 68%);transform:translate(-50%,-50%);transition:left .25s ease-out,top .25s ease-out}
+nav{position:fixed;top:0;left:0;width:100%;min-height:78px;display:flex;align-items:center;justify-content:space-between;padding:15px 6%;gap:16px;background:linear-gradient(rgba(5,7,8,.92),rgba(5,7,8,.72));backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);z-index:100}
+.logo{font-size:22px;font-weight:900;letter-spacing:1px;text-decoration:none;color:white;white-space:nowrap}
+.logo span{color:#b49cff}
+nav ul{display:flex;align-items:center;gap:clamp(12px,2.2vw,34px);list-style:none;margin-left:auto;margin-right:16px}
+nav ul a{color:#c5c5c9;text-decoration:none;font-size:12px;font-weight:600;transition:.25s}
+nav ul a:hover{color:white}
+.modality-dropdown{position:relative;flex-shrink:0}
+.modality-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid rgba(169,130,255,.35);background:rgba(15,12,23,.92);color:#d9d1e8;padding:10px 13px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:.25s}
+.modality-button:hover{border-color:rgba(220,190,255,.75);background:rgba(169,130,255,.12);color:#fff}
+.modality-menu{position:absolute;right:0;top:calc(100% + 9px);min-width:205px;padding:8px;display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(9,8,14,.98);box-shadow:0 18px 45px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s}
+.modality-dropdown:hover .modality-menu,.modality-dropdown:focus-within .modality-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.modality-menu a{display:block;padding:11px 12px;border-radius:7px;color:#c9c1d8!important;text-decoration:none;font-size:12px;font-weight:500;text-transform:none;transition:.2s}
+.modality-menu a:hover{background:rgba(169,130,255,.12);color:#fff!important}
+.modality-menu a small{display:block;margin-top:4px;color:#898195;font-size:10px;font-weight:400}
+.hero{min-height:100vh;display:flex;align-items:center;padding:145px 8% 100px}
+.hero-content{max-width:720px;text-align:left}
+.hero-label{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;margin-bottom:22px;border:1px solid rgba(255,255,255,.13);border-radius:7px;background:rgba(0,0,0,.32);backdrop-filter:blur(10px);color:#d0d0d3;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.online-dot{width:7px;height:7px;border-radius:50%;background:#48df8b;box-shadow:0 0 12px rgba(72,223,139,.8)}
+.hero h1{font-size:clamp(58px,8vw,108px);line-height:.9;letter-spacing:-5px;font-weight:950;margin-bottom:28px;text-shadow:0 5px 35px rgba(0,0,0,.65)}
+.hero h1 span{color:#a982ff}
+.hero-description{max-width:650px;color:#c4c4c8;font-size:18px;line-height:1.7;text-shadow:0 2px 12px rgba(0,0,0,.8)}
+.hero-buttons{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:15px 23px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:900;transition:.25s}
+.primary-button{background:#9365ff;color:white;box-shadow:0 12px 35px rgba(147,101,255,.25)}
+.primary-button:hover{transform:translateY(-3px);box-shadow:0 18px 45px rgba(147,101,255,.4)}
+.secondary-button{color:white;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px)}
+.secondary-button:hover{border-color:rgba(255,255,255,.35);transform:translateY(-3px)}
+.hero-info{display:flex;gap:38px;margin-top:50px;padding-top:25px;border-top:1px solid rgba(255,255,255,.1);max-width:620px}
+.info-item{display:flex;flex-direction:column;gap:6px}
+.info-item strong{font-size:13px;color:#f4f3f7}
+.info-item span{color:#92919a;font-size:12px}
+.game-modes{display:flex;flex-direction:column;gap:5px}
+.game-modes span{color:#c7c0d4!important;font-weight:500;font-size:12px}
+section{padding:110px 7%}
+.section-title{max-width:750px;margin-bottom:45px}
+.section-title small{display:block;color:#a982ff;font-size:11px;font-weight:900;letter-spacing:4px;text-transform:uppercase;margin-bottom:14px}
+.section-title h2{font-size:clamp(38px,5vw,62px);letter-spacing:-2px;margin-bottom:15px}
+.section-title p{color:#8f9096;line-height:1.7;font-size:15px}
+.server-section{background:linear-gradient(rgba(5,7,8,.78),rgba(5,7,8,.92))}
+.server-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:20px;max-width:1150px}
+.server-card{padding:32px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(11,14,16,.82);backdrop-filter:blur(14px);min-width:0}
+.server-card h3{font-size:20px;margin-bottom:13px}
+.server-card p{color:#9994a2;font-size:14px;line-height:1.7;margin-bottom:15px}
+.server-ip-list{display:grid;gap:14px;margin-top:20px}
+.server-ip-entry{padding:15px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(0,0,0,.22);min-width:0}
+.server-ip-label{display:block;margin-bottom:10px;color:#a7a0b5;font-size:10px;font-weight:900;letter-spacing:1.6px}
+.server-ip{margin:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.server-ip span.ip-address{color:#a982ff;font-size:clamp(15px,2vw,22px);font-weight:900;overflow-wrap:anywhere}
+.copy-ip-button{border:1px solid #a982ff;background:rgba(169,130,255,.08);color:#b49cff;padding:10px 12px;border-radius:7px;font-size:10px;font-weight:900;cursor:pointer;transition:.2s;white-space:nowrap}
+.copy-ip-button:hover{background:#a982ff;color:#08090a}
+.copy-message{display:block;min-height:12px;margin-top:8px;opacity:0;color:#48df8b;font-size:10px;font-weight:900;transition:.25s}
+.copy-message.show{opacity:1}
+.ranks-section{background:rgba(5,7,8,.9)}
+.rank-notice{max-width:1150px;margin-bottom:30px;padding:18px 22px;border:1px solid rgba(169,130,255,.22);border-radius:10px;background:rgba(147,101,255,.06);color:#aaaab1;font-size:13px;line-height:1.7}
+.rank-notice strong{color:#c4afff}
+.ranks{max-width:1150px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.rank{position:relative;overflow:hidden;min-height:310px;display:flex;flex-direction:column;justify-content:space-between;padding:28px 24px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:linear-gradient(145deg,rgba(19,22,25,.92),rgba(9,11,13,.94));backdrop-filter:blur(10px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.rank::before,.rank::after{position:absolute;z-index:0;pointer-events:none;font-size:22px;opacity:.42;filter:drop-shadow(0 0 8px rgba(169,130,255,.3))}
+.rank::before{content:"👻";top:8px;right:10px;transform:rotate(12deg)}
+.rank::after{content:"🕸️";bottom:7px;left:9px;font-size:20px;opacity:.32}
+.rank>div{position:relative;z-index:1}
+.rank:hover{transform:translateY(-6px);border-color:currentColor;box-shadow:0 20px 45px rgba(0,0,0,.35)}
+.rank-name{font-size:22px;font-weight:950;letter-spacing:.5px;margin-bottom:12px}
+.rank-description{color:#9994a2;font-size:13px;line-height:1.7}
+.rank-price{font-size:26px;font-weight:950;margin:22px 0 13px}
+.rank-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rank-buy,.rank-info{display:block;width:100%;padding:10px;text-align:center;border-radius:7px;text-decoration:none;font-size:11px;font-weight:900;text-transform:uppercase;transition:.2s}
+.rank-buy{border:1px solid currentColor;color:inherit}
+.rank-buy:hover{background:currentColor;color:#08090a}
+.rank-info{border:1px solid rgba(255,255,255,.14);color:#b8bac1}
+.rank-info:hover{border-color:currentColor;color:inherit;background:rgba(255,255,255,.04)}
+.origin{color:#fff}
+.elite{color:#4d8dff}
+.celestial{color:#2bd7f5}
+.majestad{color:#ffd34d}
+.guardian{color:#42dc82}
+.semidios{color:#d75aff}
+.dios{color:#ff5363}
+.kaizora{color:#ff6de1}
+.shop-purple{color:#b49cff}
+.rank-description{color:#aaa5b1}
+.streamer-section{background:rgba(5,7,8,.86)}
+.streamer-card{max-width:1150px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:25px;background:linear-gradient(120deg,rgba(20,14,30,.95),rgba(9,8,13,.92));border:1px solid rgba(255,255,255,.1);border-radius:16px}
+.streamer-content small{color:#ff6de1;font-size:10px;font-weight:950;letter-spacing:4px}
+.streamer-content h2{margin:12px 0;color:#ff6de1;font-size:38px}
+.streamer-content p{max-width:720px;color:#9994a2;font-size:13px;line-height:1.8}
+.streamer-info-button{padding:12px 16px;border:1px solid rgba(255,109,225,.45);border-radius:8px;color:#ffb4ec;text-decoration:none;font-size:11px;font-weight:900;white-space:nowrap}
+.social-section{background:rgba(5,7,8,.9)}
+.social-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1150px}
+.social-card{min-height:205px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:23px;background:rgba(15,13,21,.9);border:1px solid rgba(255,255,255,.1);border-radius:12px;transition:.2s}
+.social-card:hover{transform:translateY(-4px);border-color:#a982ff}
+.social-name{margin-bottom:7px;font-size:19px;font-weight:950}
+.social-username{margin-bottom:12px;color:#b49cff;font-size:11px;font-weight:900}
+.social-description{color:#9994a2;font-size:12px;line-height:1.7}
+.social-button{display:block;padding:10px;color:#d0c2ff;text-align:center;text-decoration:none;font-size:10px;font-weight:950;border:1px solid rgba(169,130,255,.45);border-radius:7px}
+.community{max-width:1150px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:25px;padding:34px;background:linear-gradient(120deg,rgba(20,14,30,.95),rgba(9,8,13,.92));border:1px solid rgba(255,255,255,.1);border-radius:16px}
+footer{padding:30px 7%;border-top:1px solid rgba(255,255,255,.08);background:rgba(5,7,8,.95);color:#777a81;font-size:12px;text-align:center;line-height:1.7}
+footer strong{color:white}
+.creditos{margin-top:9px;color:#666970;font-size:12px}
+.creditos span{color:#a982ff;font-weight:900}
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: var(--background);
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-}
-a { color: inherit; }
-button { font: inherit; }
+/* HALLOWEEN: detalles de temporada */
+:root{--halloween-purple:#a982ff;--halloween-pink:#ff6de1;--halloween-orange:#ff812e;--halloween-orange-light:#ffb15c}
+.halloween-decor{position:fixed;inset:0;z-index:80;pointer-events:none;overflow:hidden;isolation:isolate}
+.halloween-mist{position:absolute;inset:0;opacity:.3;background:radial-gradient(ellipse at 4% 80%,rgba(169,130,255,.16),transparent 40%),radial-gradient(ellipse at 98% 65%,rgba(255,109,225,.12),transparent 37%),radial-gradient(ellipse at 50% 100%,rgba(255,129,46,.08),transparent 48%);animation:mist-drift 13s ease-in-out infinite alternate}
+@keyframes mist-drift{from{transform:translate3d(-1.5%,0,0) scale(1)}to{transform:translate3d(1.5%,-1%,0) scale(1.06)}}
+.halloween-floater{position:absolute;top:-100px;left:var(--left);font-size:var(--size,26px);opacity:.78;filter:drop-shadow(0 0 10px rgba(169,130,255,.4));animation:halloween-fall var(--duration,20s) linear var(--delay,0s) infinite;will-change:transform}
+.halloween-floater.ghost{filter:drop-shadow(0 0 12px rgba(255,255,255,.28))}
+.halloween-floater.bat{animation-name:bat-flight;animation-timing-function:ease-in-out}
+@keyframes halloween-fall{0%{transform:translate3d(0,-5vh,0) rotate(-15deg)}25%{transform:translate3d(35px,25vh,0) rotate(12deg)}55%{transform:translate3d(-22px,60vh,0) rotate(-8deg)}80%{transform:translate3d(28px,90vh,0) rotate(13deg)}100%{transform:translate3d(-15px,115vh,0) rotate(-12deg)}}
+@keyframes bat-flight{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}25%{transform:translate3d(48px,24vh,0) rotate(9deg)}50%{transform:translate3d(-25px,49vh,0) rotate(-5deg)}75%{transform:translate3d(35px,75vh,0) rotate(8deg)}}
+.halloween-hanging-spider{position:absolute;top:0;left:var(--spider-left,18%);display:flex;flex-direction:column;align-items:center;transform-origin:top center;animation:spider-swing var(--swing-time,4s) ease-in-out infinite alternate}
+.halloween-hanging-spider .thread{width:1px;height:var(--thread-height,145px);background:linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.95));box-shadow:0 0 5px rgba(255,255,255,.3)}
+.halloween-hanging-spider .spider{font-size:27px;filter:drop-shadow(0 0 10px rgba(169,130,255,.55))}
+@keyframes spider-swing{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}
+.halloween-pumpkin{position:absolute;bottom:18px;font-size:clamp(42px,6vw,78px);opacity:.88;filter:drop-shadow(0 0 12px rgba(255,129,46,.4));animation:pumpkin-glow 3s ease-in-out infinite alternate}
+.halloween-pumpkin.left{left:16px}
+.halloween-pumpkin.right{right:16px}
+@keyframes pumpkin-glow{from{filter:drop-shadow(0 0 7px rgba(255,129,46,.22));transform:translateY(0) rotate(-3deg)}to{filter:drop-shadow(0 0 19px rgba(255,129,46,.55));transform:translateY(-7px) rotate(3deg)}}
+.halloween-floor-glow{position:absolute;bottom:-90px;left:50%;width:min(850px,100vw);height:200px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(255,129,46,.09),transparent 70%)}
+.halloween-entry{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.94);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility .22s ease;overflow:hidden}
+.halloween-entry.show{opacity:1;visibility:visible;pointer-events:auto}
+.halloween-entry::before{content:"";position:absolute;inset:-30%;background:radial-gradient(ellipse at center,rgba(169,130,255,.17),transparent 35%),radial-gradient(ellipse at 50% 100%,rgba(255,80,80,.1),transparent 40%);animation:scare-background 4s ease-in-out infinite alternate}
+@keyframes scare-background{from{transform:scale(.94) rotate(-2deg)}to{transform:scale(1.12) rotate(2deg)}}
+.halloween-entry-card{position:relative;width:min(540px,100%);padding:clamp(25px,5vw,46px);text-align:center;border:1px solid rgba(169,130,255,.45);border-radius:22px;background:linear-gradient(145deg,rgba(24,16,38,.98),rgba(5,5,9,.99));box-shadow:0 0 0 1px rgba(255,255,255,.025),0 25px 100px rgba(0,0,0,.75),0 0 60px rgba(169,130,255,.15);transform:scale(.8) translateY(30px);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.halloween-entry.show .halloween-entry-card{transform:scale(1) translateY(0)}
+.halloween-entry-kicker{color:var(--halloween-orange-light);font-size:10px;font-weight:950;letter-spacing:5px;margin-bottom:17px}
+.halloween-entry-monster{display:block;font-size:clamp(78px,15vw,120px);line-height:1.15;margin-bottom:14px;filter:drop-shadow(0 0 18px rgba(255,109,225,.35));animation:monster-breathe 2s ease-in-out infinite;user-select:none}
+@keyframes monster-breathe{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.08) rotate(2deg)}}
+.halloween-entry-card h2{color:#fff;font-size:clamp(25px,5vw,39px);font-weight:950;line-height:1.08;letter-spacing:-1px;margin:0 0 15px;text-shadow:0 0 24px rgba(169,130,255,.32)}
+.halloween-entry-card h2 span{color:var(--halloween-pink)}
+.halloween-entry-card p{max-width:390px;margin:0 auto 22px;color:#c9c4d4;font-size:14px;line-height:1.75}
+.halloween-entry-divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--halloween-orange-light);font-size:17px}
+.halloween-entry-divider::before,.halloween-entry-divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(169,130,255,.45))}
+.halloween-entry-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.halloween-entry-actions button{min-height:44px;padding:12px 17px;border:1px solid rgba(169,130,255,.6);border-radius:9px;background:linear-gradient(135deg,rgba(169,130,255,.2),rgba(255,109,225,.1));color:white;font:900 11px Arial,Helvetica,sans-serif;letter-spacing:.5px;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.halloween-entry-actions button:hover{transform:translateY(-2px);border-color:var(--halloween-pink);background:rgba(255,109,225,.18)}
+.halloween-entry-actions .halloween-dismiss{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.16);color:#d0cbd8}
+.halloween-jumpscare{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:#030204;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden}
+.halloween-jumpscare.active{visibility:visible;animation:jumpscare-flash .85s steps(1,end) both}
+.halloween-jumpscare-face{font-size:clamp(140px,38vw,360px);line-height:1;transform:scale(.2) rotate(-12deg);filter:drop-shadow(0 0 35px rgba(255,30,70,.8))}
+.halloween-jumpscare.active .halloween-jumpscare-face{animation:jumpscare-face .85s cubic-bezier(.1,.9,.2,1) both}
+@keyframes jumpscare-flash{0%{opacity:0;background:#000}8%{opacity:1;background:#fff}13%{opacity:1;background:#28000b}22%{opacity:1;background:#030204}35%{opacity:1;background:#170008}48%{opacity:1;background:#030204}100%{opacity:0;background:#030204;visibility:hidden}}
+@keyframes jumpscare-face{0%{transform:scale(.08) rotate(-12deg)}15%{transform:scale(1.3) rotate(4deg)}25%{transform:scale(1.12) rotate(-3deg)}38%{transform:scale(1.2) rotate(2deg)}100%{transform:scale(1.05) rotate(0)}}
 
-.background {
-    position: fixed;
-    inset: 0;
-    z-index: -5;
-    background:
-        radial-gradient(ellipse at 75% 25%, rgba(147,101,255,.19), transparent 45%),
-        radial-gradient(ellipse at 15% 80%, rgba(255,109,225,.08), transparent 40%),
-        linear-gradient(135deg, #030305, #0c0713 55%, #050308);
-}
-.background::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse, transparent 25%, rgba(0,0,0,.65) 100%);
-}
-.cursor-glow {
-    position: fixed;
-    z-index: -2;
-    width: 430px;
-    height: 430px;
-    pointer-events: none;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(169,130,255,.10), transparent 70%);
-    transform: translate(-50%,-50%);
-}
-a, button { -webkit-tap-highlight-color: transparent; }
+/* Zombis de Minecraft en una pelea decorativa */
+.minecraft-battle{position:fixed;z-index:-3;left:50%;bottom:7%;width:min(650px,90vw);height:190px;transform:translateX(-50%);pointer-events:none;opacity:.34;filter:drop-shadow(0 0 18px rgba(169,130,255,.3))}
+.minecraft-battle::before{content:"";position:absolute;bottom:12px;left:4%;right:4%;height:3px;background:linear-gradient(90deg,transparent,#a982ff88,#ff6de177,transparent)}
+.mc-zombie{position:absolute;bottom:14px;width:70px;height:115px;animation:zombie-fight 1.25s ease-in-out infinite alternate}
+.mc-zombie.left{left:22%}
+.mc-zombie.right{right:22%;transform:scaleX(-1);animation-name:zombie-fight-right;animation-delay:-.6s}
+.mc-zombie .head{position:absolute;top:0;left:17px;width:37px;height:35px;background:#4b9b61;border:4px solid #1e5631;box-shadow:inset 0 -7px #387b4a}
+.mc-zombie .eye{position:absolute;top:12px;width:6px;height:6px;background:#17151b}
+.mc-zombie .eye.one{left:23px}.mc-zombie .eye.two{left:40px}
+.mc-zombie .mouth{position:absolute;top:24px;left:28px;width:17px;height:4px;background:#25202b}
+.mc-zombie .body{position:absolute;top:36px;left:13px;width:44px;height:43px;background:#398c72;border:4px solid #1e5647}
+.mc-zombie .arm{position:absolute;top:39px;width:14px;height:48px;background:#4b9b61;border:3px solid #1e5631;transform-origin:top}
+.mc-zombie .arm.one{left:1px;transform:rotate(-48deg)}
+.mc-zombie .arm.two{right:1px;transform:rotate(48deg)}
+.mc-zombie .leg{position:absolute;top:78px;width:19px;height:34px;background:#394fbd;border:3px solid #252d72}
+.mc-zombie .leg.one{left:15px}.mc-zombie .leg.two{left:37px}
+.mc-sword{position:absolute;top:42px;right:-20px;width:8px;height:62px;background:#d9e8ff;border:2px solid #7b8ba8;transform:rotate(-38deg);box-shadow:0 0 12px #a982ff88}
+.mc-sword::after{content:"";position:absolute;bottom:-8px;left:-7px;width:18px;height:8px;background:#7d542f}
+@keyframes zombie-fight{0%{transform:translateX(-12px) rotate(-4deg)}50%{transform:translateX(10px) rotate(4deg)}100%{transform:translateX(-5px) rotate(-2deg)}}
+@keyframes zombie-fight-right{0%{transform:scaleX(-1) translateX(-12px) rotate(-4deg)}50%{transform:scaleX(-1) translateX(10px) rotate(4deg)}100%{transform:scaleX(-1) translateX(-5px) rotate(-2deg)}}
 
-/* NAVEGACIÓN */
-nav {
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 76px;
-    padding: 15px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    background: rgba(5,5,9,.82);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,.09);
-}
-.logo {
-    text-decoration: none;
-    white-space: nowrap;
-    font-size: 21px;
-    font-weight: 950;
-    letter-spacing: .5px;
-}
-.logo span { color: var(--purple); }
-nav ul {
-    display: flex;
-    align-items: center;
-    gap: 27px;
-    list-style: none;
-}
-nav ul a {
-    color: #c8c5d0;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 900;
-    transition: color .2s;
-}
-nav ul a:hover { color: white; }
-.modality-dropdown { position: relative; }
-.modality-button {
-    padding: 10px 14px;
-    color: #eeeaf5;
-    background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.17);
-    border-radius: 8px;
-    font-size: 11px;
-    font-weight: 900;
-    cursor: pointer;
-    transition: .2s;
-}
-.modality-button:hover {
-    background: rgba(255,255,255,.11);
-    border-color: rgba(255,255,255,.35);
-}
-.modality-menu {
-    position: absolute;
-    top: calc(100% + 9px);
-    right: 0;
-    min-width: 175px;
-    padding: 7px;
-    background: rgba(10,8,15,.98);
-    border: 1px solid rgba(255,255,255,.13);
-    border-radius: 10px;
-    box-shadow: 0 20px 45px #0009;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-5px);
-    transition: .2s;
-}
-.modality-dropdown:hover .modality-menu,
-.modality-dropdown:focus-within .modality-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-.modality-menu a {
-    display: block;
-    padding: 11px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 900;
-}
-.modality-menu a:hover { background: rgba(169,130,255,.14); }
+/* Calabaza secreta del descuento */
+.coupon-pumpkin{position:absolute;right:clamp(18px,5vw,70px);top:43%;z-index:2;pointer-events:auto;border:0;background:transparent;cursor:pointer;font-size:clamp(33px,4vw,48px);filter:drop-shadow(0 0 12px rgba(255,129,46,.65));animation:coupon-wiggle 3s ease-in-out infinite}
+.coupon-pumpkin::after{content:"?";position:absolute;right:-4px;top:-4px;width:17px;height:17px;border-radius:50%;display:grid;place-items:center;color:#fff;background:#a982ff;font:bold 11px Arial}
+@keyframes coupon-wiggle{0%,85%,100%{transform:rotate(0) scale(1)}90%{transform:rotate(-12deg) scale(1.12)}95%{transform:rotate(12deg) scale(1.12)}}
+.coupon-modal{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.88);opacity:0;visibility:hidden;transition:.2s}
+.coupon-modal.show{opacity:1;visibility:visible}
+.coupon-card{width:min(440px,100%);padding:30px;text-align:center;border:1px solid rgba(255,129,46,.5);border-radius:16px;background:linear-gradient(145deg,#1b1020,#070609);box-shadow:0 0 55px rgba(255,129,46,.12)}
+.coupon-card h3{margin-bottom:12px;font-size:25px}
+.coupon-card p{color:#b8b1c2;font-size:13px;line-height:1.7;margin-bottom:15px}
+.coupon-code{display:block;margin:15px 0;padding:13px;border:1px dashed #ffb15c;border-radius:8px;color:#ffb15c;font-size:20px;font-weight:950;letter-spacing:2px;user-select:all}
+.coupon-card button{margin:5px;padding:11px 14px;border:1px solid #a982ff77;border-radius:7px;color:white;background:#a982ff1a;cursor:pointer;font-size:10px;font-weight:900}
+.coupon-note{display:block;margin-top:12px;color:#8f879c;font-size:10px;line-height:1.5}
 
-/* PORTADA */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 150px 8% 95px;
-}
-.hero-content { max-width: 820px; }
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 25px;
-    padding: 10px 14px;
-    color: #d9d2e8;
-    background: rgba(0,0,0,.3);
-    border: 1px solid rgba(255,255,255,.13);
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 2.5px;
-}
-.eyebrow-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #8bffb6;
-    box-shadow: 0 0 12px #48df8b;
-}
-.hero h1 {
-    max-width: 850px;
-    font-size: clamp(52px, 8.6vw, 105px);
-    font-weight: 950;
-    line-height: .94;
-    letter-spacing: -5px;
-    margin-bottom: 27px;
-    text-shadow: 0 8px 45px #000b;
-}
-.hero h1 span { color: var(--purple); }
-.hero-description {
-    max-width: 650px;
-    color: #c1bdca;
-    font-size: 17px;
-    line-height: 1.8;
-}
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-}
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 47px;
-    padding: 14px 21px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 950;
-    transition: transform .2s, box-shadow .2s, border-color .2s;
-}
-.button:hover { transform: translateY(-3px); }
-.primary-button {
-    color: #fff;
-    background: linear-gradient(120deg, #8555ef, #a982ff);
-    box-shadow: 0 8px 28px rgba(147,101,255,.2);
-}
-.primary-button:hover { box-shadow: 0 12px 36px rgba(147,101,255,.38); }
-.secondary-button {
-    color: white;
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.18);
-}
-.hero-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 36px;
-    max-width: 650px;
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,.11);
-}
-.info-item { display: flex; flex-direction: column; gap: 8px; }
-.info-item strong { font-size: 12px; letter-spacing: .5px; }
-.info-item span { color: #9c97a6; font-size: 11px; }
-.game-modes span { color: #f4f3f7; font-weight: 900; }
-
-/* SECCIONES */
-section { padding: 105px 7%; }
-.section-heading { max-width: 780px; margin-bottom: 42px; }
-.section-heading small {
-    display: block;
-    margin-bottom: 14px;
-    color: var(--purple);
-    font-size: 10px;
-    font-weight: 950;
-    letter-spacing: 4px;
-}
-.section-heading h2 {
-    margin-bottom: 16px;
-    font-size: clamp(34px, 5vw, 59px);
-    line-height: 1.04;
-    letter-spacing: -2px;
-}
-.section-heading p {
-    color: #9994a2;
-    font-size: 14px;
-    line-height: 1.8;
-}
-.server-section, .ranks-section, .social-section {
-    background: rgba(5,5,9,.78);
-}
-.server-grid {
-    display: grid;
-    grid-template-columns: 1.3fr .8fr;
-    gap: 18px;
-    max-width: 1150px;
-}
-.panel {
-    padding: 30px;
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 14px;
-    background: var(--panel);
-    box-shadow: 0 15px 45px rgba(0,0,0,.12);
-    backdrop-filter: blur(12px);
-}
-.panel h3 { margin-bottom: 12px; font-size: 19px; }
-.panel p { color: #9994a2; font-size: 13px; line-height: 1.8; }
-.server-ip {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 23px;
-}
-.server-ip strong { color: var(--purple); font-size: 20px; }
-.copy-button {
-    padding: 10px 13px;
-    color: #cbbaff;
-    background: rgba(169,130,255,.08);
-    border: 1px solid rgba(169,130,255,.5);
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 10px;
-    font-weight: 900;
-}
-.copy-message { color: #8bffb6; font-size: 11px; opacity: 0; }
-.copy-message.show { opacity: 1; }
-
-.ranks {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0,1fr));
-    gap: 16px;
-    max-width: 1150px;
-}
-.rank {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 260px;
-    padding: 24px 21px;
-    background: linear-gradient(145deg, rgba(20,18,27,.95), rgba(8,8,12,.94));
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 13px;
-    transition: transform .25s, border-color .25s, box-shadow .25s;
-}
-.rank:hover {
-    transform: translateY(-5px);
-    border-color: currentColor;
-    box-shadow: 0 18px 38px rgba(0,0,0,.3);
-}
-.rank-name { margin-bottom: 12px; font-size: 21px; font-weight: 950; }
-.rank-description { color: #9994a2; font-size: 12px; line-height: 1.7; }
-.rank-price { margin: 20px 0 13px; font-size: 25px; font-weight: 950; }
-.rank-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
-.rank-buy, .rank-info {
-    display: block;
-    padding: 10px 6px;
-    border: 1px solid currentColor;
-    border-radius: 6px;
-    color: inherit;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 9px;
-    font-weight: 950;
-}
-.rank-info { color: #c0bbc9; border-color: rgba(255,255,255,.17); }
-.origin { color: #fff; }
-.elite { color: #4d8dff; }
-.celestial { color: #2bd7f5; }
-.majestad { color: #ffd34d; }
-.guardian { color: #42dc82; }
-.semidios { color: #d75aff; }
-.dios { color: #ff5363; }
-.kaizora { color: #ff6de1; }
-.shop-purple { color: #b49cff; }
-
-.streamer-card, .community-card {
-    max-width: 1150px;
-    padding: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    background: linear-gradient(120deg, rgba(20,14,30,.95), rgba(9,8,13,.92));
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 16px;
-}
-.streamer-card small { color: var(--pink); font-size: 10px; font-weight: 950; letter-spacing: 4px; }
-.streamer-card h2 { margin: 12px 0; color: var(--pink); font-size: 38px; }
-.streamer-card p, .community-card p { max-width: 720px; color: #9994a2; font-size: 13px; line-height: 1.8; }
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0,1fr));
-    gap: 16px;
-    max-width: 1150px;
-}
-.social-card {
-    min-height: 205px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 23px;
-    background: rgba(15,13,21,.9);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 12px;
-    transition: .2s;
-}
-.social-card:hover { transform: translateY(-4px); border-color: var(--purple); }
-.social-name { margin-bottom: 7px; font-size: 19px; font-weight: 950; }
-.social-username { margin-bottom: 12px; color: #b49cff; font-size: 11px; font-weight: 900; }
-.social-description { color: #9994a2; font-size: 12px; line-height: 1.7; }
-.social-button {
-    padding: 10px;
-    color: #d0c2ff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 10px;
-    font-weight: 950;
-    border: 1px solid rgba(169,130,255,.45);
-    border-radius: 7px;
-}
-footer {
-    padding: 30px 7%;
-    color: #898492;
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.8;
-    background: #050408;
-    border-top: 1px solid rgba(255,255,255,.08);
-}
-footer strong { color: #fff; }
-footer span { color: var(--purple); font-weight: 900; }
-
-/* HALLOWEEN AMBIENTAL */
-.halloween-decor {
-    position: fixed;
-    inset: 0;
-    z-index: 80;
-    overflow: hidden;
-    pointer-events: none;
-}
-.halloween-mist {
-    position: absolute;
-    inset: 0;
-    opacity: .4;
-    background:
-        radial-gradient(ellipse at 0 75%, rgba(169,130,255,.17), transparent 42%),
-        radial-gradient(ellipse at 100% 70%, rgba(255,109,225,.13), transparent 40%),
-        radial-gradient(ellipse at 50% 100%, rgba(255,129,46,.08), transparent 45%);
-    animation: mist-drift 12s ease-in-out infinite alternate;
-}
-@keyframes mist-drift {
-    from { transform: translateX(-1%) scale(1); }
-    to { transform: translateX(1%) scale(1.06); }
-}
-.web {
-    position: absolute;
-    top: 76px;
-    width: clamp(90px, 14vw, 175px);
-    opacity: .5;
-    filter: drop-shadow(0 0 9px rgba(169,130,255,.25));
-}
-.web.left { left: 0; }
-.web.right { right: 0; transform: scaleX(-1); }
-.web svg { width: 100%; }
-.falling {
-    position: absolute;
-    top: -90px;
-    left: var(--left);
-    font-size: var(--size, 26px);
-    opacity: .8;
-    filter: drop-shadow(0 0 10px rgba(169,130,255,.35));
-    animation: falling var(--duration, 20s) linear var(--delay, 0s) infinite;
-}
-.falling.bat { animation-name: bat-flight; }
-@keyframes falling {
-    0% { transform: translate(0,-5vh) rotate(-12deg); }
-    30% { transform: translate(35px,30vh) rotate(10deg); }
-    65% { transform: translate(-25px,70vh) rotate(-8deg); }
-    100% { transform: translate(18px,115vh) rotate(12deg); }
-}
-@keyframes bat-flight {
-    0%,100% { transform: translate(0,0) rotate(-8deg); }
-    25% { transform: translate(50px,25vh) rotate(9deg); }
-    50% { transform: translate(-22px,50vh) rotate(-5deg); }
-    75% { transform: translate(32px,75vh) rotate(8deg); }
-}
-.hanging-spider {
-    position: absolute;
-    top: 0;
-    left: var(--spider-left);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform-origin: top;
-    animation: spider-swing var(--swing-time, 4s) ease-in-out infinite alternate;
-}
-.hanging-spider .thread {
-    width: 1px;
-    height: var(--thread-height, 150px);
-    background: linear-gradient(transparent, #d4c4ff);
-    box-shadow: 0 0 6px #a982ff88;
-}
-.hanging-spider .spider {
-    font-size: 28px;
-    filter: drop-shadow(0 0 10px #a982ff66);
-}
-@keyframes spider-swing {
-    from { transform: rotate(-8deg); }
-    to { transform: rotate(8deg); }
-}
-.pumpkin {
-    position: absolute;
-    bottom: 15px;
-    font-size: clamp(42px, 6vw, 76px);
-    filter: drop-shadow(0 0 12px rgba(255,129,46,.45));
-    animation: pumpkin-glow 3s ease-in-out infinite alternate;
-}
-.pumpkin.left { left: 14px; }
-.pumpkin.right { right: 14px; animation-delay: -1.5s; }
-@keyframes pumpkin-glow {
-    from { transform: translateY(0) rotate(-3deg); filter: drop-shadow(0 0 7px #ff812e44); }
-    to { transform: translateY(-7px) rotate(3deg); filter: drop-shadow(0 0 19px #ff812eaa); }
-}
-.floor-glow {
-    position: absolute;
-    bottom: -100px;
-    left: 50%;
-    width: min(850px,100vw);
-    height: 200px;
-    transform: translateX(-50%);
-    background: radial-gradient(ellipse, rgba(255,129,46,.1), transparent 70%);
-}
-
-/* SORPRESA DE ENTRADA */
-.halloween-entry {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-    padding: 20px;
-    background: rgba(0,0,0,.94);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity .25s, visibility .25s;
-}
-.halloween-entry.show { opacity: 1; visibility: visible; pointer-events: auto; }
-.halloween-entry::before {
-    content: "";
-    position: absolute;
-    inset: -30%;
-    background:
-        radial-gradient(ellipse at center, rgba(169,130,255,.18), transparent 38%),
-        radial-gradient(ellipse at 50% 100%, rgba(255,80,80,.1), transparent 42%);
-    animation: scare-background 4s ease-in-out infinite alternate;
-}
-@keyframes scare-background {
-    from { transform: scale(.94) rotate(-2deg); }
-    to { transform: scale(1.12) rotate(2deg); }
-}
-.entry-card {
-    position: relative;
-    width: min(540px,100%);
-    padding: clamp(25px,5vw,45px);
-    text-align: center;
-    border: 1px solid rgba(169,130,255,.48);
-    border-radius: 22px;
-    background: linear-gradient(145deg, #181026, #050509);
-    box-shadow: 0 25px 100px #000c, 0 0 60px #a982ff20;
-    transform: scale(.8) translateY(25px);
-    transition: transform .45s cubic-bezier(.16,1,.3,1);
-}
-.halloween-entry.show .entry-card { transform: scale(1) translateY(0); }
-.entry-kicker {
-    margin-bottom: 15px;
-    color: var(--orange-light);
-    font-size: 10px;
-    font-weight: 950;
-    letter-spacing: 4px;
-}
-.entry-monster {
-    display: block;
-    margin-bottom: 14px;
-    font-size: clamp(80px,15vw,125px);
-    line-height: 1.1;
-    filter: drop-shadow(0 0 20px #ff6de144);
-    animation: monster-breathe 2s ease-in-out infinite;
-}
-@keyframes monster-breathe {
-    0%,100% { transform: scale(1) rotate(-2deg); }
-    50% { transform: scale(1.08) rotate(2deg); }
-}
-.entry-card h2 {
-    margin-bottom: 15px;
-    color: white;
-    font-size: clamp(25px,5vw,38px);
-    font-weight: 950;
-    line-height: 1.08;
-    letter-spacing: -1px;
-}
-.entry-card h2 span { color: var(--pink); }
-.entry-card p {
-    max-width: 400px;
-    margin: 0 auto 20px;
-    color: #c9c4d4;
-    font-size: 13px;
-    line-height: 1.8;
-}
-.entry-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 20px 0;
-    color: var(--orange-light);
-}
-.entry-divider::before, .entry-divider::after {
-    content: "";
-    height: 1px;
-    flex: 1;
-    background: linear-gradient(90deg,transparent,#a982ff77);
-}
-.entry-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.entry-actions button {
-    min-height: 44px;
-    padding: 12px 16px;
-    color: #fff;
-    background: linear-gradient(135deg,#a982ff33,#ff6de11a);
-    border: 1px solid #a982ff99;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 950;
-    cursor: pointer;
-    transition: .2s;
-}
-.entry-actions button:hover { transform: translateY(-2px); border-color: var(--pink); }
-.entry-actions .dismiss {
-    color: #d0cbd8;
-    background: #ffffff08;
-    border-color: #ffffff2c;
-}
-
-/* SUSTO VISUAL */
-.jumpscare {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    display: grid;
-    place-items: center;
-    background: #030204;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-.jumpscare.active { visibility: visible; animation: scare-flash .85s steps(1,end) both; }
-.jumpscare-face {
-    font-size: clamp(140px,38vw,360px);
-    line-height: 1;
-    filter: drop-shadow(0 0 35px rgba(255,30,70,.8));
-}
-.jumpscare.active .jumpscare-face { animation: scare-face .85s cubic-bezier(.1,.9,.2,1) both; }
-@keyframes scare-flash {
-    0% { opacity: 0; background: #000; }
-    8% { opacity: 1; background: #fff; }
-    13% { opacity: 1; background: #28000b; }
-    22% { opacity: 1; background: #030204; }
-    35% { opacity: 1; background: #170008; }
-    48% { opacity: 1; background: #030204; }
-    100% { opacity: 0; visibility: hidden; }
-}
-@keyframes scare-face {
-    0% { transform: scale(.08) rotate(-12deg); }
-    15% { transform: scale(1.3) rotate(4deg); }
-    25% { transform: scale(1.12) rotate(-3deg); }
-    38% { transform: scale(1.2) rotate(2deg); }
-    100% { transform: scale(1.05); }
-}
-
-/* ADAPTACIÓN A MÓVILES */
-@media (max-width: 1000px) {
-    nav { padding-left: 4%; padding-right: 4%; }
-    nav ul { gap: 14px; }
-    .ranks, .social-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-@media (max-width: 650px) {
-    nav {
-        position: absolute;
-        flex-wrap: wrap;
-        gap: 13px;
-        padding: 15px 5%;
-    }
-    nav ul { order: 3; width: 100%; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    nav ul a { font-size: 10px; }
-    .logo { font-size: 18px; }
-    .modality-button { font-size: 10px; }
-    .hero { padding: 155px 6% 75px; }
-    .hero h1 { letter-spacing: -3px; }
-    .hero-description { font-size: 15px; }
-    .hero-info { gap: 20px; }
-    section { padding: 78px 6%; }
-    .server-grid, .ranks, .social-grid { grid-template-columns: 1fr; }
-    .rank { min-height: 230px; }
-    .streamer-card, .community-card { align-items: flex-start; flex-direction: column; padding: 25px; }
-    .web { width: 85px; }
-    .pumpkin { bottom: 7px; font-size: 42px; }
-    .pumpkin.left { left: 4px; }
-    .pumpkin.right { right: 4px; }
-    .entry-actions { flex-direction: column; }
-    .entry-actions button { width: 100%; }
-}
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-}
+@media(max-width:1000px){nav ul{gap:14px;margin-right:8px}.ranks,.social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.server-grid{grid-template-columns:1fr}.community{grid-template-columns:1fr}}
+@media(max-width:650px){nav{position:absolute;flex-wrap:wrap;padding:14px 5%;gap:12px}nav ul{order:3;width:100%;justify-content:center;gap:16px;flex-wrap:wrap;margin:0}nav ul a{font-size:10px}.logo{font-size:18px}.modality-button{font-size:10px}.hero{padding:165px 6% 75px}.hero h1{font-size:clamp(47px,13vw,75px);letter-spacing:-3px}.hero-description{font-size:15px}.hero-info{gap:20px;flex-wrap:wrap}section{padding:78px 6%}.ranks,.social-grid{grid-template-columns:1fr}.rank{min-height:250px}.server-card,.streamer-card,.community{padding:24px}.streamer-card{align-items:flex-start;flex-direction:column}.streamer-content h2{font-size:34px}.rank-actions{grid-template-columns:1fr 1fr}.halloween-pumpkin{bottom:10px;font-size:42px}.halloween-pumpkin.left{left:6px}.halloween-pumpkin.right{right:6px}.halloween-entry-card{border-radius:17px}.halloween-entry-card p{font-size:13px}.halloween-entry-actions{flex-direction:column}.halloween-entry-actions button{width:100%}.minecraft-battle{bottom:4%;transform:translateX(-50%) scale(.72);transform-origin:bottom center}.coupon-pumpkin{top:auto;bottom:100px;right:14px}.server-ip-entry .server-ip{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
 
 <body>
-<div class="background"></div>
-<div class="cursor-glow" id="cursor-glow"></div>
+<div class="minecraft-background"></div>
+<div class="light-effect" id="light"></div>
 
-<!-- DECORACIÓN DE HALLOWEEN -->
 <div class="halloween-decor" aria-hidden="true">
     <div class="halloween-mist"></div>
-    <div class="floor-glow"></div>
-
-    <div class="web left">
-        <svg viewBox="0 0 120 120" fill="none" stroke="#d2beff" stroke-width="1.1">
-            <path d="M0 0L120 120M0 30L90 120M0 60L60 120M0 90L30 120M30 0L120 90M60 0L120 60M90 0L120 30M0 0L0 120L120 120M0 0L120 0L120 120M0 25Q50 25 25 0M0 50Q75 50 50 0M0 75Q100 75 75 0M25 120Q25 70 0 75M50 120Q50 45 0 50M75 120Q75 20 0 25"/>
-        </svg>
-    </div>
-    <div class="web right">
-        <svg viewBox="0 0 120 120" fill="none" stroke="#d2beff" stroke-width="1.1">
-            <path d="M0 0L120 120M0 30L90 120M0 60L60 120M0 90L30 120M30 0L120 90M60 0L120 60M90 0L120 30M0 0L0 120L120 120M0 0L120 0L120 120M0 25Q50 25 25 0M0 50Q75 50 50 0M0 75Q100 75 75 0M25 120Q25 70 0 75M50 120Q50 45 0 50M75 120Q75 20 0 25"/>
-        </svg>
-    </div>
-
-    <div class="hanging-spider" style="--spider-left:16%;--thread-height:125px;--swing-time:3.5s">
-        <span class="thread"></span><span class="spider">🕷️</span>
-    </div>
-    <div class="hanging-spider" style="--spider-left:82%;--thread-height:190px;--swing-time:4.7s">
-        <span class="thread"></span><span class="spider">🕷️</span>
-    </div>
-
-    <span class="falling" style="--left:9%;--size:25px;--duration:21s;--delay:-7s">🕸️</span>
-    <span class="falling" style="--left:24%;--size:27px;--duration:25s;--delay:-13s">👻</span>
-    <span class="falling bat" style="--left:43%;--size:29px;--duration:19s;--delay:-4s">🦇</span>
-    <span class="falling" style="--left:59%;--size:23px;--duration:24s;--delay:-17s">🕷️</span>
-    <span class="falling" style="--left:74%;--size:25px;--duration:22s;--delay:-10s">👻</span>
-    <span class="falling bat" style="--left:91%;--size:28px;--duration:26s;--delay:-15s">🦇</span>
-
-    <span class="pumpkin left">🎃</span>
-    <span class="pumpkin right">🎃</span>
+    <div class="halloween-floor-glow"></div>
+    <div class="halloween-hanging-spider" style="--spider-left:17%;--thread-height:125px;--swing-time:3.5s"><span class="thread"></span><span class="spider">🕷️</span></div>
+    <div class="halloween-hanging-spider" style="--spider-left:81%;--thread-height:190px;--swing-time:4.7s"><span class="thread"></span><span class="spider">🕷️</span></div>
+    <span class="halloween-floater" style="--left:9%;--size:25px;--duration:21s;--delay:-7s">🕸️</span>
+    <span class="halloween-floater ghost" style="--left:25%;--size:27px;--duration:25s;--delay:-13s">👻</span>
+    <span class="halloween-floater bat" style="--left:43%;--size:29px;--duration:19s;--delay:-4s">🦇</span>
+    <span class="halloween-floater" style="--left:59%;--size:23px;--duration:24s;--delay:-17s">🕷️</span>
+    <span class="halloween-floater ghost" style="--left:74%;--size:25px;--duration:22s;--delay:-10s">👻</span>
+    <span class="halloween-floater bat" style="--left:91%;--size:28px;--duration:26s;--delay:-15s">🦇</span>
+    <span class="halloween-pumpkin left">🎃</span>
+    <button class="halloween-pumpkin right coupon-pumpkin" id="secret-coupon-trigger" type="button" aria-label="Calabaza misteriosa: descubrir posible descuento">🎃</button>
 </div>
 
-<!-- SORPRESA DE ENTRADA -->
-<aside class="halloween-entry" id="halloween-entry" role="dialog" aria-label="Sorpresa de Halloween">
-    <div class="entry-card">
-        <div class="entry-kicker">KAIZORA ORIGINS PRESENTA</div>
-        <span class="entry-monster" aria-hidden="true">👹</span>
+<div class="minecraft-battle" aria-hidden="true">
+  <div class="mc-zombie left"><span class="head"></span><i class="eye one"></i><i class="eye two"></i><i class="mouth"></i><span class="body"></span><span class="arm one"></span><span class="arm two"></span><span class="leg one"></span><span class="leg two"></span><span class="mc-sword"></span></div>
+  <div class="mc-zombie right"><span class="head"></span><i class="eye one"></i><i class="eye two"></i><i class="mouth"></i><span class="body"></span><span class="arm one"></span><span class="arm two"></span><span class="leg one"></span><span class="leg two"></span><span class="mc-sword"></span></div>
+</div>
+
+<aside class="halloween-entry" id="halloween-entry" role="dialog" aria-label="Sorpresa especial de Halloween">
+    <div class="halloween-entry-card">
+        <div class="halloween-entry-kicker">KAIZORA ORIGINS PRESENTA</div>
+        <span class="halloween-entry-monster" aria-hidden="true">👹</span>
         <h2>¿CREÍAS QUE ESTABAS <span>A SALVO?</span></h2>
-        <p>Las luces se apagan. Algo se mueve entre las sombras y una presencia te da la bienvenida. Has entrado en Kaizora… pero esta noche, no estás solo.</p>
-        <div class="entry-divider" aria-hidden="true">🎃</div>
-        <div class="entry-actions">
+        <p>Las luces se apagan, algo se mueve entre las sombras y una presencia te da la bienvenida. Has entrado en Kaizora… pero esta noche, no estás solo.</p>
+        <div class="halloween-entry-divider" aria-hidden="true">🎃</div>
+        <div class="halloween-entry-actions">
             <button type="button" id="halloween-sound">☠️ ACTIVAR EL SUSTO</button>
-            <button type="button" class="dismiss" id="halloween-dismiss">NO TENGO MIEDO</button>
+            <button type="button" class="halloween-dismiss" id="halloween-dismiss">NO TENGO MIEDO</button>
         </div>
     </div>
 </aside>
 
-<div class="jumpscare" id="jumpscare" aria-hidden="true">
-    <div class="jumpscare-face">👹</div>
-</div>
+<div class="halloween-jumpscare" id="halloween-jumpscare" aria-hidden="true"><div class="halloween-jumpscare-face">👹</div></div>
+
+<aside class="coupon-modal" id="coupon-modal" role="dialog" aria-label="Descuento secreto">
+  <div class="coupon-card">
+    <div style="font-size:48px;margin-bottom:10px">🎃</div>
+    <h3 id="coupon-title">¡Encontraste el secreto!</h3>
+    <p id="coupon-description">Has encontrado una calabaza escondida de Kaizora. El cupón está preparado para un único canje en la tienda.</p>
+    <span class="coupon-code" id="coupon-code">KAIZORA50</span>
+    <button type="button" id="coupon-copy">COPIAR CÓDIGO</button>
+    <button type="button" id="coupon-close">CERRAR</button>
+    <small class="coupon-note">Importante: para que sea realmente válido una sola vez para toda la comunidad, configura KAIZORA50 en tu tienda con límite global de 1 canje. El HTML por sí solo no puede controlar los canjes entre distintos usuarios.</small>
+  </div>
+</aside>
 
 <nav>
-    <a href="#inicio" class="logo">KAIZORA <span>ORIGINS</span></a>
+    <a href="#" class="logo">KAIZORA <span>ORIGINS</span></a>
     <ul>
         <li><a href="#inicio">INICIO</a></li>
         <li><a href="#servidor">SERVIDOR</a></li>
@@ -752,8 +261,8 @@ footer span { color: var(--purple); font-weight: 900; }
     <div class="modality-dropdown">
         <button class="modality-button" type="button">MODALIDADES <span>⌄</span></button>
         <div class="modality-menu">
-            <a href="survivalop.html">SURVIVALOP</a>
-            <a href="extremo.html">EXTREMO</a>
+            <a href="survivalop.html">SurvivalOP <small>Supervivencia y progresión</small></a>
+            <a href="extremo.html">Extremo <small>Próximamente</small></a>
         </div>
     </div>
 </nav>
@@ -761,7 +270,7 @@ footer span { color: var(--purple); font-weight: 900; }
 <main>
 <section class="hero" id="inicio">
     <div class="hero-content">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> UN MUNDO, TU HISTORIA</div>
+        <div class="hero-label"><span class="online-dot"></span> UN MUNDO, TU HISTORIA</div>
         <h1>KAIZORA <span>ORIGINS</span></h1>
         <p class="hero-description">Un mundo donde cada jugador escribe su propia historia. Construye tu hogar, forma alianzas, conquista territorios y crea un legado que permanecerá en Kaizora Origins.</p>
         <div class="hero-buttons">
@@ -777,228 +286,315 @@ footer span { color: var(--purple); font-weight: 900; }
 </section>
 
 <section class="server-section" id="servidor">
-    <div class="section-heading">
+    <div class="section-title">
         <small>EL SERVIDOR</small>
         <h2>Tu próxima aventura comienza aquí.</h2>
         <p>Prepárate para explorar, progresar y crear tu propia historia en Kaizora Origins.</p>
     </div>
     <div class="server-grid">
-        <div class="panel">
+        <div class="server-card">
             <h3>KAIZORA ORIGINS</h3>
             <p>Un servidor creado para jugadores que buscan una experiencia de Minecraft con progresión, comunidad y desafíos.</p>
-            <div class="server-ip">
-                <strong id="server-ip-text">kaizora.server-mc.net</strong>
-                <button type="button" class="copy-button" id="copy-ip">COPIAR IP</button>
-                <span class="copy-message" id="copy-message">COPIADO</span>
+            <div class="server-ip-list">
+                <div class="server-ip-entry">
+                    <span class="server-ip-label">JAVA EDITION</span>
+                    <div class="server-ip"><span class="ip-address" id="server-ip-java">kaizora.server-mc.net</span><button class="copy-ip-button" type="button" onclick="copyServerIP('server-ip-java','copy-message-java')">COPIAR JAVA</button></div>
+                    <span class="copy-message" id="copy-message-java">IP JAVA COPIADA</span>
+                </div>
+                <div class="server-ip-entry">
+                    <span class="server-ip-label">BEDROCK EDITION · IP + PUERTO</span>
+                    <div class="server-ip"><span class="ip-address" id="server-ip-bedrock">66.165.236.178:50456</span><button class="copy-ip-button" type="button" onclick="copyServerIP('server-ip-bedrock','copy-message-bedrock')">COPIAR BEDROCK</button></div>
+                    <span class="copy-message" id="copy-message-bedrock">IP BEDROCK COPIADA</span>
+                </div>
             </div>
         </div>
-        <div class="panel">
+        <div class="server-card">
             <h3>ÚNETE A LA COMUNIDAD</h3>
             <p>Entra al Discord para conocer las novedades, participar en eventos y enterarte de la apertura.</p>
-            <div style="margin-top:20px"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="button primary-button">ENTRAR AL DISCORD</a></div>
+            <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="button primary-button">ENTRAR AL DISCORD</a>
         </div>
     </div>
 </section>
 
 <section class="ranks-section" id="rangos">
-    <div class="section-heading">
+    <div class="section-title">
         <small>RANGOS OFICIALES</small>
         <h2>Elige tu lugar en Kaizora.</h2>
         <p>Desbloquea rangos y personaliza tu experiencia en el servidor.</p>
     </div>
     <div class="ranks">
-        <article class="rank origin"><div><div class="rank-name">ORIGIN</div><p class="rank-description">Tu primer paso para destacar en Kaizora Origins.</p></div><div><div class="rank-price">$2.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-origin.html">Info</a></div></div></article>
-        <article class="rank elite"><div><div class="rank-name">ELITE</div><p class="rank-description">Lleva tu aventura al siguiente nivel.</p></div><div><div class="rank-price">$4.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-elite.html">Info</a></div></div></article>
-        <article class="rank celestial"><div><div class="rank-name">CELESTIAL</div><p class="rank-description">Un rango especial para jugadores que buscan destacar.</p></div><div><div class="rank-price">$7.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-celestial.html">Info</a></div></div></article>
-        <article class="rank majestad"><div><div class="rank-name">MAJESTAD</div><p class="rank-description">Prestigio para quienes buscan una experiencia superior.</p></div><div><div class="rank-price">$11.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-majestad.html">Info</a></div></div></article>
-        <article class="rank guardian"><div><div class="rank-name">GUARDIAN</div><p class="rank-description">Uno de los rangos más poderosos de Kaizora.</p></div><div><div class="rank-price">$15.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-guardian.html">Info</a></div></div></article>
-        <article class="rank semidios"><div><div class="rank-name">SEMIDIOS</div><p class="rank-description">Poder reservado para quienes han alcanzado otro nivel.</p></div><div><div class="rank-price">$24.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-semidios.html">Info</a></div></div></article>
-        <article class="rank dios"><div><div class="rank-name">DIOS</div><p class="rank-description">Un rango de alto prestigio en Kaizora Origins.</p></div><div><div class="rank-price">$34.99</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-dios.html">Info</a></div></div></article>
-        <article class="rank kaizora"><div><div class="rank-name">KAIZORA</div><p class="rank-description">El rango más exclusivo para llevar tu experiencia al máximo.</p></div><div><div class="rank-price">Consultar</div><div class="rank-actions"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4">Comprar</a><a class="rank-info" href="rango-kaizora.html">Info</a></div></div></article>
+        <div class="rank origin">
+            <div><div class="rank-name">ORIGIN</div><div class="rank-description">Comienza tu aventura con ventajas especiales, una base para progresar y dinero inicial para invertir en tu supervivencia. (+$1m)</div></div>
+            <div><div class="rank-price">$1.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-origin.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank elite">
+            <div><div class="rank-name">ELITE</div><div class="rank-description">Disfruta de ventajas adicionales, más comodidad en tu progreso y capital extra para comenzar a construir tu economía. (+$1.5m)</div></div>
+            <div><div class="rank-price">$3.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-elite.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank celestial">
+            <div><div class="rank-name">CELESTIAL</div><div class="rank-description">Destaca en el servidor con ventajas ampliadas, más herramientas para progresar y una inyección de dinero para tus proyectos. (+$2.5m)</div></div>
+            <div><div class="rank-price">$5.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-celestial.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank majestad">
+            <div><div class="rank-name">MAJESTAD</div><div class="rank-description">Un rango de prestigio con ventajas superiores, mayor comodidad durante tu aventura y dinero para invertir en tu progreso. (+$3m)</div></div>
+            <div><div class="rank-price">$9.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-majestad.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank guardian">
+            <div><div class="rank-name">GUARDIAN</div><div class="rank-description">Obtén una experiencia avanzada, ventajas destacadas y un impulso económico importante para desarrollar tu base y tus objetivos. (+$5m)</div></div>
+            <div><div class="rank-price">$13.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-guardian.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank semidios">
+            <div><div class="rank-name">SEMIDIOS</div><div class="rank-description">Un rango de alto nivel con beneficios destacados, más opciones para disfrutar del servidor y capital para acelerar tus proyectos. (+$8m)</div></div>
+            <div><div class="rank-price">$19.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-semidios.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank dios">
+            <div><div class="rank-name">DIOS</div><div class="rank-description">Casi la cima de Kaizora: ventajas de élite, una experiencia más completa y una gran cantidad de dinero para consolidar tu imperio. (+$10m)</div></div>
+            <div><div class="rank-price">$27.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-dios.html" class="rank-info">Info</a></div></div>
+        </div>
+        <div class="rank kaizora">
+            <div><div class="rank-name">KAIZORA</div><div class="rank-description">El rango más exclusivo de Kaizora Origins, reservado para quienes quieren llevar su experiencia al máximo. Disfruta de un paquete premium de ventajas y un gran impulso económico para construir tu legado. (+$15m)</div></div>
+            <div><div class="rank-price">$34.99</div><div class="rank-actions"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a><a href="rango-kaizora.html" class="rank-info">Info</a></div></div>
+        </div>
     </div>
 </section>
 
-<section>
+<section class="ranks-section" id="tienda-extra">
+    <div class="section-title">
+        <small>TIENDA</small>
+        <h2>Personaliza tu experiencia.</h2>
+        <p>También podrás adquirir productos y personalizar tus kits e items directamente mediante nuestro Discord de ventas.</p>
+    </div>
+    <div class="ranks">
+        <div class="rank shop-purple">
+            <div><div class="rank-name">PERSONALIZAR ITEMS / KITS</div><div class="rank-description">Consulta nuestro catálogo de armas y equipamiento con encantamientos especiales.</div></div>
+            <div class="rank-actions"><a href="items-personalizados.html" class="rank-buy">Crear Item(s)</a><a href="aun-por-definir" target="_blank" rel="noopener noreferrer" class="rank-info">Como funciona</a></div>
+        </div>
+        <div class="rank shop-purple">
+            <div><div class="rank-name">ITEMS POR SEPARADO</div><div class="rank-description">Llaves de crates, espadas, herramientas, armaduras y otros productos disponibles individualmente.</div></div>
+            <div class="rank-actions"><a href="objetos-exclusivos.html" class="rank-info">Ver tienda</a><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy">Comprar</a></div>
+        </div>
+    </div>
+</section>
+
+<section class="streamer-section" id="streamer">
     <div class="streamer-card">
-        <div><small>RANGO ESPECIAL</small><h2>STREAMER</h2><p>Un rango para creadores de contenido que formen parte de la comunidad de Kaizora Origins. Consulta los requisitos y cómo solicitarlo.</p></div>
-        <a href="rango-streamer.html" class="button secondary-button">VER INFORMACIÓN</a>
+        <div class="streamer-content">
+            <small>RANGO ESPECIAL</small>
+            <h2>STREAMER</h2>
+            <p>Un rango especial para creadores de contenido que formen parte de la comunidad de Kaizora Origins. Aquí podrás consultar los requisitos para solicitarlo.</p>
+        </div>
+        <a href="rango-streamer.html" class="streamer-info-button">Ver información</a>
     </div>
 </section>
 
 <section class="social-section" id="redes">
-    <div class="section-heading">
+    <div class="section-title">
         <small>MIS REDES</small>
-        <h2>El universo Kaizora continúa.</h2>
-        <p>Sigue las novedades, los directos y el contenido de la comunidad.</p>
+        <h2>Sígueme en redes.</h2>
+        <p>Contenido, directos, novedades y todo lo relacionado con Kaizora Origins.</p>
     </div>
     <div class="social-grid">
-        <article class="social-card"><div><div class="social-name">YouTube</div><div class="social-username">@YonoSoyAnthony</div><p class="social-description">Videos, contenido de Minecraft y novedades.</p></div><a class="social-button" href="https://www.youtube.com/@YonoSoyAnthony" target="_blank" rel="noopener noreferrer">VISITAR CANAL</a></article>
-        <article class="social-card"><div><div class="social-name">Kick</div><div class="social-username">@yosoyanthonyyy</div><p class="social-description">Directos, Minecraft y contenido en vivo.</p></div><a class="social-button" href="https://kick.com/yosoyanthonyyy" target="_blank" rel="noopener noreferrer">VER CANAL</a></article>
-        <article class="social-card"><div><div class="social-name">TikTok</div><div class="social-username">@yosoyanthonyyy</div><p class="social-description">Clips, momentos destacados y contenido corto.</p></div><a class="social-button" href="https://www.tiktok.com/@yosoyanthonyyy" target="_blank" rel="noopener noreferrer">VER PERFIL</a></article>
-        <article class="social-card"><div><div class="social-name">Instagram</div><div class="social-username">@yonosoyanthony</div><p class="social-description">Historias, novedades y contenido personal.</p></div><a class="social-button" href="https://www.instagram.com/yonosoyanthony" target="_blank" rel="noopener noreferrer">VER PERFIL</a></article>
+        <div class="social-card">
+            <div><div class="social-name">YouTube</div><div class="social-username">@KaizoraOrigins.off_mc</div><div class="social-description">Videos, contenido de Minecraft, directos y mucho más.</div></div>
+            <a href="https://www.youtube.com/@KaizoraOrigins.off_mc" target="_blank" rel="noopener noreferrer" class="social-button">Visitar canal</a>
+        </div>
+        <div class="social-card">
+            <div><div class="social-name">Kick</div><div class="social-username">@YoSoyAnthonyyy</div><div class="social-description">Directos, Minecraft y contenido en vivo.</div></div>
+            <a href="https://kick.com/yosoyanthonyyy" target="_blank" rel="noopener noreferrer" class="social-button">Ver canal</a>
+        </div>
+        <div class="social-card">
+            <div><div class="social-name">TikTok</div><div class="social-username">@kaizoraoriginsoff</div><div class="social-description">Clips, momentos destacados y contenido corto.</div></div>
+            <a href="https://www.tiktok.com/@kaizoraoriginsoff?lang=es-419" target="_blank" rel="noopener noreferrer" class="social-button">Ver perfil</a>
+        </div>
+        <div class="social-card">
+            <div><div class="social-name">Instagram</div><div class="social-username">@KaizoraOrigins.off_mc</div><div class="social-description">Fotos, historias, novedades y contenido personal.</div></div>
+            <a href="https://www.instagram.com/kaizoraorigins.oficial.mc/" target="_blank" rel="noopener noreferrer" class="social-button">Ver perfil</a>
+        </div>
     </div>
 </section>
 
-<section>
-    <div class="community-card">
-        <div><div class="section-heading" style="margin-bottom:0"><small>COMUNIDAD</small><h2>No construyas tu historia solo.</h2><p>Únete al Discord oficial para recibir novedades, participar en eventos y conocer a otros jugadores.</p></div></div>
-        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="button primary-button">UNIRME A DISCORD</a>
+<section id="comunidad">
+    <div class="community">
+        <div class="section-title" style="margin-bottom:0">
+            <small>COMUNIDAD</small>
+            <h2>No construyas tu historia solo.</h2>
+            <p>Únete al Discord oficial de Kaizora Origins para conocer jugadores, recibir novedades, participar en eventos y estar al tanto de la apertura del servidor.</p>
+        </div>
+        <div class="community-button"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="button primary-button">UNIRME AL DISCORD</a></div>
     </div>
 </section>
 </main>
 
 <footer>
     <p>© 2026 <strong>Kaizora Origins</strong>. Todos los derechos reservados.</p>
-    <p>Servidor de Minecraft independiente.</p>
-    <p>Creado y desarrollado por <span>YoSoyAnthony</span>.</p>
+    <p style="margin-top:9px">Servidor de Minecraft independiente.</p>
+    <p class="creditos">Creado y desarrollado por: <span>YoSoyAnthony</span></p>
 </footer>
 
 <script>
-const glow = document.getElementById("cursor-glow");
+const background = document.querySelector(".minecraft-background");
+const light = document.getElementById("light");
 
-document.addEventListener("mousemove", function(event) {
-    if (!glow) return;
-    glow.style.left = event.clientX + "px";
-    glow.style.top = event.clientY + "px";
+document.addEventListener("mousemove",function(event){
+    const x=event.clientX/window.innerWidth;
+    const y=event.clientY/window.innerHeight;
+    background.style.transform=`scale(1.04) translate(${(x-.5)*18}px,${(y-.5)*12}px)`;
+    light.style.left=event.clientX+"px";
+    light.style.top=event.clientY+"px";
 });
 
-document.getElementById("copy-ip").addEventListener("click", async function() {
-    const ip = document.getElementById("server-ip-text").textContent.trim();
-    const message = document.getElementById("copy-message");
-    try {
+async function copyServerIP(valueId,messageId){
+    const ip=document.getElementById(valueId).textContent.trim();
+    const message=document.getElementById(messageId);
+    try{
         await navigator.clipboard.writeText(ip);
-        message.textContent = "COPIADO";
         message.classList.add("show");
-    } catch (error) {
-        window.prompt("Copia la IP del servidor:", ip);
+    }catch(error){
+        window.prompt("Copia esta dirección:",ip);
     }
-    window.setTimeout(() => message.classList.remove("show"), 2200);
-});
+    window.setTimeout(function(){message.classList.remove("show")},2200);
+}
 
-/* SUSTO: animación y sonido generado al pulsar el botón. */
-(function() {
-    const panel = document.getElementById("halloween-entry");
-    const soundButton = document.getElementById("halloween-sound");
-    const dismissButton = document.getElementById("halloween-dismiss");
-    const jumpscare = document.getElementById("jumpscare");
-    let audioContext = null;
-    let playing = false;
+/* SUSTO: sonido agudo sintetizado, activado por el botón del visitante. */
+(function initHalloweenSurprise(){
+    const panel=document.getElementById("halloween-entry");
+    const soundButton=document.getElementById("halloween-sound");
+    const dismissButton=document.getElementById("halloween-dismiss");
+    const jumpscare=document.getElementById("halloween-jumpscare");
+    if(!panel||!soundButton||!dismissButton||!jumpscare)return;
+    let audioContext=null;
+    let soundBusy=false;
+    window.setTimeout(function(){panel.classList.add("show")},900);
+    dismissButton.addEventListener("click",function(){panel.classList.remove("show")});
 
-    window.setTimeout(() => panel.classList.add("show"), 900);
-    dismissButton.addEventListener("click", () => panel.classList.remove("show"));
+    function playScarySound(){
+        const AudioClass=window.AudioContext||window.webkitAudioContext;
+        if(!AudioClass){soundButton.textContent="SONIDO NO DISPONIBLE";return}
+        if(soundBusy)return;
+        soundBusy=true;
+        try{
+            audioContext=audioContext||new AudioClass();
+            audioContext.resume().then(function(){
+                const audio=audioContext;
+                const now=audio.currentTime;
+                const master=audio.createGain();
+                master.gain.setValueAtTime(.0001,now);
+                master.gain.exponentialRampToValueAtTime(.48,now+.018);
+                master.gain.setValueAtTime(.48,now+.12);
+                master.gain.exponentialRampToValueAtTime(.0001,now+1.05);
+                master.connect(audio.destination);
 
-    function noise(audio, master, start, duration, frequency) {
-        const length = Math.floor(audio.sampleRate * duration);
-        const buffer = audio.createBuffer(1, length, audio.sampleRate);
-        const samples = buffer.getChannelData(0);
-        for (let i = 0; i < length; i++) {
-            const fadeIn = Math.min(1, i / (audio.sampleRate * .018));
-            const fadeOut = Math.min(1, (length - i) / (audio.sampleRate * .12));
-            samples[i] = (Math.random() * 2 - 1) * fadeIn * fadeOut;
-        }
-        const source = audio.createBufferSource();
-        const filter = audio.createBiquadFilter();
-        const volume = audio.createGain();
-        source.buffer = buffer;
-        filter.type = "bandpass";
-        filter.frequency.setValueAtTime(frequency, start);
-        filter.Q.value = .75;
-        volume.gain.setValueAtTime(.0001, start);
-        volume.gain.exponentialRampToValueAtTime(.65, start + .025);
-        volume.gain.exponentialRampToValueAtTime(.0001, start + duration);
-        source.connect(filter);
-        filter.connect(volume);
-        volume.connect(master);
-        source.start(start);
-        source.stop(start + duration);
-    }
+                /* Un pitido agudo y penetrante, tipo ¡PÍÍÍ! */
+                const pee=audio.createOscillator();
+                const peeGain=audio.createGain();
+                const peeFilter=audio.createBiquadFilter();
+                pee.type="square";
+                pee.frequency.setValueAtTime(3150,now+.025);
+                pee.frequency.setValueAtTime(3650,now+.075);
+                pee.frequency.exponentialRampToValueAtTime(1850,now+.38);
+                pee.frequency.exponentialRampToValueAtTime(900,now+.7);
+                peeFilter.type="highpass";
+                peeFilter.frequency.setValueAtTime(1350,now);
+                peeFilter.Q.value=1.4;
+                peeGain.gain.setValueAtTime(.0001,now);
+                peeGain.gain.exponentialRampToValueAtTime(.42,now+.025);
+                peeGain.gain.setValueAtTime(.36,now+.12);
+                peeGain.gain.exponentialRampToValueAtTime(.0001,now+.78);
+                pee.connect(peeFilter);
+                peeFilter.connect(peeGain);
+                peeGain.connect(master);
+                pee.start(now+.015);
+                pee.stop(now+.8);
 
-    async function playScareSound() {
-        const AudioClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioClass) {
-            soundButton.textContent = "SONIDO NO DISPONIBLE";
-            return;
-        }
-        if (playing) return;
-        playing = true;
-        try {
-            audioContext = audioContext || new AudioClass();
-            await audioContext.resume();
-            const audio = audioContext;
-            const now = audio.currentTime;
-            const master = audio.createGain();
-            master.gain.setValueAtTime(.48, now);
-            master.connect(audio.destination);
+                /* Dos pitidos adicionales para darle más impacto. */
+                [.13,.27].forEach(function(offset,index){
+                    const tone=audio.createOscillator();
+                    const gain=audio.createGain();
+                    tone.type="sine";
+                    tone.frequency.setValueAtTime(index===0?2850:3400,now+offset);
+                    gain.gain.setValueAtTime(.0001,now+offset);
+                    gain.gain.exponentialRampToValueAtTime(.23,now+offset+.012);
+                    gain.gain.exponentialRampToValueAtTime(.0001,now+offset+.12);
+                    tone.connect(gain);
+                    gain.connect(master);
+                    tone.start(now+offset);
+                    tone.stop(now+offset+.13);
+                });
 
-            // Golpe grave.
-            const impact = audio.createOscillator();
-            const impactVolume = audio.createGain();
-            impact.type = "sawtooth";
-            impact.frequency.setValueAtTime(105, now);
-            impact.frequency.exponentialRampToValueAtTime(32, now + .48);
-            impactVolume.gain.setValueAtTime(.0001, now);
-            impactVolume.gain.exponentialRampToValueAtTime(.8, now + .012);
-            impactVolume.gain.exponentialRampToValueAtTime(.0001, now + .6);
-            impact.connect(impactVolume);
-            impactVolume.connect(master);
-            impact.start(now);
-            impact.stop(now + .62);
+                /* Golpe grave debajo del pitido. */
+                const bass=audio.createOscillator();
+                const bassGain=audio.createGain();
+                bass.type="sawtooth";
+                bass.frequency.setValueAtTime(115,now);
+                bass.frequency.exponentialRampToValueAtTime(38,now+.45);
+                bassGain.gain.setValueAtTime(.0001,now);
+                bassGain.gain.exponentialRampToValueAtTime(.52,now+.012);
+                bassGain.gain.exponentialRampToValueAtTime(.0001,now+.5);
+                bass.connect(bassGain);
+                bassGain.connect(master);
+                bass.start(now);
+                bass.stop(now+.52);
 
-            // Chillido descendente sintético.
-            const scream = audio.createOscillator();
-            const screamVolume = audio.createGain();
-            const filter = audio.createBiquadFilter();
-            scream.type = "sawtooth";
-            scream.frequency.setValueAtTime(1250, now + .025);
-            scream.frequency.exponentialRampToValueAtTime(210, now + .78);
-            filter.type = "lowpass";
-            filter.frequency.setValueAtTime(2400, now);
-            filter.frequency.exponentialRampToValueAtTime(500, now + .8);
-            screamVolume.gain.setValueAtTime(.0001, now);
-            screamVolume.gain.exponentialRampToValueAtTime(.24, now + .045);
-            screamVolume.gain.exponentialRampToValueAtTime(.0001, now + .82);
-            scream.connect(filter);
-            filter.connect(screamVolume);
-            screamVolume.connect(master);
-            scream.start(now + .02);
-            scream.stop(now + .84);
-
-            // Capas de ruido y cola grave.
-            noise(audio, master, now, .34, 850);
-            noise(audio, master, now + .08, .52, 2100);
-
-            const drone = audio.createOscillator();
-            const droneVolume = audio.createGain();
-            drone.type = "triangle";
-            drone.frequency.setValueAtTime(74, now + .16);
-            drone.frequency.exponentialRampToValueAtTime(39, now + 1.15);
-            droneVolume.gain.setValueAtTime(.0001, now);
-            droneVolume.gain.setValueAtTime(.0001, now + .15);
-            droneVolume.gain.exponentialRampToValueAtTime(.2, now + .22);
-            droneVolume.gain.exponentialRampToValueAtTime(.0001, now + 1.18);
-            drone.connect(droneVolume);
-            droneVolume.connect(master);
-            drone.start(now + .15);
-            drone.stop(now + 1.2);
-
-            window.setTimeout(() => {
-                master.disconnect();
-                playing = false;
-                soundButton.textContent = "☠️ ¡OTRA VEZ!";
-            }, 1450);
-        } catch (error) {
-            playing = false;
-            soundButton.textContent = "NO SE PUDO ACTIVAR";
-        }
+                window.setTimeout(function(){
+                    master.disconnect();
+                    soundBusy=false;
+                    soundButton.textContent="☠️ ¡OTRA VEZ!";
+                },1250);
+            }).catch(function(){soundBusy=false});
+        }catch(error){soundBusy=false}
     }
 
-    soundButton.addEventListener("click", function() {
+    soundButton.addEventListener("click",function(){
         panel.classList.remove("show");
         jumpscare.classList.remove("active");
         void jumpscare.offsetWidth;
         jumpscare.classList.add("active");
-        playScareSound();
-        window.setTimeout(() => jumpscare.classList.remove("active"), 900);
+        playScarySound();
+        window.setTimeout(function(){jumpscare.classList.remove("active")},900);
+    });
+})();
+
+/* Calabaza secreta: recordar que se abrió en este navegador.
+   La tienda debe imponer el límite global de un solo canje. */
+(function initSecretCoupon(){
+    const trigger=document.getElementById("secret-coupon-trigger");
+    const modal=document.getElementById("coupon-modal");
+    const close=document.getElementById("coupon-close");
+    const copy=document.getElementById("coupon-copy");
+    const code=document.getElementById("coupon-code");
+    const title=document.getElementById("coupon-title");
+    const description=document.getElementById("coupon-description");
+    if(!trigger||!modal)return;
+
+    const storageKey="kaizora_secret_coupon_found_v1";
+
+    trigger.addEventListener("click",function(){
+        let found=false;
+        try{found=localStorage.getItem(storageKey)==="yes"}catch(error){}
+        if(found){
+            title.textContent="Ya encontraste esta calabaza";
+            description.textContent="Este secreto ya se abrió en este navegador. El código sigue sujeto al límite de canje configurado en la tienda.";
+            copy.textContent="COPIAR CÓDIGO";
+        }else{
+            title.textContent="¡Encontraste el secreto!";
+            description.textContent="Has descubierto el descuento oculto del 50%. Úsalo en la tienda mientras el canje siga disponible.";
+            try{localStorage.setItem(storageKey,"yes")}catch(error){}
+        }
+        modal.classList.add("show");
+    });
+
+    close.addEventListener("click",function(){modal.classList.remove("show")});
+    modal.addEventListener("click",function(event){
+        if(event.target===modal)modal.classList.remove("show");
+    });
+    copy.addEventListener("click",async function(){
+        try{
+            await navigator.clipboard.writeText(code.textContent.trim());
+            copy.textContent="¡COPIADO!";
+        }catch(error){
+            window.prompt("Copia tu código de descuento:",code.textContent.trim());
+        }
+        window.setTimeout(function(){copy.textContent="COPIAR CÓDIGO"},1800);
     });
 })();
 </script>
