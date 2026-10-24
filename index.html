@@ -117,22 +117,22 @@ nav ul a:hover {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    border: 1px solid rgba(198,150,255,.75);
-    background: linear-gradient(135deg, #6f35d9, #a855f7);
-    color: white;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.06);
+    color: #e5e5e9;
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 13px;
     font-weight: 900;
     cursor: pointer;
     transition: .25s;
-    box-shadow: 0 0 20px rgba(145,75,255,.25);
+    box-shadow: none;
 }
 
 .modality-button:hover {
-    border-color: rgba(220,190,255,.95);
-    background: linear-gradient(135deg, #8246e8, #b565ff);
-    box-shadow: 0 0 28px rgba(145,75,255,.4);
+    border-color: rgba(255,255,255,.35);
+    background: rgba(255,255,255,.1);
+    color: white;
 }
 
 .modality-menu {
@@ -305,8 +305,17 @@ nav ul a:hover {
 }
 
 .game-modes span {
-    color: white !important;
+    color: #f4f3f7 !important;
     font-weight: 900;
+    font-size: 12px;
+}
+
+.info-item strong {
+    color: #f4f3f7;
+}
+
+.info-item > span {
+    color: #92919a;
 }
 
 section {
@@ -716,6 +725,186 @@ footer strong {
     font-weight: 900;
 }
 
+/* HALLOWEEN: detalles rosa, morado y blanco */
+.halloween-decor {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.halloween-web {
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    opacity: .42;
+    filter: drop-shadow(0 0 8px rgba(169,130,255,.2));
+}
+
+.halloween-web svg {
+    width: 100%;
+    height: 100%;
+}
+
+.halloween-web.top-left {
+    top: 76px;
+    left: -8px;
+}
+
+.halloween-web.top-right {
+    top: 76px;
+    right: -8px;
+    transform: scaleX(-1);
+}
+
+.halloween-floater {
+    position: absolute;
+    top: -70px;
+    left: var(--left);
+    font-size: var(--size, 24px);
+    opacity: .72;
+    filter: drop-shadow(0 0 9px rgba(169,130,255,.35));
+    animation: halloween-fall var(--duration, 17s) linear var(--delay, 0s) infinite;
+}
+
+.halloween-floater.ghost {
+    color: #fff;
+}
+
+.halloween-floater.bat {
+    font-size: calc(var(--size, 24px) * .82);
+}
+
+@keyframes halloween-fall {
+    0% { transform: translate3d(0,-8vh,0) rotate(-12deg); }
+    50% { transform: translate3d(32px,55vh,0) rotate(10deg); }
+    100% { transform: translate3d(-18px,115vh,0) rotate(-8deg); }
+}
+
+/* Sorpresa de entrada */
+.halloween-entry {
+    position: fixed;
+    top: 78px;
+    right: clamp(14px, 4vw, 48px);
+    z-index: 150;
+    width: min(310px, calc(100vw - 28px));
+    padding: 0 16px 16px;
+    border: 1px solid rgba(169,130,255,.45);
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(145deg, rgba(19,12,31,.97), rgba(8,8,13,.97));
+    box-shadow: 0 18px 55px rgba(0,0,0,.5), 0 0 28px rgba(169,130,255,.14);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-22px) scale(.96);
+    pointer-events: none;
+    transition: opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1), visibility .35s;
+}
+
+.halloween-entry.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.halloween-entry-thread {
+    width: 1px;
+    height: 0;
+    margin: -78px auto 0;
+    background: linear-gradient(#b49cff,rgba(255,109,225,.75));
+    box-shadow: 0 0 7px rgba(180,156,255,.65);
+    transition: height .55s ease;
+}
+
+.halloween-entry.show .halloween-entry-thread {
+    height: 76px;
+}
+
+.halloween-entry-spider {
+    display: block;
+    text-align: center;
+    font-size: 38px;
+    line-height: 1.25;
+    margin: 4px 0 8px;
+    animation: spider-wiggle 1.4s ease-in-out infinite;
+}
+
+@keyframes spider-wiggle {
+    0%,100% { transform: rotate(-7deg) translateY(0); }
+    50% { transform: rotate(7deg) translateY(3px); }
+}
+
+.halloween-entry h2 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    font-weight: 950;
+    letter-spacing: .3px;
+    text-align: center;
+    color: #ffb7f0;
+}
+
+.halloween-entry p {
+    color: #c8c5d1;
+    font-size: 12px;
+    line-height: 1.55;
+    text-align: center;
+    margin: 0 0 12px;
+}
+
+.halloween-entry-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.halloween-entry-actions button {
+    border: 1px solid rgba(180,156,255,.55);
+    border-radius: 8px;
+    padding: 9px 11px;
+    background: rgba(169,130,255,.12);
+    color: #fff;
+    font: 800 11px Arial,Helvetica,sans-serif;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.halloween-entry-actions button:hover {
+    background: rgba(255,109,225,.18);
+    border-color: #ff6de1;
+}
+
+.halloween-entry-actions .halloween-dismiss {
+    color: #aaa7b4;
+    border-color: rgba(255,255,255,.13);
+    background: rgba(255,255,255,.04);
+}
+
+.halloween-pumpkin-accent {
+    color: #d4a0ff;
+}
+
+@media (max-width: 600px) {
+    .halloween-web { width: 90px; height: 90px; }
+    .halloween-entry { top: 112px; right: 12px; }
+    .halloween-floater { opacity: .48; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .halloween-floater,
+    .halloween-entry-spider {
+        animation: none !important;
+    }
+
+    .halloween-entry,
+    .halloween-entry-thread {
+        transition: none !important;
+    }
+}
+
 @media (max-width: 1000px) {
     nav ul {
         gap: 15px;
@@ -827,11 +1016,41 @@ footer strong {
 }
 </style>
 </head>
-
 <body>
-
+    
 <div class="minecraft-background"></div>
 <div class="light-effect" id="light"></div>
+
+<!-- Decoración de Halloween: no bloquea los botones -->
+<div class="halloween-decor" aria-hidden="true">
+    <div class="halloween-web top-left">
+        <svg viewBox="0 0 120 120" fill="none" stroke="rgba(210,190,255,.85)" stroke-width="1.2">
+            <path d="M0 0 L120 120 M0 35 L85 120 M0 70 L50 120 M35 0 L120 85 M70 0 L120 50 M0 0 L0 120 L120 120 M0 0 L120 0 L120 120 M0 28 Q50 25 28 0 M0 58 Q75 55 58 0 M0 88 Q100 85 88 0 M28 120 Q25 70 0 88 M58 120 Q55 45 0 58 M88 120 Q85 20 0 28"/>
+        </svg>
+    </div>
+    <div class="halloween-web top-right">
+        <svg viewBox="0 0 120 120" fill="none" stroke="rgba(210,190,255,.85)" stroke-width="1.2">
+            <path d="M0 0 L120 120 M0 35 L85 120 M0 70 L50 120 M35 0 L120 85 M70 0 L120 50 M0 0 L0 120 L120 120 M0 0 L120 0 L120 120 M0 28 Q50 25 28 0 M0 58 Q75 55 58 0 M0 88 Q100 85 88 0 M28 120 Q25 70 0 88 M58 120 Q55 45 0 58 M88 120 Q85 20 0 28"/>
+        </svg>
+    </div>
+    <span class="halloween-floater" style="--left:12%;--size:23px;--duration:19s;--delay:-7s">🕷️</span>
+    <span class="halloween-floater ghost" style="--left:28%;--size:25px;--duration:24s;--delay:-14s">👻</span>
+    <span class="halloween-floater bat" style="--left:48%;--size:25px;--duration:21s;--delay:-3s">🦇</span>
+    <span class="halloween-floater" style="--left:70%;--size:21px;--duration:23s;--delay:-12s">🕸️</span>
+    <span class="halloween-floater ghost" style="--left:87%;--size:22px;--duration:20s;--delay:-9s">👻</span>
+</div>
+
+<!-- Sorpresa de entrada -->
+<aside class="halloween-entry" id="halloween-entry" role="dialog" aria-label="Sorpresa de Halloween" aria-live="polite">
+    <div class="halloween-entry-thread" aria-hidden="true"></div>
+    <span class="halloween-entry-spider" aria-hidden="true">🕷️</span>
+    <h2>¡BUUU! ¿TE HE ASUSTADO?</h2>
+    <p>Una pequeña visita del más allá te da la bienvenida a Kaizora… <span class="halloween-pumpkin-accent">¡Feliz Halloween!</span></p>
+    <div class="halloween-entry-actions">
+        <button type="button" id="halloween-sound">🔊 ESCUCHAR SUSTO</button>
+        <button type="button" class="halloween-dismiss" id="halloween-dismiss">¡JA! CONTINUAR</button>
+    </div>
+</aside>
 
 <nav>
     <a href="#" class="logo">KAIZORA <span>ORIGINS</span></a>
@@ -853,7 +1072,6 @@ footer strong {
 </nav>
 
 <main>
-
 <section class="hero" id="inicio">
     <div class="hero-content">
         <div class="hero-label">
@@ -882,12 +1100,10 @@ footer strong {
                     <span>EXTREMO</span>
                 </div>
             </div>
-
             <div class="info-item">
                 <strong>EDICIÓN</strong>
                 <span>JAVA / BEDROCK</span>
             </div>
-
             <div class="info-item">
                 <strong>APERTURA</strong>
                 <span>PRÓXIMAMENTE</span>
@@ -907,7 +1123,6 @@ footer strong {
         <div class="server-card">
             <h3>KAIZORA ORIGINS</h3>
             <p>Un servidor creado para jugadores que buscan una experiencia de Minecraft con progresión, comunidad y desafíos.</p>
-
             <div class="server-ip">
                 <span id="server-ip-text">kaizora.server-mc.net</span>
                 <button class="copy-ip-button" onclick="copyServerIP()">COPIAR IP</button>
@@ -931,7 +1146,6 @@ footer strong {
     </div>
 
     <div class="ranks">
-
         <div class="rank origin">
             <div>
                 <div class="rank-name">ORIGIN</div>
@@ -1047,7 +1261,6 @@ footer strong {
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -1059,7 +1272,6 @@ footer strong {
     </div>
 
     <div class="ranks">
-
         <div class="rank shop-purple">
             <div>
                 <div class="rank-name">PERSONALIZAR ITEMS / KITS</div>
@@ -1081,7 +1293,6 @@ footer strong {
                 <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="rank-buy shop-buy">Comprar</a>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -1108,7 +1319,6 @@ footer strong {
     </div>
 
     <div class="social-grid">
-
         <div class="social-card">
             <div>
                 <div class="social-name">YouTube</div>
@@ -1144,7 +1354,6 @@ footer strong {
             </div>
             <a href="https://www.instagram.com/kaizoraorigins.oficial.mc/" target="_blank" rel="noopener noreferrer" class="social-button">Ver perfil</a>
         </div>
-
     </div>
 </section>
 
@@ -1166,7 +1375,6 @@ footer strong {
         </div>
     </div>
 </section>
-
 </main>
 
 <footer>
@@ -1208,6 +1416,87 @@ function copyServerIP() {
             alert("No se pudo copiar la IP.");
         });
 }
+
+/* Sorpresa Halloween: el sonido solo se activa al pulsar el botón. */
+(function initHalloweenSurprise() {
+    const panel = document.getElementById("halloween-entry");
+    const soundButton = document.getElementById("halloween-sound");
+    const dismissButton = document.getElementById("halloween-dismiss");
+
+    if (!panel || !soundButton || !dismissButton) return;
+
+    const reduceMotion = window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    window.setTimeout(function() {
+        panel.classList.add("show");
+    }, reduceMotion ? 100 : 650);
+
+    function closeSurprise() {
+        panel.classList.remove("show");
+    }
+
+    dismissButton.addEventListener("click", closeSurprise);
+
+    soundButton.addEventListener("click", function() {
+        const AudioContextClass =
+            window.AudioContext || window.webkitAudioContext;
+
+        if (!AudioContextClass) {
+            soundButton.textContent = "SONIDO NO DISPONIBLE";
+            return;
+        }
+
+        try {
+            const audio = new AudioContextClass();
+            const now = audio.currentTime;
+
+            const master = audio.createGain();
+            master.gain.setValueAtTime(0.0001, now);
+            master.gain.exponentialRampToValueAtTime(0.16, now + 0.04);
+            master.gain.exponentialRampToValueAtTime(0.0001, now + 0.95);
+            master.connect(audio.destination);
+
+            const osc = audio.createOscillator();
+            const tone = audio.createGain();
+
+            osc.type = "sawtooth";
+            osc.frequency.setValueAtTime(620, now);
+            osc.frequency.exponentialRampToValueAtTime(170, now + 0.72);
+
+            tone.gain.setValueAtTime(0.0001, now);
+            tone.gain.exponentialRampToValueAtTime(0.65, now + 0.07);
+            tone.gain.exponentialRampToValueAtTime(0.0001, now + 0.9);
+
+            osc.connect(tone);
+            tone.connect(master);
+            osc.start(now);
+            osc.stop(now + 0.92);
+
+            const wobble = audio.createOscillator();
+            const wobbleGain = audio.createGain();
+
+            wobble.type = "sine";
+            wobble.frequency.setValueAtTime(7, now);
+            wobbleGain.gain.setValueAtTime(32, now);
+
+            wobble.connect(wobbleGain);
+            wobbleGain.connect(osc.frequency);
+            wobble.start(now);
+            wobble.stop(now + 0.9);
+
+            soundButton.textContent = "👻 ¡BUUU! OTRA VEZ";
+
+            window.setTimeout(function() {
+                audio.close().catch(function() {});
+            }, 1200);
+        } catch (error) {
+            soundButton.textContent = "NO SE PUDO REPRODUCIR";
+        }
+    });
+
+    window.setTimeout(closeSurprise, 9500);
+})();
 </script>
 </body>
 </html>
