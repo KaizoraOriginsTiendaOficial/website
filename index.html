@@ -231,7 +231,7 @@ footer strong{color:white}
         <div class="halloween-entry-divider" aria-hidden="true">🎃</div>
         <div class="halloween-entry-actions">
             <button type="button" id="halloween-sound">☠️ ACTIVAR EL SUSTO</button>
-            <button type="button" class="halloween-dismiss" id="halloween-dismiss">NO TENGO MIEDO</button>
+            <button type="button" class="halloween-dismiss" id="halloween-dismiss">NO, TENGO MIEDO</button>
         </div>
     </div>
 </aside>
@@ -243,10 +243,10 @@ footer strong{color:white}
     <div style="font-size:48px;margin-bottom:10px">🎃</div>
     <h3 id="coupon-title">¡Encontraste el secreto!</h3>
     <p id="coupon-description">Has encontrado una calabaza escondida de Kaizora. El cupón está preparado para un único canje en la tienda.</p>
-    <span class="coupon-code" id="coupon-code">KAIZORA50</span>
+    <span class="coupon-code" id="coupon-code">KAIZORA25%</span>
     <button type="button" id="coupon-copy">COPIAR CÓDIGO</button>
     <button type="button" id="coupon-close">CERRAR</button>
-    <small class="coupon-note">Importante: para que sea realmente válido una sola vez para toda la comunidad, configura KAIZORA50 en tu tienda con límite global de 1 canje. El HTML por sí solo no puede controlar los canjes entre distintos usuarios.</small>
+    <small class="coupon-note">Es un canje de 1 sola vez, si fuiste la primera y unica persona, abre ticket en discord y envia la palabra "Descuento 25%" para activar el descuento de la tienda.</small>
   </div>
 </aside>
 
@@ -573,11 +573,11 @@ async function copyServerIP(valueId,messageId){
         try{found=localStorage.getItem(storageKey)==="yes"}catch(error){}
         if(found){
             title.textContent="Ya encontraste esta calabaza";
-            description.textContent="Este secreto ya se abrió en este navegador. El código sigue sujeto al límite de canje configurado en la tienda.";
+            description.textContent="Este secreto se podra usar solo 1 vez.";
             copy.textContent="COPIAR CÓDIGO";
         }else{
             title.textContent="¡Encontraste el secreto!";
-            description.textContent="Has descubierto el descuento oculto del 50%. Úsalo en la tienda mientras el canje siga disponible.";
+            description.textContent="Has descubierto el descuento oculto del 25%. Úsalo en la tienda mientras el canje siga disponible.";
             try{localStorage.setItem(storageKey,"yes")}catch(error){}
         }
         modal.classList.add("show");
