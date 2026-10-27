@@ -186,20 +186,12 @@ main{padding:24px 0 75px}
 ============================================
 CONFIGURACIÓN DE KAIZORA PRICE AI
 ============================================
-
-AI_API_URL:
-- Déjala vacía para utilizar el asistente local.
-- Cuando publiques tu backend seguro, pega aquí
-  la URL HTTPS completa de tu Cloudflare Worker.
-- NUNCA pongas tu clave de OpenAI aquí.
-
-Ejemplo de formato:
-const AI_API_URL = "https://nombre-de-tu-worker.workers.dev";
-
-ALLOWED_ORIGIN:
-Origen de tu web publicada en GitHub Pages.
 */
-const AI_API_URL = "";
+
+// URL del backend de Cloudflare Workers
+const AI_API_URL = "https://kaizora-price-ai.anthonycfm.workers.dev";
+
+// Origen oficial de GitHub Pages
 const ALLOWED_ORIGIN = "https://kaizoraorigins.github.io";
 
 const categories = [
