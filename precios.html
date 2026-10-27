@@ -2,1162 +2,828 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
-<meta name="description" content="Consulta precios, compara objetos y calcula presupuestos con Kaizora Price AI para Kaizora Origins.">
+<meta name="description" content="Precios, calculadora y asistente de economía de Kaizora Origins.">
 <title>Precios del servidor | Kaizora Origins</title>
 
 <style>
-:root{
- --p:#9B5DE5;
- --s:#FF6DE1;
- --bg:#09070e;
- --surface:#100c18;
- --border:rgba(206,160,255,.15);
- --muted:#aaa0b8;
- --text:#f7f2ff
+:root {
+  --purple:#9B5DE5;
+  --pink:#FF6DE1;
+  --bg:#09070e;
+  --surface:#100c18;
+  --surface2:#171020;
+  --border:rgba(206,160,255,.16);
+  --text:#f7f2ff;
+  --muted:#aaa0b8;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- margin:0;
- background:var(--bg);
- color:var(--text);
- font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
- min-height:100vh
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
 }
-button,input{font:inherit}
-button{color:inherit;cursor:pointer}
-.app-root{
- min-height:100vh;
- overflow:hidden;
- background:
- radial-gradient(ellipse at 12% 0%,rgba(155,93,229,.18),transparent 38%),
- radial-gradient(ellipse at 95% 18%,rgba(255,109,225,.09),transparent 30%);
- isolation:isolate
+button,input,select{font:inherit}
+button{color:inherit}
+.app{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 12% 0%,rgba(155,93,229,.18),transparent 38%),
+    radial-gradient(ellipse at 95% 18%,rgba(255,109,225,.09),transparent 30%);
 }
-.ambient{
- position:absolute;
- inset:0 0 auto;
- height:520px;
- pointer-events:none;
- background:radial-gradient(ellipse at 50% -20%,rgba(155,93,229,.18),transparent 65%);
- z-index:-1
-}
-.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
 .topbar{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:18px;
- padding:25px 0;
- border-bottom:1px solid #ffffff12
+  display:flex;justify-content:space-between;align-items:center;
+  gap:15px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.07)
 }
 .brand{display:flex;align-items:center;gap:12px}
 .brand-mark,.oracle-mark{
- display:grid;
- place-items:center;
- color:white;
- font-weight:950;
- background:linear-gradient(135deg,var(--p),var(--s));
- box-shadow:0 0 30px #9b5de544
+  display:grid;place-items:center;color:#fff;font-weight:950;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  box-shadow:0 0 28px rgba(155,93,229,.22)
 }
 .brand-mark{width:42px;height:42px;border-radius:13px;font-size:20px}
-.brand-name{font-size:14px;font-weight:900;letter-spacing:.14em}
-.brand-sub{
- margin-top:3px;
- color:var(--muted);
- font-size:10px;
- letter-spacing:.19em;
- text-transform:uppercase
-}
+.brand-name{font-size:14px;font-weight:950;letter-spacing:.14em}
+.brand-sub{margin-top:3px;color:var(--muted);font-size:10px;letter-spacing:.16em;text-transform:uppercase}
 .server-tag{
- display:flex;
- align-items:center;
- gap:8px;
- color:#d9cce8;
- border:1px solid var(--border);
- background:#140d1dbf;
- padding:9px 12px;
- border-radius:999px;
- font-size:11px;
- font-weight:750;
- letter-spacing:.08em;
- text-transform:uppercase
+  border:1px solid var(--border);background:rgba(20,13,29,.75);
+  padding:9px 12px;border-radius:999px;font-size:10px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;white-space:nowrap
 }
-.server-dot{
- width:7px;
- height:7px;
- border-radius:50%;
- background:#d58cff;
- box-shadow:0 0 12px #bb72ff
-}
-.hero{padding:76px 0 34px;text-align:center}
+.hero{text-align:center;padding:65px 0 30px}
 .eyebrow{
- display:inline-flex;
- gap:8px;
- padding:8px 12px;
- border-radius:999px;
- border:1px solid #ca8fff42;
- color:#e1bcff;
- background:#9b5de517;
- font-size:10px;
- font-weight:850;
- letter-spacing:.2em;
- text-transform:uppercase
+  display:inline-block;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(202,143,255,.26);color:#e1bcff;
+  background:rgba(155,93,229,.09);font-size:10px;font-weight:850;letter-spacing:.18em
 }
-h1{
- font-size:clamp(38px,6vw,70px);
- line-height:1.02;
- letter-spacing:-.055em;
- margin:22px 0 15px;
- font-weight:950
-}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-.055em;margin:22px 0 15px;font-weight:950}
 h1 span{
- display:block;
- background:linear-gradient(95deg,#fff 5%,#d4a7ff 45%,#ff8ee8 90%);
- -webkit-background-clip:text;
- background-clip:text;
- color:transparent
+  display:block;background:linear-gradient(95deg,#fff 5%,#d4a7ff 45%,#ff8ee8 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
 }
-.hero>p{
- max-width:600px;
- margin:auto;
- color:#bcb1ca;
- font-size:15px;
- line-height:1.7
-}
-.search-panel{margin:30px auto 0;max-width:740px;text-align:left}
+.hero>p{max-width:650px;margin:auto;color:#bcb1ca;font-size:14px;line-height:1.75}
+.search-panel{max-width:740px;margin:27px auto 0;text-align:left}
 .search-box{
- display:flex;
- align-items:center;
- gap:13px;
- padding:7px 8px 7px 17px;
- border:1px solid #c28eff52;
- border-radius:17px;
- background:#110c19eb;
- box-shadow:0 16px 55px #0004,0 0 35px #9b5de517
+  display:flex;align-items:center;gap:12px;padding:7px 8px 7px 16px;
+  border:1px solid rgba(194,142,255,.32);border-radius:16px;background:#110c19
 }
-.search-icon{width:20px;height:20px;color:#d4a7ff;flex-shrink:0}
-.search-box input{
- width:100%;
- min-width:0;
- border:0;
- outline:0;
- background:transparent;
- color:white;
- padding:13px 0;
- font-size:14px
-}
+.search-box:focus-within{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,109,225,.08)}
+.search-box input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#fff;padding:12px 0}
 .search-box input::placeholder{color:#82768f}
-.clear-btn{
- border:1px solid var(--border);
- border-radius:10px;
- background:#21162d;
- color:#e9d9fa;
- padding:10px 13px;
- font-size:12px;
- font-weight:800
+.btn{
+  border:1px solid var(--border);border-radius:11px;padding:10px 13px;
+  background:#21162d;color:#eee0ff;cursor:pointer;font-size:12px;font-weight:800
 }
-.search-hint{color:#8e829c;font-size:11px;margin:11px 5px 0}
-.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:24px}
-.stat{
- border:1px solid #ffffff14;
- background:#ffffff06;
- border-radius:12px;
- padding:11px 15px;
- min-width:112px
+.btn:hover{border-color:var(--pink)}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:23px}
+.stat{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);border-radius:12px;padding:11px 15px;min-width:105px}
+.stat strong{display:block;font-size:19px;font-weight:950}
+.stat span{display:block;margin-top:3px;color:#988aa7;font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+.panel{
+  max-width:900px;margin:28px auto 0;text-align:left;
+  border:1px solid rgba(195,140,255,.25);border-radius:20px;padding:20px;
+  background:linear-gradient(135deg,rgba(28,17,41,.97),rgba(15,10,22,.97));
+  box-shadow:0 18px 55px rgba(0,0,0,.18)
 }
-.stat strong{display:block;font-size:19px;font-weight:900}
-.stat span{
- display:block;
- margin-top:3px;
- color:#988aa7;
- font-size:10px;
- text-transform:uppercase;
- letter-spacing:.12em
-}
-.oracle{
- max-width:900px;
- margin:34px auto 0;
- text-align:left;
- border:1px solid #c38cff40;
- border-radius:22px;
- padding:20px;
- background:linear-gradient(135deg,#1c1129f5,#0f0a16f5);
- box-shadow:0 18px 60px #0003,0 0 35px #9b5de514
-}
-.oracle-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.panel-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .oracle-mark{flex:0 0 42px;height:42px;border-radius:14px}
-.oracle-title{font-size:16px;font-weight:900}
-.oracle-subtitle{color:#9f91ae;font-size:11px;margin-top:4px}
-.oracle-badge{
- margin-left:auto;
- border:1px solid #78e7b133;
- color:#9eeac5;
- background:#45b47e12;
- padding:6px 9px;
- border-radius:999px;
- font-size:9px;
- font-weight:850;
- text-transform:uppercase;
- letter-spacing:.08em;
- white-space:nowrap
+.panel-title{font-size:16px;font-weight:950}
+.panel-subtitle{color:#9f91ae;font-size:11px;margin-top:4px}
+.badge{
+  margin-left:auto;border:1px solid rgba(120,231,177,.2);color:#9eeac5;
+  background:rgba(69,180,126,.07);padding:6px 9px;border-radius:999px;
+  font-size:9px;font-weight:850;white-space:nowrap
 }
-.chat-log{
- display:flex;
- flex-direction:column;
- gap:10px;
- max-height:390px;
- overflow-y:auto;
- padding:14px 2px
-}
+.chat-log{display:flex;flex-direction:column;gap:10px;max-height:310px;overflow:auto;padding:10px 2px 15px}
 .chat-message{
- max-width:92%;
- padding:12px 14px;
- border:1px solid #ffffff12;
- border-radius:14px;
- background:#ffffff09;
- color:#e8def2;
- font-size:12px;
- line-height:1.7;
- white-space:pre-wrap;
- overflow-wrap:anywhere
+  max-width:95%;padding:12px 14px;border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;background:rgba(255,255,255,.035);color:#e8def2;
+  font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere
 }
-.chat-message.user{
- align-self:flex-end;
- border-color:#ff6de12e;
- background:#9b5de522
-}
+.chat-message.user{align-self:flex-end;border-color:rgba(255,109,225,.18);background:rgba(155,93,229,.13)}
 .chat-message.bot{align-self:flex-start}
-.chat-message.thinking{opacity:.7;font-style:italic}
-.chat-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 13px}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
 .suggestion{
- border:1px solid #c38cff33;
- border-radius:999px;
- background:#9b5de512;
- color:#d9c3ed;
- padding:8px 11px;
- font-size:10px;
- font-weight:750
+  border:1px solid rgba(195,140,255,.2);border-radius:999px;
+  background:rgba(155,93,229,.07);color:#d9c3ed;padding:8px 11px;
+  font-size:10px;font-weight:750;cursor:pointer
 }
-.suggestion:hover{border-color:var(--s);color:white}
+.suggestion:hover{border-color:var(--pink);color:#fff}
 .chat-form{display:flex;gap:9px}
-.chat-form input{
- min-width:0;
- flex:1;
- border:1px solid #c28eff40;
- border-radius:13px;
- padding:13px 14px;
- background:#08060dcc;
- color:white;
- outline:none;
- font-size:12px
+.chat-form input,.calc-input,.calc-select{
+  min-width:0;border:1px solid rgba(194,142,255,.25);border-radius:12px;
+  padding:13px;background:rgba(8,6,13,.8);color:#fff;outline:none
 }
-.chat-form input:focus{border-color:var(--s)}
+.chat-form input{flex:1}
+.chat-form input:focus,.calc-input:focus,.calc-select:focus{border-color:var(--pink)}
 .send-btn{
- border:0;
- border-radius:13px;
- padding:0 17px;
- background:linear-gradient(110deg,#8b4dd1,#c74cbd);
- color:white;
- font-size:12px;
- font-weight:850
+  border:0;border-radius:12px;padding:0 17px;
+  background:linear-gradient(110deg,#8b4dd1,#c74cbd);
+  color:#fff;font-size:12px;font-weight:900;cursor:pointer
 }
-.send-btn:disabled,.chat-form input:disabled{opacity:.55;cursor:wait}
-.oracle-note{color:#81758d;font-size:10px;line-height:1.6;margin:11px 2px 0}
-.filter-wrap{padding:27px 0 10px}
+.note{color:#81758d;font-size:10px;line-height:1.65;margin:12px 2px 0}
+
+/* CALCULADORA */
+.calculator{max-width:900px;margin:18px auto 0}
+.calc-heading{font-size:20px;font-weight:950;letter-spacing:-.03em;margin:0 0 7px}
+.calc-intro{font-size:12px;line-height:1.7;color:#a99bb7;margin:0 0 17px}
+.calc-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.8fr);gap:15px}
+.calc-card{
+  min-width:0;padding:17px;border:1px solid rgba(195,140,255,.22);
+  border-radius:17px;background:linear-gradient(145deg,#171020,#0e0a15)
+}
+.calc-display{
+  width:100%;min-height:65px;padding:16px;border-radius:13px;
+  border:1px solid rgba(195,140,255,.25);background:#09060e;color:#fff;
+  font-size:24px;font-weight:900;text-align:right;outline:none
+}
+.calc-preview{min-height:22px;margin:9px 2px 13px;color:#bda0dc;font-size:11px;text-align:right;overflow-wrap:anywhere}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.calc-key{
+  min-height:46px;border:1px solid rgba(255,255,255,.08);border-radius:11px;
+  background:#20162c;color:#f5eaff;font-size:15px;font-weight:850;cursor:pointer
+}
+.calc-key:hover{border-color:var(--pink);background:#30203f}
+.calc-key.operator{background:rgba(155,93,229,.2);color:#e2c4ff}
+.calc-key.action{background:rgba(255,109,225,.13);color:#ffb3ef}
+.calc-key.equals{background:linear-gradient(110deg,#8b4dd1,#c74cbd);border:0;color:#fff}
+.calc-key.wide{grid-column:span 2}
+.calc-help{color:#94869f;font-size:10px;line-height:1.7;margin:13px 2px 0}
+.calc-result{
+  border:1px solid rgba(255,109,225,.2);background:rgba(155,93,229,.08);
+  padding:15px;border-radius:13px;margin-top:12px
+}
+.calc-result-label{color:#a999b8;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+.calc-result-value{font-size:25px;font-weight:950;color:#ff9fe9;margin-top:6px;overflow-wrap:anywhere}
+.calc-result-detail{font-size:11px;color:#c9bad7;margin-top:5px;line-height:1.6}
+.calc-examples{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.calc-example{
+  background:#20162c;border:1px solid var(--border);border-radius:9px;
+  padding:8px 10px;font-size:10px;color:#e7d6fa;cursor:pointer
+}
+.calc-example:hover{border-color:var(--pink)}
+.filter-wrap{padding:26px 0 10px}
 .filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .filter-btn{
- border:1px solid var(--border);
- background:#120d1a;
- color:#b9adc7;
- border-radius:999px;
- padding:10px 14px;
- font-size:12px;
- font-weight:800
+  border:1px solid var(--border);background:#120d1a;color:#b9adc7;
+  border-radius:999px;padding:10px 14px;cursor:pointer;font-size:12px;font-weight:800
 }
-.filter-btn:hover{color:white;border-color:#ff6de180}
-.filter-btn.active{
- color:white;
- border-color:transparent;
- background:linear-gradient(110deg,#8b4dd1,#c74cbd);
- box-shadow:0 5px 20px #9b5de538
-}
-main{padding:24px 0 75px}
+.filter-btn.active{color:#fff;border-color:transparent;background:linear-gradient(110deg,#8b4dd1,#c74cbd)}
+main{padding:24px 0 70px}
 .section{margin:20px 0 38px;scroll-margin-top:20px}
-.section-head{
- display:flex;
- align-items:end;
- justify-content:space-between;
- gap:18px;
- margin-bottom:15px
-}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:15px}
 .section-title-wrap{display:flex;align-items:center;gap:13px}
 .section-icon{
- width:43px;
- height:43px;
- border:1px solid #c38cff38;
- background:linear-gradient(145deg,#9b5de533,#ff6de112);
- border-radius:13px;
- display:grid;
- place-items:center;
- font-size:19px;
- flex-shrink:0
+  width:43px;height:43px;border:1px solid rgba(195,140,255,.22);
+  background:linear-gradient(145deg,rgba(155,93,229,.2),rgba(255,109,225,.07));
+  border-radius:13px;display:grid;place-items:center;font-size:19px
 }
 .section h2{margin:0;font-size:21px;font-weight:900;letter-spacing:-.035em}
 .section-desc{margin:5px 0 0;color:#93869f;font-size:12px}
-.count{
- color:#c8a4ec;
- border:1px solid #9b5de53d;
- background:#9b5de514;
- padding:7px 10px;
- border-radius:999px;
- font-size:11px;
- font-weight:850;
- white-space:nowrap
-}
+.count{color:#c8a4ec;border:1px solid rgba(155,93,229,.24);background:rgba(155,93,229,.08);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:850;white-space:nowrap}
 .items-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
 .item-card{
- position:relative;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:12px;
- min-height:76px;
- padding:15px 16px;
- border:1px solid #ffffff13;
- border-radius:15px;
- background:linear-gradient(135deg,#181122fa,#0f0b16fa);
- transition:.18s;
- overflow:hidden
+  position:relative;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;min-height:76px;padding:15px 16px;border:1px solid rgba(255,255,255,.075);
+  border-radius:15px;background:linear-gradient(135deg,rgba(24,17,34,.98),rgba(15,11,22,.98));
+  transition:transform .18s,border-color .18s;overflow:hidden
 }
-.item-card:before{
- content:"";
- position:absolute;
- left:0;
- top:15px;
- bottom:15px;
- width:2px;
- border-radius:0 3px 3px 0;
- background:linear-gradient(var(--p),var(--s))
-}
-.item-card:hover{
- transform:translateY(-2px);
- border-color:#be80ff59;
- background:linear-gradient(135deg,#251733fa,#120c1bfa)
-}
-.item-name{font-size:13px;line-height:1.4;font-weight:760;color:#f3ebfc;overflow-wrap:anywhere}
+.item-card::before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:2px;border-radius:0 3px 3px 0;background:linear-gradient(var(--purple),var(--pink))}
+.item-card:hover{transform:translateY(-2px);border-color:rgba(190,128,255,.35)}
+.item-name{font-size:13px;line-height:1.4;font-weight:760;overflow-wrap:anywhere}
 .item-category{color:#8e819b;font-size:10px;margin-top:5px}
-.price{flex-shrink:0;text-align:right;color:#ff9fe9;font-size:14px;font-weight:950;white-space:nowrap}
-.empty{
- display:none;
- text-align:center;
- padding:58px 20px;
- border:1px dashed #c38cff40;
- border-radius:18px;
- color:#a99ab8;
- background:#140d1d73
-}
-.empty strong{display:block;color:white;font-size:17px;margin-bottom:8px}
-.footer{border-top:1px solid #ffffff12;padding:23px 0 30px;color:#81758d;font-size:11px}
+.price{flex:0 0 auto;text-align:right;color:#ff9fe9;font-size:14px;font-weight:950;white-space:nowrap}
+.empty{display:none;text-align:center;padding:58px 20px;border:1px dashed rgba(195,140,255,.25);border-radius:18px;color:#a99ab8}
+.empty strong{display:block;color:#fff;font-size:17px;margin-bottom:8px}
+.footer{border-top:1px solid rgba(255,255,255,.07);padding:23px 0 30px;color:#81758d;font-size:11px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
 .footer strong{color:#c9b2e0;letter-spacing:.12em}
-.footer-note{color:#6f637b}
-
 @media(max-width:850px){
- .items-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .hero{padding-top:58px}
+  .items-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calc-layout{grid-template-columns:1fr}
 }
 @media(max-width:560px){
- .wrap{width:calc(100% - 28px)}
- .topbar{padding:17px 0}
- .brand-mark{width:38px;height:38px}
- .brand-name{font-size:12px}
- .brand-sub{font-size:9px}
- .server-tag{font-size:9px;padding:8px 9px}
- .hero{padding:48px 0 25px}
- .hero>p{font-size:13px}
- .search-box{gap:9px;padding-left:12px}
- .search-box input{font-size:13px}
- .clear-btn{padding:9px 10px}
- .oracle{padding:14px;margin-top:25px}
- .oracle-badge{display:none}
- .chat-message{max-width:98%}
- .chat-form{gap:6px}
- .send-btn{padding:0 12px}
- .items-grid{grid-template-columns:1fr;gap:8px}
- .item-card{min-height:68px}
- .section h2{font-size:18px}
- .section-icon{width:39px;height:39px}
- .stat{min-width:95px;padding:9px 11px}
- .stat strong{font-size:17px}
+  .wrap{width:calc(100% - 26px)}
+  .topbar{padding:16px 0}
+  .brand-mark{width:37px;height:37px}
+  .brand-name{font-size:11px}
+  .brand-sub{font-size:8px}
+  .server-tag{font-size:8px;padding:8px}
+  .hero{padding:43px 0 23px}
+  .hero>p{font-size:13px}
+  .panel{padding:14px}
+  .badge{display:none}
+  .chat-form{gap:6px}
+  .send-btn{padding:0 12px}
+  .items-grid{grid-template-columns:1fr;gap:8px}
+  .item-card{min-height:68px}
+  .section h2{font-size:18px}
+  .section-icon{width:39px;height:39px}
+  .calc-card{padding:12px}
+  .calc-key{min-height:44px}
 }
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 
 <body>
-<div class="app-root" id="app">
-<div class="ambient" aria-hidden="true"></div>
+<div class="app">
+  <header class="wrap topbar">
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <div>
+        <div class="brand-name">KAIZORA ORIGINS</div>
+        <div class="brand-sub">Economía del servidor</div>
+      </div>
+    </div>
+    <div class="server-tag">✦ Guía de precios</div>
+  </header>
 
-<header class="wrap topbar">
- <div class="brand">
-  <div class="brand-mark">K</div>
-  <div>
-   <div class="brand-name">KAIZORA ORIGINS</div>
-   <div class="brand-sub">Economía del servidor</div>
+  <section class="wrap hero">
+    <div class="eyebrow">✦ MERCADO · KAIZORA</div>
+    <h1>EL VALOR DE <span>CADA OBJETO.</span></h1>
+    <p>Consulta precios, calcula tus compras y compara objetos. Usa el asistente o la calculadora para hacer tus cuentas rápidamente.</p>
+
+    <div class="search-panel">
+      <label class="search-box" for="searchInput">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Busca un objeto… Messi, llave Kaizora, netherite" autocomplete="off">
+        <button class="btn" id="clearBtn" type="button">Limpiar</button>
+      </label>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><strong id="totalCount">0</strong><span>Objetos listados</span></div>
+      <div class="stat"><strong id="categoryCount">0</strong><span>Categorías</span></div>
+      <div class="stat"><strong id="resultCount">0</strong><span>Resultados</span></div>
+    </div>
+
+    <section class="panel" aria-labelledby="oracleTitle">
+      <div class="panel-head">
+        <div class="oracle-mark">K✦</div>
+        <div>
+          <div class="panel-title" id="oracleTitle">Kaizora Price AI</div>
+          <div class="panel-subtitle">Asistente de precios, cálculos y presupuestos</div>
+        </div>
+        <div class="badge">● Modo local</div>
+      </div>
+
+      <div class="chat-log" id="chatLog" role="log" aria-live="polite"></div>
+
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion" data-question="¿Cuál es el objeto más caro?" type="button">Objeto más caro</button>
+        <button class="suggestion" data-question="Suma la Pechera Messi y el Ojo de la predicción" type="button">Sumar dos objetos</button>
+        <button class="suggestion" data-question="¿Qué puedo comprar con 1m?" type="button">Presupuesto de 1m</button>
+        <button class="suggestion" data-question="¿A cuánto puedo vender la Pechera Messi?" type="button">Rango de reventa</button>
+        <button class="suggestion" data-question="Calcula 3.5m + 130m" type="button">Probar cálculo</button>
+      </div>
+
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" type="text" placeholder="Ej. suma 3.5m + 130m o ¿qué compro con 2m?" autocomplete="off" required>
+        <button class="send-btn" type="submit">Preguntar ↗</button>
+      </form>
+
+      <p class="note">El asistente utiliza el catálogo y reglas locales de esta página. No envía tus preguntas a servicios externos. Las estimaciones de reventa no son precios oficiales de compra o venta del servidor.</p>
+    </section>
+
+    <section class="calculator" aria-labelledby="calcTitle">
+      <div class="panel">
+        <h2 class="calc-heading" id="calcTitle">Calculadora de Kaizora</h2>
+        <p class="calc-intro">Suma lo que vas a comprar, calcula ganancias o divide cantidades. Puedes escribir operaciones directamente y usar <strong>k</strong> para miles y <strong>m</strong> para millones.</p>
+
+        <div class="calc-layout">
+          <div class="calc-card">
+            <label for="calcDisplay" class="note">Operación o cantidad</label>
+            <input id="calcDisplay" class="calc-display" type="text" inputmode="decimal" value="" placeholder="Ej. 3.5m + 130m" autocomplete="off">
+            <div id="calcPreview" class="calc-preview">Escribe una operación o usa los botones.</div>
+
+            <div class="calc-grid" id="calcKeys">
+              <button class="calc-key action" data-action="clear" type="button">AC</button>
+              <button class="calc-key action" data-action="backspace" type="button">⌫</button>
+              <button class="calc-key operator" data-value="(" type="button">(</button>
+              <button class="calc-key operator" data-value=")" type="button">)</button>
+
+              <button class="calc-key" data-value="7" type="button">7</button>
+              <button class="calc-key" data-value="8" type="button">8</button>
+              <button class="calc-key" data-value="9" type="button">9</button>
+              <button class="calc-key operator" data-value="/" type="button">÷</button>
+
+              <button class="calc-key" data-value="4" type="button">4</button>
+              <button class="calc-key" data-value="5" type="button">5</button>
+              <button class="calc-key" data-value="6" type="button">6</button>
+              <button class="calc-key operator" data-value="*" type="button">×</button>
+
+              <button class="calc-key" data-value="1" type="button">1</button>
+              <button class="calc-key" data-value="2" type="button">2</button>
+              <button class="calc-key" data-value="3" type="button">3</button>
+              <button class="calc-key operator" data-value="-" type="button">−</button>
+
+              <button class="calc-key" data-value="0" type="button">0</button>
+              <button class="calc-key" data-value="." type="button">.</button>
+              <button class="calc-key action" data-value="k" type="button">k</button>
+              <button class="calc-key operator" data-value="+" type="button">+</button>
+
+              <button class="calc-key wide" data-value="m" type="button">m · millones</button>
+              <button class="calc-key equals wide" data-action="calculate" type="button">CALCULAR =</button>
+            </div>
+
+            <p class="calc-help">Ejemplos válidos: <strong>250k + 1.5m</strong>, <strong>3m - 450k</strong>, <strong>130m / 2</strong> o <strong>(2m + 500k) * 3</strong>.</p>
+          </div>
+
+          <div class="calc-card">
+            <div class="calc-result-label">Resultado</div>
+            <div class="calc-result">
+              <div class="calc-result-label">Cantidad calculada</div>
+              <div class="calc-result-value" id="calcResult">—</div>
+              <div class="calc-result-detail" id="calcDetail">El resultado aparecerá aquí.</div>
+            </div>
+
+            <div class="calc-examples">
+              <button class="calc-example" type="button" data-expression="3.5m + 130m">3.5m + 130m</button>
+              <button class="calc-example" type="button" data-expression="2m - 450k">2m − 450k</button>
+              <button class="calc-example" type="button" data-expression="130m / 2">130m ÷ 2</button>
+              <button class="calc-example" type="button" data-expression="(2m + 500k) * 3">(2m + 500k) × 3</button>
+            </div>
+
+            <p class="calc-help">También puedes usar el teclado de tu ordenador: escribe la operación y pulsa Enter para calcularla.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <div class="wrap filter-wrap">
+    <nav class="filters" id="filters" aria-label="Filtrar por categoría"></nav>
   </div>
- </div>
- <div class="server-tag"><span class="server-dot"></span> Guía de precios</div>
-</header>
 
-<section class="wrap hero">
- <div class="eyebrow">✦ Mercado oficial · Kaizora</div>
- <h1>EL VALOR DE <span>CADA OBJETO.</span></h1>
- <p>Encuentra rápidamente los precios de objetos, materiales, llaves, libros encantados y recompensas. Pregunta a Kaizora Price AI o explora el catálogo por categorías.</p>
+  <main class="wrap" id="catalogue">
+    <div id="sections"></div>
+    <div class="empty" id="emptyState"><strong>No encontramos ese objeto</strong>Prueba con otro nombre o cambia la categoría.</div>
+  </main>
 
- <div class="search-panel">
-  <label class="search-box" for="searchInput">
-   <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="2"/>
-    <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-   </svg>
-   <input id="searchInput" type="search" placeholder="Busca un objeto… ej. Reparación, llave Kaizora, Messi" autocomplete="off">
-   <button class="clear-btn" id="clearBtn" type="button">Limpiar</button>
-  </label>
-  <div class="search-hint">Búsqueda instantánea · No necesitas escribir el nombre completo</div>
- </div>
-
- <div class="stats" aria-live="polite">
-  <div class="stat"><strong id="totalCount">0</strong><span>Objetos listados</span></div>
-  <div class="stat"><strong id="categoryCount">0</strong><span>Categorías</span></div>
-  <div class="stat"><strong id="resultCount">0</strong><span>Resultados</span></div>
- </div>
-
- <section class="oracle" aria-labelledby="oracleTitle">
-  <div class="oracle-head">
-   <div class="oracle-mark">K✦</div>
-   <div>
-    <div class="oracle-title" id="oracleTitle">Kaizora Price AI</div>
-    <div class="oracle-subtitle">Asistente local de economía · Pregunta con naturalidad</div>
-   </div>
-   <div class="oracle-badge" id="oracleBadge">● IA local activa</div>
-  </div>
-
-  <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-label="Conversación con el asistente"></div>
-
-  <div class="chat-suggestions" id="chatSuggestions">
-   <button class="suggestion" type="button" data-question="¿Cuál es el objeto más caro?">¿Cuál es el más caro?</button>
-   <button class="suggestion" type="button" data-question="¿Cuál es el objeto más barato?">¿Cuál es el más barato?</button>
-   <button class="suggestion" type="button" data-question="Compara las llaves más caras">Compara las llaves</button>
-   <button class="suggestion" type="button" data-question="¿Cuánto cuestan los libros encantados?">Libros encantados</button>
-   <button class="suggestion" type="button" data-question="Tengo 1m, ¿qué me recomiendas comprar?">¿Qué compro con 1m?</button>
-  </div>
-
-  <form class="chat-form" id="chatForm">
-   <input id="chatInput" type="text" placeholder="Pregúntame como le preguntarías a una persona…" autocomplete="off" required>
-   <button class="send-btn" id="sendBtn" type="submit">Preguntar ↗</button>
-  </form>
-
-  <p class="oracle-note" id="oracleNote">Asistente local activado. No necesita API, claves privadas, servidores adicionales ni conexiones externas. Utiliza los precios que aparecen en este catálogo.</p>
- </section>
-</section>
-
-<div class="wrap filter-wrap">
- <nav class="filters" id="filters" aria-label="Filtrar por categoría"></nav>
-</div>
-
-<main class="wrap" id="catalogue">
- <div id="sections"></div>
- <div class="empty" id="emptyState">
-  <strong>No encontramos ese objeto</strong>
-  Prueba con otro nombre o cambia la categoría seleccionada.
- </div>
-</main>
-
-<footer class="footer">
- <div class="wrap footer-inner">
-  <div><strong>KAIZORA ORIGINS</strong> · Precios del servidor</div>
-  <div class="footer-note">Valores expresados en la economía del servidor.</div>
- </div>
-</footer>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div><strong>KAIZORA ORIGINS</strong> · Precios del servidor</div>
+      <div>Los valores se expresan en monedas de la economía del servidor.</div>
+    </div>
+  </footer>
 </div>
 
 <script>
-"use strict";
-
-/*
-=================================================
-KAIZORA PRICE AI — VERSIÓN LOCAL
-Sin API, sin claves, sin backend y sin servicios externos.
-=================================================
-*/
-
 const categories = [
- {
-  id:"halloween",
-  name:"Crate Halloween",
-  icon:"🎃",
-  description:"Objetos y recompensas de Halloween",
-  items:[
-   ["Ojo de la bruja","2.8m"],
-   ["Oro de la predicción","3.5m"],
-   ["Lágrima del más allá","4.3m"],
-   ["Cristal del aquelarre","5m"],
-   ["Semillas malditas","930k"],
-   ["Calabaza maldita","1.166m"],
-   ["Calabaza de las almas","1.143m"],
-   ["Farol del inframundo","1.165m"],
-   ["Llave Halloween","20m"]
-  ]
- },
- {
-  id:"crates",
-  name:"Crates",
-  icon:"✧",
-  description:"Esencias, cristales, polvos y materiales especiales",
-  items:[
-   ["Esencia arcana","10k"],
-   ["Esencia eléctrica","20k"],
-   ["Cristal acuático","30k"],
-   ["Polvo solar","50k"],
-   ["Semilla natural","80k"],
-   ["Polvo espectral","100k"],
-   ["Núcleo ígneo","200k"],
-   ["Fragmento cósmico","500k"],
-   ["Fragmento lunar","700k"],
-   ["Estrella innombrada (Kaizora)","1m"],
-   ["Polvo plasmático","1.5m"]
-  ]
- },
- {
-  id:"llaves",
-  name:"Llaves",
-  icon:"♢",
-  description:"Llaves de rangos y llaves especiales",
-  items:[
-   ["Llave Origin","80k"],
-   ["Llave Elite","240k"],
-   ["Llave Celestial","480k"],
-   ["Llave Majestad","1.2m"],
-   ["Llave Guardian","2.56m"],
-   ["Llave Semidios","3.8m"],
-   ["Llave Dios","9.6m"],
-   ["Llave Kaizora","23m"],
-   ["Llave Fútbol","36m"]
-  ]
- },
- {
-  id:"netherite",
-  name:"Netherite",
-  icon:"⬡",
-  description:"Fragmentos y bloques de netherite",
-  items:[
-   ["Fragmento de netherite","7k"],
-   ["Lingote de netherite","28k"],
-   ["Bloque de netherite","252k"]
-  ]
- },
- {
-  id:"items-crates",
-  name:"Ítems de Crates",
-  icon:"⚔",
-  description:"Herramientas, armas y tótems especiales",
-  items:[
-   ["Tótem +1 corazón","10m"],
-   ["Tótem +2 corazones","20m"],
-   ["Tótem +3 corazones","30m"],
-   ["Tótem +4 corazones","40m"],
-   ["Espada Halloween","30m"],
-   ["Pico","35m"],
-   ["Hacha","10m"],
-   ["Pala","5m"],
-   ["Arco Halloween","10m"],
-   ["Ballesta Halloween","8m"],
-   ["Palo Velocista","100m"],
-   ["Vara del Dios Inmortal","5m"]
-  ]
- },
- {
-  id:"futbol",
-  name:"Crate Fútbol",
-  icon:"⚽",
-  description:"Equipamiento temático de estrellas del fútbol",
-  items:[
-   ["Casco Lamine Yamal","80m"],
-   ["Pechera Lamine Yamal","90m"],
-   ["Pantalón Lamine Yamal","85m"],
-   ["Botas Lamine Yamal","80m"],
-   ["Casco Mbappé","80m"],
-   ["Pechera Mbappé","90m"],
-   ["Pantalón Mbappé","85m"],
-   ["Botas Mbappé","80m"],
-   ["Casco ViniJr","80m"],
-   ["Pechera ViniciusJr","90m"],
-   ["Pantalón ViniciusJr","85m"],
-   ["Botas ViniciusJr","80m"],
-   ["Casco Messi","120m"],
-   ["Pechera Messi","130m"],
-   ["Pantalón Messi","125m"],
-   ["Botas Messi","120m"],
-   ["Casco Ronaldo","120m"],
-   ["Pechera Ronaldo","130m"],
-   ["Pantalón Ronaldo","125m"],
-   ["Botas Ronaldo","120m"],
-   ["Casco Neymar","120m"],
-   ["Pechera Neymar","130m"],
-   ["Pantalón Neymar","125m"],
-   ["Botas Neymar","120m"],
-   ["Casco Maradona","150m"],
-   ["Pechera Maradona","160m"],
-   ["Pantalón Maradona","155m"],
-   ["Botas Maradona","150m"],
-   ["Casco Pelé","160m"],
-   ["Pechera Pelé","155m"],
-   ["Botas Pelé","150m"],
-   ["Casco Zidane","150m"],
-   ["Pechera Zidane","160m"],
-   ["Pantalón Zidane","155m"],
-   ["Botas Zidane","150m"]
- ]
- },
- {
-  id:"libros",
-  name:"Libros encantados",
-  icon:"📚",
-  description:"Libros útiles para mejorar tus herramientas, armas y armaduras",
-  items:[
-   ["Toque de Seda","6k"],
-   ["Fortuna III","6k"],
-   ["Eficiencia V","6k"],
-   ["Protección IV","6k"],
-   ["Irrompibilidad III","5.5k"],
-   ["Filo V","5.5k"],
-   ["Botín III","5.5k"],
-   ["Poder V","5.5k"],
-   ["Reparación","5k"],
-   ["Saqueo III","5k"],
-   ["Aspecto Ígneo II","5k"],
-   ["Llama","4.5k"],
-   ["Fuerza V","4.5k"],
-   ["Respiración III","4.5k"],
-   ["Afinidad Acuática","4k"],
-   ["Caída de Pluma IV","4k"],
-   ["Protección contra Explosiones IV","4k"],
-   ["Protección contra el Fuego IV","4k"],
-   ["Protección contra Proyectiles IV","4k"],
-   ["Empuje II","3.5k"],
-   ["Retroceso II","3.5k"],
-   ["Castigo V","3.5k"],
-   ["Perdición de los Artrópodos V","3k"],
-   ["Maldición de Desaparición","3k"]
-  ]
- }
+  {
+    id:'halloween',name:'Crate Halloween',icon:'🎃',
+    description:'Objetos y recompensas de Halloween',
+    items:[
+      ['Ojo de la bruja','2.8m'],
+      ['Ojo de la predicción','3.5m'],
+      ['Lágrima del más allá','4.3m'],
+      ['Cristal del aquelarre','5m'],
+      ['Semillas malditas','930k'],
+      ['Calabaza maldita','1.166m'],
+      ['Calabaza de las almas','1.143m'],
+      ['Farol del inframundo','1.165m'],
+      ['Llave Halloween','20m']
+    ]
+  },
+  {
+    id:'crates',name:'Crates',icon:'✧',
+    description:'Esencias, cristales, polvos y materiales especiales',
+    items:[
+      ['Esencia arcana','10k'],
+      ['Esencia eléctrica','20k'],
+      ['Cristal acuático','30k'],
+      ['Polvo solar','50k'],
+      ['Semilla natural','80k'],
+      ['Polvo espectral','100k'],
+      ['Núcleo ígneo','200k'],
+      ['Fragmento cósmico','500k'],
+      ['Fragmento lunar','700k'],
+      ['Estrella innombrada (Kaizora)','1m'],
+      ['Polvo plasmático','1.5m']
+    ]
+  },
+  {
+    id:'llaves',name:'Llaves',icon:'♢',
+    description:'Llaves de rangos y llaves especiales',
+    items:[
+      ['Llave Origin','80k'],
+      ['Llave Elite','240k'],
+      ['Llave Celestial','480k'],
+      ['Llave Majestad','1.2m'],
+      ['Llave Guardian','2.56m'],
+      ['Llave Semidios','3.8m'],
+      ['Llave Dios','9.6m'],
+      ['Llave Kaizora','23m'],
+      ['Llave Fútbol','36m']
+    ]
+  },
+  {
+    id:'netherite',name:'Netherite',icon:'⬡',
+    description:'Fragmentos, lingotes y bloques de netherite',
+    items:[
+      ['Fragmento de netherite','7k'],
+      ['Lingote de netherite','28k'],
+      ['Bloque de netherite','252k']
+    ]
+  },
+  {
+    id:'items-crates',name:'Ítems de Crates',icon:'⚔',
+    description:'Herramientas, armas y tótems especiales',
+    items:[
+      ['Tótem +1 corazón','10m'],
+      ['Tótem +2 corazones','20m'],
+      ['Tótem +3 corazones','30m'],
+      ['Tótem +4 corazones','40m'],
+      ['Espada Halloween','30m'],
+      ['Pico','35m'],
+      ['Hacha','10m'],
+      ['Pala','5m'],
+      ['Arco Halloween','10m'],
+      ['Ballesta Halloween','8m'],
+      ['Palo Velocista','100m'],
+      ['Vara del Dios Inmortal','5m']
+    ]
+  },
+  {
+    id:'futbol',name:'Crate Fútbol',icon:'⚽',
+    description:'Equipamiento temático de estrellas del fútbol',
+    items:[
+      ['Casco Lamine Yamal','80m'],['Pechera Lamine Yamal','90m'],['Pantalón Lamine Yamal','85m'],['Botas Lamine Yamal','80m'],
+      ['Casco Mbappé','80m'],['Pechera Mbappé','90m'],['Pantalón Mbappé','85m'],['Botas Mbappé','80m'],
+      ['Casco ViniJr','80m'],['Pechera ViniciusJr','90m'],['Pantalón ViniciusJr','85m'],['Botas ViniciusJr','80m'],
+      ['Casco Messi','120m'],['Pechera Messi','130m'],['Pantalón Messi','125m'],['Botas Messi','120m'],
+      ['Casco Ronaldo','120m'],['Pechera Ronaldo','130m'],['Pantalón Ronaldo','125m'],['Botas Ronaldo','120m'],
+      ['Casco Neymar','120m'],['Pechera Neymar','130m'],['Pantalón Neymar','125m'],['Botas Neymar','120m'],
+      ['Casco Maradona','150m'],['Pechera Maradona','160m'],['Pantalón Maradona','155m'],['Botas Maradona','150m'],
+      ['Casco Pelé','160m'],['Pechera Pelé','155m'],['Botas Pelé','150m'],
+      ['Casco Zidane','150m'],['Pechera Zidane','160m'],['Pantalón Zidane','155m'],['Botas Zidane','150m']
+    ]
+  },
+  {
+    id:'libros',name:'Libros encantados',icon:'📚',
+    description:'Precios orientativos de libros encantados',
+    items:[
+      ['Fortuna III','6k'],['Eficiencia V','6k'],['Protección IV','6k'],
+      ['Toque de Seda','6k'],['Saqueo III','6k'],
+      ['Irrompibilidad III','5.5k'],['Poder V','5.5k'],['Filo V','5.5k'],
+      ['Reparación','5k'],['Caída de Pluma IV','5k'],['Infinidad','5k'],
+      ['Castigo V','4.5k'],['Respiración III','4.5k'],['Afinidad Acuática','4.5k'],
+      ['Agilidad acuática III','4.5k'],['Velocidad de almas III','4.5k'],
+      ['Aspecto ígneo II','4.5k'],['Espinas III','4.5k'],['Perforación IV','4.5k'],
+      ['Fuego','4k'],['Empuje II','4k'],['Lealtad III','4k'],
+      ['Canalización','4k'],['Propulsión acuática III','4k'],
+      ['Multidisparo','4k'],['Carga rápida III','4k'],['Llama','4k'],
+      ['Caminante helado II','4k'],['Retroceso II','4k'],
+      ['Perdición de los artrópodos V','3.5k'],
+      ['Maldición de desaparición','3k'],['Maldición de ligadura','3k']
+    ]
+  }
 ];
 
 const $ = id => document.getElementById(id);
-
-const searchInput = $("searchInput");
-const filters = $("filters");
-const sections = $("sections");
-const emptyState = $("emptyState");
-const clearBtn = $("clearBtn");
-const chatLog = $("chatLog");
-const chatForm = $("chatForm");
-const chatInput = $("chatInput");
-const sendBtn = $("sendBtn");
-
-let activeCategory = "all";
-let isSending = false;
-const conversationHistory = [];
-
-const normalize = value =>
- String(value ?? "")
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g,"")
-  .toLowerCase()
-  .replace(/[¿?¡!.,;:()[\]"]/g," ")
-  .replace(/\s+/g," ")
-  .trim();
-
+const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
 const allItems = categories.flatMap(category =>
- category.items.map(([name,price]) => ({
-  name,
-  price,
-  category:category.name,
-  categoryId:category.id
- }))
+  category.items.map(([name,price]) => ({
+    name,price,category:category.name,categoryId:category.id,
+    amount:parseMoney(price),normalizedName:normalize(name)
+  }))
 );
+let activeCategory='all';
 
-const parsePrice = value => {
- const match = String(value)
-  .toLowerCase()
-  .replace(/,/g,".")
-  .match(/^\s*(\d+(?:\.\d+)?)\s*([km]?)\s*$/);
-
- if(!match) return 0;
-
- return Number(match[1]) *
-  (match[2] === "m" ? 1e6 : match[2] === "k" ? 1e3 : 1);
-};
-
-const formatMoney = value => {
- const n = Math.round(value);
-
- if(n >= 1e6){
-  return `${Number((n/1e6).toFixed(3))}m`;
- }
-
- if(n >= 1e3){
-  return `${Number((n/1e3).toFixed(2))}k`;
- }
-
- return n.toLocaleString("es-ES");
-};
-
-const moneyText = value =>
- `${formatMoney(value)} monedas`;
-
-const pricedItems = allItems.map(item => ({
- ...item,
- amount:parsePrice(item.price),
- normalizedName:normalize(item.name)
-}));
-
-$("totalCount").textContent = allItems.length;
-$("categoryCount").textContent = categories.length;
-
-function escapeHTML(value){
- return String(value).replace(/[&<>"']/g,char=>({
-  "&":"&amp;",
-  "<":"&lt;",
-  ">":"&gt;",
-  '"':"&quot;",
-  "'":"&#39;"
- }[char]));
+function parseMoney(value){
+  if(typeof value==='number') return value;
+  const match=String(value).trim().toLowerCase().replace(/,/g,'.')
+    .match(/^(-?\d+(?:\.\d+)?)\s*(m|k|millones?|mil)?$/);
+  if(!match) return NaN;
+  const unit=match[2]||'';
+  const multiplier=/^m$|^millon|^millones/.test(unit)?1e6:/^k$|^mil$/.test(unit)?1e3:1;
+  return Number(match[1])*multiplier;
 }
+function formatMoney(value){
+  if(!Number.isFinite(value)) return 'Error';
+  const abs=Math.abs(value);
+  if(abs>=1e6) return `${Number((value/1e6).toFixed(4))}m`;
+  if(abs>=1e3) return `${Number((value/1e3).toFixed(3))}k`;
+  return Number(value.toFixed(4)).toLocaleString('es-ES');
+}
+function fullMoney(value){
+  return `${formatMoney(value)} (${Math.round(value).toLocaleString('es-ES')} monedas)`;
+}
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[c]);
+}
+
+$('totalCount').textContent=allItems.length;
+$('categoryCount').textContent=categories.length;
 
 function renderFilters(){
- const buttons = [
-  {id:"all",name:"Todos los objetos"},
-  ...categories.map(({id,name})=>({id,name}))
- ];
-
- filters.innerHTML = buttons.map(button =>
-  `<button type="button"
-   class="filter-btn${activeCategory===button.id?" active":""}"
-   data-category="${button.id}"
-   aria-pressed="${activeCategory===button.id}">
-   ${escapeHTML(button.name)}
-  </button>`
- ).join("");
+  const list=[{id:'all',name:'Todos los objetos'},...categories.map(c=>({id:c.id,name:c.name}))];
+  $('filters').innerHTML=list.map(c=>
+    `<button type="button" class="filter-btn${activeCategory===c.id?' active':''}" data-category="${c.id}" aria-pressed="${activeCategory===c.id}">${escapeHTML(c.name)}</button>`
+  ).join('');
 }
-
 function render(){
- const query = normalize(searchInput.value);
- let total = 0;
-
- sections.innerHTML = categories.map(category=>{
-  if(activeCategory!=="all" && activeCategory!==category.id) return "";
-
-  const items = category.items.filter(([name]) =>
-   normalize(name).includes(query)
-  );
-
-  if(!items.length) return "";
-
-  total += items.length;
-
-  return `
-   <section class="section" id="section-${category.id}">
-    <div class="section-head">
-     <div class="section-title-wrap">
-      <div class="section-icon" aria-hidden="true">${category.icon}</div>
-      <div>
-       <h2>${escapeHTML(category.name)}</h2>
-       <p class="section-desc">${escapeHTML(category.description)}</p>
+  const query=normalize($('searchInput').value);
+  let total=0;
+  $('sections').innerHTML=categories.map(category=>{
+    if(activeCategory!=='all'&&activeCategory!==category.id) return '';
+    const matching=category.items.filter(([name])=>normalize(name).includes(query));
+    if(!matching.length) return '';
+    total+=matching.length;
+    return `<section class="section" id="section-${category.id}">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <div class="section-icon">${category.icon}</div>
+          <div><h2>${escapeHTML(category.name)}</h2><p class="section-desc">${escapeHTML(category.description)}</p></div>
+        </div>
+        <span class="count">${matching.length} ${matching.length===1?'objeto':'objetos'}</span>
       </div>
-     </div>
-     <span class="count">${items.length} ${items.length===1?"objeto":"objetos"}</span>
-    </div>
-    <div class="items-grid">
-     ${items.map(([name,price])=>`
-      <article class="item-card">
-       <div>
-        <div class="item-name">${escapeHTML(name)}</div>
-        <div class="item-category">${escapeHTML(category.name)}</div>
-       </div>
-       <div class="price">${escapeHTML(price)}</div>
-      </article>
-     `).join("")}
-    </div>
-   </section>
-  `;
- }).join("");
-
- emptyState.style.display = total ? "none" : "block";
- $("resultCount").textContent = total;
+      <div class="items-grid">${matching.map(([name,price])=>`
+        <article class="item-card">
+          <div><div class="item-name">${escapeHTML(name)}</div><div class="item-category">${escapeHTML(category.name)}</div></div>
+          <div class="price">${escapeHTML(price)}</div>
+        </article>`).join('')}
+      </div>
+    </section>`;
+  }).join('');
+  $('emptyState').style.display=total?'none':'block';
+  $('resultCount').textContent=total;
 }
+$('filters').addEventListener('click',event=>{
+  const button=event.target.closest('[data-category]');
+  if(!button)return;
+  activeCategory=button.dataset.category;renderFilters();render();
+});
+$('searchInput').addEventListener('input',render);
+$('clearBtn').addEventListener('click',()=>{
+  $('searchInput').value='';activeCategory='all';renderFilters();render();$('searchInput').focus();
+});
 
-function addChatMessage(text,role,extraClass=""){
- const element = document.createElement("div");
- element.className = `chat-message ${role} ${extraClass}`.trim();
- element.textContent = text;
- chatLog.appendChild(element);
- chatLog.scrollTop = chatLog.scrollHeight;
- return element;
-}
+/* CALCULADORA: evalúa operaciones matemáticas sin usar eval() */
+function tokenizeExpression(input){
+  let text=String(input).trim().toLowerCase()
+    .replace(/,/g,'.')
+    .replace(/[×x]/g,'*')
+    .replace(/[÷]/g,'/')
+    .replace(/[−–]/g,'-')
+    .replace(/\b(millones?|millón)\b/g,'m')
+    .replace(/\bmil\b/g,'k')
+    .replace(/\s+/g,'');
+  if(!text) throw new Error('Escribe una operación.');
 
-function getSortedItems(items=pricedItems){
- return [...items].sort((a,b)=>a.amount-b.amount);
-}
-
-function getNamedMatches(q){
- const words = q.split(/\s+/).filter(word=>word.length>2);
-
- return pricedItems.map(item=>{
-  let score = 0;
-
-  if(q.includes(item.normalizedName)) score += 100;
-
-  const itemWords = item.normalizedName.split(/\s+/);
-
-  for(const word of itemWords){
-   if(word.length > 2 && words.includes(word)) score += 10;
+  const tokens=[];
+  let i=0;
+  while(i<text.length){
+    const rest=text.slice(i);
+    const number=rest.match(/^(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?/i);
+    if(number){
+      const raw=number[0];
+      i+=raw.length;
+      let multiplier=1;
+      if(text[i]==='m'){multiplier=1e6;i++}
+      else if(text[i]==='k'){multiplier=1e3;i++}
+      tokens.push({type:'number',value:Number(raw)*multiplier});
+      continue;
+    }
+    const ch=text[i];
+    if('+-*/()%'.includes(ch)){
+      tokens.push({type:'operator',value:ch});i++;continue;
+    }
+    throw new Error(`No reconozco «${text[i]}». Usa números, +, -, *, / y paréntesis.`);
   }
-
-  if(item.categoryId==="libros" && /\blibro(s)?\b/.test(q)) score += 3;
-
-  return {...item,score};
- }).filter(item=>item.score>0)
-   .sort((a,b)=>b.score-a.score || a.name.length-b.name.length);
+  return tokens;
 }
-
-function findCategory(q){
- return categories.find(category=>{
-  const name = normalize(category.name);
-  const id = normalize(category.id);
-
-  if(q.includes(name) || q.includes(id)) return true;
-
-  if(category.id==="futbol" && /\bfutbol\b/.test(q)) return true;
-  if(category.id==="halloween" && /\bhalloween\b/.test(q)) return true;
-  if(category.id==="llaves" && /\bllaves?\b/.test(q)) return true;
-  if(category.id==="netherite" && /\bnetherite\b/.test(q)) return true;
-  if(category.id==="items-crates" && /\btotem(es)?\b/.test(q)) return true;
-  if(category.id==="libros" && /\blibros? encantados?\b/.test(q)) return true;
-
-  return false;
- });
+function calculateExpression(input){
+  const tokens=tokenizeExpression(input);
+  let pos=0;
+  function peek(){return tokens[pos]}
+  function consume(){return tokens[pos++]}
+  function primary(){
+    const token=peek();
+    if(!token) throw new Error('La operación está incompleta.');
+    if(token.value==='+'){consume();return primary()}
+    if(token.value==='-'){consume();return -primary()}
+    if(token.value==='('){
+      consume();const value=expression();
+      if(!peek()||consume().value!==')')throw new Error('Falta cerrar un paréntesis.');
+      return value;
+    }
+    if(token.type==='number'){consume();return token.value}
+    throw new Error('Revisa los números y operadores de la operación.');
+  }
+  function percent(){
+    let value=primary();
+    while(peek()&&peek().value==='%'){consume();value/=100}
+    return value;
+  }
+  function term(){
+    let value=percent();
+    while(peek()&&['*','/'].includes(peek().value)){
+      const op=consume().value;const right=percent();
+      if(op==='/'&&right===0)throw new Error('No se puede dividir entre cero.');
+      value=op==='*'?value*right:value/right;
+    }
+    return value;
+  }
+  function expression(){
+    let value=term();
+    while(peek()&&['+','-'].includes(peek().value)){
+      const op=consume().value;const right=term();
+      value=op==='+'?value+right:value-right;
+    }
+    return value;
+  }
+  const result=expression();
+  if(pos<tokens.length)throw new Error('Hay una parte de la operación que no se pudo interpretar.');
+  if(!Number.isFinite(result))throw new Error('El resultado no es un número válido.');
+  return result;
 }
-
-function extractBudget(q){
- const patterns = [
-  /(?:tengo|con|presupuesto(?: de)?|hasta|dispongo de|me alcanza con)\s*(\d+(?:[.,]\d+)?)\s*(millones|mill[oó]n|m|k|mil)?\b/,
-  /(\d+(?:[.,]\d+)?)\s*(millones|mill[oó]n|m|k|mil)\b/
- ];
-
- for(const pattern of patterns){
-  const match = q.match(pattern);
-  if(!match) continue;
-
-  const number = Number(match[1].replace(",","."));
-  const unit = normalize(match[2]||"");
-
-  if(!Number.isFinite(number)) continue;
-
-  const multiplier = ["m","millon","millones"].includes(unit)
-   ? 1e6
-   : ["k","mil"].includes(unit)
-    ? 1e3
-    : 1;
-
-  return number*multiplier;
- }
-
- return null;
+function updateCalcPreview(){
+  const value=$('calcDisplay').value.trim();
+  if(!value){$('calcPreview').textContent='Escribe una operación o usa los botones.';return}
+  try{
+    const result=calculateExpression(value);
+    $('calcPreview').textContent=`Resultado estimado: ${formatMoney(result)}`;
+  }catch(error){
+    $('calcPreview').textContent=error.message;
+  }
 }
-
-function findRecentItem(){
- for(let i=conversationHistory.length-1;i>=0;i--){
-  const message = conversationHistory[i];
-  if(message.role!=="assistant") continue;
-
-  const q = normalize(message.content);
-
-  const match = pricedItems.find(item=>q.includes(item.normalizedName));
-  if(match) return match;
- }
-
- return null;
+function runCalculator(){
+  const expression=$('calcDisplay').value.trim();
+  try{
+    const result=calculateExpression(expression);
+    $('calcResult').textContent=formatMoney(result);
+    $('calcDetail').textContent=fullMoney(result);
+    $('calcPreview').textContent=`${expression} = ${formatMoney(result)}`;
+  }catch(error){
+    $('calcResult').textContent='Revisa la operación';
+    $('calcDetail').textContent=error.message;
+    $('calcPreview').textContent=error.message;
+  }
 }
+$('calcDisplay').addEventListener('input',updateCalcPreview);
+$('calcDisplay').addEventListener('keydown',event=>{
+  if(event.key==='Enter'){event.preventDefault();runCalculator()}
+});
+$('calcKeys').addEventListener('click',event=>{
+  const button=event.target.closest('button');if(!button)return;
+  const action=button.dataset.action;
+  const value=button.dataset.value;
+  if(action==='clear'){$('calcDisplay').value='';$('calcResult').textContent='—';$('calcDetail').textContent='El resultado aparecerá aquí.';updateCalcPreview();return}
+  if(action==='backspace'){$('calcDisplay').value=$('calcDisplay').value.slice(0,-1);updateCalcPreview();return}
+  if(action==='calculate'){runCalculator();return}
+  if(value!==undefined){$('calcDisplay').value+=value;updateCalcPreview();$('calcDisplay').focus()}
+});
+document.querySelectorAll('[data-expression]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    $('calcDisplay').value=button.dataset.expression;runCalculator();
+    $('calcDisplay').focus();
+  });
+});
 
+/* ASISTENTE LOCAL */
+function addChatMessage(text,role){
+  const message=document.createElement('div');
+  message.className=`chat-message ${role}`;
+  message.textContent=text;
+  $('chatLog').appendChild(message);
+  $('chatLog').scrollTop=$('chatLog').scrollHeight;
+}
+function findMentionedItems(question){
+  const q=normalize(question);
+  const matches=allItems.filter(item=>q.includes(item.normalizedName));
+  return [...new Map(matches.map(item=>[item.name,item])).values()]
+    .sort((a,b)=>b.normalizedName.length-a.normalizedName.length);
+}
+function extractMathExpression(question){
+  let q=String(question).trim();
+  q=q.replace(/[¿?]/g,'')
+    .replace(/,/g,'.')
+    .replace(/\b(cuanto es|calcula|calcular|resuelve|resultado de|cuanto da)\b/ig,'')
+    .replace(/\b(millones?|millón)\b/ig,'m')
+    .replace(/\bmil\b/ig,'k')
+    .trim();
+  if(/[+\-*/×÷()]/.test(q)&&/\d/.test(q))return q;
+  return null;
+}
 function answerQuestion(question){
- const q = normalize(question);
- const sorted = getSortedItems();
- const expensive = [...sorted].reverse();
- const previousItem = findRecentItem();
+  const q=normalize(question);
+  const mentioned=findMentionedItems(question);
+  const sorted=[...allItems].sort((a,b)=>a.amount-b.amount);
+  const cheapest=sorted[0];
+  const priciest=sorted[sorted.length-1];
 
- if(!q){
-  return "Dime qué objeto quieres consultar o qué cálculo necesitas y te ayudo.";
- }
-
- if(/\b(hola|buenas|buenos dias|buenas tardes|buenas noches|hey|que tal|holi)\b/.test(q)){
-  return "¡Buenas! Soy Kaizora Price AI. ✦\n\nPuedo consultar los precios del catálogo, sumar compras, comparar objetos, calcular diferencias y ayudarte a elegir qué comprar según tu presupuesto.\n\n¿Qué necesitas saber?";
- }
-
- if(/\b(gracias|muchas gracias|te lo agradezco)\b/.test(q)){
-  return "¡De nada! Para eso estoy. ✦ Si necesitas sumar otra compra, comparar precios o revisar qué te alcanza con tu dinero, pregúntame.";
- }
-
- if(/\b(quien eres|que eres|como te llamas)\b/.test(q)){
-  return "Soy Kaizora Price AI, el asistente local de precios de Kaizora Origins. Trabajo con el catálogo que aparece en esta página y puedo ayudarte con cálculos, comparaciones y presupuestos.";
- }
-
- if(/\b(que puedes hacer|como funcionas|ayuda|que sabes hacer)\b/.test(q)){
-  return "Puedo ayudarte con varias cosas:\n\n• Consultar el precio de un objeto.\n• Sumar varios precios.\n• Comparar objetos y ver la diferencia.\n• Calcular qué puedes comprar con un presupuesto.\n• Encontrar los objetos más caros o baratos.\n• Consultar los libros encantados.\n• Revisar el precio mínimo y máximo de una categoría.\n\nPor ejemplo, puedes decirme: «¿Cuánto cuestan un pico y una llave Kaizora juntos?»";
- }
-
- if(/\b(mas caro|mayor precio|precio maximo|mas costoso|objeto mas valioso)\b/.test(q)){
-  const top = expensive.slice(0,5);
-
-  return `Los objetos más caros del catálogo son:\n\n${top.map((item,index)=>`${index+1}. ${item.name}: ${item.price} (${item.category})`).join("\n")}\n\nEstos son los precios publicados en la página.`;
- }
-
- if(/\b(mas barato|menor precio|precio minimo|mas economico|objeto mas barato)\b/.test(q)){
-  return `Los objetos más baratos del catálogo son:\n\n${sorted.slice(0,7).map((item,index)=>`${index+1}. ${item.name}: ${item.price} (${item.category})`).join("\n")}`;
- }
-
- if(/\b(libros? encantados?|encantamientos?|encantamiento)\b/.test(q)){
-  const books = pricedItems.filter(item=>item.categoryId==="libros");
-  const ascending = getSortedItems(books);
-  const descending = [...ascending].reverse();
-
-  if(/\b(mas barato|baratos|menor precio|minimo)\b/.test(q)){
-   return `Los libros encantados más baratos son:\n\n${ascending.slice(0,8).map(item=>`• ${item.name}: ${item.price}`).join("\n")}\n\nReparación cuesta 5k.`;
+  if(/\b(hola|buenas|buenos dias|hey|que tal|buenas tardes|buenas noches)\b/.test(q)){
+    return '¡Buenas! Soy Kaizora Price AI. Puedo consultar precios, sumar objetos, calcular presupuestos, comparar valores y ayudarte con operaciones. También tienes una calculadora justo debajo.';
+  }
+  if(/\b(ayuda|que puedes hacer|como funciona|que sabes hacer)\b/.test(q)){
+    return 'Puedo buscar precios del catálogo, sumar el precio de varios objetos, calcular diferencias, resolver operaciones con k y m, comparar objetos, calcular presupuestos y sugerir rangos de reventa. Para operaciones largas o más precisas, usa la calculadora de la página.';
+  }
+  if(/\b(mas caro|mayor precio|precio maximo|mas costoso|objeto mas caro)\b/.test(q)){
+    return `El objeto de mayor precio del catálogo es ${priciest.name}: ${priciest.price}, en ${priciest.category}.`;
+  }
+  if(/\b(mas barato|menor precio|precio minimo|mas economico|objeto mas barato)\b/.test(q)){
+    return `El más barato del catálogo es ${cheapest.name}: ${cheapest.price}, en ${cheapest.category}.`;
   }
 
-  if(/\b(mas caro|caros|mayor precio|maximo|mejores)\b/.test(q)){
-   return `Estos son los libros con el precio más alto de nuestro catálogo:\n\n${descending.slice(0,8).map(item=>`• ${item.name}: ${item.price}`).join("\n")}\n\nReparación está fijado en 5k. Los precios son orientativos para el catálogo de Kaizora.`;
+  /* Si nombran varios objetos, primero calcula su total cuando corresponda. */
+  if(mentioned.length>=2 && /\b(suma|sumar|total|cuanto cuestan|cuanto suman|juntos|ambos|entre los dos|entre todos|comprar|comprara|presupuesto|gasto)\b/.test(q)){
+    const total=mentioned.reduce((sum,item)=>sum+item.amount,0);
+    return `Vamos con las cuentas:\n${mentioned.map(item=>`• ${item.name}: ${item.price}`).join('\n')}\n\nTotal de ${mentioned.length} objetos: ${formatMoney(total)}.\nEn monedas exactas: ${Math.round(total).toLocaleString('es-ES')}.`;
   }
 
-  return `Tenemos ${books.length} libros encantados registrados. Estos son sus precios, ordenados de mayor a menor:\n\n${descending.map(item=>`• ${item.name}: ${item.price}`).join("\n")}\n\nReparación cuesta exactamente 5k.`;
- }
-
- if(/\b(suma|sumar|total|cuanto cuestan juntos|cuanto es todo|en total|costaria todo)\b/.test(q)){
-  const matches = getNamedMatches(q)
-   .filter(item=>item.score>=10);
-
-  const unique = [];
-  for(const item of matches){
-   if(!unique.some(existing=>existing.name===item.name)){
-    unique.push(item);
-   }
+  /* Cálculos escritos en lenguaje natural. */
+  if(/\b(suma|sumar|calcula|calcular|cuanto es|cuanto da|resultado|multiplica|divide|resta|operacion)\b/.test(q)){
+    const expression=extractMathExpression(question);
+    if(expression){
+      try{
+        const result=calculateExpression(expression);
+        return `He calculado la operación:\n${expression} = ${formatMoney(result)}\n\nEn monedas exactas: ${Math.round(result).toLocaleString('es-ES')}.`;
+      }catch(error){
+        return `No pude resolver esa operación: ${error.message}\nPuedes introducirla en la calculadora y revisar los símbolos.`;
+      }
+    }
+    if(mentioned.length){
+      const total=mentioned.reduce((sum,item)=>sum+item.amount,0);
+      return `Estos son los precios que encontré:\n${mentioned.map(item=>`• ${item.name}: ${item.price}`).join('\n')}\n\nTotal: ${formatMoney(total)} (${Math.round(total).toLocaleString('es-ES')} monedas).`;
+    }
   }
 
-  if(unique.length>=2){
-   const total = unique.reduce((sum,item)=>sum+item.amount,0);
-
-   return `¡Vamos a sumar la compra!\n\n${unique.map(item=>`• ${item.name}: ${item.price}`).join("\n")}\n\nTotal: ${formatMoney(total)} monedas.\n\nSon ${unique.length} objetos del catálogo.`;
+  /* Rango sugerido de reventa: regla orientativa, no regla oficial del servidor. */
+  if(/\b(vender|venta|revender|reventa|minimo y maximo|minimo maximo|a cuanto lo vendo|a cuanto puedo vender|rango de venta)\b/.test(q)&&mentioned.length){
+    return `Rango orientativo de reventa (−10% a +10% del precio del catálogo):\n${mentioned.map(item=>`• ${item.name}\n  Referencia: ${item.price}\n  Mínimo sugerido: ${formatMoney(item.amount*.9)}\n  Máximo sugerido: ${formatMoney(item.amount*1.1)}`).join('\n\n')}\n\nImportante: es una estimación matemática, no un precio oficial de venta configurado por el servidor.`;
   }
 
-  if(previousItem && /\b(y|tambien|ademas|ese|esa|eso|lo mismo)\b/.test(q)){
-   const budget = extractBudget(q);
-
-   if(budget!==null){
-    const total = previousItem.amount+budget;
-    return `${previousItem.name} cuesta ${previousItem.price}. Si le sumamos ${moneyText(budget)}, el total es ${moneyText(total)}.`;
-   }
+  /* Presupuesto */
+  const budgetMatch=q.match(/(?:con|tengo|presupuesto(?: de)?|hasta|dispongo de|me alcanza con)\s*(\d+(?:[.,]\d+)?)\s*(millones?|millon|m|k|mil)?\b/);
+  if(budgetMatch&&/\b(comprar|compro|alcanz|puedo|presupuesto|tengo|comprarme|adquirir)\b/.test(q)){
+    const number=Number(budgetMatch[1].replace(',','.'));
+    const unit=budgetMatch[2]||'';
+    const budget=number*(/^(m|millon|millones)/.test(unit)?1e6:/^(k|mil)$/.test(unit)?1e3:1);
+    const options=allItems.filter(item=>item.amount<=budget).sort((a,b)=>b.amount-a.amount);
+    if(!options.length)return `No encuentro objetos por ${formatMoney(budget)} o menos. El más barato del catálogo cuesta ${cheapest.price}.`;
+    return `Con ${formatMoney(budget)} puedes comprar individualmente, de mayor a menor precio:\n${options.slice(0,15).map(item=>`• ${item.name}: ${item.price}`).join('\n')}${options.length>15?'\nHay más objetos dentro de tu presupuesto.':''}\n\nEstos son precios de referencia; no estoy aplicando descuentos ni calculando cantidades múltiples.`;
   }
 
-  return "Claro, te ayudo a sumar. Escríbeme los nombres de los objetos que quieres sumar, por ejemplo: «Suma un lingote de netherite, Reparación y una Llave Origin».";
- }
-
- const budget = extractBudget(q);
-
- if(
-  budget!==null &&
-  /\b(comprar|compro|alcanz|puedo|presupuesto|tengo|recomiendas|recomendar|que me compro|que puedo comprar|que me alcanza)\b/.test(q)
- ){
-  const eligible = sorted
-   .filter(item=>item.amount<=budget)
-   .sort((a,b)=>b.amount-a.amount);
-
-  if(!eligible.length){
-   return `Con ${moneyText(budget)} no hay ningún objeto individual del catálogo que entre en ese presupuesto. El más barato cuesta ${sorted[0].price}.`;
+  /* Diferencias entre objetos */
+  if(/\b(compara|comparar|comparacion|diferencia|vs|versus)\b/.test(q)&&mentioned.length>=2){
+    const high=mentioned[0].amount>=mentioned[mentioned.length-1].amount?mentioned[0]:mentioned[mentioned.length-1];
+    const low=high===mentioned[0]?mentioned[mentioned.length-1]:mentioned[0];
+    return `Comparación de precios:\n${mentioned.map(item=>`• ${item.name}: ${item.price}`).join('\n')}\n\nDiferencia entre el mayor y el menor: ${formatMoney(high.amount-low.amount)}.`;
   }
 
-  const picks = eligible.slice(0,10);
-
-  return `Con ${moneyText(budget)}, estas son algunas de las opciones más caras que todavía entran en tu presupuesto:\n\n${picks.map(item=>`• ${item.name}: ${item.price} — te quedan ${formatMoney(budget-item.amount)} monedas`).join("\n")}\n\nEsto compara compras individuales. Si quieres, también puedo intentar combinar varios objetos sin superar tu presupuesto.`;
- }
-
- if(/\b(cuantas categorias|cuantos objetos|cuantos articulos|cuantas cosas hay|resumen del catalogo)\b/.test(q)){
-  return `El catálogo contiene ${categories.length} categorías y ${allItems.length} objetos.\n\n${categories.map(category=>`• ${category.name}: ${category.items.length} objetos`).join("\n")}`;
- }
-
- if(/\b(mostrar|listar|lista de)\b/.test(q) && /\b(llaves|netherite|futbol|halloween|libros|crates)\b/.test(q)){
-  const category = findCategory(q);
-
-  if(category){
-   const items = pricedItems.filter(item=>item.categoryId===category.id);
-
-   return `Estos son los objetos de ${category.name}:\n\n${items.map(item=>`• ${item.name}: ${item.price}`).join("\n")}`;
-  }
- }
-
- const category = findCategory(q);
-
- if(category && /\b(minimo|minima|minimos|minimas|rango|desde cuanto|mas caro|mas barato|compar|resumen|precios|precio|cuestan|cuesta|lista)\b/.test(q)){
-  const list = getSortedItems(
-   pricedItems.filter(item=>item.categoryId===category.id)
-  );
-
-  const cheapest = list[0];
-  const costliest = list[list.length-1];
-  const difference = costliest.amount-cheapest.amount;
-
-  return `Resumen de ${category.name}:\n\n• Más barato: ${cheapest.name} — ${cheapest.price}\n• Más caro: ${costliest.name} — ${costliest.price}\n• Diferencia: ${formatMoney(difference)} monedas\n• Objetos registrados: ${list.length}\n\nSi quieres, también puedo mostrarte todos sus precios.`;
- }
-
- let matches = getNamedMatches(q);
-
- if(matches.length){
-  const unique = [];
-  for(const item of matches){
-   if(!unique.some(existing=>existing.name===item.name)){
-    unique.push(item);
-   }
+  /* Listado de libros */
+  if(/\b(libros|libro encantado|libros encantados|encantamientos)\b/.test(q)){
+    const books=allItems.filter(item=>item.categoryId==='libros').sort((a,b)=>b.amount-a.amount);
+    return `Estos son los libros encantados del catálogo, ordenados por precio:\n${books.map(item=>`• ${item.name}: ${item.price}`).join('\n')}\n\nReparación está fijado en 5k.`;
   }
 
-  const wantsComparison = /\b(compara|comparar|comparacion|diferencia|versus|vs)\b/.test(q);
-
-  if(wantsComparison && unique.length>=2){
-   const selected = unique.slice(0,8).sort((a,b)=>b.amount-a.amount);
-   const difference = selected[0].amount-selected[selected.length-1].amount;
-
-   return `Comparación de precios:\n\n${selected.map(item=>`• ${item.name}: ${item.price}`).join("\n")}\n\nLa diferencia entre el más caro y el más barato de esta lista es ${formatMoney(difference)} monedas.`;
+  /* Consulta de uno o más precios */
+  if(mentioned.length){
+    return `Encontré estos precios en el catálogo:\n${mentioned.map(item=>`• ${item.name}: ${item.price} — ${item.category}`).join('\n')}\n\nTambién puedo sumar estos objetos, comparar sus precios o calcular un rango orientativo de reventa.`;
   }
 
-  if(unique.length===1){
-   const item = unique[0];
-
-   if(/\b(cuanto|precio|cuesta|vale|cuestan|valor|coste|costar)\b/.test(q) || q.length<45){
-    return `${item.name} cuesta ${item.price} en el catálogo de Kaizora Origins.\n\nCategoría: ${item.category}.\nPrecio en monedas: ${item.amount.toLocaleString("es-ES")}.\n\nEste es el precio publicado en la página; no presupone un precio de venta diferente.`;
-   }
-
-   return `He encontrado ${item.name}: ${item.price} (${item.category}).\n\n¿Quieres que lo compare con otro objeto, que lo sume con otros precios o que calcule cuánto dinero te quedaría después de comprarlo?`;
+  /* Acepta operaciones directas como 3.5m + 130m, aunque no se escriba "calcula". */
+  const expression=extractMathExpression(question);
+  if(expression){
+    try{
+      const result=calculateExpression(expression);
+      return `Resultado:\n${expression} = ${formatMoney(result)}\n\nEn monedas exactas: ${Math.round(result).toLocaleString('es-ES')}.`;
+    }catch(error){
+      return `No pude resolver la operación: ${error.message}\nPrueba con una operación como 3.5m + 130m.`;
+    }
   }
 
-  const best = unique.slice(0,6);
-
-  return `He encontrado varios objetos que podrían coincidir con tu pregunta:\n\n${best.map(item=>`• ${item.name}: ${item.price} — ${item.category}`).join("\n")}\n\nDime cuál te interesa y te ayudo con el precio o los cálculos.`;
- }
-
- if(/\b(si|vale|ok|okay|perfecto|dale|continua|sigue)\b/.test(q) && previousItem){
-  return `Perfecto. Estábamos hablando de ${previousItem.name}, que cuesta ${previousItem.price}. ¿Quieres que lo compare, lo sume con otro objeto o calcule cuánto te quedaría después de comprarlo?`;
- }
-
- if(/\b(ayudame a sumar|me ayudas a sumar|quiero sumar|haz una suma|calcula)\b/.test(q)){
-  return "¡Claro que sí! Dime los objetos o cantidades que quieres sumar. Por ejemplo: «un lingote de netherite más una Reparación y una Llave Origin». Te mostraré el desglose y el total.";
- }
-
- if(/\b(precio|cuesta|cuestan|vale|valen|comprar|objeto|item|items)\b/.test(q)){
-  return "Puedo ayudarte con eso. Dime el nombre del objeto, una categoría o varios objetos si quieres sumarlos. También puedes preguntarme «¿qué puedo comprar con 500k?» o «compara la Llave Dios y la Llave Kaizora».";
- }
-
- return "Te leo. ✦ Puedo consultar precios del catálogo, sumar varios objetos, comparar valores y calcular presupuestos. Prueba a preguntarme de forma natural, por ejemplo: «¿Cuánto cuestan una Reparación y una Llave Origin juntas?»";
+  if(/\b(categorias|cuantas categorias|secciones)\b/.test(q)){
+    return `El catálogo tiene ${categories.length} categorías y ${allItems.length} objetos: ${categories.map(c=>`${c.name} (${c.items.length})`).join('; ')}.`;
+  }
+  if(/\b(gracias|muchas gracias)\b/.test(q))return '¡De nada! Cuando quieras, dime las cantidades u objetos y hacemos las cuentas.';
+  return 'Puedo ayudarte con precios, cálculos, presupuestos y comparaciones. Prueba con «suma la Pechera Messi y el Ojo de la predicción», «3.5m + 130m», «¿qué puedo comprar con 2m?» o utiliza la calculadora. Si no encuentro un precio en el catálogo, te lo diré en lugar de inventarlo.';
 }
 
-async function submitQuestion(question){
- if(!question || isSending) return;
-
- isSending = true;
- chatInput.value = "";
- chatInput.disabled = true;
- sendBtn.disabled = true;
-
- addChatMessage(question,"user");
-
- const waiting = addChatMessage(
-  "Revisando el catálogo…",
-  "bot",
-  "thinking"
- );
-
- /*
-  El pequeño retraso permite mostrar el estado de respuesta
-  sin realizar ninguna petición de red.
- */
- await new Promise(resolve=>setTimeout(resolve,120));
-
- try{
-  const reply = answerQuestion(question);
-
-  waiting.classList.remove("thinking");
-  waiting.textContent = reply;
-
-  conversationHistory.push(
-   {role:"user",content:question},
-   {role:"assistant",content:reply}
-  );
-
-  if(conversationHistory.length>30){
-   conversationHistory.splice(0,conversationHistory.length-30);
-  }
-
- }catch(error){
-  console.error("Kaizora Price AI:",error);
-
-  waiting.classList.remove("thinking");
-  waiting.textContent = "Ha ocurrido un problema al procesar la pregunta. Inténtalo de nuevo.";
- }
-
- isSending = false;
- chatInput.disabled = false;
- sendBtn.disabled = false;
- chatInput.focus();
-}
-
-chatForm.addEventListener("submit",event=>{
- event.preventDefault();
- submitQuestion(chatInput.value.trim());
+$('chatForm').addEventListener('submit',event=>{
+  event.preventDefault();
+  const question=$('chatInput').value.trim();
+  if(!question)return;
+  addChatMessage(question,'user');
+  addChatMessage(answerQuestion(question),'bot');
+  $('chatInput').value='';
+  $('chatInput').focus();
 });
-
-$("chatSuggestions").addEventListener("click",event=>{
- const button = event.target.closest("[data-question]");
- if(button) submitQuestion(button.dataset.question);
-});
-
-filters.addEventListener("click",event=>{
- const button = event.target.closest("[data-category]");
- if(!button) return;
-
- activeCategory = button.dataset.category;
- renderFilters();
- render();
-});
-
-searchInput.addEventListener("input",render);
-
-clearBtn.addEventListener("click",()=>{
- searchInput.value = "";
- activeCategory = "all";
- renderFilters();
- render();
- searchInput.focus();
+$('chatSuggestions').addEventListener('click',event=>{
+  const button=event.target.closest('[data-question]');
+  if(!button)return;
+  $('chatInput').value=button.dataset.question;
+  $('chatForm').requestSubmit();
 });
 
 renderFilters();
 render();
-
-addChatMessage(
- "¡Buenas! Soy Kaizora Price AI. ✦\n\nPuedo ayudarte a consultar los precios de Kaizora Origins, sumar compras, comparar objetos y calcular presupuestos. También he añadido los libros encantados al catálogo.\n\nNo necesito conexiones externas para funcionar. Pregúntame lo que necesites.",
- "bot"
-);
+addChatMessage('¡Buenas! Soy Kaizora Price AI. Puedo ayudarte con precios, sumas, restas, presupuestos y comparaciones. Para operaciones largas, usa también la calculadora integrada. ¿Qué quieres calcular?','bot');
 </script>
 </body>
 </html>
