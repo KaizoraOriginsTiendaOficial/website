@@ -6,135 +6,602 @@
 <meta name="theme-color" content="#09070e">
 <meta name="description" content="Consulta precios y recibe recomendaciones de Kaizora Price AI para Kaizora Origins.">
 <title>Precios del servidor | Kaizora Origins</title>
+
 <style>
 :root{--p:#9B5DE5;--s:#FF6DE1;--bg:#09070e;--surface:#100c18;--border:rgba(206,160,255,.15);--muted:#aaa0b8;--text:#f7f2ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}button,input{font:inherit}button{color:inherit;cursor:pointer}.app-root{min-height:100vh;overflow:hidden;background:radial-gradient(ellipse at 12% 0%,rgba(155,93,229,.18),transparent 38%),radial-gradient(ellipse at 95% 18%,rgba(255,109,225,.09),transparent 30%);isolation:isolate}.ambient{position:absolute;inset:0 0 auto;height:520px;pointer-events:none;background:radial-gradient(ellipse at 50% -20%,rgba(155,93,229,.18),transparent 65%);z-index:-1}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:25px 0;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:12px}.brand-mark,.oracle-mark{display:grid;place-items:center;color:white;font-weight:950;background:linear-gradient(135deg,var(--p),var(--s));box-shadow:0 0 30px #9b5de544}.brand-mark{width:42px;height:42px;border-radius:13px;font-size:20px}.brand-name{font-size:14px;font-weight:900;letter-spacing:.14em}.brand-sub{margin-top:3px;color:var(--muted);font-size:10px;letter-spacing:.19em;text-transform:uppercase}.server-tag{display:flex;align-items:center;gap:8px;color:#d9cce8;border:1px solid var(--border);background:#140d1dbf;padding:9px 12px;border-radius:999px;font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.server-dot{width:7px;height:7px;border-radius:50%;background:#d58cff;box-shadow:0 0 12px #bb72ff}.hero{padding:76px 0 34px;text-align:center}.eyebrow{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid #ca8fff42;color:#e1bcff;background:#9b5de517;font-size:10px;font-weight:850;letter-spacing:.2em;text-transform:uppercase}h1{font-size:clamp(38px,6vw,70px);line-height:1.02;letter-spacing:-.055em;margin:22px 0 15px;font-weight:950}h1 span{display:block;background:linear-gradient(95deg,#fff 5%,#d4a7ff 45%,#ff8ee8 90%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero>p{max-width:600px;margin:auto;color:#bcb1ca;font-size:15px;line-height:1.7}.search-panel{margin:30px auto 0;max-width:740px;text-align:left}.search-box{display:flex;align-items:center;gap:13px;padding:7px 8px 7px 17px;border:1px solid #c28eff52;border-radius:17px;background:#110c19eb;box-shadow:0 16px 55px #0004,0 0 35px #9b5de517}.search-icon{width:20px;height:20px;color:#d4a7ff;flex-shrink:0}.search-box input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:white;padding:13px 0;font-size:14px}.search-box input::placeholder{color:#82768f}.clear-btn{border:1px solid var(--border);border-radius:10px;background:#21162d;color:#e9d9fa;padding:10px 13px;font-size:12px;font-weight:800}.search-hint{color:#8e829c;font-size:11px;margin:11px 5px 0}.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:24px}.stat{border:1px solid #ffffff14;background:#ffffff06;border-radius:12px;padding:11px 15px;min-width:112px}.stat strong{display:block;font-size:19px;font-weight:900}.stat span{display:block;margin-top:3px;color:#988aa7;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
-.oracle{max-width:900px;margin:34px auto 0;text-align:left;border:1px solid #c38cff40;border-radius:22px;padding:20px;background:linear-gradient(135deg,#1c1129f5,#0f0a16f5);box-shadow:0 18px 60px #0003,0 0 35px #9b5de514}.oracle-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}.oracle-mark{flex:0 0 42px;height:42px;border-radius:14px}.oracle-title{font-size:16px;font-weight:900}.oracle-subtitle{color:#9f91ae;font-size:11px;margin-top:4px}.oracle-badge{margin-left:auto;border:1px solid #78e7b133;color:#9eeac5;background:#45b47e12;padding:6px 9px;border-radius:999px;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}.chat-log{display:flex;flex-direction:column;gap:10px;max-height:360px;overflow-y:auto;padding:14px 2px}.chat-message{max-width:92%;padding:12px 14px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff09;color:#e8def2;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.chat-message.user{align-self:flex-end;border-color:#ff6de12e;background:#9b5de522}.chat-message.bot{align-self:flex-start}.chat-message.thinking{opacity:.7;font-style:italic}.chat-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 13px}.suggestion{border:1px solid #c38cff33;border-radius:999px;background:#9b5de512;color:#d9c3ed;padding:8px 11px;font-size:10px;font-weight:750}.suggestion:hover{border-color:var(--s);color:white}.chat-form{display:flex;gap:9px}.chat-form input{min-width:0;flex:1;border:1px solid #c28eff40;border-radius:13px;padding:13px 14px;background:#08060dcc;color:white;outline:none;font-size:12px}.chat-form input:focus{border-color:var(--s)}.send-btn{border:0;border-radius:13px;padding:0 17px;background:linear-gradient(110deg,#8b4dd1,#c74cbd);color:white;font-size:12px;font-weight:850}.send-btn:disabled,.chat-form input:disabled{opacity:.55;cursor:wait}.oracle-note{color:#81758d;font-size:10px;line-height:1.6;margin:11px 2px 0}.filter-wrap{padding:27px 0 10px}.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.filter-btn{border:1px solid var(--border);background:#120d1a;color:#b9adc7;border-radius:999px;padding:10px 14px;font-size:12px;font-weight:800}.filter-btn:hover{color:white;border-color:#ff6de180}.filter-btn.active{color:white;border-color:transparent;background:linear-gradient(110deg,#8b4dd1,#c74cbd);box-shadow:0 5px 20px #9b5de538}main{padding:24px 0 75px}.section{margin:20px 0 38px;scroll-margin-top:20px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:15px}.section-title-wrap{display:flex;align-items:center;gap:13px}.section-icon{width:43px;height:43px;border:1px solid #c38cff38;background:linear-gradient(145deg,#9b5de533,#ff6de112);border-radius:13px;display:grid;place-items:center;font-size:19px}.section h2{margin:0;font-size:21px;font-weight:900;letter-spacing:-.035em}.section-desc{margin:5px 0 0;color:#93869f;font-size:12px}.count{color:#c8a4ec;border:1px solid #9b5de53d;background:#9b5de514;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:850;white-space:nowrap}.items-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.item-card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:76px;padding:15px 16px;border:1px solid #ffffff13;border-radius:15px;background:linear-gradient(135deg,#181122fa,#0f0b16fa);transition:.18s;overflow:hidden}.item-card:before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:2px;border-radius:0 3px 3px 0;background:linear-gradient(var(--p),var(--s))}.item-card:hover{transform:translateY(-2px);border-color:#be80ff59;background:linear-gradient(135deg,#251733fa,#120c1bfa)}.item-name{font-size:13px;line-height:1.4;font-weight:760;color:#f3ebfc;overflow-wrap:anywhere}.item-category{color:#8e819b;font-size:10px;margin-top:5px}.price{flex-shrink:0;text-align:right;color:#ff9fe9;font-size:14px;font-weight:950;white-space:nowrap}.empty{display:none;text-align:center;padding:58px 20px;border:1px dashed #c38cff40;border-radius:18px;color:#a99ab8;background:#140d1d73}.empty strong{display:block;color:white;font-size:17px;margin-bottom:8px}.footer{border-top:1px solid #ffffff12;padding:23px 0 30px;color:#81758d;font-size:11px}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.footer strong{color:#c9b2e0;letter-spacing:.12em}.footer-note{color:#6f637b}
-@media(max-width:850px){.items-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:58px}}@media(max-width:560px){.wrap{width:calc(100% - 28px)}.topbar{padding:17px 0}.brand-mark{width:38px;height:38px}.brand-name{font-size:12px}.brand-sub{font-size:9px}.server-tag{font-size:9px;padding:8px 9px}.hero{padding:48px 0 25px}.hero>p{font-size:13px}.search-box{gap:9px;padding-left:12px}.search-box input{font-size:13px}.clear-btn{padding:9px 10px}.oracle{padding:14px;margin-top:25px}.oracle-badge{display:none}.chat-message{max-width:98%}.chat-form{gap:6px}.send-btn{padding:0 12px}.items-grid{grid-template-columns:1fr;gap:8px}.item-card{min-height:68px}.section h2{font-size:18px}.section-icon{width:39px;height:39px}.stat{min-width:95px;padding:9px 11px}.stat strong{font-size:17px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+button,input{font:inherit}
+button{color:inherit;cursor:pointer}
+.app-root{min-height:100vh;overflow:hidden;background:radial-gradient(ellipse at 12% 0%,rgba(155,93,229,.18),transparent 38%),radial-gradient(ellipse at 95% 18%,rgba(255,109,225,.09),transparent 30%);isolation:isolate}
+.ambient{position:absolute;inset:0 0 auto;height:520px;pointer-events:none;background:radial-gradient(ellipse at 50% -20%,rgba(155,93,229,.18),transparent 65%);z-index:-1}
+.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:25px 0;border-bottom:1px solid #ffffff12}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark,.oracle-mark{display:grid;place-items:center;color:white;font-weight:950;background:linear-gradient(135deg,var(--p),var(--s));box-shadow:0 0 30px #9b5de544}
+.brand-mark{width:42px;height:42px;border-radius:13px;font-size:20px}
+.brand-name{font-size:14px;font-weight:900;letter-spacing:.14em}
+.brand-sub{margin-top:3px;color:var(--muted);font-size:10px;letter-spacing:.19em;text-transform:uppercase}
+.server-tag{display:flex;align-items:center;gap:8px;color:#d9cce8;border:1px solid var(--border);background:#140d1dbf;padding:9px 12px;border-radius:999px;font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+.server-dot{width:7px;height:7px;border-radius:50%;background:#d58cff;box-shadow:0 0 12px #bb72ff}
+.hero{padding:76px 0 34px;text-align:center}
+.eyebrow{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid #ca8fff42;color:#e1bcff;background:#9b5de517;font-size:10px;font-weight:850;letter-spacing:.2em;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,70px);line-height:1.02;letter-spacing:-.055em;margin:22px 0 15px;font-weight:950}
+h1 span{display:block;background:linear-gradient(95deg,#fff 5%,#d4a7ff 45%,#ff8ee8 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{max-width:600px;margin:auto;color:#bcb1ca;font-size:15px;line-height:1.7}
+.search-panel{margin:30px auto 0;max-width:740px;text-align:left}
+.search-box{display:flex;align-items:center;gap:13px;padding:7px 8px 7px 17px;border:1px solid #c28eff52;border-radius:17px;background:#110c19eb;box-shadow:0 16px 55px #0004,0 0 35px #9b5de517}
+.search-icon{width:20px;height:20px;color:#d4a7ff;flex-shrink:0}
+.search-box input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:white;padding:13px 0;font-size:14px}
+.search-box input::placeholder{color:#82768f}
+.clear-btn{border:1px solid var(--border);border-radius:10px;background:#21162d;color:#e9d9fa;padding:10px 13px;font-size:12px;font-weight:800}
+.search-hint{color:#8e829c;font-size:11px;margin:11px 5px 0}
+.stats{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:24px}
+.stat{border:1px solid #ffffff14;background:#ffffff06;border-radius:12px;padding:11px 15px;min-width:112px}
+.stat strong{display:block;font-size:19px;font-weight:900}
+.stat span{display:block;margin-top:3px;color:#988aa7;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+.oracle{max-width:900px;margin:34px auto 0;text-align:left;border:1px solid #c38cff40;border-radius:22px;padding:20px;background:linear-gradient(135deg,#1c1129f5,#0f0a16f5);box-shadow:0 18px 60px #0003,0 0 35px #9b5de514}
+.oracle-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.oracle-mark{flex:0 0 42px;height:42px;border-radius:14px}
+.oracle-title{font-size:16px;font-weight:900}
+.oracle-subtitle{color:#9f91ae;font-size:11px;margin-top:4px}
+.oracle-badge{margin-left:auto;border:1px solid #78e7b133;color:#9eeac5;background:#45b47e12;padding:6px 9px;border-radius:999px;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.chat-log{display:flex;flex-direction:column;gap:10px;max-height:360px;overflow-y:auto;padding:14px 2px}
+.chat-message{max-width:92%;padding:12px 14px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff09;color:#e8def2;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-message.user{align-self:flex-end;border-color:#ff6de12e;background:#9b5de522}
+.chat-message.bot{align-self:flex-start}
+.chat-message.thinking{opacity:.7;font-style:italic}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 13px}
+.suggestion{border:1px solid #c38cff33;border-radius:999px;background:#9b5de512;color:#d9c3ed;padding:8px 11px;font-size:10px;font-weight:750}
+.suggestion:hover{border-color:var(--s);color:white}
+.chat-form{display:flex;gap:9px}
+.chat-form input{min-width:0;flex:1;border:1px solid #c28eff40;border-radius:13px;padding:13px 14px;background:#08060dcc;color:white;outline:none;font-size:12px}
+.chat-form input:focus{border-color:var(--s)}
+.send-btn{border:0;border-radius:13px;padding:0 17px;background:linear-gradient(110deg,#8b4dd1,#c74cbd);color:white;font-size:12px;font-weight:850}
+.send-btn:disabled,.chat-form input:disabled{opacity:.55;cursor:wait}
+.oracle-note{color:#81758d;font-size:10px;line-height:1.6;margin:11px 2px 0}
+.filter-wrap{padding:27px 0 10px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.filter-btn{border:1px solid var(--border);background:#120d1a;color:#b9adc7;border-radius:999px;padding:10px 14px;font-size:12px;font-weight:800}
+.filter-btn:hover{color:white;border-color:#ff6de180}
+.filter-btn.active{color:white;border-color:transparent;background:linear-gradient(110deg,#8b4dd1,#c74cbd);box-shadow:0 5px 20px #9b5de538}
+main{padding:24px 0 75px}
+.section{margin:20px 0 38px;scroll-margin-top:20px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:15px}
+.section-title-wrap{display:flex;align-items:center;gap:13px}
+.section-icon{width:43px;height:43px;border:1px solid #c38cff38;background:linear-gradient(145deg,#9b5de533,#ff6de112);border-radius:13px;display:grid;place-items:center;font-size:19px}
+.section h2{margin:0;font-size:21px;font-weight:900;letter-spacing:-.035em}
+.section-desc{margin:5px 0 0;color:#93869f;font-size:12px}
+.count{color:#c8a4ec;border:1px solid #9b5de53d;background:#9b5de514;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:850;white-space:nowrap}
+.items-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.item-card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:76px;padding:15px 16px;border:1px solid #ffffff13;border-radius:15px;background:linear-gradient(135deg,#181122fa,#0f0b16fa);transition:.18s;overflow:hidden}
+.item-card:before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:2px;border-radius:0 3px 3px 0;background:linear-gradient(var(--p),var(--s))}
+.item-card:hover{transform:translateY(-2px);border-color:#be80ff59;background:linear-gradient(135deg,#251733fa,#120c1bfa)}
+.item-name{font-size:13px;line-height:1.4;font-weight:760;color:#f3ebfc;overflow-wrap:anywhere}
+.item-category{color:#8e819b;font-size:10px;margin-top:5px}
+.price{flex-shrink:0;text-align:right;color:#ff9fe9;font-size:14px;font-weight:950;white-space:nowrap}
+.empty{display:none;text-align:center;padding:58px 20px;border:1px dashed #c38cff40;border-radius:18px;color:#a99ab8;background:#140d1d73}
+.empty strong{display:block;color:white;font-size:17px;margin-bottom:8px}
+.footer{border-top:1px solid #ffffff12;padding:23px 0 30px;color:#81758d;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.footer strong{color:#c9b2e0;letter-spacing:.12em}
+.footer-note{color:#6f637b}
+@media(max-width:850px){.items-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:58px}}
+@media(max-width:560px){.wrap{width:calc(100% - 28px)}.topbar{padding:17px 0}.brand-mark{width:38px;height:38px}.brand-name{font-size:12px}.brand-sub{font-size:9px}.server-tag{font-size:9px;padding:8px 9px}.hero{padding:48px 0 25px}.hero>p{font-size:13px}.search-box{gap:9px;padding-left:12px}.search-box input{font-size:13px}.clear-btn{padding:9px 10px}.oracle{padding:14px;margin-top:25px}.oracle-badge{display:none}.chat-message{max-width:98%}.chat-form{gap:6px}.send-btn{padding:0 12px}.items-grid{grid-template-columns:1fr;gap:8px}.item-card{min-height:68px}.section h2{font-size:18px}.section-icon{width:39px;height:39px}.stat{min-width:95px;padding:9px 11px}.stat strong{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
+
 <body>
 <div class="app-root" id="app">
 <div class="ambient" aria-hidden="true"></div>
+
 <header class="wrap topbar">
-  <div class="brand"><div class="brand-mark">K</div><div><div class="brand-name">KAIZORA ORIGINS</div><div class="brand-sub">Economía del servidor</div></div></div>
+  <div class="brand">
+    <div class="brand-mark">K</div>
+    <div>
+      <div class="brand-name">KAIZORA ORIGINS</div>
+      <div class="brand-sub">Economía del servidor</div>
+    </div>
+  </div>
   <div class="server-tag"><span class="server-dot"></span> Guía de precios</div>
 </header>
+
 <section class="wrap hero">
   <div class="eyebrow">✦ Mercado oficial · Kaizora</div>
   <h1>EL VALOR DE <span>CADA OBJETO.</span></h1>
   <p>Encuentra rápidamente los precios de objetos, materiales, llaves y recompensas. Pregunta a nuestra IA o explora el catálogo por categorías.</p>
-  <div class="search-panel"><label class="search-box" for="searchInput">
-    <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    <input id="searchInput" type="search" placeholder="Busca un objeto… ej. llave kaizora, Messi, netherite" autocomplete="off">
-    <button class="clear-btn" id="clearBtn" type="button">Limpiar</button>
-  </label><div class="search-hint">Búsqueda instantánea · No necesitas escribir el nombre completo</div></div>
+
+  <div class="search-panel">
+    <label class="search-box" for="searchInput">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="2"/>
+        <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input id="searchInput" type="search" placeholder="Busca un objeto… ej. llave kaizora, Messi, netherite" autocomplete="off">
+      <button class="clear-btn" id="clearBtn" type="button">Limpiar</button>
+    </label>
+    <div class="search-hint">Búsqueda instantánea · No necesitas escribir el nombre completo</div>
+  </div>
+
   <div class="stats" aria-live="polite">
     <div class="stat"><strong id="totalCount">0</strong><span>Objetos listados</span></div>
     <div class="stat"><strong id="categoryCount">6</strong><span>Categorías</span></div>
     <div class="stat"><strong id="resultCount">0</strong><span>Resultados</span></div>
   </div>
+
   <section class="oracle" aria-labelledby="oracleTitle">
-    <div class="oracle-head"><div class="oracle-mark">K✦</div><div><div class="oracle-title" id="oracleTitle">Kaizora Price AI</div><div class="oracle-subtitle">Asistente de economía · Pregunta con naturalidad</div></div><div class="oracle-badge" id="oracleBadge">● Modo local</div></div>
+    <div class="oracle-head">
+      <div class="oracle-mark">K✦</div>
+      <div>
+        <div class="oracle-title" id="oracleTitle">Kaizora Price AI</div>
+        <div class="oracle-subtitle">Asistente de economía · Pregunta con naturalidad</div>
+      </div>
+      <div class="oracle-badge" id="oracleBadge">● Modo local</div>
+    </div>
+
     <div class="chat-log" id="chatLog" role="log" aria-live="polite" aria-label="Conversación con el asistente"></div>
+
     <div class="chat-suggestions" id="chatSuggestions">
       <button class="suggestion" type="button" data-question="¿Cuál es el objeto más caro?">¿Cuál es el más caro?</button>
       <button class="suggestion" type="button" data-question="¿Cuál es el objeto más barato?">¿Cuál es el más barato?</button>
       <button class="suggestion" type="button" data-question="Compara las llaves más caras">Compara las llaves</button>
       <button class="suggestion" type="button" data-question="Tengo 1m, ¿qué me recomiendas comprar?">¿Qué compro con 1m?</button>
     </div>
-    <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Pregúntame como le preguntarías a una persona…" autocomplete="off" required><button class="send-btn" id="sendBtn" type="submit">Preguntar ↗</button></form>
+
+    <form class="chat-form" id="chatForm">
+      <input id="chatInput" type="text" placeholder="Pregúntame como le preguntarías a una persona…" autocomplete="off" required>
+      <button class="send-btn" id="sendBtn" type="submit">Preguntar ↗</button>
+    </form>
+
     <p class="oracle-note" id="oracleNote">Modo local. Para activar la IA real, configura la URL de tu backend seguro. Los precios oficiales son los del catálogo; no se inventan recompensas ni probabilidades.</p>
   </section>
 </section>
-<div class="wrap filter-wrap"><nav class="filters" id="filters" aria-label="Filtrar por categoría"></nav></div>
-<main class="wrap" id="catalogue"><div id="sections"></div><div class="empty" id="emptyState"><strong>No encontramos ese objeto</strong>Prueba con otro nombre o cambia la categoría seleccionada.</div></main>
-<footer class="footer"><div class="wrap footer-inner"><div><strong>KAIZORA ORIGINS</strong> · Precios del servidor</div><div class="footer-note">Valores expresados en la economía del servidor.</div></div></footer>
+
+<div class="wrap filter-wrap">
+  <nav class="filters" id="filters" aria-label="Filtrar por categoría"></nav>
 </div>
+
+<main class="wrap" id="catalogue">
+  <div id="sections"></div>
+  <div class="empty" id="emptyState">
+    <strong>No encontramos ese objeto</strong>
+    Prueba con otro nombre o cambia la categoría seleccionada.
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div><strong>KAIZORA ORIGINS</strong> · Precios del servidor</div>
+    <div class="footer-note">Valores expresados en la economía del servidor.</div>
+  </div>
+</footer>
+</div>
+
 <script>
+"use strict";
+
 /*
-CONFIGURACIÓN:
-1. Publica el backend seguro de Cloudflare Workers.
-2. Pega aquí la URL HTTPS de TU Worker.
-3. No pongas la clave de OpenAI en este archivo público.
+============================================
+CONFIGURACIÓN DE KAIZORA PRICE AI
+============================================
+
+AI_API_URL:
+- Déjala vacía para utilizar el asistente local.
+- Cuando publiques tu backend seguro, pega aquí
+  la URL HTTPS completa de tu Cloudflare Worker.
+- NUNCA pongas tu clave de OpenAI aquí.
+
+Ejemplo de formato:
+const AI_API_URL = "https://nombre-de-tu-worker.workers.dev";
+
+ALLOWED_ORIGIN:
+Origen de tu web publicada en GitHub Pages.
 */
+const AI_API_URL = "";
 const ALLOWED_ORIGIN = "https://kaizoraorigins.github.io";
 
 const categories = [
-{id:"halloween",name:"Crate Halloween",icon:"🎃",description:"Objetos y recompensas de Halloween",items:[["Ojo de la bruja","2.8m"],["Oro de la predicción","3.5m"],["Lágrima del más allá","4.3m"],["Cristal del aquelarre","5m"],["Semillas malditas","930k"],["Calabaza maldita","1.166m"],["Calabaza de las almas","1.143m"],["Farol del inframundo","1.165m"],["Llave Halloween","20m"]]},
-{id:"crates",name:"Crates",icon:"✧",description:"Esencias, cristales, polvos y materiales especiales",items:[["Esencia arcana","10k"],["Esencia eléctrica","20k"],["Cristal acuático","30k"],["Polvo solar","50k"],["Semilla natural","80k"],["Polvo espectral","100k"],["Núcleo ígneo","200k"],["Fragmento cósmico","500k"],["Fragmento lunar","700k"],["Estrella innombrada (Kaizora)","1m"],["Polvo plasmático","1.5m"]]},
-{id:"llaves",name:"Llaves",icon:"♢",description:"Llaves de rangos y llaves especiales",items:[["Llave Origin","80k"],["Llave Elite","240k"],["Llave Celestial","480k"],["Llave Majestad","1.2m"],["Llave Guardian","2.56m"],["Llave Semidios","3.8m"],["Llave Dios","9.6m"],["Llave Kaizora","23m"],["Llave Fútbol","36m"]]},
-{id:"netherite",name:"Netherite",icon:"⬡",description:"Fragmentos y bloques de netherite",items:[["Fragmento de netherite","7k"],["Lingote de netherite","28k"],["Bloque de netherite","252k"]]},
-{id:"items-crates",name:"Ítems de Crates",icon:"⚔",description:"Herramientas, armas y tótems especiales",items:[["Tótem +1 corazón","10m"],["Tótem +2 corazones","20m"],["Tótem +3 corazones","30m"],["Tótem +4 corazones","40m"],["Espada Halloween","30m"],["Pico","35m"],["Hacha","10m"],["Pala","5m"],["Arco Halloween","10m"],["Ballesta Halloween","8m"],["Palo Velocista","100m"],["Vara del Dios Inmortal","5m"]]},
-{id:"futbol",name:"Crate Fútbol",icon:"⚽",description:"Equipamiento temático de estrellas del fútbol",items:[["Casco Lamine Yamal","80m"],["Pechera Lamine Yamal","90m"],["Pantalón Lamine Yamal","85m"],["Botas Lamine Yamal","80m"],["Casco Mbappé","80m"],["Pechera Mbappé","90m"],["Pantalón Mbappé","85m"],["Botas Mbappé","80m"],["Casco ViniJr","80m"],["Pechera ViniciusJr","90m"],["Pantalón ViniciusJr","85m"],["Botas ViniciusJr","80m"],["Casco Messi","120m"],["Pechera Messi","130m"],["Pantalón Messi","125m"],["Botas Messi","120m"],["Casco Ronaldo","120m"],["Pechera Ronaldo","130m"],["Pantalón Ronaldo","125m"],["Botas Ronaldo","120m"],["Casco Neymar","120m"],["Pechera Neymar","130m"],["Pantalón Neymar","125m"],["Botas Neymar","120m"],["Casco Maradona","150m"],["Pechera Maradona","160m"],["Pantalón Maradona","155m"],["Botas Maradona","150m"],["Casco Pelé","160m"],["Pechera Pelé","155m"],["Botas Pelé","150m"],["Casco Zidane","150m"],["Pechera Zidane","160m"],["Pantalón Zidane","155m"],["Botas Zidane","150m"]]}
+{
+ id:"halloween",
+ name:"Crate Halloween",
+ icon:"🎃",
+ description:"Objetos y recompensas de Halloween",
+ items:[
+  ["Ojo de la bruja","2.8m"],
+  ["Oro de la predicción","3.5m"],
+  ["Lágrima del más allá","4.3m"],
+  ["Cristal del aquelarre","5m"],
+  ["Semillas malditas","930k"],
+  ["Calabaza maldita","1.166m"],
+  ["Calabaza de las almas","1.143m"],
+  ["Farol del inframundo","1.165m"],
+  ["Llave Halloween","20m"]
+ ]
+},
+{
+ id:"crates",
+ name:"Crates",
+ icon:"✧",
+ description:"Esencias, cristales, polvos y materiales especiales",
+ items:[
+  ["Esencia arcana","10k"],
+  ["Esencia eléctrica","20k"],
+  ["Cristal acuático","30k"],
+  ["Polvo solar","50k"],
+  ["Semilla natural","80k"],
+  ["Polvo espectral","100k"],
+  ["Núcleo ígneo","200k"],
+  ["Fragmento cósmico","500k"],
+  ["Fragmento lunar","700k"],
+  ["Estrella innombrada (Kaizora)","1m"],
+  ["Polvo plasmático","1.5m"]
+ ]
+},
+{
+ id:"llaves",
+ name:"Llaves",
+ icon:"♢",
+ description:"Llaves de rangos y llaves especiales",
+ items:[
+  ["Llave Origin","80k"],
+  ["Llave Elite","240k"],
+  ["Llave Celestial","480k"],
+  ["Llave Majestad","1.2m"],
+  ["Llave Guardian","2.56m"],
+  ["Llave Semidios","3.8m"],
+  ["Llave Dios","9.6m"],
+  ["Llave Kaizora","23m"],
+  ["Llave Fútbol","36m"]
+ ]
+},
+{
+ id:"netherite",
+ name:"Netherite",
+ icon:"⬡",
+ description:"Fragmentos y bloques de netherite",
+ items:[
+  ["Fragmento de netherite","7k"],
+  ["Lingote de netherite","28k"],
+  ["Bloque de netherite","252k"]
+ ]
+},
+{
+ id:"items-crates",
+ name:"Ítems de Crates",
+ icon:"⚔",
+ description:"Herramientas, armas y tótems especiales",
+ items:[
+  ["Tótem +1 corazón","10m"],
+  ["Tótem +2 corazones","20m"],
+  ["Tótem +3 corazones","30m"],
+  ["Tótem +4 corazones","40m"],
+  ["Espada Halloween","30m"],
+  ["Pico","35m"],
+  ["Hacha","10m"],
+  ["Pala","5m"],
+  ["Arco Halloween","10m"],
+  ["Ballesta Halloween","8m"],
+  ["Palo Velocista","100m"],
+  ["Vara del Dios Inmortal","5m"]
+ ]
+},
+{
+ id:"futbol",
+ name:"Crate Fútbol",
+ icon:"⚽",
+ description:"Equipamiento temático de estrellas del fútbol",
+ items:[
+  ["Casco Lamine Yamal","80m"],
+  ["Pechera Lamine Yamal","90m"],
+  ["Pantalón Lamine Yamal","85m"],
+  ["Botas Lamine Yamal","80m"],
+  ["Casco Mbappé","80m"],
+  ["Pechera Mbappé","90m"],
+  ["Pantalón Mbappé","85m"],
+  ["Botas Mbappé","80m"],
+  ["Casco ViniJr","80m"],
+  ["Pechera ViniciusJr","90m"],
+  ["Pantalón ViniciusJr","85m"],
+  ["Botas ViniciusJr","80m"],
+  ["Casco Messi","120m"],
+  ["Pechera Messi","130m"],
+  ["Pantalón Messi","125m"],
+  ["Botas Messi","120m"],
+  ["Casco Ronaldo","120m"],
+  ["Pechera Ronaldo","130m"],
+  ["Pantalón Ronaldo","125m"],
+  ["Botas Ronaldo","120m"],
+  ["Casco Neymar","120m"],
+  ["Pechera Neymar","130m"],
+  ["Pantalón Neymar","125m"],
+  ["Botas Neymar","120m"],
+  ["Casco Maradona","150m"],
+  ["Pechera Maradona","160m"],
+  ["Pantalón Maradona","155m"],
+  ["Botas Maradona","150m"],
+  ["Casco Pelé","160m"],
+  ["Pechera Pelé","155m"],
+  ["Botas Pelé","150m"],
+  ["Casco Zidane","150m"],
+  ["Pechera Zidane","160m"],
+  ["Pantalón Zidane","155m"],
+  ["Botas Zidane","150m"]
+ ]
+}
 ];
 
 const $ = id => document.getElementById(id);
-const searchInput=$("searchInput"),filters=$("filters"),sections=$("sections"),emptyState=$("emptyState"),clearBtn=$("clearBtn"),chatLog=$("chatLog"),chatForm=$("chatForm"),chatInput=$("chatInput"),sendBtn=$("sendBtn"),oracleBadge=$("oracleBadge"),oracleNote=$("oracleNote");
-let activeCategory="all",isSending=false;
-const conversationHistory=[];
-const normalize=value=>String(value).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
-const allItems=categories.flatMap(category=>category.items.map(([name,price])=>({name,price,category:category.name,categoryId:category.id})));
-const parsePrice=value=>{const m=String(value).toLowerCase().replace(/,/g,".").match(/^\s*(\d+(?:\.\d+)?)\s*([km]?)\s*$/);return m?Number(m[1])*(m[2]==="m"?1e6:m[2]==="k"?1e3:1):0};
-const formatMoney=value=>value>=1e6?`${Number((value/1e6).toFixed(3))}m`:value>=1e3?`${Number((value/1e3).toFixed(2))}k`:String(Math.round(value));
-const moneyText=value=>`${formatMoney(value)} (${Math.round(value).toLocaleString("es-ES")} monedas)`;
-const pricedItems=allItems.map(item=>({...item,amount:parsePrice(item.price),normalizedName:normalize(item.name)}));
-$("totalCount").textContent=allItems.length;
-$("categoryCount").textContent=categories.length;
 
-function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function renderFilters(){const buttons=[{id:"all",name:"Todos los objetos"},...categories.map(({id,name})=>({id,name}))];filters.innerHTML=buttons.map(b=>`<button type="button" class="filter-btn${activeCategory===b.id?" active":""}" data-category="${b.id}" aria-pressed="${activeCategory===b.id}">${escapeHTML(b.name)}</button>`).join("")}
+const searchInput = $("searchInput");
+const filters = $("filters");
+const sections = $("sections");
+const emptyState = $("emptyState");
+const clearBtn = $("clearBtn");
+const chatLog = $("chatLog");
+const chatForm = $("chatForm");
+const chatInput = $("chatInput");
+const sendBtn = $("sendBtn");
+const oracleBadge = $("oracleBadge");
+const oracleNote = $("oracleNote");
+
+let activeCategory = "all";
+let isSending = false;
+const conversationHistory = [];
+
+const normalize = value =>
+ String(value)
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g,"")
+  .toLowerCase()
+  .trim();
+
+const allItems = categories.flatMap(category =>
+ category.items.map(([name,price]) => ({
+  name,
+  price,
+  category:category.name,
+  categoryId:category.id
+ }))
+);
+
+const parsePrice = value => {
+ const match = String(value)
+  .toLowerCase()
+  .replace(/,/g,".")
+  .match(/^\s*(\d+(?:\.\d+)?)\s*([km]?)\s*$/);
+
+ if(!match) return 0;
+
+ return Number(match[1]) *
+  (match[2] === "m" ? 1e6 : match[2] === "k" ? 1e3 : 1);
+};
+
+const formatMoney = value =>
+ value >= 1e6
+  ? `${Number((value/1e6).toFixed(3))}m`
+  : value >= 1e3
+   ? `${Number((value/1e3).toFixed(2))}k`
+   : String(Math.round(value));
+
+const moneyText = value =>
+ `${formatMoney(value)} (${Math.round(value).toLocaleString("es-ES")} monedas)`;
+
+const pricedItems = allItems.map(item => ({
+ ...item,
+ amount:parsePrice(item.price),
+ normalizedName:normalize(item.name)
+}));
+
+$("totalCount").textContent = allItems.length;
+$("categoryCount").textContent = categories.length;
+
+function escapeHTML(value){
+ return String(value).replace(/[&<>"']/g,char=>({
+  "&":"&amp;",
+  "<":"&lt;",
+  ">":"&gt;",
+  '"':"&quot;",
+  "'":"&#39;"
+ }[char]));
+}
+
+function renderFilters(){
+ const buttons = [
+  {id:"all",name:"Todos los objetos"},
+  ...categories.map(({id,name})=>({id,name}))
+ ];
+
+ filters.innerHTML = buttons.map(button =>
+  `<button type="button"
+    class="filter-btn${activeCategory===button.id?" active":""}"
+    data-category="${button.id}"
+    aria-pressed="${activeCategory===button.id}">
+    ${escapeHTML(button.name)}
+   </button>`
+ ).join("");
+}
+
 function render(){
- const query=normalize(searchInput.value);let total=0;
- sections.innerHTML=categories.map(cat=>{
-  if(activeCategory!=="all"&&activeCategory!==cat.id)return "";
-  const items=cat.items.filter(([name])=>normalize(name).includes(query));if(!items.length)return "";total+=items.length;
-  return `<section class="section" id="section-${cat.id}"><div class="section-head"><div class="section-title-wrap"><div class="section-icon" aria-hidden="true">${cat.icon}</div><div><h2>${escapeHTML(cat.name)}</h2><p class="section-desc">${escapeHTML(cat.description)}</p></div></div><span class="count">${items.length} ${items.length===1?"objeto":"objetos"}</span></div><div class="items-grid">${items.map(([name,price])=>`<article class="item-card"><div><div class="item-name">${escapeHTML(name)}</div><div class="item-category">${escapeHTML(cat.name)}</div></div><div class="price">${escapeHTML(price)}</div></article>`).join("")}</div></section>`;
+ const query = normalize(searchInput.value);
+ let total = 0;
+
+ sections.innerHTML = categories.map(category=>{
+  if(activeCategory!=="all" && activeCategory!==category.id) return "";
+
+  const items = category.items.filter(([name]) =>
+   normalize(name).includes(query)
+  );
+
+  if(!items.length) return "";
+
+  total += items.length;
+
+  return `
+   <section class="section" id="section-${category.id}">
+    <div class="section-head">
+     <div class="section-title-wrap">
+      <div class="section-icon" aria-hidden="true">${category.icon}</div>
+      <div>
+       <h2>${escapeHTML(category.name)}</h2>
+       <p class="section-desc">${escapeHTML(category.description)}</p>
+      </div>
+     </div>
+     <span class="count">${items.length} ${items.length===1?"objeto":"objetos"}</span>
+    </div>
+    <div class="items-grid">
+     ${items.map(([name,price])=>`
+      <article class="item-card">
+       <div>
+        <div class="item-name">${escapeHTML(name)}</div>
+        <div class="item-category">${escapeHTML(category.name)}</div>
+       </div>
+       <div class="price">${escapeHTML(price)}</div>
+      </article>
+     `).join("")}
+    </div>
+   </section>
+  `;
  }).join("");
- emptyState.style.display=total?"none":"block";$("resultCount").textContent=total;
+
+ emptyState.style.display = total ? "none" : "block";
+ $("resultCount").textContent = total;
 }
+
 function addChatMessage(text,role,extraClass=""){
- const el=document.createElement("div");el.className=`chat-message ${role} ${extraClass}`.trim();el.textContent=text;chatLog.appendChild(el);chatLog.scrollTop=chatLog.scrollHeight;return el;
+ const element = document.createElement("div");
+ element.className = `chat-message ${role} ${extraClass}`.trim();
+ element.textContent = text;
+ chatLog.appendChild(element);
+ chatLog.scrollTop = chatLog.scrollHeight;
+ return element;
 }
 
-/* Respuestas locales para cuando todavía no has conectado el backend. */
+/* =========================================
+   ASISTENTE LOCAL
+   Funciona incluso sin conectar la API.
+========================================= */
+
 function answerQuestion(question){
- const q=normalize(question),sorted=[...pricedItems].sort((a,b)=>a.amount-b.amount),expensive=[...sorted].reverse();
- if(/\b(hola|buenas|buenos dias|hey|que tal)\b/.test(q))return"¡Hola! Soy Kaizora Price AI. Puedo consultar precios, comparar objetos, calcular presupuestos y ayudarte a decidir qué opciones entran en tu dinero.";
- if(/\b(ayuda|que puedes hacer|como funciona)\b/.test(q))return"Puedo buscar precios, comparar categorías y objetos, calcular diferencias, ordenar el catálogo y sugerir compras según tu presupuesto. Para recomendaciones sobre probabilidades o recompensas de crates necesito datos oficiales adicionales.";
- if(/mas caro|mayor precio|precio maximo|mas costoso/.test(q))return`El objeto más caro registrado es ${expensive[0].name}: ${expensive[0].price}, en ${expensive[0].category}.`;
- if(/mas barato|menor precio|precio minimo|mas economico/.test(q))return`El más barato es ${sorted[0].name}: ${sorted[0].price}. Después están ${sorted[1].name} (${sorted[1].price}) y ${sorted[2].name} (${sorted[2].price}).`;
- const budgetMatch=q.match(/(?:con|tengo|presupuesto(?: de)?|hasta|por)\s*(\d+(?:[.,]\d+)?)\s*(millones|millon|m|k|mil)?\b/);
- if(budgetMatch&&/\b(comprar|compro|alcanz|puedo|presupuesto|tengo|con|hasta|recomiendas|recomendar)\b/.test(q)){
-  const n=Number(budgetMatch[1].replace(",",".")),unit=normalize(budgetMatch[2]||"");
-  const budget=n*(["m","millon","millones"].includes(unit)?1e6:["k","mil"].includes(unit)?1e3:1);
-  const eligible=sorted.filter(i=>i.amount<=budget).sort((a,b)=>b.amount-a.amount);
-  if(!eligible.length)return`No hay objetos registrados por ${moneyText(budget)} o menos. El más barato cuesta ${sorted[0].price}.`;
-  const picks=eligible.slice(0,10);
-  return`Con ${moneyText(budget)}, estas son algunas de las opciones más caras que todavía entran en tu presupuesto:\n${picks.map(i=>`• ${i.name}: ${i.price} — te quedarían ${formatMoney(budget-i.amount)}`).join("\n")}\n\nSon precios individuales. No puedo afirmar cuál ofrece mejores recompensas sin conocer el contenido de cada crate.`;
+ const q = normalize(question);
+ const sorted = [...pricedItems].sort((a,b)=>a.amount-b.amount);
+ const expensive = [...sorted].reverse();
+
+ if(/\b(hola|buenas|buenos dias|hey|que tal)\b/.test(q)){
+  return "¡Hola! Soy Kaizora Price AI. Puedo consultar precios, comparar objetos, calcular presupuestos y ayudarte a decidir qué opciones entran en tu dinero.";
  }
- const cat=categories.find(c=>q.includes(normalize(c.name))||q.includes(normalize(c.id))||(q.includes("futbol")&&c.id==="futbol")||(q.includes("halloween")&&c.id==="halloween")||(q.includes("llaves")&&c.id==="llaves")||(q.includes("netherite")&&c.id==="netherite")||(q.includes("totem")&&c.id==="items-crates"));
- if(cat&&/minimo|minima|minimos|minimas|rango|desde cuanto|mas caro|mas barato|compar|resumen/.test(q)){
-  const list=pricedItems.filter(i=>i.categoryId===cat.id).sort((a,b)=>a.amount-b.amount);
-  return`Resumen de ${cat.name}:\n• Más barato: ${list[0].name} — ${list[0].price}\n• Más caro: ${list.at(-1).name} — ${list.at(-1).price}\n• Diferencia: ${formatMoney(list.at(-1).amount-list[0].amount)}\n• Objetos registrados: ${list.length}.`;
+
+ if(/\b(ayuda|que puedes hacer|como funciona)\b/.test(q)){
+  return "Puedo buscar precios, comparar categorías y objetos, calcular diferencias, ordenar el catálogo y sugerir compras según tu presupuesto. Para recomendaciones sobre probabilidades o recompensas de crates necesito datos oficiales adicionales.";
  }
- let matches=pricedItems.filter(i=>q.includes(i.normalizedName)||i.normalizedName.split(/\s+/).filter(w=>w.length>3).some(w=>q.includes(w)));
- if(/compar|diferencia|\bvs\b|versus/.test(q)&&matches.length>=2){
-  matches=matches.sort((a,b)=>b.amount-a.amount).slice(0,8);
-  return`Comparación de precios:\n${matches.map(i=>`• ${i.name}: ${i.price}`).join("\n")}\nDiferencia entre el mayor y el menor: ${formatMoney(matches[0].amount-matches.at(-1).amount)}.`;
+
+ if(/mas caro|mayor precio|precio maximo|mas costoso/.test(q)){
+  return `El objeto más caro registrado es ${expensive[0].name}: ${expensive[0].price}, en ${expensive[0].category}.`;
  }
+
+ if(/mas barato|menor precio|precio minimo|mas economico/.test(q)){
+  return `El más barato es ${sorted[0].name}: ${sorted[0].price}. Después están ${sorted[1].name} (${sorted[1].price}) y ${sorted[2].name} (${sorted[2].price}).`;
+ }
+
+ const budgetMatch = q.match(
+  /(?:con|tengo|presupuesto(?: de)?|hasta|por)\s*(\d+(?:[.,]\d+)?)\s*(millones|millon|m|k|mil)?\b/
+ );
+
+ if(
+  budgetMatch &&
+  /\b(comprar|compro|alcanz|puedo|presupuesto|tengo|con|hasta|recomiendas|recomendar)\b/.test(q)
+ ){
+  const number = Number(budgetMatch[1].replace(",","." ));
+  const unit = normalize(budgetMatch[2]||"");
+
+  const budget = number *
+   (["m","millon","millones"].includes(unit)
+    ? 1e6
+    : ["k","mil"].includes(unit)
+     ? 1e3
+     : 1);
+
+  const eligible = sorted
+   .filter(item=>item.amount<=budget)
+   .sort((a,b)=>b.amount-a.amount);
+
+  if(!eligible.length){
+   return `No hay objetos registrados por ${moneyText(budget)} o menos. El más barato cuesta ${sorted[0].price}.`;
+  }
+
+  const picks = eligible.slice(0,10);
+
+  return `Con ${moneyText(budget)}, estas son algunas de las opciones más caras que todavía entran en tu presupuesto:\n${picks.map(item=>`• ${item.name}: ${item.price} — te quedarían ${formatMoney(budget-item.amount)}`).join("\n")}\n\nSon precios individuales. No puedo afirmar cuál ofrece mejores recompensas sin conocer el contenido de cada crate.`;
+ }
+
+ const category = categories.find(item=>{
+  const name = normalize(item.name);
+  const id = normalize(item.id);
+
+  return q.includes(name) ||
+   q.includes(id) ||
+   (q.includes("futbol") && item.id==="futbol") ||
+   (q.includes("halloween") && item.id==="halloween") ||
+   (q.includes("llaves") && item.id==="llaves") ||
+   (q.includes("netherite") && item.id==="netherite") ||
+   (q.includes("totem") && item.id==="items-crates");
+ });
+
+ if(category && /minimo|minima|minimos|minimas|rango|desde cuanto|mas caro|mas barato|compar|resumen/.test(q)){
+  const list = pricedItems
+   .filter(item=>item.categoryId===category.id)
+   .sort((a,b)=>a.amount-b.amount);
+
+  return `Resumen de ${category.name}:\n• Más barato: ${list[0].name} — ${list[0].price}\n• Más caro: ${list.at(-1).name} — ${list.at(-1).price}\n• Diferencia: ${formatMoney(list.at(-1).amount-list[0].amount)}\n• Objetos registrados: ${list.length}.`;
+ }
+
+ let matches = pricedItems.filter(item =>
+  q.includes(item.normalizedName) ||
+  item.normalizedName.split(/\s+/).filter(word=>word.length>3).some(word=>q.includes(word))
+ );
+
+ if(/compar|diferencia|\bvs\b|versus/.test(q) && matches.length>=2){
+  matches = matches.sort((a,b)=>b.amount-a.amount).slice(0,8);
+
+  return `Comparación de precios:\n${matches.map(item=>`• ${item.name}: ${item.price}`).join("\n")}\nDiferencia entre el mayor y el menor: ${formatMoney(matches[0].amount-matches.at(-1).amount)}.`;
+ }
+
  if(matches.length){
-  matches=matches.sort((a,b)=>a.normalizedName.length-b.normalizedName.length).slice(0,6);
-  return matches.length===1?`${matches[0].name} cuesta ${matches[0].price} en el catálogo (${matches[0].category}). El listado no distingue entre precio de compra y precio de venta.`:`Encontré estos objetos relacionados:\n${matches.map(i=>`• ${i.name}: ${i.price} — ${i.category}`).join("\n")}\nSi quieres, puedo compararlos o calcular cuáles entran en tu presupuesto.`;
+  matches = matches
+   .sort((a,b)=>a.normalizedName.length-b.normalizedName.length)
+   .slice(0,6);
+
+  if(matches.length===1){
+   return `${matches[0].name} cuesta ${matches[0].price} en el catálogo (${matches[0].category}). El listado no distingue entre precio de compra y precio de venta.`;
+  }
+
+  return `Encontré estos objetos relacionados:\n${matches.map(item=>`• ${item.name}: ${item.price} — ${item.category}`).join("\n")}\nSi quieres, puedo compararlos o calcular cuáles entran en tu presupuesto.`;
  }
- if(/categoria|secciones|cuantas categorias/.test(q))return`El catálogo tiene ${categories.length} categorías y ${allItems.length} objetos: ${categories.map(c=>`${c.name} (${c.items.length})`).join(", ")}.`;
- return"En este momento estoy en modo local y no entiendo esa pregunta con suficiente seguridad. Si conectas el backend, podré interpretar preguntas más abiertas y mantener mejor el contexto. Puedo consultar precios y presupuestos con los datos de esta página.";
+
+ if(/categoria|secciones|cuantas categorias/.test(q)){
+  return `El catálogo tiene ${categories.length} categorías y ${allItems.length} objetos: ${categories.map(category=>`${category.name} (${category.items.length})`).join(", ")}.`;
+ }
+
+ return "En este momento estoy en modo local y no entiendo esa pregunta con suficiente seguridad. Puedo consultar precios, comparar objetos y calcular presupuestos con los datos de esta página.";
 }
 
-/* Conecta con el backend: el Worker guarda la clave privada y devuelve { reply: "..." }. */
+/* =========================================
+   CONEXIÓN CON EL BACKEND SEGURO
+   El Worker debe responder { "reply": "..." }.
+========================================= */
+
 async function askRealAI(question){
- const catalog=categories.map(c=>({category:c.name,items:c.items.map(([name,price])=>({name,price}))}));
- const response=await fetch(AI_API_URL,{
+ if(!AI_API_URL || !AI_API_URL.trim()){
+  throw new Error("AI_API_URL no está configurada.");
+ }
+
+ const catalog = categories.map(category=>({
+  category:category.name,
+  items:category.items.map(([name,price])=>({name,price}))
+ }));
+
+ const response = await fetch(AI_API_URL,{
   method:"POST",
   headers:{"Content-Type":"application/json"},
   body:JSON.stringify({
@@ -142,50 +609,135 @@ async function askRealAI(question){
    history:conversationHistory.slice(-12),
    catalog,
    currency:"Monedas del servidor; k = miles, m = millones",
-   instructions:"Responde en español natural. Comprende la intención y el contexto. Usa el catálogo como fuente oficial de precios. Puedes calcular sumas, diferencias y presupuestos. No inventes precios, drops, probabilidades, rentabilidad ni reglas del servidor. Si faltan datos, dilo. No confundas precio de catálogo con precio de venta real."
+   instructions:"Responde en español natural y conversacional. Comprende la intención y el contexto de la conversación. Usa el catálogo enviado como fuente oficial de precios. Puedes calcular sumas, diferencias y presupuestos. No inventes precios, drops, probabilidades, rentabilidad ni reglas del servidor. Si faltan datos, dilo claramente. No confundas precio de catálogo con precio de venta real."
   })
  });
- if(!response.ok)throw new Error(`Error del backend: ${response.status}`);
- const data=await response.json();
- if(typeof data.reply!=="string"||!data.reply.trim())throw new Error("El backend no devolvió una respuesta válida");
+
+ if(!response.ok){
+  let detail = "";
+  try{
+   const errorData = await response.json();
+   detail = errorData.error || errorData.message || "";
+  }catch(_error){}
+  throw new Error(`Error del backend (${response.status})${detail?": "+detail:""}`);
+ }
+
+ const data = await response.json();
+
+ if(typeof data.reply!=="string" || !data.reply.trim()){
+  throw new Error("El backend no devolvió una respuesta válida.");
+ }
+
  return data.reply.trim();
 }
 
+/* =========================================
+   ENVÍO Y CONTROL DEL CHAT
+========================================= */
+
 async function submitQuestion(question){
- if(!question||isSending)return;
- isSending=true;chatInput.value="";chatInput.disabled=true;sendBtn.disabled=true;
+ if(!question || isSending) return;
+
+ isSending = true;
+ chatInput.value = "";
+ chatInput.disabled = true;
+ sendBtn.disabled = true;
+
  addChatMessage(question,"user");
- const waiting=addChatMessage(AI_API_URL?"Kaizora Price AI está pensando…":"Analizando el catálogo…","bot","thinking");
+
+ const connected = Boolean(AI_API_URL && AI_API_URL.trim());
+
+ const waiting = addChatMessage(
+  connected ? "Kaizora Price AI está pensando…" : "Analizando el catálogo…",
+  "bot",
+  "thinking"
+ );
+
  try{
   let reply;
-  if(AI_API_URL.trim()){
-   reply=await askRealAI(question);
-   oracleBadge.textContent="● IA conectada";
-   oracleNote.textContent="IA conectada mediante backend seguro. Los precios se consultan desde el catálogo; no se inventan probabilidades ni reglas.";
+
+  if(connected){
+   reply = await askRealAI(question);
+   oracleBadge.textContent = "● IA conectada";
+   oracleNote.textContent = "IA conectada mediante backend seguro. Los precios se consultan desde el catálogo; no se inventan probabilidades ni reglas.";
   }else{
-   reply=answerQuestion(question);
-   oracleBadge.textContent="● Modo local";
-   oracleNote.textContent="Modo local activo. Para respuestas de IA generativa, publica el backend seguro y configura AI_API_URL. No pongas tu clave privada en este HTML.";
+   reply = answerQuestion(question);
+   oracleBadge.textContent = "● Modo local";
+   oracleNote.textContent = "El asistente local está activo. Para usar IA generativa, publica tu backend seguro y configura AI_API_URL. Nunca pongas tu clave privada en este archivo público.";
   }
-  waiting.classList.remove("thinking");waiting.textContent=reply;
-  conversationHistory.push({role:"user",content:question},{role:"assistant",content:reply});
-  if(conversationHistory.length>24)conversationHistory.splice(0,conversationHistory.length-24);
+
+  waiting.classList.remove("thinking");
+  waiting.textContent = reply;
+
+  conversationHistory.push(
+   {role:"user",content:question},
+   {role:"assistant",content:reply}
+  );
+
+  if(conversationHistory.length>24){
+   conversationHistory.splice(0,conversationHistory.length-24);
+  }
+
  }catch(error){
   console.error("Kaizora Price AI:",error);
+
   waiting.classList.remove("thinking");
-  waiting.textContent="No pude conectar con la IA. Comprueba que la URL del Worker sea correcta, que el backend esté activo y que la clave esté configurada como secreto en Cloudflare.";
-  oracleBadge.textContent="● Sin conexión";
-  oracleNote.textContent="La conexión con el backend falló. La clave de OpenAI debe permanecer en el servidor, nunca en este archivo público.";
+  waiting.textContent = "No pude conectar con la IA. Comprueba la URL del Worker, que el backend esté activo, que la clave esté configurada como secreto y que CORS permita tu web de GitHub Pages.";
+
+  oracleBadge.textContent = "● Sin conexión";
+  oracleNote.textContent = "Falló la conexión con el backend. Puedes seguir usando las funciones locales. La clave de OpenAI debe permanecer en el servidor, nunca en este archivo público.";
  }
- isSending=false;chatInput.disabled=false;sendBtn.disabled=false;chatInput.focus();
+
+ isSending = false;
+ chatInput.disabled = false;
+ sendBtn.disabled = false;
+ chatInput.focus();
 }
-chatForm.addEventListener("submit",event=>{event.preventDefault();submitQuestion(chatInput.value.trim())});
-$("chatSuggestions").addEventListener("click",event=>{const b=event.target.closest("[data-question]");if(b)submitQuestion(b.dataset.question)});
-filters.addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(!b)return;activeCategory=b.dataset.category;renderFilters();render()});
+
+/* =========================================
+   EVENTOS
+========================================= */
+
+chatForm.addEventListener("submit",event=>{
+ event.preventDefault();
+ submitQuestion(chatInput.value.trim());
+});
+
+$("chatSuggestions").addEventListener("click",event=>{
+ const button = event.target.closest("[data-question]");
+ if(button) submitQuestion(button.dataset.question);
+});
+
+filters.addEventListener("click",event=>{
+ const button = event.target.closest("[data-category]");
+ if(!button) return;
+
+ activeCategory = button.dataset.category;
+ renderFilters();
+ render();
+});
+
 searchInput.addEventListener("input",render);
-clearBtn.addEventListener("click",()=>{searchInput.value="";activeCategory="all";renderFilters();render();searchInput.focus()});
-renderFilters();render();
-addChatMessage("¡Buenas! Soy Kaizora Price AI. Pregúntame por precios, comparaciones o presupuestos. Con la IA conectada también podré entender preguntas más naturales y conversar teniendo en cuenta el contexto.","bot");
+
+clearBtn.addEventListener("click",()=>{
+ searchInput.value = "";
+ activeCategory = "all";
+ renderFilters();
+ render();
+ searchInput.focus();
+});
+
+/* =========================================
+   INICIALIZACIÓN
+========================================= */
+
+renderFilters();
+render();
+
+addChatMessage(
+ "¡Buenas! Soy Kaizora Price AI. Pregúntame por precios, comparaciones o presupuestos. Puedo utilizar el catálogo de esta página y, cuando conectes el backend seguro, también podré responder con IA generativa y mantener el contexto de la conversación.",
+ "bot"
+);
 </script>
 </body>
 </html>
