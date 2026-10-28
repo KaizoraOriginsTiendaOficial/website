@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09070e">
+<meta name="description" content="Guía oficial para entender el catálogo de precios de Kaizora Origins, sus estimaciones y las normas de comercio de objetos especiales.">
+<title>Cómo funciona | Kaizora Origins</title>
+
+<style>
+:root{
+  --purple:#9B5DE5;
+  --pink:#FF6DE1;
+  --bg:#09070e;
+  --surface:#120d1a;
+  --surface2:#191121;
+  --border:rgba(206,160,255,.17);
+  --text:#f7f2ff;
+  --muted:#afa2bd;
+  --red:#ff526d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:25px}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+a{color:inherit}
+button{font:inherit}
+.page{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 10% 0%,rgba(155,93,229,.18),transparent 36%),
+    radial-gradient(ellipse at 95% 20%,rgba(255,109,225,.09),transparent 30%);
+}
+.wrap{width:min(1080px,calc(100% - 34px));margin:auto}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.07)
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:13px;
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  color:white;font-weight:1000;font-size:20px;
+  box-shadow:0 0 25px rgba(155,93,229,.22)
+}
+.brand-name{font-size:13px;font-weight:950;letter-spacing:.13em}
+.brand-sub{margin-top:4px;color:#9d90aa;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+.back{
+  text-decoration:none;border:1px solid var(--border);border-radius:11px;
+  padding:10px 13px;background:rgba(20,13,29,.8);
+  font-size:11px;font-weight:850;color:#e6d5fa;transition:.2s
+}
+.back:hover{border-color:var(--pink);transform:translateY(-1px)}
+.hero{padding:68px 0 38px;text-align:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
+  border:1px solid rgba(202,143,255,.26);border-radius:999px;
+  color:#e1bcff;background:rgba(155,93,229,.09);
+  font-size:10px;font-weight:900;letter-spacing:.16em
+}
+h1{
+  margin:22px 0 16px;font-size:clamp(38px,6vw,68px);
+  line-height:1.02;letter-spacing:-.055em;font-weight:1000
+}
+h1 span{
+  display:block;background:linear-gradient(95deg,#fff 5%,#d4a7ff 45%,#ff8ee8 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero>p{
+  max-width:700px;margin:auto;color:#b8adbf;
+  font-size:14px;line-height:1.9
+}
+.hero-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:25px}
+.action{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--border);border-radius:12px;padding:12px 16px;
+  text-decoration:none;font-size:11px;font-weight:900;transition:.2s
+}
+.action.primary{border:0;background:linear-gradient(110deg,#8b4dd1,#c74cbd);color:#fff}
+.action.secondary{background:rgba(255,255,255,.025);color:#e4d6f2}
+.action:hover{transform:translateY(-2px);filter:brightness(1.12)}
+/* AVISO PRINCIPAL */
+.legal{
+  position:relative;overflow:hidden;margin:0 auto 25px;
+  padding:24px;border:1px solid rgba(255,82,109,.42);
+  border-radius:20px;
+  background:linear-gradient(120deg,rgba(105,20,43,.26),rgba(35,13,28,.78));
+  box-shadow:0 12px 40px rgba(0,0,0,.16)
+}
+.legal:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(var(--red),#ff9b77)
+}
+.legal-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.legal-icon{
+  flex:0 0 43px;height:43px;display:grid;place-items:center;
+  border:1px solid rgba(255,82,109,.35);border-radius:13px;
+  background:rgba(255,82,109,.12);color:#ff8798;font-size:21px;font-weight:1000
+}
+.legal-label{color:#ff8b9d;font-size:10px;font-weight:1000;letter-spacing:.15em;text-transform:uppercase}
+.legal h2{margin:5px 0 0;font-size:clamp(19px,3vw,25px);letter-spacing:-.035em}
+.legal p{margin:10px 0 0;color:#e2cbd3;font-size:13px;line-height:1.9}
+.legal strong{color:#fff}
+.legal .big-warning{
+  display:block;margin-top:15px;padding:13px 15px;
+  border:1px solid rgba(255,82,109,.27);border-radius:12px;
+  background:rgba(255,82,109,.08);color:#ffb4bf;
+  font-size:12px;line-height:1.8;font-weight:800
+}
+/* CONTENIDO */
+.contents{
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+  padding:14px;margin:0 0 35px;border:1px solid var(--border);
+  border-radius:15px;background:rgba(18,13,26,.8)
+}
+.contents-label{margin:0 5px;color:#95869f;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.contents a{
+  text-decoration:none;color:#d8c5e9;font-size:11px;font-weight:750;
+  padding:8px 10px;border:1px solid transparent;border-radius:9px
+}
+.contents a:hover{border-color:var(--border);background:rgba(155,93,229,.09);color:#fff}
+.section{margin:0 0 38px;scroll-margin-top:22px}
+.section-heading{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.section-icon{
+  width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;
+  border:1px solid rgba(195,140,255,.22);border-radius:13px;
+  background:linear-gradient(145deg,rgba(155,93,229,.2),rgba(255,109,225,.07));
+  font-size:18px
+}
+.section-heading h2{margin:0;font-size:clamp(19px,3vw,25px);font-weight:950;letter-spacing:-.035em}
+.section-heading p{margin:5px 0 0;color:#9d90aa;font-size:11px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{
+  min-width:0;padding:19px;border:1px solid var(--border);
+  border-radius:16px;background:linear-gradient(145deg,rgba(24,17,34,.97),rgba(15,11,22,.97))
+}
+.card h3{margin:0 0 9px;font-size:14px;font-weight:900}
+.card p{margin:0;color:#b6a9c3;font-size:12px;line-height:1.85}
+.card p+p{margin-top:9px}
+.number{
+  display:inline-grid;place-items:center;width:27px;height:27px;margin-bottom:12px;
+  border-radius:9px;background:rgba(155,93,229,.16);
+  color:#e4c4ff;font-size:11px;font-weight:950
+}
+.callout{
+  margin-top:12px;padding:13px 14px;border:1px solid rgba(195,140,255,.17);
+  border-radius:12px;background:rgba(155,93,229,.07);
+  color:#d7c4e8;font-size:11px;line-height:1.8
+}
+.callout strong{color:#fff}
+.price-example{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:13px}
+.price-box{
+  padding:13px 10px;text-align:center;border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;background:rgba(255,255,255,.025)
+}
+.price-box strong{display:block;color:#ff9fe9;font-size:19px;font-weight:950}
+.price-box span{display:block;margin-top:6px;color:#9d90aa;font-size:10px;line-height:1.5}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.step{
+  padding:18px;border:1px solid var(--border);border-radius:15px;
+  background:rgba(18,13,26,.85)
+}
+.step-num{font-size:10px;font-weight:950;color:#e5b7ff;letter-spacing:.13em}
+.step h3{font-size:13px;margin:11px 0 8px}
+.step p{font-size:11px;line-height:1.85;color:#ad9fba;margin:0}
+ul.clean{padding-left:18px;margin:10px 0 0;color:#b7a9c3;font-size:12px;line-height:2}
+ul.clean li::marker{color:var(--pink)}
+/* PREGUNTAS */
+.faq{display:grid;gap:9px}
+details{
+  border:1px solid var(--border);border-radius:13px;
+  background:rgba(18,13,26,.8);overflow:hidden
+}
+summary{
+  cursor:pointer;list-style:none;padding:16px 17px;
+  font-size:12px;font-weight:850;display:flex;justify-content:space-between;gap:12px
+}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:#e0a5ff;font-size:17px;line-height:1}
+details[open] summary:after{content:"−"}
+details p{padding:0 17px 17px;margin:0;color:#b5a7c1;font-size:12px;line-height:1.9}
+.final-note{
+  margin:30px 0 55px;padding:22px;border:1px solid rgba(195,140,255,.24);
+  border-radius:18px;text-align:center;
+  background:linear-gradient(120deg,rgba(155,93,229,.12),rgba(255,109,225,.05))
+}
+.final-note h2{font-size:20px;margin:0 0 9px}
+.final-note p{max-width:650px;margin:0 auto 17px;color:#b8a9c4;font-size:12px;line-height:1.9}
+footer{border-top:1px solid rgba(255,255,255,.07);padding:22px 0 30px;color:#81758d;font-size:10px}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer strong{color:#c9b2e0;letter-spacing:.12em}
+@media(max-width:700px){
+  .grid,.steps{grid-template-columns:1fr}
+  .hero{padding:48px 0 30px}
+  .price-example{grid-template-columns:1fr}
+  .price-box{display:flex;align-items:center;justify-content:space-between;text-align:left;gap:12px}
+  .price-box span{margin:0}
+  .contents-label{width:100%}
+}
+@media(max-width:480px){
+  .wrap{width:calc(100% - 24px)}
+  header{padding:15px 0}
+  .brand-name{font-size:10px}
+  .brand-sub{font-size:8px}
+  .logo{width:37px;height:37px}
+  .back{padding:9px;font-size:10px}
+  .legal{padding:19px 16px}
+  .card{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+
+<body>
+<div class="page">
+  <header class="wrap">
+    <a class="brand" href="index.html" aria-label="Volver a Kaizora Origins">
+      <div class="logo">K</div>
+      <div>
+        <div class="brand-name">KAIZORA ORIGINS</div>
+        <div class="brand-sub">Guía del catálogo</div>
+      </div>
+    </a>
+    <a class="back" href="index.html">← Volver al inicio</a>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">✦ GUÍA OFICIAL · KAIZORA ORIGINS</div>
+      <h1>¿CÓMO <span>FUNCIONA?</span></h1>
+      <p>
+        Este apartado existe para que puedas consultar los valores de referencia de los objetos,
+        entender las cantidades de la economía y utilizar las herramientas de cálculo.
+        Antes de usar la información, es importante conocer las normas que se aplican a este catálogo.
+      </p>
+      <div class="hero-links">
+        <a class="action primary" href="#aviso">Leer aviso importante ↓</a>
+        <a class="action secondary" href="#precios">Entender los precios</a>
+      </div>
+    </section>
+
+    <section class="legal" id="aviso" aria-labelledby="legalTitle">
+      <div class="legal-top">
+        <div class="legal-icon">!</div>
+        <div>
+          <div class="legal-label">Aviso importante · Leer antes de continuar</div>
+          <h2 id="legalTitle">Estos objetos son ilegales para vender dentro del servidor.</h2>
+        </div>
+      </div>
+
+      <p>
+        Los objetos incluidos en este apartado son elementos especiales cuyo valor se muestra
+        únicamente como <strong>referencia informativa</strong>. Que un objeto aparezca en el catálogo
+        y tenga un precio asignado no significa que esté autorizado comerciar con él dentro de Kaizora Origins.
+      </p>
+
+      <p>
+        <strong>Está prohibido vender estos objetos dentro del servidor.</strong>
+        No debes utilizarlos para realizar ventas entre jugadores, establecer acuerdos de compraventa
+        ni presentar los valores de esta página como autorización para comerciar con ellos.
+        Tener un precio publicado no convierte una transacción prohibida en una transacción permitida.
+      </p>
+
+      <span class="big-warning">
+        IMPORTANTE: consulta las normas oficiales del servidor si tienes dudas sobre un objeto.
+        Esta página no concede permisos, excepciones ni autorizaciones para venderlo.
+        El catálogo sirve para consultar información y hacer cálculos, no para legitimar el comercio
+        de objetos prohibidos.
+      </span>
+    </section>
+
+    <nav class="contents" aria-label="Contenido de la guía">
+      <p class="contents-label">En esta guía</p>
+      <a href="#objetivo">Objetivo</a>
+      <a href="#precios">Precios</a>
+      <a href="#cantidades">k y m</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#asistente">Price AI</a>
+      <a href="#normas">Normas</a>
+      <a href="#preguntas">Preguntas frecuentes</a>
+    </nav>
+
+    <section class="section" id="objetivo">
+      <div class="section-heading">
+        <div class="section-icon">✦</div>
+        <div>
+          <h2>¿Para qué sirve este apartado?</h2>
+          <p>Una herramienta informativa para consultar y comprender los valores del catálogo.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="number">01</div>
+          <h3>Consultar objetos y valores</h3>
+          <p>
+            El catálogo reúne distintos objetos especiales y muestra el valor de referencia asociado
+            a cada uno. Puedes recorrer sus categorías para encontrar el objeto que te interesa.
+          </p>
+        </article>
+        <article class="card">
+          <div class="number">02</div>
+          <h3>Encontrar información rápidamente</h3>
+          <p>
+            Utiliza el buscador para escribir el nombre de un objeto. También puedes seleccionar
+            una categoría para reducir los resultados y localizar lo que buscas con más facilidad.
+          </p>
+        </article>
+        <article class="card">
+          <div class="number">03</div>
+          <h3>Realizar cálculos</h3>
+          <p>
+            La calculadora te ayuda a sumar cantidades, restar valores, multiplicar, dividir y
+            resolver operaciones con cantidades grandes de la economía.
+          </p>
+        </article>
+        <article class="card">
+          <div class="number">04</div>
+          <h3>Comprender los precios</h3>
+          <p>
+            Kaizora Price AI puede ayudarte a interpretar los datos disponibles y realizar operaciones.
+            Sus respuestas se basan en la información que contiene la página y no sustituyen las normas oficiales.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="precios">
+      <div class="section-heading">
+        <div class="section-icon">◇</div>
+        <div>
+          <h2>¿Cómo funcionan los precios?</h2>
+          <p>Qué representa un valor publicado y qué no debes interpretar a partir de él.</p>
+        </div>
+      </div>
+
+      <article class="card">
+        <h3>Un valor de referencia, no un permiso de comercio</h3>
+        <p>
+          Cada precio representa la cantidad indicada en el catálogo para ese objeto.
+          Puedes utilizarlo para consultar información y efectuar cálculos matemáticos.
+          Sin embargo, <strong>no es una autorización para vender el objeto dentro del servidor</strong>.
+        </p>
+        <p>
+          Los valores publicados tampoco garantizan que el servidor compre el objeto por esa cantidad,
+          que exista una oferta disponible o que otro jugador esté dispuesto a intercambiarlo.
+          El catálogo no confirma transacciones ni comprueba inventarios.
+        </p>
+
+        <div class="callout">
+          <strong>Ejemplo:</strong> si un objeto aparece con un valor de 500k, significa que la página
+          muestra 500.000 monedas como referencia. No significa que puedas venderlo legalmente por
+          esa cantidad en Kaizora Origins.
+        </div>
+      </article>
+
+      <div class="price-example">
+        <div class="price-box">
+          <strong>50k</strong>
+          <span>50.000 monedas</span>
+        </div>
+        <div class="price-box">
+          <strong>1m</strong>
+          <span>1.000.000 de monedas</span>
+        </div>
+        <div class="price-box">
+          <strong>750k</strong>
+          <span>750.000 monedas</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cantidades">
+      <div class="section-heading">
+        <div class="section-icon">#</div>
+        <div>
+          <h2>Entender las cantidades: k y m</h2>
+          <p>Abreviaturas utilizadas para que los números grandes sean más fáciles de leer.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>k = mil</h3>
+          <p>
+            La letra <strong>k</strong> representa miles. Por ejemplo, 5k equivale a 5.000 monedas,
+            50k equivale a 50.000 y 750k equivale a 750.000.
+          </p>
+        </article>
+        <article class="card">
+          <h3>m = millón</h3>
+          <p>
+            La letra <strong>m</strong> representa millones. Por ejemplo, 1m equivale a 1.000.000
+            monedas, 2.5m equivale a 2.500.000 y 10m equivale a 10.000.000.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong>Recuerda:</strong> estas abreviaturas sirven para leer y calcular cantidades.
+        No modifican las normas del servidor ni cambian el estado legal de los objetos.
+      </div>
+    </section>
+
+    <section class="section" id="calculadora">
+      <div class="section-heading">
+        <div class="section-icon">∑</div>
+        <div>
+          <h2>Cómo utilizar la calculadora</h2>
+          <p>Resuelve operaciones sin tener que escribir todos los ceros.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <div class="step-num">PASO 01</div>
+          <h3>Introduce una operación</h3>
+          <p>Escribe una cantidad o una operación como 3.5m + 130m. También puedes usar los botones de la calculadora.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">PASO 02</div>
+          <h3>Usa los operadores</h3>
+          <p>Utiliza + para sumar, − para restar, × para multiplicar y ÷ para dividir. Puedes agrupar operaciones con paréntesis.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">PASO 03</div>
+          <h3>Consulta el resultado</h3>
+          <p>Pulsa «Calcular» o Enter. El resultado aparecerá abreviado y también podrás consultar la cantidad exacta de monedas.</p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong>Ejemplo:</strong> 3.5m + 130m = 133.5m, es decir, 133.500.000 monedas.
+        El resultado es un cálculo matemático, no una autorización para comerciar objetos prohibidos.
+      </div>
+    </section>
+
+    <section class="section" id="asistente">
+      <div class="section-heading">
+        <div class="section-icon">✧</div>
+        <div>
+          <h2>Kaizora Price AI</h2>
+          <p>Un asistente local para ayudarte a interpretar el catálogo y hacer cuentas.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>¿Qué puedes preguntarle?</h3>
+          <ul class="clean">
+            <li>El precio de un objeto incluido en el catálogo.</li>
+            <li>La suma de varios objetos.</li>
+            <li>El resultado de operaciones con k y m.</li>
+            <li>Qué cantidades caben dentro de un presupuesto.</li>
+            <li>La diferencia matemática entre varios valores.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>¿Qué debes tener en cuenta?</h3>
+          <p>
+            La IA responde a partir de los datos disponibles en la página. No puede confirmar
+            el estado de un objeto dentro del servidor, revisar una transacción ni garantizar
+            que un precio esté actualizado en tiempo real.
+          </p>
+          <p>
+            Cualquier cálculo orientativo debe entenderse como información matemática, no como
+            una recomendación para incumplir las normas.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong>Privacidad:</strong> el asistente incluido en esta página funciona con lógica local
+        de JavaScript. Sus respuestas no implican que se consulte una base de datos en vivo del servidor.
+      </div>
+    </section>
+
+    <section class="section" id="normas">
+      <div class="section-heading">
+        <div class="section-icon">⚑</div>
+        <div>
+          <h2>Normas y uso responsable</h2>
+          <p>Lo que debes recordar al consultar los objetos y sus valores.</p>
+        </div>
+      </div>
+
+      <article class="card">
+        <h3>El catálogo no está por encima de las reglas</h3>
+        <ul class="clean">
+          <li>Los objetos señalados como ilegales no pueden venderse dentro del servidor.</li>
+          <li>Un precio publicado no constituye un permiso de compraventa.</li>
+          <li>No utilices esta página para justificar ventas o acuerdos que estén prohibidos.</li>
+          <li>Las estimaciones de la IA no son precios oficiales de compra ni de venta.</li>
+          <li>Si tienes dudas sobre un objeto, consulta las normas oficiales o pregunta al equipo de administración.</li>
+          <li>La información de este apartado es orientativa y puede no reflejar cambios recientes del servidor.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section" id="preguntas">
+      <div class="section-heading">
+        <div class="section-icon">?</div>
+        <div>
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas rápidas a las dudas más comunes.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Si un objeto tiene precio, ¿puedo venderlo?</summary>
+          <p>No. El precio es una referencia informativa. Los objetos incluidos en este apartado son ilegales para vender dentro del servidor. Mostrar un valor no autoriza su compraventa.</p>
+        </details>
+
+        <details>
+          <summary>¿Los precios son siempre exactos y están actualizados?</summary>
+          <p>No necesariamente. Son los valores que aparecen publicados en el catálogo. Pueden cambiar y no representan una consulta en tiempo real de la economía del servidor.</p>
+        </details>
+
+        <details>
+          <summary>¿Puedo utilizar la calculadora para sumar precios?</summary>
+          <p>Sí. Puedes utilizarla para operaciones matemáticas con cantidades del catálogo. Recuerda que calcular un total no hace que una venta prohibida esté permitida.</p>
+        </details>
+
+        <details>
+          <summary>¿Kaizora Price AI puede autorizar una venta?</summary>
+          <p>No. La IA solo ayuda a interpretar los datos y resolver cálculos. No concede permisos ni sustituye las normas oficiales o las decisiones del equipo de administración.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué hago si no encuentro un objeto?</summary>
+          <p>Comprueba su nombre y revisa las categorías del catálogo. Si sigue sin aparecer, puede que no esté incluido en esta versión de la página.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué ocurre si no sé si un objeto es legal?</summary>
+          <p>No des por hecho que está permitido por tener un precio publicado. Consulta las normas oficiales o pregunta al equipo de administración antes de realizar cualquier operación dentro del servidor.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-note">
+      <h2>Consulta. Calcula. Respeta las normas.</h2>
+      <p>
+        Este apartado está diseñado para ofrecer información clara sobre el catálogo de Kaizora Origins.
+        Utiliza sus herramientas con responsabilidad y recuerda que las reglas del servidor siempre prevalecen
+        sobre cualquier precio o estimación que aparezca aquí.
+      </p>
+      <div class="hero-links">
+        <a class="action primary" href="index.html">Volver al catálogo</a>
+        <a class="action secondary" href="#aviso">Releer el aviso importante ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div><strong>KAIZORA ORIGINS</strong> · Guía informativa</div>
+      <div>Los precios publicados no autorizan el comercio de objetos prohibidos.</div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
