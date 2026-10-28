@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -398,7 +397,6 @@ const vanillaEnchants = [
  {name:"Sigilo veloz",cat:"Movimiento",max:3,price:2,items:["Pantalones"],desc:"Encantamiento relacionado con la velocidad al agacharse; requiere soporte de la versión o plugin.",effect:"No es universal en todas las ediciones y versiones."},
 
  {name:"Maldición de desaparición",cat:"Otros",max:1,price:1,items:["Espada","Hacha","Pico","Pala","Azada","Casco","Pechera","Pantalones","Botas","Arco","Ballesta","Tridente","Caña de pescar","Tijeras","Escudo","Elytra","Maza"],desc:"Hace que el objeto desaparezca al morir su portador.",effect:"No se recomienda superar el nivel I."},
- {name:"Maldición de ligamiento",cat:"Otros",max:1,price:1,items:["Casco","Pechera","Pantalones","Botas","Elytra"],desc:"Impide quitarse determinadas piezas de equipo mientras se llevan puestas.",effect:"No tiene un beneficio progresivo garantizado."},
 
  {name:"Densidad",cat:"Combate",max:5,price:3,items:["Maza"],desc:"Aumenta el daño de impacto de la maza según la caída.",effect:"Los niveles extra pueden aumentar el daño compatible."},
  {name:"Brecha",cat:"Combate",max:4,price:3,items:["Maza"],desc:"Reduce la eficacia de la armadura del objetivo al golpear con la maza.",effect:"Los niveles extra pueden aumentar el efecto compatible."},
@@ -497,7 +495,12 @@ document.getElementById("vanillaGrid").addEventListener("click",event=>{
   const card=btn.closest(".card");
   const level=Number(card.querySelector(".vanilla-level").value);
   const object=card.querySelector(".vanilla-item").value;
-  const price=Number((item.price+Math.max(0,level-item.max)*0.15).toFixed(2));
+
+  // Precio progresivo: conserva el precio base y encarece los niveles altos.
+  const extraLevels=Math.max(0,level-item.max);
+  const surcharge=extraLevels*0.15+Math.pow(extraLevels,2)*0.003;
+  const price=Number((item.price+surcharge).toFixed(2));
+
   addItem({name:item.name,level,object,price,kind:"Vanilla+"});
 });
 
