@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -109,10 +110,23 @@ section{padding:35px 0}
 .price{color:#ffc4f4!important;font-weight:950}
 .level-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
 .level-fields label{color:var(--muted);font-size:10px;line-height:1.6}
-.level-fields select{
+.level-fields select,.level-fields input{
   display:block;width:100%;margin-top:5px;padding:9px 7px;
   color:white;background:#0b0910;border:1px solid #423052;border-radius:8px;outline:none;
 }
+.level-fields input:focus,.level-fields select:focus{border-color:var(--purple)}
+.heart-field{
+  display:none;
+  grid-column:1/-1;
+  padding:12px;
+  border:1px solid #9b5de54d;
+  border-radius:10px;
+  background:linear-gradient(110deg,#9b5de510,#ff6de10a);
+}
+.heart-field.visible{display:block}
+.heart-field label{display:block;color:#f1dfff;font-weight:900}
+.heart-field input{font-size:13px}
+.heart-price{display:block;margin-top:7px;color:#ffc4f4;font-size:10px}
 .level-explanation{margin-top:11px;padding:10px;border-radius:9px;background:#ffffff05;color:#bfb0d0;font-size:10px;line-height:1.7}
 .add-btn{
   width:100%;margin-top:12px;padding:11px;border-radius:9px;
@@ -150,7 +164,7 @@ section{padding:35px 0}
 .cart-empty{color:var(--muted);font-size:13px;line-height:1.8;padding:20px 0}
 .cart-item{padding:13px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:8px}
 .cart-item strong{display:block;font-size:12px}
-.cart-item small{display:block;color:var(--muted);margin-top:5px;font-size:10px}
+.cart-item small{display:block;color:var(--muted);margin-top:5px;font-size:10px;line-height:1.7}
 .cart-item .item-cost{font-weight:950;color:#ffc4f4;font-size:12px}
 .remove-item{border:0;background:none;color:#ff8bdc;font-size:11px;margin-top:8px;padding:0}
 .cart-summary{border-top:1px solid var(--border);padding-top:14px}
@@ -210,7 +224,7 @@ footer strong{color:#ddc5f5}
       <div><h2>✧ Encantamientos especiales</h2><p>Habilidades personalizadas para crear un objeto diferente.</p></div>
       <span class="tag">PRECIOS BASE EN USD</span>
     </div>
-    <div class="notice"><strong>Importante:</strong> los encantamientos especiales utilizan los niveles máximos definidos para cada habilidad. Los precios son una propuesta inicial. La compatibilidad depende de la configuración del servidor.</div>
+    <div class="notice"><strong>Importante:</strong> los encantamientos especiales utilizan los niveles máximos definidos para cada habilidad. Los precios son una propuesta inicial. La compatibilidad depende de la configuración del servidor.<br><br><strong>SoulBound III:</strong> tiene un precio fijo de $25.00 por pieza. Los corazones adicionales cuestan $5.00 por cada 2 corazones y solo se pueden solicitar para armaduras y tótems de la inmortalidad.</div>
     <div class="toolbar">
       <input id="searchSpecial" type="search" placeholder="Buscar encantamiento especial...">
       <select id="filterSpecial" aria-label="Filtrar categoría">
@@ -274,8 +288,9 @@ footer strong{color:#ddc5f5}
     <div class="notice">
       <strong>1.</strong> Abre una tarjeta y selecciona el nivel.<br>
       <strong>2.</strong> Elige un objeto compatible con ese encantamiento.<br>
-      <strong>3.</strong> Añade las mejoras al presupuesto y revisa el descuento.<br>
-      <strong>4.</strong> Pulsa “Solicitar por Discord” y pega el texto generado en nuestro Discord.<br><br>
+      <strong>3.</strong> Si seleccionas una armadura o un tótem en SoulBound, puedes añadir corazones adicionales en grupos de 2.<br>
+      <strong>4.</strong> Añade las mejoras al presupuesto y revisa el descuento.<br>
+      <strong>5.</strong> Pulsa “Solicitar por Discord” y pega el texto generado en nuestro Discord.<br><br>
       El presupuesto no constituye un pago ni confirma automáticamente el pedido. El equipo debe verificar el precio final y la compatibilidad.
     </div>
   </section>
@@ -311,7 +326,21 @@ footer strong{color:#ddc5f5}
 <script>
 "use strict";
 
+const soulboundObjects = [
+  "Espada","Hacha","Pico","Pala","Azada",
+  "Casco","Pechera","Pantalones","Botas",
+  "Arco","Ballesta","Tridente","Caña de pescar",
+  "Tijeras","Escudo","Elytra","Maza",
+  "Tótem de la inmortalidad"
+];
+
+const armorObjects = [
+  "Casco","Pechera","Pantalones","Botas"
+];
+
 const specialEnchants = [
+ {name:"SoulBound III",cat:"Especiales",icon:"♥",rarity:"Legendario",max:1,level:3,price:25,fixedPrice:true,hearts:true,items:soulboundObjects,desc:"Protege individualmente el objeto encantado para que quien lo lleve lo conserve al morir. La protección pertenece a la pieza, no a una persona específica.",effect:"Nivel único: SoulBound III. Precio fijo: $25.00. Puedes añadir corazones adicionales únicamente si seleccionas una pieza de armadura o un tótem de la inmortalidad. Cada 2 corazones adicionales cuestan $5.00."},
+
  {name:"LightningStrike",cat:"Armas",icon:"ϟ",rarity:"Raro",max:3,price:8,items:["Espada","Hacha"],desc:"Probabilidad de invocar un rayo al golpear a un enemigo.",effect:"Probabilidad base: 5%; incremento por nivel: 2 puntos porcentuales y +2 de daño configurado."},
  {name:"Lifesteal",cat:"Armas",icon:"♥",rarity:"Épico",max:5,price:12,items:["Espada","Hacha"],desc:"Recupera vida al golpear a un enemigo.",effect:"Curación base configurada: 1; cada nivel añade 0,5."},
  {name:"Bleed",cat:"Armas",icon:"✦",rarity:"Poco común",max:3,price:7,items:["Espada","Hacha"],desc:"Aplica sangrado que inflige daño durante un tiempo.",effect:"Duración configurada: 60 ticks; daño por tick: 1."},
@@ -327,12 +356,12 @@ const specialEnchants = [
  {name:"Telepathy",cat:"Picos",icon:"✧",rarity:"Épico",max:1,price:12,items:["Pico"],desc:"Envía directamente al inventario los objetos extraídos cuando hay espacio.",effect:"Nivel único."},
  {name:"HasteBoost",cat:"Picos",icon:"➤",rarity:"Común",max:3,price:6,items:["Pico"],desc:"Aplica un impulso temporal a la velocidad de minería.",effect:"Duración configurada: 5 segundos."},
 
- {name:"ThornsPlus",cat:"Armaduras",icon:"❖",rarity:"Raro",max:3,price:9,items:["Casco","Pechera","Pantalones","Botas"],desc:"Devuelve parte del daño recibido al atacante.",effect:"Reflejo base: 10%; incremento configurado: 5 por nivel."},
- {name:"FreezeAura",cat:"Armaduras",icon:"❄",rarity:"Épico",max:2,price:12,items:["Casco","Pechera","Pantalones","Botas"],desc:"Aplica congelación a enemigos cercanos cuando se activa.",effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
- {name:"FireAura",cat:"Armaduras",icon:"♨",rarity:"Épico",max:2,price:12,items:["Casco","Pechera","Pantalones","Botas"],desc:"Genera un efecto de fuego contra objetivos cercanos.",effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
- {name:"RegenBoost",cat:"Armaduras",icon:"♥",rarity:"Legendario",max:3,price:15,items:["Casco","Pechera","Pantalones","Botas"],desc:"Regenera vida en intervalos periódicos.",effect:"Curación configurada: 1 cada 100 ticks."},
- {name:"AntiKnockback",cat:"Armaduras",icon:"◈",rarity:"Poco común",max:1,price:8,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce o anula el retroceso recibido según el plugin.",effect:"Nivel único."},
- {name:"DamageReduction",cat:"Armaduras",icon:"⬡",rarity:"Mítico",max:4,price:18,items:["Casco","Pechera","Pantalones","Botas"],desc:"Reduce parte del daño recibido.",effect:"La reducción final depende de la fórmula del plugin; valores configurados: 5 y 2 por nivel."},
+ {name:"ThornsPlus",cat:"Armaduras",icon:"❖",rarity:"Raro",max:3,price:9,items:armorObjects,desc:"Devuelve parte del daño recibido al atacante.",effect:"Reflejo base: 10%; incremento configurado: 5 por nivel."},
+ {name:"FreezeAura",cat:"Armaduras",icon:"❄",rarity:"Épico",max:2,price:12,items:armorObjects,desc:"Aplica congelación a enemigos cercanos cuando se activa.",effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
+ {name:"FireAura",cat:"Armaduras",icon:"♨",rarity:"Épico",max:2,price:12,items:armorObjects,desc:"Genera un efecto de fuego contra objetivos cercanos.",effect:"Radio configurado: 3 bloques; duración: 40 ticks."},
+ {name:"RegenBoost",cat:"Armaduras",icon:"♥",rarity:"Legendario",max:3,price:15,items:armorObjects,desc:"Regenera vida en intervalos periódicos.",effect:"Curación configurada: 1 cada 100 ticks."},
+ {name:"AntiKnockback",cat:"Armaduras",icon:"◈",rarity:"Poco común",max:1,price:8,items:armorObjects,desc:"Reduce o anula el retroceso recibido según el plugin.",effect:"Nivel único."},
+ {name:"DamageReduction",cat:"Armaduras",icon:"⬡",rarity:"Mítico",max:4,price:18,items:armorObjects,desc:"Reduce parte del daño recibido.",effect:"La reducción final depende de la fórmula del plugin; valores configurados: 5 y 2 por nivel."},
 
  {name:"SpeedBoost",cat:"Botas",icon:"➤",rarity:"Común",max:2,price:6,items:["Botas"],desc:"Concede un impulso de velocidad de movimiento.",effect:"Máximo configurado: nivel 2."},
  {name:"JumpBoost",cat:"Botas",icon:"↟",rarity:"Común",max:2,price:6,items:["Botas"],desc:"Aumenta la capacidad de salto del jugador.",effect:"Máximo configurado: nivel 2."},
@@ -347,7 +376,7 @@ const specialEnchants = [
  {name:"TeleportStrike",cat:"Especiales",icon:"✧",rarity:"Mítico",max:1,price:20,items:["Espada","Hacha"],desc:"Habilidad de combate basada en teletransporte; debe confirmarse su implementación.",effect:"Cooldown configurado: 15 segundos."},
  {name:"MeteorStrike",cat:"Especiales",icon:"☄",rarity:"Divino",max:1,price:25,items:["Espada","Hacha"],desc:"Invoca un impacto de meteorito con daño de área.",effect:"Radio: 5 bloques; daño: 10; cooldown: 30 segundos."},
  {name:"TimeWarp",cat:"Especiales",icon:"◷",rarity:"Divino",max:1,price:25,items:["Espada","Hacha"],desc:"Crea un efecto temporal de área; el resultado depende del plugin.",effect:"Radio: 10 bloques; duración: 5; cooldown: 45 segundos."},
- {name:"GodMode",cat:"Especiales",icon:"✦",rarity:"Divino",max:1,price:35,items:["Casco","Pechera","Pantalones","Botas"],desc:"Habilidad defensiva de duración limitada.",effect:"Duración configurada: 5; cooldown: 60 segundos."}
+ {name:"GodMode",cat:"Especiales",icon:"✦",rarity:"Divino",max:1,price:35,items:armorObjects,desc:"Habilidad defensiva de duración limitada.",effect:"Duración configurada: 5; cooldown: 60 segundos."}
 ];
 
 /* Las listas de objetos permitidos son específicas para cada encantamiento. */
@@ -407,19 +436,36 @@ const cart=[];
 const money=n=>"$"+n.toFixed(2);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
+function isHeartEligible(object){
+  return armorObjects.includes(object)||object==="Tótem de la inmortalidad";
+}
+
 function makeSpecial(item,index){
-  const levels=Array.from({length:item.max},(_,i)=>`<option value="${i+1}">${i+1}</option>`).join("");
+  const levels=Array.from({length:item.max},(_,i)=>{
+    const level=item.level||i+1;
+    return `<option value="${level}">${level}</option>`;
+  }).join("");
+
   const objects=item.items.map(x=>`<option>${esc(x)}</option>`).join("");
+
   return `<details class="card" data-name="${esc(item.name.toLowerCase())}" data-cat="${esc(item.cat)}">
     <summary><span class="glyph">${item.icon}</span><span><span class="card-title">${esc(item.name)}</span><span class="card-sub">${esc(item.cat)} · ${esc(item.rarity)}</span></span><span class="chevron">⌄</span></summary>
     <div class="card-body">
       <p class="description">${esc(item.desc)}</p>
       <div class="meta-row"><span>Rareza</span><strong>${esc(item.rarity)}</strong></div>
-      <div class="meta-row"><span>Nivel máximo</span><strong>${item.max}</strong></div>
+      <div class="meta-row"><span>Nivel máximo</span><strong>${item.level||item.max}</strong></div>
       <div class="meta-row"><span>Precio base</span><strong class="price">${money(item.price)}</strong></div>
       <div class="level-fields">
-        <label>Nivel<select class="special-level">${levels}</select></label>
+        <label>Nivel<select class="special-level" ${item.fixedPrice?'disabled':''}>${levels}</select></label>
         <label>Objeto compatible<select class="special-item">${objects}</select></label>
+        ${item.hearts?`
+          <div class="heart-field" aria-live="polite">
+            <label>♥ Corazones adicionales
+              <input class="special-hearts" type="number" min="0" step="2" value="0" inputmode="numeric">
+            </label>
+            <span class="heart-price">Cada 2 corazones adicionales: +$5.00. 2 = $5 · 4 = $10 · 6 = $15.</span>
+          </div>
+        `:''}
       </div>
       <div class="level-explanation">${esc(item.effect)}<br><br>El equipo confirmará la compatibilidad de la habilidad antes de aprobar el pedido.</div>
       <button class="add-btn" type="button" data-special="${index}">+ AÑADIR AL PRESUPUESTO</button>
@@ -450,6 +496,26 @@ function makeVanilla(item,index){
 document.getElementById("specialGrid").innerHTML=specialEnchants.map(makeSpecial).join("");
 document.getElementById("vanillaGrid").innerHTML=vanillaEnchants.map(makeVanilla).join("");
 
+/* Mostrar corazones únicamente para armaduras y tótems en SoulBound. */
+document.getElementById("specialGrid").addEventListener("change",event=>{
+  if(!event.target.matches(".special-item"))return;
+
+  const card=event.target.closest(".card");
+  const item=specialEnchants[Number(card.querySelector("[data-special]").dataset.special)];
+
+  if(!item.hearts)return;
+
+  const heartField=card.querySelector(".heart-field");
+  const heartInput=card.querySelector(".special-hearts");
+  const eligible=isHeartEligible(event.target.value);
+
+  heartField.classList.toggle("visible",eligible);
+
+  if(!eligible){
+    heartInput.value=0;
+  }
+});
+
 function filterCards(grid,search,filter,empty){
   const q=document.getElementById(search).value.trim().toLowerCase();
   const cat=document.getElementById(filter).value;
@@ -461,6 +527,7 @@ function filterCards(grid,search,filter,empty){
   });
   document.getElementById(empty).classList.toggle("visible",count===0);
 }
+
 [
  ["searchSpecial","specialGrid","filterSpecial","specialEmpty"],
  ["filterSpecial","specialGrid","filterSpecial","specialEmpty"],
@@ -480,13 +547,44 @@ function addItem(item){
 }
 
 document.getElementById("specialGrid").addEventListener("click",event=>{
-  const btn=event.target.closest("[data-special]");if(!btn)return;
+  const btn=event.target.closest("[data-special]");
+  if(!btn)return;
+
   const item=specialEnchants[Number(btn.dataset.special)];
   const card=btn.closest(".card");
   const level=Number(card.querySelector(".special-level").value);
   const object=card.querySelector(".special-item").value;
-  const price=Number((item.price*(1+(level-1)*0.35)).toFixed(2));
-  addItem({name:item.name,level,object,price,kind:"Especial"});
+
+  let hearts=0;
+
+  if(item.hearts&&isHeartEligible(object)){
+    hearts=Number(card.querySelector(".special-hearts").value);
+
+    if(!Number.isInteger(hearts)||hearts<0||hearts%2!==0){
+      alert("Los corazones adicionales deben añadirse en cantidades pares: 0, 2, 4, 6, 8...");
+      return;
+    }
+  }
+
+  /* SoulBound mantiene siempre su precio fijo de $25. */
+  const basePrice=item.fixedPrice
+    ?item.price
+    :item.price*(1+(level-1)*0.35);
+
+  /* Cada 2 corazones adicionales suman $5. */
+  const heartPrice=(hearts/2)*5;
+  const price=Number((basePrice+heartPrice).toFixed(2));
+
+  addItem({
+    name:item.name,
+    level,
+    object,
+    hearts,
+    heartPrice,
+    basePrice,
+    price,
+    kind:"Especial"
+  });
 });
 
 document.getElementById("vanillaGrid").addEventListener("click",event=>{
@@ -510,54 +608,115 @@ function discountRate(count){
   if(count>=2)return 0.05;
   return 0;
 }
+
 function renderCart(){
   const container=document.getElementById("cartItems");
   document.getElementById("cartCount").textContent=cart.length;
+
   container.innerHTML=cart.length?cart.map((item,i)=>`
-    <div class="cart-item"><div><strong>${esc(item.name)} · Nivel ${item.level}</strong><small>${esc(item.kind)} · ${esc(item.object)}</small><button type="button" class="remove-item" data-remove="${i}">Eliminar</button></div><span class="item-cost">${money(item.price)}</span></div>
+    <div class="cart-item">
+      <div>
+        <strong>${esc(item.name)} · Nivel ${item.level}</strong>
+        <small>
+          ${esc(item.kind)} · ${esc(item.object)}
+          ${item.hearts?`<br>♥ ${item.hearts} corazones adicionales: +${money(item.heartPrice)}`:''}
+          ${item.hearts?`<br>Precio SoulBound: ${money(item.basePrice)}`:''}
+        </small>
+        <button type="button" class="remove-item" data-remove="${i}">Eliminar</button>
+      </div>
+      <span class="item-cost">${money(item.price)}</span>
+    </div>
   `).join(""):'<div class="cart-empty">Todavía no has añadido ningún encantamiento.<br>Explora el catálogo para empezar.</div>';
+
   const subtotal=cart.reduce((sum,item)=>sum+item.price,0);
   const rate=discountRate(cart.length),discount=subtotal*rate,total=subtotal-discount;
+
   document.getElementById("subtotal").textContent=money(subtotal);
   document.getElementById("discountAmount").textContent="−"+money(discount);
   document.getElementById("grandTotal").textContent=money(total);
 }
+
 document.getElementById("cartItems").addEventListener("click",event=>{
   const btn=event.target.closest("[data-remove]");if(!btn)return;
   cart.splice(Number(btn.dataset.remove),1);renderCart();
 });
-document.getElementById("clearCart").addEventListener("click",()=>{cart.length=0;renderCart()});
+
+document.getElementById("clearCart").addEventListener("click",()=>{
+  cart.length=0;renderCart();
+});
 
 const drawer=document.getElementById("cartDrawer");
 const overlay=document.getElementById("cartOverlay");
-function openCart(){drawer.classList.add("open");overlay.classList.add("open");drawer.setAttribute("aria-hidden","false")}
-function closeCart(){drawer.classList.remove("open");overlay.classList.remove("open");drawer.setAttribute("aria-hidden","true")}
+
+function openCart(){
+  drawer.classList.add("open");
+  overlay.classList.add("open");
+  drawer.setAttribute("aria-hidden","false");
+}
+
+function closeCart(){
+  drawer.classList.remove("open");
+  overlay.classList.remove("open");
+  drawer.setAttribute("aria-hidden","true");
+}
+
 document.getElementById("openCart").addEventListener("click",openCart);
 document.getElementById("closeCart").addEventListener("click",closeCart);
 overlay.addEventListener("click",closeCart);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 
 document.getElementById("checkout").addEventListener("click",()=>{
-  if(!cart.length){alert("Añade al menos un encantamiento antes de solicitar tu objeto.");return}
+  if(!cart.length){
+    alert("Añade al menos un encantamiento antes de solicitar tu objeto.");
+    return;
+  }
+
   const subtotal=cart.reduce((sum,item)=>sum+item.price,0);
   const rate=discountRate(cart.length),discount=subtotal*rate,total=subtotal-discount;
-  const lines=cart.map(item=>"- "+item.name+" nivel "+item.level+" | Objeto: "+item.object+" | Tipo: "+item.kind+" | "+money(item.price));
+
+  const lines=cart.map(item=>{
+    let line="- "+item.name+" nivel "+item.level+
+      " | Objeto: "+item.object+
+      " | Tipo: "+item.kind;
+
+    if(item.hearts){
+      line+=" | Corazones adicionales: "+item.hearts+
+        " | Coste de corazones: "+money(item.heartPrice)+
+        " | Precio SoulBound: "+money(item.basePrice);
+    }
+
+    line+=" | Precio de esta pieza: "+money(item.price);
+    return line;
+  });
+
   const message=[
-    "SOLICITUD DE ITEM PERSONALIZADO — KAIZORA ORIGINS","",
-    ...lines,"","Subtotal estimado: "+money(subtotal),
+    "SOLICITUD DE ITEM PERSONALIZADO — KAIZORA ORIGINS",
+    "",
+    ...lines,
+    "",
+    "Subtotal estimado: "+money(subtotal),
     "Descuento: "+Math.round(rate*100)+"% ("+money(discount)+")",
-    "Total estimado: "+money(total),"",
+    "Total estimado: "+money(total),
+    "",
     "Por favor, confirmar precio, compatibilidad y disponibilidad."
   ].join("\n");
+
   const discord=()=>window.open("https://discord.gg/sHvWgW7AE4","_blank","noopener");
+
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(message).then(()=>{
-      alert("¡Solicitud copiada! Pégala en el canal correspondiente de nuestro Discord.");discord();
-    }).catch(()=>{window.prompt("Copia esta solicitud y pégala en Discord:",message);discord()});
+      alert("¡Solicitud copiada! Pégala en el canal correspondiente de nuestro Discord.");
+      discord();
+    }).catch(()=>{
+      window.prompt("Copia esta solicitud y pégala en Discord:",message);
+      discord();
+    });
   }else{
-    window.prompt("Copia esta solicitud y pégala en Discord:",message);discord();
+    window.prompt("Copia esta solicitud y pégala en Discord:",message);
+    discord();
   }
 });
+
 renderCart();
 </script>
 </body>
