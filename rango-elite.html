@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -216,6 +217,8 @@ h1{
     border:1px solid rgba(255,255,255,.08);
     border-radius:10px;
     background:rgba(255,255,255,.025);
+    color:#aaaeb6;
+    line-height:1.8;
 }
 
 .inherit strong{
@@ -225,6 +228,57 @@ h1{
 .kit-title{
     font-size:21px!important;
     color:#ffffff!important;
+}
+
+/* COMANDOS ELITE */
+
+.command-card{
+    margin-top:14px;
+    padding:20px;
+    border:1px solid rgba(77,141,255,.22);
+    border-radius:12px;
+    background:linear-gradient(
+        120deg,
+        rgba(77,141,255,.075),
+        rgba(147,101,255,.035)
+    );
+    transition:border-color .2s, transform .2s;
+}
+
+.command-card:hover{
+    border-color:rgba(77,141,255,.65);
+    transform:translateY(-2px);
+}
+
+.command-name{
+    display:inline-block;
+    margin-bottom:9px;
+    color:#78aaff;
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:.3px;
+}
+
+.command-description{
+    margin:0!important;
+    color:#bfc0c6!important;
+    font-size:14px;
+    line-height:1.75!important;
+}
+
+.command-note{
+    margin-top:22px;
+    padding:17px 19px;
+    border-left:3px solid #4d8dff;
+    border-radius:0 9px 9px 0;
+    background:rgba(77,141,255,.055);
+    color:#aaaeb6;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.command-note strong{
+    color:#ffffff;
 }
 
 footer{
@@ -256,6 +310,10 @@ footer{
     .box{
         padding:24px;
     }
+
+    .command-card{
+        padding:17px;
+    }
 }
 </style>
 </head>
@@ -281,6 +339,7 @@ footer{
         class="discord"
         href="https://discord.gg/sHvWgW7AE4"
         target="_blank"
+        rel="noopener noreferrer"
     >
         Comprar por Discord
     </a>
@@ -300,6 +359,8 @@ footer{
     <p class="desc">
         Para jugadores que buscan una experiencia superior dentro del
         servidor, con mejores equipamientos, recursos y beneficios.
+        Desbloquea nuevas posibilidades y continúa construyendo tu historia
+        en Kaizora Origins.
     </p>
 
     <div class="price">
@@ -312,6 +373,7 @@ footer{
             class="btn primary"
             href="https://discord.gg/sHvWgW7AE4"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Comprar ELITE
         </a>
@@ -337,19 +399,82 @@ footer{
 
         <!-- HERENCIA -->
 
-                <div class="section">
+        <div class="section">
 
             <h3>
-                Herencia
+                Herencia de rangos
             </h3>
 
             <p>
                 ELITE incluye todos los permisos, comandos, kits y beneficios
-                de todos los rangos anteriores, además de todos los beneficios
-                propios del rango ELITE.
+                de los rangos anteriores, incluido ORIGIN, además de las
+                ventajas exclusivas que desbloqueas con ELITE.
             </p>
 
+            <div class="inherit">
+
+                <strong>Tu rango incluye:</strong><br>
+
+                Default / User + ORIGIN + ELITE.<br>
+
+                <strong>
+                    No pierdes las ventajas de tus rangos anteriores.
+                </strong>
+
+                Todos sus comandos y permisos se mantienen disponibles
+                según la configuración del servidor.
+
+            </div>
+
         </div>
+
+
+        <!-- COMANDOS EXCLUSIVOS ELITE -->
+
+        <div class="section">
+
+            <h3 class="kit-title">
+                Comandos exclusivos de ELITE
+            </h3>
+
+            <p>
+                ELITE te permite acceder a un comando adicional para
+                gestionar una situación habitual durante tus aventuras.
+                Estas son las ventajas de comandos propias de este rango.
+            </p>
+
+            <div class="command-card">
+
+                <span class="command-name">
+                    /extinguish
+                </span>
+
+                <p class="command-description">
+                    Apaga el fuego que te afecta para ayudarte a continuar
+                    tu aventura sin las llamas. Su funcionamiento depende
+                    de la configuración del comando en el servidor.
+                </p>
+
+            </div>
+
+            <div class="command-note">
+
+                <strong>También incluye los comandos de ORIGIN</strong><br>
+
+                Al obtener ELITE conservas los comandos de tus rangos
+                anteriores, incluidos <strong>/me</strong>,
+                <strong>/recipe</strong> y <strong>/depth</strong>,
+                además de los permisos y beneficios heredados de Default / User.
+
+                <br><br>
+
+                <strong>Importante:</strong> los comandos disponibles pueden
+                variar según los permisos y plugins instalados en el servidor.
+
+            </div>
+
+        </div>
+
 
         <!-- KIT ELITE -->
 
