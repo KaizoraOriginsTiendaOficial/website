@@ -41,11 +41,12 @@ a{
 }
 
 nav{
-    height:76px;
+    min-height:76px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 7%;
+    gap:16px;
+    padding:14px 7%;
     border-bottom:1px solid rgba(255,255,255,.08);
     background:rgba(5,7,8,.8);
     backdrop-filter:blur(12px);
@@ -216,6 +217,8 @@ h1{
     border:1px solid rgba(255,255,255,.08);
     border-radius:10px;
     background:rgba(255,255,255,.025);
+    color:#aaaeb6;
+    line-height:1.8;
 }
 
 .inherit strong{
@@ -225,6 +228,59 @@ h1{
 .kit-title{
     font-size:21px!important;
     color:#ffffff!important;
+}
+
+/* COMANDOS ORIGIN */
+
+.command-card{
+    position:relative;
+    overflow:hidden;
+    margin-top:14px;
+    padding:20px;
+    border:1px solid rgba(147,101,255,.19);
+    border-radius:12px;
+    background:linear-gradient(
+        120deg,
+        rgba(147,101,255,.075),
+        rgba(255,109,225,.025)
+    );
+    transition:border-color .2s, transform .2s;
+}
+
+.command-card:hover{
+    border-color:rgba(180,156,255,.55);
+    transform:translateY(-2px);
+}
+
+.command-name{
+    display:inline-block;
+    margin-bottom:9px;
+    color:#c7b3ff;
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:.3px;
+}
+
+.command-description{
+    margin:0!important;
+    color:#bfc0c6!important;
+    font-size:14px;
+    line-height:1.75!important;
+}
+
+.command-note{
+    margin-top:22px;
+    padding:17px 19px;
+    border-left:3px solid #9365ff;
+    border-radius:0 9px 9px 0;
+    background:rgba(147,101,255,.055);
+    color:#aaaeb6;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.command-note strong{
+    color:#ffffff;
 }
 
 footer{
@@ -238,11 +294,21 @@ footer{
 @media(max-width:600px){
 
     nav{
-        padding:0 5%;
+        padding:14px 5%;
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        font-size:17px;
     }
 
     nav a.home{
         display:none;
+    }
+
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
     }
 
     main{
@@ -255,6 +321,10 @@ footer{
 
     .box{
         padding:24px;
+    }
+
+    .command-card{
+        padding:17px;
     }
 }
 </style>
@@ -281,6 +351,7 @@ footer{
         class="discord"
         href="https://discord.gg/sHvWgW7AE4"
         target="_blank"
+        rel="noopener noreferrer"
     >
         Comprar por Discord
     </a>
@@ -313,6 +384,7 @@ footer{
             class="btn primary"
             href="https://discord.gg/sHvWgW7AE4"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Comprar ORIGIN
         </a>
@@ -356,6 +428,75 @@ footer{
                 rango User +
                 <strong>/kit User</strong> +
                 todos sus comandos y permisos.
+
+            </div>
+
+        </div>
+
+
+        <!-- COMANDOS EXCLUSIVOS ORIGIN -->
+
+        <div class="section">
+
+            <h3 class="kit-title">
+                Comandos exclusivos de ORIGIN
+            </h3>
+
+            <p>
+                Desbloquea nuevas formas de interactuar con el mundo,
+                consultar información y expresarte dentro de Kaizora Origins.
+                Estos comandos se suman a los permisos de tu rango User.
+            </p>
+
+            <div class="command-card">
+
+                <span class="command-name">
+                    /me
+                </span>
+
+                <p class="command-description">
+                    Expresa acciones y crea mensajes de rol personalizados
+                    en el chat. Dale personalidad a tus interacciones y
+                    escribe tu propia historia dentro del servidor.
+                </p>
+
+            </div>
+
+            <div class="command-card">
+
+                <span class="command-name">
+                    /recipe
+                </span>
+
+                <p class="command-description">
+                    Consulta las recetas de fabricación de Minecraft y
+                    descubre cómo crear diferentes objetos sin tener que
+                    recordar todas sus combinaciones.
+                </p>
+
+            </div>
+
+            <div class="command-card">
+
+                <span class="command-name">
+                    /depth
+                </span>
+
+                <p class="command-description">
+                    Consulta la profundidad a la que te encuentras respecto
+                    al nivel del mar. Una herramienta útil para orientarte
+                    mientras exploras cuevas y buscas minerales.
+                </p>
+
+            </div>
+
+            <div class="command-note">
+
+                <strong>Ventaja ORIGIN</strong><br>
+
+                Estos comandos se añaden a los permisos heredados del rango
+                User. Las funciones disponibles pueden depender de la
+                configuración de los plugins del servidor.
 
             </div>
 
