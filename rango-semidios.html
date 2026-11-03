@@ -23,7 +23,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -280,7 +279,14 @@ h1{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--purple),
+        var(--rank),
+        var(--pink),
+        transparent
+    );
 }
 
 .box h2{
@@ -297,7 +303,7 @@ h1{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(var(--rank),var(--purple));
+    background:linear-gradient(180deg,var(--pink),var(--rank),var(--purple));
     box-shadow:0 0 16px rgba(215,90,255,.3);
     flex-shrink:0;
 }
@@ -408,7 +414,7 @@ h1{
     bottom:12px;
     width:3px;
     border-radius:0 4px 4px 0;
-    background:linear-gradient(var(--rank),var(--purple));
+    background:linear-gradient(180deg,var(--pink),var(--rank),var(--purple));
 }
 
 .info-list li:hover{
@@ -459,8 +465,8 @@ h1{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(var(--rank),var(--purple));
-    box-shadow:0 0 15px rgba(215,90,255,.2);
+    background:linear-gradient(180deg,var(--pink),var(--rank),var(--purple));
+    box-shadow:0 0 15px rgba(215,90,255,.25);
 }
 
 .command-card::after{
@@ -545,10 +551,12 @@ h1{
 /* HERENCIA Y AVISOS */
 
 .inherit{
+    position:relative;
     margin-top:20px;
     padding:20px;
     border:1px solid rgba(215,90,255,.22);
-    border-left:4px solid var(--rank);
+    border-left:4px solid transparent;
+    border-image:linear-gradient(180deg,var(--pink),var(--rank),var(--purple)) 1;
     border-radius:0 11px 11px 0;
     background:linear-gradient(100deg,rgba(215,90,255,.09),rgba(155,93,229,.045));
     color:#c0cde0;
