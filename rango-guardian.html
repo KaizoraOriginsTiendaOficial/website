@@ -11,8 +11,8 @@
 <style>
 :root{
     --bg:#080b10;
-    --green:#42dc82;
-    --green-light:#b0ffd0;
+    --rank:#42dc82;
+    --rank-light:#b0ffd0;
     --purple:#9365ff;
     --pink:#ff6de1;
     --white:#f7f8fb;
@@ -21,7 +21,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -83,7 +82,7 @@ nav{
 }
 
 .logo span{
-    background:linear-gradient(90deg,var(--green),var(--green-light));
+    background:linear-gradient(90deg,var(--rank),var(--rank-light));
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -101,7 +100,7 @@ nav a.home{
     transition:color .2s;
 }
 
-nav a.home:hover{color:var(--green)}
+nav a.home:hover{color:var(--rank)}
 
 .discord{
     padding:12px 18px;
@@ -146,7 +145,7 @@ main{
     align-items:center;
     gap:10px;
     margin-bottom:20px;
-    color:var(--green);
+    color:var(--rank);
     font-size:11px;
     font-weight:950;
     letter-spacing:4px;
@@ -157,7 +156,7 @@ main{
     content:"";
     width:24px;
     height:2px;
-    background:linear-gradient(90deg,var(--green),var(--purple));
+    background:linear-gradient(90deg,var(--rank),var(--purple));
     box-shadow:0 0 12px rgba(66,220,130,.5);
 }
 
@@ -171,8 +170,8 @@ h1{
     background:linear-gradient(
         110deg,
         #ffffff 5%,
-        var(--green-light) 35%,
-        var(--green) 65%,
+        var(--rank-light) 35%,
+        var(--rank) 65%,
         #8bffb5 90%
     );
     -webkit-background-clip:text;
@@ -202,7 +201,7 @@ h1{
     line-height:1;
     font-weight:1000;
     letter-spacing:-1.5px;
-    color:var(--green);
+    color:var(--rank);
     text-shadow:0 0 24px rgba(66,220,130,.2);
 }
 
@@ -211,7 +210,7 @@ h1{
     border-radius:6px;
     border:1px solid rgba(66,220,130,.25);
     background:rgba(66,220,130,.07);
-    color:var(--green-light);
+    color:var(--rank-light);
     font-size:10px;
     font-weight:950;
     letter-spacing:1.4px;
@@ -243,7 +242,7 @@ h1{
 
 .primary{
     color:#07160d;
-    background:linear-gradient(100deg,var(--green),var(--green-light));
+    background:linear-gradient(100deg,var(--rank),var(--rank-light));
     border-color:transparent;
     box-shadow:0 6px 24px rgba(66,220,130,.13);
 }
@@ -287,7 +286,7 @@ h1{
     left:8%;
     right:8%;
     height:1px;
-    background:linear-gradient(90deg,transparent,var(--green),var(--purple),transparent);
+    background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent);
     opacity:.75;
 }
 
@@ -305,18 +304,16 @@ h1{
     height:3px;
     margin-top:15px;
     border-radius:5px;
-    background:linear-gradient(90deg,var(--green),var(--purple));
+    background:linear-gradient(90deg,var(--rank),var(--purple));
 }
 
 .box h3{
-    margin:36px 0 16px;
+    margin:0 0 16px;
     color:#fff;
     font-size:19px;
     font-weight:900;
     letter-spacing:-.25px;
 }
-
-.box h2+h3{margin-top:0}
 
 .box p{
     color:var(--muted);
@@ -410,7 +407,7 @@ h1{
     padding:5px 9px;
     border-radius:5px;
     background:rgba(66,220,130,.10);
-    color:var(--green);
+    color:var(--rank);
     font-size:10px;
     font-weight:900;
     letter-spacing:1.5px;
@@ -420,7 +417,7 @@ h1{
 .command-name{
     display:block;
     margin-bottom:10px;
-    color:var(--green);
+    color:var(--rank);
     font-size:22px;
     font-weight:950;
     overflow-wrap:anywhere;
@@ -434,8 +431,6 @@ h1{
     line-height:1.85!important;
 }
 
-/* SHULKERS DESPLEGABLES */
-
 details{
     margin-top:18px;
     border:1px solid rgba(66,220,130,.2);
@@ -445,16 +440,14 @@ details{
     transition:border-color .2s,background .2s;
 }
 
-details:hover{
-    border-color:rgba(66,220,130,.4);
-}
+details:hover{border-color:rgba(66,220,130,.4)}
 
 summary{
     cursor:pointer;
     list-style:none;
     padding:18px 20px;
     font-weight:950;
-    color:var(--green);
+    color:var(--rank);
     font-size:14px;
     user-select:none;
     transition:background .2s;
@@ -467,11 +460,10 @@ summary::after{
     float:right;
     font-size:21px;
     line-height:14px;
-    color:var(--green-light);
+    color:var(--rank-light);
 }
 
 details[open] summary::after{content:"−"}
-
 summary:hover{background:rgba(66,220,130,.055)}
 
 .shulker-content{
@@ -482,7 +474,7 @@ summary:hover{background:rgba(66,220,130,.055)}
 .shulker-content h3{
     margin-top:24px;
     margin-bottom:12px;
-    color:var(--green-light);
+    color:var(--rank-light);
     font-size:16px;
 }
 
@@ -517,7 +509,7 @@ footer{
 }
 
 footer span{
-    color:var(--green);
+    color:var(--rank);
     font-weight:800;
 }
 
@@ -534,7 +526,6 @@ footer span{
     }
 
     nav a{font-size:11px}
-
     nav a.home{display:none}
 
     .discord{
@@ -544,11 +535,8 @@ footer span{
     }
 
     main{padding:65px 5% 75px}
-
     h1{letter-spacing:-2.5px}
-
     .desc{font-size:15px}
-
     .price{font-size:40px}
 
     .box{
@@ -557,19 +545,12 @@ footer span{
     }
 
     .info-list{grid-template-columns:1fr}
-
     .info-list li{padding:13px 14px}
-
     .shulker-content{padding:5px 14px 18px}
-
     .shulker-content ul{grid-template-columns:1fr}
-
     .command-card{padding:19px}
-
     .inherit{padding:16px}
-
     .btn{width:100%}
-
     .hero-divider{margin-top:38px}
 }
 
@@ -585,7 +566,6 @@ footer span{
 </head>
 
 <body>
-
 <div class="bg"></div>
 
 <nav>
@@ -605,9 +585,7 @@ footer span{
 </nav>
 
 <main>
-
     <header class="hero">
-
         <div class="label">RANGO EXCLUSIVO</div>
 
         <h1>GUARDIAN</h1>
@@ -636,17 +614,12 @@ footer span{
         </div>
 
         <div class="hero-divider"></div>
-
     </header>
 
     <div class="box">
-
         <h2>Información del rango</h2>
 
-        <!-- HERENCIA -->
-
         <div class="section">
-
             <h3>Herencia de rangos</h3>
 
             <p>
@@ -654,13 +627,9 @@ footer span{
                 de los rangos anteriores, además de sus propias ventajas
                 exclusivas.
             </p>
-
         </div>
 
-        <!-- COMANDO GUARDIAN -->
-
         <div class="section">
-
             <h3>Comando exclusivo de GUARDIAN</h3>
 
             <p>
@@ -680,20 +649,15 @@ footer span{
                     en bloques para ahorrar espacio en el inventario.
                 </p>
             </div>
-
         </div>
 
-        <!-- SHULKER #1 -->
-
         <div class="section">
-
             <h3>Shulker #1</h3>
 
             <details>
                 <summary>Ver contenido de la Shulker #1</summary>
 
                 <div class="shulker-content">
-
                     <h3>Armaduras</h3>
 
                     <p><strong>2 armaduras completas de diamante</strong></p>
@@ -740,16 +704,11 @@ footer span{
                         <li>Cristal del End ×64</li>
                         <li>Carga de Viento ×64</li>
                     </ul>
-
                 </div>
             </details>
-
         </div>
 
-        <!-- SHULKER #2 -->
-
         <div class="section">
-
             <h3>Shulker #2</h3>
 
             <ul class="info-list">
@@ -761,72 +720,40 @@ footer span{
                     <span class="item-details">×64 — 3 stacks</span>
                 </li>
             </ul>
-
         </div>
 
-        <!-- POLVOS -->
-
         <div class="section">
-
             <h3>Polvos</h3>
 
             <ul class="info-list">
-                <li>
-                    <span class="item-name">Esencia Arcana</span>
-                    <span class="item-details">×6</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Esencia Eléctrica</span>
-                    <span class="item-details">×2</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Cristal Acuático</span>
-                    <span class="item-details">×2</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Polvo Celestial</span>
-                    <span class="item-details">×4</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Semilla Natural</span>
-                    <span class="item-details">×6</span>
-                </li>
+                <li><span class="item-name">Esencia Arcana</span> <span class="item-details">×6</span></li>
+                <li><span class="item-name">Esencia Eléctrica</span> <span class="item-details">×2</span></li>
+                <li><span class="item-name">Cristal Acuático</span> <span class="item-details">×2</span></li>
+                <li><span class="item-name">Polvo Celestial</span> <span class="item-details">×4</span></li>
+                <li><span class="item-name">Semilla Natural</span> <span class="item-details">×6</span></li>
             </ul>
-
         </div>
 
-        <!-- PIEDRA DE PROTECCIÓN -->
-
         <div class="section">
-
             <h3>Piedra de protección</h3>
 
             <ul class="info-list">
                 <li>
-                    <span class="item-name">Mena de Esmeralda</span>
-                    <br>
+                    <span class="item-name">Mena de Esmeralda</span><br>
                     <span class="item-details">Protección de 60 × 60 bloques</span>
                 </li>
             </ul>
-
         </div>
 
         <div class="inherit">
             Las compras y la gestión del rango se realizan directamente
             mediante nuestro Discord oficial.
         </div>
-
     </div>
-
 </main>
 
 <footer>
     © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
 </footer>
-
 </body>
 </html>
