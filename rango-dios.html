@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,9 +45,7 @@ nav{
     letter-spacing:1px
 }
 
-.logo span{
-    color:#b49cff
-}
+.logo span{color:#b49cff}
 
 nav a{
     text-decoration:none;
@@ -108,7 +107,8 @@ h1{
     text-decoration:none;
     font-weight:900;
     font-size:12px;
-    border:1px solid rgba(255,255,255,.14)
+    border:1px solid rgba(255,255,255,.14);
+    transition:.2s
 }
 
 .primary{
@@ -134,9 +134,7 @@ h1{
     background:rgba(13,15,18,.78)
 }
 
-.box h2{
-    margin-top:0
-}
+.box h2{margin-top:0}
 
 .box h3{
     color:#f4f4f6;
@@ -150,8 +148,61 @@ h1{
     line-height:1.7
 }
 
-.box ul{
-    padding-left:22px
+.box ul{padding-left:22px}
+
+/* COMANDOS EXCLUSIVOS */
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+    margin-top:18px
+}
+
+.command-card{
+    padding:22px;
+    border:1px solid rgba(255,83,99,.25);
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,83,99,.09),
+        rgba(8,11,12,.55)
+    );
+    transition:transform .2s,border-color .2s
+}
+
+.command-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,83,99,.6)
+}
+
+.command-tag{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:5px 9px;
+    border-radius:5px;
+    background:rgba(255,83,99,.12);
+    color:#ff5363;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase
+}
+
+.command-name{
+    display:block;
+    margin-bottom:10px;
+    color:#ff5363;
+    font-size:21px;
+    font-weight:900;
+    overflow-wrap:anywhere
+}
+
+.command-description{
+    margin:0!important;
+    color:#aaaeb6;
+    font-size:14px;
+    line-height:1.8
 }
 
 /* DESPLEGABLES */
@@ -175,9 +226,7 @@ summary{
     transition:.2s
 }
 
-summary::-webkit-details-marker{
-    display:none
-}
+summary::-webkit-details-marker{display:none}
 
 summary::after{
     content:"+";
@@ -186,22 +235,16 @@ summary::after{
     line-height:14px
 }
 
-details[open] summary::after{
-    content:"−"
-}
+details[open] summary::after{content:"−"}
 
-summary:hover{
-    background:rgba(255,83,99,.06)
-}
+summary:hover{background:rgba(255,83,99,.06)}
 
 .shulker-content{
     padding:5px 22px 22px;
     border-top:1px solid rgba(255,255,255,.07)
 }
 
-.shulker-content h3{
-    margin-top:22px
-}
+.shulker-content h3{margin-top:22px}
 
 footer{
     text-align:center;
@@ -212,21 +255,12 @@ footer{
 }
 
 @media(max-width:600px){
-    nav{
-        padding:0 5%
-    }
-
-    nav a.home{
-        display:none
-    }
-
-    main{
-        padding-top:65px
-    }
-
-    h1{
-        letter-spacing:-2px
-    }
+    nav{padding:0 5%}
+    nav a.home{display:none}
+    main{padding-top:65px}
+    h1{letter-spacing:-2px}
+    .box{padding:24px}
+    .command-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -245,7 +279,8 @@ footer{
 
     <a class="discord"
        href="https://discord.gg/sHvWgW7AE4"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
         Comprar por Discord
     </a>
 </nav>
@@ -265,7 +300,8 @@ footer{
     <div class="actions">
         <a class="btn primary"
            href="https://discord.gg/sHvWgW7AE4"
-           target="_blank">
+           target="_blank"
+           rel="noopener noreferrer">
             Comprar DIOS
         </a>
 
@@ -285,6 +321,42 @@ footer{
             propios del rango DIOS.
         </p>
 
+        <!-- COMANDOS EXCLUSIVOS -->
+
+        <h3>Comandos exclusivos de DIOS</h3>
+
+        <p>
+            Desbloquea la libertad de volar por el mundo y facilita
+            que otros jugadores se reúnan contigo.
+        </p>
+
+        <div class="command-grid">
+
+            <div class="command-card">
+                <span class="command-tag">Movimiento</span>
+
+                <span class="command-name">/fly</span>
+
+                <p class="command-description">
+                    Activa o desactiva el vuelo para desplazarte por el
+                    mundo sin caminar, explorar con mayor libertad y
+                    acceder fácilmente a lugares elevados.
+                </p>
+            </div>
+
+            <div class="command-card">
+                <span class="command-tag">Teletransporte</span>
+
+                <span class="command-name">/tpahere</span>
+
+                <p class="command-description">
+                    Envía una solicitud de teletransporte a otro jugador
+                    para que venga hasta tu ubicación. El jugador deberá
+                    aceptar la solicitud si el sistema lo requiere.
+                </p>
+            </div>
+
+        </div>
 
         <!-- SHULKER #1 -->
 
@@ -297,9 +369,7 @@ footer{
 
                 <h3>Armaduras</h3>
 
-                <p>
-                    <strong>2 armaduras completas de Netherite</strong>
-                </p>
+                <p><strong>2 armaduras completas de Netherite</strong></p>
 
                 <ul>
                     <li>Protección IX</li>
@@ -309,7 +379,6 @@ footer{
                     <li>Reparación</li>
                 </ul>
 
-
                 <h3>Herramientas de Netherite ×2</h3>
 
                 <ul>
@@ -317,29 +386,24 @@ footer{
                         <strong>Espadas:</strong>
                         Aspecto Ígneo VII, Irrompibilidad IX, Reparación
                     </li>
-
                     <li>
                         <strong>Picos:</strong>
                         Eficiencia VIII, Irrompibilidad IX, Reparación
                     </li>
-
                     <li>
                         <strong>Hachas:</strong>
                         Eficiencia VIII, Irrompibilidad IX, Reparación
                     </li>
-
                     <li>
                         <strong>Palas:</strong>
                         Eficiencia VIII, Irrompibilidad IX, Reparación
                     </li>
-
                     <li>
                         <strong>Lanza de Netherite:</strong>
                         Filo VIII, Aspecto Ígneo VII,
                         Irrompibilidad VIII, Reparación
                     </li>
                 </ul>
-
 
                 <h3>Resto de herramientas</h3>
 
@@ -348,26 +412,22 @@ footer{
                         <strong>Arco:</strong>
                         Irrompibilidad VIII, Reparación
                     </li>
-
                     <li>
                         <strong>Tridente:</strong>
                         Propulsión Acuática V, Lealtad III,
                         Irrompibilidad VIII, Reparación
                     </li>
-
                     <li>
                         <strong>Mazo:</strong>
                         Filo VII, Aspecto Ígneo VII,
                         Irrompibilidad VIII, Reparación
                     </li>
-
                     <li>
                         <strong>Escudo:</strong>
                         Protección IX, Espinas III,
                         Irrompibilidad VIII, Reparación
                     </li>
                 </ul>
-
 
                 <h3>Añadidos</h3>
 
@@ -380,7 +440,6 @@ footer{
             </div>
         </details>
 
-
         <!-- SHULKER #2 -->
 
         <h3>Shulker #2</h3>
@@ -388,7 +447,6 @@ footer{
         <ul>
             <li>Llena de pociones de Regeneración II</li>
         </ul>
-
 
         <!-- SHULKER #3 -->
 
@@ -398,7 +456,6 @@ footer{
             <li>Llena de pociones de Invisibilidad — 8 minutos</li>
         </ul>
 
-
         <!-- SHULKER #4 -->
 
         <h3>Shulker #4</h3>
@@ -406,7 +463,6 @@ footer{
         <ul>
             <li>Llena de pociones de Rapidez II</li>
         </ul>
-
 
         <!-- SHULKER #5 -->
 
@@ -416,7 +472,6 @@ footer{
             <li>Llena de pociones de Fuerza II</li>
         </ul>
 
-
         <!-- SHULKER #6 -->
 
         <h3>Shulker #6</h3>
@@ -424,7 +479,6 @@ footer{
         <ul>
             <li>Llena de pociones de Regeneración II</li>
         </ul>
-
 
         <!-- SHULKER #7 -->
 
@@ -434,7 +488,6 @@ footer{
             <li>Llena de pociones de Visión Nocturna II</li>
         </ul>
 
-
         <!-- SHULKER #8 -->
 
         <h3>Shulker #8</h3>
@@ -443,7 +496,6 @@ footer{
             <li>Llena de pociones de Salto II</li>
         </ul>
 
-
         <!-- SHULKER #9 -->
 
         <h3>Shulker #9</h3>
@@ -451,7 +503,6 @@ footer{
         <ul>
             <li>Llena de pociones de Cuerpo Ignífugo — 8 minutos</li>
         </ul>
-
 
         <!-- SHULKER #10 -->
 
@@ -469,7 +520,6 @@ footer{
                     <li>Manzanas Doradas ×64 — 6 stacks</li>
                 </ul>
 
-
                 <h3>Minerales</h3>
 
                 <ul>
@@ -483,7 +533,6 @@ footer{
             </div>
         </details>
 
-
         <!-- PIEDRA DE PROTECCIÓN -->
 
         <h3>Piedra de protección</h3>
@@ -491,7 +540,6 @@ footer{
         <ul>
             <li>Mina de Cuarzo (80×80)</li>
         </ul>
-
 
         <p>
             Las compras y la gestión del rango se realizan directamente
