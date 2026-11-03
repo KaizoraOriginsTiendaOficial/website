@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,9 +19,7 @@ body{
     min-height:100vh
 }
 
-a{
-    color:inherit
-}
+a{color:inherit}
 
 .bg{
     position:fixed;
@@ -48,9 +47,7 @@ nav{
     letter-spacing:1px
 }
 
-.logo span{
-    color:#b49cff
-}
+.logo span{color:#b49cff}
 
 nav a{
     text-decoration:none;
@@ -112,7 +109,8 @@ h1{
     text-decoration:none;
     font-weight:900;
     font-size:12px;
-    border:1px solid rgba(255,255,255,.14)
+    border:1px solid rgba(255,255,255,.14);
+    transition:.2s
 }
 
 .primary{
@@ -138,9 +136,7 @@ h1{
     background:rgba(13,15,18,.78)
 }
 
-.box h2{
-    margin-top:0
-}
+.box h2{margin-top:0}
 
 .box h3{
     color:#f4f4f6;
@@ -154,8 +150,62 @@ h1{
     line-height:1.7
 }
 
-.box ul{
-    padding-left:22px
+.box ul{padding-left:22px}
+
+/* COMANDOS EXCLUSIVOS */
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+    margin-top:18px
+}
+
+.command-card{
+    padding:22px;
+    border:1px solid rgba(255,109,225,.25);
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,109,225,.09),
+        rgba(147,101,255,.06),
+        rgba(8,11,12,.65)
+    );
+    transition:transform .2s,border-color .2s
+}
+
+.command-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,109,225,.65)
+}
+
+.command-tag{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:5px 9px;
+    border-radius:5px;
+    background:rgba(255,109,225,.12);
+    color:#ff6de1;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase
+}
+
+.command-name{
+    display:block;
+    margin-bottom:10px;
+    color:#ff6de1;
+    font-size:21px;
+    font-weight:900;
+    overflow-wrap:anywhere
+}
+
+.command-description{
+    margin:0!important;
+    color:#aaaeb6;
+    font-size:14px;
+    line-height:1.8
 }
 
 /* DESPLEGABLES */
@@ -179,9 +229,7 @@ summary{
     transition:.2s
 }
 
-summary::-webkit-details-marker{
-    display:none
-}
+summary::-webkit-details-marker{display:none}
 
 summary::after{
     content:"+";
@@ -190,13 +238,9 @@ summary::after{
     line-height:14px
 }
 
-details[open] summary::after{
-    content:"−"
-}
+details[open] summary::after{content:"−"}
 
-summary:hover{
-    background:rgba(255,109,225,.06)
-}
+summary:hover{background:rgba(255,109,225,.06)}
 
 .shulker-content{
     padding:5px 22px 22px;
@@ -208,9 +252,7 @@ summary:hover{
     color:#f4f4f6
 }
 
-.shulker-content ul{
-    margin-bottom:15px
-}
+.shulker-content ul{margin-bottom:15px}
 
 footer{
     text-align:center;
@@ -221,23 +263,12 @@ footer{
 }
 
 @media(max-width:600px){
-
-    nav{
-        padding:0 5%
-    }
-
-    nav a.home{
-        display:none
-    }
-
-    main{
-        padding-top:65px
-    }
-
-    h1{
-        letter-spacing:-2px
-    }
-
+    nav{padding:0 5%}
+    nav a.home{display:none}
+    main{padding-top:65px}
+    h1{letter-spacing:-2px}
+    .box{padding:24px}
+    .command-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -259,7 +290,8 @@ footer{
 
     <a class="discord"
        href="https://discord.gg/sHvWgW7AE4"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
         Comprar por Discord
     </a>
 
@@ -282,7 +314,8 @@ footer{
 
         <a class="btn primary"
            href="https://discord.gg/sHvWgW7AE4"
-           target="_blank">
+           target="_blank"
+           rel="noopener noreferrer">
             Comprar KAIZORA
         </a>
 
@@ -310,13 +343,49 @@ footer{
             beneficios exclusivos:
         </p>
 
+        <!-- COMANDOS EXCLUSIVOS -->
+
+        <h3>Comandos exclusivos de KAIZORA</h3>
+
+        <p>
+            Personaliza tu identidad dentro del servidor y reúne a otros
+            jugadores en tu ubicación.
+        </p>
+
+        <div class="command-grid">
+
+            <div class="command-card">
+                <span class="command-tag">Personalización</span>
+
+                <span class="command-name">/nick</span>
+
+                <p class="command-description">
+                    Cambia tu apodo visible dentro del servidor para
+                    personalizar tu identidad y destacar con un nombre
+                    diferente al de tu usuario original, según las
+                    opciones permitidas por la configuración.
+                </p>
+            </div>
+
+            <div class="command-card">
+                <span class="command-tag">Teletransporte</span>
+
+                <span class="command-name">/tpahere</span>
+
+                <p class="command-description">
+                    Envía una solicitud de teletransporte a otro jugador
+                    para que venga hasta tu ubicación. El jugador deberá
+                    aceptar la solicitud si el sistema lo requiere.
+                </p>
+            </div>
+
+        </div>
 
         <!-- HERRAMIENTAS -->
 
         <h3>Dos Sets de Herramientas de Netherite</h3>
 
         <details>
-
             <summary>
                 Ver contenido de los 2 Sets de Herramientas
             </summary>
@@ -362,16 +431,13 @@ footer{
                 </ul>
 
             </div>
-
         </details>
-
 
         <!-- ARMADURAS -->
 
         <h3>Dos Sets de Armaduras de Netherite</h3>
 
         <details>
-
             <summary>
                 Ver contenido de los 2 Sets de Armaduras
             </summary>
@@ -423,16 +489,13 @@ footer{
                 </ul>
 
             </div>
-
         </details>
-
 
         <!-- TOTEMS -->
 
         <h3>+2 Tótems personalizados</h3>
 
         <details>
-
             <summary>
                 Ver contenido de los Tótems
             </summary>
@@ -452,25 +515,20 @@ footer{
                 </ul>
 
             </div>
-
         </details>
-
 
         <!-- ESCUDOS -->
 
         <h3>+2 Escudos personalizados</h3>
 
         <details>
-
             <summary>
                 Ver contenido de los Escudos
             </summary>
 
             <div class="shulker-content">
 
-                <p>
-                    Escudos personalizados ×2.
-                </p>
+                <p>Escudos personalizados ×2.</p>
 
                 <ul>
                     <li>Protección 10</li>
@@ -479,16 +537,13 @@ footer{
                 </ul>
 
             </div>
-
         </details>
-
 
         <!-- LLAVE -->
 
         <h3>+1 Llave Kaizora</h3>
 
         <details>
-
             <summary>
                 Ver contenido de la Llave Kaizora
             </summary>
@@ -500,9 +555,7 @@ footer{
                 </ul>
 
             </div>
-
         </details>
-
 
         <p style="margin-top:35px;">
             Las compras y la gestión del rango se realizan directamente
