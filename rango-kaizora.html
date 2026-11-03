@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KAIZORA | Kaizora Origins</title>
 <meta name="theme-color" content="#09070e">
-<meta name="description" content="Descubre el rango KAIZORA, el rango más exclusivo de Kaizora Origins.">
+<meta name="description" content="Descubre el rango KAIZORA, el rango más exclusivo de Kaizora Origins, con equipamiento personalizado y beneficios únicos.">
 
 <style>
 :root{
@@ -143,6 +143,8 @@ main{
     pointer-events:none;
 }
 
+/* TÍTULO KAIZORA */
+
 h1{
     display:block;
     width:fit-content;
@@ -152,7 +154,13 @@ h1{
     line-height:.98;
     font-weight:1000;
     letter-spacing:-5px;
-    background:linear-gradient(110deg,#fff 5%,#e5caff 30%,var(--purple) 58%,var(--magenta) 88%);
+    background:linear-gradient(
+        110deg,
+        #ffffff 5%,
+        #e5caff 30%,
+        var(--purple) 58%,
+        var(--magenta) 88%
+    );
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -225,6 +233,8 @@ h1{
     letter-spacing:1.4px;
 }
 
+/* BOTONES */
+
 .actions{
     display:flex;
     gap:12px;
@@ -255,7 +265,9 @@ h1{
     box-shadow:0 6px 24px rgba(255,109,225,.15);
 }
 
-.primary:hover{box-shadow:0 8px 30px rgba(255,109,225,.3)}
+.primary:hover{
+    box-shadow:0 8px 30px rgba(255,109,225,.3);
+}
 
 .back{
     color:#e2ddec;
@@ -366,7 +378,7 @@ h1{
     font-weight:950;
 }
 
-/* COMANDOS: TEXTO GRUESO Y FONDO OSCURO */
+/* COMANDOS KAIZORA: MORADO, MAGENTA Y ROSA */
 
 .command-grid{
     display:grid;
@@ -388,27 +400,34 @@ h1{
     min-height:90px;
     padding:20px 24px;
     border:0;
-    border-left:4px solid #ff4264;
+    border-left:4px solid var(--purple);
     border-radius:0;
-    background:linear-gradient(110deg,rgba(255,66,100,.09),rgba(21,12,23,.96));
+    background:linear-gradient(
+        110deg,
+        rgba(155,93,229,.12),
+        rgba(21,12,23,.96)
+    );
     transition:background .2s,filter .2s;
     overflow:hidden;
 }
 
 .command-card + .command-card{
-    border-left:4px solid #ff4264;
-    border-top:0;
+    border-left:4px solid var(--magenta);
 }
 
 .command-card:hover{
-    background:linear-gradient(110deg,rgba(255,66,100,.16),rgba(28,14,30,.98));
-    filter:brightness(1.12);
+    background:linear-gradient(
+        110deg,
+        rgba(255,109,225,.16),
+        rgba(28,14,30,.98)
+    );
+    filter:brightness(1.1);
 }
 
 .command-tag{
     display:block;
     margin-bottom:8px;
-    color:#b8a8c7;
+    color:#d8b5ff;
     font-size:10px;
     font-weight:900;
     letter-spacing:1.5px;
@@ -418,14 +437,14 @@ h1{
 .command-name{
     display:block;
     margin:0;
-    color:#ff9bb8;
+    color:var(--pink);
     font-size:clamp(23px,3vw,29px);
     font-weight:1000;
     line-height:1.15;
     letter-spacing:-.7px;
     overflow-wrap:anywhere;
     font-family:Arial,Helvetica,sans-serif;
-    text-shadow:0 0 14px rgba(255,109,225,.12);
+    text-shadow:0 0 14px rgba(255,109,225,.18);
 }
 
 .command-description{
@@ -446,7 +465,9 @@ details{
     transition:border-color .2s,background .2s;
 }
 
-details:hover{border-color:rgba(255,109,225,.55)}
+details:hover{
+    border-color:rgba(255,109,225,.55);
+}
 
 summary{
     cursor:pointer;
@@ -473,7 +494,9 @@ summary::after{
 
 details[open] summary::after{content:"−"}
 
-summary:hover{background:rgba(155,93,229,.07)}
+summary:hover{
+    background:rgba(155,93,229,.07);
+}
 
 details[open] summary{
     background:rgba(155,93,229,.06);
@@ -624,7 +647,7 @@ footer span{
     }
 
     .command-card + .command-card{
-        border-top:1px solid rgba(255,66,100,.2);
+        border-top:1px solid rgba(155,93,229,.2);
     }
 
     .shulker-content{padding:5px 14px 18px}
@@ -686,6 +709,7 @@ footer span{
             </div>
 
             <div class="actions">
+
                 <a class="btn primary"
                    href="https://discord.gg/sHvWgW7AE4"
                    target="_blank"
@@ -697,6 +721,7 @@ footer span{
                    href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
                     Volver a rangos
                 </a>
+
             </div>
 
         </div>
@@ -710,6 +735,7 @@ footer span{
         <h2>Información del rango</h2>
 
         <div class="section">
+
             <h3>El rango definitivo</h3>
 
             <p>
@@ -724,9 +750,11 @@ footer span{
                 Además de todo lo anterior, KAIZORA incluye los siguientes
                 beneficios exclusivos.
             </p>
+
         </div>
 
         <div class="section">
+
             <h3>Comandos exclusivos de KAIZORA</h3>
 
             <p>
@@ -739,6 +767,7 @@ footer span{
                 <div class="command-card">
                     <span class="command-tag">Personalización</span>
                     <span class="command-name">/nick</span>
+
                     <p class="command-description">
                         Cambia tu apodo visible dentro del servidor para
                         personalizar tu identidad y destacar con un nombre
@@ -750,6 +779,7 @@ footer span{
                 <div class="command-card">
                     <span class="command-tag">Teletransporte</span>
                     <span class="command-name">/tpahere</span>
+
                     <p class="command-description">
                         Envía una solicitud de teletransporte a otro jugador
                         para que venga hasta tu ubicación. El jugador deberá
@@ -758,15 +788,18 @@ footer span{
                 </div>
 
             </div>
+
         </div>
 
         <div class="section">
+
             <h3>Dos sets de herramientas de Netherite</h3>
 
             <details>
                 <summary>Ver contenido de los 2 sets de herramientas</summary>
 
                 <div class="shulker-content">
+
                     <p>Todos los siguientes objetos se entregan en cantidad ×2.</p>
 
                     <h3>Espada de Netherite</h3>
@@ -798,17 +831,21 @@ footer span{
                         <li>Irrompibilidad X</li>
                         <li>Reparación</li>
                     </ul>
+
                 </div>
             </details>
+
         </div>
 
         <div class="section">
+
             <h3>Dos sets de armaduras de Netherite</h3>
 
             <details>
                 <summary>Ver contenido de los 2 sets de armaduras</summary>
 
                 <div class="shulker-content">
+
                     <p>Cada pieza de armadura se entrega en cantidad ×2.</p>
 
                     <h3>Casco de Netherite</h3>
@@ -846,11 +883,14 @@ footer span{
                         <li>Irrompibilidad IX</li>
                         <li>Reparación</li>
                     </ul>
+
                 </div>
             </details>
+
         </div>
 
         <div class="section">
+
             <h3>+2 tótems personalizados</h3>
 
             <details>
@@ -870,15 +910,18 @@ footer span{
                     </ul>
                 </div>
             </details>
+
         </div>
 
         <div class="section">
+
             <h3>+2 escudos personalizados</h3>
 
             <details>
                 <summary>Ver contenido de los escudos</summary>
 
                 <div class="shulker-content">
+
                     <p>Escudos personalizados ×2.</p>
 
                     <ul>
@@ -886,11 +929,14 @@ footer span{
                         <li>Protección contra proyectiles X</li>
                         <li>Espinas X</li>
                     </ul>
+
                 </div>
             </details>
+
         </div>
 
         <div class="section">
+
             <h3>+1 llave Kaizora</h3>
 
             <details>
@@ -902,6 +948,7 @@ footer span{
                     </ul>
                 </div>
             </details>
+
         </div>
 
         <div class="notice">
