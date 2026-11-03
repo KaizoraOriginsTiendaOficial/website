@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -216,6 +217,8 @@ h1{
     border:1px solid rgba(255,255,255,.08);
     border-radius:10px;
     background:rgba(255,255,255,.025);
+    color:#aaaeb6;
+    line-height:1.8;
 }
 
 .inherit strong{
@@ -225,6 +228,57 @@ h1{
 .kit-title{
     font-size:21px!important;
     color:#ffffff!important;
+}
+
+/* COMANDOS CELESTIAL */
+
+.command-card{
+    margin-top:14px;
+    padding:20px;
+    border:1px solid rgba(43,215,245,.22);
+    border-radius:12px;
+    background:linear-gradient(
+        120deg,
+        rgba(43,215,245,.075),
+        rgba(147,101,255,.035)
+    );
+    transition:border-color .2s, transform .2s;
+}
+
+.command-card:hover{
+    border-color:rgba(43,215,245,.65);
+    transform:translateY(-2px);
+}
+
+.command-name{
+    display:inline-block;
+    margin-bottom:9px;
+    color:#2bd7f5;
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:.3px;
+}
+
+.command-description{
+    margin:0!important;
+    color:#bfc0c6!important;
+    font-size:14px;
+    line-height:1.75!important;
+}
+
+.command-note{
+    margin-top:22px;
+    padding:17px 19px;
+    border-left:3px solid #2bd7f5;
+    border-radius:0 9px 9px 0;
+    background:rgba(43,215,245,.045);
+    color:#aaaeb6;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.command-note strong{
+    color:#ffffff;
 }
 
 footer{
@@ -256,6 +310,10 @@ footer{
     .box{
         padding:24px;
     }
+
+    .command-card{
+        padding:17px;
+    }
 }
 </style>
 </head>
@@ -281,6 +339,7 @@ footer{
         class="discord"
         href="https://discord.gg/sHvWgW7AE4"
         target="_blank"
+        rel="noopener noreferrer"
     >
         Comprar por Discord
     </a>
@@ -304,7 +363,7 @@ footer{
     </p>
 
     <div class="price">
-        $7.99 
+        $7.99
     </div>
 
     <div class="actions">
@@ -313,6 +372,7 @@ footer{
             class="btn primary"
             href="https://discord.gg/sHvWgW7AE4"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Comprar CELESTIAL
         </a>
@@ -338,17 +398,81 @@ footer{
 
         <!-- HERENCIA -->
 
-               <div class="section">
+        <div class="section">
 
             <h3>
-                Herencia
+                Herencia de rangos
             </h3>
 
             <p>
-                CELESITAL incluye todos los permisos, comandos, kits y beneficios
-                de todos los rangos anteriores, además de todos los beneficios
-                propios del rango CELESTIAL.
+                CELESTIAL incluye todos los permisos, comandos, kits y
+                beneficios de los rangos anteriores, incluidos ELITE y
+                ORIGIN, además de las ventajas exclusivas propias de
+                CELESTIAL.
             </p>
+
+            <div class="inherit">
+
+                <strong>Tu rango incluye:</strong><br>
+
+                Default / User + ORIGIN + ELITE + CELESTIAL.<br>
+
+                <strong>
+                    No pierdes las ventajas de tus rangos anteriores.
+                </strong>
+
+                Conservas sus comandos, permisos y beneficios según la
+                configuración del servidor.
+
+            </div>
+
+        </div>
+
+
+        <!-- COMANDOS EXCLUSIVOS CELESTIAL -->
+
+        <div class="section">
+
+            <h3 class="kit-title">
+                Comandos exclusivos de CELESTIAL
+            </h3>
+
+            <p>
+                Desbloquea nuevas posibilidades y accede a herramientas
+                útiles sin necesidad de fabricar manualmente tus estaciones
+                de trabajo.
+            </p>
+
+            <div class="command-card">
+
+                <span class="command-name">
+                    /craft
+                </span>
+
+                <p class="command-description">
+                    Abre una mesa de fabricación virtual para crear objetos
+                    desde donde te encuentres, sin tener que colocar una
+                    mesa de trabajo en el mundo.
+                </p>
+
+            </div>
+
+            <div class="command-note">
+
+                <strong>También incluye los comandos de tus rangos anteriores</strong><br>
+
+                Al obtener CELESTIAL conservas los comandos de ELITE y
+                ORIGIN, incluidos <strong>/extinguish</strong>,
+                <strong>/me</strong>, <strong>/recipe</strong> y
+                <strong>/depth</strong>, además de los permisos y beneficios
+                heredados de Default / User.
+
+                <br><br>
+
+                <strong>Importante:</strong> los comandos disponibles
+                dependen de los permisos y plugins instalados en el servidor.
+
+            </div>
 
         </div>
 
