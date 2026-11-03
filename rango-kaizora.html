@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -129,6 +130,7 @@ main{
 .hero{
     position:relative;
     padding:10px 0 38px;
+    animation:appear .65s ease both;
 }
 
 .hero::before{
@@ -298,6 +300,7 @@ h1{
     box-shadow:0 22px 70px rgba(0,0,0,.25);
     overflow:hidden;
     counter-reset:kaizora-section;
+    animation:appear .8s ease both;
 }
 
 .box::before{
@@ -306,9 +309,9 @@ h1{
     top:0;
     left:8%;
     right:8%;
-    height:1px;
+    height:2px;
     background:linear-gradient(90deg,transparent,var(--purple),var(--magenta),transparent);
-    opacity:.8;
+    opacity:.9;
 }
 
 .box h2{
@@ -402,11 +405,7 @@ h1{
     border:0;
     border-left:4px solid var(--purple);
     border-radius:0;
-    background:linear-gradient(
-        110deg,
-        rgba(155,93,229,.12),
-        rgba(21,12,23,.96)
-    );
+    background:linear-gradient(110deg,rgba(155,93,229,.12),rgba(21,12,23,.96));
     transition:background .2s,filter .2s;
     overflow:hidden;
 }
@@ -416,11 +415,7 @@ h1{
 }
 
 .command-card:hover{
-    background:linear-gradient(
-        110deg,
-        rgba(255,109,225,.16),
-        rgba(28,14,30,.98)
-    );
+    background:linear-gradient(110deg,rgba(255,109,225,.16),rgba(28,14,30,.98));
     filter:brightness(1.1);
 }
 
@@ -470,6 +465,10 @@ details:hover{
 }
 
 summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
     cursor:pointer;
     list-style:none;
     padding:18px 20px;
@@ -485,10 +484,16 @@ summary::-webkit-details-marker{display:none}
 
 summary::after{
     content:"+";
-    float:right;
+    display:grid;
+    place-items:center;
+    flex:0 0 28px;
+    width:28px;
+    height:28px;
+    border:1px solid rgba(255,109,225,.3);
+    border-radius:7px;
     margin-left:12px;
     font-size:21px;
-    line-height:14px;
+    line-height:1;
     color:var(--magenta);
 }
 
@@ -585,6 +590,13 @@ footer{
 footer span{
     color:var(--magenta);
     font-weight:800;
+}
+
+/* ANIMACIONES */
+
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
 /* DISEÑO RESPONSIVE */
