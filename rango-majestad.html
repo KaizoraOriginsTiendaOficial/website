@@ -140,28 +140,11 @@ main{
     pointer-events:none;
 }
 
-.label{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:20px;
-    color:var(--rank);
-    font-size:11px;
-    font-weight:950;
-    letter-spacing:4px;
-    text-transform:uppercase;
-}
-
-.label::before{
-    content:"";
-    width:24px;
-    height:2px;
-    background:linear-gradient(90deg,var(--rank),var(--purple));
-    box-shadow:0 0 12px rgba(255,211,77,.5);
-}
-
+/* El nombre del rango es el protagonista */
 h1{
-    display:inline-block;
+    display:block;
+    width:fit-content;
+    max-width:100%;
     margin:0 0 18px;
     font-size:clamp(49px,9vw,94px);
     line-height:.98;
@@ -178,6 +161,26 @@ h1{
     background-clip:text;
     color:transparent;
     filter:drop-shadow(0 0 25px rgba(255,211,77,.13));
+}
+
+.label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin:0 0 18px;
+    color:var(--rank);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.label::before{
+    content:"";
+    width:24px;
+    height:2px;
+    background:linear-gradient(90deg,var(--rank),var(--purple));
+    box-shadow:0 0 12px rgba(255,211,77,.5);
 }
 
 .desc{
@@ -519,9 +522,9 @@ footer span{
 
 <main>
     <header class="hero">
-        <div class="label">RANGO EXCLUSIVO</div>
-
         <h1>MAJESTAD</h1>
+
+        <div class="label">RANGO EXCLUSIVO</div>
 
         <p class="desc">
             Prestigio, reconocimiento y nuevas ventajas dentro de Kaizora.
