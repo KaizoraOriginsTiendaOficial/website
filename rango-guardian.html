@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b10">
+<meta name="theme-color" content="#08080d">
 <meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins, sus comandos exclusivos, equipamiento y beneficios.">
 <title>GUARDIAN | Kaizora Origins</title>
 
 <style>
 :root{
-    --bg:#070711;
+    --bg:#08080d;
     --panel:#101322;
     --rank:#42dc82;
     --rank-light:#b0ffd0;
@@ -18,11 +18,12 @@
     --pink:#ff6de1;
     --white:#fff;
     --text:#e8eaff;
-    --muted:#b8bec8;
+    --muted:#b8bbcb;
     --border:rgba(66,220,130,.25);
 }
 
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
 
 body{
@@ -43,9 +44,9 @@ a{color:inherit}
     pointer-events:none;
     background:
         radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.20),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(66,220,130,.12),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.09),transparent 40%),
-        #070711;
+        radial-gradient(ellipse at 88% 38%,rgba(66,220,130,.10),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.08),transparent 40%),
+        #08080d;
 }
 
 .bg::after{
@@ -69,7 +70,7 @@ nav{
     gap:16px;
     padding:14px 7%;
     border-bottom:1px solid rgba(66,220,130,.18);
-    background:rgba(7,7,17,.87);
+    background:rgba(8,8,13,.87);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
     position:relative;
@@ -87,7 +88,7 @@ nav{
 
 nav a{
     text-decoration:none;
-    color:#d4d9eb;
+    color:#d4d2de;
     font-size:13px;
     font-weight:850;
 }
@@ -109,7 +110,7 @@ nav a.home:hover{color:white}
     box-shadow:0 8px 32px rgba(147,101,255,.4);
 }
 
-/* PRESENTACIÓN */
+/* HERO */
 
 main{
     max-width:1100px;
@@ -130,7 +131,7 @@ main{
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
-    margin-bottom:19px;
+    margin-bottom:25px;
     padding:9px 13px;
     border:1px solid rgba(66,220,130,.4);
     border-radius:6px;
@@ -154,7 +155,13 @@ h1{
     letter-spacing:-5px;
     font-weight:1000;
     overflow-wrap:anywhere;
-    background:linear-gradient(100deg,#fff 5%,#e0ffec 30%,#42dc82 65%,#8bffb5 92%);
+    background:linear-gradient(
+        100deg,
+        #fff 5%,
+        var(--rank-pale) 30%,
+        var(--rank) 65%,
+        #8bffb5 95%
+    );
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
@@ -162,11 +169,20 @@ h1{
 }
 
 .desc{
-    max-width:720px;
+    max-width:780px;
     color:#c4c9dc;
     font-size:17px;
     line-height:1.85;
     margin:0;
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
 
 .price-wrap{
@@ -178,45 +194,26 @@ h1{
 
 .price-label{
     display:block;
-    color:#aeb9d7;
+    color:#b8b7c4;
     font-size:10px;
     letter-spacing:2px;
     font-weight:900;
-    margin-bottom:5px;
+    margin-bottom:7px;
 }
 
 .price{
     font-size:46px;
     font-weight:1000;
     letter-spacing:-2px;
+    line-height:1;
     color:var(--rank);
-    text-shadow:0 0 25px rgba(66,220,130,.25);
+    text-shadow:0 0 25px rgba(66,220,130,.23);
 }
 
 .price-note{
-    color:#b6c4dc;
+    color:#c1bdcb;
     font-size:12px;
-    line-height:1.6;
-}
-
-.price-tag{
-    padding:8px 12px;
-    border-radius:6px;
-    border:1px solid rgba(66,220,130,.28);
-    background:rgba(66,220,130,.08);
-    color:var(--rank-pale);
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:1.2px;
-}
-
-.hero-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
-    flex-wrap:wrap;
-    margin-top:30px;
+    line-height:1.8;
 }
 
 .actions{
@@ -248,7 +245,9 @@ h1{
     box-shadow:0 5px 24px rgba(66,220,130,.2);
 }
 
-.primary:hover{box-shadow:0 8px 32px rgba(66,220,130,.35)}
+.primary:hover{
+    box-shadow:0 8px 32px rgba(66,220,130,.35);
+}
 
 .back{
     color:#e2eaff;
@@ -268,8 +267,8 @@ h1{
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(17,20,35,.97),rgba(9,10,21,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(66,220,130,.045);
+    background:linear-gradient(145deg,rgba(17,18,30,.97),rgba(9,10,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(66,220,130,.035);
     overflow:hidden;
     animation:appear .8s ease both;
 }
@@ -299,13 +298,13 @@ h1{
     height:28px;
     border-radius:8px;
     background:linear-gradient(var(--rank),var(--purple));
-    box-shadow:0 0 16px rgba(66,220,130,.35);
+    box-shadow:0 0 16px rgba(66,220,130,.3);
     flex-shrink:0;
 }
 
 .box h3{
     margin:0 0 14px;
-    color:#f4f8ff;
+    color:#f4f4ff;
     font-size:18px;
     font-weight:950;
 }
@@ -348,35 +347,89 @@ h1{
     border-radius:12px;
     border:1px solid rgba(66,220,130,.35);
     background:linear-gradient(145deg,rgba(66,220,130,.17),rgba(147,101,255,.13));
-    color:#d8ffe7;
+    color:var(--rank-pale);
     font-size:16px;
-    font-weight:1000;
-    box-shadow:inset 0 0 16px rgba(66,220,130,.06);
+    font-weight:950;
+    box-shadow:inset 0 0 16px rgba(66,220,130,.05);
 }
 
 .section-heading-text{min-width:0}
 
 .section-heading h3{
     margin:0;
-    font-size:clamp(18px,2.6vw,23px);
-    line-height:1.3;
-    color:#f7f8fb;
+    font-size:clamp(17px,2.6vw,21px);
+    line-height:1.4;
 }
 
 .section-subtitle{
     margin:5px 0 0!important;
     font-size:12px!important;
-    color:#a7b8d4!important;
+    color:#aeb8d0!important;
+    line-height:1.6!important;
 }
 
 .section-intro{
-    margin-bottom:18px!important;
+    margin-bottom:20px!important;
     color:#c4c9dc!important;
     font-size:14px!important;
-    line-height:1.9!important;
+    line-height:1.85!important;
 }
 
-/* COMANDOS: ESTILO CELESTIAL */
+/* TARJETAS DE INFORMACIÓN */
+
+.info-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+}
+
+.info-list li{
+    position:relative;
+    min-width:0;
+    padding:14px 15px 14px 18px;
+    border:1px solid rgba(66,220,130,.17);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(66,220,130,.055),rgba(147,101,255,.035),rgba(255,255,255,.018));
+    color:#cbd7eb;
+    line-height:1.7;
+    font-size:13px;
+    overflow-wrap:anywhere;
+    transition:border-color .2s,background .2s,transform .2s;
+}
+
+.info-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:12px;
+    bottom:12px;
+    width:3px;
+    border-radius:0 4px 4px 0;
+    background:linear-gradient(var(--rank),var(--purple));
+}
+
+.info-list li:hover{
+    border-color:rgba(66,220,130,.55);
+    background:rgba(66,220,130,.07);
+    transform:translateY(-1px);
+}
+
+.item-name{
+    color:#f4f5ff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:var(--rank-light);
+    font-size:13px;
+    font-weight:700;
+}
+
+/* TARJETAS DE COMANDOS */
 
 .command-grid{
     display:grid;
@@ -394,7 +447,7 @@ h1{
     border-radius:14px;
     background:
         radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
-        linear-gradient(135deg,rgba(25,112,75,.18),rgba(15,17,34,.96) 70%);
+        linear-gradient(135deg,rgba(25,112,75,.16),rgba(15,17,34,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
 }
@@ -426,7 +479,7 @@ h1{
 .command-card:hover{
     border-color:rgba(66,220,130,.75);
     transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(66,220,130,.09);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(66,220,130,.08);
 }
 
 .command-top{
@@ -445,10 +498,10 @@ h1{
     height:36px;
     flex-shrink:0;
     border-radius:10px;
-    color:#e2ffec;
-    background:rgba(66,220,130,.13);
+    color:var(--rank-pale);
+    background:rgba(66,220,130,.12);
     border:1px solid rgba(66,220,130,.3);
-    font-size:12px;
+    font-size:13px;
     font-weight:950;
 }
 
@@ -467,97 +520,53 @@ h1{
 
 .command-name{
     display:block;
+    position:relative;
+    z-index:1;
     margin-bottom:11px;
     color:#8bffb5;
     font-size:25px;
     line-height:1.25;
     font-weight:1000;
-    letter-spacing:.2px;
+    letter-spacing:.1px;
     overflow-wrap:anywhere;
     text-shadow:0 0 22px rgba(66,220,130,.2);
     font-family:Arial,Helvetica,sans-serif;
 }
 
 .command-description{
+    position:relative;
+    z-index:1;
     margin:0!important;
     color:#d0dced!important;
     font-size:14px!important;
     line-height:1.85!important;
 }
 
-.command-note{
+/* HERENCIA Y AVISOS */
+
+.inherit{
     margin-top:20px;
-    padding:18px 20px;
+    padding:20px;
     border:1px solid rgba(66,220,130,.22);
     border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(66,220,130,.09),rgba(147,101,255,.04));
+    background:linear-gradient(100deg,rgba(66,220,130,.09),rgba(147,101,255,.045));
     color:#c0cde0;
     font-size:13px;
     line-height:1.9;
 }
 
-.command-note strong{color:#e0ffec}
-
-/* EQUIPAMIENTO */
-
-.info-list{
-    list-style:none;
-    padding:0;
-    margin:0;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
-}
-
-.info-list li{
-    min-width:0;
-    padding:15px;
-    border:1px solid rgba(66,220,130,.17);
-    border-radius:10px;
-    background:linear-gradient(120deg,rgba(66,220,130,.055),rgba(255,255,255,.018));
-    color:#cbd7eb;
-    line-height:1.7;
-    overflow-wrap:anywhere;
-    transition:border-color .2s,background .2s,transform .2s;
-}
-
-.info-list li:hover{
-    border-color:rgba(147,101,255,.55);
-    background:rgba(66,220,130,.07);
-    transform:translateY(-1px);
-}
-
-.item-name{
-    color:#f2f7ff;
-    font-weight:900;
-}
-
-.item-details{
-    color:#b0ffd0;
-    font-size:13px;
-    font-weight:700;
-}
-
-/* AVISOS */
-
-.inherit{
-    margin-top:19px;
-    padding:20px;
-    border:1px solid rgba(147,101,255,.32);
-    border-radius:12px;
-    background:linear-gradient(110deg,rgba(147,101,255,.13),rgba(66,220,130,.055));
-    color:#d0ddf2;
-    line-height:1.9;
-    box-shadow:inset 0 0 24px rgba(66,220,130,.025);
-}
-
 .inherit strong{
-    color:#e0ffec;
+    color:var(--rank-pale);
     font-weight:950;
 }
 
-.inherit p{margin:8px 0}
+.inherit p{margin:12px 0 0!important}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4f8ff!important;
+}
 
 /* DESPLEGABLES */
 
@@ -595,6 +604,7 @@ summary::after{
 }
 
 details[open] summary::after{content:"−"}
+
 summary:hover{background:rgba(66,220,130,.055)}
 
 .shulker-content{
@@ -637,7 +647,7 @@ summary:hover{background:rgba(66,220,130,.055)}
 
 .shulker-content li strong{color:#fff}
 
-/* PIE */
+/* PIE DE PÁGINA */
 
 footer{
     text-align:center;
@@ -688,6 +698,7 @@ footer span{color:var(--rank-light)}
     }
 
     .price{font-size:40px}
+
     .actions{width:100%}
 
     .btn{
@@ -711,9 +722,11 @@ footer span{color:var(--rank-light)}
     .command-card{padding:20px}
     .command-name{font-size:24px}
 
-    .section-heading h3{font-size:17px}
+    .section-heading h3{font-size:16px}
+
     .shulker-content{padding:5px 12px 18px}
     .shulker-content ul{grid-template-columns:1fr}
+
     .inherit{padding:16px}
 }
 
@@ -730,10 +743,13 @@ footer span{color:var(--rank-light)}
 </head>
 
 <body>
+
 <div class="bg"></div>
 
 <nav>
-    <div class="logo">KAIZORA <span>ORIGINS</span></div>
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
 
     <a class="home"
        href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
@@ -750,6 +766,8 @@ footer span{color:var(--rank-light)}
 
 <main>
 
+    <!-- HERO DEL RANGO -->
+
     <header class="hero">
 
         <div class="label">RANGO EXCLUSIVO</div>
@@ -757,14 +775,16 @@ footer span{color:var(--rank-light)}
         <h1>GUARDIAN</h1>
 
         <p class="desc">
-            Uno de los rangos superiores para jugadores comprometidos con Kaizora.
-            Obtén equipamiento avanzado, protección y herramientas adicionales
-            para tu aventura.
+            Uno de los rangos superiores de Kaizora Origins. Obtén equipamiento
+            avanzado, herramientas adicionales y protección para tus
+            construcciones, mientras disfrutas de beneficios exclusivos
+            que te ayudarán a llevar tu aventura al siguiente nivel.
         </p>
 
         <div class="hero-bottom">
 
             <div class="price-wrap">
+
                 <div>
                     <span class="price-label">PRECIO DEL RANGO</span>
                     <div class="price">$15.99</div>
@@ -775,12 +795,10 @@ footer span{color:var(--rank-light)}
                     Lleva tu aventura más lejos.
                 </div>
 
-                <div class="price-tag">
-                    PODER · PROTECCIÓN · BENEFICIOS
-                </div>
             </div>
 
             <div class="actions">
+
                 <a class="btn primary"
                    href="https://discord.gg/sHvWgW7AE4"
                    target="_blank"
@@ -792,14 +810,18 @@ footer span{color:var(--rank-light)}
                    href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
                     Volver a rangos
                 </a>
+
             </div>
 
         </div>
+
     </header>
+
+    <!-- INFORMACIÓN COMPLETA -->
 
     <div class="box">
 
-        <h2>Información del rango</h2>
+        <h2>Beneficios y ventajas de GUARDIAN</h2>
 
         <!-- 01: HERENCIA -->
 
@@ -808,25 +830,26 @@ footer span{color:var(--rank-light)}
             <div class="section-heading">
                 <div class="section-number">01</div>
                 <div class="section-heading-text">
-                    <h3>Herencia de rangos</h3>
+                    <h3>Beneficios de rangos anteriores</h3>
                     <p class="section-subtitle">
-                        Conserva los beneficios de tus rangos anteriores
+                        Tus ventajas anteriores siguen contigo
                     </p>
                 </div>
             </div>
 
             <p class="section-intro">
-                GUARDIAN incluye todos los permisos, comandos, kits y beneficios
+                GUARDIAN incluye los permisos, comandos, kits y beneficios
                 de los rangos anteriores, además de sus propias ventajas
                 exclusivas.
             </p>
 
             <div class="inherit">
-                <strong>BENEFICIOS HEREDADOS</strong>
-                <p>
-                    Al obtener GUARDIAN, conservas los beneficios correspondientes
-                    a los rangos anteriores que forman parte de su progresión.
-                </p>
+                <strong>VENTAJAS HEREDADAS</strong><br>
+                Conservas los beneficios correspondientes a los rangos
+                anteriores de la progresión, junto con los permisos y
+                ventajas que ya hayas desbloqueado.
+                <br><br>
+                <strong>Tu ascenso no elimina los beneficios anteriores.</strong>
             </div>
 
         </section>
@@ -840,15 +863,15 @@ footer span{color:var(--rank-light)}
                 <div class="section-heading-text">
                     <h3>Comando exclusivo de GUARDIAN</h3>
                     <p class="section-subtitle">
-                        Una herramienta adicional para gestionar tus recursos
+                        Compacta materiales y organiza tus recursos
                     </p>
                 </div>
             </div>
 
             <p class="section-intro">
-                GUARDIAN te permite acceder a una utilidad adicional para
-                compactar materiales compatibles y organizar tu inventario.
-                Este comando se suma a los beneficios de tus rangos anteriores.
+                GUARDIAN incorpora una herramienta para compactar materiales
+                compatibles de tu inventario y facilitar la organización
+                de tus recursos.
             </p>
 
             <div class="command-grid">
@@ -863,21 +886,21 @@ footer span{color:var(--rank-light)}
                     <span class="command-name">/condense</span>
 
                     <p class="command-description">
-                        Convierte automáticamente materiales compatibles de tu
-                        inventario en sus bloques compactos correspondientes.
-                        Por ejemplo, puedes convertir lingotes de oro o hierro
-                        en bloques para ahorrar espacio en el inventario.
+                        Convierte materiales compatibles de tu inventario
+                        en sus bloques compactos correspondientes, como
+                        lingotes de hierro u oro en bloques, siempre que
+                        el plugin y los materiales sean compatibles.
                     </p>
 
                 </article>
 
             </div>
 
-            <div class="command-note">
+            <div class="inherit">
                 <strong>VENTAJA GUARDIAN</strong><br>
                 Este comando se añade a los beneficios de los rangos anteriores.
-                Su funcionamiento depende de los permisos y de la configuración
-                de los plugins del servidor.
+                Su disponibilidad depende de los permisos y de la configuración
+                del servidor.
             </div>
 
         </section>
@@ -932,17 +955,17 @@ footer span{color:var(--rank-light)}
                     <h3>Comida</h3>
 
                     <ul>
-                        <li>Manzanas Encantadas ×64</li>
-                        <li>Manzanas Doradas ×64 — 3 stacks</li>
-                        <li>Zanahorias Doradas ×64 — 2 stacks</li>
+                        <li>Manzanas encantadas ×64</li>
+                        <li>Manzanas doradas ×64 — 3 stacks</li>
+                        <li>Zanahorias doradas ×64 — 2 stacks</li>
                     </ul>
 
                     <h3>Minerales</h3>
 
                     <ul>
-                        <li>Bloques de Oro ×16</li>
-                        <li>Bloques de Diamante ×32</li>
-                        <li>Bloques de Esmeralda ×8</li>
+                        <li>Bloques de oro ×16</li>
+                        <li>Bloques de diamante ×32</li>
+                        <li>Bloques de esmeralda ×8</li>
                     </ul>
 
                     <h3>Añadidos</h3>
@@ -950,7 +973,7 @@ footer span{color:var(--rank-light)}
                     <ul>
                         <li>Tótem de la Inmortalidad ×1</li>
                         <li>Cristal del End ×64</li>
-                        <li>Carga de Viento ×64</li>
+                        <li>Carga de viento ×64</li>
                     </ul>
 
                 </div>
@@ -975,7 +998,10 @@ footer span{color:var(--rank-light)}
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Shulker llena de pociones</span>
+                    <span class="item-name">Shulker llena de pociones</span><br>
+                    <span class="item-details">
+                        Contenido: pociones variadas
+                    </span>
                 </li>
 
                 <li>
@@ -987,7 +1013,7 @@ footer span{color:var(--rank-light)}
 
         </section>
 
-        <!-- 05: POLVOS -->
+        <!-- 05: POLVOS Y MATERIALES ESPECIALES -->
 
         <section class="section">
 
@@ -1046,12 +1072,18 @@ footer span{color:var(--rank-light)}
                 </div>
             </div>
 
+            <p class="section-intro">
+                El rango incluye una piedra de protección para delimitar
+                una zona de construcción, de acuerdo con la configuración
+                del plugin de protección del servidor.
+            </p>
+
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Mena de Esmeralda</span><br>
+                    <span class="item-name">Mena de esmeralda</span><br>
                     <span class="item-details">
-                        Protección de 60 × 60 bloques
+                        Área de protección: 60 × 60 bloques
                     </span>
                 </li>
 
@@ -1059,46 +1091,51 @@ footer span{color:var(--rank-light)}
 
         </section>
 
-        <!-- DISCORD -->
+        <!-- 07: COMPRA -->
 
         <section class="section">
 
             <div class="section-heading">
                 <div class="section-number">07</div>
                 <div class="section-heading-text">
-                    <h3>Compra y gestión del rango</h3>
+                    <h3>Compra del rango</h3>
                     <p class="section-subtitle">
-                        Gestiona tu compra desde nuestro Discord oficial
+                        Obtén GUARDIAN mediante nuestro Discord oficial
                     </p>
                 </div>
             </div>
 
             <p class="section-intro">
-                Las compras y la gestión del rango se realizan directamente
-                mediante nuestro Discord oficial.
+                Para adquirir GUARDIAN, entra en el Discord oficial de
+                Kaizora Origins y consulta el procedimiento de compra
+                disponible.
             </p>
 
             <div class="actions">
+
                 <a class="btn primary"
                    href="https://discord.gg/sHvWgW7AE4"
                    target="_blank"
                    rel="noopener noreferrer">
                     Entrar al Discord oficial ↗
                 </a>
+
             </div>
 
         </section>
 
+        <!-- RESUMEN -->
+
         <div class="inherit">
-            <strong>RESUMEN DEL RANGO GUARDIAN</strong>
-            GUARDIAN combina beneficios heredados, el comando exclusivo
+            <strong>RESUMEN DEL RANGO GUARDIAN</strong><br>
+            GUARDIAN incluye beneficios heredados, el comando exclusivo
             <strong>/condense</strong>, dos Shulkers con equipamiento y
-            suministros, materiales especiales y una piedra de protección.
+            suministros, materiales especiales y una piedra de protección
+            de 60 × 60 bloques.
             <br><br>
-            <strong>Nota:</strong>
-            Los comandos, encantamientos y objetos personalizados dependen
-            de los permisos, la configuración del servidor y los plugins
-            instalados.
+            <strong>Nota:</strong> los comandos, encantamientos, objetos
+            personalizados y protecciones dependen de los permisos,
+            la configuración del servidor y los plugins instalados.
         </div>
 
     </div>
