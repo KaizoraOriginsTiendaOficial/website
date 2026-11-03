@@ -11,473 +11,607 @@
 <style>
 :root{
     --bg:#09070e;
-    --purple:#9365ff;
+    --panel:#131019;
+    --panel2:#17121f;
+    --purple:#9b5de5;
     --magenta:#d75aff;
     --pink:#ff6de1;
     --white:#f7f5fb;
     --muted:#bcb7c7;
-    --border:rgba(215,90,255,.2);
+    --border:rgba(215,90,255,.23);
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:100px;
+}
+
 body{
     margin:0;
-    background:var(--bg);
-    color:var(--white);
-    font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
     overflow-x:hidden;
-}
-a{color:inherit}
-.bg{
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
+    color:var(--white);
     background:
-        radial-gradient(ellipse at 18% 12%,rgba(147,101,255,.17),transparent 38%),
-        radial-gradient(ellipse at 83% 38%,rgba(215,90,255,.12),transparent 36%),
-        radial-gradient(ellipse at 50% 95%,rgba(255,109,225,.07),transparent 38%),
-        #09070e;
+        radial-gradient(ellipse at 8% 10%,rgba(155,93,229,.09),transparent 34%),
+        radial-gradient(ellipse at 90% 18%,rgba(255,109,225,.075),transparent 35%),
+        var(--bg);
+    font-family:Arial,Helvetica,sans-serif;
 }
-.bg::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    opacity:.14;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:42px 42px;
-    mask-image:linear-gradient(to bottom,black,transparent 85%);
+
+a{color:inherit}
+
+::selection{
+    background:rgba(215,90,255,.35);
+    color:#fff;
 }
+
 nav{
     position:sticky;
     top:0;
-    z-index:20;
-    min-height:76px;
+    z-index:50;
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    padding:0 7%;
+    gap:22px;
+    min-height:76px;
+    padding:0 6%;
     border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(9,7,14,.87);
+    background:rgba(9,7,14,.91);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 }
+
 .logo{
-    font-size:21px;
-    font-weight:950;
-    letter-spacing:1.5px;
+    font-size:20px;
+    font-weight:1000;
+    letter-spacing:1.3px;
     white-space:nowrap;
 }
+
 .logo span{
     background:linear-gradient(90deg,var(--purple),var(--pink));
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
 }
-nav a{
-    text-decoration:none;
-    color:#d5d0df;
-    font-size:13px;
-    font-weight:850;
-}
-nav a.home{
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
     margin-left:auto;
+}
+
+.nav-links a{
+    color:#d5d0df;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:850;
     transition:color .2s;
 }
-nav a.home:hover{color:var(--pink)}
+
+.nav-links a:hover{color:var(--pink)}
+
 .discord{
-    padding:12px 18px;
-    border-radius:9px;
-    background:linear-gradient(110deg,#7950ed,#b04df1);
-    color:white!important;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 5px 22px rgba(147,101,255,.2);
-    transition:transform .2s,box-shadow .2s;
+    padding:12px 17px;
+    border:1px solid rgba(215,90,255,.32);
+    border-radius:8px;
+    background:linear-gradient(110deg,rgba(155,93,229,.16),rgba(255,109,225,.10));
+    color:#f1c6ff!important;
+    transition:background .2s,transform .2s;
 }
+
 .discord:hover{
+    background:rgba(215,90,255,.17);
     transform:translateY(-2px);
-    box-shadow:0 8px 30px rgba(215,90,255,.3);
 }
+
 main{
-    max-width:1100px;
+    width:min(1100px,90%);
     margin:0 auto;
-    padding:88px 6% 100px;
+    padding:72px 0 100px;
 }
+
+/* HERO */
+
 .hero{
     position:relative;
-    padding:10px 0 38px;
+    padding:28px 0 44px;
+    border-bottom:1px solid rgba(255,255,255,.10);
 }
-.hero::before{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    width:350px;
-    height:240px;
-    top:-45px;
-    left:-60px;
-    background:radial-gradient(ellipse,rgba(147,101,255,.13),transparent 70%);
-    pointer-events:none;
-}
-.label{
-    display:inline-flex;
+
+.eyebrow{
+    display:flex;
     align-items:center;
     gap:10px;
-    margin-bottom:20px;
-    color:var(--magenta);
+    margin-bottom:22px;
+    color:var(--pink);
     font-size:11px;
     font-weight:950;
-    letter-spacing:4px;
+    letter-spacing:3px;
     text-transform:uppercase;
 }
-.label::before{
+
+.eyebrow::before{
     content:"";
-    width:24px;
+    width:25px;
     height:2px;
     background:linear-gradient(90deg,var(--purple),var(--pink));
-    box-shadow:0 0 12px rgba(215,90,255,.5);
+    box-shadow:0 0 12px rgba(255,109,225,.35);
 }
+
 h1{
-    display:block;
     margin:0 0 18px;
-    font-size:clamp(52px,10vw,100px);
+    font-size:clamp(54px,10vw,100px);
     line-height:.98;
     font-weight:1000;
-    letter-spacing:-5px;
-    background:linear-gradient(110deg,#ffffff 5%,#e7c5ff 32%,var(--magenta) 65%,var(--pink) 95%);
+    letter-spacing:-4px;
+    background:linear-gradient(
+        105deg,
+        #ffffff 5%,
+        #f1c9ff 30%,
+        var(--magenta) 62%,
+        var(--pink) 100%
+    );
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
-    filter:drop-shadow(0 0 25px rgba(215,90,255,.15));
+    filter:drop-shadow(0 0 24px rgba(215,90,255,.13));
 }
-.desc{
-    max-width:720px;
-    color:var(--muted);
-    font-size:17px;
-    line-height:1.85;
+
+.hero-desc{
+    max-width:730px;
     margin:0;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.9;
 }
+
 .price-row{
     display:flex;
     align-items:center;
     flex-wrap:wrap;
-    gap:15px;
-    margin:30px 0 24px;
+    gap:14px;
+    margin:28px 0 24px;
 }
+
 .price{
-    font-size:46px;
-    line-height:1;
+    color:var(--pink);
+    font-size:44px;
     font-weight:1000;
     letter-spacing:-1.5px;
-    color:var(--magenta);
-    text-shadow:0 0 24px rgba(215,90,255,.2);
+    text-shadow:0 0 24px rgba(255,109,225,.15);
 }
+
 .price-tag{
-    padding:8px 12px;
+    padding:9px 12px;
+    border:1px solid rgba(215,90,255,.28);
     border-radius:6px;
-    border:1px solid rgba(215,90,255,.25);
-    background:rgba(215,90,255,.07);
-    color:#edc4ff;
+    background:rgba(215,90,255,.075);
+    color:#efc5ff;
     font-size:10px;
     font-weight:950;
-    letter-spacing:1.4px;
+    letter-spacing:1px;
 }
+
 .actions{
     display:flex;
-    gap:12px;
     flex-wrap:wrap;
-    margin-top:25px;
+    gap:12px;
+    margin-top:26px;
 }
+
 .btn{
     display:inline-flex;
-    justify-content:center;
     align-items:center;
-    padding:15px 22px;
-    min-height:48px;
-    border-radius:9px;
+    justify-content:center;
+    min-height:47px;
+    padding:14px 20px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:8px;
     text-decoration:none;
-    font-weight:950;
     font-size:12px;
-    letter-spacing:.4px;
-    border:1px solid rgba(255,255,255,.14);
-    transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;
+    font-weight:950;
+    transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;
 }
+
 .btn:hover{transform:translateY(-2px)}
-.primary{
-    color:#18091e;
-    background:linear-gradient(100deg,#d75aff,#f0a2ff);
+
+.btn-primary{
+    color:#1a0920;
+    background:linear-gradient(100deg,#d75aff,#ff9bea);
     border-color:transparent;
-    box-shadow:0 6px 24px rgba(215,90,255,.15);
+    box-shadow:0 5px 22px rgba(215,90,255,.12);
 }
-.primary:hover{box-shadow:0 8px 30px rgba(215,90,255,.3)}
-.back{
+
+.btn-primary:hover{
+    box-shadow:0 8px 28px rgba(215,90,255,.25);
+}
+
+.btn-secondary{
     color:#e2ddec;
     background:rgba(255,255,255,.025);
 }
-.back:hover{
-    border-color:rgba(215,90,255,.55);
-    background:rgba(215,90,255,.05);
+
+.btn-secondary:hover{
+    border-color:rgba(255,109,225,.48);
+    background:rgba(215,90,255,.06);
 }
-.hero-divider{
-    width:100%;
-    height:1px;
+
+/* SECCIONES NUMERADAS */
+
+.section{
     margin-top:54px;
-    background:linear-gradient(90deg,rgba(147,101,255,.4),rgba(255,109,225,.25),transparent);
+    padding-top:38px;
+    border-top:1px solid rgba(255,255,255,.10);
 }
-.box{
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:24px;
+}
+
+.section-number{
+    flex:0 0 50px;
+    width:50px;
+    height:50px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(215,90,255,.35);
+    border-radius:14px;
+    background:linear-gradient(145deg,rgba(215,90,255,.15),rgba(155,93,229,.09));
+    color:#f4d3ff;
+    font-size:21px;
+    font-weight:1000;
+    box-shadow:inset 0 0 18px rgba(215,90,255,.035);
+}
+
+.section-title{
+    margin:0;
+    color:#f5f3f9;
+    font-size:clamp(21px,3.5vw,28px);
+    font-weight:1000;
+    letter-spacing:-.65px;
+}
+
+.section-subtitle{
+    margin:7px 0 0;
+    color:#bcb7c7;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.section-intro{
+    margin:0 0 22px;
+    color:#c4bfce;
+    font-size:15px;
+    line-height:1.95;
+}
+
+/* TARJETAS */
+
+.feature-card{
     position:relative;
-    margin-top:42px;
-    padding:clamp(22px,4vw,38px);
-    border:1px solid var(--border);
-    border-radius:20px;
-    background:linear-gradient(145deg,rgba(20,14,27,.96),rgba(12,10,18,.96));
-    box-shadow:0 22px 70px rgba(0,0,0,.25);
     overflow:hidden;
+    padding:26px;
+    border:1px solid rgba(215,90,255,.25);
+    border-radius:16px;
+    background:linear-gradient(
+        130deg,
+        rgba(215,90,255,.075),
+        rgba(155,93,229,.065) 58%,
+        rgba(255,109,225,.035)
+    );
+    transition:transform .2s,border-color .2s;
 }
-.box::before{
+
+.feature-card::before{
     content:"";
     position:absolute;
     top:0;
-    left:8%;
-    right:8%;
-    height:1px;
-    background:linear-gradient(90deg,transparent,var(--purple),var(--pink),transparent);
-    opacity:.8;
+    bottom:0;
+    left:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--magenta),var(--purple),var(--pink));
 }
-.box h2{
-    margin:0 0 30px;
-    font-size:clamp(24px,4vw,31px);
-    font-weight:950;
-    letter-spacing:-.8px;
-}
-.box h2::after{
-    content:"";
-    display:block;
-    width:48px;
-    height:3px;
-    margin-top:15px;
-    border-radius:5px;
-    background:linear-gradient(90deg,var(--purple),var(--pink));
-}
-.box h3{
-    margin:36px 0 16px;
-    color:#fff;
-    font-size:19px;
-    font-weight:900;
-    letter-spacing:-.25px;
-}
-.box h2+h3{margin-top:0}
-.box p{
-    color:var(--muted);
-    line-height:1.85;
-    margin:8px 0;
-    font-size:14px;
-}
-.section{
-    margin-top:36px;
-    padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.075);
-}
-.section:first-of-type{
-    margin-top:0;
-    padding-top:0;
-    border-top:none;
-}
-.inherit{
-    margin-top:22px;
-    padding:20px;
-    border:1px solid rgba(215,90,255,.18);
-    border-radius:12px;
-    background:linear-gradient(120deg,rgba(147,101,255,.07),rgba(255,109,225,.04));
-    color:var(--muted);
-    line-height:1.9;
-    font-size:14px;
-}
-.inherit strong{color:#fff}
 
-/* COMANDOS EXCLUSIVOS */
+.feature-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,109,225,.45);
+}
+
+.card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+}
+
+.mini-number{
+    display:grid;
+    place-items:center;
+    width:40px;
+    height:40px;
+    border:1px solid rgba(215,90,255,.35);
+    border-radius:11px;
+    background:rgba(215,90,255,.11);
+    color:#f2caff;
+    font-size:14px;
+    font-weight:1000;
+}
+
+.card-tag{
+    padding:9px 11px;
+    border:1px solid rgba(215,90,255,.26);
+    border-radius:6px;
+    background:rgba(215,90,255,.08);
+    color:#edbdff;
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:1.1px;
+}
+
+.feature-card h3{
+    margin:0 0 15px;
+    color:var(--pink);
+    font-size:28px;
+    font-weight:1000;
+    overflow-wrap:anywhere;
+}
+
+.feature-card p{
+    margin:0;
+    color:#c8c2d1;
+    font-size:14px;
+    line-height:1.95;
+}
+
+/* COMANDOS */
+
 .command-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-    margin-top:18px;
+    gap:18px;
 }
+
 .command-card{
     min-width:0;
-    padding:22px;
+    position:relative;
+    overflow:hidden;
+    padding:24px;
     border:1px solid rgba(215,90,255,.25);
-    border-radius:13px;
-    background:linear-gradient(135deg,rgba(215,90,255,.085),rgba(147,101,255,.035),rgba(8,11,12,.55));
-    transition:transform .2s,border-color .2s,box-shadow .2s;
+    border-radius:15px;
+    background:linear-gradient(145deg,#19131e,#121019 75%);
+    transition:transform .22s,border-color .22s,box-shadow .22s;
 }
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:3px;
+    background:linear-gradient(180deg,var(--magenta),var(--purple),var(--pink));
+}
+
 .command-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(215,90,255,.6);
-    box-shadow:0 8px 28px rgba(215,90,255,.06);
+    transform:translateY(-4px);
+    border-color:rgba(255,109,225,.48);
+    box-shadow:0 12px 35px rgba(0,0,0,.22);
 }
-.command-tag{
-    display:inline-block;
-    margin-bottom:12px;
-    padding:5px 9px;
-    border-radius:5px;
-    background:rgba(215,90,255,.12);
-    color:var(--magenta);
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
+
+.command-card .card-top{margin-bottom:22px}
+
 .command-name{
     display:block;
-    margin-bottom:10px;
-    color:var(--magenta);
-    font-size:22px;
-    font-weight:950;
-    overflow-wrap:anywhere;
+    margin-bottom:14px;
+    color:var(--pink);
     font-family:Consolas,Monaco,monospace;
-}
-.command-description{
-    margin:0!important;
-    color:#c2bdcc!important;
-    font-size:14px;
-    line-height:1.85!important;
+    font-size:29px;
+    font-weight:1000;
+    overflow-wrap:anywhere;
+    text-shadow:0 0 18px rgba(255,109,225,.10);
 }
 
-/* CONTENIDO DESPLEGABLE */
-details{
-    margin-top:18px;
-    border:1px solid rgba(215,90,255,.2);
-    border-radius:13px;
-    background:rgba(8,11,12,.48);
-    overflow:hidden;
-    transition:border-color .2s,background .2s;
+.command-card p{
+    margin:0;
+    color:#c8c2d1;
+    font-size:14px;
+    line-height:1.95;
 }
-details:hover{border-color:rgba(215,90,255,.42)}
+
+/* AVISOS */
+
+.notice{
+    position:relative;
+    margin-top:24px;
+    padding:24px;
+    overflow:hidden;
+    border:1px solid rgba(215,90,255,.22);
+    border-left:4px solid var(--magenta);
+    border-radius:0 13px 13px 0;
+    background:linear-gradient(
+        115deg,
+        rgba(215,90,255,.075),
+        rgba(155,93,229,.045),
+        rgba(17,14,23,.9)
+    );
+}
+
+.notice h3{
+    margin:0 0 12px;
+    color:#f7f1fb;
+    font-size:14px;
+    font-weight:1000;
+}
+
+.notice p{
+    margin:0;
+    color:#c4bfce;
+    font-size:14px;
+    line-height:1.95;
+}
+
+/* SHULKERS DESPLEGABLES */
+
+details{
+    margin-top:15px;
+    overflow:hidden;
+    border:1px solid rgba(215,90,255,.22);
+    border-radius:12px;
+    background:rgba(17,14,23,.88);
+    transition:border-color .2s;
+}
+
+details:hover{border-color:rgba(255,109,225,.45)}
+
 summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:20px;
+    color:#efc5ff;
+    font-size:14px;
+    font-weight:950;
     cursor:pointer;
     list-style:none;
-    padding:18px 20px;
-    font-weight:950;
-    color:var(--magenta);
-    font-size:14px;
-    user-select:none;
     transition:background .2s;
 }
+
+summary:hover{background:rgba(215,90,255,.045)}
+
 summary::-webkit-details-marker{display:none}
+
 summary::after{
     content:"+";
-    float:right;
-    font-size:21px;
-    line-height:14px;
+    display:grid;
+    place-items:center;
+    flex:0 0 28px;
+    width:28px;
+    height:28px;
+    border:1px solid rgba(215,90,255,.30);
+    border-radius:7px;
     color:var(--pink);
+    font-size:21px;
 }
+
 details[open] summary::after{content:"−"}
-summary:hover{background:rgba(215,90,255,.06)}
+
 .shulker-content{
-    padding:5px 22px 24px;
+    padding:5px 20px 23px;
     border-top:1px solid rgba(255,255,255,.07);
 }
-.shulker-content h3{
-    margin-top:25px;
-    margin-bottom:12px;
-    color:#e8c6ff;
-    font-size:16px;
-}
-.shulker-content h3:first-child{margin-top:22px}
-.shulker-content ul{
-    list-style:none;
-    padding:0;
-    margin:0;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
-}
-.shulker-content li{
-    min-width:0;
-    padding:12px 13px;
-    border:1px solid rgba(255,255,255,.065);
-    border-radius:8px;
-    background:rgba(255,255,255,.022);
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-    overflow-wrap:anywhere;
-}
-.shulker-content li strong{color:#fff}
 
-/* LISTAS GENERALES */
-.box > ul{
-    list-style:none;
-    padding:0;
-    margin:14px 0 0;
+.shulker-content h4{
+    margin:24px 0 12px;
+    color:#e3baff;
+    font-size:14px;
+    font-weight:950;
+    letter-spacing:.5px;
+}
+
+.item-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:9px;
 }
-.box > ul li{
-    min-width:0;
-    padding:13px 15px;
-    border:1px solid rgba(255,255,255,.065);
-    border-radius:9px;
-    background:rgba(255,255,255,.022);
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-    overflow-wrap:anywhere;
-    transition:background .2s,border-color .2s;
-}
-.box > ul li:hover{
-    border-color:rgba(215,90,255,.25);
-    background:rgba(215,90,255,.035);
-}
-footer{
-    text-align:center;
-    padding:32px 20px;
-    color:#85808d;
-    font-size:12px;
-    border-top:1px solid rgba(255,255,255,.075);
-    background:rgba(5,7,9,.35);
-}
-footer span{color:var(--pink);font-weight:800}
 
-@media(max-width:650px){
-    nav{
-        padding:0 5%;
-        gap:10px;
-        min-height:68px;
-    }
-    .logo{font-size:16px;letter-spacing:.7px}
-    nav a{font-size:11px}
-    nav a.home{display:none}
-    .discord{
-        padding:11px 12px;
-        font-size:10px;
-        text-align:center;
-    }
-    main{padding:65px 5% 75px}
-    h1{letter-spacing:-2.5px}
-    .desc{font-size:15px}
-    .price{font-size:40px}
-    .box{
-        padding:23px 17px;
-        border-radius:15px;
-    }
-    .command-grid{grid-template-columns:1fr}
-    .shulker-content{padding:5px 14px 18px}
-    .shulker-content ul,
-    .box > ul{grid-template-columns:1fr}
-    .command-card{padding:19px}
-    .inherit{padding:16px}
-    .btn{width:100%}
-    .hero-divider{margin-top:38px}
+.item{
+    min-width:0;
+    padding:13px 14px;
+    border:1px solid rgba(215,90,255,.12);
+    border-radius:8px;
+    background:linear-gradient(115deg,rgba(215,90,255,.035),rgba(255,255,255,.015));
+    color:#c7c1d0;
+    font-size:13px;
+    line-height:1.8;
+    overflow-wrap:anywhere;
 }
+
+.item strong{color:#f7f3fb}
+
+/* BENEFICIOS */
+
+.benefit-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+}
+
+.benefit{
+    padding:17px;
+    border:1px solid rgba(215,90,255,.20);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(215,90,255,.055),rgba(155,93,229,.045));
+    color:#c8c2d1;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.benefit strong{color:#f5f0fa}
+
+footer{
+    padding:30px 20px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#85808d;
+    text-align:center;
+    font-size:12px;
+}
+
+footer span{
+    background:linear-gradient(90deg,var(--purple),var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-weight:900;
+}
+
+@media(max-width:700px){
+    nav{
+        min-height:68px;
+        padding:0 5%;
+        gap:12px;
+    }
+
+    .logo{font-size:16px;letter-spacing:.6px}
+    .nav-links{gap:10px}
+    .nav-links a{font-size:10px}
+    .nav-links .home{display:none}
+    .discord{padding:11px 12px;font-size:10px;text-align:center}
+
+    main{
+        width:90%;
+        padding:48px 0 70px;
+    }
+
+    h1{letter-spacing:-2.5px}
+    .hero-desc{font-size:14px}
+    .price{font-size:38px}
+    .section{margin-top:40px;padding-top:28px}
+    .section-number{
+        flex-basis:43px;
+        width:43px;
+        height:43px;
+        border-radius:11px;
+        font-size:18px;
+    }
+    .section-heading{gap:12px}
+    .command-grid{grid-template-columns:1fr}
+    .item-grid,.benefit-grid{grid-template-columns:1fr}
+    .feature-card,.command-card{padding:21px}
+    .notice{padding:20px}
+    .btn{width:100%}
+}
+
 @media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
+    *,*::before,*::after{
         scroll-behavior:auto!important;
         transition:none!important;
     }
@@ -486,21 +620,28 @@ footer span{color:var(--pink);font-weight:800}
 </head>
 
 <body>
-<div class="bg"></div>
 
 <nav>
     <div class="logo">KAIZORA <span>ORIGINS</span></div>
-    <a class="home" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Inicio</a>
-    <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar por Discord</a>
+
+    <div class="nav-links">
+        <a class="home" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Inicio</a>
+        <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar por Discord</a>
+    </div>
 </nav>
 
 <main>
-    <header class="hero">
-        <h1>SEMIDIOS</h1>
-        <div class="label">RANGO EXCLUSIVO</div>
 
-        <p class="desc">
+    <!-- PRESENTACIÓN -->
+    <header class="hero">
+        <div class="eyebrow">KAIZORA ORIGINS · RANGOS</div>
+
+        <h1>SEMIDIOS</h1>
+
+        <p class="hero-desc">
             Un nivel reservado para quienes han llevado su aventura mucho más lejos.
+            Equípate, explora y disfruta de beneficios exclusivos que amplían tu experiencia
+            dentro de Kaizora Origins.
         </p>
 
         <div class="price-row">
@@ -509,156 +650,273 @@ footer span{color:var(--pink);font-weight:800}
         </div>
 
         <div class="actions">
-            <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar SEMIDIOS</a>
-            <a class="btn back" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Volver a rangos</a>
+            <a class="btn btn-primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR SEMIDIOS</a>
+            <a class="btn btn-secondary" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">VOLVER A RANGOS</a>
         </div>
-
-        <div class="hero-divider"></div>
     </header>
 
-    <div class="box">
-        <h2>Información del rango</h2>
+    <!-- 01: INFORMACIÓN -->
+    <section class="section">
+        <div class="section-heading">
+            <div class="section-number">01</div>
+            <div>
+                <h2 class="section-title">Información del rango</h2>
+                <p class="section-subtitle">Todo lo que incluye SEMIDIOS</p>
+            </div>
+        </div>
 
-        <div class="section">
+        <p class="section-intro">
+            SEMIDIOS está diseñado para jugadores que quieren llevar su aventura
+            al siguiente nivel, con equipamiento avanzado, recursos y herramientas
+            adicionales para desenvolverse dentro del servidor.
+        </p>
+
+        <div class="feature-card">
+            <div class="card-top">
+                <div class="mini-number">01</div>
+                <div class="card-tag">BENEFICIOS ACUMULATIVOS</div>
+            </div>
+
             <h3>Herencia de rangos</h3>
+
             <p>
                 SEMIDIOS incluye todos los permisos, comandos, kits y beneficios
                 de todos los rangos anteriores, además de todos los beneficios
                 propios del rango SEMIDIOS.
             </p>
         </div>
+    </section>
 
-        <div class="section">
-            <h3>Comandos exclusivos de SEMIDIOS</h3>
-            <p>Encuentra jugadores cercanos y facilita que otros jugadores se reúnan contigo dentro del servidor.</p>
-
-            <div class="command-grid">
-                <div class="command-card">
-                    <span class="command-tag">Exploración</span>
-                    <span class="command-name">/near</span>
-                    <p class="command-description">
-                        Consulta qué jugadores se encuentran cerca de tu posición
-                        para localizar compañeros o saber quién está explorando por tu zona.
-                    </p>
-                </div>
-
-                <div class="command-card">
-                    <span class="command-tag">Teletransporte</span>
-                    <span class="command-name">/tpahere</span>
-                    <p class="command-description">
-                        Envía una solicitud de teletransporte a otro jugador para que pueda
-                        venir hasta tu ubicación. El jugador deberá aceptar la solicitud si el sistema lo requiere.
-                    </p>
-                </div>
+    <!-- 02: COMANDOS -->
+    <section class="section">
+        <div class="section-heading">
+            <div class="section-number">02</div>
+            <div>
+                <h2 class="section-title">Comandos exclusivos de SEMIDIOS</h2>
+                <p class="section-subtitle">Herramientas adicionales para explorar y reunirte con jugadores</p>
             </div>
         </div>
 
-        <div class="section">
-            <h3>Shulker #1</h3>
-            <details>
-                <summary>Ver contenido de la Shulker #1</summary>
-                <div class="shulker-content">
-                    <h3>Armaduras</h3>
-                    <ul>
-                        <li><strong>Armadura completa de Netherite:</strong> Protección VIII, Protección contra proyectiles VIII, Espinas III, Reparación</li>
-                        <li><strong>Armadura completa de Diamante:</strong> Protección IX, Protección contra proyectiles VIII, Espinas IV, Reparación</li>
-                    </ul>
+        <p class="section-intro">
+            SEMIDIOS te permite acceder a comandos adicionales para localizar
+            jugadores cercanos y facilitar los encuentros dentro del servidor.
+            Estos comandos se suman a los beneficios de tus rangos anteriores.
+        </p>
 
-                    <h3>Herramientas</h3>
-                    <ul>
-                        <li><strong>Espada de Netherite:</strong> Filo VIII, Aspecto Ígneo IV, Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Pico de Netherite:</strong> Fortuna VI, Eficiencia VII, Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Hacha de Diamante:</strong> Eficiencia VII, Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Pala de Diamante:</strong> Eficiencia VII, Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Escudo:</strong> Protección VIII, Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Arco:</strong> Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Ballesta:</strong> Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Tridente:</strong> Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Mazo:</strong> Filo VIII, Irrompibilidad VIII, Reparación</li>
-                    </ul>
-
-                    <h3>Comida</h3>
-                    <ul>
-                        <li>Manzanas Encantadas ×64</li>
-                    </ul>
-
-                    <h3>Añadidos</h3>
-                    <ul>
-                        <li>Tótems de la Inmortalidad ×4</li>
-                        <li>Cristales del End ×64</li>
-                        <li>Perlas de Ender ×64 — 2 stacks</li>
-                        <li>Carga de Viento ×64</li>
-                        <li>Elytra ×1</li>
-                    </ul>
+        <div class="command-grid">
+            <article class="command-card">
+                <div class="card-top">
+                    <div class="mini-number">01</div>
+                    <div class="card-tag">EXPLORACIÓN</div>
                 </div>
-            </details>
-        </div>
 
-        <div class="section">
-            <h3>Shulker #2</h3>
-            <details>
-                <summary>Ver contenido de la Shulker #2</summary>
-                <div class="shulker-content">
-                    <h3>Comida</h3>
-                    <ul>
-                        <li>Manzanas Encantadas ×64</li>
-                        <li>Manzanas Doradas ×64 — 3 stacks</li>
-                        <li>Zanahorias Doradas ×64 — 2 stacks</li>
-                    </ul>
+                <span class="command-name">/near</span>
 
-                    <h3>Minerales</h3>
-                    <ul>
-                        <li>Bloques de Oro ×32</li>
-                        <li>Bloques de Diamante ×16</li>
-                        <li>Bloques de Esmeralda ×8</li>
-                        <li>Lingotes de Netherite ×3</li>
-                    </ul>
+                <p>
+                    Consulta qué jugadores se encuentran cerca de tu posición.
+                    Una herramienta útil para localizar compañeros, encontrar
+                    jugadores próximos o saber quién está explorando por tu zona.
+                </p>
+            </article>
 
-                    <h3>Pociones</h3>
-                    <ul>
-                        <li>Invisibilidad ×4</li>
-                        <li>Visión Nocturna ×4</li>
-                    </ul>
-
-                    <h3>Polvos</h3>
-                    <ul>
-                        <li>Esencia Arcana ×8</li>
-                        <li>Esencia Eléctrica ×8</li>
-                        <li>Cristal Acuático ×6</li>
-                        <li>Polvo Celestial ×4</li>
-                        <li>Semilla Natural ×4</li>
-                        <li>Polvo Espectral ×4</li>
-                        <li>Núcleo Ígneo ×2</li>
-                        <li>Fragmento Espectral ×2</li>
-                        <li>Fragmento Cósmico ×1</li>
-                    </ul>
+            <article class="command-card">
+                <div class="card-top">
+                    <div class="mini-number">02</div>
+                    <div class="card-tag">TELETRANSPORTE</div>
                 </div>
-            </details>
+
+                <span class="command-name">/tpahere</span>
+
+                <p>
+                    Envía una solicitud de teletransporte a otro jugador para
+                    que pueda venir hasta tu ubicación. El jugador deberá
+                    aceptar la solicitud si el sistema lo requiere.
+                </p>
+            </article>
         </div>
 
-        <div class="section">
-            <h3>Shulker #3</h3>
-            <ul>
-                <li>Shulker llena de pociones</li>
-                <li>Flechas ×64 — 3 stacks</li>
-            </ul>
+        <div class="notice">
+            <h3>VENTAJA SEMIDIOS</h3>
+            <p>
+                Estos comandos se añaden a los beneficios de los rangos anteriores.
+                Su funcionamiento depende de los permisos y de la configuración
+                de los plugins del servidor.
+            </p>
+        </div>
+    </section>
+
+    <!-- 03: SHULKER 1 -->
+    <section class="section">
+        <div class="section-heading">
+            <div class="section-number">03</div>
+            <div>
+                <h2 class="section-title">Shulker #1</h2>
+                <p class="section-subtitle">Armaduras, herramientas y equipamiento</p>
+            </div>
         </div>
 
-        <div class="section">
-            <h3>Piedra de protección</h3>
-            <ul>
-                <li><strong>Mena de Diamante</strong><br>Protección de 70 × 70 bloques</li>
-            </ul>
+        <p class="section-intro">
+            Equipamiento de combate y supervivencia incluido en el rango SEMIDIOS.
+        </p>
+
+        <details>
+            <summary>VER CONTENIDO DE LA SHULKER #1</summary>
+
+            <div class="shulker-content">
+                <h4>ARMADURAS</h4>
+                <div class="item-grid">
+                    <div class="item"><strong>Armadura completa de Netherite:</strong> Protección VIII, Protección contra proyectiles VIII, Espinas III, Reparación.</div>
+                    <div class="item"><strong>Armadura completa de Diamante:</strong> Protección IX, Protección contra proyectiles VIII, Espinas IV, Reparación.</div>
+                </div>
+
+                <h4>HERRAMIENTAS</h4>
+                <div class="item-grid">
+                    <div class="item"><strong>Espada de Netherite:</strong> Filo VIII, Aspecto Ígneo IV, Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Pico de Netherite:</strong> Fortuna VI, Eficiencia VII, Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Hacha de Diamante:</strong> Eficiencia VII, Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Pala de Diamante:</strong> Eficiencia VII, Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Escudo:</strong> Protección VIII, Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Arco:</strong> Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Ballesta:</strong> Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Tridente:</strong> Irrompibilidad VIII, Reparación.</div>
+                    <div class="item"><strong>Mazo:</strong> Filo VIII, Irrompibilidad VIII, Reparación.</div>
+                </div>
+
+                <h4>COMIDA</h4>
+                <div class="item-grid">
+                    <div class="item">Manzanas Encantadas ×64</div>
+                </div>
+
+                <h4>AÑADIDOS</h4>
+                <div class="item-grid">
+                    <div class="item">Tótems de la Inmortalidad ×4</div>
+                    <div class="item">Cristales del End ×64</div>
+                    <div class="item">Perlas de Ender ×64 — 2 stacks</div>
+                    <div class="item">Carga de Viento ×64</div>
+                    <div class="item">Elytra ×1</div>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- 04: SHULKER 2 -->
+    <section class="section">
+        <div class="section-heading">
+            <div class="section-number">04</div>
+            <div>
+                <h2 class="section-title">Shulker #2</h2>
+                <p class="section-subtitle">Recursos, pociones y materiales especiales</p>
+            </div>
         </div>
 
-        <div class="inherit">
-            Las compras y la gestión del rango se realizan directamente mediante nuestro Discord oficial.
+        <details>
+            <summary>VER CONTENIDO DE LA SHULKER #2</summary>
+
+            <div class="shulker-content">
+                <h4>COMIDA</h4>
+                <div class="item-grid">
+                    <div class="item">Manzanas Encantadas ×64</div>
+                    <div class="item">Manzanas Doradas ×64 — 3 stacks</div>
+                    <div class="item">Zanahorias Doradas ×64 — 2 stacks</div>
+                </div>
+
+                <h4>MINERALES</h4>
+                <div class="item-grid">
+                    <div class="item">Bloques de Oro ×32</div>
+                    <div class="item">Bloques de Diamante ×16</div>
+                    <div class="item">Bloques de Esmeralda ×8</div>
+                    <div class="item">Lingotes de Netherite ×3</div>
+                </div>
+
+                <h4>POCIONES</h4>
+                <div class="item-grid">
+                    <div class="item">Invisibilidad ×4</div>
+                    <div class="item">Visión Nocturna ×4</div>
+                </div>
+
+                <h4>POLVOS Y MATERIALES ESPECIALES</h4>
+                <div class="item-grid">
+                    <div class="item">Esencia Arcana ×8</div>
+                    <div class="item">Esencia Eléctrica ×8</div>
+                    <div class="item">Cristal Acuático ×6</div>
+                    <div class="item">Polvo Celestial ×4</div>
+                    <div class="item">Semilla Natural ×4</div>
+                    <div class="item">Polvo Espectral ×4</div>
+                    <div class="item">Núcleo Ígneo ×2</div>
+                    <div class="item">Fragmento Espectral ×2</div>
+                    <div class="item">Fragmento Cósmico ×1</div>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- 05: SHULKER 3 -->
+    <section class="section">
+        <div class="section-heading">
+            <div class="section-number">05</div>
+            <div>
+                <h2 class="section-title">Shulker #3</h2>
+                <p class="section-subtitle">Suministros adicionales para tu aventura</p>
+            </div>
+        </div>
+
+        <div class="benefit-grid">
+            <div class="benefit">
+                <strong>Shulker de pociones</strong><br>
+                Una shulker llena de pociones.
+            </div>
+            <div class="benefit">
+                <strong>Flechas ×64</strong><br>
+                3 stacks de flechas.
+            </div>
+        </div>
+    </section>
+
+    <!-- 06: PROTECCIÓN -->
+    <section class="section">
+        <div class="section-heading">
+            <div class="section-number">06</div>
+            <div>
+                <h2 class="section-title">Piedra de protección</h2>
+                <p class="section-subtitle">Protege tu espacio de construcción</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-top">
+                <div class="mini-number">01</div>
+                <div class="card-tag">PROTECCIÓN DE TERRENO</div>
+            </div>
+
+            <h3>Mena de Diamante</h3>
+
+            <p>
+                Incluye una piedra de protección con un área de cobertura
+                de 70 × 70 bloques, según la configuración del servidor.
+            </p>
+        </div>
+    </section>
+
+    <!-- CIERRE -->
+    <div class="notice">
+        <h3>CONVIÉRTETE EN SEMIDIOS</h3>
+        <p>
+            Las compras y la gestión del rango se realizan directamente
+            mediante nuestro Discord oficial. Únete a la comunidad de
+            Kaizora Origins para obtener más información.
+        </p>
+
+        <div class="actions">
+            <a class="btn btn-primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">UNIRME AL DISCORD</a>
+            <a class="btn btn-secondary" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">VOLVER A LA TIENDA</a>
         </div>
     </div>
+
 </main>
 
 <footer>
     © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
 </footer>
+
 </body>
 </html>
