@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,9 +45,7 @@ nav{
     letter-spacing:1px
 }
 
-.logo span{
-    color:#b49cff
-}
+.logo span{color:#b49cff}
 
 nav a{
     text-decoration:none;
@@ -108,7 +107,8 @@ h1{
     text-decoration:none;
     font-weight:900;
     font-size:12px;
-    border:1px solid rgba(255,255,255,.14)
+    border:1px solid rgba(255,255,255,.14);
+    transition:.2s
 }
 
 .primary{
@@ -154,6 +154,55 @@ h1{
     padding-left:22px
 }
 
+/* COMANDO EXCLUSIVO */
+
+.command-card{
+    margin-top:18px;
+    padding:22px;
+    border:1px solid rgba(66,220,130,.25);
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        rgba(66,220,130,.08),
+        rgba(8,11,12,.55)
+    );
+    transition:transform .2s,border-color .2s
+}
+
+.command-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(66,220,130,.55)
+}
+
+.command-tag{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:5px 9px;
+    border-radius:5px;
+    background:rgba(66,220,130,.10);
+    color:#42dc82;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase
+}
+
+.command-name{
+    display:block;
+    margin-bottom:10px;
+    color:#42dc82;
+    font-size:22px;
+    font-weight:900;
+    overflow-wrap:anywhere
+}
+
+.command-description{
+    margin:0!important;
+    color:#aaaeb6;
+    font-size:14px;
+    line-height:1.8
+}
+
 /* BOTÓN DESPLEGABLE */
 
 details{
@@ -175,9 +224,7 @@ summary{
     transition:.2s
 }
 
-summary::-webkit-details-marker{
-    display:none
-}
+summary::-webkit-details-marker{display:none}
 
 summary::after{
     content:"+";
@@ -186,22 +233,16 @@ summary::after{
     line-height:14px
 }
 
-details[open] summary::after{
-    content:"−"
-}
+details[open] summary::after{content:"−"}
 
-summary:hover{
-    background:rgba(66,220,130,.06)
-}
+summary:hover{background:rgba(66,220,130,.06)}
 
 .shulker-content{
     padding:5px 22px 22px;
     border-top:1px solid rgba(255,255,255,.07)
 }
 
-.shulker-content h3{
-    margin-top:22px;
-}
+.shulker-content h3{margin-top:22px}
 
 footer{
     text-align:center;
@@ -212,21 +253,11 @@ footer{
 }
 
 @media(max-width:600px){
-    nav{
-        padding:0 5%
-    }
-
-    nav a.home{
-        display:none
-    }
-
-    main{
-        padding-top:65px
-    }
-
-    h1{
-        letter-spacing:-2px
-    }
+    nav{padding:0 5%}
+    nav a.home{display:none}
+    main{padding-top:65px}
+    h1{letter-spacing:-2px}
+    .box{padding:24px}
 }
 </style>
 </head>
@@ -245,7 +276,8 @@ footer{
 
     <a class="discord"
        href="https://discord.gg/sHvWgW7AE4"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
         Comprar por Discord
     </a>
 </nav>
@@ -265,7 +297,8 @@ footer{
     <div class="actions">
         <a class="btn primary"
            href="https://discord.gg/sHvWgW7AE4"
-           target="_blank">
+           target="_blank"
+           rel="noopener noreferrer">
             Comprar GUARDIAN
         </a>
 
@@ -279,11 +312,37 @@ footer{
 
         <h2>Información del rango</h2>
 
+        <!-- HERENCIA -->
+
         <p>
             GUARDIAN incluye todos los permisos, comandos, kits y beneficios
-            de todos los rangos anteriores, además de todos los beneficios
-            propios del rango GUARDIAN.
+            de los rangos anteriores, además de sus propias ventajas
+            exclusivas.
         </p>
+
+        <!-- COMANDO GUARDIAN -->
+
+        <h3>Comando exclusivo de GUARDIAN</h3>
+
+        <p>
+            Simplifica la gestión de tus recursos con una herramienta
+            que te permite compactar materiales en bloques.
+        </p>
+
+        <div class="command-card">
+            <span class="command-tag">Utilidad y recursos</span>
+
+            <span class="command-name">/condense</span>
+
+            <p class="command-description">
+                Convierte automáticamente materiales compatibles de tu
+                inventario en sus bloques compactos correspondientes.
+                Por ejemplo, puedes convertir lingotes de oro o hierro
+                en bloques para ahorrar espacio en el inventario.
+            </p>
+        </div>
+
+        <!-- SHULKER #1 -->
 
         <h3>Shulker #1</h3>
 
@@ -342,12 +401,16 @@ footer{
             </div>
         </details>
 
+        <!-- SHULKER #2 -->
+
         <h3>Shulker #2</h3>
 
         <ul>
             <li>Shulker llena de pociones</li>
             <li>Flechas ×64 — 3 stacks</li>
         </ul>
+
+        <!-- POLVOS -->
 
         <h3>Polvos</h3>
 
@@ -358,6 +421,8 @@ footer{
             <li>Polvo Celestial ×4</li>
             <li>Semilla Natural ×6</li>
         </ul>
+
+        <!-- PIEDRA DE PROTECCIÓN -->
 
         <h3>Piedra de protección</h3>
 
