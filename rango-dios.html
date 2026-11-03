@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,868 +5,447 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DIOS | Kaizora Origins</title>
 <meta name="theme-color" content="#09070e">
-<meta name="description" content="Descubre el rango DIOS de Kaizora Origins, el equipamiento, las shulkers y los beneficios exclusivos.">
+<meta name="description" content="Descubre el rango DIOS de Kaizora Origins, sus comandos, equipamiento y beneficios exclusivos.">
 
 <style>
 :root{
     --bg:#09070e;
+    --panel:#11151b;
     --red:#ff5363;
     --red-dark:#d92948;
     --pink:#ff829d;
     --white:#f7f5fb;
-    --muted:#bcb7c7;
+    --muted:#bcbfc9;
     --border:rgba(255,83,99,.22);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
-    margin:0;
-    background:var(--bg);
-    color:var(--white);
-    font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh;
-    overflow-x:hidden;
+    margin:0;background:var(--bg);color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden
 }
-
 a{color:inherit}
-
 .bg{
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
+    position:fixed;inset:0;z-index:-2;pointer-events:none;
     background:
-        radial-gradient(ellipse at 18% 12%,rgba(255,83,99,.15),transparent 38%),
-        radial-gradient(ellipse at 83% 38%,rgba(217,41,72,.12),transparent 36%),
-        radial-gradient(ellipse at 50% 95%,rgba(255,130,157,.06),transparent 38%),
-        #09070e;
+    radial-gradient(ellipse at 15% 10%,rgba(255,83,99,.12),transparent 38%),
+    radial-gradient(ellipse at 85% 40%,rgba(217,41,72,.09),transparent 36%),
+    #09070e
 }
-
-.bg::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    opacity:.13;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+.bg:after{
+    content:"";position:absolute;inset:0;opacity:.12;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
     background-size:42px 42px;
-    mask-image:linear-gradient(to bottom,black,transparent 85%);
+    mask-image:linear-gradient(to bottom,black,transparent 85%)
 }
-
 nav{
-    position:sticky;
-    top:0;
-    z-index:20;
-    min-height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:18px;
-    padding:0 7%;
+    position:sticky;top:0;z-index:20;min-height:76px;
+    display:flex;align-items:center;gap:18px;padding:0 7%;
     border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(9,7,14,.88);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    background:rgba(9,7,14,.9);backdrop-filter:blur(18px)
 }
-
-.logo{
-    font-size:21px;
-    font-weight:950;
-    letter-spacing:1.5px;
-    white-space:nowrap;
-}
-
+.logo{font-size:21px;font-weight:950;letter-spacing:1.5px;white-space:nowrap}
 .logo span{
     background:linear-gradient(90deg,var(--red),var(--pink));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    -webkit-background-clip:text;background-clip:text;color:transparent
 }
-
-nav a{
-    text-decoration:none;
-    color:#d5d0df;
-    font-size:13px;
-    font-weight:850;
-}
-
-nav a.home{
-    margin-left:auto;
-    transition:color .2s;
-}
-
-nav a.home:hover{color:var(--pink)}
-
+nav a{text-decoration:none;color:#d5d0df;font-size:13px;font-weight:850}
+.home{margin-left:auto;transition:color .2s}
+.home:hover{color:var(--pink)}
 .discord{
-    padding:12px 18px;
-    border-radius:9px;
-    background:linear-gradient(110deg,#d92948,#ff5363);
-    color:white!important;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 5px 22px rgba(255,83,99,.17);
-    transition:transform .2s,box-shadow .2s;
+    padding:12px 18px;border-radius:9px;
+    background:linear-gradient(110deg,var(--red-dark),var(--red));
+    color:white!important;border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 5px 22px rgba(255,83,99,.17);transition:.2s
 }
-
-.discord:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 30px rgba(255,83,99,.3);
+.discord:hover{transform:translateY(-2px);box-shadow:0 8px 30px #ff536333}
+main{max-width:1100px;margin:auto;padding:75px 4% 90px}
+.hero{position:relative;padding:10px 0 38px}
+.hero:before{
+    content:"";position:absolute;z-index:-1;width:350px;height:240px;
+    top:-45px;left:-60px;
+    background:radial-gradient(ellipse,rgba(255,83,99,.13),transparent 70%)
 }
-
-main{
-    max-width:1100px;
-    margin:0 auto;
-    padding:88px 6% 100px;
+.eyebrow{
+    display:flex;align-items:center;gap:10px;margin-bottom:18px;
+    color:var(--red);font-size:11px;font-weight:950;letter-spacing:4px
 }
-
-.hero{
-    position:relative;
-    padding:10px 0 38px;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    width:350px;
-    height:240px;
-    top:-45px;
-    left:-60px;
-    background:radial-gradient(ellipse,rgba(255,83,99,.12),transparent 70%);
-    pointer-events:none;
-}
-
-.label{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:20px;
-    color:var(--red);
-    font-size:11px;
-    font-weight:950;
-    letter-spacing:4px;
-    text-transform:uppercase;
-}
-
-.label::before{
-    content:"";
-    width:24px;
-    height:2px;
-    background:linear-gradient(90deg,var(--red-dark),var(--pink));
-    box-shadow:0 0 12px rgba(255,83,99,.5);
-}
-
+.eyebrow:before{content:"";width:25px;height:2px;background:var(--red)}
 h1{
-    display:block;
-    margin:0 0 18px;
-    font-size:clamp(52px,10vw,100px);
-    line-height:.98;
-    font-weight:1000;
-    letter-spacing:-5px;
-    background:linear-gradient(
-        110deg,
-        #ffffff 5%,
-        #ffc3ce 32%,
-        var(--red) 65%,
-        var(--pink) 95%
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    filter:drop-shadow(0 0 25px rgba(255,83,99,.15));
+    margin:0 0 18px;font-size:clamp(54px,10vw,100px);
+    line-height:.98;font-weight:1000;letter-spacing:-5px;
+    background:linear-gradient(110deg,#fff 5%,#ffc3ce 32%,var(--red) 65%,var(--pink) 95%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 25px #ff536326)
 }
-
-.desc{
-    max-width:720px;
-    color:var(--muted);
-    font-size:17px;
-    line-height:1.85;
-    margin:0;
-}
-
-.price-row{
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin:30px 0 24px;
-}
-
-.price{
-    font-size:46px;
-    line-height:1;
-    font-weight:1000;
-    letter-spacing:-1.5px;
-    color:var(--red);
-    text-shadow:0 0 24px rgba(255,83,99,.2);
-}
-
+.desc{max-width:720px;color:var(--muted);font-size:17px;line-height:1.85;margin:0}
+.price-row{display:flex;align-items:center;flex-wrap:wrap;gap:15px;margin:28px 0 24px}
+.price{font-size:46px;font-weight:1000;letter-spacing:-1.5px;color:var(--red)}
 .price-tag{
-    padding:8px 12px;
-    border-radius:6px;
-    border:1px solid rgba(255,83,99,.25);
-    background:rgba(255,83,99,.07);
-    color:#ffc3ce;
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:1.4px;
+    padding:8px 12px;border-radius:6px;border:1px solid var(--border);
+    background:#ff53630d;color:#ffc3ce;font-size:10px;font-weight:950;letter-spacing:1.4px
 }
-
-.actions{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:25px;
-}
-
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
 .btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    padding:15px 22px;
-    min-height:48px;
-    border-radius:9px;
-    text-decoration:none;
-    font-weight:950;
-    font-size:12px;
-    letter-spacing:.4px;
-    border:1px solid rgba(255,255,255,.14);
-    transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;
+    display:inline-flex;justify-content:center;align-items:center;
+    padding:15px 22px;min-height:48px;border-radius:9px;
+    text-decoration:none;font-weight:950;font-size:12px;letter-spacing:.4px;
+    border:1px solid #ffffff24;transition:.2s
 }
-
 .btn:hover{transform:translateY(-2px)}
+.primary{color:#20070c;background:linear-gradient(100deg,var(--red),#ff9aab);border-color:transparent}
+.back{color:#e2ddec;background:#ffffff06}
+.back:hover{border-color:#ff536388;background:#ff53630d}
+.hero-divider{height:1px;margin-top:48px;background:linear-gradient(90deg,#ff536366,#ff829d40,transparent)}
 
-.primary{
-    color:#20070c;
-    background:linear-gradient(100deg,#ff5363,#ff9aab);
-    border-color:transparent;
-    box-shadow:0 6px 24px rgba(255,83,99,.15);
-}
-
-.primary:hover{
-    box-shadow:0 8px 30px rgba(255,83,99,.3);
-}
-
-.back{
-    color:#e2ddec;
-    background:rgba(255,255,255,.025);
-}
-
-.back:hover{
-    border-color:rgba(255,83,99,.55);
-    background:rgba(255,83,99,.05);
-}
-
-.hero-divider{
-    width:100%;
-    height:1px;
-    margin-top:54px;
-    background:linear-gradient(90deg,rgba(255,83,99,.4),rgba(255,130,157,.25),transparent);
-}
-
-.box{
-    position:relative;
-    margin-top:42px;
-    padding:clamp(22px,4vw,38px);
-    border:1px solid var(--border);
-    border-radius:20px;
-    background:linear-gradient(145deg,rgba(24,13,19,.96),rgba(12,10,18,.96));
-    box-shadow:0 22px 70px rgba(0,0,0,.25);
-    overflow:hidden;
-}
-
-.box::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:8%;
-    right:8%;
-    height:1px;
-    background:linear-gradient(90deg,transparent,var(--red),var(--pink),transparent);
-    opacity:.8;
-}
-
-.box h2{
-    margin:0 0 30px;
-    font-size:clamp(24px,4vw,31px);
-    font-weight:950;
-    letter-spacing:-.8px;
-}
-
-.box h2::after{
-    content:"";
-    display:block;
-    width:48px;
-    height:3px;
-    margin-top:15px;
-    border-radius:5px;
-    background:linear-gradient(90deg,var(--red-dark),var(--pink));
-}
-
-.box h3{
-    margin:36px 0 16px;
-    color:#fff;
-    font-size:19px;
-    font-weight:900;
-    letter-spacing:-.25px;
-}
-
-.box h2+h3{margin-top:0}
-
-.box p{
-    color:var(--muted);
-    line-height:1.85;
-    margin:8px 0;
-    font-size:14px;
-}
-
+/* SECCIONES NUMERADAS */
 .section{
-    margin-top:36px;
-    padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.075);
+    position:relative;margin-top:34px;padding-top:30px;
+    border-top:1px solid rgba(255,255,255,.1)
 }
-
-.section:first-of-type{
-    margin-top:0;
-    padding-top:0;
-    border-top:none;
+.section-heading{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.section-number{
+    width:50px;height:50px;flex-shrink:0;display:grid;place-items:center;
+    border-radius:14px;border:1px solid #ff536355;
+    background:linear-gradient(135deg,#ff53631c,#ff829d08);
+    color:#ffc3ce;font-size:20px;font-weight:1000
 }
-
-/* COMANDOS EXCLUSIVOS */
-
-.command-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-    margin-top:18px;
+.section-title{margin:0;font-size:clamp(20px,3vw,27px);font-weight:950;letter-spacing:-.6px}
+.section-subtitle{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+.section-intro{color:var(--muted);font-size:15px;line-height:1.9;margin:0 0 22px}
+.content-card{
+    position:relative;overflow:hidden;padding:24px;
+    border:1px solid var(--border);border-radius:15px;
+    background:linear-gradient(135deg,rgba(255,83,99,.055),rgba(17,21,27,.96) 60%);
 }
-
+.content-card:before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--red),var(--pink))
+}
+.content-card h3{margin:0 0 14px;font-size:18px;font-weight:950}
+.content-card p{margin:8px 0;color:var(--muted);font-size:14px;line-height:1.85}
+.command-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
 .command-card{
-    min-width:0;
-    padding:22px;
-    border:1px solid rgba(255,83,99,.25);
-    border-radius:13px;
-    background:linear-gradient(135deg,rgba(255,83,99,.085),rgba(217,41,72,.035),rgba(8,11,12,.55));
-    transition:transform .2s,border-color .2s,box-shadow .2s;
+    position:relative;overflow:hidden;min-width:0;padding:24px;
+    border:1px solid #ff53634d;border-radius:15px;
+    background:linear-gradient(135deg,#ff536314,#14151d 55%,#101719);
+    transition:transform .2s,border-color .2s
 }
-
-.command-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(255,83,99,.6);
-    box-shadow:0 8px 28px rgba(255,83,99,.06);
+.command-card:before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--red),var(--pink))
 }
-
+.command-card:hover{transform:translateY(-3px);border-color:#ff536399}
+.command-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:22px}
+.mini-number{
+    display:grid;place-items:center;width:39px;height:39px;border-radius:11px;
+    border:1px solid #ff536355;background:#ff536318;color:#ffc3ce;font-size:14px;font-weight:1000
+}
 .command-tag{
-    display:inline-block;
-    margin-bottom:12px;
-    padding:5px 9px;
-    border-radius:5px;
-    background:rgba(255,83,99,.12);
-    color:var(--red);
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+    padding:8px 10px;border-radius:6px;border:1px solid #ff536344;
+    background:#ff536310;color:#ffb3c0;font-size:10px;font-weight:950;
+    letter-spacing:1px;text-transform:uppercase
 }
-
-.command-name{
-    display:block;
-    margin-bottom:10px;
-    color:var(--red);
-    font-size:22px;
-    font-weight:950;
-    overflow-wrap:anywhere;
-    font-family:Consolas,Monaco,monospace;
+.command-name{display:block;margin-bottom:12px;color:#ff829d;font-size:28px;font-weight:1000;font-family:Consolas,Monaco,monospace;overflow-wrap:anywhere}
+.command-description{margin:0!important;color:#c2c5ce!important;font-size:14px;line-height:1.85!important}
+.advantage{
+    margin-top:24px;padding:23px;border:1px solid #ff536333;
+    border-left:4px solid var(--red);background:linear-gradient(120deg,#ff53630e,#12151b);
+    border-radius:0 13px 13px 0
 }
+.advantage strong{display:block;margin-bottom:10px;color:#fff;font-size:14px;font-weight:950}
+.advantage p{margin:0;color:var(--muted);font-size:14px;line-height:1.85}
 
-.command-description{
-    margin:0!important;
-    color:#c2bdcc!important;
-    font-size:14px;
-    line-height:1.85!important;
-}
-
-/* DESPLEGABLES */
-
+/* SHULKERS DESPLEGABLES */
 details{
-    margin-top:18px;
-    border:1px solid rgba(255,83,99,.2);
-    border-radius:13px;
-    background:rgba(8,11,12,.48);
-    overflow:hidden;
-    transition:border-color .2s,background .2s;
+    margin-top:15px;border:1px solid #ff536333;border-radius:13px;
+    background:rgba(14,16,22,.8);overflow:hidden;transition:border-color .2s
 }
-
-details:hover{border-color:rgba(255,83,99,.42)}
-
+details:hover{border-color:#ff536377}
 summary{
-    cursor:pointer;
-    list-style:none;
-    padding:18px 20px;
-    font-weight:950;
-    color:var(--red);
-    font-size:14px;
-    user-select:none;
-    transition:background .2s;
+    cursor:pointer;list-style:none;padding:19px 21px;font-weight:950;
+    color:#ff829d;font-size:14px;user-select:none;display:flex;
+    align-items:center;gap:13px
 }
-
 summary::-webkit-details-marker{display:none}
-
-summary::after{
-    content:"+";
-    float:right;
-    font-size:21px;
-    line-height:14px;
-    color:var(--pink);
+.summary-number{
+    display:grid;place-items:center;min-width:38px;height:38px;border-radius:10px;
+    background:#ff536318;border:1px solid #ff536355;color:#ffc3ce;font-weight:1000
 }
-
-details[open] summary::after{content:"−"}
-summary:hover{background:rgba(255,83,99,.06)}
-
-.shulker-content{
-    padding:5px 22px 24px;
-    border-top:1px solid rgba(255,255,255,.07);
+.summary-text{flex:1}
+.summary-hint{color:#a6a8b3;font-size:11px;font-weight:700}
+summary:after{content:"+";font-size:23px;color:var(--pink)}
+details[open] summary:after{content:"−"}
+summary:hover{background:#ff53630b}
+.shulker-content{padding:8px 21px 24px;border-top:1px solid #ffffff12}
+.shulker-content h3{margin:25px 0 12px;color:#ffc3ce;font-size:16px;font-weight:950}
+.shulker-content h3:first-child{margin-top:18px}
+.shulker-content p{color:#fff;font-weight:800;font-size:13px;line-height:1.8}
+.item-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.item-grid li{
+    min-width:0;padding:13px 14px;border:1px solid #ffffff12;border-radius:9px;
+    background:#ffffff05;color:var(--muted);font-size:13px;line-height:1.75;overflow-wrap:anywhere
 }
-
-.shulker-content h3{
-    margin-top:25px;
-    margin-bottom:12px;
-    color:#ffc3ce;
-    font-size:16px;
-}
-
-.shulker-content h3:first-child{margin-top:22px}
-
-.shulker-content p{
-    color:#fff;
-    font-weight:800;
-}
-
-.shulker-content ul{
-    list-style:none;
-    padding:0;
-    margin:0;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
-}
-
-.shulker-content li{
-    min-width:0;
-    padding:12px 13px;
-    border:1px solid rgba(255,255,255,.065);
-    border-radius:8px;
-    background:rgba(255,255,255,.022);
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-    overflow-wrap:anywhere;
-}
-
-.shulker-content li strong{color:#fff}
-
-/* LISTAS GENERALES */
-
-.box > ul{
-    list-style:none;
-    padding:0;
-    margin:14px 0 0;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px;
-}
-
-.box > ul li{
-    min-width:0;
-    padding:13px 15px;
-    border:1px solid rgba(255,255,255,.065);
-    border-radius:9px;
-    background:rgba(255,255,255,.022);
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-    overflow-wrap:anywhere;
-    transition:background .2s,border-color .2s;
-}
-
-.box > ul li:hover{
-    border-color:rgba(255,83,99,.25);
-    background:rgba(255,83,99,.035);
-}
-
-.notice{
-    margin-top:35px;
-    padding:19px 20px;
-    border:1px solid rgba(255,83,99,.2);
-    border-radius:12px;
-    background:linear-gradient(120deg,rgba(255,83,99,.07),rgba(255,130,157,.025));
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.85;
-}
-
-.notice strong{color:#fff}
-
-footer{
-    text-align:center;
-    padding:32px 20px;
-    color:#85808d;
-    font-size:12px;
-    border-top:1px solid rgba(255,255,255,.075);
-    background:rgba(5,7,9,.35);
-}
-
-footer span{
-    color:var(--pink);
-    font-weight:800;
-}
-
+.item-grid li strong{color:#fff}
+footer{text-align:center;padding:30px 20px;color:#85808d;font-size:12px;border-top:1px solid #ffffff12}
+footer span{color:var(--pink);font-weight:900}
 @media(max-width:650px){
-    nav{
-        padding:0 5%;
-        gap:10px;
-        min-height:68px;
-    }
-
-    .logo{
-        font-size:16px;
-        letter-spacing:.7px;
-    }
-
-    nav a{font-size:11px}
-    nav a.home{display:none}
-
-    .discord{
-        padding:11px 12px;
-        font-size:10px;
-        text-align:center;
-    }
-
-    main{padding:65px 5% 75px}
-    h1{letter-spacing:-2.5px}
-    .desc{font-size:15px}
-    .price{font-size:40px}
-
-    .box{
-        padding:23px 17px;
-        border-radius:15px;
-    }
-
+    nav{padding:0 5%;gap:10px;min-height:68px}
+    .logo{font-size:16px;letter-spacing:.7px}
+    nav a{font-size:11px}.home{display:none}
+    .discord{padding:11px 12px;font-size:10px;text-align:center}
+    main{padding:55px 5% 70px}
+    h1{letter-spacing:-2.5px}.desc{font-size:15px}.price{font-size:40px}
     .command-grid{grid-template-columns:1fr}
-    .shulker-content{padding:5px 14px 18px}
-
-    .shulker-content ul,
-    .box > ul{grid-template-columns:1fr}
-
-    .command-card{padding:19px}
-    .btn{width:100%}
-    .hero-divider{margin-top:38px}
+    .item-grid{grid-template-columns:1fr}
+    .command-card,.content-card{padding:20px}
+    .btn{width:100%}.section-heading{gap:12px}
+    .section-number{width:44px;height:44px}
+    summary{padding:15px 13px;gap:9px}
+    .summary-hint{display:none}
+    .shulker-content{padding:8px 13px 18px}
 }
-
 @media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
-        scroll-behavior:auto!important;
-        transition:none!important;
-    }
+    *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
 }
 </style>
 </head>
 
 <body>
-
 <div class="bg"></div>
 
 <nav>
     <div class="logo">KAIZORA <span>ORIGINS</span></div>
-
-    <a class="home"
-       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
-        Inicio
-    </a>
-
-    <a class="discord"
-       href="https://discord.gg/sHvWgW7AE4"
-       target="_blank"
-       rel="noopener noreferrer">
-        Comprar por Discord
-    </a>
+    <a class="home" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Inicio</a>
+    <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar por Discord</a>
 </nav>
 
 <main>
-
-    <header class="hero">
-
-        <h1>DIOS</h1>
-
-        <div class="label">RANGO DEFINITIVO</div>
-
-        <p class="desc">
-            El rango máximo de Kaizora Origins. El nivel definitivo.
-        </p>
-
-        <div class="price-row">
-            <div class="price">$34.99</div>
-            <div class="price-tag">PODER · EQUIPAMIENTO · DOMINIO</div>
-        </div>
-
-        <div class="actions">
-            <a class="btn primary"
-               href="https://discord.gg/sHvWgW7AE4"
-               target="_blank"
-               rel="noopener noreferrer">
-                Comprar DIOS
-            </a>
-
-            <a class="btn back"
-               href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
-                Volver a rangos
-            </a>
-        </div>
-
-        <div class="hero-divider"></div>
-
-    </header>
-
-    <div class="box">
-
-        <h2>Información del rango</h2>
-
-        <div class="section">
-            <h3>Herencia de rangos</h3>
-
-            <p>
-                DIOS incluye todos los permisos, comandos, kits y beneficios
-                de todos los rangos anteriores, además de todos los beneficios
-                propios del rango DIOS.
-            </p>
-        </div>
-
-        <div class="section">
-            <h3>Comandos exclusivos de DIOS</h3>
-
-            <p>
-                Desbloquea la libertad de volar por el mundo y facilita
-                que otros jugadores se reúnan contigo.
-            </p>
-
-            <div class="command-grid">
-
-                <div class="command-card">
-                    <span class="command-tag">Movimiento</span>
-                    <span class="command-name">/fly</span>
-
-                    <p class="command-description">
-                        Activa o desactiva el vuelo para desplazarte por el
-                        mundo sin caminar, explorar con mayor libertad y
-                        acceder fácilmente a lugares elevados.
-                    </p>
-                </div>
-
-                <div class="command-card">
-                    <span class="command-tag">Teletransporte</span>
-                    <span class="command-name">/tpahere</span>
-
-                    <p class="command-description">
-                        Envía una solicitud de teletransporte a otro jugador
-                        para que venga hasta tu ubicación. El jugador deberá
-                        aceptar la solicitud si el sistema lo requiere.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #1</h3>
-
-            <details>
-                <summary>Ver contenido de la Shulker #1</summary>
-
-                <div class="shulker-content">
-
-                    <h3>Armaduras</h3>
-                    <p>2 armaduras completas de Netherite</p>
-
-                    <ul>
-                        <li>Protección IX</li>
-                        <li>Protección contra proyectiles V</li>
-                        <li>Espinas V</li>
-                        <li>Irrompibilidad IX</li>
-                        <li>Reparación</li>
-                    </ul>
-
-                    <h3>Herramientas de Netherite ×2</h3>
-
-                    <ul>
-                        <li>
-                            <strong>Espadas:</strong>
-                            Aspecto Ígneo VII, Irrompibilidad IX, Reparación
-                        </li>
-                        <li>
-                            <strong>Picos:</strong>
-                            Eficiencia VIII, Irrompibilidad IX, Reparación
-                        </li>
-                        <li>
-                            <strong>Hachas:</strong>
-                            Eficiencia VIII, Irrompibilidad IX, Reparación
-                        </li>
-                        <li>
-                            <strong>Palas:</strong>
-                            Eficiencia VIII, Irrompibilidad IX, Reparación
-                        </li>
-                        <li>
-                            <strong>Lanza de Netherite:</strong>
-                            Filo VIII, Aspecto Ígneo VII,
-                            Irrompibilidad VIII, Reparación
-                        </li>
-                    </ul>
-
-                    <h3>Resto de herramientas</h3>
-
-                    <ul>
-                        <li>
-                            <strong>Arco:</strong>
-                            Irrompibilidad VIII, Reparación
-                        </li>
-                        <li>
-                            <strong>Tridente:</strong>
-                            Propulsión Acuática V, Lealtad III,
-                            Irrompibilidad VIII, Reparación
-                        </li>
-                        <li>
-                            <strong>Mazo:</strong>
-                            Filo VII, Aspecto Ígneo VII,
-                            Irrompibilidad VIII, Reparación
-                        </li>
-                        <li>
-                            <strong>Escudo:</strong>
-                            Protección IX, Espinas III,
-                            Irrompibilidad VIII, Reparación
-                        </li>
-                    </ul>
-
-                    <h3>Añadidos</h3>
-
-                    <ul>
-                        <li>Tótems de la Inmortalidad ×4</li>
-                        <li>Cristales del End ×64</li>
-                        <li>Carga de Viento ×64</li>
-                    </ul>
-
-                </div>
-            </details>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #2</h3>
-            <ul>
-                <li>Llena de pociones de Regeneración II</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #3</h3>
-            <ul>
-                <li>Llena de pociones de Invisibilidad — 8 minutos</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #4</h3>
-            <ul>
-                <li>Llena de pociones de Rapidez II</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #5</h3>
-            <ul>
-                <li>Llena de pociones de Fuerza II</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #6</h3>
-            <ul>
-                <li>Llena de pociones de Regeneración II</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #7</h3>
-            <ul>
-                <li>Llena de pociones de Visión Nocturna II</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #8</h3>
-            <ul>
-                <li>Llena de pociones de Salto II</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #9</h3>
-            <ul>
-                <li>Llena de pociones de Cuerpo Ignífugo — 8 minutos</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Shulker #10</h3>
-
-            <details>
-                <summary>Ver contenido de la Shulker #10</summary>
-
-                <div class="shulker-content">
-
-                    <h3>Comida</h3>
-                    <ul>
-                        <li>Manzanas Encantadas ×64 — 6 stacks</li>
-                        <li>Manzanas Doradas ×64 — 6 stacks</li>
-                    </ul>
-
-                    <h3>Minerales</h3>
-                    <ul>
-                        <li>Bloques de Oro ×64 — 2 stacks</li>
-                        <li>Bloques de Diamante ×64</li>
-                        <li>Bloques de Esmeralda ×32</li>
-                        <li>Lingotes de Netherite ×8</li>
-                        <li>Fragmentos de Netherite ×32</li>
-                    </ul>
-
-                </div>
-            </details>
-        </div>
-
-        <div class="section">
-            <h3>Piedra de protección</h3>
-
-            <ul>
-                <li>
-                    <strong>Mina de Cuarzo</strong><br>
-                    Protección de 80 × 80 bloques
-                </li>
-            </ul>
-        </div>
-
-        <div class="notice">
-            Las compras y la gestión del rango se realizan directamente
-            mediante nuestro <strong>Discord oficial</strong>.
-        </div>
-
+<header class="hero">
+    <div class="eyebrow">RANGO DEFINITIVO</div>
+    <h1>DIOS</h1>
+    <p class="desc">El rango máximo de Kaizora Origins. El nivel definitivo, diseñado para quienes quieren llevar su aventura al límite.</p>
+    <div class="price-row">
+        <div class="price">$34.99</div>
+        <div class="price-tag">PODER · EQUIPAMIENTO · DOMINIO</div>
     </div>
+    <div class="actions">
+        <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar DIOS</a>
+        <a class="btn back" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Volver a rangos</a>
+    </div>
+    <div class="hero-divider"></div>
+</header>
+
+<!-- 01: INFORMACIÓN -->
+<section class="section">
+    <div class="section-heading">
+        <div class="section-number">01</div>
+        <div>
+            <h2 class="section-title">Información del rango</h2>
+            <p class="section-subtitle">El nivel definitivo de Kaizora Origins</p>
+        </div>
+    </div>
+    <div class="content-card">
+        <h3>Herencia de rangos</h3>
+        <p>DIOS incluye todos los permisos, comandos, kits y beneficios de todos los rangos anteriores, además de todos los beneficios propios del rango DIOS.</p>
+    </div>
+</section>
+
+<!-- 02: COMANDOS -->
+<section class="section">
+    <div class="section-heading">
+        <div class="section-number">02</div>
+        <div>
+            <h2 class="section-title">Comandos exclusivos de DIOS</h2>
+            <p class="section-subtitle">Más libertad para moverte y reunirte con otros jugadores</p>
+        </div>
+    </div>
+    <p class="section-intro">DIOS te permite desplazarte por el mundo con mayor libertad y solicitar que otros jugadores se reúnan contigo. Estos comandos se suman a los beneficios de tus rangos anteriores.</p>
+
+    <div class="command-grid">
+        <article class="command-card">
+            <div class="command-top">
+                <span class="mini-number">01</span>
+                <span class="command-tag">Movimiento</span>
+            </div>
+            <span class="command-name">/fly</span>
+            <p class="command-description">Activa o desactiva el vuelo para desplazarte por el mundo sin caminar, explorar con mayor libertad y acceder fácilmente a lugares elevados.</p>
+        </article>
+
+        <article class="command-card">
+            <div class="command-top">
+                <span class="mini-number">02</span>
+                <span class="command-tag">Teletransporte</span>
+            </div>
+            <span class="command-name">/tpahere</span>
+            <p class="command-description">Envía una solicitud de teletransporte a otro jugador para que venga hasta tu ubicación. El jugador deberá aceptar la solicitud si el sistema lo requiere.</p>
+        </article>
+    </div>
+
+    <div class="advantage">
+        <strong>VENTAJA DIOS</strong>
+        <p>Estos comandos se añaden a los beneficios de los rangos anteriores. Su funcionamiento depende de los permisos y de la configuración de los plugins del servidor.</p>
+    </div>
+</section>
+
+<!-- 03: SHULKER 1 -->
+<section class="section">
+    <div class="section-heading">
+        <div class="section-number">03</div>
+        <div>
+            <h2 class="section-title">Equipamiento principal</h2>
+            <p class="section-subtitle">Shulker #1 · Armaduras, herramientas y objetos adicionales</p>
+        </div>
+    </div>
+
+    <details>
+        <summary><span class="summary-number">01</span><span class="summary-text">Shulker #1 — Equipamiento</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content">
+            <h3>Armaduras</h3>
+            <p>2 armaduras completas de Netherite</p>
+            <ul class="item-grid">
+                <li>Protección IX</li>
+                <li>Protección contra proyectiles V</li>
+                <li>Espinas V</li>
+                <li>Irrompibilidad IX</li>
+                <li>Reparación</li>
+            </ul>
+
+            <h3>Herramientas de Netherite ×2</h3>
+            <ul class="item-grid">
+                <li><strong>Espadas:</strong> Aspecto Ígneo VII, Irrompibilidad IX, Reparación</li>
+                <li><strong>Picos:</strong> Eficiencia VIII, Irrompibilidad IX, Reparación</li>
+                <li><strong>Hachas:</strong> Eficiencia VIII, Irrompibilidad IX, Reparación</li>
+                <li><strong>Palas:</strong> Eficiencia VIII, Irrompibilidad IX, Reparación</li>
+                <li><strong>Lanza de Netherite:</strong> Filo VIII, Aspecto Ígneo VII, Irrompibilidad VIII, Reparación</li>
+            </ul>
+
+            <h3>Resto de herramientas</h3>
+            <ul class="item-grid">
+                <li><strong>Arco:</strong> Irrompibilidad VIII, Reparación</li>
+                <li><strong>Tridente:</strong> Propulsión Acuática V, Lealtad III, Irrompibilidad VIII, Reparación</li>
+                <li><strong>Mazo:</strong> Filo VII, Aspecto Ígneo VII, Irrompibilidad VIII, Reparación</li>
+                <li><strong>Escudo:</strong> Protección IX, Espinas III, Irrompibilidad VIII, Reparación</li>
+            </ul>
+
+            <h3>Añadidos</h3>
+            <ul class="item-grid">
+                <li>Tótems de la Inmortalidad ×4</li>
+                <li>Cristales del End ×64</li>
+                <li>Carga de Viento ×64</li>
+            </ul>
+        </div>
+    </details>
+</section>
+
+<!-- 04-10: SHULKERS DE POCIONES -->
+<section class="section">
+    <div class="section-heading">
+        <div class="section-number">04</div>
+        <div>
+            <h2 class="section-title">Shulkers de pociones</h2>
+            <p class="section-subtitle">Suministros para distintas situaciones de combate y exploración</p>
+        </div>
+    </div>
+
+    <details>
+        <summary><span class="summary-number">02</span><span class="summary-text">Shulker #2 — Regeneración II</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Regeneración II</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">03</span><span class="summary-text">Shulker #3 — Invisibilidad</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Invisibilidad — 8 minutos</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">04</span><span class="summary-text">Shulker #4 — Rapidez II</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Rapidez II</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">05</span><span class="summary-text">Shulker #5 — Fuerza II</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Fuerza II</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">06</span><span class="summary-text">Shulker #6 — Regeneración II</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Regeneración II</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">07</span><span class="summary-text">Shulker #7 — Visión Nocturna II</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Visión Nocturna II</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">08</span><span class="summary-text">Shulker #8 — Salto II</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Salto II</li></ul></div>
+    </details>
+
+    <details>
+        <summary><span class="summary-number">09</span><span class="summary-text">Shulker #9 — Cuerpo Ignífugo</span><span class="summary-hint">Ver contenido</span></summary>
+        <div class="shulker-content"><ul class="item-grid"><li>Llena de pociones de Cuerpo Ignífugo — 8 minutos</li></ul></div>
+    </details>
+</section>
+
+<!-- 11: RECURSOS -->
+<section class="section">
+    <div class="section-heading">
+        <div class="section-number">11</div>
+        <div>
+            <h2 class="section-title">Shulker #10 — Recursos</h2>
+            <p class="section-subtitle">Comida y minerales para abastecerte</p>
+        </div>
+    </div>
+
+    <details>
+        <summary><span class="summary-number">10</span><span class="summary-text">Ver contenido de la Shulker #10</span><span class="summary-hint">Comida y minerales</span></summary>
+        <div class="shulker-content">
+            <h3>Comida</h3>
+            <ul class="item-grid">
+                <li>Manzanas Encantadas ×64 — 6 stacks</li>
+                <li>Manzanas Doradas ×64 — 6 stacks</li>
+            </ul>
+
+            <h3>Minerales</h3>
+            <ul class="item-grid">
+                <li>Bloques de Oro ×64 — 2 stacks</li>
+                <li>Bloques de Diamante ×64</li>
+                <li>Bloques de Esmeralda ×32</li>
+                <li>Lingotes de Netherite ×8</li>
+                <li>Fragmentos de Netherite ×32</li>
+            </ul>
+        </div>
+    </details>
+</section>
+
+<!-- 12: PROTECCIÓN -->
+<section class="section">
+    <div class="section-heading">
+        <div class="section-number">12</div>
+        <div>
+            <h2 class="section-title">Piedra de protección</h2>
+            <p class="section-subtitle">Protege tu espacio y tus construcciones</p>
+        </div>
+    </div>
+    <div class="content-card">
+        <h3>Mina de Cuarzo</h3>
+        <p>Protección de <strong>80 × 80 bloques</strong>.</p>
+    </div>
+</section>
+
+<div class="advantage">
+    <strong>COMPRA Y GESTIÓN DEL RANGO</strong>
+    <p>Las compras y la gestión del rango se realizan directamente mediante nuestro <strong>Discord oficial</strong>.</p>
+    <div class="actions">
+        <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Entrar al Discord oficial</a>
+    </div>
+</div>
 
 </main>
 
-<footer>
-    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
-</footer>
-
+<footer>© 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.</footer>
 </body>
 </html>
