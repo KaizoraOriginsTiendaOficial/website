@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GUARDIAN | Kaizora Origins</title>
 <meta name="theme-color" content="#080b10">
-<meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins, sus beneficios, comando exclusivo y equipamiento.">
+<meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins, sus comandos exclusivos, equipamiento y beneficios.">
 
 <style>
 :root{
@@ -16,7 +16,7 @@
     --pink:#ff6de1;
     --white:#f7f8fb;
     --muted:#b8bec8;
-    --border:rgba(66,220,130,.20);
+    --border:rgba(66,220,130,.22);
 }
 
 *{box-sizing:border-box}
@@ -68,7 +68,7 @@ nav{
     gap:18px;
     padding:0 7%;
     border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(8,11,16,.86);
+    background:rgba(8,11,16,.88);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 }
@@ -119,7 +119,7 @@ nav a.home:hover{color:var(--rank)}
 main{
     max-width:1100px;
     margin:0 auto;
-    padding:88px 6% 100px;
+    padding:78px 4.5% 95px;
 }
 
 .hero{
@@ -139,12 +139,11 @@ main{
     pointer-events:none;
 }
 
-/* El nombre del rango va primero */
 h1{
     display:block;
     width:fit-content;
     max-width:100%;
-    margin:0 0 18px;
+    margin:0 0 15px;
     font-size:clamp(49px,9vw,94px);
     line-height:.98;
     font-weight:1000;
@@ -249,9 +248,7 @@ h1{
     box-shadow:0 6px 24px rgba(66,220,130,.13);
 }
 
-.primary:hover{
-    box-shadow:0 8px 30px rgba(66,220,130,.27);
-}
+.primary:hover{box-shadow:0 8px 30px rgba(66,220,130,.27)}
 
 .back{
     color:#dedfeb;
@@ -266,16 +263,18 @@ h1{
 .hero-divider{
     width:100%;
     height:1px;
-    margin-top:54px;
+    margin-top:48px;
     background:linear-gradient(90deg,rgba(66,220,130,.4),rgba(147,101,255,.22),transparent);
 }
 
+/* CONTENEDOR PRINCIPAL */
+
 .box{
     position:relative;
-    margin-top:42px;
-    padding:clamp(22px,4vw,38px);
+    margin-top:30px;
+    padding:clamp(20px,3.5vw,34px);
     border:1px solid var(--border);
-    border-radius:20px;
+    border-radius:18px;
     background:linear-gradient(145deg,rgba(16,22,23,.96),rgba(10,13,17,.96));
     box-shadow:0 22px 70px rgba(0,0,0,.23);
     overflow:hidden;
@@ -293,7 +292,7 @@ h1{
 }
 
 .box h2{
-    margin:0 0 32px;
+    margin:0 0 27px;
     font-size:clamp(24px,4vw,31px);
     font-weight:950;
     letter-spacing:-.8px;
@@ -304,17 +303,9 @@ h1{
     display:block;
     width:48px;
     height:3px;
-    margin-top:15px;
+    margin-top:14px;
     border-radius:5px;
     background:linear-gradient(90deg,var(--rank),var(--purple));
-}
-
-.box h3{
-    margin:0 0 16px;
-    color:#fff;
-    font-size:19px;
-    font-weight:900;
-    letter-spacing:-.25px;
 }
 
 .box p{
@@ -324,10 +315,12 @@ h1{
     font-size:14px;
 }
 
+/* SECCIONES NUMERADAS */
+
 .section{
     margin-top:36px;
     padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.075);
+    border-top:1px solid rgba(255,255,255,.09);
 }
 
 .section:first-of-type{
@@ -336,31 +329,181 @@ h1{
     border-top:none;
 }
 
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:22px;
+}
+
+.section-number{
+    flex:0 0 46px;
+    width:46px;
+    height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(66,220,130,.35);
+    border-radius:13px;
+    background:linear-gradient(145deg,rgba(66,220,130,.18),rgba(147,101,255,.13));
+    color:#d8ffe7;
+    font-size:19px;
+    font-weight:1000;
+    letter-spacing:-.5px;
+    box-shadow:inset 0 0 18px rgba(66,220,130,.035);
+}
+
+.section-heading-text{
+    min-width:0;
+}
+
+.section-heading h3{
+    margin:0;
+    color:#f7f8fb;
+    font-size:clamp(18px,2.5vw,23px);
+    font-weight:950;
+    letter-spacing:-.45px;
+    line-height:1.3;
+}
+
+.section-subtitle{
+    margin:5px 0 0!important;
+    color:#aeb8c5!important;
+    font-size:13px!important;
+    line-height:1.6!important;
+}
+
+/* TARJETAS NUMERADAS DE COMANDOS */
+
+.command-intro{
+    margin:0 0 20px!important;
+    color:#c0c8d3!important;
+    font-size:15px!important;
+    line-height:1.9!important;
+}
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+    margin-top:20px;
+}
+
+.command-card{
+    position:relative;
+    min-width:0;
+    padding:23px;
+    border:1px solid rgba(66,220,130,.28);
+    border-radius:15px;
+    background:
+        radial-gradient(ellipse at 100% 100%,rgba(66,220,130,.07),transparent 42%),
+        linear-gradient(135deg,rgba(66,220,130,.105),rgba(147,101,255,.055),rgba(12,17,23,.7));
+    overflow:hidden;
+    transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--rank),#79a9ff,var(--pink));
+}
+
+.command-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(66,220,130,.65);
+    box-shadow:0 10px 32px rgba(66,220,130,.07);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:19px;
+}
+
+.command-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 36px;
+    width:36px;
+    height:36px;
+    border:1px solid rgba(66,220,130,.4);
+    border-radius:10px;
+    background:rgba(66,220,130,.13);
+    color:#d8ffe7;
+    font-size:13px;
+    font-weight:1000;
+}
+
+.command-tag{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    max-width:70%;
+    padding:7px 10px;
+    border:1px solid rgba(66,220,130,.25);
+    border-radius:5px;
+    background:rgba(66,220,130,.09);
+    color:var(--rank-light);
+    font-size:10px;
+    font-weight:950;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+.command-name{
+    display:block;
+    margin:0 0 13px;
+    color:#8bffb5;
+    font-size:clamp(21px,3vw,27px);
+    font-weight:1000;
+    line-height:1.25;
+    overflow-wrap:anywhere;
+    font-family:Consolas,Monaco,monospace;
+}
+
+.command-description{
+    margin:0!important;
+    color:#c4cbd0!important;
+    font-size:14px!important;
+    line-height:1.85!important;
+}
+
+/* TARJETAS DE EQUIPAMIENTO */
+
 .info-list{
     list-style:none;
     padding:0;
     margin:0;
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px;
+    gap:10px;
 }
 
 .info-list li{
     min-width:0;
-    padding:14px 15px;
-    border:1px solid rgba(255,255,255,.065);
+    padding:15px;
+    border:1px solid rgba(66,220,130,.13);
     border-radius:10px;
-    background:rgba(255,255,255,.022);
+    background:linear-gradient(135deg,rgba(66,220,130,.045),rgba(255,255,255,.018));
     color:var(--muted);
-    line-height:1.7;
+    line-height:1.75;
     font-size:13px;
+    overflow-wrap:anywhere;
     transition:background .2s,border-color .2s,transform .2s;
 }
 
 .info-list li:hover{
     transform:translateY(-2px);
-    border-color:rgba(66,220,130,.25);
-    background:rgba(66,220,130,.035);
+    border-color:rgba(66,220,130,.3);
+    background:rgba(66,220,130,.045);
 }
 
 .item-name{
@@ -370,12 +513,15 @@ h1{
 
 .item-details{color:#b0b7bd}
 
+/* MENSAJES DESTACADOS */
+
 .inherit{
     margin-top:22px;
     padding:20px;
-    border:1px solid rgba(66,220,130,.18);
-    border-radius:12px;
-    background:linear-gradient(120deg,rgba(66,220,130,.06),rgba(147,101,255,.045));
+    border:1px solid rgba(66,220,130,.2);
+    border-left:4px solid var(--rank);
+    border-radius:0 12px 12px 0;
+    background:linear-gradient(120deg,rgba(66,220,130,.075),rgba(147,101,255,.045));
     color:var(--muted);
     line-height:1.9;
     font-size:14px;
@@ -383,79 +529,25 @@ h1{
 
 .inherit strong{color:#fff}
 
-.kit-title{
-    font-size:22px!important;
-    color:#fff!important;
-}
-
-.command-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-    margin-top:18px;
-}
-
-.command-card{
-    padding:23px;
-    border:1px solid rgba(66,220,130,.24);
-    border-radius:14px;
-    background:linear-gradient(135deg,rgba(66,220,130,.075),rgba(147,101,255,.045));
-    transition:transform .2s,border-color .2s,box-shadow .2s;
-}
-
-.command-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(66,220,130,.6);
-    box-shadow:0 8px 28px rgba(66,220,130,.055);
-}
-
-.command-tag{
-    display:inline-block;
-    margin-bottom:12px;
-    padding:5px 9px;
-    border-radius:5px;
-    background:rgba(66,220,130,.10);
-    color:var(--rank);
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
-
-.command-name{
-    display:block;
-    margin-bottom:10px;
-    color:var(--rank);
-    font-size:22px;
-    font-weight:950;
-    overflow-wrap:anywhere;
-    font-family:Consolas,Monaco,monospace;
-}
-
-.command-description{
-    margin:0!important;
-    color:#c4cbd0!important;
-    font-size:14px;
-    line-height:1.85!important;
-}
+/* DESPLEGABLES */
 
 details{
-    margin-top:18px;
-    border:1px solid rgba(66,220,130,.2);
-    border-radius:13px;
-    background:rgba(8,12,14,.6);
+    margin-top:15px;
+    border:1px solid rgba(66,220,130,.22);
+    border-radius:12px;
+    background:rgba(8,12,14,.5);
     overflow:hidden;
     transition:border-color .2s,background .2s;
 }
 
-details:hover{border-color:rgba(66,220,130,.4)}
+details:hover{border-color:rgba(66,220,130,.45)}
 
 summary{
     cursor:pointer;
     list-style:none;
     padding:18px 20px;
     font-weight:950;
-    color:var(--rank);
+    color:var(--rank-light);
     font-size:14px;
     user-select:none;
     transition:background .2s;
@@ -466,24 +558,30 @@ summary::-webkit-details-marker{display:none}
 summary::after{
     content:"+";
     float:right;
-    font-size:21px;
+    margin-left:12px;
+    font-size:22px;
     line-height:14px;
-    color:var(--rank-light);
+    color:var(--rank);
 }
 
 details[open] summary::after{content:"−"}
 summary:hover{background:rgba(66,220,130,.055)}
 
 .shulker-content{
-    padding:5px 22px 24px;
-    border-top:1px solid rgba(255,255,255,.07);
+    padding:5px 20px 23px;
+    border-top:1px solid rgba(255,255,255,.075);
 }
 
 .shulker-content h3{
-    margin-top:24px;
-    margin-bottom:12px;
+    margin:25px 0 12px;
     color:var(--rank-light);
     font-size:16px;
+    font-weight:950;
+}
+
+.shulker-content p{
+    color:#d4d9df;
+    font-weight:750;
 }
 
 .shulker-content ul{
@@ -496,13 +594,15 @@ summary:hover{background:rgba(66,220,130,.055)}
 }
 
 .shulker-content li{
-    padding:11px 13px;
-    border:1px solid rgba(255,255,255,.06);
+    min-width:0;
+    padding:12px 13px;
+    border:1px solid rgba(255,255,255,.07);
     border-radius:8px;
-    background:rgba(255,255,255,.02);
+    background:rgba(255,255,255,.025);
     color:var(--muted);
     font-size:13px;
-    line-height:1.7;
+    line-height:1.75;
+    overflow-wrap:anywhere;
 }
 
 .shulker-content li strong{color:#fff}
@@ -542,22 +642,38 @@ footer span{
         text-align:center;
     }
 
-    main{padding:65px 5% 75px}
+    main{padding:60px 5% 70px}
     h1{letter-spacing:-2.5px}
     .desc{font-size:15px}
     .price{font-size:40px}
 
     .box{
-        padding:23px 17px;
+        padding:22px 16px;
         border-radius:15px;
     }
 
+    .section-heading{gap:11px}
+    .section-number{
+        flex-basis:42px;
+        width:42px;
+        height:42px;
+        border-radius:11px;
+        font-size:17px;
+    }
+
+    .section-heading h3{font-size:18px}
+    .section-subtitle{font-size:12px!important}
+
+    .command-grid{grid-template-columns:1fr}
+    .command-card{padding:20px}
+    .command-name{font-size:24px}
+
     .info-list{grid-template-columns:1fr}
     .info-list li{padding:13px 14px}
-    .command-grid{grid-template-columns:1fr}
-    .shulker-content{padding:5px 14px 18px}
+
+    .shulker-content{padding:5px 12px 18px}
     .shulker-content ul{grid-template-columns:1fr}
-    .command-card{padding:19px}
+
     .inherit{padding:16px}
     .btn{width:100%}
     .hero-divider{margin-top:38px}
@@ -601,6 +717,8 @@ footer span{
 
         <p class="desc">
             Uno de los rangos superiores para jugadores comprometidos con Kaizora.
+            Obtén equipamiento avanzado, protección y herramientas adicionales
+            para tu aventura.
         </p>
 
         <div class="price-row">
@@ -628,27 +746,59 @@ footer span{
     <div class="box">
         <h2>Información del rango</h2>
 
+        <!-- 01: HERENCIA -->
+
         <div class="section">
-            <h3>Herencia de rangos</h3>
+            <div class="section-heading">
+                <div class="section-number">01</div>
+                <div class="section-heading-text">
+                    <h3>Herencia de rangos</h3>
+                    <p class="section-subtitle">
+                        Conserva los beneficios de tus rangos anteriores
+                    </p>
+                </div>
+            </div>
 
             <p>
                 GUARDIAN incluye todos los permisos, comandos, kits y beneficios
                 de los rangos anteriores, además de sus propias ventajas
                 exclusivas.
             </p>
+
+            <div class="inherit">
+                <strong>BENEFICIOS HEREDADOS</strong>
+                <p>
+                    Al obtener GUARDIAN, conservas los beneficios correspondientes
+                    a los rangos anteriores que forman parte de su progresión.
+                </p>
+            </div>
         </div>
 
-        <div class="section">
-            <h3>Comando exclusivo de GUARDIAN</h3>
+        <!-- 02: COMANDO EXCLUSIVO -->
 
-            <p>
-                Simplifica la gestión de tus recursos con una herramienta
-                que te permite compactar materiales en bloques.
+        <div class="section">
+            <div class="section-heading">
+                <div class="section-number">02</div>
+                <div class="section-heading-text">
+                    <h3>Comando exclusivo de GUARDIAN</h3>
+                    <p class="section-subtitle">
+                        Una herramienta adicional para gestionar tus recursos
+                    </p>
+                </div>
+            </div>
+
+            <p class="command-intro">
+                GUARDIAN te permite acceder a una utilidad adicional para
+                compactar materiales compatibles y organizar tu inventario.
+                Este comando se suma a los beneficios de tus rangos anteriores.
             </p>
 
             <div class="command-grid">
                 <div class="command-card">
-                    <span class="command-tag">Utilidad y recursos</span>
+                    <div class="command-top">
+                        <span class="command-number">01</span>
+                        <span class="command-tag">Utilidad y recursos</span>
+                    </div>
 
                     <span class="command-name">/condense</span>
 
@@ -660,10 +810,29 @@ footer span{
                     </p>
                 </div>
             </div>
+
+            <div class="inherit">
+                <strong>VENTAJA GUARDIAN</strong>
+                <p>
+                    Este comando se añade a los beneficios de los rangos
+                    anteriores. Su funcionamiento depende de los permisos
+                    y de la configuración de los plugins del servidor.
+                </p>
+            </div>
         </div>
 
+        <!-- 03: SHULKER 1 -->
+
         <div class="section">
-            <h3>Shulker #1</h3>
+            <div class="section-heading">
+                <div class="section-number">03</div>
+                <div class="section-heading-text">
+                    <h3>Shulker #1</h3>
+                    <p class="section-subtitle">
+                        Armaduras, herramientas, comida y recursos
+                    </p>
+                </div>
+            </div>
 
             <details>
                 <summary>Ver contenido de la Shulker #1</summary>
@@ -671,7 +840,7 @@ footer span{
                 <div class="shulker-content">
                     <h3>Armaduras</h3>
 
-                    <p><strong>2 armaduras completas de diamante</strong></p>
+                    <p>2 armaduras completas de diamante.</p>
 
                     <ul>
                         <li>Protección VIII</li>
@@ -719,46 +888,103 @@ footer span{
             </details>
         </div>
 
+        <!-- 04: SHULKER 2 -->
+
         <div class="section">
-            <h3>Shulker #2</h3>
+            <div class="section-heading">
+                <div class="section-number">04</div>
+                <div class="section-heading-text">
+                    <h3>Shulker #2</h3>
+                    <p class="section-subtitle">
+                        Pociones y munición adicional
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
                 <li>
                     <span class="item-name">Shulker llena de pociones</span>
                 </li>
                 <li>
-                    <span class="item-name">Flechas</span>
+                    <span class="item-name">Flechas</span><br>
                     <span class="item-details">×64 — 3 stacks</span>
                 </li>
             </ul>
         </div>
 
+        <!-- 05: POLVOS -->
+
         <div class="section">
-            <h3>Polvos</h3>
+            <div class="section-heading">
+                <div class="section-number">05</div>
+                <div class="section-heading-text">
+                    <h3>Polvos y materiales especiales</h3>
+                    <p class="section-subtitle">
+                        Recursos adicionales incluidos en el rango
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
-                <li><span class="item-name">Esencia Arcana</span> <span class="item-details">×6</span></li>
-                <li><span class="item-name">Esencia Eléctrica</span> <span class="item-details">×2</span></li>
-                <li><span class="item-name">Cristal Acuático</span> <span class="item-details">×2</span></li>
-                <li><span class="item-name">Polvo Celestial</span> <span class="item-details">×4</span></li>
-                <li><span class="item-name">Semilla Natural</span> <span class="item-details">×6</span></li>
+                <li>
+                    <span class="item-name">Esencia Arcana</span><br>
+                    <span class="item-details">×6</span>
+                </li>
+                <li>
+                    <span class="item-name">Esencia Eléctrica</span><br>
+                    <span class="item-details">×2</span>
+                </li>
+                <li>
+                    <span class="item-name">Cristal Acuático</span><br>
+                    <span class="item-details">×2</span>
+                </li>
+                <li>
+                    <span class="item-name">Polvo Celestial</span><br>
+                    <span class="item-details">×4</span>
+                </li>
+                <li>
+                    <span class="item-name">Semilla Natural</span><br>
+                    <span class="item-details">×6</span>
+                </li>
             </ul>
         </div>
 
+        <!-- 06: PROTECCIÓN -->
+
         <div class="section">
-            <h3>Piedra de protección</h3>
+            <div class="section-heading">
+                <div class="section-number">06</div>
+                <div class="section-heading-text">
+                    <h3>Piedra de protección</h3>
+                    <p class="section-subtitle">
+                        Protege una zona de tu construcción
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
                 <li>
                     <span class="item-name">Mena de Esmeralda</span><br>
-                    <span class="item-details">Protección de 60 × 60 bloques</span>
+                    <span class="item-details">
+                        Protección de 60 × 60 bloques
+                    </span>
                 </li>
             </ul>
         </div>
 
         <div class="inherit">
-            Las compras y la gestión del rango se realizan directamente
-            mediante nuestro Discord oficial.
+            <strong>COMPRA Y GESTIÓN DEL RANGO</strong>
+            <p>
+                Las compras y la gestión del rango se realizan directamente
+                mediante nuestro Discord oficial.
+            </p>
+            <a class="btn primary"
+               href="https://discord.gg/sHvWgW7AE4"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="margin-top:12px">
+                Entrar al Discord oficial
+            </a>
         </div>
     </div>
 </main>
