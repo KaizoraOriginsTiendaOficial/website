@@ -125,26 +125,9 @@ h1{
     box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(255,83,99,.035);
     overflow:hidden;animation:appear .8s ease both
 }
-
-/* BARRA SUPERIOR DECORATIVA ROJA Y ROSADA */
 .box::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:8%;
-    right:8%;
-    height:2px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #ff5363,
-        #ff829d,
-        #ffc3ce,
-        #d92948,
-        transparent
-    );
-    box-shadow:0 0 12px rgba(255,83,99,.35);
-    pointer-events:none;
+    content:"";position:absolute;top:0;left:8%;right:8%;height:2px;
+    background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent)
 }
 .box h2{
     display:flex;align-items:center;gap:12px;margin:0 0 20px;
@@ -292,6 +275,23 @@ summary:hover{background:rgba(255,83,99,.055)}
 }
 .shulker-content li strong{color:#fff}
 
+/* BARRA SUPERIOR DE COLOR */
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:linear-gradient(90deg,#ff5363,#d92948,#ff829d,#ffc3ce,#ff5363);
+    background-size:250% 100%;
+    animation:rankBar 5s linear infinite;
+}
+@keyframes rankBar{
+    from{background-position:0% 50%}
+    to{background-position:250% 50%}
+}
+
 /* PIE DE PÁGINA */
 footer{
     text-align:center;padding:30px 20px;color:#8b8298;font-size:12px;
@@ -346,7 +346,6 @@ footer span{color:var(--rank-light)}
 <main>
 
     <!-- HERO: PRECIO Y BOTONES AL LADO -->
-
     <header class="hero">
         <div class="label">RANGO DEFINITIVO</div>
         <h1>DIOS</h1>
@@ -380,12 +379,10 @@ footer span{color:var(--rank-light)}
     </header>
 
     <!-- PANEL PRINCIPAL: TODO EL CONTENIDO VA DENTRO -->
-
     <div class="box">
         <h2>Beneficios y ventajas de DIOS</h2>
 
         <!-- 01: HERENCIA -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">01</div>
@@ -412,7 +409,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- 02: COMANDOS EXCLUSIVOS -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">02</div>
@@ -465,7 +461,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- 03: SHULKER 1 -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">03</div>
@@ -520,7 +515,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- 04 A 10: SHULKERS DE POCIONES -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">04</div>
@@ -593,7 +587,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- 05: RECURSOS -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">05</div>
@@ -625,7 +618,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- 06: PROTECCIÓN -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">06</div>
@@ -649,7 +641,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- 07: COMPRA -->
-
         <section class="section">
             <div class="section-heading">
                 <div class="section-number">07</div>
@@ -672,7 +663,6 @@ footer span{color:var(--rank-light)}
         </section>
 
         <!-- RESUMEN -->
-
         <div class="inherit">
             <strong>RESUMEN DEL RANGO DIOS</strong><br>
             DIOS incluye los beneficios de los rangos anteriores, los comandos
