@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,9 +45,7 @@ nav{
     letter-spacing:1px
 }
 
-.logo span{
-    color:#b49cff
-}
+.logo span{color:#b49cff}
 
 nav a{
     text-decoration:none;
@@ -178,18 +177,14 @@ h1{
     line-height:1.6
 }
 
-.info-list li:last-child{
-    border-bottom:none
-}
+.info-list li:last-child{border-bottom:none}
 
 .item-name{
     color:#ffffff;
     font-weight:800
 }
 
-.item-details{
-    color:#969aa3
-}
+.item-details{color:#969aa3}
 
 .inherit{
     margin-top:20px;
@@ -199,13 +194,59 @@ h1{
     background:rgba(255,255,255,.025)
 }
 
-.inherit strong{
-    color:#ffffff
-}
+.inherit strong{color:#ffffff}
 
 .kit-title{
     font-size:21px!important;
     color:#ffffff!important
+}
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+    margin-top:18px
+}
+
+.command-card{
+    padding:20px;
+    border:1px solid rgba(255,211,77,.22);
+    border-radius:12px;
+    background:linear-gradient(135deg,rgba(255,211,77,.07),rgba(147,101,255,.04));
+    transition:transform .2s,border-color .2s
+}
+
+.command-card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,211,77,.55)
+}
+
+.command-name{
+    display:inline-block;
+    color:#ffd34d;
+    font-size:17px;
+    font-weight:900;
+    margin-bottom:10px;
+    overflow-wrap:anywhere
+}
+
+.command-description{
+    color:#aaaeb6;
+    font-size:14px;
+    line-height:1.7
+}
+
+.command-tag{
+    display:inline-block;
+    margin-bottom:12px;
+    padding:5px 8px;
+    border-radius:5px;
+    background:rgba(255,211,77,.10);
+    color:#ffd34d;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase
 }
 
 footer{
@@ -222,6 +263,7 @@ footer{
     main{padding-top:65px}
     h1{letter-spacing:-2px}
     .box{padding:24px}
+    .command-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -231,7 +273,6 @@ footer{
 <div class="bg"></div>
 
 <nav>
-
     <div class="logo">
         KAIZORA <span>ORIGINS</span>
     </div>
@@ -247,36 +288,30 @@ footer{
         class="discord"
         href="https://discord.gg/sHvWgW7AE4"
         target="_blank"
+        rel="noopener noreferrer"
     >
         Comprar por Discord
     </a>
-
 </nav>
 
 <main>
 
-    <div class="label">
-        RANGO
-    </div>
+    <div class="label">RANGO</div>
 
-    <h1>
-        MAJESTAD
-    </h1>
+    <h1>MAJESTAD</h1>
 
     <p class="desc">
         Prestigio, reconocimiento y nuevas ventajas dentro de Kaizora.
     </p>
 
-    <div class="price">
-        $11.99
-    </div>
+    <div class="price">$11.99</div>
 
     <div class="actions">
-
         <a
             class="btn primary"
             href="https://discord.gg/sHvWgW7AE4"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Comprar MAJESTAD
         </a>
@@ -287,67 +322,97 @@ footer{
         >
             Volver a rangos
         </a>
-
     </div>
-
 
     <!-- INFORMACIÓN COMPLETA -->
 
     <div class="box">
 
-        <h2>
-            Información del rango
-        </h2>
-
+        <h2>Información del rango</h2>
 
         <!-- HERENCIA -->
 
         <div class="section">
-
-            <h3>
-                Herencia
-            </h3>
+            <h3>Herencia</h3>
 
             <p>
-                MAJESTAD incluye todos los permisos, comandos, kits y beneficios
-                de todos los rangos anteriores, además de todos los beneficios
-                propios del rango MAJESTAD.
+                MAJESTAD incluye los permisos, comandos, kits y beneficios
+                de los rangos anteriores: DEFAULT/USUARIO, ORIGIN, ELITE
+                y CELESTIAL, además de sus propias ventajas exclusivas.
             </p>
 
+            <div class="inherit">
+                <strong>Comandos heredados:</strong>
+                <p>
+                    Conservas los comandos desbloqueados en los rangos
+                    anteriores, junto con los beneficios correspondientes
+                    a cada rango.
+                </p>
+            </div>
         </div>
 
+        <!-- COMANDOS MAJESTAD -->
+
+        <div class="section">
+            <h3>Comandos exclusivos de MAJESTAD</h3>
+
+            <p>
+                Accede a tu almacenamiento personal desde el juego con
+                estos comandos exclusivos.
+            </p>
+
+            <div class="command-grid">
+
+                <div class="command-card">
+                    <span class="command-tag">Almacenamiento</span>
+                    <div class="command-name">/ec</div>
+                    <div class="command-description">
+                        Abre tu cofre de Ender personal para guardar
+                        y consultar tus objetos desde donde te encuentres.
+                    </div>
+                </div>
+
+                <div class="command-card">
+                    <span class="command-tag">Almacenamiento</span>
+                    <div class="command-name">/enderchest</div>
+                    <div class="command-description">
+                        Accede a tu cofre de Ender personal mediante
+                        el comando completo, sin necesidad de buscar
+                        un cofre físico.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="inherit">
+                <strong>Importante:</strong>
+                <p>
+                    Ambos comandos permiten acceder al cofre de Ender
+                    personal. Son dos formas de ejecutar la misma función.
+                </p>
+            </div>
+        </div>
 
         <!-- KIT MAJESTAD -->
 
         <div class="section">
-
-            <h3 class="kit-title">
-                /kit Majestad
-            </h3>
+            <h3 class="kit-title">/kit Majestad</h3>
 
             <p>
                 El kit exclusivo del rango MAJESTAD incluye equipamiento
                 avanzado, recursos, materiales, polvos, protección y
                 objetos adicionales.
             </p>
-
         </div>
-
 
         <!-- ARMADURA -->
 
         <div class="section">
-
-            <h3>
-                Armadura Diamante
-            </h3>
+            <h3>Armadura Diamante</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Armadura 1
-                    </span>
+                    <span class="item-name">Armadura 1</span>
                     <br>
                     <span class="item-details">
                         Protección VII · Irrompibilidad VII · Reparación
@@ -355,34 +420,23 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Armadura 2
-                    </span>
+                    <span class="item-name">Armadura 2</span>
                     <br>
                     <span class="item-details">
                         Protección IV · Irrompibilidad V · Reparación
                     </span>
                 </li>
-
             </ul>
-
         </div>
-
 
         <!-- HERRAMIENTAS -->
 
         <div class="section">
-
-            <h3>
-                Herramientas y armas
-            </h3>
+            <h3>Herramientas y armas</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Espada de Diamante
-                    </span>
+                    <span class="item-name">Espada de Diamante</span>
                     <br>
                     <span class="item-details">
                         Filo VII · Aspecto Ígneo III · Irrompibilidad VII · Reparación
@@ -390,9 +444,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pico
-                    </span>
+                    <span class="item-name">Pico</span>
                     <br>
                     <span class="item-details">
                         Eficiencia VII · Irrompibilidad VII · Reparación
@@ -400,9 +452,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Hacha
-                    </span>
+                    <span class="item-name">Hacha</span>
                     <br>
                     <span class="item-details">
                         Eficiencia VII · Irrompibilidad VII · Reparación
@@ -410,9 +460,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pala
-                    </span>
+                    <span class="item-name">Pala</span>
                     <br>
                     <span class="item-details">
                         Eficiencia VII · Irrompibilidad VII · Reparación
@@ -420,9 +468,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Escudo
-                    </span>
+                    <span class="item-name">Escudo</span>
                     <br>
                     <span class="item-details">
                         Protección VII · Irrompibilidad VII · Reparación
@@ -430,9 +476,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Arco
-                    </span>
+                    <span class="item-name">Arco</span>
                     <br>
                     <span class="item-details">
                         Irrompibilidad VII · Reparación
@@ -440,9 +484,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Ballesta
-                    </span>
+                    <span class="item-name">Ballesta</span>
                     <br>
                     <span class="item-details">
                         Irrompibilidad VII · Reparación
@@ -450,231 +492,133 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Mazo
-                    </span>
+                    <span class="item-name">Mazo</span>
                     <br>
                     <span class="item-details">
                         Irrompibilidad VII · Reparación
                     </span>
                 </li>
-
             </ul>
-
         </div>
-
 
         <!-- COMIDA -->
 
         <div class="section">
-
-            <h3>
-                Comida
-            </h3>
+            <h3>Comida</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Manzanas Doradas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Manzanas Doradas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Manzanas Encantadas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Manzanas Encantadas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Zanahorias Doradas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Zanahorias Doradas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pan
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Pan</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Papas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Papas</span>
+                    <span class="item-details">×64</span>
                 </li>
-
             </ul>
-
         </div>
-
 
         <!-- MINERALES -->
 
         <div class="section">
-
-            <h3>
-                Minerales
-            </h3>
+            <h3>Minerales</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Bloques de Oro
-                    </span>
-                    <span class="item-details">
-                        ×8
-                    </span>
+                    <span class="item-name">Bloques de Oro</span>
+                    <span class="item-details">×8</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Bloques de Diamante
-                    </span>
-                    <span class="item-details">
-                        ×8
-                    </span>
+                    <span class="item-name">Bloques de Diamante</span>
+                    <span class="item-details">×8</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Esmeraldas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Esmeraldas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Fragmentos de Netherite
-                    </span>
-                    <span class="item-details">
-                        ×12
-                    </span>
+                    <span class="item-name">Fragmentos de Netherite</span>
+                    <span class="item-details">×12</span>
                 </li>
-
             </ul>
-
         </div>
-
 
         <!-- POLVOS -->
 
         <div class="section">
-
-            <h3>
-                Polvos
-            </h3>
+            <h3>Polvos</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Polvo Celestial
-                    </span>
-                    <span class="item-details">
-                        ×4
-                    </span>
+                    <span class="item-name">Polvo Celestial</span>
+                    <span class="item-details">×4</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Semilla Natural
-                    </span>
-                    <span class="item-details">
-                        ×2
-                    </span>
+                    <span class="item-name">Semilla Natural</span>
+                    <span class="item-details">×2</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Polvo Espectral
-                    </span>
-                    <span class="item-details">
-                        ×2
-                    </span>
+                    <span class="item-name">Polvo Espectral</span>
+                    <span class="item-details">×2</span>
                 </li>
-
             </ul>
-
         </div>
-
 
         <!-- PIEDRA DE PROTECCIÓN -->
 
         <div class="section">
-
-            <h3>
-                Piedra de Protección
-            </h3>
+            <h3>Piedra de Protección</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Mena de Oro
-                    </span>
+                    <span class="item-name">Mena de Oro</span>
                     <br>
                     <span class="item-details">
                         Protección de 50 × 50 bloques
                     </span>
                 </li>
-
             </ul>
-
         </div>
-
 
         <!-- AÑADIDOS -->
 
         <div class="section">
-
-            <h3>
-                Añadidos
-            </h3>
+            <h3>Añadidos</h3>
 
             <ul class="info-list">
-
                 <li>
-                    <span class="item-name">
-                        Carga de Viento
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Carga de Viento</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Shulker (Kit Majestad)
-                    </span>
+                    <span class="item-name">Shulker (Kit Majestad)</span>
                     <br>
-                    <span class="item-details">
-                        27 pociones
-                    </span>
+                    <span class="item-details">27 pociones</span>
                 </li>
-
             </ul>
-
         </div>
-
 
     </div>
 
