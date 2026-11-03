@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -195,14 +196,22 @@ h1{
     margin:0;
 }
 
-/* PRECIO */
+/* PRECIO Y BOTONES */
 
-.price-row{
+.hero-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+    margin-top:30px;
+}
+
+.price-wrap{
     display:flex;
     align-items:center;
     flex-wrap:wrap;
     gap:15px;
-    margin:30px 0 24px;
 }
 
 .price{
@@ -225,13 +234,10 @@ h1{
     letter-spacing:1.4px;
 }
 
-/* BOTONES */
-
 .actions{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
-    margin-top:25px;
 }
 
 .btn{
@@ -290,6 +296,7 @@ h1{
     background:linear-gradient(145deg,rgba(22,14,30,.96),rgba(12,10,18,.96));
     box-shadow:0 22px 70px rgba(0,0,0,.25);
     overflow:hidden;
+    counter-reset:kaizora-section;
 }
 
 .box::before{
@@ -337,11 +344,7 @@ h1{
     font-size:14px;
 }
 
-/* SECCIONES CON NÚMEROS */
-
-.box{
-    counter-reset:kaizora-section;
-}
+/* SECCIONES NUMERADAS */
 
 .section{
     counter-increment:kaizora-section;
@@ -401,7 +404,6 @@ h1{
     border-left:4px solid var(--magenta);
     border-radius:17px;
     background:var(--card-bg);
-    box-shadow:none;
     transition:transform .2s,border-color .2s,box-shadow .2s;
     overflow:hidden;
 }
@@ -428,9 +430,7 @@ h1{
     font-weight:950;
 }
 
-.command-card:nth-child(2)::before{
-    content:"02";
-}
+.command-card:nth-child(2)::before{content:"02"}
 
 .command-tag{
     display:inline-block;
@@ -471,14 +471,11 @@ details{
     border:1px solid rgba(155,93,229,.3);
     border-radius:15px;
     background:var(--card-bg);
-    box-shadow:none;
     overflow:hidden;
     transition:border-color .2s,background .2s;
 }
 
-details:hover{
-    border-color:rgba(255,109,225,.55);
-}
+details:hover{border-color:rgba(255,109,225,.55)}
 
 summary{
     cursor:pointer;
@@ -505,16 +502,14 @@ summary::after{
 
 details[open] summary::after{content:"−"}
 
-summary:hover{
-    background:rgba(155,93,229,.07);
-}
+summary:hover{background:rgba(155,93,229,.07)}
 
 details[open] summary{
     background:rgba(155,93,229,.06);
     border-bottom:1px solid rgba(255,109,225,.2);
 }
 
-/* CONTENIDO DE LOS DESPLEGABLES */
+/* CONTENIDO DESPLEGABLE */
 
 .shulker-content{
     padding:5px 22px 24px;
@@ -598,7 +593,7 @@ footer span{
     font-weight:800;
 }
 
-/* DISEÑO RESPONSIVE */
+/* RESPONSIVE */
 
 @media(max-width:650px){
     nav{
@@ -631,6 +626,14 @@ footer span{
         border-radius:15px;
     }
 
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .actions{width:100%}
+    .btn{width:100%}
+
     .section > h3{
         gap:10px;
         font-size:21px;
@@ -647,7 +650,6 @@ footer span{
     .shulker-content{padding:5px 14px 18px}
     .shulker-content ul{grid-template-columns:1fr}
     .command-card{padding:21px}
-    .btn{width:100%}
     .hero-divider{margin-top:38px}
 }
 
@@ -696,24 +698,28 @@ footer span{
             reservado para quienes quieren llevar su experiencia al máximo.
         </p>
 
-        <div class="price-row">
-            <div class="price">$49.99</div>
-            <div class="price-tag">EXCLUSIVIDAD · PODER · PRESTIGIO</div>
-        </div>
+        <div class="hero-bottom">
 
-        <div class="actions">
+            <div class="price-wrap">
+                <div class="price">$49.99</div>
+                <div class="price-tag">EXCLUSIVIDAD · PODER · PRESTIGIO</div>
+            </div>
 
-            <a class="btn primary"
-               href="https://discord.gg/sHvWgW7AE4"
-               target="_blank"
-               rel="noopener noreferrer">
-                Comprar KAIZORA
-            </a>
+            <div class="actions">
 
-            <a class="btn back"
-               href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
-                Volver a rangos
-            </a>
+                <a class="btn primary"
+                   href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Comprar KAIZORA ↗
+                </a>
+
+                <a class="btn back"
+                   href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+                    Volver a rangos
+                </a>
+
+            </div>
 
         </div>
 
