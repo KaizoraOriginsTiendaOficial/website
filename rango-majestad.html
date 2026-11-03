@@ -5,16 +5,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAJESTAD | Kaizora Origins</title>
+<meta name="theme-color" content="#08080d">
+<meta name="description" content="Descubre el rango MAJESTAD de Kaizora Origins, sus comandos exclusivos y su kit avanzado.">
 
 <style>
+:root{
+    --bg:#08080d;
+    --gold:#ffd34d;
+    --gold-light:#fff0a6;
+    --purple:#9365ff;
+    --pink:#ff6de1;
+    --white:#f7f6fb;
+    --muted:#b8b7c4;
+    --border:rgba(255,211,77,.19);
+}
+
 *{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
     margin:0;
-    background:#07090a;
-    color:#f4f4f6;
+    background:var(--bg);
+    color:var(--white);
     font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
 a{color:inherit}
@@ -22,218 +38,390 @@ a{color:inherit}
 .bg{
     position:fixed;
     inset:0;
+    z-index:-2;
+    pointer-events:none;
     background:
-        radial-gradient(circle at 20% 20%,rgba(147,101,255,.16),transparent 35%),
-        radial-gradient(circle at 80% 70%,rgba(255,109,225,.10),transparent 35%);
-    z-index:-1
+        radial-gradient(ellipse at 18% 14%,rgba(255,211,77,.12),transparent 36%),
+        radial-gradient(ellipse at 83% 35%,rgba(147,101,255,.14),transparent 36%),
+        radial-gradient(ellipse at 50% 95%,rgba(255,109,225,.07),transparent 38%),
+        #08080d;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.15;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:42px 42px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
 }
 
 nav{
-    height:76px;
+    position:sticky;
+    top:0;
+    z-index:20;
+    min-height:76px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:18px;
     padding:0 7%;
     border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(5,7,8,.8);
-    backdrop-filter:blur(12px)
+    background:rgba(8,8,13,.86);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
 
 .logo{
     font-size:21px;
-    font-weight:900;
-    letter-spacing:1px
+    font-weight:950;
+    letter-spacing:1.5px;
+    white-space:nowrap;
 }
 
-.logo span{color:#b49cff}
+.logo span{
+    background:linear-gradient(90deg,var(--gold),#ffb85c);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
 
 nav a{
     text-decoration:none;
-    color:#c8c8cd;
+    color:#d4d2de;
     font-size:13px;
-    font-weight:800
+    font-weight:850;
 }
 
+nav a.home{
+    margin-left:auto;
+    transition:color .2s;
+}
+
+nav a.home:hover{color:var(--gold)}
+
 .discord{
-    padding:11px 17px;
-    border-radius:8px;
-    background:#9365ff;
-    color:white!important
+    padding:12px 18px;
+    border-radius:9px;
+    background:linear-gradient(110deg,#7950ed,#a76bff);
+    color:white!important;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 5px 22px rgba(147,101,255,.19);
+    transition:transform .2s,box-shadow .2s;
+}
+
+.discord:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 30px rgba(147,101,255,.34);
 }
 
 main{
-    max-width:1050px;
+    max-width:1100px;
     margin:0 auto;
-    padding:90px 6% 100px
+    padding:88px 6% 100px;
+}
+
+.hero{
+    position:relative;
+    padding:10px 0 38px;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    width:340px;
+    height:230px;
+    top:-40px;
+    left:-60px;
+    background:radial-gradient(ellipse,rgba(255,211,77,.10),transparent 70%);
+    pointer-events:none;
 }
 
 .label{
-    color:#ffd34d;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+    color:var(--gold);
     font-size:11px;
-    font-weight:900;
+    font-weight:950;
     letter-spacing:4px;
-    margin-bottom:14px
+    text-transform:uppercase;
+}
+
+.label::before{
+    content:"";
+    width:24px;
+    height:2px;
+    background:linear-gradient(90deg,var(--gold),var(--purple));
+    box-shadow:0 0 12px rgba(255,211,77,.5);
 }
 
 h1{
-    font-size:clamp(48px,8vw,86px);
+    display:inline-block;
     margin:0 0 18px;
-    letter-spacing:-4px
+    font-size:clamp(49px,9vw,94px);
+    line-height:.98;
+    font-weight:1000;
+    letter-spacing:-4.5px;
+    background:linear-gradient(
+        110deg,
+        #fff 5%,
+        var(--gold-light) 35%,
+        var(--gold) 63%,
+        #ffb85c 90%
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 0 25px rgba(255,211,77,.13));
 }
 
 .desc{
-    max-width:700px;
-    color:#bfc0c6;
+    max-width:720px;
+    color:var(--muted);
     font-size:17px;
-    line-height:1.7
+    line-height:1.85;
+    margin:0;
+}
+
+.price-row{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:30px 0 24px;
 }
 
 .price{
-    font-size:42px;
+    font-size:46px;
+    line-height:1;
+    font-weight:1000;
+    letter-spacing:-1.5px;
+    color:var(--gold);
+    text-shadow:0 0 24px rgba(255,211,77,.2);
+}
+
+.price-tag{
+    padding:8px 12px;
+    border-radius:6px;
+    border:1px solid rgba(255,211,77,.25);
+    background:rgba(255,211,77,.07);
+    color:var(--gold-light);
+    font-size:10px;
     font-weight:950;
-    margin:35px 0 22px;
-    color:#ffd34d
+    letter-spacing:1.4px;
 }
 
 .actions{
     display:flex;
     gap:12px;
-    flex-wrap:wrap
+    flex-wrap:wrap;
+    margin-top:25px;
 }
 
 .btn{
-    padding:14px 22px;
-    border-radius:8px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px 22px;
+    min-height:48px;
+    border-radius:9px;
     text-decoration:none;
-    font-weight:900;
+    font-weight:950;
     font-size:12px;
+    letter-spacing:.4px;
     border:1px solid rgba(255,255,255,.14);
-    transition:.2s
+    transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;
 }
 
+.btn:hover{transform:translateY(-2px)}
+
 .primary{
-    border-color:#ffd34d;
-    color:#ffd34d
+    color:#171104;
+    background:linear-gradient(100deg,var(--gold),var(--gold-light));
+    border-color:transparent;
+    box-shadow:0 6px 24px rgba(255,211,77,.13);
 }
 
 .primary:hover{
-    background:#ffd34d;
-    color:#08090a
+    box-shadow:0 8px 30px rgba(255,211,77,.27);
+}
+
+.back{
+    color:#deddeb;
+    background:rgba(255,255,255,.025);
 }
 
 .back:hover{
-    border-color:#aaa;
-    color:white
+    border-color:rgba(255,211,77,.55);
+    background:rgba(255,211,77,.05);
+}
+
+.hero-divider{
+    width:100%;
+    height:1px;
+    margin-top:54px;
+    background:linear-gradient(90deg,rgba(255,211,77,.4),rgba(147,101,255,.22),transparent);
 }
 
 .box{
-    margin-top:55px;
-    padding:32px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:16px;
-    background:rgba(13,15,18,.78)
+    position:relative;
+    margin-top:42px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(19,18,25,.96),rgba(11,11,17,.96));
+    box-shadow:0 22px 70px rgba(0,0,0,.23);
+    overflow:hidden;
+}
+
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),var(--purple),transparent);
+    opacity:.75;
 }
 
 .box h2{
-    margin-top:0;
-    margin-bottom:30px;
-    font-size:26px
+    margin:0 0 32px;
+    font-size:clamp(24px,4vw,31px);
+    font-weight:950;
+    letter-spacing:-.8px;
+}
+
+.box h2::after{
+    content:"";
+    display:block;
+    width:48px;
+    height:3px;
+    margin-top:15px;
+    border-radius:5px;
+    background:linear-gradient(90deg,var(--gold),var(--purple));
 }
 
 .box h3{
-    margin:0 0 15px;
-    color:#ffffff;
-    font-size:18px
+    margin:0 0 16px;
+    color:#fff;
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:-.25px;
 }
 
 .box p{
-    color:#aaaeb6;
-    line-height:1.7;
-    margin:8px 0
+    color:var(--muted);
+    line-height:1.85;
+    margin:8px 0;
+    font-size:14px;
 }
 
 .section{
-    margin-top:38px;
+    margin-top:36px;
     padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.07)
+    border-top:1px solid rgba(255,255,255,.075);
 }
 
 .section:first-of-type{
     margin-top:0;
     padding-top:0;
-    border-top:none
+    border-top:none;
 }
 
 .info-list{
     list-style:none;
     padding:0;
-    margin:0
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
 }
 
 .info-list li{
-    padding:10px 0;
-    border-bottom:1px solid rgba(255,255,255,.045);
-    color:#aaaeb6;
-    line-height:1.6
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(255,255,255,.065);
+    border-radius:10px;
+    background:rgba(255,255,255,.022);
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+    transition:background .2s,border-color .2s,transform .2s;
 }
 
-.info-list li:last-child{border-bottom:none}
+.info-list li:hover{
+    transform:translateY(-2px);
+    border-color:rgba(255,211,77,.25);
+    background:rgba(255,211,77,.035);
+}
 
 .item-name{
-    color:#ffffff;
-    font-weight:800
+    color:#f9f7ff;
+    font-weight:900;
 }
 
-.item-details{color:#969aa3}
+.item-details{color:#b0afbd}
 
 .inherit{
-    margin-top:20px;
-    padding:18px 20px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:10px;
-    background:rgba(255,255,255,.025)
+    margin-top:22px;
+    padding:20px;
+    border:1px solid rgba(255,211,77,.18);
+    border-radius:12px;
+    background:linear-gradient(120deg,rgba(255,211,77,.06),rgba(147,101,255,.045));
+    color:var(--muted);
+    line-height:1.9;
+    font-size:14px;
 }
 
-.inherit strong{color:#ffffff}
+.inherit strong{color:#fff}
 
 .kit-title{
-    font-size:21px!important;
-    color:#ffffff!important
+    font-size:22px!important;
+    color:#fff!important;
 }
 
 .command-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:14px;
-    margin-top:18px
+    margin-top:18px;
 }
 
 .command-card{
-    padding:20px;
+    padding:22px;
     border:1px solid rgba(255,211,77,.22);
-    border-radius:12px;
-    background:linear-gradient(135deg,rgba(255,211,77,.07),rgba(147,101,255,.04));
-    transition:transform .2s,border-color .2s
+    border-radius:13px;
+    background:linear-gradient(135deg,rgba(255,211,77,.075),rgba(147,101,255,.045));
+    transition:transform .2s,border-color .2s,box-shadow .2s;
 }
 
 .command-card:hover{
     transform:translateY(-3px);
-    border-color:rgba(255,211,77,.55)
+    border-color:rgba(255,211,77,.6);
+    box-shadow:0 8px 28px rgba(255,211,77,.055);
 }
 
 .command-name{
     display:inline-block;
-    color:#ffd34d;
+    color:var(--gold);
     font-size:17px;
-    font-weight:900;
+    font-weight:950;
     margin-bottom:10px;
-    overflow-wrap:anywhere
+    overflow-wrap:anywhere;
+    font-family:Consolas,Monaco,monospace;
 }
 
 .command-description{
-    color:#aaaeb6;
+    color:#c4c2cf;
     font-size:14px;
-    line-height:1.7
+    line-height:1.8;
 }
 
 .command-tag{
@@ -242,28 +430,84 @@ h1{
     padding:5px 8px;
     border-radius:5px;
     background:rgba(255,211,77,.10);
-    color:#ffd34d;
+    color:var(--gold);
     font-size:9px;
     font-weight:900;
     letter-spacing:1.5px;
-    text-transform:uppercase
+    text-transform:uppercase;
 }
 
 footer{
     text-align:center;
-    padding:30px;
-    color:#6f7178;
+    padding:32px 20px;
+    color:#858392;
     font-size:12px;
-    border-top:1px solid rgba(255,255,255,.07)
+    border-top:1px solid rgba(255,255,255,.075);
+    background:rgba(5,5,10,.4);
 }
 
-@media(max-width:600px){
-    nav{padding:0 5%}
+footer span{
+    color:var(--gold);
+    font-weight:800;
+}
+
+@media(max-width:650px){
+    nav{
+        padding:0 5%;
+        gap:10px;
+        min-height:68px;
+    }
+
+    .logo{
+        font-size:16px;
+        letter-spacing:.7px;
+    }
+
+    nav a{font-size:11px}
+
     nav a.home{display:none}
-    main{padding-top:65px}
-    h1{letter-spacing:-2px}
-    .box{padding:24px}
+
+    .discord{
+        padding:11px 12px;
+        font-size:10px;
+        text-align:center;
+    }
+
+    main{padding:65px 5% 75px}
+
+    h1{letter-spacing:-2.5px}
+
+    .desc{font-size:15px}
+
+    .price{font-size:40px}
+
+    .box{
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
+    .info-list{grid-template-columns:1fr}
+
+    .info-list li{padding:13px 14px}
+
     .command-grid{grid-template-columns:1fr}
+
+    .command-card{padding:18px}
+
+    .inherit{padding:16px}
+
+    .btn{width:100%}
+
+    .hero-divider{margin-top:38px}
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
 }
 </style>
 </head>
@@ -296,35 +540,44 @@ footer{
 
 <main>
 
-    <div class="label">RANGO</div>
+    <header class="hero">
 
-    <h1>MAJESTAD</h1>
+        <div class="label">RANGO EXCLUSIVO</div>
 
-    <p class="desc">
-        Prestigio, reconocimiento y nuevas ventajas dentro de Kaizora.
-    </p>
+        <h1>MAJESTAD</h1>
 
-    <div class="price">$11.99</div>
+        <p class="desc">
+            Prestigio, reconocimiento y nuevas ventajas dentro de Kaizora.
+        </p>
 
-    <div class="actions">
-        <a
-            class="btn primary"
-            href="https://discord.gg/sHvWgW7AE4"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Comprar MAJESTAD
-        </a>
+        <div class="price-row">
+            <div class="price">$11.99</div>
+            <div class="price-tag">PODER · PRESTIGIO · BENEFICIOS</div>
+        </div>
 
-        <a
-            class="btn back"
-            href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
-        >
-            Volver a rangos
-        </a>
-    </div>
+        <div class="actions">
 
-    <!-- INFORMACIÓN COMPLETA -->
+            <a
+                class="btn primary"
+                href="https://discord.gg/sHvWgW7AE4"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Comprar MAJESTAD
+            </a>
+
+            <a
+                class="btn back"
+                href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
+            >
+                Volver a rangos
+            </a>
+
+        </div>
+
+        <div class="hero-divider"></div>
+
+    </header>
 
     <div class="box">
 
@@ -333,6 +586,7 @@ footer{
         <!-- HERENCIA -->
 
         <div class="section">
+
             <h3>Herencia</h3>
 
             <p>
@@ -349,11 +603,13 @@ footer{
                     a cada rango.
                 </p>
             </div>
+
         </div>
 
         <!-- COMANDOS MAJESTAD -->
 
         <div class="section">
+
             <h3>Comandos exclusivos de MAJESTAD</h3>
 
             <p>
@@ -391,11 +647,13 @@ footer{
                     personal. Son dos formas de ejecutar la misma función.
                 </p>
             </div>
+
         </div>
 
         <!-- KIT MAJESTAD -->
 
         <div class="section">
+
             <h3 class="kit-title">/kit Majestad</h3>
 
             <p>
@@ -403,11 +661,13 @@ footer{
                 avanzado, recursos, materiales, polvos, protección y
                 objetos adicionales.
             </p>
+
         </div>
 
         <!-- ARMADURA -->
 
         <div class="section">
+
             <h3>Armadura Diamante</h3>
 
             <ul class="info-list">
@@ -427,11 +687,13 @@ footer{
                     </span>
                 </li>
             </ul>
+
         </div>
 
         <!-- HERRAMIENTAS -->
 
         <div class="section">
+
             <h3>Herramientas y armas</h3>
 
             <ul class="info-list">
@@ -499,11 +761,13 @@ footer{
                     </span>
                 </li>
             </ul>
+
         </div>
 
         <!-- COMIDA -->
 
         <div class="section">
+
             <h3>Comida</h3>
 
             <ul class="info-list">
@@ -532,11 +796,13 @@ footer{
                     <span class="item-details">×64</span>
                 </li>
             </ul>
+
         </div>
 
         <!-- MINERALES -->
 
         <div class="section">
+
             <h3>Minerales</h3>
 
             <ul class="info-list">
@@ -560,11 +826,13 @@ footer{
                     <span class="item-details">×12</span>
                 </li>
             </ul>
+
         </div>
 
         <!-- POLVOS -->
 
         <div class="section">
+
             <h3>Polvos</h3>
 
             <ul class="info-list">
@@ -583,11 +851,13 @@ footer{
                     <span class="item-details">×2</span>
                 </li>
             </ul>
+
         </div>
 
         <!-- PIEDRA DE PROTECCIÓN -->
 
         <div class="section">
+
             <h3>Piedra de Protección</h3>
 
             <ul class="info-list">
@@ -599,11 +869,13 @@ footer{
                     </span>
                 </li>
             </ul>
+
         </div>
 
         <!-- AÑADIDOS -->
 
         <div class="section">
+
             <h3>Añadidos</h3>
 
             <ul class="info-list">
@@ -618,6 +890,7 @@ footer{
                     <span class="item-details">27 pociones</span>
                 </li>
             </ul>
+
         </div>
 
     </div>
@@ -625,7 +898,7 @@ footer{
 </main>
 
 <footer>
-    © 2026 Kaizora Origins · Servidor de Minecraft independiente.
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
 </footer>
 
 </body>
