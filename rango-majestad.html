@@ -16,7 +16,7 @@
     --pink:#ff6de1;
     --white:#f7f6fb;
     --muted:#b8b7c4;
-    --border:rgba(255,211,77,.19);
+    --border:rgba(255,211,77,.22);
 }
 
 *{box-sizing:border-box}
@@ -68,7 +68,7 @@ nav{
     gap:18px;
     padding:0 7%;
     border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(8,8,13,.86);
+    background:rgba(8,8,13,.88);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
 }
@@ -139,7 +139,6 @@ main{
     pointer-events:none;
 }
 
-/* El nombre del rango aparece primero */
 h1{
     display:block;
     width:fit-content;
@@ -270,12 +269,14 @@ h1{
     background:linear-gradient(90deg,rgba(255,211,77,.4),rgba(147,101,255,.22),transparent);
 }
 
+/* CONTENEDOR PRINCIPAL */
+
 .box{
     position:relative;
-    margin-top:42px;
+    margin-top:30px;
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
-    border-radius:20px;
+    border-radius:18px;
     background:linear-gradient(145deg,rgba(19,18,25,.96),rgba(11,11,17,.96));
     box-shadow:0 22px 70px rgba(0,0,0,.23);
     overflow:hidden;
@@ -285,15 +286,15 @@ h1{
     content:"";
     position:absolute;
     top:0;
-    left:8%;
-    right:8%;
+    left:5%;
+    right:5%;
     height:1px;
     background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent);
     opacity:.75;
 }
 
 .box h2{
-    margin:0 0 32px;
+    margin:0 0 28px;
     font-size:clamp(24px,4vw,31px);
     font-weight:950;
     letter-spacing:-.8px;
@@ -309,14 +310,6 @@ h1{
     background:linear-gradient(90deg,var(--rank),var(--purple));
 }
 
-.box h3{
-    margin:0 0 16px;
-    color:#fff;
-    font-size:19px;
-    font-weight:900;
-    letter-spacing:-.25px;
-}
-
 .box p{
     color:var(--muted);
     line-height:1.85;
@@ -324,10 +317,12 @@ h1{
     font-size:14px;
 }
 
+/* SECCIONES NUMERADAS */
+
 .section{
-    margin-top:36px;
+    margin-top:32px;
     padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.075);
+    border-top:1px solid rgba(255,255,255,.09);
 }
 
 .section:first-of-type{
@@ -336,31 +331,96 @@ h1{
     border-top:none;
 }
 
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:22px;
+}
+
+.section-number{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,211,77,.35);
+    border-radius:13px;
+    background:linear-gradient(145deg,rgba(255,211,77,.19),rgba(147,101,255,.12));
+    color:var(--rank-light);
+    font-size:17px;
+    font-weight:950;
+    letter-spacing:-.5px;
+}
+
+.section-heading-text{
+    min-width:0;
+}
+
+.section-heading h3{
+    margin:0;
+    color:#f7f6fb;
+    font-size:clamp(18px,2.6vw,23px);
+    font-weight:950;
+    letter-spacing:-.5px;
+    line-height:1.3;
+}
+
+.section-subtitle{
+    margin:5px 0 0!important;
+    color:#bdb7c9!important;
+    font-size:12px!important;
+    line-height:1.6!important;
+}
+
+.section-intro{
+    margin:0 0 20px!important;
+    color:#c1bdcb!important;
+    font-size:15px!important;
+    line-height:1.85!important;
+}
+
+/* TARJETAS DE INFORMACIÓN */
+
 .info-list{
     list-style:none;
     padding:0;
-    margin:0;
+    margin:18px 0 0;
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px;
+    gap:12px;
 }
 
 .info-list li{
+    position:relative;
     min-width:0;
-    padding:14px 15px;
-    border:1px solid rgba(255,255,255,.065);
-    border-radius:10px;
-    background:rgba(255,255,255,.022);
+    padding:17px 16px;
+    border:1px solid rgba(255,211,77,.17);
+    border-radius:11px;
+    background:linear-gradient(135deg,rgba(255,211,77,.055),rgba(147,101,255,.035),rgba(255,255,255,.012));
     color:var(--muted);
-    line-height:1.7;
+    line-height:1.75;
     font-size:13px;
-    transition:background .2s,border-color .2s,transform .2s;
+    overflow-wrap:anywhere;
+    transition:transform .2s,border-color .2s,background .2s;
+}
+
+.info-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:12px;
+    bottom:12px;
+    width:3px;
+    border-radius:0 4px 4px 0;
+    background:linear-gradient(180deg,var(--rank),var(--purple));
 }
 
 .info-list li:hover{
     transform:translateY(-2px);
-    border-color:rgba(255,211,77,.25);
-    background:rgba(255,211,77,.035);
+    border-color:rgba(255,211,77,.42);
+    background:rgba(255,211,77,.045);
 }
 
 .item-name{
@@ -368,25 +428,9 @@ h1{
     font-weight:900;
 }
 
-.item-details{color:#b0afbd}
+.item-details{color:#bdb9c9}
 
-.inherit{
-    margin-top:22px;
-    padding:20px;
-    border:1px solid rgba(255,211,77,.18);
-    border-radius:12px;
-    background:linear-gradient(120deg,rgba(255,211,77,.06),rgba(147,101,255,.045));
-    color:var(--muted);
-    line-height:1.9;
-    font-size:14px;
-}
-
-.inherit strong{color:#fff}
-
-.kit-title{
-    font-size:22px!important;
-    color:#fff!important;
-}
+/* COMANDOS NUMERADOS */
 
 .command-grid{
     display:grid;
@@ -396,47 +440,141 @@ h1{
 }
 
 .command-card{
+    position:relative;
+    min-width:0;
     padding:22px;
-    border:1px solid rgba(255,211,77,.22);
-    border-radius:13px;
-    background:linear-gradient(135deg,rgba(255,211,77,.075),rgba(147,101,255,.045));
+    border:1px solid rgba(255,211,77,.25);
+    border-radius:14px;
+    background:linear-gradient(145deg,rgba(255,211,77,.105),rgba(147,101,255,.055),rgba(14,12,20,.75));
+    overflow:hidden;
     transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:linear-gradient(180deg,var(--rank),var(--purple),var(--pink));
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-45px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(147,101,255,.10);
+    filter:blur(18px);
+    pointer-events:none;
 }
 
 .command-card:hover{
     transform:translateY(-3px);
-    border-color:rgba(255,211,77,.6);
-    box-shadow:0 8px 28px rgba(255,211,77,.055);
+    border-color:rgba(255,211,77,.58);
+    box-shadow:0 10px 30px rgba(255,211,77,.06);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.command-number{
+    width:36px;
+    height:36px;
+    flex:0 0 36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,211,77,.35);
+    border-radius:10px;
+    background:rgba(255,211,77,.12);
+    color:var(--rank-light);
+    font-size:13px;
+    font-weight:950;
+}
+
+.command-tag{
+    display:inline-block;
+    max-width:70%;
+    padding:7px 10px;
+    border:1px solid rgba(255,211,77,.24);
+    border-radius:5px;
+    background:rgba(255,211,77,.08);
+    color:var(--rank-light);
+    font-size:10px;
+    font-weight:950;
+    letter-spacing:1px;
+    text-align:center;
+    text-transform:uppercase;
 }
 
 .command-name{
-    display:inline-block;
-    color:var(--rank);
-    font-size:17px;
+    display:block;
+    position:relative;
+    z-index:1;
+    color:var(--rank-light);
+    font-size:25px;
     font-weight:950;
-    margin-bottom:10px;
+    margin-bottom:12px;
     overflow-wrap:anywhere;
     font-family:Consolas,Monaco,monospace;
 }
 
 .command-description{
-    color:#c4c2cf;
-    font-size:14px;
-    line-height:1.8;
+    position:relative;
+    z-index:1;
+    color:#c9c5d2!important;
+    font-size:14px!important;
+    line-height:1.85!important;
+    margin:0!important;
 }
 
-.command-tag{
-    display:inline-block;
-    margin-bottom:12px;
-    padding:5px 8px;
-    border-radius:5px;
-    background:rgba(255,211,77,.10);
-    color:var(--rank);
-    font-size:9px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+/* CUADROS DE HERENCIA Y AVISOS */
+
+.inherit{
+    margin-top:22px;
+    padding:20px 21px;
+    border:1px solid rgba(255,211,77,.19);
+    border-left:4px solid var(--rank);
+    border-radius:0 12px 12px 0;
+    background:linear-gradient(110deg,rgba(255,211,77,.075),rgba(147,101,255,.045));
+    color:var(--muted);
+    line-height:1.9;
+    font-size:14px;
 }
+
+.inherit strong{
+    display:block;
+    margin-bottom:5px;
+    color:#fff1bc;
+    font-size:13px;
+    font-weight:950;
+}
+
+.inherit p{
+    margin:0;
+}
+
+.inherit .inherit-extra{
+    margin-top:16px;
+}
+
+.kit-title{
+    color:#fff!important;
+    font-size:22px!important;
+    font-weight:950!important;
+}
+
+/* PIE DE PÁGINA */
 
 footer{
     text-align:center;
@@ -483,11 +621,20 @@ footer span{
         border-radius:15px;
     }
 
+    .section-heading{gap:12px}
+    .section-number{
+        width:42px;
+        height:42px;
+        flex-basis:42px;
+        border-radius:11px;
+    }
+
     .info-list{grid-template-columns:1fr}
-    .info-list li{padding:13px 14px}
+    .info-list li{padding:15px 15px 15px 17px}
     .command-grid{grid-template-columns:1fr}
-    .command-card{padding:18px}
-    .inherit{padding:16px}
+    .command-card{padding:19px}
+    .command-name{font-size:23px}
+    .inherit{padding:17px}
     .btn{width:100%}
     .hero-divider{margin-top:38px}
 }
@@ -550,77 +697,129 @@ footer span{
     </header>
 
     <div class="box">
-        <h2>Información del rango</h2>
+        <h2>Beneficios y ventajas de MAJESTAD</h2>
 
-        <div class="section">
-            <h3>Herencia</h3>
+        <!-- SECCIÓN 01: HERENCIA -->
 
-            <p>
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">01</div>
+                <div class="section-heading-text">
+                    <h3>Beneficios de rangos anteriores</h3>
+                    <p class="section-subtitle">
+                        Ventajas que conservas al ascender a MAJESTAD
+                    </p>
+                </div>
+            </div>
+
+            <p class="section-intro">
                 MAJESTAD incluye los permisos, comandos, kits y beneficios
-                de los rangos anteriores: DEFAULT/USUARIO, ORIGIN, ELITE
-                y CELESTIAL, además de sus propias ventajas exclusivas.
+                de DEFAULT/USUARIO, ORIGIN, ELITE y CELESTIAL, además de
+                sus propias ventajas exclusivas.
             </p>
 
             <div class="inherit">
-                <strong>Comandos heredados:</strong>
-                <p>
-                    Conservas los comandos desbloqueados en los rangos
-                    anteriores, junto con los beneficios correspondientes
-                    a cada rango.
-                </p>
+                <strong>VENTAJAS HEREDADAS</strong>
+                Conservas los comandos desbloqueados en los rangos
+                anteriores, junto con los permisos y beneficios
+                correspondientes a cada rango.
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Comandos exclusivos de MAJESTAD</h3>
+        <!-- SECCIÓN 02: COMANDOS -->
 
-            <p>
-                Accede a tu almacenamiento personal desde el juego con
-                estos comandos exclusivos.
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">02</div>
+                <div class="section-heading-text">
+                    <h3>Comandos exclusivos de MAJESTAD</h3>
+                    <p class="section-subtitle">
+                        Dos formas de acceder a tu almacenamiento personal
+                    </p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                Accede a tu cofre de Ender personal desde el juego,
+                sin necesidad de buscar un cofre físico.
             </p>
 
             <div class="command-grid">
-                <div class="command-card">
-                    <span class="command-tag">Almacenamiento</span>
-                    <div class="command-name">/ec</div>
-                    <div class="command-description">
+
+                <article class="command-card">
+                    <div class="command-top">
+                        <span class="command-number">01</span>
+                        <span class="command-tag">Almacenamiento</span>
+                    </div>
+
+                    <span class="command-name">/ec</span>
+
+                    <p class="command-description">
                         Abre tu cofre de Ender personal para guardar
                         y consultar tus objetos desde donde te encuentres.
-                    </div>
-                </div>
+                    </p>
+                </article>
 
-                <div class="command-card">
-                    <span class="command-tag">Almacenamiento</span>
-                    <div class="command-name">/enderchest</div>
-                    <div class="command-description">
+                <article class="command-card">
+                    <div class="command-top">
+                        <span class="command-number">02</span>
+                        <span class="command-tag">Almacenamiento</span>
+                    </div>
+
+                    <span class="command-name">/enderchest</span>
+
+                    <p class="command-description">
                         Accede a tu cofre de Ender personal mediante
                         el comando completo, sin necesidad de buscar
                         un cofre físico.
-                    </div>
-                </div>
+                    </p>
+                </article>
+
             </div>
 
             <div class="inherit">
-                <strong>Importante:</strong>
-                <p>
-                    Ambos comandos permiten acceder al cofre de Ender
-                    personal. Son dos formas de ejecutar la misma función.
+                <strong>VENTAJA MAJESTAD</strong>
+                Los dos comandos permiten acceder al cofre de Ender
+                personal. Son dos formas de ejecutar la misma función.
+                <p class="inherit-extra">
+                    <strong>Importante:</strong>
+                    La disponibilidad depende de los permisos y los plugins
+                    instalados y configurados en el servidor.
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3 class="kit-title">/kit Majestad</h3>
+        <!-- SECCIÓN 03: KIT -->
 
-            <p>
-                El kit exclusivo del rango MAJESTAD incluye equipamiento
-                avanzado, recursos, materiales, polvos, protección y
-                objetos adicionales.
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">03</div>
+                <div class="section-heading-text">
+                    <h3>Kit exclusivo de MAJESTAD</h3>
+                    <p class="section-subtitle">
+                        Equipamiento avanzado, materiales y recursos
+                    </p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                El kit <strong>/kit Majestad</strong> incluye el siguiente
+                equipamiento, comida, minerales, polvos y objetos adicionales.
             </p>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Armadura Diamante</h3>
+        <!-- SECCIÓN 04: ARMADURA -->
+
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">04</div>
+                <div class="section-heading-text">
+                    <h3>Armaduras de diamante</h3>
+                    <p class="section-subtitle">
+                        Dos conjuntos con encantamientos avanzados
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
                 <li>
@@ -637,14 +836,24 @@ footer span{
                     </span>
                 </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Herramientas y armas</h3>
+        <!-- SECCIÓN 05: HERRAMIENTAS -->
+
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">05</div>
+                <div class="section-heading-text">
+                    <h3>Herramientas y armas</h3>
+                    <p class="section-subtitle">
+                        Ocho objetos incluidos en el kit
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
                 <li>
-                    <span class="item-name">Espada de Diamante</span><br>
+                    <span class="item-name">Espada de diamante</span><br>
                     <span class="item-details">
                         Filo VII · Aspecto Ígneo III · Irrompibilidad VII · Reparación
                     </span>
@@ -699,70 +908,173 @@ footer span{
                     </span>
                 </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Comida</h3>
+        <!-- SECCIÓN 06: COMIDA -->
 
-            <ul class="info-list">
-                <li><span class="item-name">Manzanas Doradas</span> <span class="item-details">×64</span></li>
-                <li><span class="item-name">Manzanas Encantadas</span> <span class="item-details">×64</span></li>
-                <li><span class="item-name">Zanahorias Doradas</span> <span class="item-details">×64</span></li>
-                <li><span class="item-name">Pan</span> <span class="item-details">×64</span></li>
-                <li><span class="item-name">Papas</span> <span class="item-details">×64</span></li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Minerales</h3>
-
-            <ul class="info-list">
-                <li><span class="item-name">Bloques de Oro</span> <span class="item-details">×8</span></li>
-                <li><span class="item-name">Bloques de Diamante</span> <span class="item-details">×8</span></li>
-                <li><span class="item-name">Esmeraldas</span> <span class="item-details">×64</span></li>
-                <li><span class="item-name">Fragmentos de Netherite</span> <span class="item-details">×12</span></li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Polvos</h3>
-
-            <ul class="info-list">
-                <li><span class="item-name">Polvo Celestial</span> <span class="item-details">×4</span></li>
-                <li><span class="item-name">Semilla Natural</span> <span class="item-details">×2</span></li>
-                <li><span class="item-name">Polvo Espectral</span> <span class="item-details">×2</span></li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Piedra de Protección</h3>
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">06</div>
+                <div class="section-heading-text">
+                    <h3>Comida y suministros</h3>
+                    <p class="section-subtitle">
+                        Cinco tipos de alimentos para tus aventuras
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
                 <li>
-                    <span class="item-name">Mena de Oro</span><br>
+                    <span class="item-name">Manzanas doradas</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+                <li>
+                    <span class="item-name">Manzanas encantadas</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+                <li>
+                    <span class="item-name">Zanahorias doradas</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+                <li>
+                    <span class="item-name">Pan</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+                <li>
+                    <span class="item-name">Papas</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 07: MINERALES -->
+
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">07</div>
+                <div class="section-heading-text">
+                    <h3>Minerales y recursos</h3>
+                    <p class="section-subtitle">
+                        Materiales valiosos incluidos en el kit
+                    </p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+                <li>
+                    <span class="item-name">Bloques de oro</span><br>
+                    <span class="item-details">Cantidad: ×8</span>
+                </li>
+                <li>
+                    <span class="item-name">Bloques de diamante</span><br>
+                    <span class="item-details">Cantidad: ×8</span>
+                </li>
+                <li>
+                    <span class="item-name">Esmeraldas</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+                <li>
+                    <span class="item-name">Fragmentos de Netherite</span><br>
+                    <span class="item-details">Cantidad: ×12</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 08: POLVOS -->
+
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">08</div>
+                <div class="section-heading-text">
+                    <h3>Polvos especiales</h3>
+                    <p class="section-subtitle">
+                        Recursos personalizados del servidor
+                    </p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+                <li>
+                    <span class="item-name">Polvo Celestial</span><br>
+                    <span class="item-details">Cantidad: ×4</span>
+                </li>
+                <li>
+                    <span class="item-name">Semilla Natural</span><br>
+                    <span class="item-details">Cantidad: ×2</span>
+                </li>
+                <li>
+                    <span class="item-name">Polvo Espectral</span><br>
+                    <span class="item-details">Cantidad: ×2</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN 09: PROTECCIÓN -->
+
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">09</div>
+                <div class="section-heading-text">
+                    <h3>Piedra de protección</h3>
+                    <p class="section-subtitle">
+                        Protección de tu zona y construcciones
+                    </p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+                <li>
+                    <span class="item-name">Mena de oro</span><br>
                     <span class="item-details">
-                        Protección de 50 × 50 bloques
+                        Área de protección: 50 × 50 bloques
                     </span>
                 </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h3>Añadidos</h3>
+        <!-- SECCIÓN 10: AÑADIDOS -->
+
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">10</div>
+                <div class="section-heading-text">
+                    <h3>Objetos adicionales</h3>
+                    <p class="section-subtitle">
+                        Complementos extra del kit MAJESTAD
+                    </p>
+                </div>
+            </div>
 
             <ul class="info-list">
-                <li><span class="item-name">Carga de Viento</span> <span class="item-details">×64</span></li>
                 <li>
-                    <span class="item-name">Shulker (Kit Majestad)</span><br>
-                    <span class="item-details">27 pociones</span>
+                    <span class="item-name">Carga de viento</span><br>
+                    <span class="item-details">Cantidad: ×64</span>
+                </li>
+                <li>
+                    <span class="item-name">Shulker del kit MAJESTAD</span><br>
+                    <span class="item-details">Contenido indicado: 27 pociones</span>
                 </li>
             </ul>
+        </section>
+
+        <div class="inherit">
+            <strong>RESUMEN DEL RANGO MAJESTAD</strong>
+            Diez secciones numeradas con los beneficios heredados, comandos
+            exclusivos y contenido del kit, organizados en tarjetas para
+            consultar cada ventaja fácilmente.
+            <p class="inherit-extra">
+                <strong>Nota:</strong>
+                Los comandos, encantamientos y objetos personalizados
+                dependen de la configuración del servidor y de sus plugins.
+            </p>
         </div>
+
     </div>
 </main>
 
 <footer>
     © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
 </footer>
+
 </body>
 </html>
