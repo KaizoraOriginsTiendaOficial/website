@@ -6,18 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CELESTIAL | Kaizora Origins</title>
+<meta name="theme-color" content="#070711">
+<meta name="description" content="Descubre el rango CELESTIAL de Kaizora Origins. Equipamiento exclusivo, comandos y beneficios para tu aventura.">
 
 <style>
+:root{
+    --bg:#070711;
+    --panel:#0e101c;
+    --panel-light:#141729;
+    --cyan:#2bd7f5;
+    --purple:#9365ff;
+    --pink:#ff6de1;
+    --white:#f8f7ff;
+    --muted:#b8bbcb;
+    --border:rgba(147,101,255,.20);
+}
+
 *{
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
-    background:#07090a;
-    color:#f4f4f6;
+    background:var(--bg);
+    color:var(--white);
     font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
+    overflow-x:hidden;
 }
 
 a{
@@ -27,156 +46,300 @@ a{
 .bg{
     position:fixed;
     inset:0;
+    z-index:-2;
+    pointer-events:none;
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(147,101,255,.16),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255,109,225,.10),
-            transparent 35%
-        );
-    z-index:-1;
+        radial-gradient(ellipse at 15% 10%,rgba(147,101,255,.19),transparent 38%),
+        radial-gradient(ellipse at 85% 35%,rgba(43,215,245,.12),transparent 35%),
+        radial-gradient(ellipse at 50% 90%,rgba(255,109,225,.09),transparent 38%),
+        #070711;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.17;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:42px 42px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
 }
 
 nav{
-    height:76px;
+    position:sticky;
+    top:0;
+    z-index:20;
+    min-height:76px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:18px;
     padding:0 7%;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(5,7,8,.8);
-    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.09);
+    background:rgba(7,7,17,.83);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
 
 .logo{
     font-size:21px;
-    font-weight:900;
-    letter-spacing:1px;
+    font-weight:950;
+    letter-spacing:1.5px;
+    white-space:nowrap;
 }
 
 .logo span{
-    color:#b49cff;
+    background:linear-gradient(90deg,var(--purple),var(--pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 nav a{
     text-decoration:none;
-    color:#c8c8cd;
+    color:#d4d3e0;
     font-size:13px;
-    font-weight:800;
+    font-weight:850;
+}
+
+nav a.home{
+    margin-left:auto;
+    transition:color .2s;
+}
+
+nav a.home:hover{
+    color:var(--cyan);
 }
 
 .discord{
-    padding:11px 17px;
-    border-radius:8px;
-    background:#9365ff;
-    color:white!important;
-    transition:.2s;
+    padding:12px 18px;
+    border-radius:9px;
+    background:linear-gradient(110deg,#7950ed,#a76bff);
+    color:#fff!important;
+    border:1px solid rgba(255,255,255,.17);
+    box-shadow:0 5px 22px rgba(147,101,255,.2);
+    transition:transform .2s,box-shadow .2s,filter .2s;
 }
 
 .discord:hover{
-    background:#a982ff;
-    transform:translateY(-1px);
+    transform:translateY(-2px);
+    box-shadow:0 8px 30px rgba(147,101,255,.36);
+    filter:brightness(1.1);
 }
 
 main{
-    max-width:1050px;
+    max-width:1100px;
     margin:0 auto;
-    padding:90px 6% 100px;
+    padding:88px 6% 100px;
+}
+
+.hero{
+    position:relative;
+    padding:10px 0 38px;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    width:340px;
+    height:230px;
+    top:-40px;
+    left:-60px;
+    background:radial-gradient(ellipse,rgba(43,215,245,.11),transparent 70%);
+    pointer-events:none;
 }
 
 .label{
-    color:#2bd7f5;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+    color:var(--cyan);
     font-size:11px;
-    font-weight:900;
+    font-weight:950;
     letter-spacing:4px;
-    margin-bottom:14px;
+    text-transform:uppercase;
+}
+
+.label::before{
+    content:"";
+    width:24px;
+    height:2px;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
+    box-shadow:0 0 12px rgba(43,215,245,.65);
 }
 
 h1{
-    font-size:clamp(48px,8vw,86px);
+    display:inline-block;
     margin:0 0 18px;
-    letter-spacing:-4px;
+    font-size:clamp(52px,10vw,100px);
+    line-height:.98;
+    font-weight:1000;
+    letter-spacing:-5px;
+    background:linear-gradient(
+        110deg,
+        #ffffff 5%,
+        #c9f7ff 35%,
+        var(--cyan) 58%,
+        #b29aff 85%
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 0 26px rgba(43,215,245,.12));
 }
 
 .desc{
-    max-width:700px;
-    color:#bfc0c6;
+    max-width:720px;
+    color:var(--muted);
     font-size:17px;
-    line-height:1.7;
+    line-height:1.85;
+    margin:0;
+}
+
+.price-row{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    margin:30px 0 24px;
 }
 
 .price{
-    font-size:42px;
+    font-size:46px;
+    line-height:1;
+    font-weight:1000;
+    letter-spacing:-1.5px;
+    color:var(--cyan);
+    text-shadow:0 0 24px rgba(43,215,245,.2);
+}
+
+.price-tag{
+    padding:8px 12px;
+    border-radius:6px;
+    border:1px solid rgba(43,215,245,.23);
+    background:rgba(43,215,245,.07);
+    color:#a8f3ff;
+    font-size:10px;
     font-weight:950;
-    margin:35px 0 22px;
-    color:#2bd7f5;
+    letter-spacing:1.4px;
 }
 
 .actions{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
+    margin-top:25px;
 }
 
 .btn{
-    padding:14px 22px;
-    border-radius:8px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px 22px;
+    min-height:48px;
+    border-radius:9px;
     text-decoration:none;
-    font-weight:900;
+    font-weight:950;
     font-size:12px;
+    letter-spacing:.4px;
     border:1px solid rgba(255,255,255,.14);
-    transition:.2s;
+    transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
 }
 
 .primary{
-    border-color:#2bd7f5;
-    color:#2bd7f5;
+    color:#071018;
+    background:linear-gradient(100deg,var(--cyan),#8beeff);
+    border-color:transparent;
+    box-shadow:0 6px 24px rgba(43,215,245,.14);
 }
 
 .primary:hover{
-    background:#2bd7f5;
-    color:#08090a;
+    box-shadow:0 8px 30px rgba(43,215,245,.28);
+}
+
+.back{
+    color:#deddeb;
+    background:rgba(255,255,255,.025);
 }
 
 .back:hover{
-    border-color:#aaa;
-    color:white;
+    border-color:rgba(147,101,255,.6);
+    background:rgba(147,101,255,.08);
+}
+
+.hero-divider{
+    width:100%;
+    height:1px;
+    margin-top:54px;
+    background:linear-gradient(90deg,rgba(43,215,245,.4),rgba(147,101,255,.23),transparent);
 }
 
 .box{
-    margin-top:55px;
-    padding:32px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:16px;
-    background:rgba(13,15,18,.78);
+    position:relative;
+    margin-top:42px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(17,19,34,.94),rgba(10,11,22,.94));
+    box-shadow:0 22px 70px rgba(0,0,0,.2);
+    overflow:hidden;
+}
+
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),transparent);
+    opacity:.7;
 }
 
 .box h2{
-    margin-top:0;
-    margin-bottom:30px;
-    font-size:26px;
+    margin:0 0 32px;
+    font-size:clamp(24px,4vw,31px);
+    font-weight:950;
+    letter-spacing:-.8px;
+}
+
+.box h2::after{
+    content:"";
+    display:block;
+    width:48px;
+    height:3px;
+    margin-top:15px;
+    border-radius:5px;
+    background:linear-gradient(90deg,var(--cyan),var(--purple));
 }
 
 .box h3{
-    margin:0 0 15px;
-    color:#ffffff;
-    font-size:18px;
+    margin:0 0 16px;
+    color:#fff;
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:-.25px;
 }
 
 .box p{
-    color:#aaaeb6;
-    line-height:1.7;
+    color:var(--muted);
+    line-height:1.85;
     margin:8px 0;
+    font-size:14px;
 }
 
 .section{
-    margin-top:38px;
+    margin-top:36px;
     padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.07);
+    border-top:1px solid rgba(255,255,255,.075);
 }
 
 .section:first-of-type{
@@ -189,130 +352,198 @@ h1{
     list-style:none;
     padding:0;
     margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
 }
 
 .info-list li{
-    padding:10px 0;
-    border-bottom:1px solid rgba(255,255,255,.045);
-    color:#aaaeb6;
-    line-height:1.6;
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(255,255,255,.065);
+    border-radius:10px;
+    background:rgba(255,255,255,.022);
+    color:var(--muted);
+    line-height:1.65;
+    font-size:13px;
+    transition:background .2s,border-color .2s,transform .2s;
 }
 
-.info-list li:last-child{
-    border-bottom:none;
+.info-list li:hover{
+    transform:translateY(-2px);
+    border-color:rgba(43,215,245,.24);
+    background:rgba(43,215,245,.035);
 }
 
 .item-name{
-    color:#ffffff;
-    font-weight:800;
+    color:#f7f6ff;
+    font-weight:900;
 }
 
 .item-details{
-    color:#969aa3;
+    color:#a6a9bb;
 }
 
 .inherit{
-    margin-top:20px;
-    padding:18px 20px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:10px;
-    background:rgba(255,255,255,.025);
-    color:#aaaeb6;
-    line-height:1.8;
+    margin-top:22px;
+    padding:20px;
+    border:1px solid rgba(147,101,255,.2);
+    border-radius:12px;
+    background:linear-gradient(120deg,rgba(147,101,255,.075),rgba(43,215,245,.035));
+    color:var(--muted);
+    line-height:1.9;
+    font-size:14px;
 }
 
 .inherit strong{
-    color:#ffffff;
+    color:#fff;
 }
 
 .kit-title{
-    font-size:21px!important;
-    color:#ffffff!important;
+    font-size:22px!important;
+    color:#fff!important;
 }
 
-/* COMANDOS CELESTIAL */
-
 .command-card{
-    margin-top:14px;
-    padding:20px;
-    border:1px solid rgba(43,215,245,.22);
-    border-radius:12px;
-    background:linear-gradient(
-        120deg,
-        rgba(43,215,245,.075),
-        rgba(147,101,255,.035)
-    );
-    transition:border-color .2s, transform .2s;
+    position:relative;
+    margin-top:15px;
+    padding:22px;
+    border:1px solid rgba(43,215,245,.23);
+    border-radius:13px;
+    background:linear-gradient(120deg,rgba(43,215,245,.075),rgba(147,101,255,.045));
+    transition:border-color .2s,transform .2s,box-shadow .2s;
 }
 
 .command-card:hover{
     border-color:rgba(43,215,245,.65);
     transform:translateY(-2px);
+    box-shadow:0 8px 28px rgba(43,215,245,.06);
 }
 
 .command-name{
     display:inline-block;
     margin-bottom:9px;
-    color:#2bd7f5;
-    font-size:16px;
-    font-weight:900;
+    color:var(--cyan);
+    font-size:17px;
+    font-weight:950;
     letter-spacing:.3px;
+    font-family:Consolas,Monaco,monospace;
 }
 
 .command-description{
     margin:0!important;
-    color:#bfc0c6!important;
+    color:#c9cbd8!important;
     font-size:14px;
-    line-height:1.75!important;
+    line-height:1.85!important;
 }
 
 .command-note{
     margin-top:22px;
-    padding:17px 19px;
-    border-left:3px solid #2bd7f5;
-    border-radius:0 9px 9px 0;
+    padding:19px 20px;
+    border-left:3px solid var(--cyan);
+    border-radius:0 10px 10px 0;
     background:rgba(43,215,245,.045);
-    color:#aaaeb6;
+    color:var(--muted);
     font-size:13px;
-    line-height:1.8;
+    line-height:1.95;
 }
 
 .command-note strong{
-    color:#ffffff;
+    color:#fff;
 }
 
 footer{
     text-align:center;
-    padding:30px;
-    color:#6f7178;
+    padding:32px 20px;
+    color:#85879a;
     font-size:12px;
-    border-top:1px solid rgba(255,255,255,.07);
+    border-top:1px solid rgba(255,255,255,.075);
+    background:rgba(5,5,13,.4);
 }
 
-@media(max-width:600px){
+footer span{
+    color:#c3aaff;
+    font-weight:800;
+}
 
+@media(max-width:650px){
     nav{
+        min-height:68px;
         padding:0 5%;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:16px;
+        letter-spacing:.7px;
+    }
+
+    nav a{
+        font-size:11px;
     }
 
     nav a.home{
         display:none;
     }
 
+    .discord{
+        padding:11px 12px;
+        font-size:10px;
+        text-align:center;
+    }
+
     main{
-        padding-top:65px;
+        padding:65px 5% 75px;
     }
 
     h1{
-        letter-spacing:-2px;
+        letter-spacing:-3px;
+    }
+
+    .desc{
+        font-size:15px;
+    }
+
+    .price{
+        font-size:40px;
     }
 
     .box{
-        padding:24px;
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
+    .info-list{
+        grid-template-columns:1fr;
+    }
+
+    .info-list li{
+        padding:13px 14px;
     }
 
     .command-card{
-        padding:17px;
+        padding:18px;
+    }
+
+    .inherit{
+        padding:16px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-divider{
+        margin-top:38px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto!important;
+        transition:none!important;
     }
 }
 </style>
@@ -323,7 +554,6 @@ footer{
 <div class="bg"></div>
 
 <nav>
-
     <div class="logo">
         KAIZORA <span>ORIGINS</span>
     </div>
@@ -343,66 +573,62 @@ footer{
     >
         Comprar por Discord
     </a>
-
 </nav>
 
 <main>
 
-    <div class="label">
-        RANGO
-    </div>
+    <header class="hero">
 
-    <h1>
-        CELESTIAL
-    </h1>
+        <div class="label">
+            RANGO EXCLUSIVO
+        </div>
 
-    <p class="desc">
-        Un rango para quienes buscan llevar su experiencia dentro de
-        Kaizora Origins al siguiente nivel, con equipamiento mejorado,
-        nuevos recursos y beneficios exclusivos.
-    </p>
+        <h1>CELESTIAL</h1>
 
-    <div class="price">
-        $7.99
-    </div>
+        <p class="desc">
+            Un rango para quienes buscan llevar su experiencia dentro de
+            Kaizora Origins al siguiente nivel, con equipamiento mejorado,
+            nuevos recursos y beneficios exclusivos.
+        </p>
 
-    <div class="actions">
+        <div class="price-row">
+            <div class="price">$7.99</div>
+            <div class="price-tag">BENEFICIOS EXCLUSIVOS</div>
+        </div>
 
-        <a
-            class="btn primary"
-            href="https://discord.gg/sHvWgW7AE4"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Comprar CELESTIAL
-        </a>
+        <div class="actions">
 
-        <a
-            class="btn back"
-            href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
-        >
-            Volver a rangos
-        </a>
+            <a
+                class="btn primary"
+                href="https://discord.gg/sHvWgW7AE4"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Comprar CELESTIAL
+            </a>
 
-    </div>
+            <a
+                class="btn back"
+                href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio"
+            >
+                Volver a rangos
+            </a>
 
+        </div>
 
-    <!-- INFORMACIÓN COMPLETA -->
+        <div class="hero-divider"></div>
+
+    </header>
 
     <div class="box">
 
-        <h2>
-            Información del rango
-        </h2>
-
+        <h2>Información del rango</h2>
 
         <!-- HERENCIA -->
 
         <div class="section">
 
-            <h3>
-                Herencia de rangos
-            </h3>
+            <h3>Herencia de rangos</h3>
 
             <p>
                 CELESTIAL incluye todos los permisos, comandos, kits y
@@ -412,7 +638,6 @@ footer{
             </p>
 
             <div class="inherit">
-
                 <strong>Tu rango incluye:</strong><br>
 
                 Default / User + ORIGIN + ELITE + CELESTIAL.<br>
@@ -423,13 +648,11 @@ footer{
 
                 Conservas sus comandos, permisos y beneficios según la
                 configuración del servidor.
-
             </div>
 
         </div>
 
-
-        <!-- COMANDOS EXCLUSIVOS CELESTIAL -->
+        <!-- COMANDOS CELESTIAL -->
 
         <div class="section">
 
@@ -445,9 +668,7 @@ footer{
 
             <div class="command-card">
 
-                <span class="command-name">
-                    /craft
-                </span>
+                <span class="command-name">/craft</span>
 
                 <p class="command-description">
                     Abre una mesa de fabricación virtual para crear objetos
@@ -476,14 +697,11 @@ footer{
 
         </div>
 
-
         <!-- KIT CELESTIAL -->
 
         <div class="section">
 
-            <h3 class="kit-title">
-                /kit Celestial
-            </h3>
+            <h3 class="kit-title">/kit Celestial</h3>
 
             <p>
                 El kit exclusivo del rango CELESTIAL incluye equipamiento
@@ -493,21 +711,16 @@ footer{
 
         </div>
 
-
         <!-- ARMADURA -->
 
         <div class="section">
 
-            <h3>
-                Full Armor Diamante
-            </h3>
+            <h3>Full Armor Diamante</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Casco de Diamante
-                    </span>
+                    <span class="item-name">Casco de Diamante</span>
                     <br>
                     <span class="item-details">
                         Protección VI · Irrompibilidad V
@@ -515,9 +728,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pechera de Diamante
-                    </span>
+                    <span class="item-name">Pechera de Diamante</span>
                     <br>
                     <span class="item-details">
                         Protección VI · Irrompibilidad V
@@ -525,9 +736,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pantalones de Diamante
-                    </span>
+                    <span class="item-name">Pantalones de Diamante</span>
                     <br>
                     <span class="item-details">
                         Protección VI · Irrompibilidad V
@@ -535,9 +744,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Botas de Diamante
-                    </span>
+                    <span class="item-name">Botas de Diamante</span>
                     <br>
                     <span class="item-details">
                         Protección VI · Irrompibilidad V
@@ -548,21 +755,16 @@ footer{
 
         </div>
 
-
         <!-- HERRAMIENTAS -->
 
         <div class="section">
 
-            <h3>
-                Herramientas
-            </h3>
+            <h3>Herramientas</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Espada
-                    </span>
+                    <span class="item-name">Espada</span>
                     <br>
                     <span class="item-details">
                         Filo VI · Irrompibilidad V · Reparación
@@ -570,9 +772,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pico
-                    </span>
+                    <span class="item-name">Pico</span>
                     <br>
                     <span class="item-details">
                         Eficiencia VI · Irrompibilidad V · Reparación
@@ -580,9 +780,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Hacha
-                    </span>
+                    <span class="item-name">Hacha</span>
                     <br>
                     <span class="item-details">
                         Eficiencia VI · Irrompibilidad V · Reparación
@@ -590,9 +788,7 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Pala
-                    </span>
+                    <span class="item-name">Pala</span>
                     <br>
                     <span class="item-details">
                         Eficiencia VI · Irrompibilidad V · Reparación
@@ -603,21 +799,16 @@ footer{
 
         </div>
 
-
         <!-- ESCUDO -->
 
         <div class="section">
 
-            <h3>
-                Escudo
-            </h3>
+            <h3>Escudo</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Escudo
-                    </span>
+                    <span class="item-name">Escudo</span>
                     <br>
                     <span class="item-details">
                         Protección V · Irrompibilidad V
@@ -628,163 +819,110 @@ footer{
 
         </div>
 
-
         <!-- ARCO -->
 
         <div class="section">
 
-            <h3>
-                Arco
-            </h3>
+            <h3>Arco</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Arco
-                    </span>
+                    <span class="item-name">Arco</span>
                     <br>
-                    <span class="item-details">
-                        Poder III
-                    </span>
+                    <span class="item-details">Poder III</span>
                 </li>
 
             </ul>
 
         </div>
-
 
         <!-- COMIDA -->
 
         <div class="section">
 
-            <h3>
-                Comida
-            </h3>
+            <h3>Comida</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Manzanas Doradas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Manzanas Doradas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Manzanas Encantadas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Manzanas Encantadas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Zanahorias Doradas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Zanahorias Doradas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
             </ul>
 
         </div>
-
 
         <!-- MINERALES -->
 
         <div class="section">
 
-            <h3>
-                Minerales
-            </h3>
+            <h3>Minerales</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Fragmentos de Netherite
-                    </span>
-                    <span class="item-details">
-                        ×4
-                    </span>
+                    <span class="item-name">Fragmentos de Netherite</span>
+                    <span class="item-details">×4</span>
                 </li>
 
             </ul>
 
         </div>
-
 
         <!-- POLVOS -->
 
         <div class="section">
 
-            <h3>
-                Polvos
-            </h3>
+            <h3>Polvos</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Esencia Arcana
-                    </span>
-                    <span class="item-details">
-                        ×12
-                    </span>
+                    <span class="item-name">Esencia Arcana</span>
+                    <span class="item-details">×12</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Esencia Eléctrica
-                    </span>
-                    <span class="item-details">
-                        ×10
-                    </span>
+                    <span class="item-name">Esencia Eléctrica</span>
+                    <span class="item-details">×10</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Cristal Acuático
-                    </span>
-                    <span class="item-details">
-                        ×8
-                    </span>
+                    <span class="item-name">Cristal Acuático</span>
+                    <span class="item-details">×8</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Polvo Celestial
-                    </span>
-                    <span class="item-details">
-                        ×6
-                    </span>
+                    <span class="item-name">Polvo Celestial</span>
+                    <span class="item-details">×6</span>
                 </li>
 
             </ul>
 
         </div>
 
-
-        <!-- PIEDRA DE PROTECCIÓN -->
+        <!-- PIEDRAS DE PROTECCIÓN -->
 
         <div class="section">
 
-            <h3>
-                Piedras de Protección
-            </h3>
+            <h3>Piedras de Protección</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Mena de Protección
-                    </span>
+                    <span class="item-name">Mena de Protección</span>
                     <br>
                     <span class="item-details">
                         Protección de 40 × 40 bloques
@@ -795,21 +933,16 @@ footer{
 
         </div>
 
-
         <!-- AÑADIDOS -->
 
         <div class="section">
 
-            <h3>
-                Añadidos
-            </h3>
+            <h3>Añadidos</h3>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">
-                        Shulker — Kit Celestial
-                    </span>
+                    <span class="item-name">Shulker — Kit Celestial</span>
                     <br>
                     <span class="item-details">
                         Contiene 9 pociones de nivel I
@@ -817,46 +950,31 @@ footer{
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Flechas
-                    </span>
-                    <span class="item-details">
-                        ×64
-                    </span>
+                    <span class="item-name">Flechas</span>
+                    <span class="item-details">×64</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Flechas Espectrales
-                    </span>
-                    <span class="item-details">
-                        ×32
-                    </span>
+                    <span class="item-name">Flechas Espectrales</span>
+                    <span class="item-details">×32</span>
                 </li>
 
                 <li>
-                    <span class="item-name">
-                        Tótem de la Inmortalidad
-                    </span>
-                    <span class="item-details">
-                        ×1
-                    </span>
+                    <span class="item-name">Tótem de la Inmortalidad</span>
+                    <span class="item-details">×1</span>
                 </li>
 
             </ul>
 
         </div>
 
-
     </div>
 
 </main>
 
-
 <footer>
-    © 2026 Kaizora Origins · Servidor de Minecraft independiente.
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
 </footer>
-
 
 </body>
 </html>
