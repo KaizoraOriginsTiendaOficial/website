@@ -3,328 +3,1018 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08050d">
-<title>ANTHONY XVIII — Una nueva era</title>
-<meta name="description" content="8 de diciembre de 2026. Dieciocho años, una nueva era. Una edición especial de Anthony y Kaizora Origins.">
+<meta name="theme-color" content="#09070e">
+<title>KAIZORA ORIGINS — Tu historia comienza aquí</title>
+<meta name="description" content="Bienvenido a Kaizora Origins. Descubre nuestras modalidades de Minecraft, únete a la comunidad y escribe tu propia historia.">
+<meta name="color-scheme" content="dark">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-:root {
-  --bg:#08050d;
-  --panel:#100b18;
+:root{
+  --bg:#09070e;
+  --bg2:#0d0914;
+  --panel:#120d1b;
   --purple:#9b5de5;
+  --purple-light:#c5a0ff;
   --pink:#ff6de1;
   --white:#fff8ff;
-  --muted:#b5a9c2;
-  --gold:#e8c98a;
-  --line:rgba(226,202,255,.15);
+  --muted:#b7aabe;
+  --line:rgba(215,181,255,.15);
+  --gradient:linear-gradient(110deg,#9b5de5,#c66ee8,#ff6de1);
+  --nav-height:76px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:95px;
+}
+
 body{
-  background:var(--bg);color:var(--white);
+  background:var(--bg);
+  color:var(--white);
   font-family:Inter,Arial,sans-serif;
   overflow-x:hidden;
 }
+
+body.menu-open{overflow:hidden}
+
 a{color:inherit}
 button{font:inherit}
-::selection{background:#b18aff;color:#08050d}
+::selection{background:var(--purple-light);color:#09070e}
+
+button:focus-visible,
+a:focus-visible{
+  outline:2px solid var(--pink);
+  outline-offset:5px;
+}
 
 #universe{
-  position:fixed;inset:0;z-index:-5;pointer-events:none;
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  pointer-events:none;
   background:
-    radial-gradient(ellipse at 16% 18%,#9b5de526,transparent 38%),
-    radial-gradient(ellipse at 88% 24%,#ff6de11c,transparent 35%),
-    radial-gradient(ellipse at 52% 95%,#7040ad20,transparent 44%),
+    radial-gradient(ellipse at 12% 18%,#9b5de526,transparent 36%),
+    radial-gradient(ellipse at 88% 24%,#ff6de11c,transparent 34%),
+    radial-gradient(ellipse at 48% 85%,#7040ad1d,transparent 45%),
     linear-gradient(145deg,#07050b,#10091a 48%,#08050d);
 }
-#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-3;pointer-events:none}
-.noise{
-  position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.10;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");
+
+#stars{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-3;
+  pointer-events:none;
 }
+
+.noise{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  pointer-events:none;
+  opacity:.065;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
 .cursor-glow{
-  position:fixed;width:380px;height:380px;border-radius:50%;
-  pointer-events:none;z-index:-1;
-  background:radial-gradient(circle,#a76aff13,transparent 68%);
+  position:fixed;
+  left:-500px;
+  top:-500px;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-1;
+  background:radial-gradient(circle,#a76aff17,transparent 68%);
   transform:translate(-50%,-50%);
 }
 
+a{text-decoration:none}
+
+/* NAVEGACIÓN */
+
 nav{
-  position:fixed;top:0;left:0;width:100%;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:20px;padding:18px 6%;
-  background:#08050dd9;backdrop-filter:blur(20px);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  min-height:var(--nav-height);
+  padding:14px 6%;
+  background:#09070ee8;
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
   border-bottom:1px solid var(--line);
 }
+
 .brand{
-  display:flex;align-items:center;gap:11px;text-decoration:none;
-  font-size:13px;font-weight:900;letter-spacing:2px;
-}
-.brand-mark{
-  display:grid;place-items:center;width:36px;height:36px;
-  border:1px solid #c39aff8a;border-radius:11px;
-  background:linear-gradient(135deg,#9b5de53d,#ff6de116);
-  color:#f2d9ff;box-shadow:0 0 24px #9b5de51c;
-  font-family:'Space Grotesk',sans-serif;font-size:17px;
-}
-.brand span{color:#d7b5ff}
-.nav-links{display:flex;align-items:center;gap:25px;list-style:none}
-.nav-links a{
-  color:#c8bbd3;text-decoration:none;font-size:10px;
-  font-weight:800;letter-spacing:1.4px;transition:.25s;
-}
-.nav-links a:hover{color:var(--pink)}
-.nav-cta{
-  text-decoration:none;padding:12px 17px;border-radius:99px;
-  background:linear-gradient(110deg,var(--purple),#c66edc,var(--pink));
-  font-size:10px;font-weight:900;letter-spacing:1px;
-  box-shadow:0 7px 25px #9b5de52a;
-}
-.menu-toggle{
-  display:none;background:none;color:white;border:1px solid var(--line);
-  padding:9px 12px;border-radius:10px;cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  flex-shrink:0;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:1.8px;
 }
 
-.hero{
-  min-height:100svh;position:relative;isolation:isolate;
-  display:flex;align-items:center;justify-content:center;
-  padding:150px 7% 95px;overflow:hidden;
-}
-.hero::before{
-  content:"XVIII";position:absolute;z-index:-1;
-  left:50%;top:48%;transform:translate(-50%,-50%);
+.brand-mark{
+  display:grid;
+  place-items:center;
+  width:39px;
+  height:39px;
+  border:1px solid #c39aff8a;
+  border-radius:12px;
+  background:linear-gradient(135deg,#9b5de53d,#ff6de116);
+  color:#f2d9ff;
+  box-shadow:0 0 25px #9b5de520;
   font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(230px,43vw,660px);font-weight:700;
-  letter-spacing:-.10em;white-space:nowrap;
-  color:transparent;-webkit-text-stroke:1px #e9c9ff12;
-  text-shadow:0 0 120px #a56aff0a;
-  pointer-events:none;
+  font-size:19px;
+  font-weight:700;
 }
-.hero::after{
-  content:"";position:absolute;z-index:-1;
-  width:min(72vw,850px);aspect-ratio:1;left:50%;top:50%;
-  transform:translate(-50%,-43%);
+
+.brand-name span{color:var(--pink)}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(13px,2.2vw,28px);
+  list-style:none;
+}
+
+.nav-links a{
+  color:#c8bbd3;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.3px;
+  transition:color .25s;
+}
+
+.nav-links a:hover{color:var(--pink)}
+
+.nav-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 17px;
+  border-radius:99px;
+  background:var(--gradient);
+  color:white;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  white-space:nowrap;
+  box-shadow:0 7px 25px #9b5de52b;
+  transition:transform .25s,box-shadow .25s;
+}
+
+.nav-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px #d86ae444;
+}
+
+.menu-toggle{
+  display:none;
+  place-items:center;
+  width:42px;
+  height:42px;
+  background:#ffffff05;
+  color:white;
+  border:1px solid var(--line);
+  border-radius:12px;
+  cursor:pointer;
+  font-size:20px;
+}
+
+/* BOTONES */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:50px;
+  padding:0 23px;
+  border-radius:99px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-align:center;
+  transition:transform .25s,box-shadow .25s,border-color .25s,background .25s;
+  cursor:pointer;
+}
+
+.btn:hover{transform:translateY(-3px)}
+
+.btn-primary{
+  color:white;
+  background:var(--gradient);
+  box-shadow:0 10px 35px #9b5de52d;
+}
+
+.btn-primary:hover{
+  box-shadow:0 14px 42px #d86ae44a;
+}
+
+.btn-outline{
+  color:#f2e6ff;
+  background:#ffffff05;
+  border:1px solid #d9bfff40;
+}
+
+.btn-outline:hover{
+  border-color:#d9bfffad;
+  background:#b18aff0b;
+}
+
+.btn-dark{
+  color:#0c0711;
+  background:#f5eaff;
+}
+
+.btn-dark:hover{background:#fff}
+
+/* PORTADA */
+
+.hero{
+  min-height:100svh;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:155px 6% 100px;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:50%;
+  top:46%;
+  transform:translate(-50%,-50%);
+  width:min(900px,90vw);
+  aspect-ratio:1;
   border-radius:50%;
-  border:1px solid #d7b5ff12;
-  box-shadow:0 0 0 45px #d7b5ff05,0 0 0 100px #d7b5ff03,
-             inset 0 0 100px #9b5de508;
+  background:
+    radial-gradient(circle at 50% 48%,#a55bff22 0%,#9b5de510 30%,transparent 67%);
+  filter:blur(12px);
   pointer-events:none;
 }
-.hero-inner{width:100%;max-width:1050px;text-align:center}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:50%;
+  top:46%;
+  transform:translate(-50%,-50%);
+  width:min(780px,78vw);
+  aspect-ratio:1;
+  border:1px solid #d7b5ff12;
+  border-radius:50%;
+  box-shadow:
+    0 0 0 48px #d7b5ff04,
+    0 0 0 100px #d7b5ff03,
+    inset 0 0 110px #9b5de508;
+  pointer-events:none;
+}
+
+.hero-inner{
+  width:100%;
+  max-width:1250px;
+  margin:auto;
+  text-align:center;
+}
+
 .eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  border:1px solid #d7b5ff35;background:#120b1da8;
-  border-radius:99px;padding:11px 17px;margin-bottom:31px;
-  color:#e3cbff;font-size:10px;font-weight:900;
-  letter-spacing:2.7px;text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:11px 17px;
+  margin-bottom:31px;
+  border:1px solid #d7b5ff35;
+  border-radius:99px;
+  background:#120b1da8;
+  color:#e3cbff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2.3px;
+  text-transform:uppercase;
 }
+
 .eyebrow-dot{
-  width:6px;height:6px;background:var(--pink);border-radius:50%;
+  width:6px;
+  height:6px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:var(--pink);
   box-shadow:0 0 14px var(--pink);
+  animation:dot-pulse 2.4s ease-in-out infinite;
 }
+
+@keyframes dot-pulse{
+  0%,100%{opacity:1;box-shadow:0 0 10px var(--pink)}
+  50%{opacity:.55;box-shadow:0 0 24px var(--pink)}
+}
+
 .hero-kicker{
-  color:#c9b3df;font-size:11px;font-weight:800;
-  letter-spacing:clamp(3px,1vw,7px);margin-bottom:22px;
+  margin-bottom:22px;
+  color:#c9b3df;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:clamp(3px,.8vw,7px);
 }
+
 .hero h1{
+  position:relative;
   font-family:'Space Grotesk',Inter,sans-serif;
-  font-size:clamp(76px,13vw,168px);
-  line-height:.79;letter-spacing:-.105em;font-weight:700;
+  font-size:clamp(85px,17.5vw,230px);
+  line-height:.76;
+  font-weight:700;
+  letter-spacing:-.105em;
 }
+
 .hero h1 .first{
-  display:block;color:#fff9ff;
+  display:block;
+  padding-right:.09em;
+  color:#fffaff;
   text-shadow:0 0 60px #fff2ff0c;
 }
+
 .hero h1 .second{
-  display:block;padding-right:.09em;margin-top:15px;
+  display:block;
+  margin-top:20px;
+  padding-right:.09em;
   color:transparent;
-  background:linear-gradient(105deg,#9b5de5 2%,#f3e2ff 29%,#ff6de1 58%,#b18aff 80%,#fff0d2 100%);
-  background-size:220% auto;background-clip:text;-webkit-background-clip:text;
+  background:linear-gradient(
+    105deg,
+    #9b5de5 2%,
+    #f3e2ff 25%,
+    #ff6de1 52%,
+    #b18aff 75%,
+    #fff0ff 100%
+  );
+  background-size:220% auto;
+  background-clip:text;
+  -webkit-background-clip:text;
   animation:chrome-flow 9s linear infinite;
   filter:drop-shadow(0 0 35px #bb78ff25);
 }
-@keyframes chrome-flow{to{background-position:220% center}}
+
+@keyframes chrome-flow{
+  to{background-position:220% center}
+}
+
 .hero-subtitle{
-  max-width:600px;margin:32px auto 0;
-  color:#d2c5dc;font-size:clamp(15px,2vw,19px);line-height:1.9;
+  max-width:620px;
+  margin:35px auto 0;
+  color:#d2c5dc;
+  font-size:clamp(14px,1.6vw,18px);
+  line-height:1.9;
 }
+
 .hero-subtitle strong{color:#fff}
+
 .hero-buttons{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:13px;
-  margin-top:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:13px;
+  margin-top:34px;
 }
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  min-height:49px;padding:0 24px;border-radius:99px;
-  text-decoration:none;font-size:10px;font-weight:900;
-  letter-spacing:1.1px;transition:transform .25s,box-shadow .25s,border-color .25s;
+
+.hero-meta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:13px 25px;
+  margin-top:47px;
+  color:#a99ab9;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.6px;
 }
-.btn:hover{transform:translateY(-3px)}
-.btn-primary{
-  color:white;background:linear-gradient(110deg,#8f4cdb,#c75cd4,#f06bcf);
-  box-shadow:0 10px 35px #9b5de52d;
+
+.hero-meta span{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
 }
-.btn-primary:hover{box-shadow:0 14px 42px #d86ae44a}
-.btn-outline{border:1px solid #d9bfff40;background:#ffffff05;color:#f2e6ff}
-.btn-outline:hover{border-color:#d9bfff9c}
-.hero-date{
-  display:flex;align-items:center;justify-content:center;gap:18px;
-  margin:55px auto 0;color:#c5b3d3;
+
+.meta-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#c6a0ff;
+  box-shadow:0 0 10px #c6a0ff;
 }
-.date-line{width:50px;height:1px;background:linear-gradient(90deg,transparent,#b18aff)}
-.date-line:last-child{background:linear-gradient(90deg,#b18aff,transparent)}
-.date-text{text-align:center}
-.date-text strong{display:block;color:#fff1ff;font-size:12px;letter-spacing:3px}
-.date-text span{display:block;margin-top:7px;font-size:9px;letter-spacing:2px;color:#a99ab9}
+
 .scroll-cue{
-  position:absolute;bottom:27px;left:50%;transform:translateX(-50%);
-  color:#8d7c9d;font-size:9px;font-weight:800;letter-spacing:3px;
+  position:absolute;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#8d7c9d;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:3px;
+  white-space:nowrap;
 }
+
 .scroll-cue::after{
-  content:"";display:block;width:1px;height:25px;margin:12px auto 0;
+  content:"";
+  display:block;
+  width:1px;
+  height:26px;
+  margin:12px auto 0;
   background:linear-gradient(#b18aff,transparent);
 }
 
-section{padding:clamp(78px,10vw,130px) 7%}
-.section-wrap{max-width:1160px;margin:auto}
-.section-heading{max-width:720px;margin-bottom:43px}
+/* ESTILOS GENERALES */
+
+section{
+  position:relative;
+  padding:clamp(78px,9vw,125px) 6%;
+}
+
+.section-wrap{
+  position:relative;
+  z-index:1;
+  max-width:1160px;
+  margin:0 auto;
+}
+
+.section-heading{
+  max-width:740px;
+  margin-bottom:43px;
+}
+
 .section-label{
-  display:block;color:#d3a9ff;font-size:10px;font-weight:900;
-  letter-spacing:3.5px;text-transform:uppercase;margin-bottom:15px;
+  display:block;
+  margin-bottom:15px;
+  color:#d3a9ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:3.3px;
+  text-transform:uppercase;
 }
+
 .section-heading h2{
+  margin-bottom:19px;
   font-family:'Space Grotesk',Inter,sans-serif;
-  font-size:clamp(37px,5.8vw,68px);font-weight:700;
-  letter-spacing:-.065em;line-height:1.02;margin-bottom:18px;
+  font-size:clamp(38px,5.6vw,70px);
+  font-weight:700;
+  line-height:1.02;
+  letter-spacing:-.065em;
 }
+
 .section-heading h2 span{
-  color:transparent;background:linear-gradient(100deg,#c6a1ff,#ff8be0);
-  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  background:linear-gradient(100deg,#c6a1ff,#ff8be0);
+  background-clip:text;
+  -webkit-background-clip:text;
 }
-.section-heading p{color:#b8aabd;font-size:14px;line-height:1.9;max-width:650px}
+
+.section-heading p{
+  max-width:660px;
+  color:#b8aabd;
+  font-size:13px;
+  line-height:1.95;
+}
+
 .glass{
   border:1px solid var(--line);
-  background:linear-gradient(145deg,#191023d9,#0e0915e8);
+  background:linear-gradient(145deg,#191023d9,#0e0915ed);
   box-shadow:inset 0 1px 0 #ffffff07;
 }
-.birthday-section{
-  position:relative;overflow:hidden;
+
+/* IDENTIDAD */
+
+.identity-section{
+  overflow:hidden;
   background:linear-gradient(180deg,#0b0710,#0d0814 50%,#09060e);
 }
-.birthday-section::before{
-  content:"";position:absolute;right:-180px;top:5%;
-  width:480px;height:480px;border-radius:50%;
-  background:#a15de50c;filter:blur(70px);pointer-events:none;
+
+.identity-section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:-200px;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:#a15de50b;
+  filter:blur(80px);
+  pointer-events:none;
 }
-.birthday-grid{
-  display:grid;grid-template-columns:1.1fr .9fr;gap:22px;
+
+.identity-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:22px;
 }
-.birthday-message{padding:clamp(25px,4vw,45px);border-radius:24px}
-.birthday-message .overline{color:#e2c4ff;font-size:10px;font-weight:900;letter-spacing:3px}
-.birthday-message h3{
+
+.identity-card{
+  padding:clamp(26px,4vw,44px);
+  border-radius:24px;
+}
+
+.identity-card h3{
+  margin:22px 0 16px;
   font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(28px,4vw,46px);line-height:1.05;
-  letter-spacing:-.06em;margin:22px 0;
+  font-size:clamp(27px,3.5vw,43px);
+  line-height:1.06;
+  letter-spacing:-1.8px;
 }
-.birthday-message h3 em{font-style:normal;color:#e2b4ff}
-.birthday-message p{color:#bcb0c7;font-size:14px;line-height:1.9}
-.signature{margin-top:30px;color:#f5d8ff;font-size:12px;font-weight:900;letter-spacing:2px}
-.signature small{display:block;margin-top:7px;color:#9987a9;font-weight:500;letter-spacing:1px}
-.countdown-card{
-  padding:clamp(25px,4vw,38px);border-radius:24px;
-  display:flex;flex-direction:column;justify-content:center;
+
+.identity-card h3 span{color:#e2b4ff}
+
+.identity-card p{
+  color:#bcb0c7;
+  font-size:13px;
+  line-height:1.95;
+}
+
+.identity-overline{
+  color:#e2c4ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.identity-signature{
+  margin-top:28px;
+  color:#f5d8ff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.identity-signature small{
+  display:block;
+  margin-top:8px;
+  color:#9987a9;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+.identity-quote{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:290px;
+  overflow:hidden;
   background:
     radial-gradient(ellipse at 100% 0%,#ff6de11b,transparent 48%),
     linear-gradient(145deg,#1b1029,#0d0914);
 }
-.countdown-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.countdown-top span{color:#c7b0dd;font-size:10px;font-weight:900;letter-spacing:2px}
-.countdown-top b{color:#e6c7ff;font-size:11px}
-.countdown{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:9px;margin:27px 0 21px;
-}
-.time-box{
-  padding:18px 5px;border:1px solid #d6b8ff1b;
-  border-radius:14px;background:#ffffff04;text-align:center;
-}
-.time-box strong{
-  display:block;font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(23px,3.5vw,36px);letter-spacing:-1.5px;
-  color:#fff2ff;font-variant-numeric:tabular-nums;
-}
-.time-box span{display:block;margin-top:8px;color:#a99ab8;font-size:8px;font-weight:900;letter-spacing:1.2px}
-.countdown-note{color:#a99bb5;font-size:11px;line-height:1.8}
-.countdown-note strong{color:#e9c8ff}
 
-.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.timeline-card{padding:25px;border-radius:18px;min-height:190px}
-.timeline-index{color:#d6a8ff;font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:2px}
-.timeline-card h3{margin:23px 0 10px;font-size:17px}
-.timeline-card p{color:#b3a6bd;font-size:12px;line-height:1.8}
-.timeline-card:nth-child(2){background:linear-gradient(145deg,#20112c,#100a18)}
-.timeline-card:nth-child(3){background:linear-gradient(145deg,#1b1024,#0e0915)}
+.quote-symbol{
+  color:#c99bff;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:65px;
+  font-weight:700;
+  line-height:.8;
+}
 
-.server-section{background:#08060c}
-.server-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
-.server-card{padding:clamp(23px,3vw,35px);border-radius:22px;min-width:0}
-.server-card h3{font-size:20px;letter-spacing:-.5px;margin-bottom:12px}
-.server-card p{font-size:13px;line-height:1.85;color:#b4a8bf}
-.ip-list{display:grid;gap:13px;margin-top:25px}
-.ip-entry{padding:16px;border:1px solid #d7b5ff21;background:#08060ca8;border-radius:14px}
-.ip-label{display:block;color:#b7a1cd;font-size:9px;font-weight:900;letter-spacing:2px;margin-bottom:11px}
-.ip-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.ip-address{font-size:clamp(14px,2vw,19px);font-weight:900;color:#ead5ff;overflow-wrap:anywhere}
+.identity-quote h3{
+  max-width:390px;
+  font-size:clamp(25px,3vw,36px);
+  line-height:1.2;
+}
+
+.identity-quote h3 span{color:var(--pink)}
+
+.identity-quote .identity-signature{margin-top:24px}
+
+/* TARJETAS DE MODALIDADES */
+
+.modes-section{
+  overflow:hidden;
+  background:#09070e;
+}
+
+.modes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:17px;
+}
+
+.mode-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:320px;
+  overflow:hidden;
+  padding:26px;
+  border-radius:20px;
+  transition:transform .3s,border-color .3s,box-shadow .3s;
+}
+
+.mode-card:hover{
+  transform:translateY(-6px);
+  border-color:#c6a0ff61;
+  box-shadow:0 20px 55px #0005;
+}
+
+.mode-card::before{
+  content:"";
+  position:absolute;
+  top:-70px;
+  right:-65px;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  background:var(--mode-color,#9b5de5);
+  opacity:.13;
+  filter:blur(32px);
+  pointer-events:none;
+}
+
+.mode-card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:25px;
+  right:25px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--mode-color,#9b5de5),transparent);
+  opacity:.75;
+}
+
+.mode-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.mode-number{
+  color:#9c8aab;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.mode-status{
+  padding:7px 9px;
+  border:1px solid #c6a0ff26;
+  border-radius:99px;
+  color:#d8baff;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.mode-icon{
+  display:grid;
+  place-items:center;
+  width:55px;
+  height:55px;
+  margin-top:33px;
+  border:1px solid #d7b5ff35;
+  border-radius:16px;
+  background:#b18aff0c;
+  color:#e3c8ff;
+  font-size:25px;
+  font-weight:900;
+}
+
+.mode-card h3{
+  margin:22px 0 12px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-.8px;
+}
+
+.mode-card p{
+  min-height:65px;
+  color:#b4a7c0;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.mode-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:25px;
+  padding-top:17px;
+  border-top:1px solid var(--line);
+  color:#eadcff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.mode-link span{
+  color:var(--pink);
+  font-size:17px;
+  transition:transform .25s;
+}
+
+.mode-card:hover .mode-link span{transform:translateX(5px)}
+
+.mode-survival{--mode-color:#b18aff}
+.mode-extreme{--mode-color:#ff6de1}
+.mode-community{--mode-color:#8e7bff}
+
+/* SERVIDOR E DIRECCIONES */
+
+.server-section{
+  overflow:hidden;
+  background:linear-gradient(180deg,#0d0814,#09060e);
+}
+
+.server-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:20px;
+}
+
+.server-card{
+  min-width:0;
+  padding:clamp(23px,3vw,36px);
+  border-radius:22px;
+}
+
+.server-card h3{
+  margin-bottom:13px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:23px;
+  letter-spacing:-.5px;
+}
+
+.server-card p{
+  color:#b4a8bf;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.server-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:19px;
+}
+
+.server-badge{
+  padding:8px 10px;
+  border:1px solid #d7b5ff24;
+  border-radius:99px;
+  color:#d5c2e8;
+  background:#ffffff03;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.ip-list{
+  display:grid;
+  gap:13px;
+  margin-top:25px;
+}
+
+.ip-entry{
+  padding:16px;
+  border:1px solid #d7b5ff21;
+  border-radius:14px;
+  background:#08060ca8;
+}
+
+.ip-label{
+  display:block;
+  margin-bottom:11px;
+  color:#b7a1cd;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.6px;
+}
+
+.ip-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.ip-address{
+  color:#ead5ff;
+  font-size:clamp(13px,1.7vw,18px);
+  font-weight:900;
+  overflow-wrap:anywhere;
+}
+
 .copy-btn{
-  border:1px solid #cba2ff66;background:#b18aff12;color:#e7d3ff;
-  padding:10px 13px;border-radius:99px;cursor:pointer;
-  font-size:9px;font-weight:900;letter-spacing:.8px;white-space:nowrap;
+  flex-shrink:0;
+  padding:10px 13px;
+  border:1px solid #cba2ff66;
+  border-radius:99px;
+  background:#b18aff12;
+  color:#e7d3ff;
+  cursor:pointer;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.8px;
+  transition:background .2s,color .2s;
 }
-.copy-btn:hover{background:#d8b5ff;color:#100817}
-.copy-status{display:block;min-height:12px;margin-top:8px;color:#93edbb;font-size:10px;opacity:0}
+
+.copy-btn:hover{
+  background:#d8b5ff;
+  color:#100817;
+}
+
+.copy-status{
+  display:block;
+  min-height:12px;
+  margin-top:8px;
+  color:#93edbb;
+  font-size:10px;
+  opacity:0;
+  transition:opacity .2s;
+}
+
 .copy-status.show{opacity:1}
+
 .discord-panel{
-  display:flex;flex-direction:column;justify-content:space-between;gap:30px;
-  background:radial-gradient(ellipse at 100% 0%,#ff6de117,transparent 55%),linear-gradient(145deg,#191025,#0c0812);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:30px;
+  background:
+    radial-gradient(ellipse at 100% 0%,#ff6de117,transparent 55%),
+    linear-gradient(145deg,#191025,#0c0812);
 }
+
 .discord-symbol{
-  width:50px;height:50px;border-radius:16px;display:grid;place-items:center;
-  border:1px solid #d7b5ff40;background:#b18aff12;
-  color:#e2c2ff;font-size:23px;font-weight:900;
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  border:1px solid #d7b5ff40;
+  border-radius:17px;
+  background:#b18aff12;
+  color:#e2c2ff;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:24px;
+  font-weight:700;
 }
-.discord-panel h3{font-size:26px;margin:22px 0 12px}
-.discord-panel p{max-width:380px}
+
+.discord-panel h3{
+  margin:23px 0 12px;
+  font-size:clamp(25px,3vw,34px);
+  letter-spacing:-1px;
+}
+
+.discord-panel p{max-width:390px}
+
 .discord-panel .btn{align-self:flex-start}
 
-.ranks-section{background:linear-gradient(180deg,#0d0814,#09060d)}
-.ranks-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+/* RANGOS */
+
+.ranks-section{
+  background:linear-gradient(180deg,#09060e,#0d0814 50%,#09070e);
+}
+
+.ranks-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+
 .rank{
-  position:relative;overflow:hidden;display:flex;flex-direction:column;
-  justify-content:space-between;gap:25px;min-height:260px;
-  padding:23px 20px;border-radius:18px;transition:.25s;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:25px;
+  min-width:0;
+  min-height:255px;
+  overflow:hidden;
+  padding:23px 20px;
+  border-radius:18px;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
 }
-.rank:hover{transform:translateY(-5px);border-color:var(--rank);box-shadow:0 18px 45px #0004}
+
+.rank:hover{
+  transform:translateY(-5px);
+  border-color:var(--rank);
+  box-shadow:0 18px 45px #0004;
+}
+
 .rank::before{
-  content:"";position:absolute;right:-48px;top:-50px;width:125px;height:125px;
-  border-radius:50%;background:var(--rank);opacity:.09;filter:blur(2px);
+  content:"";
+  position:absolute;
+  right:-48px;
+  top:-50px;
+  width:125px;
+  height:125px;
+  border-radius:50%;
+  background:var(--rank);
+  opacity:.09;
+  filter:blur(2px);
+  pointer-events:none;
 }
-.rank-name{position:relative;color:var(--rank);font-size:20px;font-weight:900;letter-spacing:.6px}
-.rank-level{display:block;color:#7f718d;font-size:8px;letter-spacing:2px;font-weight:900;margin-top:8px}
-.rank-description{color:#b5a9c1;font-size:11px;line-height:1.8;margin-top:20px}
-.rank-price{font-size:25px;font-weight:900;letter-spacing:-1px}
-.rank-price small{font-size:10px;font-weight:600;color:#9586a2;letter-spacing:0}
-.rank-buttons{display:flex;gap:7px;margin-top:15px}
+
+.rank-name{
+  position:relative;
+  color:var(--rank);
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.3px;
+  overflow-wrap:anywhere;
+}
+
+.rank-level{
+  display:block;
+  margin-top:8px;
+  color:#8d7d9a;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.8px;
+}
+
+.rank-description{
+  margin-top:18px;
+  color:#b5a9c1;
+  font-size:11px;
+  line-height:1.8;
+}
+
+.rank-price{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.rank-price small{
+  color:#9586a2;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0;
+}
+
+.rank-buttons{
+  display:flex;
+  gap:7px;
+  margin-top:15px;
+}
+
 .rank-buttons a{
-  flex:1;text-align:center;text-decoration:none;border-radius:99px;
-  padding:10px 5px;font-size:9px;font-weight:900;letter-spacing:.4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+  min-width:0;
+  padding:10px 5px;
+  border-radius:99px;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.3px;
+  text-align:center;
+  transition:background .2s,color .2s,border-color .2s;
 }
-.rank-buy{border:1px solid var(--rank);color:var(--rank)}
-.rank-buy:hover{background:var(--rank);color:#0b0710}
-.rank-info{border:1px solid #d7b5ff26;color:#d7c7e5}
+
+.rank-buy{
+  border:1px solid var(--rank);
+  color:var(--rank);
+}
+
+.rank-buy:hover{
+  background:var(--rank);
+  color:#0b0710;
+}
+
+.rank-info{
+  border:1px solid #d7b5ff26;
+  color:#d7c7e5;
+}
+
 .rank-info:hover{border-color:#d7b5ff78}
+
 .origin{--rank:#f1e7ff}
 .elite{--rank:#8eb7ff}
 .celestial{--rank:#70e6ff}
@@ -333,133 +1023,502 @@ section{padding:clamp(78px,10vw,130px) 7%}
 .semidios{--rank:#d69aff}
 .dios{--rank:#ff899f}
 .kaizora{--rank:#ff8de0}
-.rank-featured{border-color:#ff8de052;background:linear-gradient(145deg,#27132c,#100a18)}
-.rank-featured .rank-name::after{
-  content:"EXCLUSIVO";display:inline-block;vertical-align:middle;
-  margin-left:8px;padding:5px 6px;border:1px solid #ff8de044;
-  border-radius:5px;font-size:7px;letter-spacing:1px;
+
+.rank-featured{
+  border-color:#ff8de052;
+  background:linear-gradient(145deg,#27132c,#100a18);
 }
 
-.store-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.store-card{padding:30px;border-radius:20px}
-.store-tag{color:#d2adff;font-size:9px;font-weight:900;letter-spacing:2px}
-.store-card h3{font-size:23px;margin:18px 0 12px;letter-spacing:-.7px}
-.store-card p{color:#b5a9c1;font-size:12px;line-height:1.9;margin-bottom:24px}
-.store-card .btn{min-height:43px}
+.rank-featured .rank-name::after{
+  content:"EXCLUSIVO";
+  display:inline-block;
+  vertical-align:middle;
+  margin-left:7px;
+  padding:5px 6px;
+  border:1px solid #ff8de044;
+  border-radius:5px;
+  font-size:7px;
+  letter-spacing:.6px;
+}
+
+.section-action{
+  display:flex;
+  justify-content:center;
+  margin-top:35px;
+}
+
+/* TIENDA */
+
+.store-section{background:#09070e}
+
+.store-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.store-card{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:clamp(25px,3.5vw,36px);
+  border-radius:20px;
+  transition:transform .25s,border-color .25s;
+}
+
+.store-card:hover{
+  transform:translateY(-4px);
+  border-color:#c6a0ff55;
+}
+
 .store-icon{
-  width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
-  border:1px solid #d7b5ff3b;background:#b18aff12;color:#e4c6ff;font-size:19px;
+  display:grid;
+  place-items:center;
+  width:47px;
+  height:47px;
+  margin-bottom:22px;
+  border:1px solid #d7b5ff3b;
+  border-radius:14px;
+  background:#b18aff12;
+  color:#e4c6ff;
+  font-size:21px;
+}
+
+.store-tag{
+  color:#d2adff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.store-card h3{
+  margin:16px 0 12px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:24px;
+  letter-spacing:-.7px;
+}
+
+.store-card p{
+  flex:1;
+  margin-bottom:25px;
+  color:#b5a9c1;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.store-card .btn{min-height:44px}
+
+/* CREADORES */
+
+.streamer-section{
+  padding-top:25px;
+  background:#09070e;
 }
 
 .streamer-card{
-  display:flex;align-items:center;justify-content:space-between;gap:25px;
-  padding:clamp(26px,4vw,43px);border-radius:22px;
-  background:radial-gradient(ellipse at 95% 0%,#ff6de117,transparent 48%),linear-gradient(120deg,#191023,#0d0914);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  padding:clamp(27px,4vw,44px);
+  border-radius:22px;
+  background:
+    radial-gradient(ellipse at 95% 0%,#ff6de117,transparent 48%),
+    linear-gradient(120deg,#191023,#0d0914);
 }
-.streamer-card small{color:#d4a7ff;font-size:9px;font-weight:900;letter-spacing:3px}
-.streamer-card h3{font-size:clamp(29px,4vw,42px);margin:12px 0;letter-spacing:-1.5px}
-.streamer-card p{max-width:690px;color:#b6a9c1;font-size:13px;line-height:1.9}
-.streamer-card .btn{white-space:nowrap}
 
-.social-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.social-card{padding:22px;border-radius:18px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;gap:23px;transition:.25s}
-.social-card:hover{transform:translateY(-4px);border-color:#ff6de154}
-.social-icon{font-size:10px;color:#c99bff;font-weight:900;letter-spacing:2px}
-.social-card h3{font-size:18px;margin:12px 0 6px}
-.social-card p{color:#a99cb5;font-size:11px;line-height:1.8}
-.social-card a{display:block;text-align:center;text-decoration:none;border:1px solid #d7b5ff33;border-radius:99px;padding:10px;font-size:9px;font-weight:900;letter-spacing:1px}
-.social-card a:hover{border-color:#d7b5ff8a}
+.streamer-card small{
+  color:#d4a7ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.streamer-card h3{
+  margin:13px 0;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(29px,4vw,43px);
+  letter-spacing:-1.5px;
+}
+
+.streamer-card p{
+  max-width:690px;
+  color:#b6a9c1;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.streamer-card .btn{
+  flex-shrink:0;
+  white-space:nowrap;
+}
+
+/* COMUNIDAD Y REDES */
+
+.community-section{
+  background:linear-gradient(180deg,#09070e,#0d0814);
+}
+
+.community-banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  margin-bottom:28px;
+  padding:clamp(25px,4vw,39px);
+  border:1px solid #b18aff25;
+  border-radius:22px;
+  background:
+    radial-gradient(ellipse at 90% 10%,#ff6de117,transparent 50%),
+    linear-gradient(135deg,#171020,#0d0914);
+}
+
+.community-banner h3{
+  margin:13px 0;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(25px,3.6vw,38px);
+  letter-spacing:-1.2px;
+}
+
+.community-banner p{
+  max-width:620px;
+  color:#b6a9c1;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.community-banner .btn{flex-shrink:0}
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+
+.social-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:23px;
+  min-width:0;
+  min-height:195px;
+  padding:22px;
+  border-radius:18px;
+  transition:transform .25s,border-color .25s;
+}
+
+.social-card:hover{
+  transform:translateY(-4px);
+  border-color:#ff6de154;
+}
+
+.social-icon{
+  color:#c99bff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.7px;
+}
+
+.social-card h3{
+  margin:13px 0 7px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:20px;
+}
+
+.social-card p{
+  color:#a99cb5;
+  font-size:11px;
+  line-height:1.8;
+}
+
+.social-card a{
+  display:block;
+  padding:11px 8px;
+  border:1px solid #d7b5ff33;
+  border-radius:99px;
+  color:#e9d9ff;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.6px;
+  text-align:center;
+  overflow-wrap:anywhere;
+  transition:background .2s,border-color .2s;
+}
+
+.social-card a:hover{
+  border-color:#d7b5ff8a;
+  background:#b18aff0b;
+}
+
+/* CIERRE */
 
 .final-section{
-  text-align:center;position:relative;overflow:hidden;
-  background:radial-gradient(ellipse at 50% 50%,#9b5de51b,transparent 58%),#08050d;
+  overflow:hidden;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at 50% 50%,#9b5de51b,transparent 58%),
+    #08050d;
 }
-.final-section .section-heading{margin:0 auto 27px}
-.final-section .section-heading p{margin:auto}
+
+.final-section::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:min(700px,80vw);
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  border:1px solid #d7b5ff0c;
+  border-radius:50%;
+  box-shadow:0 0 0 65px #d7b5ff03,0 0 0 130px #d7b5ff02;
+  pointer-events:none;
+}
+
+.final-section .section-wrap{z-index:1}
+
 .final-mark{
-  color:#c6a0ff;font-size:10px;font-weight:900;letter-spacing:4px;margin-bottom:20px;
+  margin-bottom:22px;
+  color:#c6a0ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:4px;
 }
+
 .final-title{
+  margin-bottom:27px;
   font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(55px,11vw,125px);line-height:.9;letter-spacing:-.09em;
-  margin-bottom:25px;
+  font-size:clamp(65px,13vw,150px);
+  font-weight:700;
+  line-height:.83;
+  letter-spacing:-.09em;
 }
+
 .final-title span{
-  color:transparent;background:linear-gradient(100deg,#9b5de5,#f0d5ff,#ff6de1);
-  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+  background:linear-gradient(100deg,#9b5de5,#f0d5ff,#ff6de1);
+  background-clip:text;
+  -webkit-background-clip:text;
 }
-.final-copy{max-width:560px;margin:0 auto;color:#b8a9c3;font-size:14px;line-height:1.9}
-.final-section .hero-buttons{margin-top:30px}
+
+.final-copy{
+  max-width:600px;
+  margin:0 auto;
+  color:#b8a9c3;
+  font-size:13px;
+  line-height:1.95;
+}
+
+.final-section .hero-buttons{margin-top:32px}
+
+/* PIE DE PÁGINA */
 
 footer{
-  padding:28px 7%;text-align:center;border-top:1px solid var(--line);
-  color:#7f7488;background:#060409;font-size:10px;line-height:1.9;
+  padding:29px 6%;
+  border-top:1px solid var(--line);
+  background:#060409;
+  color:#81758a;
+  font-size:10px;
+  line-height:1.9;
+  text-align:center;
 }
+
 footer strong{color:#e5d5f5}
-footer .footer-date{color:#a78bbf;margin-top:7px;letter-spacing:2px;font-size:9px}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.footer-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  color:#e8d5ff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+}
 
-@media(max-width:1000px){
-  .nav-links{gap:15px}
+.footer-brand span{color:var(--pink)}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 22px;
+  margin:15px 0;
+}
+
+.footer-links a{
+  color:#b5a4c5;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.7px;
+  transition:color .2s;
+}
+
+.footer-links a:hover{color:var(--pink)}
+
+.footer-note{
+  margin-top:12px;
+  color:#71667b;
+  font-size:9px;
+}
+
+/* APARICIÓN AL DESPLAZARSE */
+
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:1050px){
+  .nav-links{gap:13px}
+  .nav-links a{font-size:8px;letter-spacing:.8px}
   .ranks-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mode-card{padding:23px}
 }
+
+/* MÓVIL */
+
 @media(max-width:760px){
-  nav{padding:13px 5%}
-  .menu-toggle{display:block}
+  :root{--nav-height:66px}
+
+  nav{padding:11px 5%}
+
+  .brand{font-size:11px;letter-spacing:1px}
+  .brand-mark{width:35px;height:35px;border-radius:10px}
+
+  .menu-toggle{display:grid}
   .nav-cta{display:none}
+
   .nav-links{
-    display:none;position:absolute;top:calc(100% + 1px);left:0;width:100%;
-    padding:20px 5% 24px;background:#0a0611f7;
+    display:none;
+    position:absolute;
+    top:calc(100% + 1px);
+    left:0;
+    width:100%;
+    max-height:calc(100svh - var(--nav-height));
+    overflow-y:auto;
+    padding:15px 5% 22px;
     border-bottom:1px solid var(--line);
-    flex-direction:column;align-items:stretch;gap:0;
+    background:#0a0611fa;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
   }
+
   .nav-links.open{display:flex}
-  .nav-links li a{display:block;padding:15px 4px;font-size:11px}
-  .hero{padding-top:140px;min-height:94svh}
-  .hero::before{font-size:43vw}
-  .hero h1{font-size:clamp(67px,15vw,112px)}
-  .hero-date{margin-top:42px}
-  .birthday-grid,.server-grid{grid-template-columns:1fr}
+
+  .nav-links li a{
+    display:block;
+    padding:15px 4px;
+    font-size:10px;
+    letter-spacing:1.4px;
+  }
+
+  .nav-links li+li{border-top:1px solid #d7b5ff0c}
+
+  .hero{
+    min-height:92svh;
+    padding:130px 5% 85px;
+  }
+
+  .hero h1{font-size:clamp(67px,16vw,120px)}
+  .hero::after{width:100vw}
+
+  .identity-grid,.server-grid{grid-template-columns:1fr}
+  .modes-grid{grid-template-columns:1fr}
+  .mode-card{min-height:285px}
+
   .timeline{grid-template-columns:1fr}
-  .timeline-card{min-height:0}
-  .timeline-card h3{margin-top:15px}
-  .streamer-card{align-items:flex-start;flex-direction:column}
-  .streamer-card .btn{white-space:normal}
+  .streamer-card,.community-banner{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .streamer-card .btn,.community-banner .btn{
+    white-space:normal;
+  }
+
+  .discord-panel{min-height:280px}
 }
+
 @media(max-width:480px){
   section{padding:76px 5%}
-  .brand{font-size:11px;letter-spacing:1px}
-  .brand-mark{width:32px;height:32px}
-  .hero h1{font-size:clamp(59px,15vw,79px)}
-  .hero-kicker{font-size:9px;letter-spacing:3px}
-  .eyebrow{font-size:8px;letter-spacing:1.7px}
-  .hero-buttons{flex-direction:column;align-items:stretch;max-width:290px;margin-left:auto;margin-right:auto}
-  .hero-date{gap:10px}
-  .date-line{width:22px}
-  .date-text strong{font-size:10px;letter-spacing:2px}
-  .date-text span{font-size:8px;letter-spacing:1px}
-  .countdown{gap:5px}
-  .time-box{padding:14px 2px}
-  .time-box strong{font-size:24px}
-  .time-box span{font-size:7px;letter-spacing:.5px}
-  .ranks-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .rank{padding:17px 13px;min-height:260px}
-  .rank-name{font-size:16px}
+
+  .hero{padding-top:125px}
+  .hero h1{font-size:clamp(56px,15.5vw,79px)}
+  .hero h1 .second{margin-top:14px}
+  .hero-kicker{font-size:8px;letter-spacing:2.4px}
+  .eyebrow{font-size:7px;letter-spacing:1.4px;padding:10px 12px}
+  .hero-subtitle{font-size:13px;line-height:1.85}
+
+  .hero-buttons{
+    flex-direction:column;
+    align-items:stretch;
+    max-width:290px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons .btn{width:100%}
+
+  .hero-meta{
+    gap:12px;
+    font-size:8px;
+    letter-spacing:1px;
+  }
+
+  .scroll-cue{font-size:7px;letter-spacing:2px}
+
+  .section-heading h2{font-size:clamp(35px,10vw,49px)}
+  .section-heading p{font-size:12px}
+
+  .identity-card{padding:24px}
+  .identity-quote{min-height:260px}
+
+  .ip-entry{padding:13px}
+  .ip-row{align-items:flex-start}
+  .ip-address{font-size:13px}
+  .copy-btn{padding:9px 10px;font-size:8px}
+
+  .ranks-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .rank{padding:16px 12px;min-height:245px;gap:20px}
+  .rank-name{font-size:15px}
+  .rank-level{font-size:7px;letter-spacing:1px}
   .rank-description{font-size:10px}
-  .rank-price{font-size:21px}
+  .rank-price{font-size:20px}
+  .rank-price small{font-size:8px}
   .rank-buttons{flex-direction:column}
-  .rank-buttons a{padding:10px 3px}
+  .rank-buttons a{padding:10px 3px;font-size:8px}
+
+  .store-grid{grid-template-columns:1fr}
   .social-grid{gap:10px}
-  .social-card{padding:16px;min-height:180px}
+  .social-card{padding:15px;min-height:178px}
   .social-card h3{font-size:16px}
   .social-card p{font-size:10px}
-  .store-grid{grid-template-columns:1fr}
+  .social-card a{font-size:7px}
+
+  .community-banner{padding:24px}
+  .final-title{font-size:clamp(58px,16vw,85px)}
+  .final-mark{font-size:8px;letter-spacing:2px}
 }
+
+/* MENOS MOVIMIENTO SI EL USUARIO LO PREFIERE */
+
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important;
+  }
+
   .reveal{opacity:1;transform:none}
 }
 </style>
@@ -468,474 +1527,966 @@ footer .footer-date{color:#a78bbf;margin-top:7px;letter-spacing:2px;font-size:9p
 <body>
 <div id="universe"></div>
 <canvas id="stars" aria-hidden="true"></canvas>
-<div class="noise"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
-<nav>
-  <a class="brand" href="#inicio" aria-label="Anthony XVIII">
-    <span class="brand-mark">18</span>
-    ANTHONY <span>XVIII</span>
+<nav aria-label="Navegación principal">
+  <a class="brand" href="#inicio" aria-label="Kaizora Origins, inicio">
+    <span class="brand-mark">K</span>
+    <span class="brand-name">KAIZORA <span>ORIGINS</span></span>
   </a>
 
-  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="navLinks"
+  >☰</button>
 
   <ul class="nav-links" id="navLinks">
     <li><a href="#inicio">INICIO</a></li>
-    <li><a href="#cumpleanos">XVIII</a></li>
-    <li><a href="#servidor">SERVIDOR</a></li>
+    <li><a href="#universo">EL UNIVERSO</a></li>
+    <li><a href="#modalidades">MODALIDADES</a></li>
     <li><a href="#rangos">RANGOS</a></li>
-    <li><a href="#redes">REDES</a></li>
+    <li><a href="#tienda">TIENDA</a></li>
+    <li><a href="#redes">COMUNIDAD</a></li>
   </ul>
 
-  <a class="nav-cta" href="survivalop.html" target="_blank" rel="noopener noreferrer">SURVIVALOP ↗</a>
+  <a
+    class="nav-cta"
+    href="https://discord.gg/sHvWgW7AE4"
+    target="_blank"
+    rel="noopener noreferrer"
+  >UNIRME A DISCORD ↗</a>
 </nav>
 
 <main>
+
+  <!-- PORTADA PRINCIPAL -->
+
   <section class="hero" id="inicio">
     <div class="hero-inner">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> UNA FECHA · UNA HISTORIA · UNA NUEVA ERA</div>
-      <div class="hero-kicker">EL CAPÍTULO MÁS IMPORTANTE HASTA AHORA</div>
-      <h1><span class="first">ANTHONY</span><span class="second">XVIII.</span></h1>
+
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        MÁS QUE UN SERVIDOR · UN UNIVERSO
+      </div>
+
+      <div class="hero-kicker">
+        TU AVENTURA. TUS DECISIONES. TU LEGADO.
+      </div>
+
+      <h1>
+        <span class="first">KAIZORA</span>
+        <span class="second">ORIGINS.</span>
+      </h1>
+
       <p class="hero-subtitle">
-        No es solamente cumplir años.<br>
-        Es celebrar todo lo que te trajo hasta aquí
-        y todo lo que todavía está por venir.
+        Un mundo donde cada jugador escribe su propia historia.
+        Explora, progresa, supera desafíos y deja tu huella en
+        <strong>Kaizora Origins.</strong>
       </p>
 
       <div class="hero-buttons">
-        <a href="#cumpleanos" class="btn btn-primary">DESCUBRIR ESTA EDICIÓN <span>↘</span></a>
-        <a href="#servidor" class="btn btn-outline">EXPLORAR KAIZORA <span>↗</span></a>
+        <a href="#servidor" class="btn btn-primary">
+          JUGAR AHORA <span>↗</span>
+        </a>
+
+        <a
+          href="https://discord.gg/sHvWgW7AE4"
+          class="btn btn-outline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          UNIRME A DISCORD <span>↗</span>
+        </a>
       </div>
 
-      <div class="hero-date">
-        <span class="date-line"></span>
-        <div class="date-text">
-          <strong>08 · 12 · 2026</strong>
-          <span>DIECIOCHO AÑOS · UN NUEVO COMIENZO</span>
-        </div>
-        <span class="date-line"></span>
+      <div class="hero-meta">
+        <span><i class="meta-dot"></i> JAVA EDITION</span>
+        <span><i class="meta-dot"></i> BEDROCK EDITION</span>
+        <span><i class="meta-dot"></i> UNA SOLA COMUNIDAD</span>
       </div>
     </div>
-    <div class="scroll-cue">DESLIZA PARA DESCUBRIR</div>
+
+    <div class="scroll-cue">DESCUBRE EL UNIVERSO</div>
   </section>
 
-  <section class="birthday-section" id="cumpleanos">
+  <!-- IDENTIDAD DE KAIZORA -->
+
+  <section class="identity-section" id="universo">
     <div class="section-wrap">
+
       <div class="section-heading reveal">
-        <span class="section-label">01 / EL MOMENTO</span>
-        <h2>Dieciocho años.<br><span>Una historia irrepetible.</span></h2>
-        <p>Hay fechas que merecen algo más que una felicitación. Esta es una de ellas: una edición especial creada para marcar el inicio de una nueva etapa.</p>
+        <span class="section-label">01 / NUESTRA IDENTIDAD</span>
+        <h2>No vienes solo a jugar.<br><span>Vienes a dejar huella.</span></h2>
+        <p>
+          Kaizora Origins es más que entrar a un mundo de Minecraft.
+          Es un proyecto construido alrededor de la aventura, la
+          progresión, los desafíos y una comunidad que crece con cada jugador.
+        </p>
       </div>
 
-      <div class="birthday-grid">
-        <article class="birthday-message glass reveal">
-          <span class="overline">PARA RECORDAR</span>
-          <h3>El siguiente capítulo<br>lo escribes <em>tú.</em></h3>
+      <div class="identity-grid">
+
+        <article class="identity-card glass reveal">
+          <span class="identity-overline">EL ORIGEN DE TODO</span>
+
+          <h3>
+            Cada mundo tiene una historia.<br>
+            <span>La tuya comienza aquí.</span>
+          </h3>
+
           <p>
-            Los sueños cambian, los caminos se transforman y aparecen nuevas posibilidades.
-            Cumplir 18 no significa tener todas las respuestas: significa tener delante un mundo
-            de oportunidades para descubrir quién quieres ser y qué quieres construir.
+            En Kaizora, cada paso puede convertirse en una conquista.
+            Construye tu camino, desarrolla tu equipo, participa en los
+            desafíos y descubre hasta dónde puedes llegar.
           </p>
+
+          <p style="margin-top:14px">
+            No importa si acabas de llegar o si llevas tiempo jugando:
+            siempre hay algo nuevo por conquistar.
+          </p>
+
+          <div class="identity-signature">
+            KAIZORA ORIGINS
+            <small>ESCRIBE TU PROPIA HISTORIA</small>
+          </div>
+        </article>
+
+        <article class="identity-card identity-quote glass reveal">
+          <span class="quote-symbol">“</span>
+
+          <h3>
+            Tu historia no está escrita.<br>
+            <span>Constrúyela.</span>
+          </h3>
+
           <p style="margin-top:15px">
-            Que esta fecha sea el comienzo de cosas enormes, proyectos inolvidables
-            y momentos que algún día mirarás con orgullo.
+            Cada jugador comienza en algún lugar.
+            Lo que hagas después es lo que te define.
           </p>
-          <div class="signature">ANTHONY <small>08 DE DICIEMBRE DE 2026 · XVIII</small></div>
+
+          <div class="identity-signature">
+            TU MUNDO. TU LEGADO.
+          </div>
         </article>
 
-        <article class="countdown-card glass reveal">
-          <div class="countdown-top">
-            <span>LA FECHA SE ACERCA</span>
-            <b>XVIII / 2026</b>
-          </div>
-          <div class="countdown" id="countdown">
-            <div class="time-box"><strong id="days">--</strong><span>DÍAS</span></div>
-            <div class="time-box"><strong id="hours">--</strong><span>HORAS</span></div>
-            <div class="time-box"><strong id="minutes">--</strong><span>MINUTOS</span></div>
-            <div class="time-box"><strong id="seconds">--</strong><span>SEGUNDOS</span></div>
-          </div>
-          <p class="countdown-note" id="countdownNote">
-            Cuenta atrás para el <strong>8 de diciembre de 2026</strong>.
-            Cada segundo nos acerca a una fecha que merece ser recordada.
-          </p>
-        </article>
       </div>
     </div>
   </section>
 
-  <section>
+  <!-- MODALIDADES -->
+
+  <section class="modes-section" id="modalidades">
     <div class="section-wrap">
+
       <div class="section-heading reveal">
-        <span class="section-label">02 / EL SIGNIFICADO</span>
-        <h2>No es un final.<br><span>Es el comienzo.</span></h2>
-        <p>Una pequeña dedicatoria a todo lo que significa llegar hasta aquí y a las posibilidades que trae lo que viene.</p>
+        <span class="section-label">02 / ENCUENTRA TU CAMINO</span>
+        <h2>Una aventura.<br><span>Muchas formas de vivirla.</span></h2>
+        <p>
+          Descubre las modalidades de Kaizora Origins y encuentra el
+          estilo de juego que mejor encaje contigo.
+        </p>
       </div>
-      <div class="timeline">
-        <article class="timeline-card glass reveal">
-          <span class="timeline-index">01 — EL CAMINO</span>
-          <h3>Todo lo que te hizo llegar</h3>
-          <p>Las experiencias, los errores, los logros y las personas que forman parte de tu historia.</p>
-        </article>
-        <article class="timeline-card glass reveal">
-          <span class="timeline-index">02 — EL PRESENTE</span>
-          <h3>Este momento es tuyo</h3>
-          <p>Celebrar lo vivido, disfrutar el presente y darte el valor de reconocer cuánto has avanzado.</p>
-        </article>
-        <article class="timeline-card glass reveal">
-          <span class="timeline-index">03 — LO QUE VIENE</span>
-          <h3>Una página en blanco</h3>
-          <p>Nuevas metas, ideas más grandes y la libertad de construir una historia que te represente.</p>
-        </article>
+
+      <div class="modes-grid">
+
+        <a href="survivalop.html" class="mode-card glass mode-survival reveal">
+          <div>
+            <div class="mode-top">
+              <span class="mode-number">MODALIDAD / 01</span>
+              <span class="mode-status">SURVIVALOP</span>
+            </div>
+
+            <div class="mode-icon" aria-hidden="true">✦</div>
+
+            <h3>SurvivalOP</h3>
+
+            <p>
+              Progresa, consigue recursos, mejora tu equipamiento
+              y demuestra de qué estás hecho en una aventura de supervivencia.
+            </p>
+          </div>
+
+          <div class="mode-link">
+            EXPLORAR MODALIDAD <span>↗</span>
+          </div>
+        </a>
+
+        <a href="extremo.html" class="mode-card glass mode-extreme reveal">
+          <div>
+            <div class="mode-top">
+              <span class="mode-number">MODALIDAD / 02</span>
+              <span class="mode-status">EXTREMO</span>
+            </div>
+
+            <div class="mode-icon" aria-hidden="true">◇</div>
+
+            <h3>Extremo</h3>
+
+            <p>
+              Entra en una experiencia más intensa, donde cada decisión
+              cuenta y sobrevivir puede convertirse en tu mayor desafío.
+            </p>
+          </div>
+
+          <div class="mode-link">
+            DESCUBRIR EXTREMO <span>↗</span>
+          </div>
+        </a>
+
+        <a href="kaizora.html" class="mode-card glass mode-community reveal">
+          <div>
+            <div class="mode-top">
+              <span class="mode-number">MODALIDAD / 03</span>
+              <span class="mode-status">MÁS POR DESCUBRIR</span>
+            </div>
+
+            <div class="mode-icon" aria-hidden="true">⌘</div>
+
+            <h3>El universo Kaizora</h3>
+
+            <p>
+              Explora el proyecto, conoce sus experiencias y mantente
+              al tanto de las novedades de la comunidad.
+            </p>
+          </div>
+
+          <div class="mode-link">
+            EXPLORAR KAIZORA <span>↗</span>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
+
+  <!-- CONEXIÓN AL SERVIDOR -->
 
   <section class="server-section" id="servidor">
     <div class="section-wrap">
+
       <div class="section-heading reveal">
-        <span class="section-label">03 / EL UNIVERSO</span>
-        <h2>Bienvenido a <span>Kaizora.</span></h2>
-        <p>El proyecto que también forma parte de esta historia. Entra al servidor, descubre sus modalidades y empieza a construir tu propio legado.</p>
+        <span class="section-label">03 / CONÉCTATE</span>
+        <h2>El siguiente paso<br>es <span>entrar al mundo.</span></h2>
+        <p>
+          Prepara Minecraft, copia la dirección correspondiente a tu edición
+          y únete a Kaizora Origins. Java y Bedrock tienen su propia conexión.
+        </p>
       </div>
 
       <div class="server-grid">
+
         <article class="server-card glass reveal">
           <h3>KAIZORA ORIGINS</h3>
-          <p>Una comunidad de Minecraft con progresión, desafíos y una aventura que puedes hacer tuya. Disponible para Java y Bedrock.</p>
+
+          <p>
+            Tu próxima aventura comienza aquí. Conecta desde Java o Bedrock
+            utilizando los datos de acceso de tu edición.
+          </p>
+
+          <div class="server-badges">
+            <span class="server-badge">JAVA EDITION</span>
+            <span class="server-badge">BEDROCK EDITION</span>
+            <span class="server-badge">COMUNIDAD KAIZORA</span>
+          </div>
 
           <div class="ip-list">
+
             <div class="ip-entry">
               <span class="ip-label">JAVA EDITION · DIRECCIÓN</span>
+
               <div class="ip-row">
                 <span class="ip-address" id="javaIP">kaizora.server-mc.net</span>
-                <button class="copy-btn" onclick="copyIP('javaIP','javaStatus')">COPIAR IP</button>
+
+                <button
+                  class="copy-btn"
+                  type="button"
+                  data-copy-target="javaIP"
+                  data-copy-status="javaStatus"
+                >COPIAR IP</button>
               </div>
-              <span class="copy-status" id="javaStatus">Dirección copiada.</span>
+
+              <span class="copy-status" id="javaStatus" aria-live="polite">
+                Dirección copiada.
+              </span>
             </div>
+
             <div class="ip-entry">
               <span class="ip-label">BEDROCK EDITION · IP Y PUERTO</span>
+
               <div class="ip-row">
                 <span class="ip-address" id="bedrockIP">66.165.236.178:50456</span>
-                <button class="copy-btn" onclick="copyIP('bedrockIP','bedrockStatus')">COPIAR IP</button>
+
+                <button
+                  class="copy-btn"
+                  type="button"
+                  data-copy-target="bedrockIP"
+                  data-copy-status="bedrockStatus"
+                >COPIAR IP</button>
               </div>
-              <span class="copy-status" id="bedrockStatus">Dirección copiada.</span>
+
+              <span class="copy-status" id="bedrockStatus" aria-live="polite">
+                Dirección copiada.
+              </span>
             </div>
+
           </div>
+
+          <p style="margin-top:17px;font-size:10px">
+            Si no consigues conectar, consulta los anuncios y las novedades
+            de la comunidad.
+          </p>
         </article>
 
         <article class="server-card discord-panel glass reveal">
           <div>
-            <div class="discord-symbol">K</div>
+            <div class="discord-symbol" aria-hidden="true">K</div>
+
             <h3>La comunidad te espera.</h3>
-            <p>Únete al Discord para conocer las novedades, hablar con otros jugadores y enterarte de los anuncios de Kaizora Origins.</p>
+
+            <p>
+              Únete al Discord oficial para conocer a otros jugadores,
+              consultar novedades, participar en la comunidad y enterarte
+              de los anuncios de Kaizora Origins.
+            </p>
           </div>
-          <a class="btn btn-primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">ENTRAR A DISCORD ↗</a>
+
+          <a
+            class="btn btn-primary"
+            href="https://discord.gg/sHvWgW7AE4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >ENTRAR A DISCORD ↗</a>
         </article>
+
       </div>
     </div>
   </section>
+
+  <!-- RANGOS -->
 
   <section class="ranks-section" id="rangos">
     <div class="section-wrap">
+
       <div class="section-heading reveal">
         <span class="section-label">04 / RANGOS OFICIALES</span>
-        <h2>Encuentra tu lugar<br>en <span>Kaizora.</span></h2>
-        <p>Conoce los rangos disponibles y elige el que mejor encaje con tu aventura. Consulta sus características antes de comprar.</p>
+        <h2>Sube de nivel.<br><span>Deja tu legado.</span></h2>
+        <p>
+          Descubre los rangos de Kaizora Origins, compara sus categorías
+          y consulta sus características antes de elegir el tuyo.
+        </p>
       </div>
 
       <div class="ranks-grid">
+
         <article class="rank glass origin reveal">
-          <div><div class="rank-name">ORIGIN</div><span class="rank-level">RANGO 01</span><p class="rank-description">Tu primer paso hacia una experiencia con ventajas adicionales.</p></div>
-          <div><div class="rank-price">$2.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-origin.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">ORIGIN</div>
+            <span class="rank-level">RANGO 01</span>
+            <p class="rank-description">
+              Tu primer paso hacia una experiencia con ventajas adicionales.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$2.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-origin.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass elite reveal">
-          <div><div class="rank-name">ELITE</div><span class="rank-level">RANGO 02</span><p class="rank-description">Un impulso adicional para seguir avanzando y progresar.</p></div>
-          <div><div class="rank-price">$4.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-elite.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">ELITE</div>
+            <span class="rank-level">RANGO 02</span>
+            <p class="rank-description">
+              Un impulso adicional para seguir avanzando y progresar.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$4.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-elite.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass celestial reveal">
-          <div><div class="rank-name">CELESTIAL</div><span class="rank-level">RANGO 03</span><p class="rank-description">Ventajas para quienes quieren llevar su experiencia más lejos.</p></div>
-          <div><div class="rank-price">$7.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-celestial.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">CELESTIAL</div>
+            <span class="rank-level">RANGO 03</span>
+            <p class="rank-description">
+              Ventajas para quienes quieren llevar su experiencia más lejos.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$7.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-celestial.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass majestad reveal">
-          <div><div class="rank-name">MAJESTAD</div><span class="rank-level">RANGO 04</span><p class="rank-description">Un rango de prestigio para destacar dentro de la comunidad.</p></div>
-          <div><div class="rank-price">$11.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-majestad.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">MAJESTAD</div>
+            <span class="rank-level">RANGO 04</span>
+            <p class="rank-description">
+              Un rango de prestigio para destacar dentro de la comunidad.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$11.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-majestad.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass guardian reveal">
-          <div><div class="rank-name">GUARDIAN</div><span class="rank-level">RANGO 05</span><p class="rank-description">Una experiencia avanzada para jugadores que buscan más.</p></div>
-          <div><div class="rank-price">$15.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-guardian.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">GUARDIAN</div>
+            <span class="rank-level">RANGO 05</span>
+            <p class="rank-description">
+              Una experiencia avanzada para jugadores que buscan más.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$15.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-guardian.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass semidios reveal">
-          <div><div class="rank-name">SEMIDIOS</div><span class="rank-level">RANGO 06</span><p class="rank-description">Un rango de alto nivel para llevar tu aventura a otro nivel.</p></div>
-          <div><div class="rank-price">$24.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-semidios.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">SEMIDIOS</div>
+            <span class="rank-level">RANGO 06</span>
+            <p class="rank-description">
+              Un rango de alto nivel para llevar tu aventura a otro nivel.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$24.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-semidios.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass dios reveal">
-          <div><div class="rank-name">DIOS</div><span class="rank-level">RANGO 07</span><p class="rank-description">Un rango de máxima categoría para consolidar tu legado.</p></div>
-          <div><div class="rank-price">$34.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-dios.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">DIOS</div>
+            <span class="rank-level">RANGO 07</span>
+            <p class="rank-description">
+              Un rango de máxima categoría para consolidar tu legado.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$34.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-dios.html">DETALLES</a>
+            </div>
+          </div>
         </article>
 
         <article class="rank glass kaizora rank-featured reveal">
-          <div><div class="rank-name">KAIZORA</div><span class="rank-level">RANGO 08 · EXCLUSIVO</span><p class="rank-description">El rango más exclusivo de la colección. La cima de la experiencia Kaizora.</p></div>
-          <div><div class="rank-price">$49.99 <small>USD</small></div><div class="rank-buttons"><a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a><a class="rank-info" href="rango-kaizora.html">DETALLES</a></div></div>
+          <div>
+            <div class="rank-name">KAIZORA</div>
+            <span class="rank-level">RANGO 08 · EXCLUSIVO</span>
+            <p class="rank-description">
+              El rango más exclusivo de la colección. La cima de la experiencia Kaizora.
+            </p>
+          </div>
+          <div>
+            <div class="rank-price">$49.99 <small>USD</small></div>
+            <div class="rank-buttons">
+              <a class="rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR</a>
+              <a class="rank-info" href="rango-kaizora.html">DETALLES</a>
+            </div>
+          </div>
         </article>
+
       </div>
+
+      <div class="section-action reveal">
+        <a class="btn btn-outline" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+          EXPLORAR LA TIENDA OFICIAL ↗
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <section>
+  <!-- TIENDA -->
+
+  <section class="store-section" id="tienda">
     <div class="section-wrap">
+
       <div class="section-heading reveal">
-        <span class="section-label">05 / LA TIENDA</span>
-        <h2>Hazlo a tu manera.</h2>
-        <p>Explora opciones de personalización y productos especiales para llevar tus partidas más allá.</p>
+        <span class="section-label">05 / PERSONALIZA TU EXPERIENCIA</span>
+        <h2>Tu aventura.<br><span>Tu propio estilo.</span></h2>
+        <p>
+          Explora los productos y las opciones de personalización
+          disponibles en Kaizora Origins.
+        </p>
       </div>
 
       <div class="store-grid">
+
         <article class="store-card glass reveal">
-          <div class="store-icon">✦</div>
+          <div class="store-icon" aria-hidden="true">✦</div>
           <span class="store-tag">CREA ALGO ÚNICO</span>
           <h3>Items personalizados</h3>
-          <p>Descubre las opciones para crear objetos y equipamiento personalizados para tu aventura en Kaizora Origins.</p>
-          <a class="btn btn-outline" href="items-personalizados.html">CREAR ITEMS ↗</a>
+          <p>
+            Descubre las opciones para crear objetos y equipamiento
+            personalizados para tu aventura en Kaizora Origins.
+          </p>
+          <a class="btn btn-outline" href="items-personalizados.html">
+            CREAR ITEMS ↗
+          </a>
         </article>
 
         <article class="store-card glass reveal">
-          <div class="store-icon">◇</div>
+          <div class="store-icon" aria-hidden="true">◇</div>
           <span class="store-tag">CATÁLOGO EXCLUSIVO</span>
           <h3>Objetos especiales</h3>
-          <p>Consulta el catálogo de objetos, herramientas, llaves y otros productos disponibles en la tienda.</p>
-          <a class="btn btn-outline" href="objetos-exclusivos.html">VER CATÁLOGO ↗</a>
+          <p>
+            Consulta el catálogo de objetos, herramientas, llaves
+            y otros productos disponibles.
+          </p>
+          <a class="btn btn-outline" href="objetos-exclusivos.html">
+            VER CATÁLOGO ↗
+          </a>
         </article>
+
       </div>
     </div>
   </section>
 
-  <section>
+  <!-- CREADORES DE CONTENIDO -->
+
+  <section class="streamer-section">
     <div class="section-wrap">
+
       <article class="streamer-card glass reveal">
         <div>
           <small>CREADORES DE CONTENIDO</small>
-          <h3>Rango STREAMER</h3>
-          <p>¿Creas contenido y quieres formar parte de Kaizora Origins de una manera especial? Consulta la información y los requisitos del rango para creadores.</p>
+          <h3>Forma parte de la historia.</h3>
+          <p>
+            ¿Creas contenido y quieres formar parte de Kaizora Origins
+            de una manera especial? Consulta la información y los requisitos
+            del rango para creadores.
+          </p>
         </div>
-        <a class="btn btn-outline" href="rango-streamer.html">CONSULTAR REQUISITOS ↗</a>
+
+        <a class="btn btn-outline" href="rango-streamer.html">
+          RANGO STREAMER ↗
+        </a>
       </article>
+
     </div>
   </section>
 
-  <section id="redes">
+  <!-- REDES Y COMUNIDAD -->
+
+  <section class="community-section" id="redes">
     <div class="section-wrap">
+
       <div class="section-heading reveal">
-        <span class="section-label">06 / CONECTA</span>
-        <h2>Nos vemos <span>por ahí.</span></h2>
-        <p>Sigue las redes para descubrir contenido, directos, novedades y todo lo relacionado con este proyecto.</p>
+        <span class="section-label">06 / CONECTA CON KAIZORA</span>
+        <h2>La aventura continúa<br><span>fuera del juego.</span></h2>
+        <p>
+          Sigue nuestras redes para descubrir contenido, directos,
+          novedades y todo lo relacionado con Kaizora Origins.
+        </p>
+      </div>
+
+      <div class="community-banner reveal">
+        <div>
+          <span class="section-label">NUESTRA COMUNIDAD</span>
+          <h3>El punto de encuentro es Discord.</h3>
+          <p>
+            Conversa con otros jugadores, mantente al día con los anuncios
+            y descubre lo que está pasando en el universo Kaizora.
+          </p>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href="https://discord.gg/sHvWgW7AE4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >UNIRME A DISCORD ↗</a>
       </div>
 
       <div class="social-grid">
+
         <article class="social-card glass reveal">
-          <div><span class="social-icon">01 / VIDEO</span><h3>YouTube</h3><p>Videos, contenido y novedades de Kaizora.</p></div>
-          <a href="https://www.youtube.com/@KaizoraOrigins.off_mc" target="_blank" rel="noopener noreferrer">@KAIZORAORIGINS ↗</a>
+          <div>
+            <span class="social-icon">01 / VIDEO</span>
+            <h3>YouTube</h3>
+            <p>Videos, contenido y novedades relacionadas con Kaizora.</p>
+          </div>
+          <a
+            href="https://www.youtube.com/@KaizoraOrigins.off_mc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >VISITAR CANAL ↗</a>
         </article>
 
         <article class="social-card glass reveal">
-          <div><span class="social-icon">02 / DIRECTO</span><h3>Kick</h3><p>Directos, Minecraft y momentos en vivo.</p></div>
-          <a href="https://kick.com/yosoyanthonyyy" target="_blank" rel="noopener noreferrer">VER CANAL ↗</a>
+          <div>
+            <span class="social-icon">02 / DIRECTO</span>
+            <h3>Kick</h3>
+            <p>Directos, Minecraft y momentos en vivo.</p>
+          </div>
+          <a
+            href="https://kick.com/yosoyanthonyyy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >VER CANAL ↗</a>
         </article>
 
         <article class="social-card glass reveal">
-          <div><span class="social-icon">03 / CLIPS</span><h3>TikTok</h3><p>Clips, momentos destacados y contenido corto.</p></div>
-          <a href="https://www.tiktok.com/@kaizoraoriginsoff?lang=es-419" target="_blank" rel="noopener noreferrer">VER PERFIL ↗</a>
+          <div>
+            <span class="social-icon">03 / CLIPS</span>
+            <h3>TikTok</h3>
+            <p>Clips, momentos destacados y contenido corto.</p>
+          </div>
+          <a
+            href="https://www.tiktok.com/@kaizoraoriginsoff?lang=es-419"
+            target="_blank"
+            rel="noopener noreferrer"
+          >VER PERFIL ↗</a>
         </article>
 
         <article class="social-card glass reveal">
-          <div><span class="social-icon">04 / COMUNIDAD</span><h3>Instagram</h3><p>Historias, publicaciones y novedades.</p></div>
-          <a href="https://www.instagram.com/kaizoraorigins.oficial.mc/" target="_blank" rel="noopener noreferrer">VER PERFIL ↗</a>
+          <div>
+            <span class="social-icon">04 / COMUNIDAD</span>
+            <h3>Instagram</h3>
+            <p>Historias, publicaciones y novedades del proyecto.</p>
+          </div>
+          <a
+            href="https://www.instagram.com/kaizoraorigins.oficial.mc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >VER PERFIL ↗</a>
         </article>
+
       </div>
     </div>
   </section>
+
+  <!-- CIERRE -->
 
   <section class="final-section">
     <div class="section-wrap reveal">
-      <div class="final-mark">08 · 12 · 2026 / UNA NUEVA ERA</div>
-      <h2 class="final-title">LEVEL<br><span>XVIII.</span></h2>
+
+      <div class="final-mark">KAIZORA ORIGINS / TU HISTORIA COMIENZA AQUÍ</div>
+
+      <h2 class="final-title">
+        THIS IS<br>
+        <span>KAIZORA.</span>
+      </h2>
+
       <p class="final-copy">
-        Dieciocho años de historia. Un mundo de posibilidades por delante.
-        Que lo que viene sea todavía más grande que todo lo que quedó atrás.
+        Un mundo donde cada jugador escribe su propia historia.
+        Entra, descubre lo que te espera y empieza a construir tu legado.
       </p>
+
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="#inicio">VOLVER AL INICIO ↑</a>
-        <a class="btn btn-outline" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">UNIRME A KAIZORA ↗</a>
+        <a class="btn btn-primary" href="#servidor">
+          ENTRAR AL SERVIDOR ↗
+        </a>
+
+        <a
+          class="btn btn-outline"
+          href="https://discord.gg/sHvWgW7AE4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >UNIRME A LA COMUNIDAD ↗</a>
       </div>
+
     </div>
   </section>
+
 </main>
 
 <footer>
-  <p>© 2026 <strong>ANTHONY XVIII · KAIZORA ORIGINS</strong></p>
-  <p class="footer-date">08.12.2026 · UNA NUEVA ERA COMIENZA</p>
-  <p style="margin-top:10px">Minecraft es una marca de Mojang Studios. Este proyecto es independiente.</p>
+  <div class="footer-brand">KAIZORA <span>ORIGINS</span></div>
+
+  <p>
+    Un mundo donde cada jugador escribe su propia historia.
+  </p>
+
+  <div class="footer-links">
+    <a href="#inicio">INICIO</a>
+    <a href="#modalidades">MODALIDADES</a>
+    <a href="#rangos">RANGOS</a>
+    <a href="#tienda">TIENDA</a>
+    <a href="#redes">COMUNIDAD</a>
+    <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">DISCORD ↗</a>
+  </div>
+
+  <p>© 2026 <strong>KAIZORA ORIGINS</strong>. Todos los derechos reservados.</p>
+
+  <p class="footer-note">
+    Minecraft es una marca de Mojang Studios. Kaizora Origins es un proyecto independiente.
+  </p>
 </footer>
 
 <script>
-/* Menú para móviles */
+/* =========================================
+   MENÚ MÓVIL
+========================================= */
+
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
-menuToggle.addEventListener('click', () => {
+function closeMenu(){
+  navLinks.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+  menuToggle.setAttribute('aria-label','Abrir menú');
+  menuToggle.textContent = '☰';
+  document.body.classList.remove('menu-open');
+}
+
+menuToggle.addEventListener('click',()=>{
   const isOpen = navLinks.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
+
+  menuToggle.setAttribute('aria-expanded',String(isOpen));
+  menuToggle.setAttribute(
+    'aria-label',
+    isOpen ? 'Cerrar menú' : 'Abrir menú'
+  );
   menuToggle.textContent = isOpen ? '✕' : '☰';
+
+  document.body.classList.toggle('menu-open',isOpen);
 });
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.textContent = '☰';
-  });
+navLinks.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',closeMenu);
 });
 
-/* Brillo sutil que sigue el cursor */
+document.addEventListener('keydown',event=>{
+  if(event.key === 'Escape') closeMenu();
+});
+
+window.addEventListener('resize',()=>{
+  if(window.innerWidth > 760) closeMenu();
+});
+
+
+/* =========================================
+   BRILLO QUE SIGUE EL CURSOR
+========================================= */
+
 const cursorGlow = document.getElementById('cursorGlow');
+const reducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+).matches;
+
 let cursorFrame = null;
 
-document.addEventListener('mousemove', event => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (cursorFrame) cancelAnimationFrame(cursorFrame);
-  cursorFrame = requestAnimationFrame(() => {
-    cursorGlow.style.left = event.clientX + 'px';
-    cursorGlow.style.top = event.clientY + 'px';
-  });
-});
+if(!reducedMotion && window.matchMedia('(pointer:fine)').matches){
+  document.addEventListener('mousemove',event=>{
+    if(cursorFrame) cancelAnimationFrame(cursorFrame);
 
-/* Campo de estrellas, sin librerías externas */
+    cursorFrame = requestAnimationFrame(()=>{
+      cursorGlow.style.left = event.clientX + 'px';
+      cursorGlow.style.top = event.clientY + 'px';
+    });
+  });
+}
+
+
+/* =========================================
+   PARTÍCULAS Y ESTRELLAS
+   Sin librerías externas.
+========================================= */
+
 const canvas = document.getElementById('stars');
 const ctx = canvas.getContext('2d');
+
 let stars = [];
 let canvasWidth = 0;
 let canvasHeight = 0;
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let starAnimation = null;
 
-function resizeStars() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+function createStars(){
+  const amount = Math.min(
+    150,
+    Math.max(
+      35,
+      Math.floor(canvasWidth * canvasHeight / 8500)
+    )
+  );
+
+  stars = Array.from({length:amount},()=>({
+    x:Math.random() * canvasWidth,
+    y:Math.random() * canvasHeight,
+    radius:Math.random() * 1.3 + .25,
+    alpha:Math.random() * .55 + .15,
+    phase:Math.random() * Math.PI * 2,
+    speed:Math.random() * .0015 + .0004,
+    drift:(Math.random() - .5) * .035
+  }));
+}
+
+function resizeStars(){
+  const dpr = Math.min(window.devicePixelRatio || 1,2);
+
   canvasWidth = window.innerWidth;
   canvasHeight = window.innerHeight;
+
   canvas.width = Math.floor(canvasWidth * dpr);
   canvas.height = Math.floor(canvasHeight * dpr);
+
   canvas.style.width = canvasWidth + 'px';
   canvas.style.height = canvasHeight + 'px';
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-  const amount = Math.min(115, Math.floor(canvasWidth * canvasHeight / 10500));
-  stars = Array.from({length: amount}, () => ({
-    x: Math.random() * canvasWidth,
-    y: Math.random() * canvasHeight,
-    radius: Math.random() * 1.25 + .25,
-    alpha: Math.random() * .6 + .15,
-    phase: Math.random() * Math.PI * 2,
-    speed: Math.random() * .012 + .003
-  }));
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+
+  createStars();
   drawStars(0);
 }
 
-function drawStars(time) {
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-  for (const star of stars) {
-    const pulse = reducedMotion ? 1 : .65 + Math.sin(time * star.speed + star.phase) * .35;
+function drawStars(time){
+  ctx.clearRect(0,0,canvasWidth,canvasHeight);
+
+  for(const star of stars){
+    const pulse = reducedMotion
+      ? 1
+      : .65 + Math.sin(time * star.speed + star.phase) * .35;
+
+    if(!reducedMotion){
+      star.y -= .025;
+      star.x += star.drift;
+
+      if(star.y < -3) star.y = canvasHeight + 3;
+      if(star.x < -3) star.x = canvasWidth + 3;
+      if(star.x > canvasWidth + 3) star.x = -3;
+    }
+
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.arc(star.x,star.y,star.radius,0,Math.PI * 2);
     ctx.fillStyle = `rgba(235,211,255,${star.alpha * pulse})`;
     ctx.fill();
   }
-  if (!reducedMotion) requestAnimationFrame(drawStars);
+
+  if(!reducedMotion){
+    starAnimation = requestAnimationFrame(drawStars);
+  }
 }
-window.addEventListener('resize', resizeStars);
+
+window.addEventListener('resize',()=>{
+  if(starAnimation) cancelAnimationFrame(starAnimation);
+  resizeStars();
+});
+
 resizeStars();
 
-/* Cuenta atrás para el 8 de diciembre de 2026.
-   Se usa una hora local de referencia; puede ajustarse si se desea una hora exacta. */
-const birthdayDate = new Date(2026, 11, 8, 0, 0, 0);
 
-function updateCountdown() {
-  const now = new Date();
-  let remaining = birthdayDate.getTime() - now.getTime();
+/* =========================================
+   COPIAR IP JAVA / BEDROCK
+========================================= */
 
-  if (remaining <= 0) {
-    document.getElementById('days').textContent = '00';
-    document.getElementById('hours').textContent = '00';
-    document.getElementById('minutes').textContent = '00';
-    document.getElementById('seconds').textContent = '00';
-    document.getElementById('countdownNote').innerHTML =
-      '<strong>La fecha ha llegado.</strong> Feliz cumpleaños. Que comience una nueva era.';
-    return;
+async function copyText(text){
+  if(navigator.clipboard && window.isSecureContext){
+    await navigator.clipboard.writeText(text);
+    return true;
   }
 
-  const days = Math.floor(remaining / 86400000);
-  remaining %= 86400000;
-  const hours = Math.floor(remaining / 3600000);
-  remaining %= 3600000;
-  const minutes = Math.floor(remaining / 60000);
-  const seconds = Math.floor((remaining % 60000) / 1000);
+  const helper = document.createElement('textarea');
 
-  document.getElementById('days').textContent = String(days).padStart(2, '0');
-  document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  helper.value = text;
+  helper.setAttribute('readonly','');
+  helper.style.position = 'fixed';
+  helper.style.left = '-9999px';
+  helper.style.top = '0';
+
+  document.body.appendChild(helper);
+  helper.select();
+  helper.setSelectionRange(0,helper.value.length);
+
+  const success = document.execCommand('copy');
+
+  helper.remove();
+
+  if(!success) throw new Error('No se pudo copiar');
+
+  return true;
 }
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
-/* Copiar las direcciones del servidor */
-async function copyIP(valueId, statusId) {
-  const ip = document.getElementById(valueId).textContent.trim();
-  const status = document.getElementById(statusId);
+document.querySelectorAll('[data-copy-target]').forEach(button=>{
+  button.addEventListener('click',async()=>{
+    const valueId = button.dataset.copyTarget;
+    const statusId = button.dataset.copyStatus;
 
-  try {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(ip);
-    } else {
-      const helper = document.createElement('textarea');
-      helper.value = ip;
-      helper.style.position = 'fixed';
-      helper.style.opacity = '0';
-      document.body.appendChild(helper);
-      helper.select();
-      const success = document.execCommand('copy');
-      helper.remove();
-      if (!success) throw new Error('No se pudo copiar');
+    const valueElement = document.getElementById(valueId);
+    const status = document.getElementById(statusId);
+
+    if(!valueElement || !status) return;
+
+    const ip = valueElement.textContent.trim();
+
+    try{
+      await copyText(ip);
+
+      status.textContent = '✓ DIRECCIÓN COPIADA';
+      status.classList.add('show');
+
+      button.textContent = 'COPIADA';
+
+      window.setTimeout(()=>{
+        status.classList.remove('show');
+        button.textContent = 'COPIAR IP';
+      },2400);
+
+    }catch(error){
+      window.prompt('Copia esta dirección:',ip);
     }
-    status.textContent = '✓ DIRECCIÓN COPIADA';
-    status.classList.add('show');
-  } catch (error) {
-    window.prompt('Copia esta dirección:', ip);
-  }
+  });
+});
 
-  window.setTimeout(() => status.classList.remove('show'), 2400);
-}
 
-/* Animación de entrada al desplazarse */
+/* =========================================
+   ANIMACIONES AL DESPLAZARSE
+========================================= */
+
 const revealItems = document.querySelectorAll('.reveal');
 
-if ('IntersectionObserver' in window && !reducedMotion) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+if('IntersectionObserver' in window && !reducedMotion){
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, {threshold: 0.12});
+  },{
+    threshold:0.10,
+    rootMargin:'0px 0px -25px 0px'
+  });
 
-  revealItems.forEach(item => observer.observe(item));
-} else {
-  revealItems.forEach(item => item.classList.add('visible'));
+  revealItems.forEach(item=>observer.observe(item));
+}else{
+  revealItems.forEach(item=>item.classList.add('visible'));
 }
 </script>
+
 </body>
 </html>
