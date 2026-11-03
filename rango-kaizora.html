@@ -20,7 +20,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -140,6 +139,29 @@ main{
     pointer-events:none;
 }
 
+/* KAIZORA: título primero, categoría debajo */
+h1{
+    display:block;
+    width:fit-content;
+    max-width:100%;
+    margin:0 0 20px;
+    font-size:clamp(52px,10vw,100px);
+    line-height:.98;
+    font-weight:1000;
+    letter-spacing:-5px;
+    background:linear-gradient(
+        110deg,
+        #ffffff 5%,
+        #e5caff 30%,
+        var(--purple) 58%,
+        var(--magenta) 88%
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 0 25px rgba(255,109,225,.16));
+}
+
 .label{
     display:inline-flex;
     align-items:center;
@@ -158,26 +180,6 @@ main{
     height:2px;
     background:linear-gradient(90deg,var(--purple),var(--magenta));
     box-shadow:0 0 12px rgba(255,109,225,.5);
-}
-
-h1{
-    display:inline-block;
-    margin:0 0 18px;
-    font-size:clamp(52px,10vw,100px);
-    line-height:.98;
-    font-weight:1000;
-    letter-spacing:-5px;
-    background:linear-gradient(
-        110deg,
-        #ffffff 5%,
-        #e5caff 30%,
-        var(--purple) 58%,
-        var(--magenta) 88%
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    filter:drop-shadow(0 0 25px rgba(255,109,225,.16));
 }
 
 .desc{
@@ -337,7 +339,6 @@ h1{
 }
 
 /* COMANDOS EXCLUSIVOS */
-
 .command-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -391,7 +392,6 @@ h1{
 }
 
 /* DESPLEGABLES */
-
 details{
     margin-top:18px;
     border:1px solid rgba(255,109,225,.2);
@@ -425,7 +425,6 @@ summary::after{
 }
 
 details[open] summary::after{content:"−"}
-
 summary:hover{background:rgba(255,109,225,.06)}
 
 .shulker-content{
@@ -510,7 +509,6 @@ footer span{
     }
 
     nav a{font-size:11px}
-
     nav a.home{display:none}
 
     .discord{
@@ -520,11 +518,8 @@ footer span{
     }
 
     main{padding:65px 5% 75px}
-
     h1{letter-spacing:-2.5px}
-
     .desc{font-size:15px}
-
     .price{font-size:40px}
 
     .box{
@@ -533,15 +528,10 @@ footer span{
     }
 
     .command-grid{grid-template-columns:1fr}
-
     .shulker-content{padding:5px 14px 18px}
-
     .shulker-content ul{grid-template-columns:1fr}
-
     .command-card{padding:19px}
-
     .btn{width:100%}
-
     .hero-divider{margin-top:38px}
 }
 
@@ -580,9 +570,9 @@ footer span{
 
     <header class="hero">
 
-        <div class="label">RANGO MÁXIMO</div>
-
         <h1>KAIZORA</h1>
+
+        <div class="label">RANGO MÁXIMO</div>
 
         <p class="desc">
             El rango más exclusivo y poderoso de Kaizora Origins,
@@ -637,8 +627,6 @@ footer span{
 
         </div>
 
-        <!-- COMANDOS EXCLUSIVOS -->
-
         <div class="section">
 
             <h3>Comandos exclusivos de KAIZORA</h3>
@@ -652,7 +640,6 @@ footer span{
 
                 <div class="command-card">
                     <span class="command-tag">Personalización</span>
-
                     <span class="command-name">/nick</span>
 
                     <p class="command-description">
@@ -665,7 +652,6 @@ footer span{
 
                 <div class="command-card">
                     <span class="command-tag">Teletransporte</span>
-
                     <span class="command-name">/tpahere</span>
 
                     <p class="command-description">
@@ -679,8 +665,6 @@ footer span{
 
         </div>
 
-        <!-- HERRAMIENTAS -->
-
         <div class="section">
 
             <h3>Dos sets de herramientas de Netherite</h3>
@@ -690,12 +674,9 @@ footer span{
 
                 <div class="shulker-content">
 
-                    <p>
-                        Todos los siguientes objetos se entregan en cantidad ×2.
-                    </p>
+                    <p>Todos los siguientes objetos se entregan en cantidad ×2.</p>
 
                     <h3>Espada de Netherite</h3>
-
                     <ul>
                         <li>Filo X (10)</li>
                         <li>Golpeo X</li>
@@ -705,7 +686,6 @@ footer span{
                     </ul>
 
                     <h3>Pico de Netherite</h3>
-
                     <ul>
                         <li>Fortuna VIII</li>
                         <li>Eficiencia X</li>
@@ -713,7 +693,6 @@ footer span{
                     </ul>
 
                     <h3>Hacha de Netherite</h3>
-
                     <ul>
                         <li>Eficiencia X</li>
                         <li>Irrompibilidad X</li>
@@ -721,7 +700,6 @@ footer span{
                     </ul>
 
                     <h3>Pala de Netherite</h3>
-
                     <ul>
                         <li>Eficiencia X</li>
                         <li>Irrompibilidad X</li>
@@ -732,8 +710,6 @@ footer span{
             </details>
 
         </div>
-
-        <!-- ARMADURAS -->
 
         <div class="section">
 
@@ -744,12 +720,9 @@ footer span{
 
                 <div class="shulker-content">
 
-                    <p>
-                        Cada pieza de armadura se entrega en cantidad ×2.
-                    </p>
+                    <p>Cada pieza de armadura se entrega en cantidad ×2.</p>
 
                     <h3>Casco de Netherite</h3>
-
                     <ul>
                         <li>Protección X</li>
                         <li>Protección contra proyectiles X</li>
@@ -759,7 +732,6 @@ footer span{
                     </ul>
 
                     <h3>Pechera de Netherite</h3>
-
                     <ul>
                         <li>Protección X</li>
                         <li>Protección contra proyectiles X</li>
@@ -769,7 +741,6 @@ footer span{
                     </ul>
 
                     <h3>Pantalón de Netherite</h3>
-
                     <ul>
                         <li>Protección X</li>
                         <li>Protección contra proyectiles X</li>
@@ -779,7 +750,6 @@ footer span{
                     </ul>
 
                     <h3>Botas de Netherite</h3>
-
                     <ul>
                         <li>Protección X</li>
                         <li>Protección contra proyectiles X</li>
@@ -793,8 +763,6 @@ footer span{
 
         </div>
 
-        <!-- TOTEMS -->
-
         <div class="section">
 
             <h3>+2 tótems personalizados</h3>
@@ -803,7 +771,6 @@ footer span{
                 <summary>Ver contenido de los tótems</summary>
 
                 <div class="shulker-content">
-
                     <ul>
                         <li>Tótems de la Inmortalidad ×2</li>
                         <li>
@@ -815,13 +782,10 @@ footer span{
                             <strong>12 corazones</strong>.
                         </li>
                     </ul>
-
                 </div>
             </details>
 
         </div>
-
-        <!-- ESCUDOS -->
 
         <div class="section">
 
@@ -845,8 +809,6 @@ footer span{
 
         </div>
 
-        <!-- LLAVE -->
-
         <div class="section">
 
             <h3>+1 llave Kaizora</h3>
@@ -855,11 +817,9 @@ footer span{
                 <summary>Ver contenido de la llave Kaizora</summary>
 
                 <div class="shulker-content">
-
                     <ul>
                         <li>Llave Kaizora ×1</li>
                     </ul>
-
                 </div>
             </details>
 
