@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GUARDIAN | Kaizora Origins</title>
 <meta name="theme-color" content="#080b10">
 <meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins, sus comandos exclusivos, equipamiento y beneficios.">
+<title>GUARDIAN | Kaizora Origins</title>
 
 <style>
 :root{
-    --bg:#080b10;
+    --bg:#070711;
+    --panel:#101322;
     --rank:#42dc82;
     --rank-light:#b0ffd0;
+    --rank-pale:#e0ffec;
     --purple:#9365ff;
     --pink:#ff6de1;
-    --white:#f7f8fb;
+    --white:#fff;
+    --text:#e8eaff;
     --muted:#b8bec8;
-    --border:rgba(66,220,130,.22);
+    --border:rgba(66,220,130,.25);
 }
 
 *{box-sizing:border-box}
@@ -39,38 +42,38 @@ a{color:inherit}
     z-index:-2;
     pointer-events:none;
     background:
-        radial-gradient(ellipse at 18% 12%,rgba(66,220,130,.13),transparent 37%),
-        radial-gradient(ellipse at 83% 35%,rgba(147,101,255,.13),transparent 36%),
-        radial-gradient(ellipse at 50% 95%,rgba(255,109,225,.07),transparent 38%),
-        #080b10;
+        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.20),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(66,220,130,.12),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.09),transparent 40%),
+        #070711;
 }
 
 .bg::after{
     content:"";
     position:absolute;
     inset:0;
-    opacity:.15;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:42px 42px;
+    opacity:.16;
+    background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
+    background-size:27px 27px;
     mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
 }
 
+/* NAVEGACIÓN */
+
 nav{
-    position:sticky;
-    top:0;
-    z-index:20;
     min-height:76px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:18px;
-    padding:0 7%;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(8,11,16,.88);
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(66,220,130,.18);
+    background:rgba(7,7,17,.87);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
+    position:relative;
+    z-index:5;
 }
 
 .logo{
@@ -80,204 +83,195 @@ nav{
     white-space:nowrap;
 }
 
-.logo span{
-    background:linear-gradient(90deg,var(--rank),var(--rank-light));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
+.logo span{color:var(--rank-light)}
 
 nav a{
     text-decoration:none;
-    color:#d4d8e0;
+    color:#d4d9eb;
     font-size:13px;
     font-weight:850;
 }
 
-nav a.home{
-    margin-left:auto;
-    transition:color .2s;
-}
-
-nav a.home:hover{color:var(--rank)}
+nav a.home:hover{color:white}
 
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#7950ed,#a76bff);
+    background:linear-gradient(110deg,#7050df,#9365ff);
     color:white!important;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 5px 22px rgba(147,101,255,.19);
-    transition:transform .2s,box-shadow .2s;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 5px 24px rgba(147,101,255,.25);
+    transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 30px rgba(147,101,255,.34);
+    box-shadow:0 8px 32px rgba(147,101,255,.4);
 }
+
+/* PRESENTACIÓN */
 
 main{
     max-width:1100px;
     margin:0 auto;
-    padding:78px 4.5% 95px;
+    padding:85px 6% 100px;
 }
 
 .hero{
-    position:relative;
-    padding:10px 0 38px;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    width:340px;
-    height:230px;
-    top:-40px;
-    left:-60px;
-    background:radial-gradient(ellipse,rgba(66,220,130,.11),transparent 70%);
-    pointer-events:none;
-}
-
-h1{
-    display:block;
-    width:fit-content;
-    max-width:100%;
-    margin:0 0 15px;
-    font-size:clamp(49px,9vw,94px);
-    line-height:.98;
-    font-weight:1000;
-    letter-spacing:-4.5px;
-    background:linear-gradient(
-        110deg,
-        #ffffff 5%,
-        var(--rank-light) 35%,
-        var(--rank) 65%,
-        #8bffb5 90%
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    filter:drop-shadow(0 0 25px rgba(66,220,130,.13));
+    padding-bottom:38px;
+    animation:appear .65s ease both;
 }
 
 .label{
     display:inline-flex;
     align-items:center;
-    gap:10px;
-    margin:0 0 18px;
-    color:var(--rank);
+    gap:9px;
+    color:var(--rank-pale);
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
-    text-transform:uppercase;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(66,220,130,.4);
+    border-radius:6px;
+    background:rgba(66,220,130,.09);
+    box-shadow:0 0 25px rgba(66,220,130,.08);
 }
 
 .label::before{
     content:"";
-    width:24px;
-    height:2px;
-    background:linear-gradient(90deg,var(--rank),var(--purple));
-    box-shadow:0 0 12px rgba(66,220,130,.5);
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--rank);
+    box-shadow:0 0 13px var(--rank);
+}
+
+h1{
+    font-size:clamp(52px,10vw,100px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    overflow-wrap:anywhere;
+    background:linear-gradient(100deg,#fff 5%,#e0ffec 30%,#42dc82 65%,#8bffb5 92%);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 0 25px rgba(66,220,130,.13));
 }
 
 .desc{
     max-width:720px;
-    color:var(--muted);
+    color:#c4c9dc;
     font-size:17px;
     line-height:1.85;
     margin:0;
 }
 
-.price-row{
+.price-wrap{
     display:flex;
     align-items:center;
+    gap:14px;
     flex-wrap:wrap;
-    gap:15px;
-    margin:30px 0 24px;
+}
+
+.price-label{
+    display:block;
+    color:#aeb9d7;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
 }
 
 .price{
     font-size:46px;
-    line-height:1;
     font-weight:1000;
-    letter-spacing:-1.5px;
+    letter-spacing:-2px;
     color:var(--rank);
-    text-shadow:0 0 24px rgba(66,220,130,.2);
+    text-shadow:0 0 25px rgba(66,220,130,.25);
+}
+
+.price-note{
+    color:#b6c4dc;
+    font-size:12px;
+    line-height:1.6;
 }
 
 .price-tag{
     padding:8px 12px;
     border-radius:6px;
-    border:1px solid rgba(66,220,130,.25);
-    background:rgba(66,220,130,.07);
-    color:var(--rank-light);
+    border:1px solid rgba(66,220,130,.28);
+    background:rgba(66,220,130,.08);
+    color:var(--rank-pale);
     font-size:10px;
     font-weight:950;
-    letter-spacing:1.4px;
+    letter-spacing:1.2px;
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
 
 .actions{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
-    margin-top:25px;
 }
 
 .btn{
     display:inline-flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     padding:15px 22px;
-    min-height:48px;
     border-radius:9px;
     text-decoration:none;
     font-weight:950;
     font-size:12px;
     letter-spacing:.4px;
-    border:1px solid rgba(255,255,255,.14);
-    transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
 }
 
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
     color:#07160d;
-    background:linear-gradient(100deg,var(--rank),var(--rank-light));
-    border-color:transparent;
-    box-shadow:0 6px 24px rgba(66,220,130,.13);
+    border-color:var(--rank-light);
+    background:linear-gradient(110deg,var(--rank),var(--rank-light));
+    box-shadow:0 5px 24px rgba(66,220,130,.2);
 }
 
-.primary:hover{box-shadow:0 8px 30px rgba(66,220,130,.27)}
+.primary:hover{box-shadow:0 8px 32px rgba(66,220,130,.35)}
 
 .back{
-    color:#dedfeb;
-    background:rgba(255,255,255,.025);
+    color:#e2eaff;
+    background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:rgba(66,220,130,.55);
-    background:rgba(66,220,130,.05);
+    border-color:var(--purple);
+    background:rgba(147,101,255,.1);
 }
 
-.hero-divider{
-    width:100%;
-    height:1px;
-    margin-top:48px;
-    background:linear-gradient(90deg,rgba(66,220,130,.4),rgba(147,101,255,.22),transparent);
-}
-
-/* CONTENEDOR PRINCIPAL */
+/* PANEL PRINCIPAL */
 
 .box{
     position:relative;
     margin-top:30px;
-    padding:clamp(20px,3.5vw,34px);
+    padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
-    border-radius:18px;
-    background:linear-gradient(145deg,rgba(16,22,23,.96),rgba(10,13,17,.96));
-    box-shadow:0 22px 70px rgba(0,0,0,.23);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(17,20,35,.97),rgba(9,10,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(66,220,130,.045);
     overflow:hidden;
+    animation:appear .8s ease both;
 }
 
 .box::before{
@@ -286,41 +280,49 @@ h1{
     top:0;
     left:8%;
     right:8%;
-    height:1px;
+    height:2px;
     background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent);
-    opacity:.75;
 }
 
 .box h2{
-    margin:0 0 27px;
-    font-size:clamp(24px,4vw,31px);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
     font-weight:950;
-    letter-spacing:-.8px;
 }
 
-.box h2::after{
+.box h2::before{
     content:"";
-    display:block;
-    width:48px;
-    height:3px;
-    margin-top:14px;
-    border-radius:5px;
-    background:linear-gradient(90deg,var(--rank),var(--purple));
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(var(--rank),var(--purple));
+    box-shadow:0 0 16px rgba(66,220,130,.35);
+    flex-shrink:0;
+}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f4f8ff;
+    font-size:18px;
+    font-weight:950;
 }
 
 .box p{
     color:var(--muted);
-    line-height:1.85;
-    margin:8px 0;
+    line-height:1.8;
+    margin:9px 0;
     font-size:14px;
 }
 
-/* SECCIONES NUMERADAS */
+/* SECCIONES */
 
 .section{
-    margin-top:36px;
+    margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.09);
+    border-top:1px solid rgba(66,220,130,.15);
 }
 
 .section:first-of-type{
@@ -332,151 +334,172 @@ h1{
 .section-heading{
     display:flex;
     align-items:center;
-    gap:14px;
-    margin-bottom:22px;
+    gap:12px;
+    margin-bottom:16px;
 }
 
 .section-number{
-    flex:0 0 46px;
-    width:46px;
-    height:46px;
     display:flex;
     align-items:center;
     justify-content:center;
+    flex-shrink:0;
+    width:46px;
+    height:46px;
+    border-radius:12px;
     border:1px solid rgba(66,220,130,.35);
-    border-radius:13px;
-    background:linear-gradient(145deg,rgba(66,220,130,.18),rgba(147,101,255,.13));
+    background:linear-gradient(145deg,rgba(66,220,130,.17),rgba(147,101,255,.13));
     color:#d8ffe7;
-    font-size:19px;
+    font-size:16px;
     font-weight:1000;
-    letter-spacing:-.5px;
-    box-shadow:inset 0 0 18px rgba(66,220,130,.035);
+    box-shadow:inset 0 0 16px rgba(66,220,130,.06);
 }
 
-.section-heading-text{
-    min-width:0;
-}
+.section-heading-text{min-width:0}
 
 .section-heading h3{
     margin:0;
-    color:#f7f8fb;
-    font-size:clamp(18px,2.5vw,23px);
-    font-weight:950;
-    letter-spacing:-.45px;
+    font-size:clamp(18px,2.6vw,23px);
     line-height:1.3;
+    color:#f7f8fb;
 }
 
 .section-subtitle{
     margin:5px 0 0!important;
-    color:#aeb8c5!important;
-    font-size:13px!important;
-    line-height:1.6!important;
+    font-size:12px!important;
+    color:#a7b8d4!important;
 }
 
-/* TARJETAS NUMERADAS DE COMANDOS */
-
-.command-intro{
-    margin:0 0 20px!important;
-    color:#c0c8d3!important;
-    font-size:15px!important;
+.section-intro{
+    margin-bottom:18px!important;
+    color:#c4c9dc!important;
+    font-size:14px!important;
     line-height:1.9!important;
 }
+
+/* COMANDOS: ESTILO CELESTIAL */
 
 .command-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:16px;
-    margin-top:20px;
+    gap:15px;
+    margin-top:19px;
 }
 
 .command-card{
     position:relative;
+    overflow:hidden;
     min-width:0;
     padding:23px;
-    border:1px solid rgba(66,220,130,.28);
-    border-radius:15px;
+    border:1px solid rgba(66,220,130,.35);
+    border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 100%,rgba(66,220,130,.07),transparent 42%),
-        linear-gradient(135deg,rgba(66,220,130,.105),rgba(147,101,255,.055),rgba(12,17,23,.7));
-    overflow:hidden;
-    transition:transform .2s,border-color .2s,box-shadow .2s;
+        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
+        linear-gradient(135deg,rgba(25,112,75,.18),rgba(15,17,34,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
 }
 
 .command-card::before{
     content:"";
     position:absolute;
-    left:0;
     top:0;
-    bottom:0;
+    left:0;
     width:4px;
-    background:linear-gradient(180deg,var(--rank),#79a9ff,var(--pink));
+    height:100%;
+    background:linear-gradient(var(--rank),var(--purple));
+    box-shadow:0 0 15px rgba(66,220,130,.2);
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(147,101,255,.15);
+    filter:blur(12px);
+    pointer-events:none;
 }
 
 .command-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(66,220,130,.65);
-    box-shadow:0 10px 32px rgba(66,220,130,.07);
+    border-color:rgba(66,220,130,.75);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(66,220,130,.09);
 }
 
 .command-top{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:12px;
-    margin-bottom:19px;
+    gap:10px;
+    margin-bottom:15px;
 }
 
 .command-number{
     display:flex;
     align-items:center;
     justify-content:center;
-    flex:0 0 36px;
     width:36px;
     height:36px;
-    border:1px solid rgba(66,220,130,.4);
+    flex-shrink:0;
     border-radius:10px;
+    color:#e2ffec;
     background:rgba(66,220,130,.13);
-    color:#d8ffe7;
-    font-size:13px;
-    font-weight:1000;
+    border:1px solid rgba(66,220,130,.3);
+    font-size:12px;
+    font-weight:950;
 }
 
 .command-tag{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    max-width:70%;
-    padding:7px 10px;
-    border:1px solid rgba(66,220,130,.25);
+    color:#d8ffe7;
+    background:rgba(147,101,255,.1);
+    border:1px solid rgba(147,101,255,.3);
     border-radius:5px;
-    background:rgba(66,220,130,.09);
-    color:var(--rank-light);
-    font-size:10px;
+    padding:6px 9px;
+    font-size:9px;
     font-weight:950;
-    letter-spacing:1px;
+    letter-spacing:1.3px;
     text-transform:uppercase;
     text-align:center;
 }
 
 .command-name{
     display:block;
-    margin:0 0 13px;
+    margin-bottom:11px;
     color:#8bffb5;
-    font-size:clamp(21px,3vw,27px);
-    font-weight:1000;
+    font-size:25px;
     line-height:1.25;
+    font-weight:1000;
+    letter-spacing:.2px;
     overflow-wrap:anywhere;
-    font-family:Consolas,Monaco,monospace;
+    text-shadow:0 0 22px rgba(66,220,130,.2);
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 .command-description{
     margin:0!important;
-    color:#c4cbd0!important;
+    color:#d0dced!important;
     font-size:14px!important;
     line-height:1.85!important;
 }
 
-/* TARJETAS DE EQUIPAMIENTO */
+.command-note{
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(66,220,130,.22);
+    border-left:4px solid var(--rank);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(66,220,130,.09),rgba(147,101,255,.04));
+    color:#c0cde0;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.command-note strong{color:#e0ffec}
+
+/* EQUIPAMIENTO */
 
 .info-list{
     list-style:none;
@@ -490,57 +513,64 @@ h1{
 .info-list li{
     min-width:0;
     padding:15px;
-    border:1px solid rgba(66,220,130,.13);
+    border:1px solid rgba(66,220,130,.17);
     border-radius:10px;
-    background:linear-gradient(135deg,rgba(66,220,130,.045),rgba(255,255,255,.018));
-    color:var(--muted);
-    line-height:1.75;
-    font-size:13px;
+    background:linear-gradient(120deg,rgba(66,220,130,.055),rgba(255,255,255,.018));
+    color:#cbd7eb;
+    line-height:1.7;
     overflow-wrap:anywhere;
-    transition:background .2s,border-color .2s,transform .2s;
+    transition:border-color .2s,background .2s,transform .2s;
 }
 
 .info-list li:hover{
-    transform:translateY(-2px);
-    border-color:rgba(66,220,130,.3);
-    background:rgba(66,220,130,.045);
+    border-color:rgba(147,101,255,.55);
+    background:rgba(66,220,130,.07);
+    transform:translateY(-1px);
 }
 
 .item-name{
-    color:#f9fbf9;
+    color:#f2f7ff;
     font-weight:900;
 }
 
-.item-details{color:#b0b7bd}
-
-/* MENSAJES DESTACADOS */
-
-.inherit{
-    margin-top:22px;
-    padding:20px;
-    border:1px solid rgba(66,220,130,.2);
-    border-left:4px solid var(--rank);
-    border-radius:0 12px 12px 0;
-    background:linear-gradient(120deg,rgba(66,220,130,.075),rgba(147,101,255,.045));
-    color:var(--muted);
-    line-height:1.9;
-    font-size:14px;
+.item-details{
+    color:#b0ffd0;
+    font-size:13px;
+    font-weight:700;
 }
 
-.inherit strong{color:#fff}
+/* AVISOS */
+
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(147,101,255,.32);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(147,101,255,.13),rgba(66,220,130,.055));
+    color:#d0ddf2;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(66,220,130,.025);
+}
+
+.inherit strong{
+    color:#e0ffec;
+    font-weight:950;
+}
+
+.inherit p{margin:8px 0}
 
 /* DESPLEGABLES */
 
 details{
     margin-top:15px;
-    border:1px solid rgba(66,220,130,.22);
+    border:1px solid rgba(66,220,130,.25);
     border-radius:12px;
     background:rgba(8,12,14,.5);
     overflow:hidden;
     transition:border-color .2s,background .2s;
 }
 
-details:hover{border-color:rgba(66,220,130,.45)}
+details:hover{border-color:rgba(66,220,130,.5)}
 
 summary{
     cursor:pointer;
@@ -607,82 +637,91 @@ summary:hover{background:rgba(66,220,130,.055)}
 
 .shulker-content li strong{color:#fff}
 
+/* PIE */
+
 footer{
     text-align:center;
-    padding:32px 20px;
-    color:#858b91;
+    padding:30px 20px;
+    color:#8b98af;
     font-size:12px;
-    border-top:1px solid rgba(255,255,255,.075);
-    background:rgba(5,7,9,.4);
+    border-top:1px solid rgba(66,220,130,.15);
+    background:rgba(6,7,16,.72);
 }
 
-footer span{
-    color:var(--rank);
-    font-weight:800;
+footer span{color:var(--rank-light)}
+
+/* ANIMACIONES */
+
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
 }
+
+/* MÓVILES */
 
 @media(max-width:650px){
     nav{
-        padding:0 5%;
-        gap:10px;
-        min-height:68px;
+        padding:14px 5%;
+        flex-wrap:wrap;
     }
 
     .logo{
-        font-size:16px;
+        font-size:17px;
         letter-spacing:.7px;
     }
 
-    nav a{font-size:11px}
     nav a.home{display:none}
 
-    .discord{
-        padding:11px 12px;
-        font-size:10px;
-        text-align:center;
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
     }
 
-    main{padding:60px 5% 70px}
-    h1{letter-spacing:-2.5px}
+    main{padding:62px 5% 70px}
+
+    h1{letter-spacing:-3px}
     .desc{font-size:15px}
+
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
     .price{font-size:40px}
+    .actions{width:100%}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
 
     .box{
-        padding:22px 16px;
+        padding:23px 17px;
         border-radius:15px;
     }
 
-    .section-heading{gap:11px}
-    .section-number{
-        flex-basis:42px;
-        width:42px;
-        height:42px;
-        border-radius:11px;
-        font-size:17px;
+    .box h2{font-size:23px}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
     }
 
-    .section-heading h3{font-size:18px}
-    .section-subtitle{font-size:12px!important}
-
-    .command-grid{grid-template-columns:1fr}
     .command-card{padding:20px}
     .command-name{font-size:24px}
 
-    .info-list{grid-template-columns:1fr}
-    .info-list li{padding:13px 14px}
-
+    .section-heading h3{font-size:17px}
     .shulker-content{padding:5px 12px 18px}
     .shulker-content ul{grid-template-columns:1fr}
-
     .inherit{padding:16px}
-    .btn{width:100%}
-    .hero-divider{margin-top:38px}
 }
 
 @media(prefers-reduced-motion:reduce){
     *,
     *::before,
     *::after{
+        animation:none!important;
         scroll-behavior:auto!important;
         transition:none!important;
     }
@@ -710,10 +749,12 @@ footer span{
 </nav>
 
 <main>
+
     <header class="hero">
-        <h1>GUARDIAN</h1>
 
         <div class="label">RANGO EXCLUSIVO</div>
+
+        <h1>GUARDIAN</h1>
 
         <p class="desc">
             Uno de los rangos superiores para jugadores comprometidos con Kaizora.
@@ -721,34 +762,49 @@ footer span{
             para tu aventura.
         </p>
 
-        <div class="price-row">
-            <div class="price">$15.99</div>
-            <div class="price-tag">PODER · PROTECCIÓN · BENEFICIOS</div>
+        <div class="hero-bottom">
+
+            <div class="price-wrap">
+                <div>
+                    <span class="price-label">PRECIO DEL RANGO</span>
+                    <div class="price">$15.99</div>
+                </div>
+
+                <div class="price-note">
+                    Poder y protección.<br>
+                    Lleva tu aventura más lejos.
+                </div>
+
+                <div class="price-tag">
+                    PODER · PROTECCIÓN · BENEFICIOS
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="btn primary"
+                   href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Comprar GUARDIAN ↗
+                </a>
+
+                <a class="btn back"
+                   href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+                    Volver a rangos
+                </a>
+            </div>
+
         </div>
-
-        <div class="actions">
-            <a class="btn primary"
-               href="https://discord.gg/sHvWgW7AE4"
-               target="_blank"
-               rel="noopener noreferrer">
-                Comprar GUARDIAN
-            </a>
-
-            <a class="btn back"
-               href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
-                Volver a rangos
-            </a>
-        </div>
-
-        <div class="hero-divider"></div>
     </header>
 
     <div class="box">
+
         <h2>Información del rango</h2>
 
         <!-- 01: HERENCIA -->
 
-        <div class="section">
+        <section class="section">
+
             <div class="section-heading">
                 <div class="section-number">01</div>
                 <div class="section-heading-text">
@@ -759,7 +815,7 @@ footer span{
                 </div>
             </div>
 
-            <p>
+            <p class="section-intro">
                 GUARDIAN incluye todos los permisos, comandos, kits y beneficios
                 de los rangos anteriores, además de sus propias ventajas
                 exclusivas.
@@ -772,11 +828,13 @@ footer span{
                     a los rangos anteriores que forman parte de su progresión.
                 </p>
             </div>
-        </div>
+
+        </section>
 
         <!-- 02: COMANDO EXCLUSIVO -->
 
-        <div class="section">
+        <section class="section">
+
             <div class="section-heading">
                 <div class="section-number">02</div>
                 <div class="section-heading-text">
@@ -787,14 +845,16 @@ footer span{
                 </div>
             </div>
 
-            <p class="command-intro">
+            <p class="section-intro">
                 GUARDIAN te permite acceder a una utilidad adicional para
                 compactar materiales compatibles y organizar tu inventario.
                 Este comando se suma a los beneficios de tus rangos anteriores.
             </p>
 
             <div class="command-grid">
-                <div class="command-card">
+
+                <article class="command-card">
+
                     <div class="command-top">
                         <span class="command-number">01</span>
                         <span class="command-tag">Utilidad y recursos</span>
@@ -808,22 +868,24 @@ footer span{
                         Por ejemplo, puedes convertir lingotes de oro o hierro
                         en bloques para ahorrar espacio en el inventario.
                     </p>
-                </div>
+
+                </article>
+
             </div>
 
-            <div class="inherit">
-                <strong>VENTAJA GUARDIAN</strong>
-                <p>
-                    Este comando se añade a los beneficios de los rangos
-                    anteriores. Su funcionamiento depende de los permisos
-                    y de la configuración de los plugins del servidor.
-                </p>
+            <div class="command-note">
+                <strong>VENTAJA GUARDIAN</strong><br>
+                Este comando se añade a los beneficios de los rangos anteriores.
+                Su funcionamiento depende de los permisos y de la configuración
+                de los plugins del servidor.
             </div>
-        </div>
+
+        </section>
 
         <!-- 03: SHULKER 1 -->
 
-        <div class="section">
+        <section class="section">
+
             <div class="section-heading">
                 <div class="section-number">03</div>
                 <div class="section-heading-text">
@@ -834,10 +896,16 @@ footer span{
                 </div>
             </div>
 
+            <p class="section-intro">
+                La primera Shulker reúne equipamiento avanzado, suministros
+                y materiales para tus aventuras.
+            </p>
+
             <details>
                 <summary>Ver contenido de la Shulker #1</summary>
 
                 <div class="shulker-content">
+
                     <h3>Armaduras</h3>
 
                     <p>2 armaduras completas de diamante.</p>
@@ -884,13 +952,16 @@ footer span{
                         <li>Cristal del End ×64</li>
                         <li>Carga de Viento ×64</li>
                     </ul>
+
                 </div>
             </details>
-        </div>
+
+        </section>
 
         <!-- 04: SHULKER 2 -->
 
-        <div class="section">
+        <section class="section">
+
             <div class="section-heading">
                 <div class="section-number">04</div>
                 <div class="section-heading-text">
@@ -902,19 +973,24 @@ footer span{
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Shulker llena de pociones</span>
                 </li>
+
                 <li>
                     <span class="item-name">Flechas</span><br>
                     <span class="item-details">×64 — 3 stacks</span>
                 </li>
+
             </ul>
-        </div>
+
+        </section>
 
         <!-- 05: POLVOS -->
 
-        <div class="section">
+        <section class="section">
+
             <div class="section-heading">
                 <div class="section-number">05</div>
                 <div class="section-heading-text">
@@ -926,32 +1002,40 @@ footer span{
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Esencia Arcana</span><br>
                     <span class="item-details">×6</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
                     <span class="item-details">×2</span>
                 </li>
+
                 <li>
                     <span class="item-name">Cristal Acuático</span><br>
                     <span class="item-details">×2</span>
                 </li>
+
                 <li>
                     <span class="item-name">Polvo Celestial</span><br>
                     <span class="item-details">×4</span>
                 </li>
+
                 <li>
                     <span class="item-name">Semilla Natural</span><br>
                     <span class="item-details">×6</span>
                 </li>
+
             </ul>
-        </div>
+
+        </section>
 
         <!-- 06: PROTECCIÓN -->
 
-        <div class="section">
+        <section class="section">
+
             <div class="section-heading">
                 <div class="section-number">06</div>
                 <div class="section-heading-text">
@@ -963,34 +1047,67 @@ footer span{
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Mena de Esmeralda</span><br>
                     <span class="item-details">
                         Protección de 60 × 60 bloques
                     </span>
                 </li>
-            </ul>
-        </div>
 
-        <div class="inherit">
-            <strong>COMPRA Y GESTIÓN DEL RANGO</strong>
-            <p>
+            </ul>
+
+        </section>
+
+        <!-- DISCORD -->
+
+        <section class="section">
+
+            <div class="section-heading">
+                <div class="section-number">07</div>
+                <div class="section-heading-text">
+                    <h3>Compra y gestión del rango</h3>
+                    <p class="section-subtitle">
+                        Gestiona tu compra desde nuestro Discord oficial
+                    </p>
+                </div>
+            </div>
+
+            <p class="section-intro">
                 Las compras y la gestión del rango se realizan directamente
                 mediante nuestro Discord oficial.
             </p>
-            <a class="btn primary"
-               href="https://discord.gg/sHvWgW7AE4"
-               target="_blank"
-               rel="noopener noreferrer"
-               style="margin-top:12px">
-                Entrar al Discord oficial
-            </a>
+
+            <div class="actions">
+                <a class="btn primary"
+                   href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Entrar al Discord oficial ↗
+                </a>
+            </div>
+
+        </section>
+
+        <div class="inherit">
+            <strong>RESUMEN DEL RANGO GUARDIAN</strong>
+            GUARDIAN combina beneficios heredados, el comando exclusivo
+            <strong>/condense</strong>, dos Shulkers con equipamiento y
+            suministros, materiales especiales y una piedra de protección.
+            <br><br>
+            <strong>Nota:</strong>
+            Los comandos, encantamientos y objetos personalizados dependen
+            de los permisos, la configuración del servidor y los plugins
+            instalados.
         </div>
+
     </div>
+
 </main>
 
 <footer>
     © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
 </footer>
+
 </body>
 </html>
