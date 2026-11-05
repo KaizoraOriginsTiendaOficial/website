@@ -362,12 +362,16 @@ button { font: inherit; }
 }
 .rank-card:hover { transform: translateY(-7px); border-color: var(--rank-color); box-shadow: 0 16px 40px color-mix(in srgb, var(--rank-color) 12%, transparent); }
 .rank-card.origin { --rank-color: #ffffff; }
+.rank-card.ascendente { --rank-color: #45D6C5; }
 .rank-card.elite { --rank-color: #4d8dff; }
 .rank-card.celestial { --rank-color: #2bd7f5; }
+.rank-card.astral { --rank-color: #9B5DE5; }
 .rank-card.majestad { --rank-color: #ffd34d; }
 .rank-card.guardian { --rank-color: #42dc82; }
 .rank-card.semidios { --rank-color: #d75aff; }
 .rank-card.dios { --rank-color: #ff5363; }
+.rank-card.eterno { --rank-color: #FF7800; }
+.rank-card.primordial { --rank-color: #7133AD; }
 .rank-card.kaizora { --rank-color: #ff6de1; }
 .rank-card.recommended { border-width: 2px; box-shadow: 0 0 30px rgba(255,211,77,.13); }
 
@@ -710,7 +714,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
     <div class="section-heading reveal">
       <span class="eyebrow">Sube de nivel</span>
       <h2>Encuentra tu <span>rango.</span></h2>
-      <p>Ocho rangos, ordenados por precio. Encuentra el que encaja contigo y continúa tu historia.</p>
+      <p>Doce rangos, ordenados por nivel. Encuentra el que encaja contigo y continúa tu historia.</p>
     </div>
 
     <div class="rank-grid">
@@ -724,8 +728,17 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <a class="rank-button" href="rango-origin.html">VER RANGO ↗</a>
       </article>
 
-      <article class="rank-card elite reveal">
+      <article class="rank-card ascendente reveal">
         <div class="rank-topline"><span class="rank-index">RANGO 02</span></div>
+        <div class="rank-emblem">A</div>
+        <h3>Ascendente</h3>
+        <p class="rank-description">Da tus primeros pasos hacia un nivel superior dentro de Kaizora.</p>
+        <div class="rank-price"><strong>PRÓXIMAMENTE</strong><span>Precio por anunciar</span></div>
+        <span class="rank-button">PRÓXIMAMENTE</span>
+      </article>
+
+      <article class="rank-card elite reveal">
+        <div class="rank-topline"><span class="rank-index">RANGO 03</span></div>
         <div class="rank-emblem">E</div>
         <h3>Elite</h3>
         <p class="rank-description">Da el siguiente paso y destaca en tu aventura.</p>
@@ -734,7 +747,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
       </article>
 
       <article class="rank-card celestial reveal">
-        <div class="rank-topline"><span class="rank-index">RANGO 03</span></div>
+        <div class="rank-topline"><span class="rank-index">RANGO 04</span></div>
         <div class="rank-emblem">✧</div>
         <h3>Celestial</h3>
         <p class="rank-description">Continúa creciendo y lleva tu progreso más lejos.</p>
@@ -742,9 +755,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <a class="rank-button" href="rango-celestial.html">VER RANGO ↗</a>
       </article>
 
+      <article class="rank-card astral reveal">
+        <div class="rank-topline"><span class="rank-index">RANGO 05</span></div>
+        <div class="rank-emblem">✦</div>
+        <h3>Astral</h3>
+        <p class="rank-description">Alcanza nuevas alturas y sigue avanzando en tu historia.</p>
+        <div class="rank-price"><strong>PRÓXIMAMENTE</strong><span>Precio por anunciar</span></div>
+        <span class="rank-button">PRÓXIMAMENTE</span>
+      </article>
+
       <article class="rank-card majestad recommended reveal">
         <div class="rank-topline">
-          <span class="rank-index">RANGO 04</span>
+          <span class="rank-index">RANGO 06</span>
           <span class="rank-tag">★ RECOMENDADO</span>
         </div>
         <div class="rank-emblem">♛</div>
@@ -755,7 +777,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
       </article>
 
       <article class="rank-card guardian reveal">
-        <div class="rank-topline"><span class="rank-index">RANGO 05</span></div>
+        <div class="rank-topline"><span class="rank-index">RANGO 07</span></div>
         <div class="rank-emblem">⬡</div>
         <h3>Guardian</h3>
         <p class="rank-description">Refuerza tu presencia y sigue construyendo tu legado.</p>
@@ -764,7 +786,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
       </article>
 
       <article class="rank-card semidios reveal">
-        <div class="rank-topline"><span class="rank-index">RANGO 06</span></div>
+        <div class="rank-topline"><span class="rank-index">RANGO 08</span></div>
         <div class="rank-emblem">✦</div>
         <h3>SemiDios</h3>
         <p class="rank-description">Acércate a los niveles más altos de Kaizora.</p>
@@ -773,7 +795,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
       </article>
 
       <article class="rank-card dios reveal">
-        <div class="rank-topline"><span class="rank-index">RANGO 07</span></div>
+        <div class="rank-topline"><span class="rank-index">RANGO 09</span></div>
         <div class="rank-emblem">✹</div>
         <h3>Dios</h3>
         <p class="rank-description">Un rango de alto nivel para jugadores ambiciosos.</p>
@@ -781,9 +803,27 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <a class="rank-button" href="rango-dios.html">VER RANGO ↗</a>
       </article>
 
+      <article class="rank-card eterno reveal">
+        <div class="rank-topline"><span class="rank-index">RANGO 10</span></div>
+        <div class="rank-emblem">∞</div>
+        <h3>Eterno</h3>
+        <p class="rank-description">Un rango excepcional para quienes buscan ir más allá.</p>
+        <div class="rank-price"><strong>PRÓXIMAMENTE</strong><span>Precio por anunciar</span></div>
+        <span class="rank-button">PRÓXIMAMENTE</span>
+      </article>
+
+      <article class="rank-card primordial reveal">
+        <div class="rank-topline"><span class="rank-index">RANGO 11</span></div>
+        <div class="rank-emblem">P</div>
+        <h3>Primordial</h3>
+        <p class="rank-description">Un nivel superior reservado para los jugadores más destacados.</p>
+        <div class="rank-price"><strong>PRÓXIMAMENTE</strong><span>Precio por anunciar</span></div>
+        <span class="rank-button">PRÓXIMAMENTE</span>
+      </article>
+
       <article class="rank-card kaizora reveal">
         <div class="rank-topline">
-          <span class="rank-index">RANGO 08</span>
+          <span class="rank-index">RANGO 12</span>
           <span class="rank-tag">RANGO SUPREMO</span>
         </div>
         <div class="rank-emblem">K</div>
