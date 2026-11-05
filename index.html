@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -248,6 +247,92 @@ button { font: inherit; }
 .copy-button:hover { background: rgba(255,109,225,.2); }
 .connection-note { color: #a899b0; font-size: .72rem; margin-top: 12px; }
 
+/* VOTAR POR KAIZORA */
+.vote-section { padding: 75px 0; }
+.vote-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(30px, 6vw, 58px);
+  border: 1px solid rgba(255,109,225,.38);
+  border-radius: 23px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,109,225,.20), transparent 65%),
+    linear-gradient(145deg, rgba(40,23,49,.96), rgba(17,10,24,.97));
+  box-shadow: 0 18px 60px rgba(0,0,0,.2);
+}
+.vote-card::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: -190px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255,109,225,.18);
+  filter: blur(65px);
+  pointer-events: none;
+}
+.vote-content { position: relative; z-index: 1; }
+.vote-symbol {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border: 1px solid rgba(255,109,225,.55);
+  border-radius: 18px;
+  color: var(--pink);
+  background: rgba(255,109,225,.11);
+  font-size: 1.8rem;
+  font-weight: 900;
+  box-shadow: 0 0 30px rgba(255,109,225,.12);
+}
+.vote-card h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.13;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+.vote-card h2 span { color: var(--pink); }
+.vote-card p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #cbbdd2;
+  font-size: .94rem;
+}
+.vote-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 54px;
+  margin-top: 29px;
+  padding: 0 29px;
+  border: 1px solid var(--pink);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff6de1, #d94cc4);
+  color: #190b18;
+  font-size: .86rem;
+  font-weight: 900;
+  letter-spacing: .3px;
+  box-shadow: 0 8px 30px rgba(255,109,225,.2);
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.vote-button:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #ff9bea, #ff6de1);
+  box-shadow: 0 12px 38px rgba(255,109,225,.32);
+}
+.vote-note {
+  display: block;
+  margin-top: 17px;
+  color: #a899b0;
+  font-size: .73rem;
+}
+
 /* RANGOS CON TARJETAS MÁS DETALLADAS */
 .rank-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 
@@ -465,6 +550,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
   .social-card p { font-size: .73rem; }
   .countdown { grid-template-columns: repeat(2, minmax(0, 100px)); }
   .community-card .btn { width: 100%; }
+  .vote-button { width: 100%; padding: 0 15px; }
 }
 </style>
 </head>
@@ -499,6 +585,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
     <nav class="nav-links" id="navLinks">
       <a href="#inicio">Inicio</a>
       <a href="#servidor">Servidor</a>
+      <a href="#votar">Votar</a>
       <a href="#rangos">Rangos</a>
       <a href="#tienda">Tienda</a>
       <a href="#evento">Evento</a>
@@ -578,6 +665,39 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
           En Bedrock, introduce la dirección y el puerto tal como aparecen arriba.
           En Java, utiliza la dirección indicada.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-line"></div>
+
+<!-- NUEVA SECCIÓN DE VOTACIÓN -->
+<section class="vote-section" id="votar">
+  <div class="container">
+    <div class="vote-card reveal">
+      <div class="vote-content">
+        <div class="vote-symbol">✦</div>
+        <span class="eyebrow">Apoya a nuestra comunidad</span>
+        <h2>Haz que Kaizora <span>llegue más lejos.</span></h2>
+        <p>
+          ¿Disfrutas jugando en Kaizora Origins? Apóyanos con tu voto en
+          MinecraftServers.me. Cada voto ayuda a que más jugadores descubran
+          nuestra comunidad y se unan a la aventura.
+        </p>
+
+        <a
+          href="https://minecraftservers.me/server/kaizora.origins.54262/vote"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="vote-button"
+        >
+          ✦ VOTAR POR KAIZORA ✦ ↗
+        </a>
+
+        <span class="vote-note">
+          Tu apoyo hace crecer nuestra comunidad. ¡Gracias por formar parte de Kaizora!
+        </span>
       </div>
     </div>
   </div>
@@ -819,6 +939,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
     <div class="footer-links">
       <a href="#inicio">Inicio</a>
       <a href="#rangos">Rangos</a>
+      <a href="#votar">Votar</a>
       <a href="https://discord.gg/HWr5EJzqCh" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
   </div>
