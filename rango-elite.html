@@ -1,24 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b13">
-<title>ELITE | Kaizora Origins</title>
+<meta name="theme-color" content="#09070e">
+<title>ORIGIN | Kaizora Origins</title>
 
 <style>
 :root{
-    --bg:#080b13;
-    --panel:#101827;
-    --blue:#4d8dff;
-    --blue-light:#91baff;
-    --blue-pale:#d9e8ff;
-    --cyan:#79aaff;
+    --bg:#09070e;
+    --panel:#12101c;
+    --purple:#9365ff;
+    --purple-light:#bca0ff;
+    --purple-pale:#e5d9ff;
+    --pink:#ff6de1;
     --white:#fff;
-    --text:#e5edff;
-    --muted:#b4c0d4;
-    --border:rgba(77,141,255,.30);
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(188,160,255,.30);
 }
 
 *{box-sizing:border-box}
@@ -40,10 +39,10 @@ a{color:inherit}
     inset:0;
     z-index:-2;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(48,105,255,.25),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(77,141,255,.13),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(35,74,175,.16),transparent 40%),
-        #080b13;
+        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(111,69,210,.16),transparent 40%),
+        #09070e;
 }
 
 .bg::after{
@@ -66,8 +65,8 @@ nav{
     justify-content:space-between;
     gap:16px;
     padding:14px 7%;
-    border-bottom:1px solid rgba(77,141,255,.2);
-    background:rgba(6,9,17,.85);
+    border-bottom:1px solid rgba(188,160,255,.2);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
     position:relative;
     z-index:5;
@@ -79,11 +78,11 @@ nav{
     letter-spacing:1.5px;
 }
 
-.logo span{color:var(--blue-light)}
+.logo span{color:var(--purple-light)}
 
 nav a{
     text-decoration:none;
-    color:#d4dff2;
+    color:#e0d8ef;
     font-size:13px;
     font-weight:800;
 }
@@ -93,16 +92,16 @@ nav a.home:hover{color:white}
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#2764ed,#4d8dff);
+    background:linear-gradient(110deg,#8050ee,#aa7bff);
     color:white!important;
     border:1px solid rgba(255,255,255,.23);
-    box-shadow:0 5px 24px rgba(49,112,255,.28);
+    box-shadow:0 5px 24px rgba(147,101,255,.28);
     transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 32px rgba(49,112,255,.45);
+    box-shadow:0 8px 32px rgba(147,101,255,.45);
 }
 
 /* HERO */
@@ -122,16 +121,16 @@ main{
     display:inline-flex;
     align-items:center;
     gap:9px;
-    color:var(--blue-pale);
+    color:var(--purple-pale);
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
     margin-bottom:19px;
     padding:9px 13px;
-    border:1px solid rgba(77,141,255,.48);
+    border:1px solid rgba(188,160,255,.48);
     border-radius:6px;
-    background:rgba(77,141,255,.14);
-    box-shadow:0 0 25px rgba(77,141,255,.1);
+    background:rgba(147,101,255,.14);
+    box-shadow:0 0 25px rgba(147,101,255,.1);
 }
 
 .label::before{
@@ -139,8 +138,8 @@ main{
     width:7px;
     height:7px;
     border-radius:50%;
-    background:var(--blue-light);
-    box-shadow:0 0 13px var(--blue-light);
+    background:var(--purple-light);
+    box-shadow:0 0 13px var(--purple-light);
 }
 
 h1{
@@ -149,11 +148,11 @@ h1{
     margin:0 0 25px;
     letter-spacing:-5px;
     font-weight:1000;
-    text-shadow:0 0 42px rgba(77,141,255,.24);
+    text-shadow:0 0 42px rgba(147,101,255,.24);
 }
 
 h1 span{
-    background:linear-gradient(100deg,#fff 5%,#91baff 45%,#4d8dff 80%,#b8d3ff);
+    background:linear-gradient(100deg,#fff 5%,#e5d9ff 45%,#bca0ff 80%,#ff6de1);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
@@ -161,7 +160,7 @@ h1 span{
 
 .desc{
     max-width:680px;
-    color:#c4cfe1;
+    color:#c8c1d6;
     font-size:17px;
     line-height:1.85;
     margin:0;
@@ -185,7 +184,7 @@ h1 span{
 
 .price-label{
     display:block;
-    color:#a8b9d8;
+    color:#aaa1bd;
     font-size:10px;
     letter-spacing:2px;
     font-weight:900;
@@ -196,12 +195,12 @@ h1 span{
     font-size:46px;
     font-weight:1000;
     letter-spacing:-2px;
-    color:#8eb7ff;
-    text-shadow:0 0 25px rgba(77,141,255,.3);
+    color:var(--purple-light);
+    text-shadow:0 0 25px rgba(147,101,255,.3);
 }
 
 .price-note{
-    color:#b6c4dc;
+    color:#bcb4ce;
     font-size:12px;
     line-height:1.6;
 }
@@ -229,24 +228,24 @@ h1 span{
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
-    color:#071020;
-    border-color:#8eb7ff;
-    background:linear-gradient(110deg,#4d8dff,#91baff);
-    box-shadow:0 5px 24px rgba(77,141,255,.25);
+    color:#100a1b;
+    border-color:#e5d9ff;
+    background:linear-gradient(110deg,#bca0ff,#e5d9ff);
+    box-shadow:0 5px 24px rgba(147,101,255,.25);
 }
 
 .primary:hover{
-    box-shadow:0 8px 32px rgba(77,141,255,.45);
+    box-shadow:0 8px 32px rgba(147,101,255,.45);
 }
 
 .back{
-    color:#e2ecff;
+    color:#eee5ff;
     background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:var(--blue-light);
-    background:rgba(77,141,255,.1);
+    border-color:var(--purple-light);
+    background:rgba(147,101,255,.1);
 }
 
 /* PANEL PRINCIPAL */
@@ -257,8 +256,8 @@ h1 span{
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(18,27,44,.97),rgba(9,13,23,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(77,141,255,.06);
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(147,101,255,.06);
     overflow:hidden;
     animation:appear .8s ease both;
 }
@@ -270,7 +269,7 @@ h1 span{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,#4d8dff,#91baff,transparent);
+    background:linear-gradient(90deg,transparent,#9365ff,#ff6de1,transparent);
 }
 
 .box h2{
@@ -287,14 +286,14 @@ h1 span{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(#4d8dff,#91baff);
-    box-shadow:0 0 16px rgba(77,141,255,.5);
+    background:linear-gradient(#9365ff,#ff6de1);
+    box-shadow:0 0 16px rgba(188,160,255,.5);
     flex-shrink:0;
 }
 
 .box h3{
     margin:0 0 14px;
-    color:#f4f8ff;
+    color:#f8f4ff;
     font-size:18px;
     font-weight:950;
 }
@@ -310,7 +309,7 @@ h1 span{
 .section{
     margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(77,141,255,.18);
+    border-top:1px solid rgba(188,160,255,.18);
 }
 
 .section:first-of-type{
@@ -334,12 +333,12 @@ h1 span{
     width:42px;
     height:42px;
     border-radius:12px;
-    border:1px solid rgba(77,141,255,.4);
-    background:linear-gradient(145deg,rgba(77,141,255,.25),rgba(145,186,255,.1));
-    color:#c9e2ff;
+    border:1px solid rgba(188,160,255,.4);
+    background:linear-gradient(145deg,rgba(147,101,255,.25),rgba(255,109,225,.1));
+    color:#e5d9ff;
     font-size:15px;
     font-weight:950;
-    box-shadow:inset 0 0 16px rgba(77,141,255,.08);
+    box-shadow:inset 0 0 16px rgba(147,101,255,.08);
 }
 
 .section-heading h3{
@@ -350,7 +349,7 @@ h1 span{
 .section-heading p{
     margin:5px 0 0;
     font-size:12px;
-    color:#a7b8d4;
+    color:#a99fbc;
 }
 
 .info-list{
@@ -365,28 +364,29 @@ h1 span{
 .info-list li{
     min-width:0;
     padding:14px 15px;
-    border:1px solid rgba(77,141,255,.2);
+    border:1px solid rgba(188,160,255,.2);
     border-radius:10px;
-    background:linear-gradient(120deg,rgba(77,141,255,.1),rgba(255,255,255,.018));
-    color:#cbd7eb;
+    background:linear-gradient(120deg,rgba(147,101,255,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
     line-height:1.7;
     transition:border-color .2s,background .2s,transform .2s;
+    overflow-wrap:anywhere;
 }
 
 .info-list li:hover{
-    border-color:rgba(145,186,255,.65);
-    background:rgba(77,141,255,.14);
+    border-color:rgba(229,217,255,.65);
+    background:rgba(147,101,255,.14);
     transform:translateY(-1px);
 }
 
 .item-name{
-    color:#f2f7ff;
+    color:#f5efff;
     font-weight:900;
     overflow-wrap:anywhere;
 }
 
 .item-details{
-    color:#9fc5ff;
+    color:#c0a9ff;
     font-size:13px;
     font-weight:700;
 }
@@ -394,22 +394,22 @@ h1 span{
 .inherit{
     margin-top:19px;
     padding:20px;
-    border:1px solid rgba(77,141,255,.36);
+    border:1px solid rgba(188,160,255,.36);
     border-radius:12px;
-    background:linear-gradient(110deg,rgba(77,141,255,.17),rgba(145,186,255,.055));
-    color:#d0ddf2;
+    background:linear-gradient(110deg,rgba(147,101,255,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
     line-height:1.9;
-    box-shadow:inset 0 0 24px rgba(77,141,255,.04);
+    box-shadow:inset 0 0 24px rgba(147,101,255,.04);
 }
 
-.inherit strong{color:#c7e3ff}
+.inherit strong{color:#e5d9ff}
 
 .kit-title{
     font-size:21px!important;
-    color:#f4f8ff!important;
+    color:#f4edff!important;
 }
 
-/* COMANDOS ELITE */
+/* COMANDOS ORIGIN */
 
 .command-intro{margin-bottom:20px!important}
 
@@ -426,11 +426,11 @@ h1 span{
     min-width:0;
     margin-top:0;
     padding:23px;
-    border:1px solid rgba(77,141,255,.42);
+    border:1px solid rgba(188,160,255,.42);
     border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 0%,rgba(77,141,255,.14),transparent 55%),
-        linear-gradient(135deg,rgba(42,91,185,.25),rgba(15,24,42,.96) 70%);
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(102,65,180,.25),rgba(26,20,41,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
 }
@@ -442,8 +442,8 @@ h1 span{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(#4d8dff,#91baff);
-    box-shadow:0 0 15px rgba(77,141,255,.25);
+    background:linear-gradient(#9365ff,#ff6de1);
+    box-shadow:0 0 15px rgba(147,101,255,.25);
 }
 
 .command-card::after{
@@ -454,15 +454,15 @@ h1 span{
     right:-55px;
     bottom:-55px;
     border-radius:50%;
-    background:rgba(77,141,255,.16);
+    background:rgba(147,101,255,.16);
     filter:blur(12px);
     pointer-events:none;
 }
 
 .command-card:hover{
-    border-color:rgba(145,186,255,.8);
+    border-color:rgba(229,217,255,.8);
     transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(77,141,255,.12);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(147,101,255,.12);
 }
 
 .command-top{
@@ -480,17 +480,17 @@ h1 span{
     width:32px;
     height:32px;
     border-radius:9px;
-    color:#e2f5ff;
-    background:rgba(77,141,255,.24);
-    border:1px solid rgba(145,186,255,.32);
+    color:#f0e6ff;
+    background:rgba(147,101,255,.24);
+    border:1px solid rgba(188,160,255,.32);
     font-size:12px;
     font-weight:950;
 }
 
 .command-tag{
-    color:#c9ddff;
-    background:rgba(77,141,255,.09);
-    border:1px solid rgba(145,186,255,.25);
+    color:#e0d0ff;
+    background:rgba(147,101,255,.09);
+    border:1px solid rgba(188,160,255,.25);
     border-radius:5px;
     padding:6px 9px;
     font-size:9px;
@@ -502,18 +502,18 @@ h1 span{
 .command-name{
     display:block;
     margin-bottom:11px;
-    color:#8fbdff;
+    color:#c0a0ff;
     font-size:25px;
     line-height:1.25;
     font-weight:1000;
     letter-spacing:.2px;
     overflow-wrap:anywhere;
-    text-shadow:0 0 22px rgba(77,141,255,.23);
+    text-shadow:0 0 22px rgba(147,101,255,.23);
 }
 
 .command-description{
     margin:0!important;
-    color:#d0dced!important;
+    color:#d0c9df!important;
     font-size:14px;
     line-height:1.85!important;
 }
@@ -521,29 +521,29 @@ h1 span{
 .command-note{
     margin-top:20px;
     padding:18px 20px;
-    border:1px solid rgba(77,141,255,.25);
-    border-left:4px solid var(--blue);
+    border:1px solid rgba(188,160,255,.25);
+    border-left:4px solid var(--purple);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(77,141,255,.14),rgba(145,186,255,.035));
-    color:#c0cde0;
+    background:linear-gradient(100deg,rgba(147,101,255,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
     font-size:13px;
     line-height:1.9;
 }
 
-.command-note strong{color:#d9eaff}
+.command-note strong{color:#e5d9ff}
 
 /* PIE */
 
 footer{
     text-align:center;
     padding:30px 20px;
-    color:#8b98af;
+    color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(77,141,255,.18);
-    background:rgba(6,9,16,.72);
+    border-top:1px solid rgba(188,160,255,.18);
+    background:rgba(8,6,13,.72);
 }
 
-footer span{color:#91baff}
+footer span{color:#c6b0ff}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
@@ -642,13 +642,12 @@ footer span{color:#91baff}
 
         <div class="label">RANGO EXCLUSIVO</div>
 
-        <h1><span>ELITE</span></h1>
+        <h1><span>ORIGIN</span></h1>
 
         <p class="desc">
-            Para jugadores que buscan una experiencia superior dentro del
-            servidor, con mejores equipamientos, recursos y beneficios.
-            Desbloquea nuevas posibilidades y continúa construyendo tu historia
-            en Kaizora Origins.
+            El comienzo de tu camino. Da tus primeros pasos y empieza a destacar
+            en Kaizora Origins con ventajas exclusivas, comandos adicionales y
+            un kit preparado para comenzar con ventaja.
         </p>
 
         <div class="hero-bottom">
@@ -656,12 +655,12 @@ footer span{color:#91baff}
             <div class="price-wrap">
                 <div>
                     <span class="price-label">PRECIO DEL RANGO</span>
-                    <div class="price">$4.99</div>
+                    <div class="price">$2.99</div>
                 </div>
 
                 <div class="price-note">
-                    Sube de nivel.<br>
-                    Lleva tu aventura más lejos.
+                    Una nueva etapa<br>
+                    comienza aquí.
                 </div>
             </div>
 
@@ -671,7 +670,7 @@ footer span{color:#91baff}
                    href="https://discord.gg/sHvWgW7AE4"
                    target="_blank"
                    rel="noopener noreferrer">
-                    Comprar ELITE ↗
+                    Comprar ORIGIN ↗
                 </a>
 
                 <a class="btn back"
@@ -691,50 +690,47 @@ footer span{color:#91baff}
 
         <h2>Información del rango</h2>
 
-        <!-- HERENCIA -->
+        <!-- 01: RANGO USER -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
-                    <h3>Herencia de rangos</h3>
-                    <p>Tus ventajas anteriores siguen contigo</p>
+                    <h3>Incluye todo lo del rango User</h3>
+                    <p>Tu base para comenzar en Kaizora Origins</p>
                 </div>
             </div>
 
             <p>
-                ELITE incluye todos los permisos, comandos, kits y beneficios
-                de los rangos anteriores, incluido ORIGIN y ASCENDENTE,
-                además de las ventajas exclusivas que desbloqueas con ELITE.
+                ORIGIN incluye todos los permisos, beneficios y comandos
+                disponibles para el rango User.
             </p>
 
             <div class="inherit">
-                <strong>TU RANGO INCLUYE:</strong><br>
-                Default / User + ORIGIN + ASCENDENTE + ELITE.<br>
-                <strong>No pierdes las ventajas de tus rangos anteriores.</strong><br>
-                Todos sus comandos y permisos se mantienen disponibles
-                según la configuración del servidor.
+                <strong>INCLUYE:</strong><br>
+                Rango User + <strong>/kit User</strong> +
+                todos sus comandos y permisos.
             </div>
 
         </div>
 
-        <!-- COMANDOS -->
+        <!-- 02: COMANDOS EXCLUSIVOS -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">02</div>
                 <div>
-                    <h3 class="kit-title">Comandos exclusivos de ELITE</h3>
-                    <p>Una herramienta adicional para tus aventuras</p>
+                    <h3 class="kit-title">Comandos exclusivos de ORIGIN</h3>
+                    <p>Tres herramientas adicionales para tu aventura</p>
                 </div>
             </div>
 
             <p class="command-intro">
-                ELITE te permite acceder a un comando adicional para gestionar
-                una situación habitual durante tus aventuras. Esta es la
-                ventaja de comando propia de este rango.
+                Desbloquea nuevas formas de interactuar con el mundo,
+                consultar información y expresarte dentro de Kaizora Origins.
+                Estos comandos se suman a los permisos de tu rango User.
             </p>
 
             <div class="command-grid">
@@ -743,15 +739,49 @@ footer span{color:#91baff}
 
                     <div class="command-top">
                         <span class="command-number">01</span>
-                        <span class="command-tag">Supervivencia</span>
+                        <span class="command-tag">Roleplay</span>
                     </div>
 
-                    <span class="command-name">/extinguish</span>
+                    <span class="command-name">/me</span>
 
                     <p class="command-description">
-                        Apaga el fuego que te afecta para ayudarte a continuar
-                        tu aventura sin las llamas. Su funcionamiento depende
-                        de la configuración del comando en el servidor.
+                        Expresa acciones y crea mensajes de rol personalizados
+                        en el chat. Dale personalidad a tus interacciones y
+                        escribe tu propia historia dentro del servidor.
+                    </p>
+
+                </div>
+
+                <div class="command-card">
+
+                    <div class="command-top">
+                        <span class="command-number">02</span>
+                        <span class="command-tag">Fabricación</span>
+                    </div>
+
+                    <span class="command-name">/recipe</span>
+
+                    <p class="command-description">
+                        Consulta las recetas de fabricación de Minecraft y
+                        descubre cómo crear diferentes objetos sin tener que
+                        recordar todas sus combinaciones.
+                    </p>
+
+                </div>
+
+                <div class="command-card">
+
+                    <div class="command-top">
+                        <span class="command-number">03</span>
+                        <span class="command-tag">Exploración</span>
+                    </div>
+
+                    <span class="command-name">/depth</span>
+
+                    <p class="command-description">
+                        Consulta la profundidad a la que te encuentras respecto
+                        al nivel del mar. Una herramienta útil para orientarte
+                        mientras exploras cuevas y buscas minerales.
                     </p>
 
                 </div>
@@ -759,39 +789,35 @@ footer span{color:#91baff}
             </div>
 
             <div class="command-note">
-                <strong>TAMBIÉN INCLUYE LOS COMANDOS DE ORIGIN Y ASCENDENTE</strong><br>
-                Al obtener ELITE conservas los comandos de tus rangos
-                anteriores, incluidos <strong>/me</strong>,
-                <strong>/recipe</strong> y <strong>/depth</strong>,
-                además de los permisos y beneficios heredados de Default / User.
-                <br><br>
-                <strong>Importante:</strong> los comandos disponibles pueden
-                variar según los permisos y plugins instalados en el servidor.
+                <strong>VENTAJA ORIGIN</strong><br>
+                Estos comandos se añaden a los permisos heredados del rango
+                User. Las funciones disponibles pueden depender de la
+                configuración de los plugins del servidor.
             </div>
 
         </div>
 
-        <!-- KIT -->
+        <!-- 03: KIT ORIGIN -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">03</div>
                 <div>
-                    <h3 class="kit-title">/kit Elite</h3>
-                    <p>El equipamiento incluido en tu rango</p>
+                    <h3 class="kit-title">/kit Origin</h3>
+                    <p>Tu equipamiento exclusivo de rango</p>
                 </div>
             </div>
 
             <p>
-                El kit exclusivo del rango ELITE incluye equipamiento
-                de Netherite mejorado, herramientas encantadas, recursos,
-                materiales especiales, llave y protección para tus construcciones.
+                El kit exclusivo del rango ORIGIN incluye equipamiento
+                completo de Netherite encantado, comida, minerales,
+                esencias especiales y una protección de terreno.
             </p>
 
         </div>
 
-        <!-- ARMADURA -->
+        <!-- 04: ARMADURA NETHERITE -->
 
         <div class="section">
 
@@ -799,7 +825,7 @@ footer span{color:#91baff}
                 <div class="section-icon">04</div>
                 <div>
                     <h3>Full Armor Netherite</h3>
-                    <p>Cuatro piezas para equiparte por completo</p>
+                    <p>Protección avanzada para tus aventuras</p>
                 </div>
             </div>
 
@@ -808,38 +834,38 @@ footer span{color:#91baff}
                 <li>
                     <span class="item-name">Casco de Netherite</span><br>
                     <span class="item-details">
-                        Protección VII · Protección contra proyectiles VII ·
-                        Protección contra el fuego VII · Respiración VII ·
-                        Afinidad acuática VII · Irrompibilidad VII · Reparación
+                        Protección VI · Protección contra proyectiles VI ·
+                        Protección contra el fuego VI · Respiración VI ·
+                        Afinidad acuática VI · Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Pechera de Netherite</span><br>
                     <span class="item-details">
-                        Protección VII · Protección contra explosiones VII ·
-                        Protección contra el fuego VII · Protección contra proyectiles VII ·
-                        Irrompibilidad VII · Reparación
+                        Protección VI · Protección contra explosiones VI ·
+                        Protección contra el fuego VI · Protección contra proyectiles VI ·
+                        Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Pantalones de Netherite</span><br>
                     <span class="item-details">
-                        Protección VII · Protección contra explosiones VII ·
-                        Protección contra el fuego VII · Protección contra proyectiles VII ·
-                        Sigilo veloz VII · Irrompibilidad VII · Reparación
+                        Protección VI · Protección contra explosiones VI ·
+                        Protección contra el fuego VI · Protección contra proyectiles VI ·
+                        Sigilo veloz VI · Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Botas de Netherite</span><br>
                     <span class="item-details">
-                        Caminante helado VII · Protección VII ·
-                        Protección contra explosiones VII · Protección contra el fuego VII ·
-                        Protección contra proyectiles VII · Caída de pluma VII ·
-                        Velocidad de almas VII · Agilidad acuática VII ·
-                        Irrompibilidad VII · Reparación
+                        Paso helado VI · Protección VI ·
+                        Protección contra explosiones VI · Protección contra el fuego VI ·
+                        Protección contra proyectiles VI · Caída de pluma VI ·
+                        Velocidad de alma VI · Agilidad acuática VI ·
+                        Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
@@ -847,15 +873,15 @@ footer span{color:#91baff}
 
         </div>
 
-        <!-- HERRAMIENTAS -->
+        <!-- 05: HERRAMIENTAS Y ARMAS -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">05</div>
                 <div>
-                    <h3>Herramientas</h3>
-                    <p>Equipo encantado para minar y combatir</p>
+                    <h3>Herramientas y armas de Netherite</h3>
+                    <p>Equipo encantado para combatir y recolectar recursos</p>
                 </div>
             </div>
 
@@ -864,31 +890,40 @@ footer span{color:#91baff}
                 <li>
                     <span class="item-name">Espada de Netherite</span><br>
                     <span class="item-details">
-                        Filo VII · Castigo VII · Perdición de los artrópodos VII ·
-                        Filo arrasador VII · Aspecto ígneo VII · Empuje VII ·
-                        Saqueo VII · Irrompibilidad VII · Reparación
+                        Filo VI · Golpeo VI · Perdición de los artrópodos VI ·
+                        Filo arrasador VI · Aspecto ígneo VI · Empuje VI ·
+                        Botín VI · Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Pico de Netherite</span><br>
                     <span class="item-details">
-                        Fortuna VII · Eficiencia VII · Irrompibilidad VII · Reparación
+                        Fortuna VI · Eficiencia VI ·
+                        Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Hacha de Netherite</span><br>
                     <span class="item-details">
-                        Filo VII · Castigo VII · Perdición de los artrópodos VII ·
-                        Eficiencia VII · Irrompibilidad VII · Reparación
+                        Filo VI · Golpeo VI · Perdición de los artrópodos VI ·
+                        Eficiencia VI · Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Pala de Netherite</span><br>
                     <span class="item-details">
-                        Fortuna VII · Eficiencia VII · Irrompibilidad VII · Reparación
+                        Fortuna VI · Eficiencia VI ·
+                        Irrompibilidad VI · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">
+                        Irrompibilidad VI · Reparación
                     </span>
                 </li>
 
@@ -896,48 +931,33 @@ footer span{color:#91baff}
 
         </div>
 
-        <!-- ESCUDO -->
+        <!-- 06: COMIDA -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">06</div>
                 <div>
-                    <h3>Escudo</h3>
-                    <p>Defensa adicional para tus enfrentamientos</p>
+                    <h3>Comida</h3>
+                    <p>Provisiones para mantenerte en movimiento</p>
                 </div>
             </div>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Escudo</span><br>
-                    <span class="item-details">
-                        Irrompibilidad VII · Reparación
-                    </span>
+                    <span class="item-name">Papas</span><br>
+                    <span class="item-details">×64</span>
                 </li>
 
-            </ul>
-
-        </div>
-
-        <!-- COMIDA -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">07</div>
-                <div>
-                    <h3>Comida</h3>
-                    <p>Provisiones para mantenerte preparado</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
+                <li>
+                    <span class="item-name">Filetes Asados</span><br>
+                    <span class="item-details">×64</span>
+                </li>
 
                 <li>
-                    <span class="item-name">Manzanas Encantadas</span><br>
-                    <span class="item-details">×16</span>
+                    <span class="item-name">Zanahorias Doradas</span><br>
+                    <span class="item-details">×32</span>
                 </li>
 
                 <li>
@@ -945,29 +965,19 @@ footer span{color:#91baff}
                     <span class="item-details">×32</span>
                 </li>
 
-                <li>
-                    <span class="item-name">Zanahorias Doradas</span><br>
-                    <span class="item-details">×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Papas</span><br>
-                    <span class="item-details">×64</span>
-                </li>
-
             </ul>
 
         </div>
 
-        <!-- MATERIALES -->
+        <!-- 07: MINERALES -->
 
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">08</div>
+                <div class="section-icon">07</div>
                 <div>
-                    <h3>Materiales</h3>
-                    <p>Recursos para fabricar y progresar</p>
+                    <h3>Minerales</h3>
+                    <p>Recursos para tus próximas construcciones y mejoras</p>
                 </div>
             </div>
 
@@ -975,74 +985,79 @@ footer span{color:#91baff}
 
                 <li>
                     <span class="item-name">Lingotes de Hierro</span><br>
-                    <span class="item-details">×64</span>
+                    <span class="item-details">×32</span>
                 </li>
 
                 <li>
                     <span class="item-name">Lingotes de Oro</span><br>
-                    <span class="item-details">×64</span>
+                    <span class="item-details">×16</span>
                 </li>
 
                 <li>
-                    <span class="item-name">Fragmentos de Netherite</span><br>
+                    <span class="item-name">Diamantes</span><br>
                     <span class="item-details">×32</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Esmeraldas</span><br>
+                    <span class="item-details">×8</span>
                 </li>
 
             </ul>
 
         </div>
 
-        <!-- POLVOS -->
+        <!-- 08: ESENCIAS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">08</div>
+                <div>
+                    <h3>Esencias y objetos especiales</h3>
+                    <p>Recursos exclusivos incluidos en el kit Origin</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Esencia Eléctrica</span><br>
+                    <span class="item-details">×4</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Esencia Arcana</span><br>
+                    <span class="item-details">×10</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Llave Origin</span><br>
+                    <span class="item-details">×1</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- 09: PROTECCIÓN -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">09</div>
                 <div>
-                    <h3>Polvos y esencias</h3>
-                    <p>Materiales especiales incluidos en ELITE</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">×16</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Nexo Prismático</span><br>
-                    <span class="item-details">×14</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">×12</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- PIEDRA DE PROTECCIÓN -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">10</div>
-                <div>
                     <h3>Piedra de Protección</h3>
-                    <p>Protege el espacio de tus construcciones</p>
+                    <p>Una zona protegida para tu construcción</p>
                 </div>
             </div>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Mena de Lapislázuli</span><br>
+                    <span class="item-name">Mena de Hierro</span><br>
                     <span class="item-details">
-                        Protección de 30 × 30 bloques
+                        Protección de 20 × 20 bloques
                     </span>
                 </li>
 
@@ -1050,31 +1065,26 @@ footer span{color:#91baff}
 
         </div>
 
-        <!-- AÑADIDOS -->
+        <!-- RESUMEN -->
 
-        <div class="section">
+        <div class="inherit">
 
-            <div class="section-heading">
-                <div class="section-icon">11</div>
-                <div>
-                    <h3>Añadidos</h3>
-                    <p>Objetos especiales para tu aventura</p>
-                </div>
-            </div>
+            <strong>RESUMEN DEL RANGO ORIGIN</strong><br>
 
-            <ul class="info-list">
+            ORIGIN incluye los beneficios del rango User, los comandos
+            exclusivos <strong>/me</strong>, <strong>/recipe</strong> y
+            <strong>/depth</strong>, un kit con armadura completa de Netherite
+            encantada a nivel VI, espada, pico, hacha, pala y escudo.
+            También incluye comida, minerales, Esencia Eléctrica ×4,
+            Esencia Arcana ×10, Llave Origin ×1 y protección de terreno
+            de <strong>20 × 20 bloques</strong>.
 
-                <li>
-                    <span class="item-name">Llave ELITE</span><br>
-                    <span class="item-details">×1</span>
-                </li>
+            <br><br>
 
-                <li>
-                    <span class="item-name">Perlas de Ender</span><br>
-                    <span class="item-details">×8</span>
-                </li>
-
-            </ul>
+            <strong>Nota:</strong> los encantamientos incompatibles entre sí
+            y los niveles superiores a los límites normales de Minecraft
+            requieren compatibilidad y configuración adecuada de los plugins
+            del servidor.
 
         </div>
 
