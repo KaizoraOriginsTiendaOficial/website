@@ -4,540 +4,1082 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09070e">
+<meta name="theme-color" content="#080b13">
 <title>ELITE | Kaizora Origins</title>
 
 <style>
 :root{
-    --bg:#09070e;
-    --panel:#15101e;
-    --accent:#FF6DE1;
-    --accent2:#B45CFF;
-    --light:#FFD0F4;
+    --bg:#080b13;
+    --panel:#101827;
+    --blue:#4d8dff;
+    --blue-light:#91baff;
+    --blue-pale:#d9e8ff;
+    --cyan:#79aaff;
     --white:#fff;
-    --muted:#c2b7ca;
-    --border:rgba(255,109,225,.24);
+    --text:#e5edff;
+    --muted:#b4c0d4;
+    --border:rgba(77,141,255,.30);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-    margin:0;background:var(--bg);color:var(--white);
-    font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
 }
+
+a{color:inherit}
+
 .bg{
-    position:fixed;inset:0;z-index:-2;
+    position:fixed;
+    inset:0;
+    z-index:-2;
     background:
-    radial-gradient(ellipse at 12% 12%,rgba(255,109,225,.19),transparent 38%),
-    radial-gradient(ellipse at 88% 35%,rgba(180,92,255,.17),transparent 36%),
-    radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.08),transparent 40%),
-    #09070e
+        radial-gradient(ellipse at 12% 12%,rgba(48,105,255,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(77,141,255,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(35,74,175,.16),transparent 40%),
+        #080b13;
 }
-.bg:after{
-    content:"";position:absolute;inset:0;opacity:.16;
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.16;
     background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
     background-size:27px 27px;
-    mask-image:linear-gradient(to bottom,black,transparent 85%)
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
 }
+
+/* NAVEGACIÓN */
+
 nav{
-    min-height:76px;display:flex;align-items:center;
-    justify-content:space-between;gap:16px;padding:14px 7%;
-    border-bottom:1px solid rgba(255,109,225,.17);
-    background:rgba(9,7,14,.86);backdrop-filter:blur(18px);
-    position:relative;z-index:5
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(77,141,255,.2);
+    background:rgba(6,9,17,.85);
+    backdrop-filter:blur(18px);
+    position:relative;
+    z-index:5;
 }
-.logo{font-size:21px;font-weight:950;letter-spacing:1.5px}
-.logo span{color:var(--accent)}
-nav a{text-decoration:none;color:#e2d7e8;font-size:13px;font-weight:850}
+
+.logo{
+    font-size:21px;
+    font-weight:950;
+    letter-spacing:1.5px;
+}
+
+.logo span{color:var(--blue-light)}
+
+nav a{
+    text-decoration:none;
+    color:#d4dff2;
+    font-size:13px;
+    font-weight:800;
+}
+
+nav a.home:hover{color:white}
+
 .discord{
-    padding:12px 18px;border-radius:9px;
-    background:linear-gradient(110deg,#B45CFF,#FF6DE1);
-    color:white!important;border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 5px 24px rgba(255,109,225,.2);transition:.25s
+    padding:12px 18px;
+    border-radius:9px;
+    background:linear-gradient(110deg,#2764ed,#4d8dff);
+    color:white!important;
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(49,112,255,.28);
+    transition:.25s;
 }
-.discord:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,109,225,.35)}
-main{max-width:1100px;margin:0 auto;padding:85px 6% 100px}
-.hero{padding-bottom:38px;animation:appear .65s ease both}
+
+.discord:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 32px rgba(49,112,255,.45);
+}
+
+/* HERO */
+
+main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:85px 6% 100px;
+}
+
+.hero{
+    padding-bottom:38px;
+    animation:appear .65s ease both;
+}
+
 .label{
-    display:inline-flex;align-items:center;gap:9px;
-    color:var(--light);font-size:11px;font-weight:950;
-    letter-spacing:3px;margin-bottom:22px;padding:9px 13px;
-    border:1px solid rgba(255,109,225,.4);border-radius:6px;
-    background:rgba(255,109,225,.09)
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--blue-pale);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:3px;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(77,141,255,.48);
+    border-radius:6px;
+    background:rgba(77,141,255,.14);
+    box-shadow:0 0 25px rgba(77,141,255,.1);
 }
-.label:before{
-    content:"";width:7px;height:7px;border-radius:50%;
-    background:var(--accent);box-shadow:0 0 13px var(--accent)
+
+.label::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--blue-light);
+    box-shadow:0 0 13px var(--blue-light);
 }
+
 h1{
-    font-size:clamp(58px,10vw,104px);line-height:.95;
-    margin:0 0 25px;letter-spacing:-5px;font-weight:1000;
-    background:linear-gradient(100deg,#fff 5%,#FFD0F4 30%,#FF6DE1 65%,#B45CFF 95%);
-    background-clip:text;-webkit-background-clip:text;color:transparent;
-    filter:drop-shadow(0 0 25px rgba(255,109,225,.15))
+    font-size:clamp(58px,10vw,104px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-shadow:0 0 42px rgba(77,141,255,.24);
 }
-.desc{max-width:780px;color:#d0c5d8;font-size:17px;line-height:1.85;margin:0}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#91baff 45%,#4d8dff 80%,#b8d3ff);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.desc{
+    max-width:680px;
+    color:#c4cfe1;
+    font-size:17px;
+    line-height:1.85;
+    margin:0;
+}
+
 .hero-bottom{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:25px;flex-wrap:wrap;margin-top:30px
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
-.price-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+.price-wrap{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
 .price-label{
-    display:block;color:#b8aebe;font-size:10px;
-    letter-spacing:2px;font-weight:900;margin-bottom:7px
+    display:block;
+    color:#a8b9d8;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
 }
-.price{font-size:42px;font-weight:1000;letter-spacing:-2px;color:var(--accent)}
-.price-note{color:#c1b5ca;font-size:12px;line-height:1.8}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.price{
+    font-size:46px;
+    font-weight:1000;
+    letter-spacing:-2px;
+    color:#8eb7ff;
+    text-shadow:0 0 25px rgba(77,141,255,.3);
+}
+
+.price-note{
+    color:#b6c4dc;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
 .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:15px 22px;border-radius:9px;text-decoration:none;
-    font-weight:950;font-size:12px;letter-spacing:.4px;
-    border:1px solid rgba(255,255,255,.17);transition:.2s
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:950;
+    font-size:12px;
+    letter-spacing:.4px;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
 }
+
 .btn:hover{transform:translateY(-2px)}
+
 .primary{
-    color:white;border-color:var(--accent);
-    background:linear-gradient(110deg,#B45CFF,#FF6DE1);
-    box-shadow:0 5px 24px rgba(255,109,225,.2)
+    color:#071020;
+    border-color:#8eb7ff;
+    background:linear-gradient(110deg,#4d8dff,#91baff);
+    box-shadow:0 5px 24px rgba(77,141,255,.25);
 }
-.primary:hover{box-shadow:0 8px 32px rgba(255,109,225,.35)}
-.back{color:#f3e4f3;background:rgba(255,255,255,.035)}
-.back:hover{border-color:var(--accent);background:rgba(255,109,225,.08)}
+
+.primary:hover{
+    box-shadow:0 8px 32px rgba(77,141,255,.45);
+}
+
+.back{
+    color:#e2ecff;
+    background:rgba(255,255,255,.035);
+}
+
+.back:hover{
+    border-color:var(--blue-light);
+    background:rgba(77,141,255,.1);
+}
+
+/* PANEL PRINCIPAL */
+
 .box{
-    position:relative;margin-top:30px;padding:clamp(22px,4vw,38px);
-    border:1px solid var(--border);border-radius:20px;
-    background:linear-gradient(145deg,rgba(30,19,36,.97),rgba(12,9,19,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(255,109,225,.04);
-    overflow:hidden;animation:appear .8s ease both
+    position:relative;
+    margin-top:30px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(18,27,44,.97),rgba(9,13,23,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(77,141,255,.06);
+    overflow:hidden;
+    animation:appear .8s ease both;
 }
-.box:before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,#B45CFF,#FF6DE1,#FFD0F4,#B45CFF);
-    background-size:250% 100%;animation:rankBar 5s linear infinite
+
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#4d8dff,#91baff,transparent);
 }
+
 .box h2{
-    display:flex;align-items:center;gap:12px;margin:0 0 20px;
-    font-size:clamp(23px,4vw,30px);font-weight:950
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
+    font-weight:950;
 }
-.box h2:before{
-    content:"";width:5px;height:28px;border-radius:8px;
-    background:linear-gradient(var(--accent),var(--accent2));
-    box-shadow:0 0 16px rgba(255,109,225,.3);flex-shrink:0
+
+.box h2::before{
+    content:"";
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(#4d8dff,#91baff);
+    box-shadow:0 0 16px rgba(77,141,255,.5);
+    flex-shrink:0;
 }
-.box h3{margin:0 0 14px;color:#fff;font-size:18px;font-weight:950}
-.box p{color:var(--muted);line-height:1.8;margin:9px 0}
-.section{margin-top:34px;padding-top:30px;border-top:1px solid rgba(255,109,225,.15)}
-.section:first-of-type{margin-top:0;padding-top:0;border-top:none}
-.section-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f4f8ff;
+    font-size:18px;
+    font-weight:950;
+}
+
+.box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:9px 0;
+}
+
+/* SECCIONES */
+
+.section{
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid rgba(77,141,255,.18);
+}
+
+.section:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+}
+
 .section-icon{
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;width:42px;height:42px;border-radius:12px;
-    border:1px solid rgba(255,109,225,.35);
-    background:linear-gradient(145deg,rgba(255,109,225,.18),rgba(180,92,255,.1));
-    color:var(--light);font-size:16px;font-weight:950
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:1px solid rgba(77,141,255,.4);
+    background:linear-gradient(145deg,rgba(77,141,255,.25),rgba(145,186,255,.1));
+    color:#c9e2ff;
+    font-size:15px;
+    font-weight:950;
+    box-shadow:inset 0 0 16px rgba(77,141,255,.08);
 }
-.section-heading h3{margin:0;font-size:18px}
-.section-heading p{margin:5px 0 0;font-size:12px;color:#c6a9c8}
+
+.section-heading h3{
+    margin:0;
+    font-size:18px;
+}
+
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a7b8d4;
+}
+
 .info-list{
-    list-style:none;padding:0;margin:0;
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
 }
+
 .info-list li{
-    position:relative;min-width:0;padding:14px 15px 14px 18px;
-    border:1px solid rgba(255,109,225,.16);border-radius:10px;
-    background:linear-gradient(120deg,rgba(255,109,225,.06),rgba(180,92,255,.025));
-    color:#d5c8dc;line-height:1.7;font-size:13px;overflow-wrap:anywhere;
-    transition:.2s
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(77,141,255,.2);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(77,141,255,.1),rgba(255,255,255,.018));
+    color:#cbd7eb;
+    line-height:1.7;
+    transition:border-color .2s,background .2s,transform .2s;
 }
-.info-list li:before{
-    content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;
-    border-radius:0 4px 4px 0;background:linear-gradient(var(--accent),var(--accent2))
+
+.info-list li:hover{
+    border-color:rgba(145,186,255,.65);
+    background:rgba(77,141,255,.14);
+    transform:translateY(-1px);
 }
-.info-list li:hover{border-color:rgba(255,109,225,.5);transform:translateY(-1px)}
-.item-name{color:#fff;font-weight:900}
-.item-details{color:var(--accent);font-size:13px;font-weight:800}
+
+.item-name{
+    color:#f2f7ff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:#9fc5ff;
+    font-size:13px;
+    font-weight:700;
+}
+
 .inherit{
-    margin-top:20px;padding:20px;
-    border:1px solid rgba(255,109,225,.25);
-    border-left:4px solid var(--accent);border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(255,109,225,.09),rgba(180,92,255,.045));
-    color:#d4c8dc;font-size:13px;line-height:1.9
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(77,141,255,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(77,141,255,.17),rgba(145,186,255,.055));
+    color:#d0ddf2;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(77,141,255,.04);
 }
-.inherit strong{color:var(--light);font-weight:950}
+
+.inherit strong{color:#c7e3ff}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4f8ff!important;
+}
+
+/* COMANDOS ELITE */
+
+.command-intro{margin-bottom:20px!important}
+
 .command-grid{
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:15px;margin-top:19px
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+    margin-top:19px;
 }
+
 .command-card{
-    position:relative;overflow:hidden;min-width:0;padding:23px;
-    border:1px solid rgba(255,109,225,.3);border-radius:14px;
-    background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.1),transparent 55%),
-    linear-gradient(135deg,rgba(180,92,255,.15),rgba(15,12,25,.96) 70%);
-    transition:.25s
+    position:relative;
+    overflow:hidden;
+    min-width:0;
+    margin-top:0;
+    padding:23px;
+    border:1px solid rgba(77,141,255,.42);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(77,141,255,.14),transparent 55%),
+        linear-gradient(135deg,rgba(42,91,185,.25),rgba(15,24,42,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
 }
-.command-card:before{
-    content:"";position:absolute;top:0;left:0;width:4px;height:100%;
-    background:linear-gradient(var(--accent2),var(--accent))
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(#4d8dff,#91baff);
+    box-shadow:0 0 15px rgba(77,141,255,.25);
 }
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(77,141,255,.16);
+    filter:blur(12px);
+    pointer-events:none;
+}
+
 .command-card:hover{
-    border-color:rgba(255,109,225,.7);transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(255,109,225,.08)
+    border-color:rgba(145,186,255,.8);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(77,141,255,.12);
 }
-.command-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
 .command-number{
-    display:grid;place-items:center;width:36px;height:36px;
-    border-radius:10px;color:var(--light);
-    background:rgba(255,109,225,.12);border:1px solid rgba(255,109,225,.3);
-    font-size:13px;font-weight:950
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#e2f5ff;
+    background:rgba(77,141,255,.24);
+    border:1px solid rgba(145,186,255,.32);
+    font-size:12px;
+    font-weight:950;
 }
+
 .command-tag{
-    color:#ffe0f6;background:rgba(180,92,255,.12);
-    border:1px solid rgba(255,109,225,.3);border-radius:5px;
-    padding:6px 9px;font-size:9px;font-weight:950;letter-spacing:1.3px
+    color:#c9ddff;
+    background:rgba(77,141,255,.09);
+    border:1px solid rgba(145,186,255,.25);
+    border-radius:5px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
 }
-.command-name{display:block;margin-bottom:11px;color:var(--accent);font-size:22px;font-weight:1000}
-.command-description{margin:0!important;color:#d0c9df!important;font-size:14px!important;line-height:1.85!important}
+
+.command-name{
+    display:block;
+    margin-bottom:11px;
+    color:#8fbdff;
+    font-size:25px;
+    line-height:1.25;
+    font-weight:1000;
+    letter-spacing:.2px;
+    overflow-wrap:anywhere;
+    text-shadow:0 0 22px rgba(77,141,255,.23);
+}
+
+.command-description{
+    margin:0!important;
+    color:#d0dced!important;
+    font-size:14px;
+    line-height:1.85!important;
+}
+
 .command-note{
-    margin-top:20px;padding:18px 20px;border:1px solid rgba(255,109,225,.2);
-    border-left:4px solid var(--accent);border-radius:0 11px 11px 0;
-    background:rgba(255,109,225,.045);color:#c8bed1;font-size:13px;line-height:1.9
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(77,141,255,.25);
+    border-left:4px solid var(--blue);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(77,141,255,.14),rgba(145,186,255,.035));
+    color:#c0cde0;
+    font-size:13px;
+    line-height:1.9;
 }
-.command-note strong{color:var(--light)}
-details{
-    margin-top:15px;border:1px solid rgba(255,109,225,.25);
-    border-radius:12px;background:rgba(12,9,19,.5);overflow:hidden
-}
-summary{
-    display:flex;align-items:center;justify-content:space-between;gap:15px;
-    cursor:pointer;list-style:none;padding:18px 20px;
-    font-weight:950;color:var(--accent);font-size:14px
-}
-summary::-webkit-details-marker{display:none}
-summary:after{
-    content:"+";display:grid;place-items:center;flex:0 0 28px;
-    width:28px;height:28px;border:1px solid rgba(255,109,225,.3);
-    border-radius:7px;font-size:21px;color:var(--accent)
-}
-details[open] summary:after{content:"−"}
-details[open] summary{border-bottom:1px solid rgba(255,255,255,.075)}
-.shulker-content{padding:5px 20px 23px}
-.shulker-content h3{margin:25px 0 12px;color:var(--accent);font-size:16px}
-.shulker-content ul{
-    list-style:none;padding:0;margin:0;
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px
-}
-.shulker-content li{
-    min-width:0;padding:12px 13px;border:1px solid rgba(255,109,225,.1);
-    border-radius:8px;background:rgba(255,255,255,.025);
-    color:#d5cbdc;font-size:13px;line-height:1.75;overflow-wrap:anywhere
-}
+
+.command-note strong{color:#d9eaff}
+
+/* PIE */
+
 footer{
-    text-align:center;padding:30px 20px;color:#8d8294;
-    font-size:12px;border-top:1px solid rgba(255,109,225,.15);
-    background:rgba(6,5,12,.72)
+    text-align:center;
+    padding:30px 20px;
+    color:#8b98af;
+    font-size:12px;
+    border-top:1px solid rgba(77,141,255,.18);
+    background:rgba(6,9,16,.72);
 }
-footer span{color:var(--accent)}
-@keyframes rankBar{from{background-position:0% 50%}to{background-position:250% 50%}}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+footer span{color:#91baff}
+
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* MÓVILES */
+
 @media(max-width:650px){
-    nav{padding:14px 5%;flex-wrap:wrap}
+    nav{
+        padding:14px 5%;
+        flex-wrap:wrap;
+    }
+
     .logo{font-size:17px}
     nav a.home{display:none}
-    nav a.discord{font-size:11px;padding:10px 12px}
+
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
+    }
+
     main{padding:62px 5% 70px}
     h1{letter-spacing:-3px}
     .desc{font-size:15px}
-    .hero-bottom{align-items:flex-start;flex-direction:column}
-    .price{font-size:35px}
+
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .price{font-size:40px}
     .actions{width:100%}
-    .btn{flex:1 1 auto;text-align:center;padding:14px 15px}
-    .box{padding:23px 17px;border-radius:15px}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
+
+    .box{
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
     .box h2{font-size:23px}
-    .command-grid,.info-list,.shulker-content ul{grid-template-columns:1fr}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
+    }
+
     .command-card{padding:20px}
     .section-heading h3{font-size:16px}
-    .shulker-content{padding:5px 12px 18px}
 }
+
 @media(prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
 }
 </style>
 </head>
 
 <body>
+
 <div class="bg"></div>
 
 <nav>
-    <div class="logo">KAIZORA <span>ORIGINS</span></div>
-    <a class="home" href="https://kaizoraorigins.github.io/website/">Inicio</a>
-    <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar por Discord</a>
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
+
+    <a class="home"
+       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+        Inicio
+    </a>
+
+    <a class="discord"
+       href="https://discord.gg/sHvWgW7AE4"
+       target="_blank"
+       rel="noopener noreferrer">
+        Comprar por Discord
+    </a>
 </nav>
 
 <main>
 
-    <!-- HERO -->
-    <header class="hero">
+    <!-- HERO DEL RANGO -->
+
+    <section class="hero">
+
         <div class="label">RANGO EXCLUSIVO</div>
-        <h1>ELITE</h1>
+
+        <h1><span>ELITE</span></h1>
+
         <p class="desc">
-            El poder comienza a tomar forma. ELITE representa un nuevo
-            escalón en tu evolución dentro de Kaizora Origins, con
-            equipamiento avanzado, herramientas encantadas y recursos
-            exclusivos para afrontar desafíos cada vez mayores.
+            Para jugadores que buscan una experiencia superior dentro del
+            servidor, con mejores equipamientos, recursos y beneficios.
+            Desbloquea nuevas posibilidades y continúa construyendo tu historia
+            en Kaizora Origins.
         </p>
 
         <div class="hero-bottom">
+
             <div class="price-wrap">
                 <div>
                     <span class="price-label">PRECIO DEL RANGO</span>
-                    <div class="price">Consultar</div>
+                    <div class="price">$4.99</div>
                 </div>
+
                 <div class="price-note">
-                    Un nuevo nivel de poder.<br>
-                    Una nueva forma de jugar.
+                    Sube de nivel.<br>
+                    Lleva tu aventura más lejos.
                 </div>
             </div>
+
             <div class="actions">
-                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar ELITE ↗</a>
-                <a class="btn back" href="https://kaizoraorigins.github.io/website/">Volver a rangos</a>
+
+                <a class="btn primary"
+                   href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Comprar ELITE ↗
+                </a>
+
+                <a class="btn back"
+                   href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+                    Volver a rangos
+                </a>
+
             </div>
+
         </div>
-    </header>
+
+    </section>
+
+    <!-- INFORMACIÓN COMPLETA -->
 
     <div class="box">
-        <h2>Beneficios y ventajas de ELITE</h2>
 
-        <!-- 01 -->
-        <section class="section">
+        <h2>Información del rango</h2>
+
+        <!-- HERENCIA -->
+
+        <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
-                    <h3>Beneficios de rangos anteriores</h3>
-                    <p>Tu progreso continúa contigo</p>
+                    <h3>Herencia de rangos</h3>
+                    <p>Tus ventajas anteriores siguen contigo</p>
                 </div>
             </div>
-            <p>
-                ELITE incluye los beneficios, permisos y ventajas de los
-                rangos anteriores de la progresión, además de su propio
-                equipamiento y recursos exclusivos.
-            </p>
-            <div class="inherit">
-                <strong>VENTAJAS HEREDADAS</strong><br>
-                Al ascender, conservas los beneficios correspondientes
-                a los rangos anteriores.
-            </div>
-        </section>
 
-        <!-- 02 -->
-        <section class="section">
+            <p>
+                ELITE incluye todos los permisos, comandos, kits y beneficios
+                de los rangos anteriores, incluido ORIGIN y ASCENDENTE,
+                además de las ventajas exclusivas que desbloqueas con ELITE.
+            </p>
+
+            <div class="inherit">
+                <strong>TU RANGO INCLUYE:</strong><br>
+                Default / User + ORIGIN + ASCENDENTE + ELITE.<br>
+                <strong>No pierdes las ventajas de tus rangos anteriores.</strong><br>
+                Todos sus comandos y permisos se mantienen disponibles
+                según la configuración del servidor.
+            </div>
+
+        </div>
+
+        <!-- COMANDOS -->
+
+        <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">02</div>
                 <div>
-                    <h3>Armadura completa de Netherite</h3>
-                    <p>Protección mejorada con encantamientos de nivel VII</p>
+                    <h3 class="kit-title">Comandos exclusivos de ELITE</h3>
+                    <p>Una herramienta adicional para tus aventuras</p>
                 </div>
             </div>
-            <p>
-                Un conjunto completo de Netherite preparado para afrontar
-                combates, exploraciones y desafíos de alto nivel.
+
+            <p class="command-intro">
+                ELITE te permite acceder a un comando adicional para gestionar
+                una situación habitual durante tus aventuras. Esta es la
+                ventaja de comando propia de este rango.
             </p>
 
-            <details>
-                <summary>VER ENCANTAMIENTOS DE ARMADURA</summary>
-                <div class="shulker-content">
-                    <h3>Casco de Netherite</h3>
-                    <ul>
-                        <li>Protección VII</li>
-                        <li>Protección contra proyectiles VII</li>
-                        <li>Protección contra el fuego VII</li>
-                        <li>Respiración VII</li>
-                        <li>Afinidad acuática VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+            <div class="command-grid">
 
-                    <h3>Pechera de Netherite</h3>
-                    <ul>
-                        <li>Protección VII</li>
-                        <li>Protección contra explosiones VII</li>
-                        <li>Protección contra el fuego VII</li>
-                        <li>Protección contra proyectiles VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+                <div class="command-card">
 
-                    <h3>Pantalones de Netherite</h3>
-                    <ul>
-                        <li>Protección VII</li>
-                        <li>Protección contra explosiones VII</li>
-                        <li>Protección contra el fuego VII</li>
-                        <li>Protección contra proyectiles VII</li>
-                        <li>Sigilo veloz VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+                    <div class="command-top">
+                        <span class="command-number">01</span>
+                        <span class="command-tag">Supervivencia</span>
+                    </div>
 
-                    <h3>Botas de Netherite</h3>
-                    <ul>
-                        <li>Paso helado VII</li>
-                        <li>Protección VII</li>
-                        <li>Protección contra explosiones VII</li>
-                        <li>Protección contra el fuego VII</li>
-                        <li>Protección contra proyectiles VII</li>
-                        <li>Caída de pluma VII</li>
-                        <li>Velocidad de alma VII</li>
-                        <li>Agilidad acuática VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+                    <span class="command-name">/extinguish</span>
+
+                    <p class="command-description">
+                        Apaga el fuego que te afecta para ayudarte a continuar
+                        tu aventura sin las llamas. Su funcionamiento depende
+                        de la configuración del comando en el servidor.
+                    </p>
+
                 </div>
-            </details>
-        </section>
 
-        <!-- 03 -->
-        <section class="section">
+            </div>
+
+            <div class="command-note">
+                <strong>TAMBIÉN INCLUYE LOS COMANDOS DE ORIGIN Y ASCENDENTE</strong><br>
+                Al obtener ELITE conservas los comandos de tus rangos
+                anteriores, incluidos <strong>/me</strong>,
+                <strong>/recipe</strong> y <strong>/depth</strong>,
+                además de los permisos y beneficios heredados de Default / User.
+                <br><br>
+                <strong>Importante:</strong> los comandos disponibles pueden
+                variar según los permisos y plugins instalados en el servidor.
+            </div>
+
+        </div>
+
+        <!-- KIT -->
+
+        <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">03</div>
                 <div>
-                    <h3>Armas y herramientas de Netherite</h3>
-                    <p>Encantamientos de nivel VII</p>
+                    <h3 class="kit-title">/kit Elite</h3>
+                    <p>El equipamiento incluido en tu rango</p>
                 </div>
             </div>
 
-            <details>
-                <summary>VER ENCANTAMIENTOS DE ARMAS Y HERRAMIENTAS</summary>
-                <div class="shulker-content">
-                    <h3>Espada de Netherite</h3>
-                    <ul>
-                        <li>Filo VII</li>
-                        <li>Golpeo VII</li>
-                        <li>Perdición de los artrópodos VII</li>
-                        <li>Filo arrasador VII</li>
-                        <li>Aspecto ígneo VII</li>
-                        <li>Empuje VII</li>
-                        <li>Botín VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+            <p>
+                El kit exclusivo del rango ELITE incluye equipamiento
+                de Netherite mejorado, herramientas encantadas, recursos,
+                materiales especiales, llave y protección para tus construcciones.
+            </p>
 
-                    <h3>Pico de Netherite</h3>
-                    <ul>
-                        <li>Fortuna VII</li>
-                        <li>Eficiencia VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+        </div>
 
-                    <h3>Hacha de Netherite</h3>
-                    <ul>
-                        <li>Filo VII</li>
-                        <li>Golpeo VII</li>
-                        <li>Perdición de los artrópodos VII</li>
-                        <li>Eficiencia VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+        <!-- ARMADURA -->
 
-                    <h3>Pala de Netherite</h3>
-                    <ul>
-                        <li>Fortuna VII</li>
-                        <li>Eficiencia VII</li>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
+        <div class="section">
 
-                    <h3>Escudo</h3>
-                    <ul>
-                        <li>Irrompibilidad VII</li>
-                        <li>Reparación</li>
-                    </ul>
-                </div>
-            </details>
-        </section>
-
-        <!-- 04 -->
-        <section class="section">
             <div class="section-heading">
                 <div class="section-icon">04</div>
                 <div>
-                    <h3>Recursos exclusivos</h3>
+                    <h3>Full Armor Netherite</h3>
+                    <p>Cuatro piezas para equiparte por completo</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Casco de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VII · Protección contra proyectiles VII ·
+                        Protección contra el fuego VII · Respiración VII ·
+                        Afinidad acuática VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VII · Protección contra explosiones VII ·
+                        Protección contra el fuego VII · Protección contra proyectiles VII ·
+                        Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VII · Protección contra explosiones VII ·
+                        Protección contra el fuego VII · Protección contra proyectiles VII ·
+                        Sigilo veloz VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">
+                        Caminante helado VII · Protección VII ·
+                        Protección contra explosiones VII · Protección contra el fuego VII ·
+                        Protección contra proyectiles VII · Caída de pluma VII ·
+                        Velocidad de almas VII · Agilidad acuática VII ·
+                        Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- HERRAMIENTAS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">05</div>
+                <div>
+                    <h3>Herramientas</h3>
+                    <p>Equipo encantado para minar y combatir</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Espada de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VII · Castigo VII · Perdición de los artrópodos VII ·
+                        Filo arrasador VII · Aspecto ígneo VII · Empuje VII ·
+                        Saqueo VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pico de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna VII · Eficiencia VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Hacha de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VII · Castigo VII · Perdición de los artrópodos VII ·
+                        Eficiencia VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pala de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna VII · Eficiencia VII · Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- ESCUDO -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">06</div>
+                <div>
+                    <h3>Escudo</h3>
+                    <p>Defensa adicional para tus enfrentamientos</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">
+                        Irrompibilidad VII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- COMIDA -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">07</div>
+                <div>
+                    <h3>Comida</h3>
+                    <p>Provisiones para mantenerte preparado</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Manzanas Encantadas</span><br>
+                    <span class="item-details">×16</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Manzanas Doradas</span><br>
+                    <span class="item-details">×32</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Zanahorias Doradas</span><br>
+                    <span class="item-details">×64</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Papas</span><br>
+                    <span class="item-details">×64</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- MATERIALES -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">08</div>
+                <div>
+                    <h3>Materiales</h3>
+                    <p>Recursos para fabricar y progresar</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Lingotes de Hierro</span><br>
+                    <span class="item-details">×64</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Lingotes de Oro</span><br>
+                    <span class="item-details">×64</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Fragmentos de Netherite</span><br>
+                    <span class="item-details">×32</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- POLVOS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">09</div>
+                <div>
+                    <h3>Polvos y esencias</h3>
                     <p>Materiales especiales incluidos en ELITE</p>
                 </div>
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">Cantidad: ×16</span>
+                    <span class="item-details">×16</span>
                 </li>
+
                 <li>
                     <span class="item-name">Nexo Prismático</span><br>
-                    <span class="item-details">Cantidad: ×14</span>
+                    <span class="item-details">×14</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">Cantidad: ×12</span>
+                    <span class="item-details">×12</span>
                 </li>
-                <li>
-                    <span class="item-name">Llave Elite</span><br>
-                    <span class="item-details">Cantidad: ×1</span>
-                </li>
-            </ul>
-        </section>
 
-        <!-- 05 -->
-        <section class="section">
+            </ul>
+
+        </div>
+
+        <!-- PIEDRA DE PROTECCIÓN -->
+
+        <div class="section">
+
             <div class="section-heading">
-                <div class="section-icon">05</div>
+                <div class="section-icon">10</div>
                 <div>
-                    <h3>Protección de terreno</h3>
-                    <p>Un espacio más amplio para construir</p>
+                    <h3>Piedra de Protección</h3>
+                    <p>Protege el espacio de tus construcciones</p>
                 </div>
             </div>
 
             <ul class="info-list">
-                <li>
-                    <span class="item-name">Protección Elite</span><br>
-                    <span class="item-details">Área: 30 × 30 bloques</span>
-                </li>
-            </ul>
-        </section>
 
-        <!-- COMPRA -->
-        <section class="section">
+                <li>
+                    <span class="item-name">Mena de Lapislázuli</span><br>
+                    <span class="item-details">
+                        Protección de 30 × 30 bloques
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- AÑADIDOS -->
+
+        <div class="section">
+
             <div class="section-heading">
-                <div class="section-icon">06</div>
+                <div class="section-icon">11</div>
                 <div>
-                    <h3>Compra del rango ELITE</h3>
-                    <p>Da el siguiente paso en tu evolución</p>
+                    <h3>Añadidos</h3>
+                    <p>Objetos especiales para tu aventura</p>
                 </div>
             </div>
-            <p>
-                Para adquirir ELITE, visita nuestro Discord oficial
-                y consulta el procedimiento de compra. Nuestro equipo
-                podrá ayudarte durante el proceso.
-            </p>
-            <div class="actions">
-                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar ELITE ↗</a>
-                <a class="btn back" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Entrar al Discord ↗</a>
-            </div>
-        </section>
 
-        <div class="inherit">
-            <strong>RESUMEN DEL RANGO ELITE</strong><br>
-            ELITE incluye los beneficios de los rangos anteriores,
-            armadura completa de Netherite con encantamientos de nivel VII,
-            espada, pico, hacha, pala y escudo de Netherite.
-            También incorpora Esencia Arcana ×16, Nexo Prismático ×14,
-            Esencia Eléctrica ×12, Llave Elite ×1 y protección de terreno
-            de <strong>30 × 30 bloques</strong>.
-            <br><br>
-            <strong>Nota:</strong> los encantamientos incompatibles entre sí
-            y los niveles superiores a los límites normales de Minecraft
-            requieren compatibilidad y configuración adecuada de los plugins
-            del servidor.
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Llave ELITE</span><br>
+                    <span class="item-details">×1</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Perlas de Ender</span><br>
+                    <span class="item-details">×8</span>
+                </li>
+
+            </ul>
+
         </div>
+
     </div>
+
 </main>
 
 <footer>
