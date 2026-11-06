@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -252,28 +251,18 @@ h1 span{color:var(--accent)}
 .command-note strong{color:var(--accent-light)}
 .kit-title{font-size:21px!important;color:#f4edff!important}
 
-/* DESPLEGABLES */
-details{
-    margin-top:14px;border:1px solid rgba(188,160,255,.24);
-    border-radius:11px;background:rgba(12,9,19,.5);overflow:hidden
+/* ENCANTAMIENTOS VISIBLES */
+.shulker-content{
+    margin-top:15px;
+    padding:20px;
+    border:1px solid rgba(188,160,255,.2);
+    border-radius:12px;
+    background:rgba(12,9,19,.42)
 }
-summary{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:12px;cursor:pointer;list-style:none;padding:17px 19px;
-    color:var(--accent-light);font-size:13px;font-weight:950
-}
-summary::-webkit-details-marker{display:none}
-summary::after{
-    content:"+";font-size:22px;color:var(--accent);
-    width:28px;height:28px;display:grid;place-items:center;
-    border:1px solid rgba(188,160,255,.3);border-radius:7px
-}
-details[open] summary::after{content:"−"}
-details[open] summary{border-bottom:1px solid rgba(188,160,255,.14)}
-.shulker-content{padding:8px 18px 20px}
 .shulker-content h3{
     margin:20px 0 10px;color:#d6c2ff;font-size:16px
 }
+.shulker-content h3:first-child{margin-top:0}
 .shulker-content ul{
     list-style:none;padding:0;margin:0;
     display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px
@@ -315,7 +304,7 @@ footer span{color:#c6b0ff}
     .command-grid,.info-list,.shulker-content ul{grid-template-columns:1fr}
     .command-card{padding:20px}
     .section-heading h3{font-size:16px}
-    .shulker-content{padding:5px 12px 18px}
+    .shulker-content{padding:16px 12px}
 }
 @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{
@@ -489,57 +478,55 @@ footer span{color:#c6b0ff}
                 </div>
             </div>
 
-            <details>
-                <summary>VER ENCANTAMIENTOS DE LA ARMADURA</summary>
-                <div class="shulker-content">
+            <div class="shulker-content">
 
-                    <h3>Casco de Netherite</h3>
-                    <ul>
-                        <li>Protección VI</li>
-                        <li>Protección contra proyectiles VI</li>
-                        <li>Protección contra el fuego VI</li>
-                        <li>Respiración VI</li>
-                        <li>Afinidad acuática VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Casco de Netherite</h3>
+                <ul>
+                    <li>Protección VI</li>
+                    <li>Protección contra proyectiles VI</li>
+                    <li>Protección contra el fuego VI</li>
+                    <li>Respiración VI</li>
+                    <li>Afinidad acuática VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Pechera de Netherite</h3>
-                    <ul>
-                        <li>Protección VI</li>
-                        <li>Protección contra explosiones VI</li>
-                        <li>Protección contra el fuego VI</li>
-                        <li>Protección contra proyectiles VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Pechera de Netherite</h3>
+                <ul>
+                    <li>Protección VI</li>
+                    <li>Protección contra explosiones VI</li>
+                    <li>Protección contra el fuego VI</li>
+                    <li>Protección contra proyectiles VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Pantalones de Netherite</h3>
-                    <ul>
-                        <li>Protección VI</li>
-                        <li>Protección contra explosiones VI</li>
-                        <li>Protección contra el fuego VI</li>
-                        <li>Protección contra proyectiles VI</li>
-                        <li>Sigilo veloz VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Pantalones de Netherite</h3>
+                <ul>
+                    <li>Protección VI</li>
+                    <li>Protección contra explosiones VI</li>
+                    <li>Protección contra el fuego VI</li>
+                    <li>Protección contra proyectiles VI</li>
+                    <li>Sigilo veloz VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Botas de Netherite</h3>
-                    <ul>
-                        <li>Paso helado VI</li>
-                        <li>Protección VI</li>
-                        <li>Protección contra explosiones VI</li>
-                        <li>Protección contra el fuego VI</li>
-                        <li>Protección contra proyectiles VI</li>
-                        <li>Caída de pluma VI</li>
-                        <li>Velocidad de alma VI</li>
-                        <li>Agilidad acuática VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
-                </div>
-            </details>
+                <h3>Botas de Netherite</h3>
+                <ul>
+                    <li>Paso helado VI</li>
+                    <li>Protección VI</li>
+                    <li>Protección contra explosiones VI</li>
+                    <li>Protección contra el fuego VI</li>
+                    <li>Protección contra proyectiles VI</li>
+                    <li>Caída de pluma VI</li>
+                    <li>Velocidad de alma VI</li>
+                    <li>Agilidad acuática VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
+
+            </div>
         </div>
 
         <!-- 05: HERRAMIENTAS -->
@@ -552,57 +539,54 @@ footer span{color:#c6b0ff}
                 </div>
             </div>
 
-            <details>
-                <summary>VER ENCANTAMIENTOS DE ARMAS Y HERRAMIENTAS</summary>
-                <div class="shulker-content">
+            <div class="shulker-content">
 
-                    <h3>Espada de Netherite</h3>
-                    <ul>
-                        <li>Filo VI</li>
-                        <li>Golpeo VI</li>
-                        <li>Perdición de los artrópodos VI</li>
-                        <li>Filo arrasador VI</li>
-                        <li>Aspecto ígneo VI</li>
-                        <li>Empuje VI</li>
-                        <li>Botín VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Espada de Netherite</h3>
+                <ul>
+                    <li>Filo VI</li>
+                    <li>Golpeo VI</li>
+                    <li>Perdición de los artrópodos VI</li>
+                    <li>Filo arrasador VI</li>
+                    <li>Aspecto ígneo VI</li>
+                    <li>Empuje VI</li>
+                    <li>Botín VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Pico de Netherite</h3>
-                    <ul>
-                        <li>Fortuna VI</li>
-                        <li>Eficiencia VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Pico de Netherite</h3>
+                <ul>
+                    <li>Fortuna VI</li>
+                    <li>Eficiencia VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Hacha de Netherite</h3>
-                    <ul>
-                        <li>Filo VI</li>
-                        <li>Golpeo VI</li>
-                        <li>Perdición de los artrópodos VI</li>
-                        <li>Eficiencia VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Hacha de Netherite</h3>
+                <ul>
+                    <li>Filo VI</li>
+                    <li>Golpeo VI</li>
+                    <li>Perdición de los artrópodos VI</li>
+                    <li>Eficiencia VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Pala de Netherite</h3>
-                    <ul>
-                        <li>Fortuna VI</li>
-                        <li>Eficiencia VI</li>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Pala de Netherite</h3>
+                <ul>
+                    <li>Fortuna VI</li>
+                    <li>Eficiencia VI</li>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                    <h3>Escudo</h3>
-                    <ul>
-                        <li>Irrompibilidad VI</li>
-                        <li>Reparación</li>
-                    </ul>
+                <h3>Escudo</h3>
+                <ul>
+                    <li>Irrompibilidad VI</li>
+                    <li>Reparación</li>
+                </ul>
 
-                </div>
-            </details>
+            </div>
         </div>
 
         <!-- 06: COMIDA -->
