@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09070e">
+<meta name="description" content="Descubre el rango ASCENDENTE de Kaizora Origins, su equipamiento y beneficios exclusivos.">
+<title>ASCENDENTE | Kaizora Origins</title>
+
+<style>
+:root{
+    --bg:#09070e;
+    --panel:#131019;
+    --rank:#9B5DE5;
+    --rank-light:#C18AFF;
+    --rank-pale:#E3C8FF;
+    --purple:#7436C5;
+    --pink:#FF6DE1;
+    --white:#fff;
+    --text:#f0eafa;
+    --muted:#bcb7c7;
+    --border:rgba(155,93,229,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;background:var(--bg);color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;overflow-x:hidden
+}
+a{color:inherit}
+.bg{
+    position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+        radial-gradient(ellipse at 12% 12%,rgba(155,93,229,.20),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.10),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(116,54,197,.10),transparent 40%),
+        #09070e
+}
+.bg::after{
+    content:"";position:absolute;inset:0;opacity:.16;
+    background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
+    background-size:27px 27px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+
+/* NAVEGACIÓN */
+nav{
+    min-height:76px;display:flex;align-items:center;
+    justify-content:space-between;gap:16px;padding:14px 7%;
+    border-bottom:1px solid rgba(155,93,229,.18);
+    background:rgba(9,7,14,.87);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    position:relative;z-index:5
+}
+.logo{font-size:21px;font-weight:950;letter-spacing:1.5px;white-space:nowrap}
+.logo span{color:var(--rank-light)}
+nav a{text-decoration:none;color:#d4d2de;font-size:13px;font-weight:850}
+.discord{
+    padding:12px 18px;border-radius:9px;
+    background:linear-gradient(110deg,#7436C5,#9B5DE5,#FF6DE1);
+    color:white!important;border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 5px 24px rgba(155,93,229,.20);
+    transition:.25s
+}
+.discord:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(155,93,229,.35)}
+
+/* HERO */
+main{max-width:1100px;margin:0 auto;padding:85px 6% 100px}
+.hero{padding-bottom:38px;animation:appear .65s ease both}
+.label{
+    display:inline-flex;align-items:center;gap:9px;
+    color:var(--rank-pale);font-size:11px;font-weight:950;
+    letter-spacing:3px;margin-bottom:25px;padding:9px 13px;
+    border:1px solid rgba(155,93,229,.4);border-radius:6px;
+    background:rgba(155,93,229,.09);
+    box-shadow:0 0 25px rgba(155,93,229,.08)
+}
+.label::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--rank);
+    box-shadow:0 0 13px var(--rank)
+}
+h1{
+    font-size:clamp(52px,10vw,100px);
+    line-height:.95;margin:0 0 25px;
+    letter-spacing:-5px;font-weight:1000;
+    overflow-wrap:anywhere;
+    background:linear-gradient(100deg,#fff 5%,var(--rank-pale) 30%,var(--rank) 65%,var(--pink) 95%);
+    background-clip:text;-webkit-background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 25px rgba(155,93,229,.13))
+}
+.desc{max-width:780px;color:#c4c9dc;font-size:17px;line-height:1.85;margin:0}
+.hero-bottom{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:25px;flex-wrap:wrap;margin-top:30px
+}
+.price-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.price-label{
+    display:block;color:#b8b7c4;font-size:10px;
+    letter-spacing:2px;font-weight:900;margin-bottom:7px
+}
+.price{
+    font-size:39px;font-weight:1000;
+    letter-spacing:-2px;line-height:1;color:var(--rank);
+    text-shadow:0 0 25px rgba(155,93,229,.23)
+}
+.price-note{color:#c1bdcb;font-size:12px;line-height:1.8}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:15px 22px;border-radius:9px;text-decoration:none;
+    font-weight:950;font-size:12px;letter-spacing:.4px;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s
+}
+.btn:hover{transform:translateY(-2px)}
+.primary{
+    color:white;border-color:var(--rank-light);
+    background:linear-gradient(110deg,#7436C5,#9B5DE5,#FF6DE1);
+    box-shadow:0 5px 24px rgba(155,93,229,.2)
+}
+.primary:hover{box-shadow:0 8px 32px rgba(155,93,229,.35)}
+.back{color:#e2eaff;background:rgba(255,255,255,.035)}
+.back:hover{border-color:var(--rank);background:rgba(155,93,229,.1)}
+
+/* PANEL PRINCIPAL */
+.box{
+    position:relative;margin-top:30px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);border-radius:20px;
+    background:linear-gradient(145deg,rgba(28,20,38,.97),rgba(12,9,19,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(155,93,229,.035);
+    overflow:hidden;animation:appear .8s ease both
+}
+.box::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,#9B5DE5,#7436C5,#FF6DE1,#C18AFF,#9B5DE5);
+    background-size:250% 100%;
+    animation:rankBar 5s linear infinite
+}
+.box h2{
+    display:flex;align-items:center;gap:12px;
+    margin:0 0 20px;font-size:clamp(23px,4vw,30px);
+    font-weight:950
+}
+.box h2::before{
+    content:"";width:5px;height:28px;border-radius:8px;
+    background:linear-gradient(var(--rank),var(--pink));
+    box-shadow:0 0 16px rgba(155,93,229,.3);
+    flex-shrink:0
+}
+.box h3{margin:0 0 14px;color:#f4f4ff;font-size:18px;font-weight:950}
+.box p{color:var(--muted);line-height:1.8;margin:9px 0;font-size:14px}
+
+/* SECCIONES */
+.section{margin-top:34px;padding-top:30px;border-top:1px solid rgba(155,93,229,.15)}
+.section:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.section-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.section-number{
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;width:46px;height:46px;border-radius:12px;
+    border:1px solid rgba(155,93,229,.35);
+    background:linear-gradient(145deg,rgba(155,93,229,.17),rgba(255,109,225,.09));
+    color:var(--rank-pale);font-size:16px;font-weight:950;
+    box-shadow:inset 0 0 16px rgba(155,93,229,.05)
+}
+.section-heading-text{min-width:0}
+.section-heading h3{margin:0;font-size:clamp(17px,2.6vw,21px);line-height:1.4}
+.section-subtitle{
+    margin:5px 0 0!important;font-size:12px!important;
+    color:#c7b4db!important;line-height:1.6!important
+}
+.section-intro{
+    margin-bottom:20px!important;color:#c4c9dc!important;
+    font-size:14px!important;line-height:1.85!important
+}
+
+/* LISTAS */
+.info-list{
+    list-style:none;padding:0;margin:0;
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px
+}
+.info-list li{
+    position:relative;min-width:0;padding:14px 15px 14px 18px;
+    border:1px solid rgba(155,93,229,.17);border-radius:10px;
+    background:linear-gradient(120deg,rgba(155,93,229,.055),rgba(255,109,225,.025),rgba(255,255,255,.018));
+    color:#cbd7eb;line-height:1.7;font-size:13px;
+    overflow-wrap:anywhere;transition:.2s
+}
+.info-list li::before{
+    content:"";position:absolute;left:0;top:12px;bottom:12px;
+    width:3px;border-radius:0 4px 4px 0;
+    background:linear-gradient(var(--rank),var(--pink))
+}
+.info-list li:hover{
+    border-color:rgba(155,93,229,.55);
+    background:rgba(155,93,229,.07);transform:translateY(-1px)
+}
+.item-name{color:#f4f5ff;font-weight:900;overflow-wrap:anywhere}
+.item-details{color:var(--rank-light);font-size:13px;font-weight:700}
+
+/* TARJETAS */
+.command-grid{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;margin-top:19px
+}
+.command-card{
+    position:relative;overflow:hidden;min-width:0;padding:23px;
+    border:1px solid rgba(155,93,229,.35);border-radius:14px;
+    background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.10),transparent 55%),
+    linear-gradient(135deg,rgba(116,54,197,.16),rgba(15,12,25,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s
+}
+.command-card::before{
+    content:"";position:absolute;top:0;left:0;
+    width:4px;height:100%;
+    background:linear-gradient(var(--rank),var(--pink));
+    box-shadow:0 0 15px rgba(155,93,229,.2)
+}
+.command-card:hover{
+    border-color:rgba(155,93,229,.75);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(155,93,229,.08)
+}
+.command-top{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;margin-bottom:15px
+}
+.command-number{
+    display:flex;align-items:center;justify-content:center;
+    width:36px;height:36px;flex-shrink:0;border-radius:10px;
+    color:var(--rank-pale);background:rgba(155,93,229,.12);
+    border:1px solid rgba(155,93,229,.3);
+    font-size:13px;font-weight:950
+}
+.command-tag{
+    color:#ead8ff;background:rgba(116,54,197,.1);
+    border:1px solid rgba(155,93,229,.3);
+    border-radius:5px;padding:6px 9px;
+    font-size:9px;font-weight:950;letter-spacing:1.3px;
+    text-transform:uppercase;text-align:center
+}
+.command-name{
+    display:block;position:relative;z-index:1;
+    margin-bottom:11px;color:var(--rank-light);
+    font-size:22px;line-height:1.25;font-weight:1000;
+    overflow-wrap:anywhere;text-shadow:0 0 22px rgba(155,93,229,.2)
+}
+.command-description{
+    position:relative;z-index:1;margin:0!important;
+    color:#d0c9df!important;font-size:14px!important;line-height:1.85!important
+}
+
+/* HERENCIA Y AVISOS */
+.inherit{
+    margin-top:20px;padding:20px;
+    border:1px solid rgba(155,93,229,.22);
+    border-left:4px solid var(--rank);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(155,93,229,.09),rgba(116,54,197,.045));
+    color:#c0cde0;font-size:13px;line-height:1.9
+}
+.inherit strong{color:var(--rank-pale);font-weight:950}
+.inherit p{margin:12px 0 0!important}
+
+/* DESPLEGABLES */
+details{
+    margin-top:15px;border:1px solid rgba(155,93,229,.25);
+    border-radius:12px;background:rgba(12,9,19,.5);
+    overflow:hidden;transition:border-color .2s,background .2s
+}
+details:hover{border-color:rgba(193,138,255,.5)}
+summary{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:15px;cursor:pointer;list-style:none;
+    padding:18px 20px;font-weight:950;
+    color:var(--rank-light);font-size:14px;user-select:none;
+    transition:background .2s
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+    content:"+";display:grid;place-items:center;flex:0 0 28px;
+    width:28px;height:28px;
+    border:1px solid rgba(155,93,229,.30);
+    border-radius:7px;margin-left:12px;
+    font-size:21px;line-height:1;color:var(--rank)
+}
+details[open] summary::after{content:"−"}
+summary:hover{background:rgba(155,93,229,.055)}
+.shulker-content{
+    padding:5px 20px 23px;
+    border-top:1px solid rgba(255,255,255,.075)
+}
+.shulker-content h3{
+    margin:25px 0 12px;color:var(--rank-light);
+    font-size:16px;font-weight:950
+}
+.shulker-content p{color:#d4d0df;font-weight:750}
+.shulker-content ul{
+    list-style:none;padding:0;margin:0;
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px
+}
+.shulker-content li{
+    min-width:0;padding:12px 13px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:8px;background:rgba(255,255,255,.025);
+    color:var(--muted);font-size:13px;
+    line-height:1.75;overflow-wrap:anywhere
+}
+.shulker-content li strong{color:#fff}
+
+/* BARRA ANIMADA */
+@keyframes rankBar{
+    from{background-position:0% 50%}
+    to{background-position:250% 50%}
+}
+
+/* PIE DE PÁGINA */
+footer{
+    text-align:center;padding:30px 20px;
+    color:#8b8298;font-size:12px;
+    border-top:1px solid rgba(155,93,229,.15);
+    background:rgba(6,5,12,.72)
+}
+footer span{color:var(--rank-light)}
+
+/* ANIMACIONES */
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* MÓVILES */
+@media(max-width:650px){
+    nav{padding:14px 5%;flex-wrap:wrap}
+    .logo{font-size:17px;letter-spacing:.7px}
+    nav a.home{display:none}
+    nav a.discord{font-size:11px;padding:10px 12px}
+    main{padding:62px 5% 70px}
+    h1{letter-spacing:-3px}
+    .desc{font-size:15px}
+    .hero-bottom{align-items:flex-start;flex-direction:column}
+    .price{font-size:35px}
+    .actions{width:100%}
+    .btn{flex:1 1 auto;text-align:center;padding:14px 15px}
+    .box{padding:23px 17px;border-radius:15px}
+    .box h2{font-size:23px}
+    .command-grid,.info-list{grid-template-columns:1fr}
+    .command-card{padding:20px}
+    .command-name{font-size:21px}
+    .section-heading h3{font-size:16px}
+    .shulker-content{padding:5px 12px 18px}
+    .shulker-content ul{grid-template-columns:1fr}
+    .inherit{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="bg"></div>
+
+<nav>
+    <div class="logo">KAIZORA <span>ORIGINS</span></div>
+    <a class="home" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Inicio</a>
+    <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar por Discord</a>
+</nav>
+
+<main>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="label">RANGO EXCLUSIVO</div>
+        <h1>ASCENDENTE</h1>
+        <p class="desc">
+            Un nuevo nivel de poder comienza aquí. ASCENDENTE representa
+            la evolución de tu aventura en Kaizora Origins, con un
+            equipamiento de Netherite mejorado, herramientas encantadas
+            y recursos especiales para quienes buscan superar sus límites.
+        </p>
+
+        <div class="hero-bottom">
+            <div class="price-wrap">
+                <div>
+                    <span class="price-label">PRECIO DEL RANGO</span>
+                    <div class="price">Consultar</div>
+                </div>
+                <div class="price-note">
+                    Equipamiento mejorado.<br>
+                    El siguiente paso en tu evolución.
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">
+                    Comprar ASCENDENTE ↗
+                </a>
+                <a class="btn back" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+                    Volver a rangos
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PANEL PRINCIPAL -->
+    <div class="box">
+        <h2>Beneficios y ventajas de ASCENDENTE</h2>
+
+        <!-- 01: HERENCIA -->
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">01</div>
+                <div class="section-heading-text">
+                    <h3>Beneficios de rangos anteriores</h3>
+                    <p class="section-subtitle">Tu progreso continúa contigo</p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                ASCENDENTE incluye los beneficios correspondientes a los
+                rangos anteriores de la progresión, además de su propio
+                equipamiento y recursos exclusivos.
+            </p>
+
+            <div class="inherit">
+                <strong>VENTAJAS HEREDADAS</strong><br>
+                Al ascender, conservas los beneficios, permisos y ventajas
+                que corresponden a los rangos anteriores.
+                <br><br>
+                <strong>Tu ascenso no elimina los beneficios anteriores.</strong>
+            </div>
+        </section>
+
+        <!-- 02: EQUIPAMIENTO -->
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">02</div>
+                <div class="section-heading-text">
+                    <h3>Shulker #1 — Equipamiento Ascendente</h3>
+                    <p class="section-subtitle">Armadura y herramientas de Netherite</p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                Un conjunto completo de equipamiento de Netherite con
+                encantamientos de alto nivel para afrontar combates,
+                exploraciones y desafíos.
+            </p>
+
+            <details>
+                <summary>VER ARMADURAS DE NETHERITE</summary>
+                <div class="shulker-content">
+
+                    <h3>Casco de Netherite</h3>
+                    <ul>
+                        <li>Protección VII</li>
+                        <li>Protección contra proyectiles VII</li>
+                        <li>Protección contra el fuego VII</li>
+                        <li>Respiración VII</li>
+                        <li>Afinidad acuática VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Pechera de Netherite</h3>
+                    <ul>
+                        <li>Protección VII</li>
+                        <li>Protección contra explosiones VII</li>
+                        <li>Protección contra el fuego VII</li>
+                        <li>Protección contra proyectiles VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Pantalones de Netherite</h3>
+                    <ul>
+                        <li>Protección VII</li>
+                        <li>Protección contra explosiones VII</li>
+                        <li>Protección contra el fuego VII</li>
+                        <li>Protección contra proyectiles VII</li>
+                        <li>Sigilo veloz VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Botas de Netherite</h3>
+                    <ul>
+                        <li>Paso helado VII</li>
+                        <li>Protección VII</li>
+                        <li>Protección contra explosiones VII</li>
+                        <li>Protección contra el fuego VII</li>
+                        <li>Protección contra proyectiles VII</li>
+                        <li>Caída de pluma VII</li>
+                        <li>Velocidad de alma VII</li>
+                        <li>Agilidad acuática VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                </div>
+            </details>
+
+            <details>
+                <summary>VER HERRAMIENTAS Y ARMAS DE NETHERITE</summary>
+                <div class="shulker-content">
+
+                    <h3>Espada de Netherite</h3>
+                    <ul>
+                        <li>Filo VII</li>
+                        <li>Golpeo VII</li>
+                        <li>Perdición de los artrópodos VII</li>
+                        <li>Filo arrasador VII</li>
+                        <li>Aspecto ígneo VII</li>
+                        <li>Empuje VII</li>
+                        <li>Botín VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Pico de Netherite</h3>
+                    <ul>
+                        <li>Fortuna VII</li>
+                        <li>Eficiencia VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Hacha de Netherite</h3>
+                    <ul>
+                        <li>Filo VII</li>
+                        <li>Golpeo VII</li>
+                        <li>Perdición de los artrópodos VII</li>
+                        <li>Eficiencia VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Pala de Netherite</h3>
+                    <ul>
+                        <li>Fortuna VII</li>
+                        <li>Eficiencia VII</li>
+                        <li>Irrompibilidad VII</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                    <h3>Escudo</h3>
+                    <ul>
+                        <li>Irrompibilidad VI</li>
+                        <li>Reparación</li>
+                    </ul>
+
+                </div>
+            </details>
+        </section>
+
+        <!-- 03: RECURSOS -->
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">03</div>
+                <div class="section-heading-text">
+                    <h3>Recursos exclusivos</h3>
+                    <p class="section-subtitle">Objetos especiales incluidos en ASCENDENTE</p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                ASCENDENTE también incluye recursos especiales para
+                complementar tu progreso y acceder a contenido del servidor.
+            </p>
+
+            <ul class="info-list">
+                <li>
+                    <span class="item-name">Esencia Arcana</span><br>
+                    <span class="item-details">Cantidad: ×12</span>
+                </li>
+                <li>
+                    <span class="item-name">Nexo Prismático</span><br>
+                    <span class="item-details">Cantidad: ×10</span>
+                </li>
+                <li>
+                    <span class="item-name">Llave Ascendente</span><br>
+                    <span class="item-details">Cantidad: ×1</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 04: PROTECCIÓN -->
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">04</div>
+                <div class="section-heading-text">
+                    <h3>Protección de terreno</h3>
+                    <p class="section-subtitle">Un espacio propio para construir y progresar</p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                El rango ASCENDENTE incluye una protección de terreno
+                para delimitar y proteger tu espacio de construcción.
+            </p>
+
+            <ul class="info-list">
+                <li>
+                    <span class="item-name">Protección de terreno</span><br>
+                    <span class="item-details">Área: 20 × 20 bloques</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 05: COMPRA -->
+        <section class="section">
+            <div class="section-heading">
+                <div class="section-number">05</div>
+                <div class="section-heading-text">
+                    <h3>Compra del rango</h3>
+                    <p class="section-subtitle">Asciende al siguiente nivel de Kaizora Origins</p>
+                </div>
+            </div>
+
+            <p class="section-intro">
+                Para adquirir ASCENDENTE, entra en nuestro Discord oficial
+                y consulta el procedimiento de compra disponible.
+                Nuestro equipo podrá ayudarte con el proceso.
+            </p>
+
+            <div class="actions">
+                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">
+                    Comprar ASCENDENTE ↗
+                </a>
+                <a class="btn back" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">
+                    Entrar al Discord ↗
+                </a>
+            </div>
+        </section>
+
+        <!-- RESUMEN -->
+        <div class="inherit">
+            <strong>RESUMEN DEL RANGO ASCENDENTE</strong><br>
+            ASCENDENTE incluye los beneficios de los rangos anteriores,
+            una armadura completa de Netherite con encantamientos de nivel VII,
+            espada, pico, hacha, pala y escudo de Netherite, además de
+            Esencia Arcana ×12, Nexo Prismático ×10, Llave Ascendente ×1
+            y una protección de terreno de <strong>20 × 20 bloques</strong>.
+            <br><br>
+            <strong>Nota:</strong> los encantamientos de nivel superior
+            al límite vanilla requieren compatibilidad y configuración
+            adecuada de los plugins del servidor.
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
+</footer>
+
+</body>
+</html>
