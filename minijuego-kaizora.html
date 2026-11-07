@@ -2,2268 +2,2045 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#09070e">
-<meta name="description" content="Kaizora Origins — Este rango aún no está a la venta. Juega Kaizora Survival.">
-<title>Próximamente | Kaizora Origins</title>
+<title>Kaizora Origins | Próximamente</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700;800&display=swap');
-
-:root {
+:root{
     --bg:#09070e;
     --panel:#12101c;
+    --panel2:#1b1729;
     --purple:#9B5DE5;
     --pink:#FF6DE1;
-    --white:#f8f3ff;
+    --white:#f7f3ff;
     --muted:#aaa0bb;
-    --border:rgba(190,130,255,.18);
-    --gold:#ffd66b;
-    --green:#65f5a5;
-    --red:#ff557d;
+    --green:#65e6a7;
+    --red:#ff557a;
 }
-
-* {
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
     margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body {
-    min-height:100vh;
-    overflow-x:hidden;
+    padding:25px 14px 60px;
     background:
-        radial-gradient(ellipse at 50% 0%,rgba(155,93,229,.17),transparent 42%),
-        radial-gradient(ellipse at 100% 70%,rgba(255,109,225,.07),transparent 35%),
+        radial-gradient(ellipse at 50% 0%,#25133b 0%,transparent 45%),
         var(--bg);
     color:var(--white);
-    font-family:'Rajdhani',sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
-
-body::before {
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.17;
-    z-index:-1;
-    background-image:
-        linear-gradient(rgba(155,93,229,.07) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(155,93,229,.07) 1px,transparent 1px);
-    background-size:45px 45px;
-}
-
-button {font-family:inherit;}
-
-.topbar {
-    width:100%;
-    min-height:72px;
-    padding:15px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    border-bottom:1px solid var(--border);
-    background:rgba(9,7,14,.85);
-    backdrop-filter:blur(15px);
-}
-
-.logo {
-    font-family:'Orbitron',sans-serif;
-    font-weight:900;
-    letter-spacing:2px;
-    font-size:1.2rem;
-    color:white;
-    text-decoration:none;
-}
-
-.logo span {color:var(--pink);}
-
-.back-link {
-    color:var(--muted);
-    text-decoration:none;
-    font-weight:700;
-    letter-spacing:1px;
-    transition:.2s;
-}
-
-.back-link:hover {color:var(--pink);}
-
-main {
-    width:min(1120px,92%);
-    margin:auto;
-    padding:65px 0 80px;
-}
-
-.notice {
-    text-align:center;
-    margin-bottom:42px;
-    animation:appear .8s ease both;
-}
-
-.notice-label {
-    display:inline-block;
-    padding:7px 15px;
-    border:1px solid rgba(255,109,225,.35);
-    border-radius:30px;
-    color:var(--pink);
-    background:rgba(255,109,225,.07);
-    font-size:.78rem;
-    font-weight:800;
+.page{width:min(1050px,100%);margin:auto}
+header{text-align:center;margin:10px auto 28px}
+.logo{
+    font-size:clamp(32px,7vw,58px);
+    font-weight:1000;
     letter-spacing:3px;
-    margin-bottom:20px;
+    background:linear-gradient(100deg,#fff,#cba4ff,#ff6de1);
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+    text-shadow:0 0 35px #9b5de544;
 }
-
-.notice h1 {
-    font-family:'Orbitron',sans-serif;
-    font-size:clamp(1.6rem,5vw,3rem);
-    line-height:1.25;
-    font-weight:900;
-    text-shadow:0 0 30px rgba(155,93,229,.3);
-}
-
-.notice h1 span {color:var(--pink);}
-
-.notice p {
-    max-width:680px;
-    margin:16px auto 0;
+.subtitle{
     color:var(--muted);
-    font-size:1.15rem;
-    line-height:1.6;
+    font-size:13px;
+    letter-spacing:4px;
+    font-weight:800;
+    margin-top:5px;
 }
-
-.game-shell {
-    border:1px solid rgba(190,130,255,.25);
-    border-radius:22px;
-    overflow:hidden;
-    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(12,9,19,.98));
-    box-shadow:0 20px 80px rgba(0,0,0,.45),0 0 45px rgba(155,93,229,.08);
-    animation:appear 1s ease both;
+.intro{
+    text-align:center;
+    color:#c9bfd7;
+    line-height:1.7;
+    max-width:650px;
+    margin:0 auto 24px;
 }
-
-.game-header {
-    padding:19px 23px;
+.game-shell{
+    background:linear-gradient(145deg,#171121,#0d0a14);
+    border:1px solid #63418a;
+    border-radius:18px;
+    padding:14px;
+    box-shadow:0 0 45px #9b5de522,0 20px 60px #0008;
+}
+.game-heading{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    flex-wrap:wrap;
-    gap:15px;
-    border-bottom:1px solid var(--border);
-}
-
-.game-title {
-    font-family:'Orbitron',sans-serif;
-    font-size:1rem;
-    letter-spacing:1.5px;
-}
-
-.game-title span {color:var(--pink);}
-
-.game-status {
-    display:flex;
-    flex-wrap:wrap;
-    gap:9px;
-}
-
-.stat {
-    display:flex;
     align-items:center;
-    gap:7px;
-    padding:8px 11px;
-    background:rgba(255,255,255,.045);
-    border:1px solid var(--border);
-    border-radius:9px;
-    font-weight:800;
-    font-size:.9rem;
-}
-
-.stat b {color:var(--gold);}
-
-#hearts {
-    color:#ff668b;
-    letter-spacing:1px;
-    white-space:nowrap;
-}
-
-#hunger {color:#e8bd79;}
-
-.equipment-row {
-    width:100%;
-    display:flex;
+    gap:10px;
     flex-wrap:wrap;
-    align-items:center;
-    gap:9px;
-    padding-top:5px;
+    padding:5px 4px 13px;
 }
-
-.equipment-label {
+.game-heading strong{color:var(--pink);letter-spacing:1px}
+.game-heading span{font-size:12px;color:var(--muted)}
+.hud{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:8px;
+    margin-bottom:12px;
+}
+.hud-item{
+    background:#0b0911;
+    border:1px solid #332441;
+    border-radius:10px;
+    padding:9px 7px;
+    min-width:0;
+}
+.hud-label{
+    font-size:10px;
     color:var(--muted);
-    font-size:.78rem;
     font-weight:800;
     letter-spacing:1px;
+    text-transform:uppercase;
 }
-
-.equipment-slot {
-    display:flex;
-    align-items:center;
-    gap:7px;
-    padding:6px 10px;
-    border:1px solid rgba(190,130,255,.2);
-    border-radius:8px;
-    background:rgba(155,93,229,.08);
-    font-size:.85rem;
-    font-weight:800;
+.hud-value{
+    font-size:15px;
+    font-weight:900;
+    margin-top:5px;
+    overflow-wrap:anywhere;
 }
-
-.equipment-slot b {color:#e9caff;}
-
-.game-area {
+#healthText{color:#ff6688}
+#moneyText{color:#ffd66e}
+#killsText{color:#cba4ff}
+#armorText{color:#8edbff}
+#hungerText{color:#ffad70}
+.canvas-wrap{
+    width:100%;
     position:relative;
-    padding:15px;
-    background:linear-gradient(180deg,#171025,#0c0915);
+    overflow:hidden;
+    border-radius:12px;
+    border:1px solid #49315f;
+    background:#090711;
 }
-
-canvas {
+canvas{
     display:block;
     width:100%;
     height:auto;
-    aspect-ratio:900/380;
-    border:1px solid rgba(190,130,255,.15);
-    border-radius:12px;
-    background:#100c1b;
-    image-rendering:pixelated;
-}
-
-.overlay {
-    position:absolute;
-    inset:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:15px;
-    border-radius:12px;
-    background:rgba(8,5,14,.82);
-    backdrop-filter:blur(7px);
-    z-index:5;
-    text-align:center;
-}
-
-.overlay.hidden {display:none;}
-
-.overlay-card {
-    width:min(440px,100%);
-    padding:27px 22px;
-    border:1px solid rgba(190,130,255,.3);
-    border-radius:17px;
-    background:linear-gradient(145deg,#1d1730,#100c19);
-    box-shadow:0 0 50px rgba(155,93,229,.17);
-}
-
-.overlay-card h2 {
-    font-family:'Orbitron',sans-serif;
-    font-size:1.45rem;
-    margin-bottom:12px;
-}
-
-.overlay-card h2 span {color:var(--pink);}
-
-.overlay-card p {
-    color:var(--muted);
-    line-height:1.5;
-    margin-bottom:18px;
-    font-size:1.05rem;
-}
-
-.big-count {
-    font-family:'Orbitron',sans-serif;
-    font-size:5rem;
-    font-weight:900;
-    color:var(--pink);
-    text-shadow:0 0 35px rgba(255,109,225,.6);
-    animation:pulse .7s infinite alternate;
-}
-
-.game-controls {
-    padding:17px 19px;
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:10px;
-    border-top:1px solid var(--border);
-}
-
-.control-btn {
-    border:1px solid rgba(190,130,255,.25);
-    border-radius:11px;
-    min-height:58px;
-    background:linear-gradient(145deg,#211a32,#151020);
-    color:white;
-    font-size:1rem;
-    font-weight:800;
-    letter-spacing:.5px;
-    cursor:pointer;
-    transition:.2s;
-    user-select:none;
+    aspect-ratio:900/410;
     touch-action:none;
-    -webkit-user-select:none;
-    -webkit-touch-callout:none;
 }
-
-.control-btn:hover {
-    border-color:var(--pink);
-    background:linear-gradient(145deg,#38234b,#21152e);
-    transform:translateY(-2px);
+.boss-panel{
+    display:none;
+    margin:0 0 10px;
+    background:#100b18;
+    border:1px solid #673b85;
+    border-radius:10px;
+    padding:9px 12px;
 }
-
-.control-btn:active {
-    transform:scale(.96);
-    border-color:var(--pink);
+.boss-panel.active{display:block}
+.boss-top{
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:7px;
 }
-
-.control-btn .symbol {
-    display:block;
-    font-size:1.25rem;
-    margin-bottom:2px;
-}
-
-.control-btn.primary {
-    border-color:rgba(255,109,225,.55);
-    background:linear-gradient(135deg,#8e42bd,#c34a9d);
-}
-
-.control-btn.pause {
-    background:linear-gradient(135deg,#28213a,#171321);
-}
-
-.control-btn.movement {
-    background:linear-gradient(135deg,#302344,#1a1426);
-    border-color:rgba(155,93,229,.4);
-}
-
-.control-btn:disabled {
-    opacity:.4;
-    cursor:not-allowed;
-    transform:none;
-}
-
-.instructions {
-    padding:0 22px 20px;
-    color:var(--muted);
-    text-align:center;
-    font-size:.95rem;
-    line-height:1.6;
-}
-
-.instructions strong {color:#e5c9ff;}
-
-.shop-section {
-    margin-top:30px;
-    border:1px solid var(--border);
-    border-radius:19px;
-    background:rgba(18,16,28,.8);
+.boss-top span:first-child{color:var(--pink)}
+.boss-bar{
+    height:10px;
+    background:#35233e;
+    border-radius:20px;
     overflow:hidden;
 }
-
-.shop-header {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:20px 23px;
-    border-bottom:1px solid var(--border);
-    flex-wrap:wrap;
-}
-
-.shop-header h2 {
-    font-family:'Orbitron',sans-serif;
-    font-size:1.1rem;
-}
-
-.shop-header h2 span {color:var(--pink);}
-
-.shop-header p {
-    color:var(--gold);
-    font-weight:800;
-}
-
-.shop-note {
-    padding:12px 18px;
-    background:rgba(155,93,229,.08);
-    border-bottom:1px solid var(--border);
-    color:var(--muted);
-    text-align:center;
-    font-weight:700;
-}
-
-.shop-note strong {color:var(--pink);}
-
-.shop-category {
-    padding:18px 18px 0;
-    font-family:'Orbitron',sans-serif;
-    font-size:.9rem;
-    color:#e8c9ff;
-    letter-spacing:1px;
-}
-
-.shop-grid {
-    padding:15px 18px 20px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:13px;
-}
-
-.shop-item {
-    padding:17px;
-    border:1px solid var(--border);
-    border-radius:13px;
-    background:linear-gradient(145deg,rgba(155,93,229,.08),rgba(255,255,255,.02));
-    display:flex;
-    flex-direction:column;
-    min-height:205px;
-    transition:.2s;
-}
-
-.shop-item:hover {
-    border-color:rgba(255,109,225,.4);
-    transform:translateY(-3px);
-}
-
-.item-icon {
-    font-size:1.8rem;
-    margin-bottom:9px;
-}
-
-.shop-item h3 {
-    font-size:1.08rem;
-    font-weight:800;
-}
-
-.shop-item p {
-    color:var(--muted);
-    font-size:.92rem;
-    line-height:1.4;
-    margin:6px 0 12px;
-    flex:1;
-}
-
-.item-price {
-    color:var(--gold);
-    font-weight:800;
-    margin-bottom:10px;
-}
-
-.item-owned {
-    color:var(--green);
-    font-size:.83rem;
-    font-weight:800;
-    min-height:18px;
-    margin-bottom:5px;
-}
-
-.buy-btn {
+.boss-fill{
     width:100%;
-    border:1px solid rgba(255,109,225,.3);
-    background:rgba(155,93,229,.16);
+    height:100%;
+    background:linear-gradient(90deg,#9B5DE5,#FF6DE1);
+    transition:width .15s;
+}
+.controls{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:8px;
+    margin-top:12px;
+}
+.control{
+    min-height:48px;
+    border:1px solid #51366b;
+    background:linear-gradient(145deg,#241632,#130e1d);
     color:white;
-    border-radius:8px;
-    padding:10px;
+    border-radius:11px;
+    font-weight:900;
+    font-size:13px;
     cursor:pointer;
-    font-weight:800;
-    transition:.2s;
+    touch-action:none;
+    user-select:none;
+    -webkit-user-select:none;
 }
-
-.buy-btn:hover {
-    background:rgba(255,109,225,.2);
-    border-color:var(--pink);
+.control:active{background:#59347b;transform:scale(.97)}
+.control.attack{border-color:#a64eaa;color:#ffb4f1}
+.control.pause{border-color:#71608b;color:#d8c7f4}
+.game-message{
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.6;
+    padding:10px 3px 0;
 }
-
-.buy-btn:disabled {
-    opacity:.4;
+.section-title{
+    text-align:center;
+    margin:45px 0 20px;
+}
+.section-title small{
+    color:var(--pink);
+    font-weight:900;
+    letter-spacing:3px;
+}
+.section-title h2{
+    font-size:clamp(24px,5vw,34px);
+    margin:9px 0;
+}
+.section-title p{color:var(--muted);font-size:13px}
+.shop{
+    background:linear-gradient(145deg,#15101e,#0d0a13);
+    border:1px solid #49315f;
+    border-radius:16px;
+    padding:18px;
+}
+.shop-category{margin:20px 0 12px}
+.shop-category h3{
+    color:var(--pink);
+    font-size:15px;
+    letter-spacing:1px;
+    border-bottom:1px solid #382543;
+    padding-bottom:9px;
+}
+.shop-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;
+}
+.shop-card{
+    background:#100d17;
+    border:1px solid #352541;
+    border-radius:12px;
+    padding:13px;
+    min-width:0;
+}
+.shop-card h4{margin:0 0 7px;font-size:14px}
+.shop-card p{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.5;
+    min-height:32px;
+}
+.shop-price{color:#ffd66e;font-weight:900;font-size:13px}
+.shop-card button{
+    width:100%;
+    border:0;
+    border-radius:8px;
+    margin-top:10px;
+    padding:10px 6px;
+    background:linear-gradient(100deg,#8b49c7,#d94fba);
+    color:white;
+    font-weight:900;
+    font-size:11px;
+    cursor:pointer;
+}
+.shop-card button:disabled{
+    background:#30283a;
+    color:#887d96;
     cursor:not-allowed;
 }
-
-.game-message {
-    min-height:25px;
-    padding:0 18px 17px;
+.shop-status{
+    font-size:10px;
+    color:var(--muted);
+    margin-top:7px;
+    min-height:12px;
+}
+.notice{
+    margin-top:20px;
+    border:1px solid #57386e;
+    background:#130e1c;
+    border-radius:12px;
+    padding:14px;
     text-align:center;
-    color:var(--pink);
-    font-weight:700;
+    color:#c8bad8;
+    font-size:12px;
+    line-height:1.7;
 }
-
-.footer {
-    text-align:center;
-    color:#716981;
-    padding:35px 15px 0;
-    font-size:.9rem;
+@media(max-width:650px){
+    body{padding:16px 9px 40px}
+    .game-shell{padding:9px}
+    .hud{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .controls{grid-template-columns:repeat(3,1fr)}
+    .control{min-height:46px}
+    .shop{padding:12px}
+    .shop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-.footer strong {color:var(--pink);}
-
-@keyframes appear {
-    from {opacity:0;transform:translateY(18px)}
-    to {opacity:1;transform:translateY(0)}
-}
-
-@keyframes pulse {
-    from {transform:scale(.94);opacity:.8}
-    to {transform:scale(1.08);opacity:1}
-}
-
-@media(max-width:900px) {
-    .game-controls {grid-template-columns:repeat(3,1fr);}
-}
-
-@media(max-width:700px) {
-    main {padding-top:42px;}
-
-    .shop-grid {grid-template-columns:repeat(2,1fr);}
-
-    .game-header {
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .game-status {width:100%;}
-
-    .equipment-row {padding-top:0;}
-}
-
-@media(max-width:430px) {
-    .shop-grid {grid-template-columns:1fr;}
-
-    .stat {
-        flex:1;
-        justify-content:center;
-    }
-
-    .notice h1 {font-size:1.55rem;}
-
-    .game-controls {
-        padding:12px;
-        gap:8px;
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .control-btn {
-        min-height:56px;
-        font-size:.92rem;
-    }
-
-    .equipment-slot {
-        font-size:.78rem;
-        padding:6px 8px;
-    }
+@media(max-width:380px){
+    .shop-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
+<div class="page">
 
-<header class="topbar">
-    <a href="index.html" class="logo">KAIZORA <span>ORIGINS</span></a>
-    <a href="index.html" class="back-link">← VOLVER AL INICIO</a>
+<header>
+    <div class="logo">KAIZORA</div>
+    <div class="subtitle">ORIGINS · PRÓXIMAMENTE</div>
 </header>
 
-<main>
+<p class="intro">
+    Tu aventura comienza aquí. Sobrevive a las criaturas, consigue monedas,
+    mejora tu equipamiento y prepárate para enfrentarte al enemigo más
+    poderoso del End.
+</p>
 
-<section class="notice">
-    <div class="notice-label">✦ CONTENIDO EN DESARROLLO ✦</div>
-    <h1>ESTE RANGO <span>AÚN NO ESTÁ A LA VENTA</span></h1>
-    <p>
-        Estamos preparando algo especial para Kaizora Origins.
-        Mientras tanto, demuestra de qué estás hecho en nuestro desafío.
-        Sobrevive, consigue monedas y conviértete en una leyenda.
-    </p>
-</section>
+<section class="game-shell" id="gameSection">
 
-<section class="game-shell">
+    <div class="game-heading">
+        <strong>✦ SUPERVIVENCIA KAIZORA</strong>
+        <span>Jugador: Owner YoSoyAnthonyyy</span>
+    </div>
 
-    <div class="game-header">
-        <div class="game-title">✦ KAIZORA <span>SURVIVAL</span></div>
-
-        <div class="game-status">
-            <div class="stat">
-                <span>❤</span>
-                <span id="hearts">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</span>
-            </div>
-
-            <div class="stat">
-                <span>🍗</span>
-                <span id="hunger">20/20</span>
-            </div>
-
-            <div class="stat">
-                <span>🪙</span>
-                <b id="coins">0</b>
-            </div>
-
-            <div class="stat">
-                <span>☠</span>
-                <b id="kills">0</b>
-            </div>
+    <div class="hud">
+        <div class="hud-item">
+            <div class="hud-label">Vida</div>
+            <div class="hud-value" id="healthText">❤️ 10/10</div>
         </div>
-
-        <div class="equipment-row">
-            <span class="equipment-label">EQUIPAMIENTO:</span>
-            <div class="equipment-slot">
-                <span>🛡️</span>
-                <b id="equippedArmor">Sin armadura</b>
-            </div>
-            <div class="equipment-slot">
-                <span>🏹</span>
-                <b id="equippedBow">Arco normal</b>
-            </div>
+        <div class="hud-item">
+            <div class="hud-label">Hambre</div>
+            <div class="hud-value" id="hungerText">🍖 100%</div>
+        </div>
+        <div class="hud-item">
+            <div class="hud-label">Monedas</div>
+            <div class="hud-value" id="moneyText">0</div>
+        </div>
+        <div class="hud-item">
+            <div class="hud-label">Eliminaciones</div>
+            <div class="hud-value" id="killsText">0</div>
+        </div>
+        <div class="hud-item">
+            <div class="hud-label">Armadura</div>
+            <div class="hud-value" id="armorText">Ninguna</div>
         </div>
     </div>
 
-    <div class="game-area">
-        <canvas id="gameCanvas" width="900" height="380"></canvas>
-
-        <div class="overlay" id="overlay">
-            <div class="overlay-card">
-                <h2>BIENVENIDO A <span>KAIZORA</span></h2>
-                <p>
-                    Eres <strong style="color:#ff6de1">Owner YoSoyAnthonyyy</strong>.
-                    Sobrevive a los mobs, consigue monedas y mejora tu equipo.
-                    ¡Los enemigos más poderosos tienen recompensas especiales!
-                </p>
-                <button class="control-btn primary" id="startBtn" style="width:100%">
-                    ⚔ COMENZAR PARTIDA
-                </button>
-            </div>
+    <div class="boss-panel" id="bossPanel">
+        <div class="boss-top">
+            <span id="bossName">JEFE</span>
+            <span id="bossHealthText">100%</span>
+        </div>
+        <div class="boss-bar">
+            <div class="boss-fill" id="bossFill"></div>
         </div>
     </div>
 
-    <div class="game-controls">
-        <button class="control-btn movement" id="leftBtn">
-            <span class="symbol">◀</span>
-            MOVER IZQ.
-        </button>
-
-        <button class="control-btn movement" id="rightBtn">
-            <span class="symbol">▶</span>
-            MOVER DER.
-        </button>
-
-        <button class="control-btn" id="shootBtn">
-            <span class="symbol">➶</span>
-            <span id="shootLabel">TIRAR FLECHA</span>
-        </button>
-
-        <button class="control-btn" id="jumpBtn">
-            <span class="symbol">⬆</span>
-            SALTAR
-        </button>
-
-        <button class="control-btn" id="eatBtn">
-            <span class="symbol">🍖</span>
-            COMER
-        </button>
-
-        <button class="control-btn pause" id="pauseBtn">
-            <span class="symbol">Ⅱ</span>
-            PAUSAR
-        </button>
+    <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="900" height="410"></canvas>
     </div>
 
-    <div class="instructions">
-        <strong>Controles:</strong>
-        ESPACIO = saltar · F = disparar · E = comer · P = pausar
-        <br>
-        A / D o ← / → = moverte. En móvil, utiliza los botones de movimiento.
-        <br>
-        Los jefes aparecen por turnos y la tienda pausa automáticamente la partida.
-    </div>
-
-</section>
-
-<section class="shop-section" id="shopSection">
-
-    <div class="shop-header">
-        <h2>⚒ TIENDA <span>KAIZORA</span></h2>
-        <p>🪙 <span id="shopCoins">0</span> monedas</p>
-    </div>
-
-    <div class="shop-note">
-        <strong>TIENDA EN ZONA SEGURA:</strong>
-        el combate se detiene mientras compras y vuelve a comenzar con una cuenta regresiva.
-    </div>
-
-    <div class="shop-category">🛡 ARMADURAS</div>
-
-    <div class="shop-grid">
-
-        <article class="shop-item">
-            <div class="item-icon">🟫</div>
-            <h3>Armadura de cuero</h3>
-            <p>Protección básica. Reduce un poco el daño recibido.</p>
-            <div class="item-price">3.000.000 monedas</div>
-            <div class="item-owned" id="owned-armor1"></div>
-            <button class="buy-btn" data-item="armor1">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">⚙️</div>
-            <h3>Armadura de hierro</h3>
-            <p>Una defensa más resistente para enfrentarte a enemigos fuertes.</p>
-            <div class="item-price">8.000.000 monedas</div>
-            <div class="item-owned" id="owned-armor2"></div>
-            <button class="buy-btn" data-item="armor2">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">💎</div>
-            <h3>Armadura de diamante</h3>
-            <p>Protección avanzada contra mobs de gran poder.</p>
-            <div class="item-price">18.000.000 monedas</div>
-            <div class="item-owned" id="owned-armor3"></div>
-            <button class="buy-btn" data-item="armor3">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">🔥</div>
-            <h3>Armadura de Netherite</h3>
-            <p>Una defensa legendaria. Reduce mucho el daño recibido.</p>
-            <div class="item-price">35.000.000 monedas</div>
-            <div class="item-owned" id="owned-armor4"></div>
-            <button class="buy-btn" data-item="armor4">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">👑</div>
-            <h3>Armadura Kaizora</h3>
-            <p>La protección definitiva. Su resistencia es extraordinaria.</p>
-            <div class="item-price">65.000.000 monedas</div>
-            <div class="item-owned" id="owned-armor5"></div>
-            <button class="buy-btn" data-item="armor5">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">❤️</div>
-            <h3>Corazón adicional</h3>
-            <p>Aumenta tu vida máxima en un corazón. Hasta 10 corazones adicionales.</p>
-            <div class="item-price">8.000.000 monedas</div>
-            <div class="item-owned" id="owned-heart"></div>
-            <button class="buy-btn" data-item="heart">COMPRAR</button>
-        </article>
-
-    </div>
-
-    <div class="shop-category">🏹 MEJORAS DE ARCO</div>
-
-    <div class="shop-grid">
-
-        <article class="shop-item">
-            <div class="item-icon">🏹</div>
-            <h3>Arco reforzado I</h3>
-            <p>Mejora el daño de tus flechas y aumenta su velocidad.</p>
-            <div class="item-price">8.000.000 monedas</div>
-            <div class="item-owned" id="owned-bow1"></div>
-            <button class="buy-btn" data-item="bow1">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">✨</div>
-            <h3>Arco reforzado II</h3>
-            <p>Más daño y menor tiempo de espera entre disparos.</p>
-            <div class="item-price">16.000.000 monedas</div>
-            <div class="item-owned" id="owned-bow2"></div>
-            <button class="buy-btn" data-item="bow2">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">💜</div>
-            <h3>Arco celestial</h3>
-            <p>Un arco poderoso con disparos rápidos y daño elevado.</p>
-            <div class="item-price">30.000.000 monedas</div>
-            <div class="item-owned" id="owned-bow3"></div>
-            <button class="buy-btn" data-item="bow3">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">🌌</div>
-            <h3>Arco astral</h3>
-            <p>Dispara con una velocidad extraordinaria y atraviesa enemigos con facilidad.</p>
-            <div class="item-price">50.000.000 monedas</div>
-            <div class="item-owned" id="owned-bow4"></div>
-            <button class="buy-btn" data-item="bow4">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">👑</div>
-            <h3>Arco Kaizora</h3>
-            <p>El máximo nivel de arco. Daño devastador y cooldown mínimo.</p>
-            <div class="item-price">85.000.000 monedas</div>
-            <div class="item-owned" id="owned-bow5"></div>
-            <button class="buy-btn" data-item="bow5">COMPRAR</button>
-        </article>
-
-    </div>
-
-    <div class="shop-category">🍎 COMIDA DE MINECRAFT</div>
-
-    <div class="shop-grid">
-
-        <article class="shop-item">
-            <div class="item-icon">🍎</div>
-            <h3>Manzana</h3>
-            <p>Recupera 4 puntos de hambre y un poco de vida.</p>
-            <div class="item-price">1.000.000 monedas</div>
-            <div class="item-owned" id="owned-apple"></div>
-            <button class="buy-btn" data-item="apple">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">🍞</div>
-            <h3>Pan</h3>
-            <p>Recupera 5 puntos de hambre. Una comida sencilla y útil.</p>
-            <div class="item-price">1.500.000 monedas</div>
-            <div class="item-owned" id="owned-bread"></div>
-            <button class="buy-btn" data-item="bread">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">🥕</div>
-            <h3>Zanahoria dorada</h3>
-            <p>Recupera 6 puntos de hambre y otorga regeneración breve.</p>
-            <div class="item-price">4.000.000 monedas</div>
-            <div class="item-owned" id="owned-carrot"></div>
-            <button class="buy-btn" data-item="carrot">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">🥩</div>
-            <h3>Filete cocinado</h3>
-            <p>Recupera 8 puntos de hambre y 2 corazones.</p>
-            <div class="item-price">3.000.000 monedas</div>
-            <div class="item-owned" id="owned-steak"></div>
-            <button class="buy-btn" data-item="steak">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">🌟</div>
-            <h3>Manzana dorada</h3>
-            <p>Recupera hambre, 3 corazones y activa regeneración temporal.</p>
-            <div class="item-price">10.000.000 monedas</div>
-            <div class="item-owned" id="owned-golden"></div>
-            <button class="buy-btn" data-item="golden">COMPRAR</button>
-        </article>
-
-        <article class="shop-item">
-            <div class="item-icon">✨</div>
-            <h3>Manzana dorada encantada</h3>
-            <p>La comida más poderosa. Cura 6 corazones y otorga protección temporal.</p>
-            <div class="item-price">30.000.000 monedas</div>
-            <div class="item-owned" id="owned-notch"></div>
-            <button class="buy-btn" data-item="notch">COMPRAR</button>
-        </article>
-
+    <div class="controls">
+        <button class="control" data-hold="left">◀ IZQUIERDA</button>
+        <button class="control" data-hold="right">DERECHA ▶</button>
+        <button class="control" data-action="jump">⬆ SALTAR</button>
+        <button class="control attack" data-action="shoot">🏹 DISPARAR</button>
+        <button class="control" data-action="eat">🍖 COMER</button>
+        <button class="control pause" data-action="pause">Ⅱ PAUSA</button>
     </div>
 
     <div class="game-message" id="gameMessage">
-        ¡Derrota enemigos, consigue monedas y mejora tu equipo!
+        A / D para moverte · ESPACIO para saltar · F para disparar · E para comer · P para pausar.
+        <br>Derrota las oleadas y vence al Ender Dragon para completar la aventura.
     </div>
-
 </section>
 
-<footer class="footer">
-    <strong>KAIZORA ORIGINS</strong> · Cada jugador escribe su propia historia.
-</footer>
+<div class="section-title" id="shopSection">
+    <small>MEJORA TU EQUIPAMIENTO</small>
+    <h2>Armería de Kaizora</h2>
+    <p>Compra mejoras con las monedas que consigas durante tu aventura.</p>
+</div>
 
-</main>
+<section class="shop">
+
+    <div class="shop-category">
+        <h3>⚔ ARMADURAS</h3>
+        <div class="shop-grid" id="armorShop"></div>
+    </div>
+
+    <div class="shop-category">
+        <h3>🏹 MEJORAS DE ARCO</h3>
+        <div class="shop-grid" id="bowShop"></div>
+    </div>
+
+    <div class="shop-category">
+        <h3>❤️ MEJORAS DE VIDA</h3>
+        <div class="shop-grid" id="heartShop"></div>
+    </div>
+
+    <div class="shop-category">
+        <h3>🍖 COMIDA</h3>
+        <div class="shop-grid" id="foodShop"></div>
+    </div>
+
+    <div class="notice">
+        <strong style="color:#FF6DE1">IMPORTANTE</strong><br>
+        Las mejoras se compran con monedas obtenidas jugando.
+        Cada mejora de armadura y arco debe desbloquearse en orden.
+        El objetivo definitivo es derrotar al Ender Dragon.
+    </div>
+</section>
+
+</div>
 
 <script>
-/* =========================================
-   CONFIGURACIÓN
-========================================= */
+"use strict";
 
-const canvas=document.getElementById("gameCanvas");
-const ctx=canvas.getContext("2d");
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
 
-const W=canvas.width;
-const H=canvas.height;
-const GROUND=310;
+const W = canvas.width;
+const H = canvas.height;
+const GROUND = 345;
 
-let running=false;
-let paused=false;
-let inShop=false;
-let gameOver=false;
-let countdown=false;
+let running = false;
+let paused = false;
+let gameOver = false;
+let victory = false;
+let lastFrame = 0;
+let animationTime = 0;
+let elapsed = 0;
+let spawnTimer = 0;
+let enemyProjectiles = [];
+let playerArrows = [];
+let particles = [];
+let enemies = [];
+let floatingTexts = [];
+let bossStage = 0;
+let bossWaiting = false;
+let bossAnnouncement = "";
+let announcementTimer = 0;
+let shake = 0;
+let invulnerable = 0;
+let frameId = 0;
+let countdown = 0;
+let countdownTimer = null;
 
-let coins=0;
-let kills=0;
-let maxHealth=10;
-let health=10;
-let hunger=20;
+const keys = {left:false,right:false};
 
-let armorLevel=0;
-let bowLevel=0;
-
-let inventory={
-    apple:0,
-    bread:0,
-    carrot:0,
-    steak:0,
-    golden:0,
-    notch:0
-};
-
-let regenTimer=0;
-let shieldTimer=0;
-
-let elapsed=0;
-let lastSpawn=0;
-let spawnInterval=2200;
-let nextBossAt=35000;
-let bossStage=0;
-let lastDamage=0;
-let lastShot=0;
-let lastHunger=0;
-let lastFrame=0;
-
-let moveLeft=false;
-let moveRight=false;
-let countdownTimer=null;
-
-const player={
-    x:105,
-    y:GROUND-65,
-    w:48,
-    h:65,
+const player = {
+    x:115,
+    y:GROUND-58,
+    w:38,
+    h:58,
+    vx:0,
     vy:0,
-    jumping:false,
-    invulnerable:0,
+    speed:260,
+    jumpPower:570,
+    grounded:true,
     facing:1,
-    walk:0
+    health:10,
+    maxHealth:10,
+    hunger:100,
+    money:0,
+    kills:0,
+    armor:0,
+    armorName:"Ninguna",
+    bow:0,
+    arrowDamage:1,
+    food:0,
+    attackCooldown:0,
+    hurtCooldown:0
 };
 
-let enemies=[];
-let arrows=[];
-let particles=[];
-let stars=[];
+const armorItems = [
+    {name:"Cuero",price:250000,defense:1},
+    {name:"Hierro",price:750000,defense:2},
+    {name:"Diamante",price:1800000,defense:3},
+    {name:"Netherite",price:4000000,defense:4},
+    {name:"Kaizora",price:8500000,defense:6}
+];
 
-for(let i=0;i<55;i++){
-    stars.push({
-        x:Math.random()*W,
-        y:Math.random()*240,
-        size:Math.random()*2+1,
-        alpha:Math.random()*.6+.2
-    });
+const bowItems = [
+    {name:"Arco reforzado",price:300000,damage:2},
+    {name:"Arco de poder",price:850000,damage:3},
+    {name:"Arco celestial",price:1800000,damage:5},
+    {name:"Arco astral",price:3500000,damage:8},
+    {name:"Arco Kaizora",price:7000000,damage:12}
+];
+
+const heartItems = [
+    {name:"+2 corazones",price:500000,amount:2},
+    {name:"+2 corazones II",price:1000000,amount:2},
+    {name:"+2 corazones III",price:2000000,amount:2},
+    {name:"+2 corazones IV",price:3500000,amount:2},
+    {name:"+2 corazones V",price:5000000,amount:2}
+];
+
+const foodItems = [
+    {name:"Manzana",price:25000,hunger:20,heal:1},
+    {name:"Pan",price:50000,hunger:30,heal:1},
+    {name:"Carne cocinada",price:100000,hunger:45,heal:2},
+    {name:"Manzana dorada",price:350000,hunger:60,heal:5},
+    {name:"Carne encantada",price:750000,hunger:100,heal:8},
+    {name:"Banquete Kaizora",price:1500000,hunger:100,heal:15}
+];
+
+const bossSchedule = [
+    {time:35,type:"IRON GOLEM",name:"GUARDIÁN DE PIEDRA",hp:65,reward:180000},
+    {time:85,type:"WITHER",name:"WITHER",hp:110,reward:350000},
+    {time:145,type:"ENDERMAN EXE",name:"ENDERMAN EXE",hp:155,reward:650000},
+    {time:220,type:"WITHER EXE",name:"SEÑOR DEL VACÍO",hp:230,reward:1200000},
+    {time:310,type:"ENDER DRAGON",name:"ENDER DRAGON",hp:420,reward:5000000}
+];
+
+const normalTypes = [
+    {type:"ZOMBIE",hp:3,speed:65,reward:1200,damage:1,color:"#56a65c"},
+    {type:"SKELETON",hp:3,speed:75,reward:1600,damage:1,color:"#d6d0c7"},
+    {type:"CREEPER",hp:5,speed:58,reward:2200,damage:3,color:"#59bd69"},
+    {type:"ENDERMAN",hp:8,speed:105,reward:5000,damage:2,color:"#4b225f"},
+    {type:"IRON GOLEM",hp:16,speed:42,reward:8500,damage:3,color:"#aaa7a0"},
+    {type:"WITHER",hp:22,speed:52,reward:12000,damage:3,color:"#282631"}
+];
+
+function moneyFormat(value){
+    return "$"+Math.floor(value).toLocaleString("en-US");
 }
 
-/* =========================================
-   DATOS DE ENEMIGOS
-========================================= */
+function updateHUD(){
+    document.getElementById("healthText").textContent =
+        "❤️ "+Math.ceil(player.health)+"/"+player.maxHealth;
+    document.getElementById("hungerText").textContent =
+        "🍖 "+Math.floor(player.hunger)+"%";
+    document.getElementById("moneyText").textContent =
+        moneyFormat(player.money);
+    document.getElementById("killsText").textContent =
+        player.kills;
+    document.getElementById("armorText").textContent =
+        player.armorName;
 
-const mobTypes=[
-    {name:"ZOMBIE",color:"#4c9c69",hp:2,speed:1.15,reward:1000000,size:48},
-    {name:"ESQUELETO",color:"#d2cbd8",hp:2,speed:1.5,reward:1500000,size:48},
-    {name:"CREEPER",color:"#65a94d",hp:4,speed:.9,reward:2500000,size:50},
-    {name:"ENDERMAN",color:"#7848a8",hp:7,speed:1.45,reward:4000000,size:70},
-    {name:"GOLEM",color:"#99949f",hp:15,speed:.65,reward:8000000,size:78},
-    {name:"WITHER",color:"#383440",hp:24,speed:1.05,reward:15000000,size:72},
-    {name:"ENDER DRAGON",color:"#643c91",hp:35,speed:1.2,reward:25000000,size:112},
-    {name:"ZOMBIE.EXE",color:"#ad244c",hp:12,speed:1.9,reward:12000000,size:54},
-    {name:"ENDER.EXE",color:"#e13cff",hp:18,speed:2,reward:18000000,size:72},
-    {name:"WITHER.EXE",color:"#ff3f74",hp:32,speed:1.5,reward:30000000,size:78}
-];
+    const boss = enemies.find(e=>e.boss);
+    const panel = document.getElementById("bossPanel");
 
-const bossNames=[
-    "NULL",
-    "HEROBRINE.EXE",
-    "KING OF THE VOID",
-    "DARK OWNER",
-    "KAIZORA CORRUPTED"
-];
-
-const bossSchedule=[
-    {time:35000,type:4,delay:28000},
-    {time:80000,type:5,delay:42000},
-    {time:140000,type:6,delay:55000},
-    {time:210000,type:7,delay:48000},
-    {time:275000,type:8,delay:55000},
-    {time:350000,type:9,delay:65000}
-];
-
-const prices={
-    armor1:3000000,
-    armor2:8000000,
-    armor3:18000000,
-    armor4:35000000,
-    armor5:65000000,
-    heart:8000000,
-    bow1:8000000,
-    bow2:16000000,
-    bow3:30000000,
-    bow4:50000000,
-    bow5:85000000,
-    apple:1000000,
-    bread:1500000,
-    carrot:4000000,
-    steak:3000000,
-    golden:10000000,
-    notch:30000000
-};
-
-const foodData={
-    apple:{hunger:4,heal:1,regen:0,shield:0},
-    bread:{hunger:5,heal:0,regen:0,shield:0},
-    carrot:{hunger:6,heal:0,regen:4500,shield:0},
-    steak:{hunger:8,heal:2,regen:0,shield:0},
-    golden:{hunger:8,heal:3,regen:8000,shield:0},
-    notch:{hunger:20,heal:6,regen:12000,shield:9000}
-};
-
-const foodNames={
-    apple:"Manzana",
-    bread:"Pan",
-    carrot:"Zanahoria dorada",
-    steak:"Filete cocinado",
-    golden:"Manzana dorada",
-    notch:"Manzana dorada encantada"
-};
-
-const armorNames=[
-    "Sin armadura",
-    "Cuero",
-    "Hierro",
-    "Diamante",
-    "Netherite",
-    "Kaizora"
-];
-
-const bowNames=[
-    "Arco normal",
-    "Arco reforzado I",
-    "Arco reforzado II",
-    "Arco celestial",
-    "Arco astral",
-    "Arco Kaizora"
-];
-
-/* =========================================
-   INTERFAZ
-========================================= */
-
-const overlay=document.getElementById("overlay");
-
-function formatMoney(value){
-    return value.toLocaleString("es-ES");
-}
-
-function message(text){
-    document.getElementById("gameMessage").textContent=text;
-}
-
-function updateUI(){
-    document.getElementById("coins").textContent=formatMoney(coins);
-    document.getElementById("shopCoins").textContent=formatMoney(coins);
-    document.getElementById("kills").textContent=kills;
-    document.getElementById("hunger").textContent=Math.ceil(hunger)+"/20";
-
-    let heartsText="";
-
-    for(let i=0;i<maxHealth;i++){
-        heartsText+=health>=i+1?"♥ ":"♡ ";
-    }
-
-    document.getElementById("hearts").textContent=heartsText.trim();
-
-    document.getElementById("equippedArmor").textContent=armorNames[armorLevel];
-    document.getElementById("equippedBow").textContent=bowNames[bowLevel];
-
-    for(const key in inventory){
-        const element=document.getElementById("owned-"+key);
-
-        if(element){
-            element.textContent="En inventario: "+inventory[key];
-        }
-    }
-
-    for(let i=1;i<=5;i++){
-        const armor=document.getElementById("owned-armor"+i);
-        const bow=document.getElementById("owned-bow"+i);
-
-        if(armor){
-            armor.textContent=armorLevel>=i?"✓ Equipado: "+armorNames[armorLevel]:"";
-        }
-
-        if(bow){
-            bow.textContent=bowLevel>=i?"✓ Equipado: "+bowNames[bowLevel]:"";
-        }
-    }
-
-    const now=Date.now();
-    const cooldown=getBowCooldown();
-    const remaining=Math.max(0,cooldown-(now-lastShot));
-    const shootBtn=document.getElementById("shootBtn");
-
-    if(remaining>0){
-        document.getElementById("shootLabel").textContent=(remaining/1000).toFixed(1)+"s";
-        shootBtn.disabled=true;
+    if(boss){
+        panel.classList.add("active");
+        document.getElementById("bossName").textContent =
+            boss.displayName;
+        const pct = Math.max(0,boss.hp/boss.maxHp*100);
+        document.getElementById("bossHealthText").textContent =
+            Math.ceil(pct)+"%";
+        document.getElementById("bossFill").style.width = pct+"%";
     }else{
-        document.getElementById("shootLabel").textContent="TIRAR FLECHA";
-        shootBtn.disabled=!running||paused||inShop||gameOver||countdown;
+        panel.classList.remove("active");
     }
 
-    document.querySelectorAll(".buy-btn").forEach(btn=>{
-        btn.disabled=!inShop||!canBuy(btn.dataset.item);
-    });
-
-    document.getElementById("pauseBtn").innerHTML=paused
-        ?'<span class="symbol">▶</span> REANUDAR'
-        :'<span class="symbol">Ⅱ</span> PAUSAR';
+    updateShopButtons();
 }
 
-/* =========================================
-   FONDO
-========================================= */
+/* TIENDA */
 
-function drawBackground(){
-    const gradient=ctx.createLinearGradient(0,0,0,H);
-    gradient.addColorStop(0,"#171027");
-    gradient.addColorStop(1,"#0c0915");
+function createShopCards(containerId,items,category){
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
 
-    ctx.fillStyle=gradient;
-    ctx.fillRect(0,0,W,H);
-
-    stars.forEach(s=>{
-        ctx.globalAlpha=s.alpha;
-        ctx.fillStyle="#e7caff";
-        ctx.fillRect(s.x,s.y,s.size,s.size);
+    items.forEach((item,index)=>{
+        const card = document.createElement("div");
+        card.className = "shop-card";
+        card.innerHTML = `
+            <h4>${item.name}</h4>
+            <p>${category==="armor"?"Protección: "+item.defense:
+                 category==="bow"?"Daño: "+item.damage:
+                 category==="heart"?"Aumenta tu vida máxima":
+                 "Recupera hambre y vida"}</p>
+            <div class="shop-price">${moneyFormat(item.price)}</div>
+            <button type="button" data-buy="${category}" data-index="${index}">COMPRAR</button>
+            <div class="shop-status" id="${category}Status${index}"></div>
+        `;
+        container.appendChild(card);
     });
+}
 
-    ctx.globalAlpha=1;
+createShopCards("armorShop",armorItems,"armor");
+createShopCards("bowShop",bowItems,"bow");
+createShopCards("heartShop",heartItems,"heart");
+createShopCards("foodShop",foodItems,"food");
 
-    ctx.fillStyle="rgba(255,109,225,.08)";
-    ctx.beginPath();
-    ctx.arc(735,75,45,0,Math.PI*2);
-    ctx.fill();
+document.querySelectorAll("[data-buy]").forEach(button=>{
+    button.addEventListener("click",()=>{
+        buyItem(button.dataset.buy,Number(button.dataset.index));
+    });
+});
 
-    ctx.fillStyle="#ffb6ed";
-    ctx.globalAlpha=.8;
-    ctx.beginPath();
-    ctx.arc(735,75,21,0,Math.PI*2);
-    ctx.fill();
-    ctx.globalAlpha=1;
+function buyItem(category,index){
+    if(gameOver || victory) return;
 
-    ctx.fillStyle="#20152e";
-    ctx.beginPath();
-    ctx.moveTo(0,245);
-    ctx.lineTo(120,145);
-    ctx.lineTo(220,245);
-    ctx.lineTo(340,165);
-    ctx.lineTo(480,245);
-    ctx.lineTo(600,150);
-    ctx.lineTo(760,245);
-    ctx.lineTo(850,170);
-    ctx.lineTo(900,220);
-    ctx.lineTo(900,H);
-    ctx.lineTo(0,H);
-    ctx.fill();
+    let item;
+    let status;
 
-    ctx.fillStyle="#241934";
-    ctx.fillRect(0,GROUND,W,H-GROUND);
-
-    ctx.fillStyle="#9B5DE5";
-    ctx.fillRect(0,GROUND,W,4);
-
-    ctx.fillStyle="rgba(255,109,225,.18)";
-
-    for(let x=0;x<W;x+=35){
-        ctx.fillRect(x,GROUND+18,18,2);
+    if(category==="armor"){
+        item=armorItems[index];
+        status=document.getElementById("armorStatus"+index);
+        if(index!==player.armor){
+            if(index!==player.armor+1){
+                status.textContent="Debes comprar la anterior primero.";
+                return;
+            }
+            if(player.money<item.price){
+                status.textContent="No tienes suficientes monedas.";
+                return;
+            }
+            player.money-=item.price;
+            player.armor=index+1;
+            player.armorName=item.name;
+            status.textContent="¡Equipado!";
+        }else{
+            status.textContent="Ya tienes esta mejora.";
+        }
     }
 
-    ctx.strokeStyle="rgba(155,93,229,.12)";
-    ctx.lineWidth=1;
+    if(category==="bow"){
+        item=bowItems[index];
+        status=document.getElementById("bowStatus"+index);
+        if(index!==player.bow){
+            if(index!==player.bow+1){
+                status.textContent="Debes comprar la anterior primero.";
+                return;
+            }
+            if(player.money<item.price){
+                status.textContent="No tienes suficientes monedas.";
+                return;
+            }
+            player.money-=item.price;
+            player.bow=index+1;
+            player.arrowDamage=item.damage;
+            status.textContent="¡Arco equipado!";
+        }else{
+            status.textContent="Ya tienes este arco.";
+        }
+    }
 
-    for(let x=0;x<W;x+=45){
-        ctx.strokeRect(x,GROUND+4,45,65);
+    if(category==="heart"){
+        item=heartItems[index];
+        status=document.getElementById("heartStatus"+index);
+        if(player.money<item.price){
+            status.textContent="No tienes suficientes monedas.";
+            return;
+        }
+        if(player.maxHealth>=20){
+            status.textContent="Has alcanzado el máximo de vida.";
+            return;
+        }
+        player.money-=item.price;
+        player.maxHealth=Math.min(20,player.maxHealth+item.amount);
+        player.health=Math.min(player.maxHealth,player.health+item.amount);
+        status.textContent="¡Vida máxima aumentada!";
+    }
+
+    if(category==="food"){
+        item=foodItems[index];
+        status=document.getElementById("foodStatus"+index);
+        if(player.money<item.price){
+            status.textContent="No tienes suficientes monedas.";
+            return;
+        }
+        player.money-=item.price;
+        player.food++;
+        status.textContent="Comprado. Comida disponible: "+player.food;
+    }
+
+    updateHUD();
+}
+
+function updateShopButtons(){
+    document.querySelectorAll("[data-buy]").forEach(button=>{
+        const category=button.dataset.buy;
+        const index=Number(button.dataset.index);
+        let disabled=false;
+
+        if(category==="armor"){
+            disabled=index>player.armor;
+            button.textContent=index<player.armor?"ADQUIRIDO":
+                index===player.armor?"EQUIPADO":"BLOQUEADO";
+        }
+        if(category==="bow"){
+            disabled=index>player.bow;
+            button.textContent=index<player.bow?"ADQUIRIDO":
+                index===player.bow?"EQUIPADO":"BLOQUEADO";
+        }
+        if(category==="heart"){
+            disabled=player.maxHealth>=20;
+            button.textContent=disabled?"MÁXIMO":"COMPRAR";
+        }
+        if(category==="food"){
+            button.textContent="COMPRAR";
+        }
+
+        button.disabled=disabled;
+    });
+}
+
+/* JUGADOR */
+
+function jump(){
+    if(!running || paused || gameOver || victory) return;
+    if(player.grounded){
+        player.vy=-player.jumpPower;
+        player.grounded=false;
     }
 }
 
-/* =========================================
-   PINGÜINO OWNER
-========================================= */
+/* DISPARO: SIEMPRE HACIA LA DERECHA */
 
-function drawPlayer(){
-    const x=player.x;
-    const y=player.y;
-    const walk=player.walk;
+function shoot(){
+    if(!running || paused || gameOver || victory) return;
+    if(player.attackCooldown>0) return;
 
-    if(player.invulnerable>0&&Math.floor(Date.now()/100)%2===0){
+    player.attackCooldown=0.32;
+
+    playerArrows.push({
+        x:player.x+player.w/2+20,
+        y:player.y+24,
+        vx:650,
+        damage:player.arrowDamage,
+        life:1.8
+    });
+}
+
+function eat(){
+    if(!running || paused || gameOver || victory) return;
+    if(player.food<=0){
+        showMessage("No tienes comida. Compra alimentos en la tienda.");
         return;
     }
-
-    ctx.fillStyle="rgba(0,0,0,.35)";
-    ctx.beginPath();
-    ctx.ellipse(x+24,GROUND-2,26,5,0,0,Math.PI*2);
-    ctx.fill();
-
-    const legMove=player.jumping?0:Math.sin(walk)*4;
-
-    ctx.fillStyle="#ed9b39";
-    ctx.fillRect(x+10,y+57+legMove,13,7);
-    ctx.fillRect(x+27,y+57-legMove,13,7);
-
-    ctx.fillStyle="#17151d";
-    ctx.beginPath();
-    ctx.ellipse(x+24,y+37,22,28,0,0,Math.PI*2);
-    ctx.fill();
-
-    ctx.fillStyle="#f4efff";
-    ctx.beginPath();
-    ctx.ellipse(x+24,y+43,14,19,0,0,Math.PI*2);
-    ctx.fill();
-
-    ctx.fillStyle="#17151d";
-    ctx.beginPath();
-    ctx.arc(x+24,y+12,20,0,Math.PI*2);
-    ctx.fill();
-
-    ctx.fillStyle="#f8f3ff";
-    ctx.beginPath();
-    ctx.ellipse(x+24,y+17,15,11,0,0,Math.PI*2);
-    ctx.fill();
-
-    ctx.fillStyle="#17101e";
-    ctx.fillRect(x+17,y+11,4,5);
-    ctx.fillRect(x+28,y+11,4,5);
-
-    ctx.fillStyle="#f4a63c";
-    ctx.beginPath();
-    ctx.moveTo(x+20,y+19);
-    ctx.lineTo(x+29,y+19);
-    ctx.lineTo(x+24,y+25);
-    ctx.fill();
-
-    ctx.fillStyle="#17151d";
-
-    ctx.save();
-    ctx.translate(x+5,y+34);
-    ctx.rotate(player.jumping?-.5:Math.sin(walk)*.12);
-    ctx.fillRect(-4,-3,9,24);
-    ctx.restore();
-
-    ctx.save();
-    ctx.translate(x+43,y+34);
-    ctx.rotate(player.jumping?.5:-Math.sin(walk)*.12);
-    ctx.fillRect(-4,-3,9,24);
-    ctx.restore();
-
-    if(armorLevel>0){
-        const colors=["","#b58a65","#aeb7c4","#65b7ff","#a98aff","#ff6de1"];
-
-        ctx.strokeStyle=colors[armorLevel];
-        ctx.lineWidth=armorLevel>=4?4:3;
-        ctx.beginPath();
-        ctx.ellipse(x+24,y+39,24,29,0,0,Math.PI*2);
-        ctx.stroke();
-
-        ctx.fillStyle=colors[armorLevel];
-        ctx.globalAlpha=.35;
-        ctx.fillRect(x+10,y+31,28,22);
-        ctx.globalAlpha=1;
-    }
-
-    if(shieldTimer>Date.now()){
-        ctx.strokeStyle="rgba(101,245,165,.8)";
-        ctx.lineWidth=4;
-        ctx.beginPath();
-        ctx.arc(x+24,y+33,34,0,Math.PI*2);
-        ctx.stroke();
-    }
-
-    ctx.font="bold 12px Rajdhani";
-    ctx.textAlign="center";
-    ctx.fillStyle="#ffb6ed";
-    ctx.shadowColor="#9B5DE5";
-    ctx.shadowBlur=10;
-    ctx.fillText("Owner YoSoyAnthonyyy",x+24,y-13);
-    ctx.shadowBlur=0;
-    ctx.textAlign="left";
+    player.food--;
+    player.hunger=Math.min(100,player.hunger+45);
+    player.health=Math.min(player.maxHealth,player.health+3);
+    showMessage("Has comido. Comida restante: "+player.food);
+    updateHUD();
 }
 
-/* =========================================
-   APARICIÓN DE ENEMIGOS
-========================================= */
+function hurtPlayer(amount){
+    if(invulnerable>0 || gameOver || victory) return;
 
-function createEnemy(type,boss=false){
-    let name=type.name;
+    const reduction=player.armor*0.09;
+    const damage=Math.max(0.5,amount*(1-reduction));
 
-    if(type.name.includes(".EXE")){
-        name=bossNames[Math.floor(Math.random()*bossNames.length)];
+    player.health-=damage;
+    invulnerable=0.85;
+    shake=8;
+
+    for(let i=0;i<8;i++){
+        particles.push({
+            x:player.x+player.w/2,
+            y:player.y+player.h/2,
+            vx:(Math.random()-.5)*180,
+            vy:(Math.random()-.5)*180,
+            life:.4,
+            color:"#ff557a"
+        });
     }
 
-    enemies.push({
-        x:W+35,
-        y:GROUND-type.size,
-        w:type.size,
-        h:type.size,
-        hp:type.hp,
-        maxHp:type.hp,
-        speed:type.speed*(1+Math.min(elapsed/120000,.55)),
-        color:type.color,
-        name,
-        type:type.name,
-        reward:type.reward,
-        boss
+    if(player.health<=0){
+        player.health=0;
+        endGame();
+    }
+    updateHUD();
+}
+
+function showMessage(message){
+    document.getElementById("gameMessage").textContent=message;
+}
+
+/* ENEMIGOS Y JEFES */
+
+function spawnEnemy(typeData,isBoss=false){
+    const data=typeData;
+    const boss=isBoss;
+
+    const width=boss?bossWidth(data.type):38;
+    const height=boss?bossHeight(data.type):50;
+
+    const enemy={
+        type:data.type,
+        displayName:data.name||data.type,
+
+        // Los jefes aparecen en el centro y permanecen allí.
+        x:boss?(W-width)/2:W+Math.random()*100,
+
+        // Altura pensada para que las flechas lanzadas al saltar
+        // puedan alcanzar a los jefes.
+        y:boss?175:GROUND-50,
+
+        w:width,
+        h:height,
+        hp:data.hp,
+        maxHp:data.hp,
+        speed:data.speed||45,
+        reward:data.reward||1000,
+        damage:data.damage||1,
+        color:data.color||"#9B5DE5",
+        boss,
+        attackTimer:1.2+Math.random(),
+        fuse:0,
+        teleportTimer:2+Math.random(),
+        phase:Math.random()*6,
+        fireTimer:1.4,
+        dead:false
+    };
+
+    if(data.type==="ENDER DRAGON"){
+        enemy.y=100;
+        enemy.w=175;
+        enemy.h=115;
+        enemy.speed=0;
+    }
+
+    if(data.type.includes("WITHER")){
+        enemy.y=175;
+        enemy.w=boss?105:65;
+        enemy.h=boss?75:55;
+    }
+
+    if(data.type==="ENDERMAN EXE"){
+        enemy.y=175;
+        enemy.h=90;
+        enemy.w=55;
+    }
+
+    // Fijar la posición central después de definir el tamaño final.
+    if(boss){
+        enemy.x=(W-enemy.w)/2;
+        enemy.fixedX=enemy.x;
+    }
+
+    enemies.push(enemy);
+
+    if(boss){
+        bossAnnouncement=data.name||data.type;
+        announcementTimer=3.3;
+        showMessage("⚠ ¡JEFE EN CAMINO: "+bossAnnouncement+"!");
+    }
+}
+
+function bossWidth(type){
+    if(type==="ENDER DRAGON")return 175;
+    if(type.includes("WITHER"))return 105;
+    return 75;
+}
+
+function bossHeight(type){
+    if(type==="ENDER DRAGON")return 115;
+    if(type.includes("WITHER"))return 75;
+    return 85;
+}
+
+function spawnNormal(){
+    const difficulty=1+Math.min(elapsed/180,2.5);
+    const pool=normalTypes.filter((_,i)=>{
+        if(elapsed<25)return i<2;
+        if(elapsed<65)return i<3;
+        if(elapsed<120)return i<4;
+        return true;
     });
+    const data={...pool[Math.floor(Math.random()*pool.length)]};
+    data.hp=Math.ceil(data.hp*difficulty);
+    data.speed*=Math.min(1.6,difficulty);
+    data.reward=Math.floor(data.reward*difficulty);
+    spawnEnemy(data,false);
 }
 
-function spawnNormalEnemy(){
-    if(enemies.length>=3)return;
-
-    const available=[mobTypes[0],mobTypes[1],mobTypes[2]];
-
-    if(elapsed>=18000)available.push(mobTypes[3]);
-
-    const type=available[Math.floor(Math.random()*available.length)];
-
-    createEnemy(type,false);
-}
-
-function spawnBoss(){
-    if(enemies.length>0)return;
-
-    if(bossStage>=bossSchedule.length)return;
+function checkBossProgress(){
+    if(bossStage>=bossSchedule.length || victory) return;
 
     const next=bossSchedule[bossStage];
 
-    if(elapsed<next.time)return;
+    if(elapsed>=next.time){
+        bossWaiting=true;
 
-    const type=mobTypes[next.type];
-
-    createEnemy(type,true);
-
-    bossStage++;
-    nextBossAt=elapsed+next.delay;
-
-    message("⚠ ¡JEFE DETECTADO: "+type.name+"! Prepárate.");
-}
-
-function drawHealthBar(e){
-    const barWidth=e.w;
-    const ratio=Math.max(0,e.hp/e.maxHp);
-
-    ctx.fillStyle="#3a243c";
-    ctx.fillRect(e.x,e.y-9,barWidth,5);
-
-    ctx.fillStyle=e.boss?"#ff557d":"#ff6de1";
-    ctx.fillRect(e.x,e.y-9,barWidth*ratio,5);
-
-    ctx.font=e.boss?"bold 13px Rajdhani":"bold 11px Rajdhani";
-    ctx.textAlign="center";
-    ctx.fillStyle=e.type.includes(".EXE")?"#ff4f9a":"#f5e9ff";
-
-    ctx.fillText(e.name,e.x+e.w/2,e.y-15);
-    ctx.textAlign="left";
-}
-
-/* =========================================
-   DIBUJO DE ENEMIGOS
-========================================= */
-
-function drawDragon(e){
-    const x=e.x;
-    const y=e.y;
-    const w=e.w;
-    const h=e.h;
-    const flap=Math.sin(animationTime/170)*9;
-
-    // Cola larga
-    ctx.fillStyle="#38205b";
-    ctx.beginPath();
-    ctx.moveTo(x+22,y+49);
-    ctx.lineTo(x-13,y+62);
-    ctx.lineTo(x+8,y+69);
-    ctx.lineTo(x+34,y+57);
-    ctx.fill();
-
-    // Alas traseras
-    ctx.fillStyle="#3d2364";
-
-    ctx.beginPath();
-    ctx.moveTo(x+35,y+37);
-    ctx.lineTo(x+5,y+5+flap);
-    ctx.lineTo(x+18,y+47);
-    ctx.lineTo(x+43,y+56);
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.moveTo(x+w-35,y+37);
-    ctx.lineTo(x+w-5,y+5-flap);
-    ctx.lineTo(x+w-18,y+47);
-    ctx.lineTo(x+w-43,y+56);
-    ctx.fill();
-
-    // Membranas de las alas
-    ctx.fillStyle="#8f56bf";
-
-    ctx.beginPath();
-    ctx.moveTo(x+18,y+18+flap);
-    ctx.lineTo(x+5,y+5+flap);
-    ctx.lineTo(x+20,y+48);
-    ctx.lineTo(x+43,y+55);
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.moveTo(x+w-18,y+18-flap);
-    ctx.lineTo(x+w-5,y+5-flap);
-    ctx.lineTo(x+w-20,y+48);
-    ctx.lineTo(x+w-43,y+55);
-    ctx.fill();
-
-    // Cuerpo
-    ctx.fillStyle="#56347e";
-    ctx.fillRect(x+30,y+34,52,29);
-
-    // Cuello
-    ctx.fillRect(x+69,y+20,17,26);
-
-    // Cabeza
-    ctx.fillStyle="#7145a0";
-    ctx.fillRect(x+73,y+11,27,22);
-    ctx.fillRect(x+87,y+21,17,9);
-
-    // Cuernos
-    ctx.fillStyle="#c5a4ed";
-    ctx.fillRect(x+77,y+4,5,11);
-    ctx.fillRect(x+94,y+5,5,10);
-
-    // Ojos
-    ctx.fillStyle="#ff3f82";
-    ctx.fillRect(x+91,y+17,5,5);
-
-    // Boca
-    ctx.fillStyle="#1b1028";
-    ctx.fillRect(x+96,y+27,9,3);
-
-    // Patas
-    ctx.fillStyle="#392052";
-    ctx.fillRect(x+39,y+57,12,15);
-    ctx.fillRect(x+68,y+57,12,15);
-
-    // Garras
-    ctx.fillStyle="#d9c4f3";
-    ctx.fillRect(x+39,y+69,5,4);
-    ctx.fillRect(x+68,y+69,5,4);
-
-    // Espinas dorsales
-    ctx.fillStyle="#b38ce0";
-
-    for(let i=0;i<5;i++){
-        ctx.beginPath();
-        ctx.moveTo(x+35+i*10,y+34);
-        ctx.lineTo(x+40+i*10,y+23);
-        ctx.lineTo(x+45+i*10,y+34);
-        ctx.fill();
+        // No aparece el siguiente jefe hasta que no quede
+        // ningún enemigo vivo en pantalla.
+        if(enemies.length===0){
+            bossWaiting=false;
+            bossStage++;
+            spawnEnemy(next,true);
+        }
     }
 }
 
-function drawEnemy(e){
-    const x=e.x;
-    const y=e.y;
-    const w=e.w;
-    const h=e.h;
+function enemyAttack(enemy,dt){
+    enemy.attackTimer-=dt;
 
-    ctx.fillStyle="rgba(0,0,0,.3)";
-    ctx.fillRect(x-3,GROUND-3,w+6,5);
-
-    if(e.type==="ENDER DRAGON"){
-        drawDragon(e);
-
-    }else if(e.type==="WITHER"||e.type==="WITHER.EXE"){
-        ctx.fillStyle=e.color;
-        ctx.fillRect(x+10,y+20,w-20,35);
-        ctx.fillRect(x+3,y+5,22,22);
-        ctx.fillRect(x+w-25,y+5,22,22);
-        ctx.fillRect(x+w/2-10,y,20,25);
-
-        ctx.fillStyle="#ff6de1";
-        ctx.fillRect(x+9,y+13,6,5);
-        ctx.fillRect(x+w-18,y+13,6,5);
-        ctx.fillRect(x+w/2-5,y+10,5,5);
-
-    }else if(e.type==="GOLEM"){
-        ctx.fillStyle=e.color;
-        ctx.fillRect(x+10,y+5,w-20,h-5);
-        ctx.fillRect(x,y+15,13,28);
-        ctx.fillRect(x+w-13,y+15,13,28);
-        ctx.fillRect(x+12,y+h-12,15,12);
-        ctx.fillRect(x+w-27,y+h-12,15,12);
-
-        ctx.fillStyle="#4a253d";
-        ctx.fillRect(x+18,y+20,7,7);
-        ctx.fillRect(x+w-25,y+20,7,7);
-
-        ctx.fillStyle="#c77e85";
-        ctx.fillRect(x+29,y+31,18,4);
-
-    }else if(e.type.includes("ENDERMAN")){
-        ctx.fillStyle=e.color;
-        ctx.fillRect(x+w/2-8,y,16,h-10);
-        ctx.fillRect(x+8,y+h-20,w-16,7);
-        ctx.fillRect(x+12,y+h-15,7,15);
-        ctx.fillRect(x+w-19,y+h-15,7,15);
-
-        ctx.fillStyle="#ff72ec";
-        ctx.fillRect(x+w/2-12,y+12,7,5);
-        ctx.fillRect(x+w/2+5,y+12,7,5);
-
-    }else if(e.type==="CREEPER"){
-        ctx.fillStyle=e.color;
-        ctx.fillRect(x+5,y+3,w-10,h-13);
-        ctx.fillRect(x+10,y+h-18,10,18);
-        ctx.fillRect(x+w-20,y+h-18,10,18);
-
-        ctx.fillStyle="#172017";
-        ctx.fillRect(x+12,y+12,6,7);
-        ctx.fillRect(x+w-18,y+12,6,7);
-        ctx.fillRect(x+w/2-5,y+24,10,13);
-
-    }else{
-        ctx.fillStyle=e.color;
-        ctx.fillRect(x+7,y+2,w-14,h*.45);
-        ctx.fillRect(x+5,y+h*.45,w-10,h*.35);
-        ctx.fillRect(x+9,y+h*.8,10,h*.2);
-        ctx.fillRect(x+w-19,y+h*.8,10,h*.2);
-
-        ctx.fillStyle=e.type==="ZOMBIE"||e.type==="ZOMBIE.EXE"?"#347b52":"#25202c";
-        ctx.fillRect(x+12,y+12,5,5);
-        ctx.fillRect(x+w-17,y+12,5,5);
+    if(enemy.type==="SKELETON" && enemy.attackTimer<=0){
+        enemy.attackTimer=2.2;
+        enemyProjectiles.push({
+            x:enemy.x,
+            y:enemy.y+20,
+            vx:-300,
+            vy:0,
+            damage:1,
+            radius:7,
+            color:"#e8e4dc",
+            life:3
+        });
     }
 
-    drawHealthBar(e);
-}
+    if(enemy.type==="CREEPER"){
+        const distance=player.x-enemy.x;
+        if(distance>0 && distance<120){
+            enemy.fuse+=dt;
+            if(enemy.fuse>1.3){
+                createExplosion(enemy.x,enemy.y+enemy.h/2,105,3);
+                enemy.dead=true;
+            }
+        }else{
+            enemy.fuse=Math.max(0,enemy.fuse-dt*1.5);
+        }
+    }
 
-/* =========================================
-   FLECHAS
-========================================= */
+    // El Guardián de Hierro jefe dispara bolas a la altura
+    // del jugador. Los gólems normales conservan su ataque terrestre.
+    if(enemy.type==="IRON GOLEM" && enemy.attackTimer<=0){
+        if(enemy.boss){
+            enemy.attackTimer=1.65;
+            const targetY=player.y+player.h/2;
+            const startY=enemy.y+enemy.h/2;
 
-function getBowCooldown(){
-    return [900,700,520,350,220,120][bowLevel];
-}
+            enemyProjectiles.push({
+                x:enemy.x,
+                y:startY,
+                vx:-330,
+                vy:(targetY-startY)*0.8,
+                damage:2,
+                radius:13,
+                color:"#ff6de1",
+                life:3
+            });
+        }else if(Math.abs(player.x-enemy.x)<170){
+            enemy.attackTimer=2.6;
+            enemyProjectiles.push({
+                x:enemy.x,
+                y:GROUND-8,
+                vx:-370,
+                vy:0,
+                damage:2,
+                radius:17,
+                color:"#b6a8a0",
+                life:2
+            });
+        }else{
+            enemy.attackTimer=.5;
+        }
+    }
 
-function shoot(){
-    if(!running||paused||inShop||gameOver||countdown)return;
+    if(enemy.type.includes("WITHER") && enemy.attackTimer<=0){
+        enemy.attackTimer=1.7;
+        enemyProjectiles.push({
+            x:enemy.x,
+            y:enemy.y+enemy.h/2,
+            vx:-250,
+            vy:(player.y+player.h/2-(enemy.y+enemy.h/2))*.65,
+            damage:2,
+            radius:11,
+            color:"#77717e",
+            life:3
+        });
+    }
 
-    const now=Date.now();
-    const cooldown=getBowCooldown();
+    if(enemy.type==="ENDERMAN" || enemy.type==="ENDERMAN EXE"){
+        // El Enderman normal puede teletransportarse.
+        // El jefe permanece inmóvil en su posición central.
+        if(!enemy.boss){
+            enemy.teleportTimer-=dt;
+            if(enemy.teleportTimer<=0 && enemy.x>player.x+100){
+                enemy.x-=100+Math.random()*110;
+                enemy.teleportTimer=2.5+Math.random()*2;
 
-    if(now-lastShot<cooldown)return;
+                for(let i=0;i<10;i++){
+                    particles.push({
+                        x:enemy.x+enemy.w/2,
+                        y:enemy.y+enemy.h/2,
+                        vx:(Math.random()-.5)*120,
+                        vy:(Math.random()-.5)*120,
+                        life:.5,
+                        color:"#b65aff"
+                    });
+                }
+            }
+        }
+    }
 
-    lastShot=now;
+    if(enemy.type==="ENDER DRAGON"){
+        enemy.fireTimer-=dt;
 
-    const damage=[1,2,3,5,7,10][bowLevel];
-    const speed=[9,10,11,13,15,18][bowLevel];
+        // El dragón se mantiene en el centro, con movimiento vertical
+        // suave, sin abandonar nunca el campo de batalla.
+        enemy.x=enemy.fixedX;
+        enemy.y=100+Math.sin(animationTime/380+enemy.phase)*12;
 
-    arrows.push({
-        x:player.x+43,
-        y:player.y+32,
-        speed,
-        damage
-    });
+        if(enemy.fireTimer<=0){
+            enemy.fireTimer=1.45;
 
-    updateUI();
-}
+            enemyProjectiles.push({
+                x:enemy.x,
+                y:enemy.y+enemy.h*.65,
+                vx:-330,
+                vy:(player.y+player.h/2-(enemy.y+enemy.h*.65))*.7,
+                damage:3,
+                radius:14,
+                color:"#d65aff",
+                life:3.5
+            });
 
-function drawArrow(a){
-    ctx.strokeStyle="#f4d9ff";
-    ctx.lineWidth=3;
-    ctx.beginPath();
-    ctx.moveTo(a.x,a.y);
-    ctx.lineTo(a.x+18,a.y);
-    ctx.stroke();
+            enemyProjectiles.push({
+                x:enemy.x,
+                y:enemy.y+enemy.h*.65+15,
+                vx:-280,
+                vy:70,
+                damage:2,
+                radius:10,
+                color:"#ff6de1",
+                life:3.5
+            });
+        }
+    }
 
-    ctx.fillStyle="#ff6de1";
-    ctx.beginPath();
-    ctx.moveTo(a.x+20,a.y);
-    ctx.lineTo(a.x+11,a.y-6);
-    ctx.lineTo(a.x+11,a.y+6);
-    ctx.fill();
-}
+    // Ataque general de los jefes: proyectiles dirigidos
+    // hacia la posición actual del jugador.
+    if(enemy.boss &&
+       enemy.type!=="ENDER DRAGON" &&
+       enemy.type!=="IRON GOLEM" &&
+       enemy.attackTimer<=0){
 
-/* =========================================
-   PARTÍCULAS
-========================================= */
+        enemy.attackTimer=1.4;
 
-function particle(x,y,color){
-    for(let i=0;i<9;i++){
-        particles.push({
-            x,y,
-            vx:(Math.random()-.5)*5,
-            vy:(Math.random()-.8)*5,
-            life:35,
-            color
+        const startY=enemy.y+enemy.h/2;
+        const targetY=player.y+player.h/2;
+
+        enemyProjectiles.push({
+            x:enemy.x,
+            y:startY,
+            vx:-280,
+            vy:(targetY-startY)*.65,
+            damage:2,
+            radius:12,
+            color:"#c65aff",
+            life:3
         });
     }
 }
 
-function drawParticles(){
-    particles.forEach(p=>{
-        ctx.globalAlpha=Math.max(0,p.life/35);
-        ctx.fillStyle=p.color;
-        ctx.fillRect(p.x,p.y,4,4);
+function createExplosion(x,y,radius,damage){
+    particles.push({
+        x,y,vx:0,vy:0,life:.6,
+        color:"#75e36b",
+        explosion:radius
     });
 
-    ctx.globalAlpha=1;
+    const px=player.x+player.w/2;
+    const py=player.y+player.h/2;
+
+    if(Math.hypot(px-x,py-y)<radius){
+        hurtPlayer(damage);
+    }
+
+    shake=10;
 }
 
-/* =========================================
-   MOVIMIENTO
-========================================= */
+function killEnemy(enemy){
+    if(enemy.dead)return;
 
-function jump(){
-    if(!running||paused||inShop||gameOver||countdown)return;
+    enemy.dead=true;
+    player.kills++;
+    player.money+=enemy.reward;
 
-    if(!player.jumping){
-        player.vy=-13;
-        player.jumping=true;
-    }
-}
+    floatingTexts.push({
+        x:enemy.x,
+        y:enemy.y,
+        text:"+"+moneyFormat(enemy.reward),
+        life:1.2
+    });
 
-function movePlayer(delta){
-    const speed=4.2*(delta/16.67);
-
-    if(moveLeft){
-        player.x-=speed;
-        player.facing=-1;
-        player.walk+=.2*(delta/16.67);
-    }
-
-    if(moveRight){
-        player.x+=speed;
-        player.facing=1;
-        player.walk+=.2*(delta/16.67);
+    for(let i=0;i<14;i++){
+        particles.push({
+            x:enemy.x+enemy.w/2,
+            y:enemy.y+enemy.h/2,
+            vx:(Math.random()-.5)*230,
+            vy:(Math.random()-.5)*230,
+            life:.6+Math.random()*.5,
+            color:enemy.color
+        });
     }
 
-    player.x=Math.max(8,Math.min(W-player.w-8,player.x));
-}
+    if(enemy.boss){
+        showMessage("¡JEFE DERROTADO! "+enemy.displayName+" · "+moneyFormat(enemy.reward));
 
-/* =========================================
-   COMIDA Y HAMBRE
-========================================= */
-
-function eat(){
-    if(!running||paused||inShop||gameOver||countdown)return;
-
-    if(hunger>=20&&health>=maxHealth){
-        message("No necesitas comer ahora.");
-        return;
-    }
-
-    const priority=["notch","golden","steak","carrot","bread","apple"];
-    const food=priority.find(key=>inventory[key]>0);
-
-    if(!food){
-        message("No tienes comida. Compra alimentos en la tienda.");
-        return;
-    }
-
-    const data=foodData[food];
-
-    inventory[food]--;
-    hunger=Math.min(20,hunger+data.hunger);
-    health=Math.min(maxHealth,health+data.heal);
-
-    if(data.regen>0)regenTimer=Date.now()+data.regen;
-    if(data.shield>0)shieldTimer=Date.now()+data.shield;
-
-    particle(player.x+24,player.y+15,"#65f5a5");
-
-    message("Has comido "+foodNames[food]+".");
-    updateUI();
-}
-
-function updateHunger(){
-    const now=Date.now();
-
-    if(now-lastHunger>=8000){
-        hunger=Math.max(0,hunger-1);
-        lastHunger=now;
-
-        if(hunger===0){
-            damagePlayer(.5);
-        }else if(hunger>=18&&health<maxHealth){
-            health=Math.min(maxHealth,health+.15);
+        if(enemy.type==="ENDER DRAGON"){
+            winGame();
         }
-
-        updateUI();
     }
 
-    if(regenTimer>now&&health<maxHealth){
-        health=Math.min(maxHealth,health+.025);
+    updateHUD();
+}
+
+/* ACTUALIZACIÓN */
+
+function update(dt){
+    if(!running || paused || gameOver || victory)return;
+
+    elapsed+=dt;
+    animationTime+=dt*1000;
+
+    player.attackCooldown=Math.max(0,player.attackCooldown-dt);
+    invulnerable=Math.max(0,invulnerable-dt);
+    player.hurtCooldown=Math.max(0,player.hurtCooldown-dt);
+
+    if(keys.left){
+        player.vx=-player.speed;
+    }else if(keys.right){
+        player.vx=player.speed;
+    }else{
+        player.vx=0;
     }
 
-    if(shieldTimer>0&&shieldTimer<=now){
-        shieldTimer=0;
-    }
-}
+    // El personaje siempre mira hacia la derecha.
+    player.facing=1;
 
-/* =========================================
-   DAÑO Y ELIMINACIONES
-========================================= */
+    player.x+=player.vx*dt;
+    player.x=Math.max(0,Math.min(W-player.w,player.x));
 
-function damagePlayer(amount=1){
-    const now=Date.now();
+    player.vy+=1450*dt;
+    player.y+=player.vy*dt;
 
-    if(now-lastDamage<1000||player.invulnerable>0)return;
-
-    if(shieldTimer>now){
-        message("¡Tu protección especial bloqueó el golpe!");
-        player.invulnerable=600;
-        return;
-    }
-
-    const reduction=[0,.15,.3,.5,.7,.85][armorLevel];
-    const damage=Math.max(.15,amount*(1-reduction));
-
-    health=Math.max(0,health-damage);
-    lastDamage=now;
-    player.invulnerable=1000;
-
-    particle(player.x+24,player.y+25,"#ff557d");
-    message("¡Has recibido daño!");
-
-    updateUI();
-
-    if(health<=0)endGame();
-}
-
-function killEnemy(index){
-    const enemy=enemies[index];
-
-    particle(enemy.x+enemy.w/2,enemy.y+enemy.h/2,"#ff6de1");
-
-    enemies.splice(index,1);
-
-    kills++;
-    coins+=enemy.reward;
-
-    message("¡"+enemy.name+" derrotado! +"+formatMoney(enemy.reward)+" monedas.");
-
-    updateUI();
-}
-
-/* =========================================
-   COLISIONES
-========================================= */
-
-function collides(a,b){
-    return a.x<b.x+b.w&&
-           a.x+a.w>b.x&&
-           a.y<b.y+b.h&&
-           a.y+a.h>b.y;
-}
-
-/* =========================================
-   ACTUALIZACIÓN
-========================================= */
-
-function update(delta){
-    if(!running||paused||inShop||gameOver||countdown)return;
-
-    elapsed+=delta;
-
-    const difficulty=1+Math.min(elapsed/120000,.8);
-
-    movePlayer(delta);
-
-    // Gravedad
-    player.y+=player.vy*(delta/16.67);
-    player.vy+=.62*(delta/16.67);
-
-    if(player.y>=GROUND-player.h){
+    if(player.y+player.h>=GROUND){
         player.y=GROUND-player.h;
         player.vy=0;
-        player.jumping=false;
+        player.grounded=true;
     }
 
-    if(player.invulnerable>0){
-        player.invulnerable=Math.max(0,player.invulnerable-delta);
+    player.hunger=Math.max(0,player.hunger-dt*.35);
+
+    if(player.hunger<=0 && Math.random()<dt*.8){
+        hurtPlayer(.5);
     }
 
-    // Hambre
-    updateHunger();
+    if(player.hunger>65 && player.health<player.maxHealth){
+        player.hurtCooldown-=dt;
 
-    // Jefes: solo aparece uno y espera a que el anterior sea derrotado
-    if(enemies.length===0&&bossStage<bossSchedule.length){
-        spawnBoss();
-    }
-
-    // Aparición normal: máximo tres enemigos y nunca junto a un jefe
-    if(bossStage===0||elapsed<35000){
-        lastSpawn+=delta;
-
-        spawnInterval=Math.max(1500,2400-elapsed/180);
-
-        if(lastSpawn>=spawnInterval&&enemies.length<3){
-            spawnNormalEnemy();
-            lastSpawn=0;
-        }
-    }else if(enemies.length===0&&bossStage<bossSchedule.length){
-        // Tras el primer jefe, los enemigos normales aparecen solo entre encuentros.
-        lastSpawn+=delta;
-
-        if(lastSpawn>=2600){
-            spawnNormalEnemy();
-            lastSpawn=0;
+        if(player.hurtCooldown<=0){
+            player.health=Math.min(player.maxHealth,player.health+.1);
+            player.hurtCooldown=1;
         }
     }
 
-    // Movimiento y colisiones de enemigos
-    for(let i=enemies.length-1;i>=0;i--){
-        const e=enemies[i];
+    checkBossProgress();
 
-        e.x-=e.speed*difficulty*(delta/16.67);
+    const bossExists=enemies.some(e=>e.boss);
 
-        if(collides(player,e)){
-            damagePlayer(e.boss?2:1);
-            e.x+=7;
-        }
+    if(!bossWaiting && !bossExists){
+        spawnTimer-=dt;
+        const interval=Math.max(.65,2.5-elapsed*.003);
 
-        if(e.x+e.w<0){
-            enemies.splice(i,1);
+        if(spawnTimer<=0){
+            spawnNormal();
+            spawnTimer=interval;
         }
     }
 
-    // Flechas
-    for(let i=arrows.length-1;i>=0;i--){
-        const a=arrows[i];
-        a.x+=a.speed*(delta/16.67);
+    enemies.forEach(enemy=>{
+        if(enemy.dead)return;
 
-        let hit=false;
+        // Los jefes nunca avanzan ni abandonan la pantalla.
+        // Los enemigos normales conservan su movimiento habitual.
+        if(enemy.boss){
+            enemy.x=enemy.fixedX;
+        }else if(enemy.type!=="ENDER DRAGON" &&
+                 !enemy.type.includes("WITHER")){
+            enemy.x-=enemy.speed*dt;
+        }else{
+            enemy.x-=enemy.speed*.3*dt;
+        }
 
-        for(let j=enemies.length-1;j>=0;j--){
-            const e=enemies[j];
+        enemyAttack(enemy,dt);
 
-            if(a.x>e.x&&a.x<e.x+e.w&&a.y>e.y&&a.y<e.y+e.h){
-                e.hp-=a.damage;
-                particle(a.x,a.y,"#ffb6ed");
+        const close=
+            player.x<enemy.x+enemy.w &&
+            player.x+player.w>enemy.x &&
+            player.y<enemy.y+enemy.h &&
+            player.y+player.h>enemy.y;
 
-                arrows.splice(i,1);
-                hit=true;
-
-                if(e.hp<=0)killEnemy(j);
-
-                break;
+        if(close){
+            if(enemy.type==="CREEPER"){
+                enemy.fuse+=dt;
+            }else{
+                hurtPlayer(enemy.damage*dt*1.8);
             }
         }
 
-        if(!hit&&a.x>W){
-            arrows.splice(i,1);
+        // Solo los enemigos normales pueden salir del escenario.
+        // Los jefes permanecen hasta ser derrotados.
+        if(enemy.x+enemy.w<0 && !enemy.boss){
+            enemy.dead=true;
+        }
+    });
+
+    enemies=enemies.filter(e=>!e.dead);
+
+    playerArrows.forEach(arrow=>{
+        arrow.x+=arrow.vx*dt;
+        arrow.life-=dt;
+
+        enemies.forEach(enemy=>{
+            if(enemy.dead)return;
+
+            if(arrow.x>enemy.x &&
+               arrow.x<enemy.x+enemy.w &&
+               arrow.y>enemy.y &&
+               arrow.y<enemy.y+enemy.h){
+
+                enemy.hp-=arrow.damage;
+                arrow.life=0;
+
+                particles.push({
+                    x:arrow.x,
+                    y:arrow.y,
+                    vx:0,
+                    vy:-60,
+                    life:.25,
+                    color:"#ff6de1"
+                });
+
+                if(enemy.hp<=0){
+                    killEnemy(enemy);
+                }
+            }
+        });
+    });
+
+    playerArrows=playerArrows.filter(a=>
+        a.life>0 && a.x>-20 && a.x<W+20
+    );
+
+    enemies=enemies.filter(e=>!e.dead);
+
+    enemyProjectiles.forEach(p=>{
+        p.x+=p.vx*dt;
+        p.y+=p.vy*dt;
+        p.life-=dt;
+
+        if(p.x<player.x+player.w &&
+           p.x+p.radius>player.x &&
+           p.y<player.y+player.h &&
+           p.y+p.radius>player.y){
+
+            hurtPlayer(p.damage);
+            p.life=0;
+        }
+    });
+
+    enemyProjectiles=enemyProjectiles.filter(p=>p.life>0);
+
+    particles.forEach(p=>{
+        p.x+=p.vx*dt;
+        p.y+=p.vy*dt;
+        p.vy+=180*dt;
+        p.life-=dt;
+    });
+
+    particles=particles.filter(p=>p.life>0);
+
+    floatingTexts.forEach(t=>{
+        t.y-=30*dt;
+        t.life-=dt;
+    });
+
+    floatingTexts=floatingTexts.filter(t=>t.life>0);
+
+    announcementTimer=Math.max(0,announcementTimer-dt);
+    shake=Math.max(0,shake-dt*25);
+
+    updateHUD();
+}
+
+/* DIBUJO */
+
+function drawBackground(){
+    const sky=ctx.createLinearGradient(0,0,0,H);
+    sky.addColorStop(0,"#100b20");
+    sky.addColorStop(.55,"#211332");
+    sky.addColorStop(1,"#0b0911");
+    ctx.fillStyle=sky;
+    ctx.fillRect(0,0,W,H);
+
+    for(let i=0;i<55;i++){
+        const x=(i*173+35)%W;
+        const y=(i*71+20)%230;
+        const blink=.5+Math.sin(animationTime*.002+i)*.4;
+        ctx.globalAlpha=blink;
+        ctx.fillStyle="#e6caff";
+        ctx.fillRect(x,y,2,2);
+    }
+
+    ctx.globalAlpha=1;
+
+    ctx.fillStyle="#21132f";
+
+    for(let i=0;i<7;i++){
+        const x=i*160-30;
+        ctx.beginPath();
+        ctx.moveTo(x,GROUND);
+        ctx.lineTo(x+35,230);
+        ctx.lineTo(x+85,GROUND);
+        ctx.fill();
+    }
+
+    ctx.fillStyle="#160f23";
+    ctx.fillRect(0,GROUND-55,W,65);
+
+    for(let i=0;i<5;i++){
+        const x=80+i*190;
+
+        ctx.fillStyle="#251638";
+        ctx.fillRect(x,GROUND-105,42,105);
+        ctx.fillRect(x-12,GROUND-115,66,13);
+
+        ctx.fillStyle="#9B5DE5";
+        ctx.fillRect(x+17,GROUND-88,8,27);
+
+        ctx.fillStyle="#FF6DE1";
+        ctx.fillRect(x+19,GROUND-85,4,19);
+    }
+
+    ctx.fillStyle="#17121e";
+    ctx.fillRect(0,GROUND,W,H-GROUND);
+
+    ctx.fillStyle="#54376c";
+    ctx.fillRect(0,GROUND,W,4);
+
+    for(let x=0;x<W;x+=45){
+        ctx.fillStyle="#241a30";
+        ctx.fillRect(x,GROUND+10,40,3);
+
+        ctx.fillStyle="#39264b";
+        ctx.fillRect(x+8,GROUND+27,17,3);
+    }
+}
+
+function drawPenguin(){
+    const x=player.x,y=player.y;
+    const bob=player.grounded?Math.sin(animationTime*.012)*1.5:0;
+
+    ctx.save();
+    ctx.translate(x+player.w/2,y+bob);
+
+    // Siempre mira hacia la derecha.
+
+    ctx.globalAlpha=.25;
+    ctx.fillStyle="#000";
+    ctx.beginPath();
+    ctx.ellipse(0,player.h+2,23,5,0,0,Math.PI*2);
+    ctx.fill();
+    ctx.globalAlpha=1;
+
+    ctx.fillStyle="#171520";
+    roundRect(-17,12,34,43,12);
+    ctx.fill();
+
+    ctx.fillStyle="#eeeaf3";
+    roundRect(-11,25,22,27,9);
+    ctx.fill();
+
+    ctx.fillStyle="#171520";
+    roundRect(-19,0,38,31,12);
+    ctx.fill();
+
+    ctx.fillStyle="#f5f1fa";
+    roundRect(-13,8,26,18,8);
+    ctx.fill();
+
+    ctx.fillStyle="#21162b";
+    ctx.fillRect(-8,13,4,5);
+    ctx.fillRect(5,13,4,5);
+
+    ctx.fillStyle="#ffbd58";
+    ctx.beginPath();
+    ctx.moveTo(-5,21);
+    ctx.lineTo(7,21);
+    ctx.lineTo(1,27);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle="#e5a43d";
+    ctx.fillRect(-14,53,12,5);
+    ctx.fillRect(3,53,12,5);
+
+    if(player.armor>0){
+        ctx.strokeStyle=player.armor>=5?"#ff6de1":
+            player.armor>=4?"#b9bfc9":
+            player.armor>=3?"#65c9ff":
+            player.armor>=2?"#c3c7d1":"#9d754e";
+
+        ctx.lineWidth=3;
+        ctx.strokeRect(-17,12,34,42);
+    }
+
+    ctx.strokeStyle="#d6b4ff";
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.arc(20,31,10,-Math.PI/2,Math.PI/2);
+    ctx.stroke();
+
+    ctx.restore();
+
+    ctx.fillStyle="#ff6de1";
+    ctx.font="bold 10px Arial";
+    ctx.textAlign="center";
+    ctx.fillText("Owner YoSoyAnthonyyy",x+player.w/2,y-9);
+}
+
+function roundRect(x,y,w,h,r){
+    ctx.beginPath();
+    ctx.roundRect(x,y,w,h,r);
+}
+
+function drawZombie(e){
+    const x=e.x,y=e.y;
+
+    ctx.fillStyle="#3b7547";
+    ctx.fillRect(x+7,y,24,22);
+
+    ctx.fillStyle="#8abf8d";
+    ctx.fillRect(x+10,y+7,5,5);
+    ctx.fillRect(x+24,y+7,5,5);
+
+    ctx.fillStyle="#243c2b";
+    ctx.fillRect(x+5,y+22,29,27);
+
+    ctx.fillStyle="#365b9b";
+    ctx.fillRect(x+5,y+49,12,7);
+    ctx.fillRect(x+22,y+49,12,7);
+}
+
+function drawSkeleton(e){
+    const x=e.x,y=e.y;
+
+    ctx.fillStyle="#d8d3cc";
+    ctx.fillRect(x+8,y,23,22);
+
+    ctx.fillStyle="#292630";
+    ctx.fillRect(x+12,y+8,5,5);
+    ctx.fillRect(x+23,y+8,5,5);
+    ctx.fillRect(x+12,y+23,15,26);
+
+    ctx.fillStyle="#e8e1d7";
+    ctx.fillRect(x+5,y+25,7,20);
+    ctx.fillRect(x+27,y+25,7,20);
+    ctx.fillRect(x+12,y+48,6,7);
+    ctx.fillRect(x+23,y+48,6,7);
+
+    ctx.strokeStyle="#d5b98d";
+    ctx.lineWidth=2;
+    ctx.beginPath();
+    ctx.moveTo(x+37,y+9);
+    ctx.lineTo(x+37,y+46);
+    ctx.stroke();
+}
+
+function drawCreeper(e){
+    const x=e.x,y=e.y;
+    const flashing=e.fuse>0&&Math.floor(animationTime/100)%2===0;
+
+    ctx.fillStyle=flashing?"#efff9a":"#50a95d";
+    ctx.fillRect(x+5,y,29,33);
+    ctx.fillRect(x+9,y+31,8,17);
+    ctx.fillRect(x+23,y+31,8,17);
+
+    ctx.fillStyle="#14291b";
+    ctx.fillRect(x+10,y+10,5,6);
+    ctx.fillRect(x+24,y+10,5,6);
+    ctx.fillRect(x+15,y+20,10,7);
+    ctx.fillRect(x+8,y+48,8,7);
+    ctx.fillRect(x+23,y+48,8,7);
+
+    if(e.fuse>0){
+        ctx.fillStyle="#ffef82";
+        ctx.font="bold 10px Arial";
+        ctx.fillText("!",x+18,y-7);
+    }
+}
+
+function drawEnderman(e){
+    const x=e.x,y=e.y;
+
+    ctx.fillStyle="#171222";
+    ctx.fillRect(x+11,y,19,48);
+    ctx.fillRect(x+7,y+8,27,17);
+
+    ctx.fillStyle="#ff4ce5";
+    ctx.fillRect(x+10,y+15,6,3);
+    ctx.fillRect(x+25,y+15,6,3);
+
+    ctx.fillStyle="#21152d";
+    ctx.fillRect(x+12,y+46,5,9);
+    ctx.fillRect(x+25,y+46,5,9);
+}
+
+function drawGolem(e){
+    const x=e.x,y=e.y;
+
+    ctx.fillStyle="#aaa69c";
+    ctx.fillRect(x+5,y+5,31,42);
+    ctx.fillRect(x+1,y+10,9,28);
+    ctx.fillRect(x+31,y+10,9,28);
+
+    ctx.fillStyle="#e0d9cd";
+    ctx.fillRect(x+8,y,25,18);
+
+    ctx.fillStyle="#8b382f";
+    ctx.fillRect(x+13,y+8,5,4);
+    ctx.fillRect(x+24,y+8,5,4);
+
+    ctx.fillStyle="#716b68";
+    ctx.fillRect(x+10,y+47,10,8);
+    ctx.fillRect(x+23,y+47,10,8);
+}
+
+function drawWither(e){
+    const x=e.x,y=e.y;
+
+    ctx.fillStyle="#25232c";
+    ctx.fillRect(x+5,y+15,48,24);
+    ctx.fillRect(x,y,19,20);
+    ctx.fillRect(x+20,y-5,19,20);
+    ctx.fillRect(x+40,y,19,20);
+
+    ctx.fillStyle="#a9a1b3";
+    ctx.fillRect(x+5,y+8,5,4);
+    ctx.fillRect(x+14,y+8,5,4);
+    ctx.fillRect(x+25,y+3,5,4);
+    ctx.fillRect(x+34,y+3,5,4);
+    ctx.fillRect(x+45,y+8,5,4);
+    ctx.fillRect(x+54,y+8,5,4);
+}
+
+function drawDragon(e){
+    const x=e.x,y=e.y;
+    const flap=Math.sin(animationTime*.009)*24;
+
+    ctx.save();
+    ctx.translate(x+e.w/2,y+e.h/2);
+
+    ctx.fillStyle="#21152f";
+
+    ctx.beginPath();
+    ctx.moveTo(-15,-5);
+    ctx.lineTo(-85,-65-flap);
+    ctx.lineTo(-65,5);
+    ctx.lineTo(-30,25);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(15,-5);
+    ctx.lineTo(85,-65+flap);
+    ctx.lineTo(65,5);
+    ctx.lineTo(30,25);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle="#17111f";
+    ctx.fillRect(-35,-14,70,30);
+    ctx.fillRect(25,-22,40,17);
+    ctx.fillRect(52,-31,25,23);
+
+    ctx.beginPath();
+    ctx.moveTo(-35,0);
+    ctx.lineTo(-85,12);
+    ctx.lineTo(-40,18);
+    ctx.fill();
+
+    ctx.fillStyle="#ff50dd";
+    ctx.fillRect(62,-23,5,5);
+
+    ctx.fillStyle="#6d398e";
+    ctx.fillRect(55,-39,5,12);
+    ctx.fillRect(72,-39,5,12);
+
+    ctx.globalAlpha=.65;
+    ctx.fillStyle="#9B5DE5";
+    ctx.fillRect(-25,10,48,4);
+    ctx.globalAlpha=1;
+
+    ctx.restore();
+}
+
+function drawEnemy(e){
+    if(e.type==="ZOMBIE")drawZombie(e);
+    else if(e.type==="SKELETON")drawSkeleton(e);
+    else if(e.type==="CREEPER")drawCreeper(e);
+    else if(e.type==="ENDERMAN"||e.type==="ENDERMAN EXE")drawEnderman(e);
+    else if(e.type==="IRON GOLEM")drawGolem(e);
+    else if(e.type.includes("WITHER"))drawWither(e);
+    else if(e.type==="ENDER DRAGON")drawDragon(e);
+
+    if(e.boss && e.type!=="ENDER DRAGON"){
+        ctx.fillStyle="#ff6de1";
+        ctx.font="bold 11px Arial";
+        ctx.textAlign="center";
+        ctx.fillText(e.displayName,e.x+e.w/2,e.y-12);
+    }
+
+    if(!e.boss){
+        const pct=Math.max(0,e.hp/e.maxHp);
+
+        ctx.fillStyle="#38283f";
+        ctx.fillRect(e.x,e.y-7,e.w,4);
+
+        ctx.fillStyle="#ff6de1";
+        ctx.fillRect(e.x,e.y-7,e.w*pct,4);
+    }
+}
+
+function draw(){
+    ctx.save();
+
+    if(shake>0){
+        ctx.translate(
+            (Math.random()-.5)*shake,
+            (Math.random()-.5)*shake
+        );
+    }
+
+    drawBackground();
+
+    playerArrows.forEach(a=>{
+        ctx.strokeStyle="#e4c8ff";
+        ctx.lineWidth=3;
+        ctx.beginPath();
+        ctx.moveTo(a.x,a.y);
+        ctx.lineTo(a.x-17,a.y);
+        ctx.stroke();
+
+        ctx.fillStyle="#ff6de1";
+        ctx.fillRect(a.x-2,a.y-2,4,4);
+    });
+
+    enemyProjectiles.forEach(p=>{
+        ctx.fillStyle=p.color;
+        ctx.shadowColor=p.color;
+        ctx.shadowBlur=12;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+        ctx.fill();
+
+        ctx.shadowBlur=0;
+    });
+
+    enemies.forEach(drawEnemy);
+
+    particles.forEach(p=>{
+        ctx.globalAlpha=Math.max(0,p.life);
+        ctx.fillStyle=p.color;
+
+        if(p.explosion){
+            ctx.beginPath();
+            ctx.arc(
+                p.x,
+                p.y,
+                p.explosion*(1-p.life),
+                0,
+                Math.PI*2
+            );
+            ctx.strokeStyle=p.color;
+            ctx.lineWidth=5;
+            ctx.stroke();
+        }else{
+            ctx.fillRect(p.x,p.y,5,5);
+        }
+    });
+
+    ctx.globalAlpha=1;
+
+    floatingTexts.forEach(t=>{
+        ctx.globalAlpha=Math.max(0,t.life);
+        ctx.fillStyle="#ffe58d";
+        ctx.font="bold 13px Arial";
+        ctx.textAlign="center";
+        ctx.fillText(t.text,t.x,t.y);
+    });
+
+    ctx.globalAlpha=1;
+
+    if(invulnerable>0 && Math.floor(animationTime/80)%2===0){
+        ctx.globalAlpha=.35;
+    }
+
+    drawPenguin();
+    ctx.globalAlpha=1;
+
+    if(announcementTimer>0){
+        ctx.fillStyle="#10091cdd";
+        ctx.fillRect(170,35,560,48);
+
+        ctx.strokeStyle="#ff6de1";
+        ctx.strokeRect(170,35,560,48);
+
+        ctx.fillStyle="#ff8be9";
+        ctx.font="bold 20px Arial";
+        ctx.textAlign="center";
+        ctx.fillText("⚠ "+bossAnnouncement+" ⚠",450,66);
+    }
+
+    if(paused || gameOver || victory || !running){
+        ctx.fillStyle="#09070edb";
+        ctx.fillRect(0,0,W,H);
+
+        ctx.textAlign="center";
+
+        if(victory){
+            ctx.fillStyle="#ff6de1";
+            ctx.font="bold 43px Arial";
+            ctx.fillText("¡VICTORIA!",W/2,150);
+
+            ctx.fillStyle="#fff";
+            ctx.font="bold 19px Arial";
+            ctx.fillText("HAS DERROTADO AL ENDER DRAGON",W/2,190);
+
+            ctx.font="15px Arial";
+            ctx.fillText("Kaizora Origins ha sido conquistado.",W/2,225);
+            ctx.fillText(
+                "Eliminaciones: "+player.kills+" · Monedas: "+moneyFormat(player.money),
+                W/2,255
+            );
+
+            ctx.fillStyle="#ff6de1";
+            ctx.font="bold 14px Arial";
+            ctx.fillText("PULSA REINICIAR PARA VOLVER A JUGAR",W/2,300);
+
+        }else if(gameOver){
+            ctx.fillStyle="#ff557a";
+            ctx.font="bold 42px Arial";
+            ctx.fillText("HAS CAÍDO",W/2,165);
+
+            ctx.fillStyle="#fff";
+            ctx.font="16px Arial";
+            ctx.fillText("El mundo de Kaizora aún te espera.",W/2,205);
+            ctx.fillText("Eliminaciones: "+player.kills,W/2,240);
+            ctx.fillText("Pulsa REINICIAR para intentarlo de nuevo.",W/2,280);
+
+        }else if(paused){
+            ctx.fillStyle="#ff6de1";
+            ctx.font="bold 42px Arial";
+            ctx.fillText("PAUSA",W/2,190);
+
+            ctx.fillStyle="#fff";
+            ctx.font="16px Arial";
+            ctx.fillText("Pulsa P o el botón de pausa para continuar.",W/2,230);
+
+        }else{
+            ctx.fillStyle="#ff6de1";
+            ctx.font="bold 34px Arial";
+            ctx.fillText("KAIZORA SURVIVAL",W/2,170);
+
+            ctx.fillStyle="#fff";
+            ctx.font="17px Arial";
+            ctx.fillText("Prepárate para la aventura.",W/2,210);
+            ctx.fillText("Pulsa COMENZAR para jugar.",W/2,245);
         }
     }
 
-    // Partículas
-    for(let i=particles.length-1;i>=0;i--){
-        const p=particles[i];
-
-        p.x+=p.vx;
-        p.y+=p.vy;
-        p.vy+=.12;
-        p.life--;
-
-        if(p.life<=0)particles.splice(i,1);
-    }
-
-    updateUI();
+    ctx.restore();
 }
 
-/* =========================================
-   RENDERIZADO
-========================================= */
+/* FINAL Y REINICIO */
 
-function render(){
-    drawBackground();
+function endGame(){
+    gameOver=true;
+    running=false;
+    paused=false;
+    showMessage("Has sido derrotado. Puedes volver a intentarlo.");
+    draw();
+}
 
-    enemies.forEach(drawEnemy);
-    arrows.forEach(drawArrow);
+function winGame(){
+    victory=true;
+    gameOver=false;
+    running=false;
+    paused=false;
+    bossAnnouncement="";
+    announcementTimer=0;
+    enemies=[];
+    enemyProjectiles=[];
+    playerArrows=[];
+    showMessage("¡VICTORIA! Has derrotado al Ender Dragon.");
+    updateHUD();
+    draw();
+}
 
-    drawPlayer();
-    drawParticles();
+function resetGame(){
+    running=false;
+    paused=false;
+    gameOver=false;
+    victory=false;
+    elapsed=0;
+    spawnTimer=1;
+    bossStage=0;
+    bossWaiting=false;
+    bossAnnouncement="";
+    announcementTimer=0;
+    animationTime=0;
+    lastFrame=0;
 
-    ctx.font="bold 13px Rajdhani";
-    ctx.fillStyle="rgba(255,255,255,.5)";
-    ctx.fillText("KAIZORA DIMENSION",18,25);
+    enemies=[];
+    playerArrows=[];
+    enemyProjectiles=[];
+    particles=[];
+    floatingTexts=[];
 
-    if(paused&&!inShop){
-        ctx.fillStyle="rgba(255,255,255,.9)";
-        ctx.font="bold 25px Orbitron";
-        ctx.textAlign="center";
-        ctx.fillText("JUEGO PAUSADO",W/2,105);
-        ctx.textAlign="left";
+    player.x=115;
+    player.y=GROUND-player.h;
+    player.vx=0;
+    player.vy=0;
+    player.grounded=true;
+    player.facing=1;
+    player.health=10;
+    player.maxHealth=10;
+    player.hunger=100;
+    player.money=0;
+    player.kills=0;
+    player.armor=0;
+    player.armorName="Ninguna";
+    player.bow=0;
+    player.arrowDamage=1;
+    player.food=0;
+    player.attackCooldown=0;
+    player.hurtCooldown=0;
+
+    keys.left=false;
+    keys.right=false;
+
+    document.querySelectorAll(".shop-status").forEach(el=>{
+        el.textContent="";
+    });
+
+    updateHUD();
+
+    showMessage(
+        "A / D para moverte · ESPACIO saltar · F disparar · E comer · P pausar."
+    );
+
+    draw();
+}
+
+function startGame(){
+    if(gameOver || victory)resetGame();
+
+    if(paused){
+        paused=false;
+        running=true;
+        lastFrame=0;
+        requestAnimationFrame(loop);
+        return;
     }
 
-    if(shieldTimer>Date.now()){
-        ctx.fillStyle="#65f5a5";
-        ctx.font="bold 12px Rajdhani";
-        ctx.fillText("✦ PROTECCIÓN ACTIVA",18,47);
+    if(!running){
+        running=true;
+        paused=false;
+        lastFrame=0;
+        requestAnimationFrame(loop);
     }
+}
+
+function togglePause(){
+    if(gameOver || victory)return;
+    if(!running)return;
+
+    paused=!paused;
+
+    if(!paused){
+        lastFrame=0;
+        requestAnimationFrame(loop);
+    }
+
+    draw();
 }
 
 function loop(timestamp){
-    const delta=Math.min(timestamp-lastFrame||16,40);
+    if(!running || paused || gameOver || victory)return;
+
+    if(!lastFrame)lastFrame=timestamp;
+
+    const dt=Math.min((timestamp-lastFrame)/1000,.04);
     lastFrame=timestamp;
 
-    update(delta);
-    render();
+    update(dt);
+    draw();
 
-    requestAnimationFrame(loop);
+    if(running && !paused && !gameOver && !victory){
+        frameId=requestAnimationFrame(loop);
+    }
 }
 
-/* =========================================
-   CUENTA REGRESIVA
-========================================= */
+/* CONTROLES DE TECLADO */
 
-function showCountdown(title,description,callback){
-    if(countdownTimer){
-        clearInterval(countdownTimer);
-        countdownTimer=null;
+window.addEventListener("keydown",event=>{
+    const key=event.key.toLowerCase();
+
+    if([" ","arrowleft","arrowright","arrowup"].includes(key)){
+        event.preventDefault();
     }
 
-    countdown=true;
-    paused=true;
+    if(key==="a" || key==="arrowleft")keys.left=true;
+    if(key==="d" || key==="arrowright")keys.right=true;
 
-    overlay.classList.remove("hidden");
+    if(key===" " || key==="w" || key==="arrowup")jump();
+    if(key==="f")shoot();
+    if(key==="e")eat();
+    if(key==="p")togglePause();
 
-    overlay.querySelector(".overlay-card").innerHTML=`
-        <h2>${title}</h2>
-        <p>${description}</p>
-        <div class="big-count" id="bigCount">3</div>
-        <p>¡Prepárate!</p>
-    `;
+    if(key==="enter" && !running && !gameOver && !victory){
+        startGame();
+    }
+});
 
-    let count=3;
+window.addEventListener("keyup",event=>{
+    const key=event.key.toLowerCase();
+
+    if(key==="a" || key==="arrowleft")keys.left=false;
+    if(key==="d" || key==="arrowright")keys.right=false;
+});
+
+window.addEventListener("blur",()=>{
+    keys.left=false;
+    keys.right=false;
+});
+
+/* CONTROLES TÁCTILES */
+
+document.querySelectorAll("[data-hold]").forEach(button=>{
+    const direction=button.dataset.hold;
+
+    const press=e=>{
+        e.preventDefault();
+        if(!running || paused)return;
+        keys[direction]=true;
+    };
+
+    const release=e=>{
+        e.preventDefault();
+        keys[direction]=false;
+    };
+
+    button.addEventListener("pointerdown",press);
+    button.addEventListener("pointerup",release);
+    button.addEventListener("pointercancel",release);
+    button.addEventListener("pointerleave",release);
+});
+
+document.querySelectorAll("[data-action]").forEach(button=>{
+    button.addEventListener("pointerdown",e=>{
+        e.preventDefault();
+
+        const action=button.dataset.action;
+
+        if(action==="jump")jump();
+        if(action==="shoot")shoot();
+        if(action==="eat")eat();
+        if(action==="pause")togglePause();
+    });
+});
+
+window.addEventListener("contextmenu",e=>{
+    if(e.target.closest(".controls"))e.preventDefault();
+});
+
+/* PAUSA AUTOMÁTICA AL ABRIR LA TIENDA */
+
+let wasRunningBeforeShop=false;
+
+if("IntersectionObserver" in window){
+    const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting && running && !paused){
+                wasRunningBeforeShop=true;
+                paused=true;
+                keys.left=false;
+                keys.right=false;
+                draw();
+
+            }else if(!entry.isIntersecting && wasRunningBeforeShop){
+                wasRunningBeforeShop=false;
+
+                if(!gameOver && !victory){
+                    showMessage("Regresando al combate...");
+                    startCountdown();
+                }
+            }
+        });
+    },{threshold:.12});
+
+    observer.observe(document.getElementById("shopSection"));
+}
+
+function startCountdown(){
+    if(countdownTimer)clearInterval(countdownTimer);
+
+    countdown=3;
+    const message=document.getElementById("gameMessage");
+
+    message.textContent="La batalla continúa en "+countdown+"...";
 
     countdownTimer=setInterval(()=>{
-        count--;
+        countdown--;
 
-        const counter=document.getElementById("bigCount");
-
-        if(count>0){
-            counter.textContent=count;
-        }else if(count===0){
-            counter.textContent="¡YA!";
+        if(countdown>0){
+            message.textContent="La batalla continúa en "+countdown+"...";
         }else{
             clearInterval(countdownTimer);
             countdownTimer=null;
 
-            countdown=false;
-            paused=false;
-
-            overlay.classList.add("hidden");
-
-            callback?.();
-            updateUI();
+            if(!gameOver && !victory){
+                paused=false;
+                running=true;
+                lastFrame=0;
+                requestAnimationFrame(loop);
+                showMessage("¡La batalla continúa!");
+            }
         }
     },1000);
 }
 
-function startCountdown(){
-    running=true;
-    paused=true;
-    inShop=false;
-    gameOver=false;
+/* INICIO */
 
-    showCountdown(
-        'PREPÁRATE <span>GUERRERO</span>',
-        "Los mobs están a punto de llegar...",
-        ()=>message("¡La batalla ha comenzado!")
-    );
-}
+resetGame();
 
-function resetGame(){
-    coins=0;
-    kills=0;
-    health=maxHealth;
-    hunger=20;
+const startButton=document.createElement("button");
+startButton.className="control";
+startButton.textContent="▶ COMENZAR";
+startButton.style.width="100%";
+startButton.style.marginTop="10px";
+startButton.style.borderColor="#a85ee0";
 
-    elapsed=0;
-    lastSpawn=0;
-    nextBossAt=35000;
-    bossStage=0;
-    lastDamage=0;
-    lastShot=0;
-    lastHunger=Date.now();
+startButton.addEventListener("click",()=>{
+    if(gameOver || victory){
+        resetGame();
+    }
+    startGame();
+});
 
-    armorLevel=0;
-    bowLevel=0;
+document.querySelector(".controls").after(startButton);
 
-    inventory={
-        apple:0,
-        bread:0,
-        carrot:0,
-        steak:0,
-        golden:0,
-        notch:0
-    };
+const restartButton=document.createElement("button");
+restartButton.className="control";
+restartButton.textContent="↻ REINICIAR PARTIDA";
+restartButton.style.width="100%";
+restartButton.style.marginTop="8px";
 
-    regenTimer=0;
-    shieldTimer=0;
-
-    player.x=105;
-    player.y=GROUND-player.h;
-    player.vy=0;
-    player.jumping=false;
-    player.invulnerable=0;
-    player.walk=0;
-
-    moveLeft=false;
-    moveRight=false;
-
-    enemies=[];
-    arrows=[];
-    particles=[];
-
-    updateUI();
-}
-
-function endGame(){
-    running=false;
-    paused=true;
-    gameOver=true;
-    countdown=false;
-
+restartButton.addEventListener("click",()=>{
     if(countdownTimer){
         clearInterval(countdownTimer);
         countdownTimer=null;
     }
 
-    overlay.classList.remove("hidden");
-
-    overlay.querySelector(".overlay-card").innerHTML=`
-        <h2>HAS CAÍDO EN <span>KAIZORA</span></h2>
-        <p>
-            Owner YoSoyAnthonyyy ha sido derrotado.<br><br>
-            Enemigos eliminados:
-            <strong style="color:#ff6de1">${kills}</strong><br>
-            Monedas conseguidas:
-            <strong style="color:#ffd66b">${formatMoney(coins)}</strong>
-        </p>
-        <button class="control-btn primary" id="restartBtn" style="width:100%">
-            ↻ VOLVER A INTENTAR
-        </button>
-    `;
-
-    document.getElementById("restartBtn").addEventListener("click",()=>{
-        resetGame();
-        startCountdown();
-    });
-
-    message("Partida terminada. ¡Inténtalo de nuevo!");
-}
-
-/* =========================================
-   PAUSA MANUAL
-========================================= */
-
-function pauseGame(){
-    if(!running||gameOver||countdown||inShop)return;
-
-    paused=!paused;
-
-    if(paused){
-        message("Partida pausada.");
-    }else{
-        message("¡De vuelta a la batalla!");
-    }
-
-    updateUI();
-}
-
-/* =========================================
-   TIENDA AUTOMÁTICA
-========================================= */
-
-let shopWasOpened=false;
-
-const shopObserver=new IntersectionObserver(entries=>{
-    const entry=entries[0];
-
-    if(!running||gameOver||countdown)return;
-
-    if(entry.isIntersecting&&!inShop){
-        inShop=true;
-        paused=true;
-        shopWasOpened=true;
-
-        message("Zona segura: el juego está pausado mientras compras.");
-        updateUI();
-    }
-
-    if(!entry.isIntersecting&&inShop&&shopWasOpened){
-        inShop=false;
-        shopWasOpened=false;
-
-        showCountdown(
-            'REGRESANDO A <span>KAIZORA</span>',
-            "La batalla continuará en unos segundos...",
-            ()=>message("¡La batalla continúa!")
-        );
-    }
-},{
-    threshold:.2
-});
-
-shopObserver.observe(document.getElementById("shopSection"));
-
-/* =========================================
-   COMPRAS
-========================================= */
-
-function canBuy(item){
-    if(coins<prices[item])return false;
-
-    if(item.startsWith("armor")){
-        const level=Number(item.replace("armor",""));
-        return armorLevel===level-1;
-    }
-
-    if(item.startsWith("bow")){
-        const level=Number(item.replace("bow",""));
-        return bowLevel===level-1;
-    }
-
-    if(item==="heart")return maxHealth<20;
-
-    return true;
-}
-
-function buyItem(item){
-    if(!inShop)return;
-
-    if(!canBuy(item)){
-        message("No tienes suficientes monedas o debes comprar la mejora anterior.");
-        return;
-    }
-
-    coins-=prices[item];
-
-    if(item.startsWith("armor")){
-        armorLevel=Number(item.replace("armor",""));
-        message("¡Armadura equipada: "+armorNames[armorLevel]+"!");
-    }
-
-    else if(item.startsWith("bow")){
-        bowLevel=Number(item.replace("bow",""));
-        message("¡Arco equipado: "+bowNames[bowLevel]+"!");
-    }
-
-    else if(item==="heart"){
-        maxHealth++;
-        health++;
-        message("¡Has conseguido un corazón adicional!");
-    }
-
-    else if(foodData[item]){
-        inventory[item]++;
-        message("Has comprado: "+foodNames[item]+".");
-    }
-
-    updateUI();
-}
-
-document.querySelectorAll(".buy-btn").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-        buyItem(btn.dataset.item);
-    });
-});
-
-/* =========================================
-   BOTONES DE JUEGO
-========================================= */
-
-document.getElementById("startBtn").addEventListener("click",()=>{
     resetGame();
-    startCountdown();
+    startGame();
 });
 
-document.getElementById("shootBtn").addEventListener("click",shoot);
-document.getElementById("jumpBtn").addEventListener("click",jump);
-document.getElementById("eatBtn").addEventListener("click",eat);
-document.getElementById("pauseBtn").addEventListener("click",pauseGame);
+startButton.after(restartButton);
 
-/* =========================================
-   CONTROLES TÁCTILES DE MOVIMIENTO
-========================================= */
-
-function bindMovementButton(buttonId,direction){
-    const button=document.getElementById(buttonId);
-
-    const start=e=>{
-        e.preventDefault();
-
-        if(!running||paused||inShop||gameOver||countdown)return;
-
-        if(direction==="left")moveLeft=true;
-        if(direction==="right")moveRight=true;
-
-        button.setPointerCapture?.(e.pointerId);
-    };
-
-    const stop=e=>{
-        e.preventDefault();
-
-        if(direction==="left")moveLeft=false;
-        if(direction==="right")moveRight=false;
-    };
-
-    button.addEventListener("pointerdown",start);
-    button.addEventListener("pointerup",stop);
-    button.addEventListener("pointercancel",stop);
-    button.addEventListener("lostpointercapture",stop);
-    button.addEventListener("contextmenu",e=>e.preventDefault());
-}
-
-bindMovementButton("leftBtn","left");
-bindMovementButton("rightBtn","right");
-
-/* =========================================
-   TECLADO
-========================================= */
-
-document.addEventListener("keydown",e=>{
-    if(e.code==="Space"){
-        e.preventDefault();
-        jump();
-    }
-
-    if(e.key.toLowerCase()==="f")shoot();
-    if(e.key.toLowerCase()==="e")eat();
-    if(e.key.toLowerCase()==="p")pauseGame();
-
-    if(e.key.toLowerCase()==="a"||e.key==="ArrowLeft"){
-        moveLeft=true;
-    }
-
-    if(e.key.toLowerCase()==="d"||e.key==="ArrowRight"){
-        moveRight=true;
-    }
-});
-
-document.addEventListener("keyup",e=>{
-    if(e.key.toLowerCase()==="a"||e.key==="ArrowLeft"){
-        moveLeft=false;
-    }
-
-    if(e.key.toLowerCase()==="d"||e.key==="ArrowRight"){
-        moveRight=false;
-    }
-});
-
-window.addEventListener("blur",()=>{
-    moveLeft=false;
-    moveRight=false;
-});
-
-/* =========================================
-   INICIO
-========================================= */
-
-updateUI();
-requestAnimationFrame(loop);
+draw();
 </script>
-
 </body>
 </html>
