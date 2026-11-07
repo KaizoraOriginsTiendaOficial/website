@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070711">
+<meta name="description" content="Descubre el rango ASTRAL de Kaizora Origins. Equipamiento exclusivo, recursos y beneficios para tu aventura.">
+<title>ASTRAL | Kaizora Origins</title>
+
+<style>
+:root{
+    --bg:#070711;
+    --panel:#101322;
+    --cyan:#9365ff;
+    --cyan-light:#c2a8ff;
+    --cyan-pale:#eadfff;
+    --purple:#6236c9;
+    --pink:#ff6de1;
+    --white:#fff;
+    --text:#e8eaff;
+    --muted:#b8bbcb;
+    --border:rgba(147,101,255,.25);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+a{color:inherit}
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    background:
+        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.23),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.14),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(98,54,201,.13),transparent 40%),
+        #070711;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.16;
+    background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
+    background-size:27px 27px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
+}
+
+/* NAVEGACIÓN */
+
+nav{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(147,101,255,.18);
+    background:rgba(7,7,17,.87);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    position:relative;
+    z-index:5;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:950;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+}
+
+.logo span{color:var(--cyan-light)}
+
+nav a{
+    text-decoration:none;
+    color:#d4d9eb;
+    font-size:13px;
+    font-weight:850;
+}
+
+nav a.home:hover{color:white}
+
+.discord{
+    padding:12px 18px;
+    border-radius:9px;
+    background:linear-gradient(110deg,#6236c9,#9365ff,#ff6de1);
+    color:white!important;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 5px 24px rgba(147,101,255,.25);
+    transition:.25s;
+}
+
+.discord:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 32px rgba(147,101,255,.4);
+}
+
+/* HERO */
+
+main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:85px 6% 100px;
+}
+
+.hero{
+    padding-bottom:38px;
+    animation:appear .65s ease both;
+}
+
+.label{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--cyan-pale);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:3px;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(147,101,255,.4);
+    border-radius:6px;
+    background:rgba(147,101,255,.09);
+    box-shadow:0 0 25px rgba(147,101,255,.08);
+}
+
+.label::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 13px var(--cyan);
+}
+
+h1{
+    font-size:clamp(52px,10vw,100px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-shadow:0 0 42px rgba(147,101,255,.15);
+    overflow-wrap:anywhere;
+}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#eadfff 35%,#9365ff 65%,#ff6de1 92%);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.desc{
+    max-width:700px;
+    color:#c4c9dc;
+    font-size:17px;
+    line-height:1.85;
+    margin:0;
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.price-wrap{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.price-label{
+    display:block;
+    color:#b9aed7;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.price{
+    font-size:46px;
+    font-weight:1000;
+    letter-spacing:-2px;
+    color:var(--cyan);
+    text-shadow:0 0 25px rgba(147,101,255,.25);
+}
+
+.price-note{
+    color:#c2b6dc;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:950;
+    font-size:12px;
+    letter-spacing:.4px;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.primary{
+    color:white;
+    border-color:var(--cyan-light);
+    background:linear-gradient(110deg,#6236c9,#9365ff,#ff6de1);
+    box-shadow:0 5px 24px rgba(147,101,255,.2);
+}
+
+.primary:hover{
+    box-shadow:0 8px 32px rgba(147,101,255,.35);
+}
+
+.back{
+    color:#e2eaff;
+    background:rgba(255,255,255,.035);
+}
+
+.back:hover{
+    border-color:var(--purple);
+    background:rgba(147,101,255,.1);
+}
+
+/* PANEL PRINCIPAL */
+
+.box{
+    position:relative;
+    margin-top:30px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(17,16,35,.97),rgba(9,10,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(147,101,255,.045);
+    overflow:hidden;
+    animation:appear .8s ease both;
+}
+
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#9365ff,#ff6de1,transparent);
+}
+
+.box h2{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
+    font-weight:950;
+}
+
+.box h2::before{
+    content:"";
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(var(--cyan),var(--pink));
+    box-shadow:0 0 16px rgba(147,101,255,.35);
+    flex-shrink:0;
+}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f4f8ff;
+    font-size:18px;
+    font-weight:950;
+}
+
+.box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:9px 0;
+    font-size:14px;
+}
+
+/* SECCIONES */
+
+.section{
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid rgba(147,101,255,.15);
+}
+
+.section:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+}
+
+.section-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:1px solid rgba(147,101,255,.35);
+    background:linear-gradient(145deg,rgba(147,101,255,.17),rgba(255,109,225,.13));
+    color:#eadfff;
+    font-size:15px;
+    font-weight:950;
+    box-shadow:inset 0 0 16px rgba(147,101,255,.06);
+}
+
+.section-heading h3{
+    margin:0;
+    font-size:18px;
+}
+
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#b9acd9;
+}
+
+.info-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+}
+
+.info-list li{
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(147,101,255,.17);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(147,101,255,.055),rgba(255,109,225,.025),rgba(255,255,255,.018));
+    color:#cbd7eb;
+    line-height:1.7;
+    transition:border-color .2s,background .2s,transform .2s;
+}
+
+.info-list li:hover{
+    border-color:rgba(255,109,225,.55);
+    background:rgba(147,101,255,.09);
+    transform:translateY(-1px);
+}
+
+.item-name{
+    color:#f2f0ff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:#c2a8ff;
+    font-size:13px;
+    font-weight:700;
+}
+
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(147,101,255,.32);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(147,101,255,.13),rgba(255,109,225,.055));
+    color:#d0ddf2;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(147,101,255,.025);
+}
+
+.inherit strong{color:#eadfff}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4f8ff!important;
+}
+
+/* COMANDOS */
+
+.command-intro{margin-bottom:20px!important}
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+    margin-top:19px;
+}
+
+.command-card{
+    position:relative;
+    overflow:hidden;
+    min-width:0;
+    padding:23px;
+    border:1px solid rgba(147,101,255,.35);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(98,54,201,.18),rgba(15,17,34,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(var(--cyan),var(--pink));
+    box-shadow:0 0 15px rgba(147,101,255,.2);
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(255,109,225,.15);
+    filter:blur(12px);
+    pointer-events:none;
+}
+
+.command-card:hover{
+    border-color:rgba(255,109,225,.75);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(147,101,255,.09);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.command-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#eadfff;
+    background:rgba(147,101,255,.13);
+    border:1px solid rgba(147,101,255,.3);
+    font-size:12px;
+    font-weight:950;
+}
+
+.command-tag{
+    color:#eadfff;
+    background:rgba(255,109,225,.1);
+    border:1px solid rgba(255,109,225,.3);
+    border-radius:5px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.command-name{
+    display:block;
+    margin-bottom:11px;
+    color:var(--cyan-light);
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:25px;
+    line-height:1.25;
+    font-weight:1000;
+    letter-spacing:0;
+    overflow-wrap:anywhere;
+    text-shadow:0 0 22px rgba(147,101,255,.2);
+}
+
+.command-description{
+    margin:0!important;
+    color:#d0dced!important;
+    font-size:14px;
+    line-height:1.85!important;
+}
+
+.command-note{
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(147,101,255,.22);
+    border-left:4px solid var(--cyan);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(147,101,255,.09),rgba(255,109,225,.04));
+    color:#c0cde0;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.command-note strong{color:#eadfff}
+
+/* PIE */
+
+footer{
+    text-align:center;
+    padding:30px 20px;
+    color:#8b98af;
+    font-size:12px;
+    border-top:1px solid rgba(147,101,255,.15);
+    background:rgba(6,7,16,.72);
+}
+
+footer span{color:var(--cyan-light)}
+
+/* ANIMACIONES */
+
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* MÓVILES */
+
+@media(max-width:650px){
+    nav{
+        padding:14px 5%;
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        font-size:17px;
+        letter-spacing:.7px;
+    }
+
+    nav a.home{display:none}
+
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
+    }
+
+    main{padding:62px 5% 70px}
+
+    h1{letter-spacing:-3px}
+
+    .desc{font-size:15px}
+
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .price{font-size:40px}
+
+    .actions{width:100%}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
+
+    .box{
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
+    .box h2{font-size:23px}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
+    }
+
+    .command-card{padding:20px}
+
+    .section-heading h3{font-size:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<nav>
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
+
+    <a class="home"
+       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+        Inicio
+    </a>
+
+    <a class="discord"
+       href="https://discord.gg/sHvWgW7AE4"
+       target="_blank"
+       rel="noopener noreferrer">
+        Comprar por Discord
+    </a>
+</nav>
+
+<main>
+
+    <!-- HERO DEL RANGO -->
+
+    <section class="hero">
+
+        <div class="label">RANGO EXCLUSIVO</div>
+
+        <h1><span>ASTRAL</span></h1>
+
+        <p class="desc">
+            Trasciende los límites de tu aventura en Kaizora Origins.
+            ASTRAL representa una nueva etapa de poder, con equipamiento
+            de Netherite reforzado, encantamientos de nivel superior y
+            recursos especiales para quienes buscan alcanzar nuevas alturas.
+        </p>
+
+        <div class="hero-bottom">
+
+            <div class="price-wrap">
+                <div>
+                    <span class="price-label">PRECIO DEL RANGO</span>
+                    <div class="price">Consultar</div>
+                </div>
+
+                <div class="price-note">
+                    Poder más allá de lo conocido.<br>
+                    Tu aventura alcanza otra dimensión.
+                </div>
+            </div>
+
+            <div class="actions">
+
+                <a class="btn primary"
+                   href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Comprar ASTRAL ↗
+                </a>
+
+                <a class="btn back"
+                   href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+                    Volver a rangos
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- INFORMACIÓN COMPLETA -->
+
+    <div class="box">
+
+        <h2>Información del rango</h2>
+
+        <!-- HERENCIA -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">01</div>
+                <div>
+                    <h3>Herencia de rangos</h3>
+                    <p>Tus ventajas anteriores siguen contigo</p>
+                </div>
+            </div>
+
+            <p>
+                ASTRAL incluye los permisos, comandos, kits y beneficios
+                de los rangos anteriores, incluidos CELESTIAL, ELITE,
+                ASCENDENTE y ORIGIN, además de las ventajas propias
+                de ASTRAL.
+            </p>
+
+            <div class="inherit">
+                <strong>TU RANGO INCLUYE:</strong><br>
+                Default / User + ORIGIN + ASCENDENTE + ELITE +
+                CELESTIAL + ASTRAL.<br>
+                <strong>No pierdes las ventajas de tus rangos anteriores.</strong><br>
+                Conservas sus comandos, permisos y beneficios según la
+                configuración del servidor.
+            </div>
+
+        </div>
+
+        <!-- COMANDOS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">02</div>
+                <div>
+                    <h3 class="kit-title">Comandos exclusivos de ASTRAL</h3>
+                    <p>Herramientas adicionales para tus aventuras</p>
+                </div>
+            </div>
+
+            <p class="command-intro">
+                ASTRAL conserva los comandos desbloqueados en los rangos
+                anteriores, permitiéndote seguir utilizando las herramientas
+                disponibles durante tu progreso.
+            </p>
+
+            <div class="command-note">
+                <strong>COMANDOS HEREDADOS</strong><br>
+                Incluye los comandos de CELESTIAL, como
+                <strong>/craft</strong>, además de los comandos de ELITE
+                y ORIGIN, incluidos <strong>/extinguish</strong>,
+                <strong>/me</strong>, <strong>/recipe</strong> y
+                <strong>/depth</strong>.
+                <br><br>
+                <strong>Importante:</strong> los comandos disponibles
+                dependen de los permisos y plugins instalados en el servidor.
+            </div>
+
+        </div>
+
+        <!-- KIT -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">03</div>
+                <div>
+                    <h3 class="kit-title">/kit Astral</h3>
+                    <p>El equipamiento incluido en tu rango</p>
+                </div>
+            </div>
+
+            <p>
+                El kit exclusivo del rango ASTRAL incluye un conjunto
+                completo de Netherite con encantamientos de nivel VIII,
+                herramientas avanzadas, escudo reforzado y recursos
+                especiales para continuar tu progreso.
+            </p>
+
+        </div>
+
+        <!-- ARMADURA -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">04</div>
+                <div>
+                    <h3>Full Armor Netherite</h3>
+                    <p>Cuatro piezas de equipamiento de nivel VIII</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Casco de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VIII · Protección contra Explosiones VIII ·
+                        Protección contra el Fuego VIII · Protección contra Proyectiles VIII ·
+                        Respiración VIII · Afinidad Acuática VIII ·
+                        Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VIII · Protección contra Explosiones VIII ·
+                        Protección contra el Fuego VIII · Protección contra Proyectiles VIII ·
+                        Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VIII · Protección contra Explosiones VIII ·
+                        Protección contra el Fuego VIII · Protección contra Proyectiles VIII ·
+                        Sigilo Veloz VIII · Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">
+                        Paso Helado VIII · Protección VIII ·
+                        Protección contra Explosiones VIII · Protección contra el Fuego VIII ·
+                        Protección contra Proyectiles VIII · Caída de Pluma VIII ·
+                        Velocidad de Alma VIII · Agilidad Acuática VIII ·
+                        Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- HERRAMIENTAS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">05</div>
+                <div>
+                    <h3>Herramientas</h3>
+                    <p>Equipamiento avanzado para minar y combatir</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Espada de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VIII · Golpeo VIII · Perdición de los Artrópodos VIII ·
+                        Barrido VIII · Aspecto Ígneo VIII · Empuje VIII ·
+                        Botín VIII · Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pico de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna VIII · Eficiencia VIII ·
+                        Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Hacha de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VIII · Golpeo VIII · Perdición de los Artrópodos VIII ·
+                        Eficiencia VIII · Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pala de Netherite</span><br>
+                    <span class="item-details">
+                        Eficiencia VIII · Irrompibilidad VIII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- ESCUDO -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">06</div>
+                <div>
+                    <h3>Escudo</h3>
+                    <p>Defensa reforzada para tus enfrentamientos</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">
+                        Protección VIII · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- RECURSOS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">07</div>
+                <div>
+                    <h3>Recursos especiales</h3>
+                    <p>Materiales exclusivos incluidos en ASTRAL</p>
+                </div>
+            </div>
+
+            <p>
+                Una selección de esencias, nexos y cristales especiales
+                para complementar tu equipamiento y avanzar dentro
+                del universo de Kaizora Origins.
+            </p>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Esencia Arcana</span><br>
+                    <span class="item-details">×22</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Nexo Plasmático</span><br>
+                    <span class="item-details">×20</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Esencia Eléctrica</span><br>
+                    <span class="item-details">×18</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Cristal Acuático</span><br>
+                    <span class="item-details">×16</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Vértice Cósmico</span><br>
+                    <span class="item-details">×14</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- PROTECCIÓN -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">08</div>
+                <div>
+                    <h3>Piedra de Protección</h3>
+                    <p>Protege el espacio de tus construcciones</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Mena de Protección</span><br>
+                    <span class="item-details">
+                        Protección de 30 × 30 bloques · ×1
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- AÑADIDOS -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">09</div>
+                <div>
+                    <h3>Añadidos</h3>
+                    <p>Objetos adicionales para tu aventura</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Llave Astral</span><br>
+                    <span class="item-details">×1</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- RESUMEN -->
+
+        <div class="inherit">
+            <strong>RESUMEN DEL RANGO ASTRAL</strong><br>
+            ASTRAL incluye los beneficios de los rangos anteriores,
+            una armadura completa de Netherite con encantamientos
+            de nivel VIII, espada, pico, hacha y pala de Netherite,
+            escudo con Protección VIII y Reparación, Esencia Arcana ×22,
+            Nexo Plasmático ×20, Esencia Eléctrica ×18,
+            Cristal Acuático ×16, Vértice Cósmico ×14,
+            Llave Astral ×1 y una protección de terreno de
+            <strong>30 × 30 bloques</strong>.
+            <br><br>
+            <strong>Nota:</strong> los encantamientos superiores al límite
+            vanilla requieren compatibilidad y configuración adecuada
+            de los plugins del servidor.
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
+</footer>
+
+</body>
+</html>
