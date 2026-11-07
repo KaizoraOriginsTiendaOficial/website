@@ -23,7 +23,6 @@
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -84,9 +83,7 @@ nav{
     white-space:nowrap;
 }
 
-.logo span{
-    color:var(--cyan-light);
-}
+.logo span{color:var(--cyan-light)}
 
 nav a{
     text-decoration:none;
@@ -552,6 +549,95 @@ h1 span{
 
 .command-note strong{color:#d9faff}
 
+/* RESUMEN DEL RANGO */
+
+.rank-summary{
+    position:relative;
+    overflow:hidden;
+    margin-top:34px;
+    padding:25px;
+    border:1px solid rgba(43,215,245,.3);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
+        linear-gradient(125deg,rgba(43,215,245,.09),rgba(15,17,34,.94) 65%);
+    box-shadow:inset 0 1px rgba(255,255,255,.035),0 10px 35px rgba(0,0,0,.16);
+}
+
+.rank-summary::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(var(--cyan),var(--purple),var(--pink));
+    box-shadow:0 0 18px rgba(43,215,245,.25);
+}
+
+.summary-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.summary-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
+    flex-shrink:0;
+    border-radius:11px;
+    color:#e2faff;
+    background:rgba(43,215,245,.13);
+    border:1px solid rgba(43,215,245,.3);
+    font-size:14px;
+    font-weight:950;
+}
+
+.summary-heading h3{
+    margin:0;
+    color:#eafaff;
+    font-size:19px;
+    font-weight:950;
+}
+
+.summary-heading p{
+    margin:5px 0 0;
+    color:#a7b8d4;
+    font-size:12px;
+}
+
+.summary-text{
+    margin:0!important;
+    color:#d0dced!important;
+    font-size:14px!important;
+    line-height:1.95!important;
+}
+
+.summary-text strong{
+    color:#d9faff;
+    font-weight:950;
+}
+
+.money-note{
+    position:relative;
+    margin-top:15px;
+    padding:17px 20px;
+    border:1px solid rgba(147,101,255,.32);
+    border-radius:10px;
+    background:linear-gradient(105deg,rgba(147,101,255,.15),rgba(43,215,245,.055));
+    color:#d0ddf2;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.money-note strong{
+    color:#e1d5ff;
+}
+
 /* PIE */
 
 footer{
@@ -628,6 +714,8 @@ footer span{color:var(--cyan-light)}
     .command-card{padding:20px}
 
     .section-heading h3{font-size:16px}
+
+    .rank-summary{padding:21px 17px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -927,215 +1015,38 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- ESCUDO -->
+        <!-- RESUMEN DEL RANGO -->
 
-        <div class="section">
+        <div class="rank-summary">
 
-            <div class="section-heading">
-                <div class="section-icon">06</div>
+            <div class="summary-heading">
+                <div class="summary-number">06</div>
                 <div>
-                    <h3>Escudo</h3>
-                    <p>Defensa adicional para tus enfrentamientos</p>
+                    <h3>RESUMEN DEL RANGO CELESTIAL</h3>
+                    <p>Todo lo que recibes al adquirir CELESTIAL</p>
                 </div>
             </div>
 
-            <ul class="info-list">
+            <p class="summary-text">
+                CELESTIAL cuenta con el comando exclusivo
+                <strong>/craft</strong>, un kit con armadura completa de
+                Netherite encantada a niveles avanzados, espada, pico,
+                hacha, pala y escudo. También incluye
+                <strong>Esencia Arcana ×20</strong>,
+                <strong>Nexo Plasmático ×18</strong>,
+                <strong>Esencia Eléctrica ×16</strong> y
+                <strong>Cristal Acuático ×14</strong>, además de
+                <strong>1 Llave Celestial</strong>, una Shulker con
+                9 pociones de nivel I, flechas, flechas espectrales,
+                manzanas doradas, manzanas encantadas, zanahorias doradas,
+                fragmentos de Netherite y una protección de terreno de
+                <strong>30 × 30 bloques</strong>.
+            </p>
 
-                <li>
-                    <span class="item-name">Escudo</span><br>
-                    <span class="item-details">
-                        Irrompibilidad VII · Reparación
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- ARCO -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">07</div>
-                <div>
-                    <h3>Arco</h3>
-                    <p>Potencia adicional para tus disparos</p>
-                </div>
+            <div class="money-note">
+                <strong>NOTA:</strong> Este rango trae un agregado de
+                <strong>+12M</strong> dentro del servidor.
             </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Arco</span><br>
-                    <span class="item-details">Poder III</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- COMIDA -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">08</div>
-                <div>
-                    <h3>Comida</h3>
-                    <p>Provisiones para mantenerte preparado</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Manzanas Doradas</span><br>
-                    <span class="item-details">×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Manzanas Encantadas</span><br>
-                    <span class="item-details">×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Zanahorias Doradas</span><br>
-                    <span class="item-details">×64</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- MINERALES -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">09</div>
-                <div>
-                    <h3>Minerales</h3>
-                    <p>Materiales para avanzar en tu aventura</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Fragmentos de Netherite</span><br>
-                    <span class="item-details">×4</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- POLVOS -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">10</div>
-                <div>
-                    <h3>Polvos</h3>
-                    <p>Esencias y materiales especiales</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">×20</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Nexo Plasmático</span><br>
-                    <span class="item-details">×18</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">×16</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Cristal Acuático</span><br>
-                    <span class="item-details">×14</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- PIEDRA DE PROTECCIÓN -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">11</div>
-                <div>
-                    <h3>Piedra de Protección</h3>
-                    <p>Protege el espacio de tus construcciones</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Mena de Protección</span><br>
-                    <span class="item-details">
-                        Protección de 30 × 30 bloques
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- AÑADIDOS -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">12</div>
-                <div>
-                    <h3>Añadidos</h3>
-                    <p>Objetos adicionales para tu aventura</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Llave Celestial</span><br>
-                    <span class="item-details">×1</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Shulker — Kit Celestial</span><br>
-                    <span class="item-details">
-                        Contiene 9 pociones de nivel I
-                    </span>
-                </li>
-
-                <li>
-                    <span class="item-name">Flechas</span><br>
-                    <span class="item-details">×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Flechas Espectrales</span><br>
-                    <span class="item-details">×32</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Tótem de la Inmortalidad</span><br>
-                    <span class="item-details">×1</span>
-                </li>
-
-            </ul>
 
         </div>
 
