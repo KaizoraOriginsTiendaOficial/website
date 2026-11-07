@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -385,7 +386,7 @@ h1{
     line-height:1.85!important;
 }
 
-/* TARJETAS DE INFORMACIÓN */
+/* TARJETAS */
 
 .info-list{
     list-style:none;
@@ -439,7 +440,7 @@ h1{
     font-weight:700;
 }
 
-/* TARJETAS DE COMANDOS */
+/* COMANDOS */
 
 .command-intro{margin-bottom:20px!important}
 
@@ -581,7 +582,79 @@ h1{
     color:#f4f8ff!important;
 }
 
-/* PIE DE PÁGINA */
+/* RESUMEN */
+
+.rank-summary{
+    margin-top:36px;
+    padding:25px;
+    border:1px solid rgba(255,211,77,.32);
+    border-radius:15px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.12),transparent 55%),
+        linear-gradient(135deg,rgba(255,211,77,.075),rgba(15,17,34,.96));
+}
+
+.summary-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.summary-number{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    border-radius:11px;
+    border:1px solid rgba(255,211,77,.35);
+    background:rgba(255,211,77,.12);
+    color:var(--rank-pale);
+    font-weight:950;
+}
+
+.summary-heading h3{
+    margin:0;
+    color:var(--rank-pale);
+    font-size:19px;
+}
+
+.summary-text{
+    color:#cbd3e6;
+    font-size:14px;
+    line-height:1.9;
+}
+
+.money-note{
+    margin-top:18px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    border:1px solid rgba(255,211,77,.4);
+    border-radius:12px;
+    background:linear-gradient(100deg,rgba(255,211,77,.13),rgba(147,101,255,.09));
+}
+
+.money-label{
+    color:#e6dfc4;
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:1.5px;
+}
+
+.money-value{
+    color:var(--rank);
+    font-size:30px;
+    font-weight:1000;
+    text-shadow:0 0 20px rgba(255,211,77,.22);
+}
+
+/* PIE */
 
 footer{
     text-align:center;
@@ -593,8 +666,6 @@ footer{
 }
 
 footer span{color:var(--rank-light)}
-
-/* ANIMACIONES */
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
@@ -749,7 +820,7 @@ footer span{color:var(--rank-light)}
 
         <h2>Beneficios y ventajas de MAJESTAD</h2>
 
-        <!-- 01: PERMISOS Y DERECHOS -->
+        <!-- 01: PERMISOS -->
 
         <section class="section">
 
@@ -801,7 +872,6 @@ footer span{color:var(--rank-light)}
             <div class="command-grid">
 
                 <article class="command-card">
-
                     <div class="command-top">
                         <span class="command-number">01</span>
                         <span class="command-tag">Almacenamiento</span>
@@ -814,11 +884,9 @@ footer span{color:var(--rank-light)}
                         y consultar tus objetos desde cualquier lugar
                         donde puedas ejecutar el comando.
                     </p>
-
                 </article>
 
                 <article class="command-card">
-
                     <div class="command-top">
                         <span class="command-number">02</span>
                         <span class="command-tag">Almacenamiento</span>
@@ -831,7 +899,6 @@ footer span{color:var(--rank-light)}
                         el comando completo. Guarda y consulta tus
                         objetos sin buscar un cofre físico.
                     </p>
-
                 </article>
 
             </div>
@@ -840,10 +907,6 @@ footer span{color:var(--rank-light)}
                 <strong>VENTAJA MAJESTAD</strong><br>
                 Ambos comandos permiten acceder al cofre de Ender personal.
                 Son dos formas de ejecutar la misma función.
-                <br><br>
-                <strong>Importante:</strong> la disponibilidad depende
-                de los permisos y plugins instalados y configurados
-                en el servidor.
             </div>
 
         </section>
@@ -857,15 +920,15 @@ footer span{color:var(--rank-light)}
                 <div class="section-heading-text">
                     <h3 class="kit-title">/kit Majestad</h3>
                     <p class="section-subtitle">
-                        Equipamiento avanzado, materiales y recursos
+                        Equipamiento avanzado y recursos exclusivos
                     </p>
                 </div>
             </div>
 
             <p class="section-intro">
                 El kit exclusivo MAJESTAD reúne armaduras encantadas,
-                herramientas, armas, comida, minerales, recursos especiales
-                y objetos adicionales para tus aventuras.
+                herramientas, armas, alimentos, minerales, recursos
+                especiales y objetos adicionales para tus aventuras.
             </p>
 
         </section>
@@ -879,7 +942,7 @@ footer span{color:var(--rank-light)}
                 <div class="section-heading-text">
                     <h3>Armaduras de diamante</h3>
                     <p class="section-subtitle">
-                        Dos conjuntos con encantamientos avanzados
+                        Equipamiento con encantamientos avanzados
                     </p>
                 </div>
             </div>
@@ -929,7 +992,7 @@ footer span{color:var(--rank-light)}
 
         </section>
 
-        <!-- 05: HERRAMIENTAS Y ARMAS -->
+        <!-- 05: HERRAMIENTAS -->
 
         <section class="section">
 
@@ -1012,101 +1075,16 @@ footer span{color:var(--rank-light)}
 
         </section>
 
-        <!-- 06: COMIDA -->
+        <!-- 06: RECURSOS ESPECIALES -->
 
         <section class="section">
 
             <div class="section-heading">
                 <div class="section-number">06</div>
                 <div class="section-heading-text">
-                    <h3>Comida y suministros</h3>
-                    <p class="section-subtitle">
-                        Cinco tipos de alimentos para tus aventuras
-                    </p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Manzanas doradas</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Manzanas encantadas</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Zanahorias doradas</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Pan</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Papas</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-            </ul>
-
-        </section>
-
-        <!-- 07: MINERALES -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">07</div>
-                <div class="section-heading-text">
-                    <h3>Minerales y recursos</h3>
-                    <p class="section-subtitle">
-                        Materiales valiosos incluidos en el kit
-                    </p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Bloques de oro</span><br>
-                    <span class="item-details">Cantidad: ×8</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Bloques de diamante</span><br>
-                    <span class="item-details">Cantidad: ×8</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Esmeraldas</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Fragmentos de Netherite</span><br>
-                    <span class="item-details">Cantidad: ×12</span>
-                </li>
-
-            </ul>
-
-        </section>
-
-        <!-- 08: RECURSOS ESPECIALES -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">08</div>
-                <div class="section-heading-text">
                     <h3>Recursos especiales</h3>
                     <p class="section-subtitle">
-                        Objetos personalizados incluidos en MAJESTAD
+                        Objetos personalizados y llave exclusiva de MAJESTAD
                     </p>
                 </div>
             </div>
@@ -1134,7 +1112,7 @@ footer span{color:var(--rank-light)}
                 </li>
 
                 <li>
-                    <span class="item-name">Vértice Cosmico</span><br>
+                    <span class="item-name">Vértice Cósmico</span><br>
                     <span class="item-details">Cantidad: ×16</span>
                 </li>
 
@@ -1152,12 +1130,12 @@ footer span{color:var(--rank-light)}
 
         </section>
 
-        <!-- 09: PROTECCIÓN -->
+        <!-- 07: PROTECCIÓN -->
 
         <section class="section">
 
             <div class="section-heading">
-                <div class="section-number">09</div>
+                <div class="section-number">07</div>
                 <div class="section-heading-text">
                     <h3>Piedra de protección</h3>
                     <p class="section-subtitle">
@@ -1171,101 +1149,50 @@ footer span{color:var(--rank-light)}
                 <li>
                     <span class="item-name">Mena de oro</span><br>
                     <span class="item-details">
-                        Área de protección: 30 × 30 bloques
+                        Área de protección: 30 × 30 bloques · Cantidad: ×1
                     </span>
                 </li>
 
             </ul>
-
-        </section>
-
-        <!-- 10: AÑADIDOS -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">10</div>
-                <div class="section-heading-text">
-                    <h3>Objetos adicionales</h3>
-                    <p class="section-subtitle">
-                        Complementos extra del kit MAJESTAD
-                    </p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Carga de viento</span><br>
-                    <span class="item-details">Cantidad: ×64</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Shulker del kit MAJESTAD</span><br>
-                    <span class="item-details">
-                        Contenido indicado: 27 pociones
-                    </span>
-                </li>
-
-            </ul>
-
-        </section>
-
-        <!-- COMPRA -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">11</div>
-                <div class="section-heading-text">
-                    <h3>Compra del rango</h3>
-                    <p class="section-subtitle">
-                        Alcanza el nivel MAJESTAD en Kaizora Origins
-                    </p>
-                </div>
-            </div>
-
-            <p class="section-intro">
-                Para adquirir MAJESTAD, entra en nuestro Discord oficial
-                y consulta el procedimiento de compra disponible.
-                Nuestro equipo podrá ayudarte con el proceso.
-            </p>
-
-            <div class="actions">
-
-                <a class="btn primary"
-                   href="https://discord.gg/sHvWgW7AE4"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Comprar MAJESTAD ↗
-                </a>
-
-                <a class="btn back"
-                   href="https://discord.gg/sHvWgW7AE4"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Entrar al Discord ↗
-                </a>
-
-            </div>
 
         </section>
 
         <!-- RESUMEN -->
 
-        <div class="inherit">
-            <strong>RESUMEN DEL RANGO MAJESTAD</strong><br>
-            MAJESTAD incluye sus propios permisos y derechos,
-            comandos de almacenamiento personal, armaduras de diamante
-            con encantamientos avanzados, espada, pico, hacha, pala,
-            escudo, arco, ballesta y mazo.
-            También incorpora comida, minerales, Esencia Arcana ×24,
-            Nexo Prismático ×22, Esencia Eléctrica ×20,
-            Recurso Acuático ×18, Vértice ×16, Polvo Solar ×14,
-            Llave MAJESTAD ×1 y una protección de terreno de
-            <strong>30 × 30 bloques</strong>.
-            <br><br>
-            <strong>Nota:</strong> Este rango trae un agregado de +18m en el servidor
+        <section class="rank-summary">
+
+            <div class="summary-heading">
+                <div class="summary-number">08</div>
+                <h3>Resumen de beneficios</h3>
+            </div>
+
+            <div class="summary-text">
+                MAJESTAD incluye permisos y derechos exclusivos,
+                comandos de almacenamiento personal, un kit avanzado
+                con armaduras de diamante encantadas, herramientas,
+                armas, escudo, arco, ballesta y mazo.
+
+                <br><br>
+
+                También incorpora manzanas doradas ×64, manzanas
+                encantadas ×64, zanahorias doradas ×64, pan ×64,
+                papas ×64, bloques de oro ×8, bloques de diamante ×8,
+                esmeraldas ×64 y fragmentos de Netherite ×12.
+
+                <br><br>
+
+                El kit se completa con carga de viento ×64,
+                una Shulker MAJESTAD con 27 pociones y una
+                piedra de protección de 30 × 30 bloques.
+            </div>
+
+        </section>
+
+        <!-- DINERO ADICIONAL -->
+
+        <div class="money-note">
+            <span class="money-label">DINERO ADICIONAL DEL RANGO</span>
+            <span class="money-value">+20M</span>
         </div>
 
     </div>
