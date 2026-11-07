@@ -10,325 +10,638 @@
 :root{
     --bg:#09070e;
     --panel:#12101c;
-    --panel-light:#1b1729;
-    --accent:#bca0ff;
-    --accent-strong:#9365ff;
-    --accent-light:#e5d9ff;
+    --purple:#9365ff;
+    --purple-light:#bca0ff;
+    --purple-pale:#e5d9ff;
     --pink:#ff6de1;
-    --white:#ffffff;
+    --white:#fff;
     --text:#e8e4f0;
     --muted:#b7b1c5;
-    --border:rgba(188,160,255,.23);
-    --glow:rgba(147,101,255,.24);
+    --border:rgba(188,160,255,.30);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-    margin:0;background:var(--bg);color:var(--white);
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
     font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh;overflow-x:hidden
+    min-height:100vh;
+    overflow-x:hidden;
 }
+
 a{color:inherit}
+
 .bg{
-    position:fixed;inset:0;z-index:-2;
+    position:fixed;
+    inset:0;
+    z-index:-2;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.23),transparent 37%),
-        radial-gradient(ellipse at 88% 35%,rgba(255,109,225,.12),transparent 34%),
-        radial-gradient(ellipse at 50% 95%,rgba(111,69,210,.13),transparent 40%),
-        #09070e
+        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(111,69,210,.16),transparent 40%),
+        #09070e;
 }
+
 .bg::after{
-    content:"";position:absolute;inset:0;opacity:.17;
-    background-image:radial-gradient(rgba(255,255,255,.55) .7px,transparent .7px);
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.16;
+    background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
     background-size:27px 27px;
-    mask-image:linear-gradient(to bottom,black,transparent 80%);
-    pointer-events:none
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
 }
 
 /* NAVEGACIÓN */
+
 nav{
-    min-height:76px;display:flex;align-items:center;
-    justify-content:space-between;gap:16px;padding:14px 7%;
-    border-bottom:1px solid rgba(188,160,255,.17);
-    background:rgba(9,7,14,.82);backdrop-filter:blur(18px);
-    position:relative;z-index:5
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(188,160,255,.2);
+    background:rgba(9,7,14,.85);
+    backdrop-filter:blur(18px);
+    position:relative;
+    z-index:5;
 }
-.logo{font-size:21px;font-weight:950;letter-spacing:1.5px}
-.logo span{color:var(--accent)}
-nav a{text-decoration:none;color:#d5cfe2;font-size:13px;font-weight:800}
-nav a.home:hover{color:var(--white)}
+
+.logo{
+    font-size:21px;
+    font-weight:950;
+    letter-spacing:1.5px;
+}
+
+.logo span{color:var(--purple-light)}
+
+nav a{
+    text-decoration:none;
+    color:#e0d8ef;
+    font-size:13px;
+    font-weight:800;
+}
+
+nav a.home:hover{color:white}
+
 .discord{
-    padding:12px 18px;border-radius:9px;
+    padding:12px 18px;
+    border-radius:9px;
     background:linear-gradient(110deg,#8050ee,#aa7bff);
-    color:white!important;border:1px solid rgba(255,255,255,.22);
-    box-shadow:0 5px 24px rgba(147,101,255,.23);transition:.25s
+    color:white!important;
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(147,101,255,.28);
+    transition:.25s;
 }
-.discord:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(147,101,255,.4)}
+
+.discord:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 32px rgba(147,101,255,.45);
+}
 
 /* HERO */
-main{max-width:1100px;margin:0 auto;padding:88px 6% 100px}
-.hero{position:relative;padding:0 0 40px;animation:appear .65s ease both}
-.label{
-    display:inline-flex;align-items:center;gap:9px;
-    color:var(--accent-light);font-size:11px;font-weight:950;
-    letter-spacing:3px;margin-bottom:19px;padding:9px 13px;
-    border:1px solid rgba(188,160,255,.35);border-radius:6px;
-    background:rgba(147,101,255,.13);box-shadow:0 0 25px rgba(147,101,255,.08)
-}
-.label::before{
-    content:"";width:7px;height:7px;background:var(--accent);
-    border-radius:50%;box-shadow:0 0 12px var(--accent)
-}
-h1{
-    font-size:clamp(58px,10vw,104px);line-height:.95;
-    margin:0 0 25px;letter-spacing:-5px;font-weight:1000;
-    color:var(--white);text-shadow:0 0 40px rgba(188,160,255,.16)
-}
-h1 span{color:var(--accent)}
-.desc{max-width:680px;color:#c8c1d6;font-size:17px;line-height:1.85;margin:0}
-.hero-bottom{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:25px;flex-wrap:wrap;margin-top:30px
-}
-.price-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.price{
-    font-size:46px;font-weight:1000;letter-spacing:-2px;
-    color:var(--white);text-shadow:0 0 25px rgba(188,160,255,.23)
-}
-.price-label{
-    display:block;color:#aaa1bd;font-size:10px;
-    letter-spacing:2px;font-weight:900;margin-bottom:5px
-}
-.price-note{color:#bcb4ce;font-size:12px;line-height:1.6}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:15px 22px;border-radius:9px;text-decoration:none;
-    font-weight:950;font-size:12px;letter-spacing:.5px;
-    border:1px solid rgba(255,255,255,.17);
-    transition:transform .2s,background .2s,box-shadow .2s
-}
-.btn:hover{transform:translateY(-2px)}
-.primary{
-    color:#100a1b;border-color:var(--accent);
-    background:linear-gradient(110deg,#bca0ff,#e5d9ff);
-    box-shadow:0 5px 24px rgba(147,101,255,.22)
-}
-.primary:hover{box-shadow:0 8px 30px rgba(147,101,255,.4)}
-.back{color:#e7dfff;background:rgba(255,255,255,.035)}
-.back:hover{border-color:var(--accent);background:rgba(147,101,255,.1)}
 
-/* PANEL */
+main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:85px 6% 100px;
+}
+
+.hero{
+    padding-bottom:38px;
+    animation:appear .65s ease both;
+}
+
+.label{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--purple-pale);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:3px;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(188,160,255,.48);
+    border-radius:6px;
+    background:rgba(147,101,255,.14);
+    box-shadow:0 0 25px rgba(147,101,255,.1);
+}
+
+.label::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--purple-light);
+    box-shadow:0 0 13px var(--purple-light);
+}
+
+h1{
+    font-size:clamp(58px,10vw,104px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-shadow:0 0 42px rgba(147,101,255,.24);
+}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#e5d9ff 45%,#bca0ff 80%,#ff6de1);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.desc{
+    max-width:680px;
+    color:#c8c1d6;
+    font-size:17px;
+    line-height:1.85;
+    margin:0;
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.price-wrap{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.price-label{
+    display:block;
+    color:#aaa1bd;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.price{
+    font-size:46px;
+    font-weight:1000;
+    letter-spacing:-2px;
+    color:var(--purple-light);
+    text-shadow:0 0 25px rgba(147,101,255,.3);
+}
+
+.price-note{
+    color:#bcb4ce;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:950;
+    font-size:12px;
+    letter-spacing:.4px;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.primary{
+    color:#100a1b;
+    border-color:#e5d9ff;
+    background:linear-gradient(110deg,#bca0ff,#e5d9ff);
+    box-shadow:0 5px 24px rgba(147,101,255,.25);
+}
+
+.primary:hover{
+    box-shadow:0 8px 32px rgba(147,101,255,.45);
+}
+
+.back{
+    color:#eee5ff;
+    background:rgba(255,255,255,.035);
+}
+
+.back:hover{
+    border-color:var(--purple-light);
+    background:rgba(147,101,255,.1);
+}
+
+/* PANEL PRINCIPAL */
+
 .box{
-    position:relative;margin-top:30px;padding:clamp(22px,4vw,38px);
-    border:1px solid var(--border);border-radius:20px;
-    background:linear-gradient(145deg,rgba(27,23,41,.96),rgba(13,11,21,.97));
-    box-shadow:0 20px 65px rgba(0,0,0,.25),0 0 40px rgba(147,101,255,.055);
-    overflow:hidden;animation:appear .8s ease both
+    position:relative;
+    margin-top:30px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(147,101,255,.06);
+    overflow:hidden;
+    animation:appear .8s ease both;
 }
+
 .box::before{
-    content:"";position:absolute;top:0;left:8%;right:8%;height:2px;
-    background:linear-gradient(90deg,transparent,var(--accent),var(--pink),transparent);
-    opacity:.9
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#9365ff,#ff6de1,transparent);
 }
+
 .box h2{
-    display:flex;align-items:center;gap:12px;margin:0 0 20px;
-    font-size:clamp(23px,4vw,30px);font-weight:950;letter-spacing:-.5px
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
+    font-weight:950;
 }
+
 .box h2::before{
-    content:"";width:5px;height:28px;border-radius:8px;
-    background:linear-gradient(var(--accent),var(--pink));
-    box-shadow:0 0 16px rgba(188,160,255,.35);flex-shrink:0
+    content:"";
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(#9365ff,#ff6de1);
+    box-shadow:0 0 16px rgba(188,160,255,.5);
+    flex-shrink:0;
 }
-.box h3{margin:0 0 14px;color:#f8f4ff;font-size:18px;font-weight:950}
-.box p{color:var(--muted);line-height:1.8;margin:9px 0}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f8f4ff;
+    font-size:18px;
+    font-weight:950;
+}
+
+.box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:9px 0;
+}
 
 /* SECCIONES */
+
 .section{
-    position:relative;margin-top:34px;padding-top:30px;
-    border-top:1px solid rgba(188,160,255,.15)
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid rgba(188,160,255,.18);
 }
-.section:first-of-type{margin-top:0;padding-top:0;border-top:none}
-.section-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+
+.section:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+}
+
 .section-icon{
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;width:42px;height:42px;border-radius:12px;
-    border:1px solid rgba(188,160,255,.3);
-    background:linear-gradient(145deg,rgba(147,101,255,.24),rgba(255,109,225,.1));
-    color:var(--accent-light);font-size:17px;font-weight:950;
-    box-shadow:inset 0 0 16px rgba(147,101,255,.08)
-}
-.section-heading h3{margin:0;font-size:18px}
-.section-heading p{margin:5px 0 0;font-size:12px;color:#a99fbc}
-.info-list{
-    list-style:none;padding:0;margin:0;
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px
-}
-.info-list li{
-    min-width:0;padding:14px 15px;
-    border:1px solid rgba(188,160,255,.13);border-radius:10px;
-    background:linear-gradient(120deg,rgba(147,101,255,.075),rgba(255,255,255,.018));
-    color:#c9c2d8;line-height:1.75;
-    transition:border-color .2s,background .2s,transform .2s;
-    overflow-wrap:anywhere
-}
-.info-list li:hover{
-    border-color:rgba(188,160,255,.38);
-    background:rgba(147,101,255,.1);transform:translateY(-1px)
-}
-.item-name{color:#f5efff;font-weight:900;overflow-wrap:anywhere}
-.item-details{color:#b7a6e0;font-size:13px;font-weight:700}
-.inherit{
-    margin-top:19px;padding:20px;
-    border:1px solid rgba(188,160,255,.29);border-radius:12px;
-    background:linear-gradient(110deg,rgba(147,101,255,.16),rgba(255,109,225,.055));
-    color:#d0c7e0;line-height:1.9;
-    box-shadow:inset 0 0 24px rgba(147,101,255,.035)
-}
-.inherit strong{color:var(--accent-light)}
-
-/* COMANDOS */
-.command-intro{margin-bottom:20px!important}
-.command-grid{
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:15px;margin-top:19px
-}
-.command-card{
-    position:relative;overflow:hidden;min-width:0;padding:23px;
-    border:1px solid rgba(188,160,255,.3);border-radius:14px;
-    background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.12),transparent 55%),
-    linear-gradient(135deg,rgba(147,101,255,.18),rgba(26,20,41,.92) 65%);
-    box-shadow:inset 0 1px rgba(255,255,255,.035);
-    transition:transform .25s,border-color .25s,box-shadow .25s
-}
-.command-card::before{
-    content:"";position:absolute;top:0;left:0;width:4px;height:100%;
-    background:linear-gradient(var(--accent),var(--pink));opacity:.9
-}
-.command-card::after{
-    content:"";position:absolute;width:100px;height:100px;
-    right:-55px;bottom:-55px;border-radius:50%;
-    background:rgba(147,101,255,.13);filter:blur(10px);pointer-events:none
-}
-.command-card:hover{
-    border-color:rgba(188,160,255,.75);transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.2),0 0 25px rgba(147,101,255,.1)
-}
-.command-top{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:10px;margin-bottom:15px
-}
-.command-number{
-    display:flex;align-items:center;justify-content:center;
-    width:32px;height:32px;border-radius:9px;
-    color:#f0e6ff;background:rgba(147,101,255,.22);
-    border:1px solid rgba(188,160,255,.27);font-size:12px;font-weight:950
-}
-.command-tag{
-    color:#e0d0ff;background:rgba(147,101,255,.18);
-    border:1px solid rgba(188,160,255,.24);border-radius:5px;
-    padding:6px 9px;font-size:9px;font-weight:950;
-    letter-spacing:1.3px;text-transform:uppercase
-}
-.command-name{
-    display:block;margin-bottom:11px;color:#d6c2ff;
-    font-size:23px;line-height:1.25;font-weight:1000;
-    letter-spacing:.2px;overflow-wrap:anywhere;
-    text-shadow:0 0 22px rgba(188,160,255,.16)
-}
-.command-description{
-    margin:0!important;color:#d0c9df!important;
-    font-size:14px;line-height:1.85!important
-}
-.command-note{
-    margin-top:20px;padding:18px 20px;
-    border:1px solid rgba(188,160,255,.2);
-    border-left:4px solid var(--accent-strong);
-    border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(147,101,255,.13),rgba(255,109,225,.035));
-    color:#c4bbd5;font-size:13px;line-height:1.9
-}
-.command-note strong{color:var(--accent-light)}
-.kit-title{font-size:21px!important;color:#f4edff!important}
-
-/* ENCANTAMIENTOS VISIBLES */
-.shulker-content{
-    margin-top:15px;
-    padding:20px;
-    border:1px solid rgba(188,160,255,.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    width:42px;
+    height:42px;
     border-radius:12px;
-    background:rgba(12,9,19,.42)
+    border:1px solid rgba(188,160,255,.4);
+    background:linear-gradient(145deg,rgba(147,101,255,.25),rgba(255,109,225,.1));
+    color:#e5d9ff;
+    font-size:15px;
+    font-weight:950;
+    box-shadow:inset 0 0 16px rgba(147,101,255,.08);
 }
-.shulker-content h3{
-    margin:20px 0 10px;color:#d6c2ff;font-size:16px
+
+.section-heading h3{
+    margin:0;
+    font-size:18px;
 }
-.shulker-content h3:first-child{margin-top:0}
-.shulker-content ul{
-    list-style:none;padding:0;margin:0;
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px
+
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a99fbc;
 }
-.shulker-content li{
-    min-width:0;padding:11px 13px;
-    border:1px solid rgba(188,160,255,.12);
-    border-radius:8px;background:rgba(255,255,255,.025);
-    color:#d1c8df;font-size:13px;line-height:1.7
+
+.info-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
 }
+
+.info-list li{
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(188,160,255,.2);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(147,101,255,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
+    line-height:1.7;
+    transition:border-color .2s,background .2s,transform .2s;
+    overflow-wrap:anywhere;
+}
+
+.info-list li:hover{
+    border-color:rgba(229,217,255,.65);
+    background:rgba(147,101,255,.14);
+    transform:translateY(-1px);
+}
+
+.item-name{
+    color:#f5efff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:#c0a9ff;
+    font-size:13px;
+    font-weight:700;
+}
+
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(188,160,255,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(147,101,255,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(147,101,255,.04);
+}
+
+.inherit strong{color:#e5d9ff}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4edff!important;
+}
+
+/* COMANDOS ORIGIN */
+
+.command-intro{margin-bottom:20px!important}
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+    margin-top:19px;
+}
+
+.command-card{
+    position:relative;
+    overflow:hidden;
+    min-width:0;
+    margin-top:0;
+    padding:23px;
+    border:1px solid rgba(188,160,255,.42);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(102,65,180,.25),rgba(26,20,41,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(#9365ff,#ff6de1);
+    box-shadow:0 0 15px rgba(147,101,255,.25);
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(147,101,255,.16);
+    filter:blur(12px);
+    pointer-events:none;
+}
+
+.command-card:hover{
+    border-color:rgba(229,217,255,.8);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(147,101,255,.12);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.command-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#f0e6ff;
+    background:rgba(147,101,255,.24);
+    border:1px solid rgba(188,160,255,.32);
+    font-size:12px;
+    font-weight:950;
+}
+
+.command-tag{
+    color:#e0d0ff;
+    background:rgba(147,101,255,.09);
+    border:1px solid rgba(188,160,255,.25);
+    border-radius:5px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.command-name{
+    display:block;
+    margin-bottom:11px;
+    color:#c0a0ff;
+    font-size:25px;
+    line-height:1.25;
+    font-weight:1000;
+    letter-spacing:.2px;
+    overflow-wrap:anywhere;
+    text-shadow:0 0 22px rgba(147,101,255,.23);
+}
+
+.command-description{
+    margin:0!important;
+    color:#d0c9df!important;
+    font-size:14px;
+    line-height:1.85!important;
+}
+
+.command-note{
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(188,160,255,.25);
+    border-left:4px solid var(--purple);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(147,101,255,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.command-note strong{color:#e5d9ff}
 
 /* PIE */
+
 footer{
-    text-align:center;padding:30px 20px;color:#8d849f;
-    font-size:12px;border-top:1px solid rgba(188,160,255,.13);
-    background:rgba(8,6,13,.65)
+    text-align:center;
+    padding:30px 20px;
+    color:#8d849f;
+    font-size:12px;
+    border-top:1px solid rgba(188,160,255,.18);
+    background:rgba(8,6,13,.72);
 }
+
 footer span{color:#c6b0ff}
+
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
     to{opacity:1;transform:translateY(0)}
 }
 
-/* RESPONSIVE */
+/* MÓVILES */
+
 @media(max-width:650px){
-    nav{padding:14px 5%;flex-wrap:wrap}
+    nav{
+        padding:14px 5%;
+        flex-wrap:wrap;
+    }
+
     .logo{font-size:17px}
     nav a.home{display:none}
-    nav a.discord{font-size:11px;padding:10px 12px}
+
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
+    }
+
     main{padding:62px 5% 70px}
     h1{letter-spacing:-3px}
     .desc{font-size:15px}
-    .hero-bottom{align-items:flex-start;flex-direction:column}
+
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
     .price{font-size:40px}
     .actions{width:100%}
-    .btn{flex:1 1 auto;text-align:center;padding:14px 15px}
-    .box{padding:23px 17px;border-radius:15px}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
+
+    .box{
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
     .box h2{font-size:23px}
-    .command-grid,.info-list,.shulker-content ul{grid-template-columns:1fr}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
+    }
+
     .command-card{padding:20px}
     .section-heading h3{font-size:16px}
-    .shulker-content{padding:16px 12px}
 }
+
 @media(prefers-reduced-motion:reduce){
-    *,*::before,*::after{
-        animation:none!important;scroll-behavior:auto!important;
-        transition:none!important
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important;
     }
 }
 </style>
 </head>
 
 <body>
+
 <div class="bg"></div>
 
 <nav>
-    <div class="logo">KAIZORA <span>ORIGINS</span></div>
-    <a class="home" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">Inicio</a>
-    <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar por Discord</a>
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
+
+    <a class="home"
+       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+        Inicio
+    </a>
+
+    <a class="discord"
+       href="https://discord.gg/sHvWgW7AE4"
+       target="_blank"
+       rel="noopener noreferrer">
+        Comprar por Discord
+    </a>
 </nav>
 
 <main>
 
     <!-- HERO DEL RANGO -->
+
     <section class="hero">
+
         <div class="label">RANGO EXCLUSIVO</div>
+
         <h1><span>ORIGIN</span></h1>
 
         <p class="desc">
@@ -338,11 +651,13 @@ footer span{color:#c6b0ff}
         </p>
 
         <div class="hero-bottom">
+
             <div class="price-wrap">
                 <div>
                     <span class="price-label">PRECIO DEL RANGO</span>
                     <div class="price">$2.99</div>
                 </div>
+
                 <div class="price-note">
                     Una nueva etapa<br>
                     comienza aquí.
@@ -350,22 +665,35 @@ footer span{color:#c6b0ff}
             </div>
 
             <div class="actions">
-                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">
+
+                <a class="btn primary"
+                   href="https://discord.gg/sHvWgW7AE4"
+                   target="_blank"
+                   rel="noopener noreferrer">
                     Comprar ORIGIN ↗
                 </a>
-                <a class="btn back" href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+
+                <a class="btn back"
+                   href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
                     Volver a rangos
                 </a>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- INFORMACIÓN COMPLETA -->
+
     <div class="box">
+
         <h2>Información del rango</h2>
 
         <!-- 01: RANGO USER -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
@@ -384,10 +712,13 @@ footer span{color:#c6b0ff}
                 Rango User + <strong>/kit User</strong> +
                 todos sus comandos y permisos.
             </div>
+
         </div>
 
         <!-- 02: COMANDOS EXCLUSIVOS -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">02</div>
                 <div>
@@ -403,44 +734,58 @@ footer span{color:#c6b0ff}
             </p>
 
             <div class="command-grid">
+
                 <div class="command-card">
+
                     <div class="command-top">
                         <span class="command-number">01</span>
                         <span class="command-tag">Roleplay</span>
                     </div>
+
                     <span class="command-name">/me</span>
+
                     <p class="command-description">
                         Expresa acciones y crea mensajes de rol personalizados
                         en el chat. Dale personalidad a tus interacciones y
                         escribe tu propia historia dentro del servidor.
                     </p>
+
                 </div>
 
                 <div class="command-card">
+
                     <div class="command-top">
                         <span class="command-number">02</span>
                         <span class="command-tag">Fabricación</span>
                     </div>
+
                     <span class="command-name">/recipe</span>
+
                     <p class="command-description">
                         Consulta las recetas de fabricación de Minecraft y
                         descubre cómo crear diferentes objetos sin tener que
                         recordar todas sus combinaciones.
                     </p>
+
                 </div>
 
                 <div class="command-card">
+
                     <div class="command-top">
                         <span class="command-number">03</span>
                         <span class="command-tag">Exploración</span>
                     </div>
+
                     <span class="command-name">/depth</span>
+
                     <p class="command-description">
                         Consulta la profundidad a la que te encuentras respecto
                         al nivel del mar. Una herramienta útil para orientarte
                         mientras exploras cuevas y buscas minerales.
                     </p>
+
                 </div>
+
             </div>
 
             <div class="command-note">
@@ -449,10 +794,13 @@ footer span{color:#c6b0ff}
                 User. Las funciones disponibles pueden depender de la
                 configuración de los plugins del servidor.
             </div>
+
         </div>
 
         <!-- 03: KIT ORIGIN -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">03</div>
                 <div>
@@ -466,10 +814,13 @@ footer span{color:#c6b0ff}
                 completo de Netherite encantado, comida, minerales,
                 esencias especiales y una protección de terreno.
             </p>
+
         </div>
 
         <!-- 04: ARMADURA NETHERITE -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">04</div>
                 <div>
@@ -478,59 +829,54 @@ footer span{color:#c6b0ff}
                 </div>
             </div>
 
-            <div class="shulker-content">
+            <ul class="info-list">
 
-                <h3>Casco de Netherite</h3>
-                <ul>
-                    <li>Protección VI</li>
-                    <li>Protección contra proyectiles VI</li>
-                    <li>Protección contra el fuego VI</li>
-                    <li>Respiración VI</li>
-                    <li>Afinidad acuática VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Casco de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VI · Protección contra proyectiles VI ·
+                        Protección contra el fuego VI · Respiración VI ·
+                        Afinidad acuática VI · Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Pechera de Netherite</h3>
-                <ul>
-                    <li>Protección VI</li>
-                    <li>Protección contra explosiones VI</li>
-                    <li>Protección contra el fuego VI</li>
-                    <li>Protección contra proyectiles VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VI · Protección contra explosiones VI ·
+                        Protección contra el fuego VI · Protección contra proyectiles VI ·
+                        Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Pantalones de Netherite</h3>
-                <ul>
-                    <li>Protección VI</li>
-                    <li>Protección contra explosiones VI</li>
-                    <li>Protección contra el fuego VI</li>
-                    <li>Protección contra proyectiles VI</li>
-                    <li>Sigilo veloz VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VI · Protección contra explosiones VI ·
+                        Protección contra el fuego VI · Protección contra proyectiles VI ·
+                        Sigilo veloz VI · Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Botas de Netherite</h3>
-                <ul>
-                    <li>Paso helado VI</li>
-                    <li>Protección VI</li>
-                    <li>Protección contra explosiones VI</li>
-                    <li>Protección contra el fuego VI</li>
-                    <li>Protección contra proyectiles VI</li>
-                    <li>Caída de pluma VI</li>
-                    <li>Velocidad de alma VI</li>
-                    <li>Agilidad acuática VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">
+                        Paso helado VI · Protección VI ·
+                        Protección contra explosiones VI · Protección contra el fuego VI ·
+                        Protección contra proyectiles VI · Caída de pluma VI ·
+                        Velocidad de alma VI · Agilidad acuática VI ·
+                        Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-            </div>
+            </ul>
+
         </div>
 
-        <!-- 05: HERRAMIENTAS -->
+        <!-- 05: HERRAMIENTAS Y ARMAS -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">05</div>
                 <div>
@@ -539,58 +885,56 @@ footer span{color:#c6b0ff}
                 </div>
             </div>
 
-            <div class="shulker-content">
+            <ul class="info-list">
 
-                <h3>Espada de Netherite</h3>
-                <ul>
-                    <li>Filo VI</li>
-                    <li>Golpeo VI</li>
-                    <li>Perdición de los artrópodos VI</li>
-                    <li>Filo arrasador VI</li>
-                    <li>Aspecto ígneo VI</li>
-                    <li>Empuje VI</li>
-                    <li>Botín VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Espada de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VI · Golpeo VI · Perdición de los artrópodos VI ·
+                        Filo arrasador VI · Aspecto ígneo VI · Empuje VI ·
+                        Botín VI · Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Pico de Netherite</h3>
-                <ul>
-                    <li>Fortuna VI</li>
-                    <li>Eficiencia VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Pico de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna VI · Eficiencia VI ·
+                        Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Hacha de Netherite</h3>
-                <ul>
-                    <li>Filo VI</li>
-                    <li>Golpeo VI</li>
-                    <li>Perdición de los artrópodos VI</li>
-                    <li>Eficiencia VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Hacha de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VI · Golpeo VI · Perdición de los artrópodos VI ·
+                        Eficiencia VI · Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Pala de Netherite</h3>
-                <ul>
-                    <li>Fortuna VI</li>
-                    <li>Eficiencia VI</li>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Pala de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna VI · Eficiencia VI ·
+                        Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-                <h3>Escudo</h3>
-                <ul>
-                    <li>Irrompibilidad VI</li>
-                    <li>Reparación</li>
-                </ul>
+                <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">
+                        Irrompibilidad VI · Reparación
+                    </span>
+                </li>
 
-            </div>
+            </ul>
+
         </div>
 
         <!-- 06: COMIDA -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">06</div>
                 <div>
@@ -600,27 +944,35 @@ footer span{color:#c6b0ff}
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Papas</span><br>
                     <span class="item-details">×64</span>
                 </li>
+
                 <li>
                     <span class="item-name">Filetes Asados</span><br>
                     <span class="item-details">×64</span>
                 </li>
+
                 <li>
                     <span class="item-name">Zanahorias Doradas</span><br>
                     <span class="item-details">×32</span>
                 </li>
+
                 <li>
                     <span class="item-name">Manzanas Doradas</span><br>
                     <span class="item-details">×32</span>
                 </li>
+
             </ul>
+
         </div>
 
         <!-- 07: MINERALES -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">07</div>
                 <div>
@@ -630,27 +982,35 @@ footer span{color:#c6b0ff}
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Lingotes de Hierro</span><br>
                     <span class="item-details">×32</span>
                 </li>
+
                 <li>
                     <span class="item-name">Lingotes de Oro</span><br>
                     <span class="item-details">×16</span>
                 </li>
+
                 <li>
                     <span class="item-name">Diamantes</span><br>
                     <span class="item-details">×32</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esmeraldas</span><br>
                     <span class="item-details">×8</span>
                 </li>
+
             </ul>
+
         </div>
 
         <!-- 08: ESENCIAS -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">08</div>
                 <div>
@@ -660,23 +1020,30 @@ footer span{color:#c6b0ff}
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
                     <span class="item-details">×4</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esencia Arcana</span><br>
                     <span class="item-details">×10</span>
                 </li>
+
                 <li>
                     <span class="item-name">Llave Origin</span><br>
                     <span class="item-details">×1</span>
                 </li>
+
             </ul>
+
         </div>
 
         <!-- 09: PROTECCIÓN -->
+
         <div class="section">
+
             <div class="section-heading">
                 <div class="section-icon">09</div>
                 <div>
@@ -686,18 +1053,24 @@ footer span{color:#c6b0ff}
             </div>
 
             <ul class="info-list">
+
                 <li>
                     <span class="item-name">Mena de Hierro</span><br>
                     <span class="item-details">
                         Protección de 20 × 20 bloques
                     </span>
                 </li>
+
             </ul>
+
         </div>
 
         <!-- RESUMEN -->
+
         <div class="inherit">
+
             <strong>RESUMEN DEL RANGO ORIGIN</strong><br>
+
             ORIGIN incluye los beneficios del rango User, los comandos
             exclusivos <strong>/me</strong>, <strong>/recipe</strong> y
             <strong>/depth</strong>, un kit con armadura completa de Netherite
@@ -705,14 +1078,18 @@ footer span{color:#c6b0ff}
             También incluye comida, minerales, Esencia Eléctrica ×4,
             Esencia Arcana ×10, Llave Origin ×1 y protección de terreno
             de <strong>20 × 20 bloques</strong>.
+
             <br><br>
+
             <strong>Nota:</strong> los encantamientos incompatibles entre sí
             y los niveles superiores a los límites normales de Minecraft
             requieren compatibilidad y configuración adecuada de los plugins
             del servidor.
+
         </div>
 
     </div>
+
 </main>
 
 <footer>
