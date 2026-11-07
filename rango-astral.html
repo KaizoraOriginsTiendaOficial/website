@@ -538,6 +538,93 @@ h1 span{
 
 .command-note strong{color:#eadfff}
 
+/* RESUMEN DEL RANGO */
+
+.rank-summary{
+    position:relative;
+    overflow:hidden;
+    margin-top:34px;
+    padding:25px;
+    border:1px solid rgba(147,101,255,.3);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(125deg,rgba(147,101,255,.09),rgba(15,17,34,.94) 65%);
+    box-shadow:inset 0 1px rgba(255,255,255,.035),0 10px 35px rgba(0,0,0,.16);
+}
+
+.rank-summary::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(var(--cyan),var(--purple),var(--pink));
+    box-shadow:0 0 18px rgba(147,101,255,.25);
+}
+
+.summary-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.summary-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
+    flex-shrink:0;
+    border-radius:11px;
+    color:#eadfff;
+    background:rgba(147,101,255,.13);
+    border:1px solid rgba(147,101,255,.3);
+    font-size:14px;
+    font-weight:950;
+}
+
+.summary-heading h3{
+    margin:0;
+    color:#f2eaff;
+    font-size:19px;
+    font-weight:950;
+}
+
+.summary-heading p{
+    margin:5px 0 0;
+    color:#b9acd9;
+    font-size:12px;
+}
+
+.summary-text{
+    margin:0!important;
+    color:#d0dced!important;
+    font-size:14px!important;
+    line-height:1.95!important;
+}
+
+.summary-text strong{
+    color:#eadfff;
+    font-weight:950;
+}
+
+.money-note{
+    position:relative;
+    margin-top:15px;
+    padding:17px 20px;
+    border:1px solid rgba(255,109,225,.32);
+    border-radius:10px;
+    background:linear-gradient(105deg,rgba(147,101,255,.15),rgba(255,109,225,.055));
+    color:#d0ddf2;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.money-note strong{color:#eadfff}
+
 /* PIE */
 
 footer{
@@ -614,6 +701,8 @@ footer span{color:var(--cyan-light)}
     .command-card{padding:20px}
 
     .section-heading h3{font-size:16px}
+
+    .rank-summary{padding:21px 17px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -757,9 +846,6 @@ footer span{color:var(--cyan-light)}
                 <strong>COMANDOS EXCLUSIVOS DE ASTRAL</strong><br>
                 Los comandos disponibles para este rango son propios
                 de ASTRAL y no incluyen los comandos asignados a otros rangos.
-                <br><br>
-                <strong>Importante:</strong> los comandos disponibles
-                dependen de los permisos y plugins instalados en el servidor.
             </div>
 
         </div>
@@ -892,86 +978,12 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- ESCUDO -->
+        <!-- PIEDRA DE PROTECCIÓN -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">06</div>
-                <div>
-                    <h3>Escudo</h3>
-                    <p>Defensa reforzada para tus enfrentamientos</p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Escudo</span><br>
-                    <span class="item-details">
-                        Protección VIII · Reparación
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- RECURSOS -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">07</div>
-                <div>
-                    <h3>Recursos especiales</h3>
-                    <p>Materiales exclusivos incluidos en ASTRAL</p>
-                </div>
-            </div>
-
-            <p>
-                Una selección de esencias, nexos y cristales especiales
-                para complementar tu equipamiento y avanzar dentro
-                del universo de Kaizora Origins.
-            </p>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">×22</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Nexo Plasmático</span><br>
-                    <span class="item-details">×20</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">×18</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Cristal Acuático</span><br>
-                    <span class="item-details">×16</span>
-                </li>
-
-                <li>
-                    <span class="item-name">Vértice Cósmico</span><br>
-                    <span class="item-details">×14</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- PROTECCIÓN -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">08</div>
                 <div>
                     <h3>Piedra de Protección</h3>
                     <p>Protege el espacio de tus construcciones</p>
@@ -991,42 +1003,36 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- AÑADIDOS -->
+        <!-- RESUMEN DEL RANGO -->
 
-        <div class="section">
+        <div class="rank-summary">
 
-            <div class="section-heading">
-                <div class="section-icon">09</div>
+            <div class="summary-heading">
+                <div class="summary-number">07</div>
                 <div>
-                    <h3>Añadidos</h3>
-                    <p>Objetos adicionales para tu aventura</p>
+                    <h3>RESUMEN DEL RANGO ASTRAL</h3>
+                    <p>Todo lo que recibes al adquirir ASTRAL</p>
                 </div>
             </div>
 
-            <ul class="info-list">
+            <p class="summary-text">
+                ASTRAL incluye una armadura completa de Netherite con
+                encantamientos de nivel VIII, espada, pico, hacha y pala
+                de Netherite, escudo con Protección VIII y Reparación,
+                <strong>Esencia Arcana ×22</strong>,
+                <strong>Nexo Plasmático ×20</strong>,
+                <strong>Esencia Eléctrica ×18</strong>,
+                <strong>Cristal Acuático ×16</strong>,
+                <strong>Vértice Cósmico ×14</strong>,
+                <strong>Llave Astral ×1</strong> y una protección
+                de terreno de <strong>30 × 30 bloques</strong>.
+            </p>
 
-                <li>
-                    <span class="item-name">Llave Astral</span><br>
-                    <span class="item-details">×1</span>
-                </li>
+            <div class="money-note">
+                <strong>NOTA:</strong> Este rango trae un agregado de
+                <strong>+15M</strong> dentro del servidor.
+            </div>
 
-            </ul>
-
-        </div>
-
-        <!-- RESUMEN -->
-
-        <div class="inherit">
-            <strong>RESUMEN DEL RANGO ASTRAL</strong><br>
-            ASTRAL incluye una armadura completa de Netherite con
-            encantamientos de nivel VIII, espada, pico, hacha y pala
-            de Netherite, escudo con Protección VIII y Reparación,
-            Esencia Arcana ×22, Nexo Plasmático ×20,
-            Esencia Eléctrica ×18, Cristal Acuático ×16,
-            Vértice Cósmico ×14, Llave Astral ×1 y una protección
-            de terreno de <strong>30 × 30 bloques</strong>.
-            <br><br>
-            <strong>Nota:</strong> Este rango trae un agregado de +15m en el servidor.
         </div>
 
     </div>
