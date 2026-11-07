@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -538,7 +539,7 @@ h1 span{
 
 .command-note strong{color:#eadfff}
 
-/* RESUMEN DEL RANGO */
+/* RESUMEN */
 
 .rank-summary{
     position:relative;
@@ -611,10 +612,17 @@ h1 span{
     font-weight:950;
 }
 
+/* DINERO */
+
 .money-note{
     position:relative;
     margin-top:15px;
     padding:17px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
     border:1px solid rgba(255,109,225,.32);
     border-radius:10px;
     background:linear-gradient(105deg,rgba(147,101,255,.15),rgba(255,109,225,.055));
@@ -623,7 +631,19 @@ h1 span{
     line-height:1.9;
 }
 
-.money-note strong{color:#eadfff}
+.money-label{
+    color:#d0ddf2;
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:1.3px;
+}
+
+.money-value{
+    color:var(--cyan-light);
+    font-size:28px;
+    font-weight:1000;
+    text-shadow:0 0 20px rgba(147,101,255,.25);
+}
 
 /* PIE */
 
@@ -796,7 +816,7 @@ footer span{color:var(--cyan-light)}
 
         <h2>Información del rango</h2>
 
-        <!-- PERMISOS Y DERECHOS -->
+        <!-- 01: PERMISOS Y DERECHOS -->
 
         <div class="section">
 
@@ -825,7 +845,7 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- COMANDOS -->
+        <!-- 02: COMANDOS -->
 
         <div class="section">
 
@@ -850,7 +870,7 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- KIT -->
+        <!-- 03: KIT -->
 
         <div class="section">
 
@@ -871,7 +891,7 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- ARMADURA -->
+        <!-- 04: ARMADURA -->
 
         <div class="section">
 
@@ -928,7 +948,7 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- HERRAMIENTAS -->
+        <!-- 05: HERRAMIENTAS -->
 
         <div class="section">
 
@@ -978,12 +998,60 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- PIEDRA DE PROTECCIÓN -->
+        <!-- 06: RECURSOS ESPECIALES -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">06</div>
+                <div>
+                    <h3>Recursos especiales</h3>
+                    <p>Objetos personalizados y llave exclusiva de ASTRAL</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Esencia Arcana</span><br>
+                    <span class="item-details">Cantidad: ×22</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Nexo Plasmático</span><br>
+                    <span class="item-details">Cantidad: ×20</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Esencia Eléctrica</span><br>
+                    <span class="item-details">Cantidad: ×18</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Cristal Acuático</span><br>
+                    <span class="item-details">Cantidad: ×16</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Vértice Cósmico</span><br>
+                    <span class="item-details">Cantidad: ×14</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Llave Astral</span><br>
+                    <span class="item-details">Cantidad: ×1</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- 07: PIEDRA DE PROTECCIÓN -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">07</div>
                 <div>
                     <h3>Piedra de Protección</h3>
                     <p>Protege el espacio de tus construcciones</p>
@@ -1003,12 +1071,12 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- RESUMEN DEL RANGO -->
+        <!-- RESUMEN -->
 
         <div class="rank-summary">
 
             <div class="summary-heading">
-                <div class="summary-number">07</div>
+                <div class="summary-number">08</div>
                 <div>
                     <h3>RESUMEN DEL RANGO ASTRAL</h3>
                     <p>Todo lo que recibes al adquirir ASTRAL</p>
@@ -1019,20 +1087,17 @@ footer span{color:var(--cyan-light)}
                 ASTRAL incluye una armadura completa de Netherite con
                 encantamientos de nivel VIII, espada, pico, hacha y pala
                 de Netherite, escudo con Protección VIII y Reparación,
-                <strong>Esencia Arcana ×22</strong>,
-                <strong>Nexo Plasmático ×20</strong>,
-                <strong>Esencia Eléctrica ×18</strong>,
-                <strong>Cristal Acuático ×16</strong>,
-                <strong>Vértice Cósmico ×14</strong>,
-                <strong>Llave Astral ×1</strong> y una protección
-                de terreno de <strong>30 × 30 bloques</strong>.
+                además de una protección de terreno de
+                <strong>30 × 30 bloques</strong>.
             </p>
 
-            <div class="money-note">
-                <strong>NOTA:</strong> Este rango trae un agregado de
-                <strong>+15M</strong> dentro del servidor.
-            </div>
+        </div>
 
+        <!-- DINERO ADICIONAL -->
+
+        <div class="money-note">
+            <span class="money-label">DINERO ADICIONAL DEL RANGO</span>
+            <span class="money-value">+15M</span>
         </div>
 
     </div>
