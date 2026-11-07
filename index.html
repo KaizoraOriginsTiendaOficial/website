@@ -333,7 +333,7 @@ button { font: inherit; }
   font-size: .73rem;
 }
 
-/* RANGOS CON TARJETAS MÁS DETALLADAS */
+/* RANGOS */
 .rank-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 
 .rank-card {
@@ -391,15 +391,33 @@ button { font: inherit; }
 .rank-price { margin: 21px 0 19px; padding-top: 15px; border-top: 1px solid color-mix(in srgb, var(--rank-color) 25%, transparent); position: relative; z-index: 1; }
 .rank-price strong { color: white; font-size: 1.75rem; font-weight: 900; letter-spacing: -.8px; }
 .rank-price span { display: block; color: #b0a2b8; font-size: .69rem; margin-top: 3px; }
+
+.rank-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
 .rank-button {
-  display: flex; align-items: center; justify-content: center; min-height: 44px;
-  margin-top: auto; border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 7px 5px;
+  border-radius: 8px;
   border: 1px solid color-mix(in srgb, var(--rank-color) 60%, transparent);
-  color: var(--rank-color); background: color-mix(in srgb, var(--rank-color) 9%, transparent);
-  font-size: .76rem; font-weight: 900; position: relative; z-index: 1;
+  color: var(--rank-color);
+  background: color-mix(in srgb, var(--rank-color) 9%, transparent);
+  font-size: .68rem;
+  font-weight: 900;
+  text-align: center;
   transition: background .2s, color .2s;
 }
 .rank-button:hover { background: var(--rank-color); color: #160d19; }
+.rank-buy { background: var(--rank-color); color: #160d19; }
+.rank-buy:hover { filter: brightness(1.15); }
 .rank-note { text-align: center; color: #ad9fb5; font-size: .78rem; margin-top: 27px; }
 
 /* TIENDA */
@@ -545,6 +563,8 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
   .rank-description { font-size: .72rem; min-height: 0; }
   .rank-price strong { font-size: 1.45rem; }
   .rank-tag { font-size: .53rem; }
+  .rank-actions { gap: 5px; }
+  .rank-button { font-size: .61rem; padding: 6px 3px; }
   .social-grid { gap: 10px; }
   .social-card { padding: 15px 12px; min-height: 200px; }
   .social-top { gap: 8px; align-items: flex-start; }
@@ -615,7 +635,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
 
     <div class="hero-buttons">
       <a href="#servidor" class="btn btn-primary">JUGAR AHORA →</a>
-      <a href="https://discord.gg/HWr5EJzqCh" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">UNIRME A DISCORD ↗</a>
+      <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">UNIRME A DISCORD ↗</a>
     </div>
 
     <div class="hero-stats">
@@ -676,7 +696,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
 
 <div class="section-line"></div>
 
-<!-- NUEVA SECCIÓN DE VOTACIÓN -->
+<!-- VOTACIÓN -->
 <section class="vote-section" id="votar">
   <div class="container">
     <div class="vote-card reveal">
@@ -690,12 +710,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
           nuestra comunidad y se unan a la aventura.
         </p>
 
-        <a
-          href="AUN NO DEFINIDO"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="vote-button"
-        >
+        <a href="AUN NO DEFINIDO" target="_blank" rel="noopener noreferrer" class="vote-button">
           ✦ VOTAR POR KAIZORA ✦ ↗
         </a>
 
@@ -709,6 +724,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
 
 <div class="section-line"></div>
 
+<!-- RANGOS -->
 <section class="section" id="rangos">
   <div class="container">
     <div class="section-heading reveal">
@@ -725,7 +741,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Origin</h3>
         <p class="rank-description">El comienzo de tu historia dentro de Kaizora.</p>
         <div class="rank-price"><strong>$2.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-origin.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-origin.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card ascendente reveal">
@@ -737,7 +756,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Ascendente</h3>
         <p class="rank-description">Eleva tu aventura, destaca entre los demás y demuestra hasta dónde puedes llegar en Kaizora Origins.</p>
         <div class="rank-price"><strong>$0.00</strong><span>Pago único</span></div>
-        <a class="rank-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-ascendente.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card elite reveal">
@@ -746,7 +768,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Elite</h3>
         <p class="rank-description">Da el siguiente paso y destaca en tu aventura.</p>
         <div class="rank-price"><strong>$4.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-elite.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-elite.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card celestial reveal">
@@ -755,7 +780,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Celestial</h3>
         <p class="rank-description">Continúa creciendo y lleva tu progreso más lejos.</p>
         <div class="rank-price"><strong>$7.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-celestial.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-celestial.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card astral reveal">
@@ -767,7 +795,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Astral</h3>
         <p class="rank-description">Desata tu potencial, alcanza un nuevo nivel y deja tu huella entre las estrellas de Kaizora.</p>
         <div class="rank-price"><strong>$0.00</strong><span>Pago único</span></div>
-        <a class="rank-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-astral.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card majestad recommended reveal">
@@ -779,7 +810,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Majestad</h3>
         <p class="rank-description">Una elección destacada para dar un gran salto.</p>
         <div class="rank-price"><strong>$11.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-majestad.html">ELEGIR MAJESTAD ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-majestad.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card guardian reveal">
@@ -788,7 +822,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Guardian</h3>
         <p class="rank-description">Refuerza tu presencia y sigue construyendo tu legado.</p>
         <div class="rank-price"><strong>$15.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-guardian.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-guardian.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card semidios reveal">
@@ -797,7 +834,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>SemiDios</h3>
         <p class="rank-description">Acércate a los niveles más altos de Kaizora.</p>
         <div class="rank-price"><strong>$24.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-semidios.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-semidios.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card dios reveal">
@@ -806,7 +846,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Dios</h3>
         <p class="rank-description">Un rango de alto nivel para jugadores ambiciosos.</p>
         <div class="rank-price"><strong>$34.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-dios.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-dios.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card eterno reveal">
@@ -818,7 +861,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Eterno</h3>
         <p class="rank-description">Un rango para quienes superan todos los límites y construyen un legado que perdura.</p>
         <div class="rank-price"><strong>$0.00</strong><span>Pago único</span></div>
-        <a class="rank-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-eterno.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card primordial reveal">
@@ -830,7 +876,10 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Primordial</h3>
         <p class="rank-description">Representa el poder del origen y alcanza uno de los niveles más exclusivos de Kaizora Origins.</p>
         <div class="rank-price"><strong>$0.00</strong><span>Pago único</span></div>
-        <a class="rank-button" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-primordial.html">VER INFO</a>
+        </div>
       </article>
 
       <article class="rank-card kaizora reveal">
@@ -842,10 +891,14 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Kaizora</h3>
         <p class="rank-description">El rango definitivo de la colección. Alcanza la cima.</p>
         <div class="rank-price"><strong>$49.99</strong><span>Pago único</span></div>
-        <a class="rank-button" href="rango-kaizora.html">VER RANGO ↗</a>
+        <div class="rank-actions">
+          <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
+          <a class="rank-button" href="rango-kaizora.html">VER INFO</a>
+        </div>
       </article>
 
     </div>
+
     <p class="rank-note reveal">Consulta cada rango para conocer sus ventajas y detalles.</p>
   </div>
 </section>
@@ -904,7 +957,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
 
       <div class="hero-buttons">
         <a href="https://kick.com/yosoyanthonyyy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">VER STREAM EN KICK ↗</a>
-        <a href="https://discord.gg/HWr5EJzqCh" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">UNIRME A DISCORD ↗</a>
+        <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">UNIRME A DISCORD ↗</a>
       </div>
 
       <p class="event-footnote">
@@ -973,7 +1026,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <h3>Tu comunidad te está esperando.</h3>
         <p>Únete al Discord oficial para conocer las novedades y participar en los eventos.</p>
       </div>
-      <a href="https://discord.gg/HWr5EJzqCh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">ENTRAR AL DISCORD ↗</a>
+      <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="btn btn-primary">ENTRAR AL DISCORD ↗</a>
     </div>
   </div>
 </section>
@@ -992,7 +1045,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
       <a href="#inicio">Inicio</a>
       <a href="#rangos">Rangos</a>
       <a href="#votar">Votar</a>
-      <a href="https://discord.gg/HWr5EJzqCh" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
   </div>
 </footer>
