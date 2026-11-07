@@ -1,0 +1,1546 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09070e">
+<meta name="description" content="Este rango todavía no está disponible en Kaizora Origins. Mientras tanto, demuestra tu habilidad en el desafío de Kaizora.">
+<title>Próximamente | Kaizora Origins</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg:#09070e;
+    --panel:#12101c;
+    --panel2:#1b1729;
+    --purple:#9B5DE5;
+    --pink:#FF6DE1;
+    --white:#f8f3ff;
+    --muted:#aaa0bb;
+    --border:rgba(190,130,255,.18);
+    --green:#65f5a5;
+    --red:#ff557d;
+    --gold:#ffd66b;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    min-height:100vh;
+    overflow-x:hidden;
+    background:
+        radial-gradient(ellipse at 50% 0%,rgba(155,93,229,.17),transparent 42%),
+        radial-gradient(ellipse at 100% 70%,rgba(255,109,225,.07),transparent 35%),
+        var(--bg);
+    color:var(--white);
+    font-family:'Rajdhani',sans-serif;
+}
+
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.17;
+    z-index:-1;
+    background-image:
+        linear-gradient(rgba(155,93,229,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(155,93,229,.07) 1px,transparent 1px);
+    background-size:45px 45px;
+}
+
+button {
+    font-family:inherit;
+}
+
+.topbar {
+    width:100%;
+    min-height:72px;
+    padding:15px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    border-bottom:1px solid var(--border);
+    background:rgba(9,7,14,.85);
+    backdrop-filter:blur(15px);
+}
+
+.logo {
+    font-family:'Orbitron',sans-serif;
+    font-weight:900;
+    letter-spacing:2px;
+    font-size:1.2rem;
+    color:white;
+    text-decoration:none;
+}
+
+.logo span {
+    color:var(--pink);
+}
+
+.back-link {
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:.2s;
+}
+
+.back-link:hover {
+    color:var(--pink);
+}
+
+main {
+    width:min(1120px,92%);
+    margin:auto;
+    padding:65px 0 80px;
+}
+
+.notice {
+    text-align:center;
+    margin-bottom:42px;
+    animation:appear .8s ease both;
+}
+
+.notice-label {
+    display:inline-block;
+    padding:7px 15px;
+    border:1px solid rgba(255,109,225,.35);
+    border-radius:30px;
+    color:var(--pink);
+    background:rgba(255,109,225,.07);
+    font-size:.78rem;
+    font-weight:800;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.notice h1 {
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(1.6rem,5vw,3rem);
+    line-height:1.25;
+    font-weight:900;
+    text-shadow:0 0 30px rgba(155,93,229,.3);
+}
+
+.notice h1 span {
+    color:var(--pink);
+}
+
+.notice p {
+    max-width:680px;
+    margin:16px auto 0;
+    color:var(--muted);
+    font-size:1.15rem;
+    line-height:1.6;
+}
+
+.game-shell {
+    border:1px solid rgba(190,130,255,.25);
+    border-radius:22px;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(12,9,19,.98));
+    box-shadow:0 20px 80px rgba(0,0,0,.45),0 0 45px rgba(155,93,229,.08);
+    animation:appear 1s ease both;
+}
+
+.game-header {
+    padding:19px 23px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    border-bottom:1px solid var(--border);
+    background:rgba(255,255,255,.018);
+}
+
+.game-title {
+    font-family:'Orbitron',sans-serif;
+    font-size:1rem;
+    letter-spacing:1.5px;
+}
+
+.game-title span {
+    color:var(--pink);
+}
+
+.game-status {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.stat {
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 12px;
+    background:rgba(255,255,255,.045);
+    border:1px solid var(--border);
+    border-radius:9px;
+    font-weight:800;
+    font-size:.95rem;
+}
+
+.stat b {
+    color:var(--gold);
+}
+
+#hearts {
+    color:#ff668b;
+    letter-spacing:2px;
+    font-size:1rem;
+    white-space:nowrap;
+}
+
+.game-area {
+    position:relative;
+    padding:15px;
+    background:linear-gradient(180deg,#171025,#0c0915);
+}
+
+canvas {
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:900/340;
+    border:1px solid rgba(190,130,255,.15);
+    border-radius:12px;
+    background:#100c1b;
+    image-rendering:pixelated;
+}
+
+.overlay {
+    position:absolute;
+    inset:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    border-radius:12px;
+    background:rgba(8,5,14,.78);
+    backdrop-filter:blur(7px);
+    z-index:5;
+    text-align:center;
+}
+
+.overlay.hidden {
+    display:none;
+}
+
+.overlay-card {
+    width:min(430px,100%);
+    padding:27px 22px;
+    border:1px solid rgba(190,130,255,.3);
+    border-radius:17px;
+    background:linear-gradient(145deg,#1d1730,#100c19);
+    box-shadow:0 0 50px rgba(155,93,229,.17);
+}
+
+.overlay-card h2 {
+    font-family:'Orbitron',sans-serif;
+    font-size:1.55rem;
+    margin-bottom:12px;
+}
+
+.overlay-card h2 span {
+    color:var(--pink);
+}
+
+.overlay-card p {
+    color:var(--muted);
+    line-height:1.5;
+    margin-bottom:20px;
+    font-size:1.05rem;
+}
+
+.big-count {
+    font-family:'Orbitron',sans-serif;
+    font-size:5rem;
+    font-weight:900;
+    color:var(--pink);
+    text-shadow:0 0 35px rgba(255,109,225,.6);
+    animation:pulse .7s infinite alternate;
+}
+
+.game-controls {
+    padding:19px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    border-top:1px solid var(--border);
+}
+
+.control-btn {
+    border:1px solid rgba(190,130,255,.25);
+    border-radius:11px;
+    min-height:56px;
+    background:linear-gradient(145deg,#211a32,#151020);
+    color:white;
+    font-size:1rem;
+    font-weight:800;
+    letter-spacing:.5px;
+    cursor:pointer;
+    transition:.2s;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.control-btn:hover {
+    border-color:var(--pink);
+    background:linear-gradient(145deg,#38234b,#21152e);
+    transform:translateY(-2px);
+}
+
+.control-btn:active {
+    transform:scale(.96);
+}
+
+.control-btn .symbol {
+    display:block;
+    font-size:1.25rem;
+    margin-bottom:2px;
+}
+
+.control-btn.primary {
+    border-color:rgba(255,109,225,.55);
+    background:linear-gradient(135deg,#8e42bd,#c34a9d);
+}
+
+.control-btn.pause {
+    background:linear-gradient(135deg,#28213a,#171321);
+}
+
+.instructions {
+    padding:0 22px 20px;
+    color:var(--muted);
+    text-align:center;
+    font-size:.95rem;
+}
+
+.instructions strong {
+    color:#e5c9ff;
+}
+
+.shop-section {
+    margin-top:30px;
+    border:1px solid var(--border);
+    border-radius:19px;
+    background:rgba(18,16,28,.8);
+    overflow:hidden;
+}
+
+.shop-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:20px 23px;
+    border-bottom:1px solid var(--border);
+    flex-wrap:wrap;
+}
+
+.shop-header h2 {
+    font-family:'Orbitron',sans-serif;
+    font-size:1.1rem;
+}
+
+.shop-header h2 span {
+    color:var(--pink);
+}
+
+.shop-header p {
+    color:var(--gold);
+    font-weight:800;
+}
+
+.shop-grid {
+    padding:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.shop-item {
+    padding:17px;
+    border:1px solid var(--border);
+    border-radius:13px;
+    background:linear-gradient(145deg,rgba(155,93,229,.08),rgba(255,255,255,.02));
+    display:flex;
+    flex-direction:column;
+    min-height:190px;
+}
+
+.item-icon {
+    font-size:1.8rem;
+    margin-bottom:9px;
+}
+
+.shop-item h3 {
+    font-size:1.08rem;
+    font-weight:800;
+}
+
+.shop-item p {
+    color:var(--muted);
+    font-size:.92rem;
+    line-height:1.4;
+    margin:6px 0 12px;
+    flex:1;
+}
+
+.item-price {
+    color:var(--gold);
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.buy-btn {
+    width:100%;
+    border:1px solid rgba(255,109,225,.3);
+    background:rgba(155,93,229,.16);
+    color:white;
+    border-radius:8px;
+    padding:10px;
+    cursor:pointer;
+    font-weight:800;
+    transition:.2s;
+}
+
+.buy-btn:hover {
+    background:rgba(255,109,225,.2);
+    border-color:var(--pink);
+}
+
+.buy-btn:disabled {
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.game-message {
+    min-height:25px;
+    padding:0 18px 17px;
+    text-align:center;
+    color:var(--pink);
+    font-weight:700;
+}
+
+.footer {
+    text-align:center;
+    color:#716981;
+    padding:35px 15px 0;
+    font-size:.9rem;
+}
+
+.footer strong {
+    color:var(--pink);
+}
+
+@keyframes appear {
+    from {opacity:0;transform:translateY(18px)}
+    to {opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse {
+    from {transform:scale(.94);opacity:.8}
+    to {transform:scale(1.08);opacity:1}
+}
+
+@media(max-width:700px) {
+    main {
+        padding-top:42px;
+    }
+
+    .game-controls {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .control-btn:last-child {
+        grid-column:span 2;
+    }
+
+    .shop-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .game-header {
+        align-items:flex-start;
+        flex-direction:column;
+    }
+}
+
+@media(max-width:430px) {
+    .shop-grid {
+        grid-template-columns:1fr;
+    }
+
+    .game-status {
+        width:100%;
+    }
+
+    .stat {
+        flex:1;
+        justify-content:center;
+    }
+
+    .notice h1 {
+        font-size:1.55rem;
+    }
+
+    .game-controls {
+        padding:12px;
+        gap:8px;
+    }
+
+    .control-btn {
+        min-height:52px;
+        font-size:.92rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+    <a href="index.html" class="logo">KAIZORA <span>ORIGINS</span></a>
+    <a href="index.html" class="back-link">← VOLVER AL INICIO</a>
+</header>
+
+<main>
+
+    <section class="notice">
+        <div class="notice-label">✦ CONTENIDO EN DESARROLLO ✦</div>
+        <h1>ESTE RANGO <span>AÚN NO ESTÁ A LA VENTA</span></h1>
+        <p>
+            Estamos preparando algo especial para Kaizora Origins.
+            Mientras terminamos de construirlo, demuestra de qué estás hecho
+            en nuestro pequeño desafío. ¡Sobrevive todo lo que puedas!
+        </p>
+    </section>
+
+    <section class="game-shell">
+
+        <div class="game-header">
+            <div class="game-title">✦ KAIZORA <span> SURVIVAL</span></div>
+
+            <div class="game-status">
+                <div class="stat">
+                    <span>❤</span>
+                    <span id="hearts">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</span>
+                </div>
+
+                <div class="stat">
+                    <span>🪙</span>
+                    <b id="coins">0</b>
+                </div>
+
+                <div class="stat">
+                    <span>☠</span>
+                    <b id="kills">0</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <canvas id="gameCanvas" width="900" height="340"></canvas>
+
+            <div class="overlay" id="overlay">
+                <div class="overlay-card">
+                    <h2>BIENVENIDO A <span>KAIZORA</span></h2>
+                    <p>
+                        Los mobs se acercan. Salta, dispara flechas y utiliza
+                        comida para sobrevivir. Cada enemigo derrotado te dará
+                        <strong style="color:#ffd66b">1.000.000 monedas.</strong>
+                    </p>
+                    <button class="control-btn primary" id="startBtn" style="width:100%">
+                        ⚔ COMENZAR PARTIDA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="control-btn" id="shootBtn">
+                <span class="symbol">➶</span>
+                TIRAR FLECHA
+            </button>
+
+            <button class="control-btn" id="jumpBtn">
+                <span class="symbol">⬆</span>
+                SALTAR
+            </button>
+
+            <button class="control-btn" id="eatBtn">
+                <span class="symbol">🍖</span>
+                COMER
+            </button>
+
+            <button class="control-btn pause" id="pauseBtn">
+                <span class="symbol">Ⅱ</span>
+                PAUSAR
+            </button>
+
+            <button class="control-btn" id="shopBtn">
+                <span class="symbol">⚒</span>
+                TIENDA
+            </button>
+        </div>
+
+        <div class="instructions">
+            <strong>Controles:</strong> ESPACIO = saltar · F = disparar · E = comer · P = pausar
+            <br>
+            También puedes utilizar los botones de la pantalla.
+        </div>
+    </section>
+
+    <section class="shop-section" id="shopSection">
+        <div class="shop-header">
+            <h2>⚒ TIENDA <span>KAIZORA</span></h2>
+            <p>🪙 <span id="shopCoins">0</span> monedas</p>
+        </div>
+
+        <div class="shop-grid">
+
+            <article class="shop-item">
+                <div class="item-icon">🛡️</div>
+                <h3>Armadura de Origin</h3>
+                <p>Reduce el daño recibido de los enemigos. Cada nivel de armadura reduce un poco más el daño.</p>
+                <div class="item-price">5.000.000 monedas</div>
+                <button class="buy-btn" data-item="armor1">COMPRAR</button>
+            </article>
+
+            <article class="shop-item">
+                <div class="item-icon">💎</div>
+                <h3>Armadura Celestial</h3>
+                <p>Una protección superior. Reduce todavía más el daño recibido.</p>
+                <div class="item-price">15.000.000 monedas</div>
+                <button class="buy-btn" data-item="armor2">COMPRAR</button>
+            </article>
+
+            <article class="shop-item">
+                <div class="item-icon">👑</div>
+                <h3>Armadura Kaizora</h3>
+                <p>La protección definitiva. Reduce considerablemente el daño de los mobs.</p>
+                <div class="item-price">35.000.000 monedas</div>
+                <button class="buy-btn" data-item="armor3">COMPRAR</button>
+            </article>
+
+            <article class="shop-item">
+                <div class="item-icon">❤️</div>
+                <h3>Corazón adicional</h3>
+                <p>Aumenta tu vida máxima en un corazón. Puedes comprar hasta 10 corazones adicionales.</p>
+                <div class="item-price">8.000.000 monedas</div>
+                <button class="buy-btn" data-item="heart">COMPRAR</button>
+            </article>
+
+            <article class="shop-item">
+                <div class="item-icon">🍖</div>
+                <h3>Comida extra</h3>
+                <p>Obtén una ración de comida adicional para recuperar corazones durante la partida.</p>
+                <div class="item-price">2.000.000 monedas</div>
+                <button class="buy-btn" data-item="food">COMPRAR</button>
+            </article>
+
+            <article class="shop-item">
+                <div class="item-icon">🏹</div>
+                <h3>Arco mejorado</h3>
+                <p>Dispara flechas más rápidas y elimina a los enemigos con mayor facilidad.</p>
+                <div class="item-price">10.000.000 monedas</div>
+                <button class="buy-btn" data-item="bow">COMPRAR</button>
+            </article>
+
+        </div>
+
+        <div class="game-message" id="gameMessage">
+            ¡Derrota mobs para conseguir monedas y mejorar tu equipo!
+        </div>
+    </section>
+
+    <footer class="footer">
+        <strong>KAIZORA ORIGINS</strong> · Cada jugador escribe su propia historia.
+    </footer>
+
+</main>
+
+<script>
+/* =========================================
+   CONFIGURACIÓN DEL JUEGO
+========================================= */
+
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const W = canvas.width;
+const H = canvas.height;
+const GROUND = 280;
+
+let running = false;
+let paused = false;
+let inShop = false;
+let gameOver = false;
+let countdown = false;
+let countdownValue = 3;
+
+let coins = 0;
+let kills = 0;
+
+let maxHealth = 10;
+let health = 10;
+
+let armorLevel = 0;
+let bowLevel = 0;
+let foodCount = 3;
+
+let lastSpawn = 0;
+let spawnInterval = 1600;
+let lastDamage = 0;
+let lastEat = 0;
+let gameSpeed = 1;
+let elapsed = 0;
+
+let player = {
+    x:105,
+    y:GROUND - 58,
+    w:42,
+    h:58,
+    vy:0,
+    jumping:false,
+    invulnerable:0,
+    eating:false
+};
+
+let enemies = [];
+let arrows = [];
+let particles = [];
+let stars = [];
+
+for(let i=0;i<45;i++){
+    stars.push({
+        x:Math.random()*W,
+        y:Math.random()*210,
+        size:Math.random()*2+1,
+        alpha:Math.random()*.6+.2
+    });
+}
+
+/* =========================================
+   INTERFAZ
+========================================= */
+
+const overlay = document.getElementById("overlay");
+const startBtn = document.getElementById("startBtn");
+
+function updateUI(){
+    document.getElementById("coins").textContent = coins.toLocaleString("es-ES");
+    document.getElementById("shopCoins").textContent = coins.toLocaleString("es-ES");
+    document.getElementById("kills").textContent = kills;
+
+    let heartsText = "";
+    for(let i=0;i<maxHealth;i++){
+        heartsText += i < health ? "♥ " : "♡ ";
+    }
+    document.getElementById("hearts").textContent = heartsText.trim();
+
+    document.querySelectorAll(".buy-btn").forEach(btn=>{
+        const item = btn.dataset.item;
+        btn.disabled = !canBuy(item);
+    });
+}
+
+function message(text){
+    document.getElementById("gameMessage").textContent = text;
+}
+
+/* =========================================
+   DIBUJO DEL ESCENARIO
+========================================= */
+
+function drawBackground(){
+    const gradient = ctx.createLinearGradient(0,0,0,H);
+    gradient.addColorStop(0,"#171027");
+    gradient.addColorStop(1,"#0c0915");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0,0,W,H);
+
+    stars.forEach(s=>{
+        ctx.globalAlpha = s.alpha;
+        ctx.fillStyle = "#e7caff";
+        ctx.fillRect(s.x,s.y,s.size,s.size);
+    });
+    ctx.globalAlpha = 1;
+
+    // Luna Kaizora
+    ctx.fillStyle = "rgba(255,109,225,.08)";
+    ctx.beginPath();
+    ctx.arc(735,75,42,0,Math.PI*2);
+    ctx.fill();
+
+    ctx.fillStyle = "#ffb6ed";
+    ctx.globalAlpha = .8;
+    ctx.beginPath();
+    ctx.arc(735,75,20,0,Math.PI*2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Montañas
+    ctx.fillStyle = "#20152e";
+    ctx.beginPath();
+    ctx.moveTo(0,220);
+    ctx.lineTo(120,135);
+    ctx.lineTo(220,220);
+    ctx.lineTo(340,150);
+    ctx.lineTo(480,220);
+    ctx.lineTo(600,145);
+    ctx.lineTo(760,220);
+    ctx.lineTo(850,160);
+    ctx.lineTo(900,205);
+    ctx.lineTo(900,H);
+    ctx.lineTo(0,H);
+    ctx.fill();
+
+    // Suelo
+    ctx.fillStyle = "#241934";
+    ctx.fillRect(0,GROUND,W,H-GROUND);
+
+    ctx.fillStyle = "#9B5DE5";
+    ctx.fillRect(0,GROUND,W,4);
+
+    ctx.fillStyle = "rgba(255,109,225,.18)";
+    for(let x=0;x<W;x+=35){
+        ctx.fillRect(x,GROUND+18,18,2);
+    }
+
+    // Bloques del suelo
+    ctx.strokeStyle = "rgba(155,93,229,.12)";
+    ctx.lineWidth = 1;
+
+    for(let x=0;x<W;x+=45){
+        ctx.strokeRect(x,GROUND+4,45,60);
+    }
+}
+
+/* =========================================
+   PERSONAJE: JUGADOR ESTILO MINECRAFT
+========================================= */
+
+function drawPlayer(){
+    const x = player.x;
+    const y = player.y;
+
+    if(player.invulnerable > 0 && Math.floor(Date.now()/100)%2===0){
+        return;
+    }
+
+    // Sombra
+    ctx.fillStyle = "rgba(0,0,0,.3)";
+    ctx.fillRect(x-4,GROUND-3,50,6);
+
+    // Piernas
+    ctx.fillStyle = "#29213c";
+    ctx.fillRect(x+7,y+39,12,19);
+    ctx.fillRect(x+24,y+39,12,19);
+
+    // Botas
+    ctx.fillStyle = "#9B5DE5";
+    ctx.fillRect(x+5,y+53,15,5);
+    ctx.fillRect(x+23,y+53,15,5);
+
+    // Cuerpo
+    ctx.fillStyle = "#4a2670";
+    ctx.fillRect(x+5,y+22,33,22);
+
+    ctx.fillStyle = "#9B5DE5";
+    ctx.fillRect(x+5,y+22,33,5);
+
+    // Emblema K
+    ctx.fillStyle = "#ffb6ed";
+    ctx.font = "bold 17px Orbitron";
+    ctx.fillText("K",x+15,y+39);
+
+    // Cabeza
+    ctx.fillStyle = "#e5b995";
+    ctx.fillRect(x+7,y,30,25);
+
+    // Cabello
+    ctx.fillStyle = "#21162e";
+    ctx.fillRect(x+5,y-3,34,9);
+    ctx.fillRect(x+5,y+4,5,8);
+
+    // Ojos
+    ctx.fillStyle = "#25152e";
+    ctx.fillRect(x+13,y+12,4,4);
+    ctx.fillRect(x+27,y+12,4,4);
+
+    // Armadura visual
+    if(armorLevel>=1){
+        ctx.strokeStyle = armorLevel>=3 ? "#ffb6ed" : "#b58aff";
+        ctx.lineWidth = armorLevel>=3 ? 4 : 3;
+        ctx.strokeRect(x+3,y+19,37,27);
+    }
+
+    if(armorLevel>=2){
+        ctx.fillStyle = "rgba(155,93,229,.45)";
+        ctx.fillRect(x+4,y+22,35,4);
+    }
+}
+
+/* =========================================
+   ENEMIGOS
+========================================= */
+
+const mobTypes = [
+    {name:"ZOMBIE",color:"#4c9c69",hp:1,speed:1},
+    {name:"ESQUELETO",color:"#d2cbd8",hp:1,speed:1.35},
+    {name:"ENDERMAN",color:"#7848a8",hp:2,speed:1.2},
+    {name:"CREEPER",color:"#65a94d",hp:2,speed:.85}
+];
+
+function spawnEnemy(){
+    const type = mobTypes[Math.floor(Math.random()*mobTypes.length)];
+
+    enemies.push({
+        x:W+20,
+        y:GROUND-48,
+        w:36,
+        h:48,
+        hp:type.hp,
+        maxHp:type.hp,
+        speed:type.speed*gameSpeed,
+        color:type.color,
+        name:type.name,
+        attack:0
+    });
+}
+
+function drawEnemy(e){
+    const x=e.x;
+    const y=e.y;
+
+    // Sombra
+    ctx.fillStyle="rgba(0,0,0,.3)";
+    ctx.fillRect(x-3,GROUND-3,42,5);
+
+    if(e.name==="CREEPER"){
+        ctx.fillStyle=e.color;
+        ctx.fillRect(x+5,y+3,27,35);
+        ctx.fillRect(x+9,y+34,8,14);
+        ctx.fillRect(x+23,y+34,8,14);
+
+        ctx.fillStyle="#172017";
+        ctx.fillRect(x+10,y+12,5,6);
+        ctx.fillRect(x+23,y+12,5,6);
+        ctx.fillRect(x+15,y+22,9,9);
+
+    } else if(e.name==="ENDERMAN"){
+        ctx.fillStyle=e.color;
+        ctx.fillRect(x+12,y,12,31);
+        ctx.fillRect(x+5,y+28,25,5);
+        ctx.fillRect(x+9,y+32,5,16);
+        ctx.fillRect(x+22,y+32,5,16);
+
+        ctx.fillStyle="#ff72ec";
+        ctx.fillRect(x+12,y+10,4,3);
+        ctx.fillRect(x+22,y+10,4,3);
+
+    } else {
+        ctx.fillStyle=e.color;
+        ctx.fillRect(x+7,y+1,24,22);
+
+        ctx.fillStyle=e.name==="ZOMBIE"?"#347b52":"#d8d2dc";
+        ctx.fillRect(x+5,y+23,27,18);
+
+        ctx.fillStyle="#27202c";
+        ctx.fillRect(x+12,y+9,4,4);
+        ctx.fillRect(x+23,y+9,4,4);
+
+        ctx.fillRect(x+7,y+39,8,9);
+        ctx.fillRect(x+23,y+39,8,9);
+    }
+
+    // Barra de vida
+    if(e.hp<e.maxHp){
+        ctx.fillStyle="#3a243c";
+        ctx.fillRect(x+2,y-9,34,4);
+
+        ctx.fillStyle="#ff557d";
+        ctx.fillRect(x+2,y-9,34*(e.hp/e.maxHp),4);
+    }
+}
+
+/* =========================================
+   FLECHAS Y PARTICULAS
+========================================= */
+
+function shoot(){
+    if(!running || paused || inShop || gameOver || countdown) return;
+
+    arrows.push({
+        x:player.x+35,
+        y:player.y+25,
+        speed:8+bowLevel*2,
+        damage:1+(bowLevel>=1?1:0)
+    });
+}
+
+function drawArrow(a){
+    ctx.strokeStyle="#f4d9ff";
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.moveTo(a.x,a.y);
+    ctx.lineTo(a.x+16,a.y);
+    ctx.stroke();
+
+    ctx.fillStyle="#ff6de1";
+    ctx.beginPath();
+    ctx.moveTo(a.x+17,a.y);
+    ctx.lineTo(a.x+10,a.y-5);
+    ctx.lineTo(a.x+10,a.y+5);
+    ctx.fill();
+}
+
+function particle(x,y,color){
+    for(let i=0;i<7;i++){
+        particles.push({
+            x,y,
+            vx:(Math.random()-.5)*5,
+            vy:(Math.random()-.8)*5,
+            life:35,
+            color
+        });
+    }
+}
+
+function drawParticles(){
+    particles.forEach(p=>{
+        ctx.globalAlpha=Math.max(0,p.life/35);
+        ctx.fillStyle=p.color;
+        ctx.fillRect(p.x,p.y,4,4);
+    });
+    ctx.globalAlpha=1;
+}
+
+/* =========================================
+   MECÁNICAS
+========================================= */
+
+function jump(){
+    if(!running || paused || inShop || gameOver || countdown) return;
+
+    if(!player.jumping){
+        player.vy=-12.5;
+        player.jumping=true;
+    }
+}
+
+function eat(){
+    if(!running || paused || inShop || gameOver || countdown) return;
+
+    if(Date.now()-lastEat<700) return;
+
+    if(foodCount<=0){
+        message("¡No tienes comida! Puedes comprar más en la tienda.");
+        return;
+    }
+
+    if(health>=maxHealth){
+        message("Ya tienes todos tus corazones.");
+        return;
+    }
+
+    foodCount--;
+    health=Math.min(maxHealth,health+3);
+    lastEat=Date.now();
+
+    particle(player.x+20,player.y+10,"#65f5a5");
+    message("¡Ñam! Has recuperado hasta 3 corazones.");
+    updateUI();
+}
+
+function damagePlayer(){
+    if(Date.now()-lastDamage<1100 || player.invulnerable>0) return;
+
+    let damage=1;
+
+    // Armadura reduce el daño.
+    if(armorLevel>=3) damage=0.25;
+    else if(armorLevel>=2) damage=0.5;
+    else if(armorLevel>=1) damage=0.75;
+
+    health=Math.max(0,health-damage);
+    lastDamage=Date.now();
+    player.invulnerable=1100;
+
+    particle(player.x+20,player.y+20,"#ff557d");
+    message("¡Un mob te ha golpeado!");
+
+    updateUI();
+
+    if(health<=0){
+        endGame();
+    }
+}
+
+function killEnemy(index){
+    const enemy=enemies[index];
+
+    particle(enemy.x+15,enemy.y+20,"#ff6de1");
+
+    enemies.splice(index,1);
+
+    kills++;
+    coins+=1000000;
+
+    message("¡Mob eliminado! +1.000.000 monedas.");
+    updateUI();
+}
+
+/* =========================================
+   COLISIONES
+========================================= */
+
+function collides(a,b){
+    return a.x < b.x+b.w &&
+           a.x+a.w > b.x &&
+           a.y < b.y+b.h &&
+           a.y+a.h > b.y;
+}
+
+/* =========================================
+   ACTUALIZACIÓN DEL JUEGO
+========================================= */
+
+let lastFrame=0;
+
+function update(delta){
+    if(!running || paused || inShop || gameOver || countdown) return;
+
+    elapsed+=delta;
+
+    gameSpeed=1+Math.min(elapsed/90000,.8);
+    spawnInterval=Math.max(650,1600-elapsed/120);
+
+    // Física del jugador
+    player.y+=player.vy;
+    player.vy+=.62;
+
+    if(player.y>=GROUND-player.h){
+        player.y=GROUND-player.h;
+        player.vy=0;
+        player.jumping=false;
+    }
+
+    if(player.invulnerable>0){
+        player.invulnerable=Math.max(0,player.invulnerable-delta);
+    }
+
+    // Generación de enemigos
+    lastSpawn+=delta;
+
+    if(lastSpawn>=spawnInterval){
+        spawnEnemy();
+        lastSpawn=0;
+    }
+
+    // Movimiento de enemigos
+    for(let i=enemies.length-1;i>=0;i--){
+        const e=enemies[i];
+
+        e.x-=e.speed*(delta/16.67);
+
+        if(collides(player,e)){
+            damagePlayer();
+
+            // Evita daño continuo por permanecer dentro del mob.
+            e.x+=5;
+        }
+
+        if(e.x+e.w<0){
+            enemies.splice(i,1);
+        }
+    }
+
+    // Movimiento de flechas
+    for(let i=arrows.length-1;i>=0;i--){
+        const a=arrows[i];
+        a.x+=a.speed*(delta/16.67);
+
+        let hit=false;
+
+        for(let j=enemies.length-1;j>=0;j--){
+            const e=enemies[j];
+
+            if(a.x>e.x && a.x<e.x+e.w && a.y>e.y && a.y<e.y+e.h){
+                e.hp-=a.damage;
+                particle(a.x,a.y,"#ffb6ed");
+                arrows.splice(i,1);
+                hit=true;
+
+                if(e.hp<=0){
+                    killEnemy(j);
+                }
+                break;
+            }
+        }
+
+        if(!hit && a.x>W){
+            arrows.splice(i,1);
+        }
+    }
+
+    // Partículas
+    for(let i=particles.length-1;i>=0;i--){
+        const p=particles[i];
+        p.x+=p.vx;
+        p.y+=p.vy;
+        p.vy+=.12;
+        p.life--;
+
+        if(p.life<=0) particles.splice(i,1);
+    }
+}
+
+/* =========================================
+   RENDERIZADO
+========================================= */
+
+function render(){
+    drawBackground();
+
+    enemies.forEach(drawEnemy);
+    arrows.forEach(drawArrow);
+
+    drawPlayer();
+    drawParticles();
+
+    // Texto del escenario
+    ctx.font="bold 12px Rajdhani";
+    ctx.fillStyle="rgba(255,255,255,.4)";
+    ctx.fillText("KAIZORA DIMENSION",18,25);
+
+    if(paused && !inShop){
+        ctx.fillStyle="rgba(255,255,255,.8)";
+        ctx.font="bold 23px Orbitron";
+        ctx.textAlign="center";
+        ctx.fillText("JUEGO PAUSADO",W/2,90);
+        ctx.textAlign="left";
+    }
+}
+
+function loop(timestamp){
+    const delta=Math.min(timestamp-lastFrame||16,40);
+    lastFrame=timestamp;
+
+    update(delta);
+    render();
+
+    requestAnimationFrame(loop);
+}
+
+/* =========================================
+   INICIO Y CUENTA REGRESIVA
+========================================= */
+
+function startCountdown(){
+    if(countdown) return;
+
+    running=true;
+    paused=true;
+    inShop=false;
+    gameOver=false;
+    countdown=true;
+    countdownValue=3;
+
+    overlay.classList.remove("hidden");
+
+    const card=overlay.querySelector(".overlay-card");
+
+    card.innerHTML=`
+        <h2>PREPÁRATE <span>GUERRERO</span></h2>
+        <p>Los mobs están a punto de llegar...</p>
+        <div class="big-count" id="bigCount">3</div>
+        <p>¡Prepárate para sobrevivir!</p>
+    `;
+
+    let count=3;
+
+    const timer=setInterval(()=>{
+        count--;
+
+        const counter=document.getElementById("bigCount");
+
+        if(count>0){
+            counter.textContent=count;
+        }else if(count===0){
+            counter.textContent="¡YA!";
+        }else{
+            clearInterval(timer);
+            countdown=false;
+            paused=false;
+            overlay.classList.add("hidden");
+            message("¡La partida ha comenzado!");
+        }
+    },1000);
+}
+
+function resetGame(){
+    health=maxHealth;
+    kills=0;
+    coins=0;
+    elapsed=0;
+    gameSpeed=1;
+    spawnInterval=1600;
+    lastSpawn=0;
+    lastDamage=0;
+
+    player.y=GROUND-player.h;
+    player.vy=0;
+    player.jumping=false;
+    player.invulnerable=0;
+
+    enemies=[];
+    arrows=[];
+    particles=[];
+
+    updateUI();
+}
+
+function endGame(){
+    running=false;
+    paused=true;
+    gameOver=true;
+    countdown=false;
+
+    overlay.classList.remove("hidden");
+
+    overlay.querySelector(".overlay-card").innerHTML=`
+        <h2>HAS CAÍDO EN <span>KAIZORA</span></h2>
+        <p>
+            Los mobs han conseguido derrotarte.<br>
+            Eliminaste <strong style="color:#ff6de1">${kills}</strong> enemigos
+            y conseguiste <strong style="color:#ffd66b">${coins.toLocaleString("es-ES")}</strong> monedas.
+        </p>
+        <button class="control-btn primary" id="restartBtn" style="width:100%">
+            ↻ VOLVER A INTENTAR
+        </button>
+    `;
+
+    document.getElementById("restartBtn").addEventListener("click",()=>{
+        resetGame();
+        startCountdown();
+    });
+
+    message("Partida terminada. ¡Inténtalo de nuevo!");
+}
+
+/* =========================================
+   PAUSA Y TIENDA
+========================================= */
+
+function pauseGame(){
+    if(!running || gameOver || countdown || inShop) return;
+
+    paused=!paused;
+
+    if(paused){
+        message("Partida pausada. Tómate un respiro.");
+        document.getElementById("pauseBtn").innerHTML='<span class="symbol">▶</span> REANUDAR';
+    }else{
+        document.getElementById("pauseBtn").innerHTML='<span class="symbol">Ⅱ</span> PAUSAR';
+        message("¡De vuelta a la batalla!");
+    }
+}
+
+function openShop(){
+    if(!running || gameOver || countdown || inShop) return;
+
+    paused=true;
+    inShop=true;
+
+    document.getElementById("shopSection").scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+    message("Tienda abierta. El tiempo está detenido.");
+    updateUI();
+}
+
+function closeShopAndResume(){
+    inShop=false;
+    paused=true;
+
+    overlay.classList.remove("hidden");
+
+    overlay.querySelector(".overlay-card").innerHTML=`
+        <h2>REGRESANDO A <span>KAIZORA</span></h2>
+        <p>La partida se reanudará en...</p>
+        <div class="big-count" id="bigCount">3</div>
+        <p>¡Alístate!</p>
+    `;
+
+    let count=3;
+
+    const timer=setInterval(()=>{
+        count--;
+
+        const counter=document.getElementById("bigCount");
+
+        if(count>0){
+            counter.textContent=count;
+        }else if(count===0){
+            counter.textContent="¡YA!";
+        }else{
+            clearInterval(timer);
+            overlay.classList.add("hidden");
+            paused=false;
+            document.getElementById("pauseBtn").innerHTML='<span class="symbol">Ⅱ</span> PAUSAR';
+            message("¡La batalla continúa!");
+        }
+    },1000);
+}
+
+/* =========================================
+   TIENDA Y COMPRAS
+========================================= */
+
+const prices={
+    armor1:5000000,
+    armor2:15000000,
+    armor3:35000000,
+    heart:8000000,
+    food:2000000,
+    bow:10000000
+};
+
+function canBuy(item){
+    if(coins<prices[item]) return false;
+
+    if(item==="armor1" && armorLevel>=1) return false;
+    if(item==="armor2" && armorLevel>=2) return false;
+    if(item==="armor3" && armorLevel>=3) return false;
+    if(item==="heart" && maxHealth>=20) return false;
+    if(item==="bow" && bowLevel>=1) return false;
+
+    return true;
+}
+
+function buyItem(item){
+    if(!inShop) return;
+
+    if(!canBuy(item)){
+        message("No tienes suficientes monedas o ya tienes esta mejora.");
+        return;
+    }
+
+    coins-=prices[item];
+
+    switch(item){
+        case "armor1":
+            armorLevel=1;
+            message("¡Has comprado la Armadura de Origin!");
+            break;
+
+        case "armor2":
+            armorLevel=2;
+            message("¡Has comprado la Armadura Celestial!");
+            break;
+
+        case "armor3":
+            armorLevel=3;
+            message("¡Has comprado la Armadura Kaizora!");
+            break;
+
+        case "heart":
+            maxHealth++;
+            health++;
+            message("¡Has conseguido un corazón adicional!");
+            break;
+
+        case "food":
+            foodCount+=3;
+            message("¡Has comprado 3 raciones de comida!");
+            break;
+
+        case "bow":
+            bowLevel=1;
+            message("¡Tu arco ahora hace más daño y dispara más rápido!");
+            break;
+    }
+
+    updateUI();
+}
+
+document.querySelectorAll(".buy-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        buyItem(btn.dataset.item);
+    });
+});
+
+/* =========================================
+   BOTONES
+========================================= */
+
+startBtn.addEventListener("click",()=>{
+    resetGame();
+    startCountdown();
+});
+
+document.getElementById("shootBtn").addEventListener("click",shoot);
+document.getElementById("jumpBtn").addEventListener("click",jump);
+document.getElementById("eatBtn").addEventListener("click",eat);
+document.getElementById("pauseBtn").addEventListener("click",pauseGame);
+document.getElementById("shopBtn").addEventListener("click",()=>{
+    if(inShop){
+        closeShopAndResume();
+    }else{
+        openShop();
+    }
+});
+
+/* =========================================
+   TECLADO
+========================================= */
+
+document.addEventListener("keydown",e=>{
+    if(e.code==="Space"){
+        e.preventDefault();
+        jump();
+    }
+
+    if(e.key.toLowerCase()==="f"){
+        shoot();
+    }
+
+    if(e.key.toLowerCase()==="e"){
+        eat();
+    }
+
+    if(e.key.toLowerCase()==="p"){
+        pauseGame();
+    }
+
+    if(e.key.toLowerCase()==="escape" && inShop){
+        closeShopAndResume();
+    }
+});
+
+/* =========================================
+   INICIO
+========================================= */
+
+updateUI();
+requestAnimationFrame(loop);
+</script>
+
+</body>
+</html>
