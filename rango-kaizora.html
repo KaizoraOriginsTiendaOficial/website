@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
-<title>ETERNO | Kaizora Origins</title>
-<meta name="description" content="Descubre el rango KAIZORA, el más exclusivo de Kaizora Origins: kit de Netherite nivel XI y XII, esencias, fragmentos y protección de terreno de 70 × 70.">
+<title>KAIZORA | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango KAIZORA, el más exclusivo de Kaizora Origins: comando /repair, kit de Netherite niveles XI y XII y protección de terreno de 70 × 70.">
 
 <style>
 :root{
@@ -611,6 +611,8 @@ footer span{color:#ffb6f0}
         transition:none!important;
     }
 }
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);color:#fff;font-size:12px;font-weight:900;letter-spacing:.4px}
 </style>
 </head>
 
@@ -649,6 +651,16 @@ footer span{color:#ffb6f0}
         <p class="desc">
             El rango más exclusivo y poderoso de Kaizora Origins, reservado para quienes quieren llevar su experiencia al máximo. Todo el contenido de los rangos anteriores, más equipamiento de Netherite a nivel XI y XII y la mayor protección de terreno.
         </p>
+
+                <div class="quick">
+            <span>Kit Netherite nivel XI-XII</span>
+            <span>Protección 70 × 70</span>
+            <span>+45M</span>
+            <span>/repair</span>
+            <span>+1 casa</span>
+            <span>Estrella Intercambiadora ×10</span>
+            <span>Llave Kaizora ×1</span>
+        </div>
 
         <div class="hero-bottom">
 
@@ -690,38 +702,20 @@ footer span{color:#ffb6f0}
 
         <h2>Información del rango</h2>
 
+        <!-- 01: COMANDOS EXCLUSIVOS -->
+
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
-                    <h3>El rango definitivo</h3>
-                    <p>Todo Kaizora Origins, en un solo rango</p>
-                </div>
-            </div>
-
-            <p>
-                KAIZORA es el rango más alto de todo Kaizora Origins. Al obtenerlo, recibirás todos los permisos, comandos, kits y beneficios de todos los rangos existentes del servidor, desde USER hasta DIOS, incluyendo todo el contenido y ventajas de cada rango anterior.
-            </p>
-
-            <p>
-                Además de todo lo anterior, KAIZORA incluye su propio kit exclusivo (<strong>/kit Kaizora</strong>) con equipamiento completo de Netherite encantado a niveles XI y XII, esencias, fragmentos, estrellas de intercambio y una protección de terreno de 70 × 70 bloques.
-            </p>
-
-        </div>
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">02</div>
-                <div>
-                    <h3>Comandos exclusivos de KAIZORA</h3>
-                    <p>Personaliza tu identidad y reúne a otros jugadores</p>
+                    <h3 class="kit-title">Comandos exclusivos de KAIZORA</h3>
+                    <p>Mantén tu equipo siempre listo</p>
                 </div>
             </div>
 
             <p class="command-intro">
-                Personaliza tu identidad dentro del servidor y reúne a otros jugadores en tu ubicación.
+                Desbloquea un comando exclusivo para mantener tu equipo siempre en perfecto estado. Este comando forma parte de los permisos propios del rango KAIZORA.
             </p>
 
             <div class="command-grid">
@@ -730,28 +724,13 @@ footer span{color:#ffb6f0}
 
                     <div class="command-top">
                         <span class="command-number">01</span>
-                        <span class="command-tag">Personalización</span>
+                        <span class="command-tag">Reparación</span>
                     </div>
 
-                    <span class="command-name">/nick</span>
+                    <span class="command-name">/repair</span>
 
                     <p class="command-description">
-                        Cambia tu apodo visible dentro del servidor para personalizar tu identidad y destacar con un nombre diferente al de tu usuario original, según las opciones permitidas por la configuración.
-                    </p>
-
-                </div>
-
-                <div class="command-card">
-
-                    <div class="command-top">
-                        <span class="command-number">02</span>
-                        <span class="command-tag">Teletransporte</span>
-                    </div>
-
-                    <span class="command-name">/tpahere</span>
-
-                    <p class="command-description">
-                        Envía una solicitud de teletransporte a otro jugador para que venga hasta tu ubicación. El jugador deberá aceptar la solicitud si el sistema lo requiere.
+                        Repara el objeto que llevas en la mano para mantener tu equipo siempre en perfecto estado. Tiene un tiempo de espera entre usos y no funciona en combate.
                     </p>
 
                 </div>
@@ -759,13 +738,35 @@ footer span{color:#ffb6f0}
             </div>
 
             <div class="command-note">
-                <strong>COMANDOS EXCLUSIVOS DE KAIZORA</strong><br>
-                Los comandos <strong>/nick</strong> y <strong>/tpahere</strong> son exclusivos de este rango.
-                <br><br>
-                <strong>Importante:</strong> los comandos disponibles dependen de los permisos y plugins instalados en el servidor.
+                <strong>VENTAJA KAIZORA</strong><br>
+                El comando <strong>/repair</strong> está disponible desde el rango KAIZORA y no está disponible en rangos inferiores. Las funciones disponibles pueden depender
+                de la configuración de los plugins del servidor.
             </div>
 
         </div>
+
+        <!-- 02: KIT ORIGIN -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">02</div>
+                <div>
+                    <h3 class="kit-title">/kit Kaizora</h3>
+                    <p>Tu equipamiento exclusivo de rango</p>
+                </div>
+            </div>
+
+            <p>
+                El kit exclusivo del rango KAIZORA incluye equipamiento completo de Netherite encantado a niveles XI y XII, armas, herramientas,
+                esencias especiales y una protección de terreno de 70 × 70 bloques.
+                KAIZORA incluye todos los beneficios de PRIMORDIAL y suma <strong>+1 casa</strong>
+                (/sethome) más dinero inicial.
+            </p>
+
+        </div>
+
+        <!-- 03: ARMADURA NETHERITE -->
 
         <div class="section">
 
@@ -783,14 +784,17 @@ footer span{color:#ffb6f0}
                     <span class="item-name">Casco de Netherite</span><br>
                     <span class="item-details">Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Respiración XI · Afinidad acuática XII · Irrompibilidad XI · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pechera de Netherite</span><br>
                     <span class="item-details">Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Irrompibilidad XI · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pantalones de Netherite</span><br>
                     <span class="item-details">Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Sigilo veloz XI · Irrompibilidad XII · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Botas de Netherite</span><br>
                     <span class="item-details">Paso helado XI · Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Caída de pluma XI · Velocidad del alma XII · Agilidad acuática XII · Irrompibilidad XI · Reparación</span>
@@ -799,6 +803,8 @@ footer span{color:#ffb6f0}
             </ul>
 
         </div>
+
+        <!-- 04: HERRAMIENTAS Y ARMAS -->
 
         <div class="section">
 
@@ -816,22 +822,32 @@ footer span{color:#ffb6f0}
                     <span class="item-name">Espada de Netherite</span><br>
                     <span class="item-details">Filo XI · Golpeo XII · Perdición de los artrópodos XI · Barrido XI · Aspecto ígneo XI · Empuje XII · Botín XII · Irrompibilidad XII · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pico de Netherite</span><br>
                     <span class="item-details">Fortuna XII · Eficiencia XI · Irrompibilidad XI · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Hacha de Netherite</span><br>
                     <span class="item-details">Filo XI · Golpeo XII · Perdición de los artrópodos XI · Fortuna XII · Eficiencia XI · Irrompibilidad XII · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pala de Netherite</span><br>
                     <span class="item-details">Fortuna XII · Eficiencia XI · Irrompibilidad XI · Reparación</span>
                 </li>
+
+                <li>
+                    <span class="item-name">Azada de Netherite</span><br>
+                    <span class="item-details">Fortuna XII · Eficiencia XI · Irrompibilidad XI · Reparación</span>
+                </li>
+
                 <li>
                     <span class="item-name">Maza</span><br>
                     <span class="item-details">Aeroimpulso XII · Golpeo XI · Perdición de los artrópodos XII · Densidad XI · Fisura XII · Aspecto ígneo XI · Irrompibilidad XI · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Escudo</span><br>
                     <span class="item-details">Irrompibilidad XI · Reparación</span>
@@ -840,6 +856,8 @@ footer span{color:#ffb6f0}
             </ul>
 
         </div>
+
+        <!-- 05: ESENCIAS -->
 
         <div class="section">
 
@@ -857,58 +875,72 @@ footer span{color:#ffb6f0}
                     <span class="item-name">Esencia Arcana</span><br>
                     <span class="item-details">×40</span>
                 </li>
+
                 <li>
                     <span class="item-name">Nexo Prismático</span><br>
                     <span class="item-details">×36</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
                     <span class="item-details">×34</span>
                 </li>
+
                 <li>
                     <span class="item-name">Cristal Acuático</span><br>
                     <span class="item-details">×32</span>
                 </li>
+
                 <li>
                     <span class="item-name">Vértice Cósmico</span><br>
                     <span class="item-details">×30</span>
                 </li>
+
                 <li>
                     <span class="item-name">Polvo Solar</span><br>
                     <span class="item-details">×28</span>
                 </li>
+
                 <li>
                     <span class="item-name">Semilla Natural</span><br>
                     <span class="item-details">×26</span>
                 </li>
+
                 <li>
                     <span class="item-name">Polvo Espectral</span><br>
                     <span class="item-details">×24</span>
                 </li>
+
                 <li>
                     <span class="item-name">Núcleo Ígneo</span><br>
                     <span class="item-details">×22</span>
                 </li>
+
                 <li>
                     <span class="item-name">Reliquia Dorada</span><br>
                     <span class="item-details">×20</span>
                 </li>
+
                 <li>
                     <span class="item-name">Génesis Oscuro</span><br>
                     <span class="item-details">×18</span>
                 </li>
+
                 <li>
                     <span class="item-name">Fragmento Cósmico</span><br>
                     <span class="item-details">×16</span>
                 </li>
+
                 <li>
                     <span class="item-name">Fragmento Lunar</span><br>
                     <span class="item-details">×14</span>
                 </li>
+
                 <li>
                     <span class="item-name">Estrella Intercambiadora</span><br>
                     <span class="item-details">×10 · se usan para intercambiar llaves</span>
                 </li>
+
                 <li>
                     <span class="item-name">Llave Kaizora</span><br>
                     <span class="item-details">×1</span>
@@ -917,6 +949,8 @@ footer span{color:#ffb6f0}
             </ul>
 
         </div>
+
+        <!-- 06: PROTECCIÓN -->
 
         <div class="section">
 
@@ -932,32 +966,12 @@ footer span{color:#ffb6f0}
 
                 <li>
                     <span class="item-name">Mena de protección</span><br>
-                    <span class="item-details">Protección de 70 × 70 bloques</span>
+                    <span class="item-details">
+                        Protección de 70 × 70 bloques
+                    </span>
                 </li>
 
             </ul>
-
-        </div>
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">07</div>
-                <div>
-                    <h3>Compra del rango</h3>
-                    <p>Obtén KAIZORA mediante nuestro Discord oficial</p>
-                </div>
-            </div>
-
-            <p>
-                Para adquirir KAIZORA, entra en el Discord oficial de Kaizora Origins y consulta el procedimiento de compra disponible. Las compras y la gestión del rango se realizan directamente mediante nuestro Discord.
-            </p>
-
-            <div class="actions">
-                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">
-                    Entrar al Discord oficial ↗
-                </a>
-            </div>
 
         </div>
 
@@ -967,7 +981,10 @@ footer span{color:#ffb6f0}
 
             <strong>RESUMEN DEL RANGO KAIZORA</strong><br>
 
-            KAIZORA incluye todo el contenido de los rangos anteriores, comandos exclusivos (/nick y /tpahere), un kit con armadura completa de Netherite, espada, pico, hacha, pala, maza y escudo encantados a niveles XI y XII, esencias y materiales especiales, Fragmento Cósmico ×16, Fragmento Lunar ×14, Estrella Intercambiadora ×10, Llave Kaizora ×1 y una protección de terreno de <strong>70 × 70 bloques</strong>.
+            KAIZORA incluye los beneficios de PRIMORDIAL y cuenta con el comando exclusivo
+            <strong>/repair</strong>, +1 casa, un kit con armadura completa de Netherite encantada a niveles XI y XII,
+            espada, pico, hacha, pala, azada, maza y escudo. También incluye Esencia Arcana ×40, Nexo Prismático ×36, Esencia Eléctrica ×34, Cristal Acuático ×32, Vértice Cósmico ×30, Polvo Solar ×28, Semilla Natural ×26, Polvo Espectral ×24, Núcleo Ígneo ×22, Reliquia Dorada ×20, Génesis Oscuro ×18, Fragmento Cósmico ×16, Fragmento Lunar ×14, Estrella Intercambiadora ×10, Llave Kaizora ×1
+            y protección de terreno de <strong>70 × 70 bloques</strong>.
 
             <br><br>
 
