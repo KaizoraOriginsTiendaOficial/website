@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b13">
+<meta name="theme-color" content="#09070e">
 <title>ELITE | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango ELITE de Kaizora Origins: comandos, kit de Netherite y beneficios.">
 
 <style>
 :root{
-    --bg:#080b13;
-    --panel:#101827;
-    --blue:#4d8dff;
-    --blue-light:#91baff;
-    --blue-pale:#d9e8ff;
-    --cyan:#79aaff;
+    --bg:#09070e;
+    --panel:#12101c;
+    --rank:#4d8dff;
+    --rank-light:#91baff;
+    --rank-pale:#d9e8ff;
+    --pink:#ff6de1;
     --white:#fff;
-    --text:#e8edf7;
-    --muted:#b7c2d5;
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
     --border:rgba(77,141,255,.30);
 }
 
@@ -40,9 +41,9 @@ a{color:inherit}
     z-index:-2;
     background:
         radial-gradient(ellipse at 12% 12%,rgba(77,141,255,.25),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(80,170,255,.13),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(40,100,210,.16),transparent 40%),
-        #080b13;
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(53,98,178,.14),transparent 40%),
+        #09070e;
 }
 
 .bg::after{
@@ -66,7 +67,7 @@ nav{
     gap:16px;
     padding:14px 7%;
     border-bottom:1px solid rgba(77,141,255,.2);
-    background:rgba(8,11,19,.85);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
     position:relative;
     z-index:5;
@@ -78,11 +79,11 @@ nav{
     letter-spacing:1.5px;
 }
 
-.logo span{color:var(--blue-light)}
+.logo span{color:var(--rank-light)}
 
 nav a{
     text-decoration:none;
-    color:#e0e8f7;
+    color:#e0d8ef;
     font-size:13px;
     font-weight:800;
 }
@@ -92,7 +93,7 @@ nav a.home:hover{color:white}
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#3476e8,#6daaff);
+    background:linear-gradient(110deg,#3663b2,#4d8dff);
     color:white!important;
     border:1px solid rgba(255,255,255,.23);
     box-shadow:0 5px 24px rgba(77,141,255,.28);
@@ -121,13 +122,13 @@ main{
     display:inline-flex;
     align-items:center;
     gap:9px;
-    color:var(--blue-pale);
+    color:var(--rank-pale);
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
     margin-bottom:19px;
     padding:9px 13px;
-    border:1px solid rgba(145,186,255,.48);
+    border:1px solid rgba(77,141,255,.48);
     border-radius:6px;
     background:rgba(77,141,255,.14);
     box-shadow:0 0 25px rgba(77,141,255,.1);
@@ -138,8 +139,8 @@ main{
     width:7px;
     height:7px;
     border-radius:50%;
-    background:var(--blue-light);
-    box-shadow:0 0 13px var(--blue-light);
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
 }
 
 h1{
@@ -152,7 +153,7 @@ h1{
 }
 
 h1 span{
-    background:linear-gradient(100deg,#fff 5%,#d9e8ff 45%,#91baff 80%,#79aaff);
+    background:linear-gradient(100deg,#fff 5%,#d9e8ff 45%,#91baff 80%,#ff6de1);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
@@ -160,7 +161,7 @@ h1 span{
 
 .desc{
     max-width:680px;
-    color:#c8d2e2;
+    color:#c8c1d6;
     font-size:17px;
     line-height:1.85;
     margin:0;
@@ -184,7 +185,7 @@ h1 span{
 
 .price-label{
     display:block;
-    color:#aab8ce;
+    color:#aaa1bd;
     font-size:10px;
     letter-spacing:2px;
     font-weight:900;
@@ -195,12 +196,12 @@ h1 span{
     font-size:46px;
     font-weight:1000;
     letter-spacing:-2px;
-    color:var(--blue-light);
+    color:var(--rank-light);
     text-shadow:0 0 25px rgba(77,141,255,.3);
 }
 
 .price-note{
-    color:#bcbfd0;
+    color:#bcb4ce;
     font-size:12px;
     line-height:1.6;
 }
@@ -228,7 +229,7 @@ h1 span{
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
-    color:#07101d;
+    color:#100a1b;
     border-color:#d9e8ff;
     background:linear-gradient(110deg,#91baff,#d9e8ff);
     box-shadow:0 5px 24px rgba(77,141,255,.25);
@@ -239,12 +240,12 @@ h1 span{
 }
 
 .back{
-    color:#e5efff;
+    color:#d9e8ff;
     background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:var(--blue-light);
+    border-color:var(--rank-light);
     background:rgba(77,141,255,.1);
 }
 
@@ -256,7 +257,7 @@ h1 span{
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(18,27,43,.97),rgba(10,15,25,.98));
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
     box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(77,141,255,.06);
     overflow:hidden;
     animation:appear .8s ease both;
@@ -269,7 +270,7 @@ h1 span{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,#4d8dff,#91baff,transparent);
+    background:linear-gradient(90deg,transparent,#4d8dff,#ff6de1,transparent);
 }
 
 .box h2{
@@ -286,14 +287,14 @@ h1 span{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(#4d8dff,#91baff);
-    box-shadow:0 0 16px rgba(145,186,255,.5);
+    background:linear-gradient(#4d8dff,#ff6de1);
+    box-shadow:0 0 16px rgba(77,141,255,.5);
     flex-shrink:0;
 }
 
 .box h3{
     margin:0 0 14px;
-    color:#f8fbff;
+    color:#f8f4ff;
     font-size:18px;
     font-weight:950;
 }
@@ -309,7 +310,7 @@ h1 span{
 .section{
     margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(145,186,255,.18);
+    border-top:1px solid rgba(77,141,255,.18);
 }
 
 .section:first-of-type{
@@ -333,8 +334,8 @@ h1 span{
     width:42px;
     height:42px;
     border-radius:12px;
-    border:1px solid rgba(145,186,255,.4);
-    background:linear-gradient(145deg,rgba(77,141,255,.25),rgba(121,170,255,.1));
+    border:1px solid rgba(77,141,255,.4);
+    background:linear-gradient(145deg,rgba(77,141,255,.25),rgba(255,109,225,.1));
     color:#d9e8ff;
     font-size:15px;
     font-weight:950;
@@ -349,7 +350,7 @@ h1 span{
 .section-heading p{
     margin:5px 0 0;
     font-size:12px;
-    color:#a9b8ce;
+    color:#a99fbc;
 }
 
 .info-list{
@@ -361,43 +362,44 @@ h1 span{
     gap:9px;
 }
 
+.info-list li.wide{grid-column:1/-1}
 .info-list li{
     min-width:0;
     padding:14px 15px;
-    border:1px solid rgba(145,186,255,.2);
+    border:1px solid rgba(77,141,255,.2);
     border-radius:10px;
     background:linear-gradient(120deg,rgba(77,141,255,.1),rgba(255,255,255,.018));
-    color:#d1dbea;
+    color:#d1c8df;
     line-height:1.7;
     transition:border-color .2s,background .2s,transform .2s;
     overflow-wrap:anywhere;
 }
 
 .info-list li:hover{
-    border-color:rgba(217,232,255,.65);
+    border-color:rgba(229,217,255,.65);
     background:rgba(77,141,255,.14);
     transform:translateY(-1px);
 }
 
 .item-name{
-    color:#f5f9ff;
+    color:#f5efff;
     font-weight:900;
     overflow-wrap:anywhere;
 }
 
 .item-details{
-    color:#a9caff;
+    color:#91baff;
     font-size:13px;
     font-weight:700;
 }
 
 .inherit{
-    margin-top:34px;
+    margin-top:19px;
     padding:20px;
-    border:1px solid rgba(145,186,255,.36);
+    border:1px solid rgba(77,141,255,.36);
     border-radius:12px;
-    background:linear-gradient(110deg,rgba(77,141,255,.17),rgba(121,170,255,.055));
-    color:#d0dbea;
+    background:linear-gradient(110deg,rgba(77,141,255,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
     line-height:1.9;
     box-shadow:inset 0 0 24px rgba(77,141,255,.04);
 }
@@ -406,10 +408,10 @@ h1 span{
 
 .kit-title{
     font-size:21px!important;
-    color:#f4f8ff!important;
+    color:#f4edff!important;
 }
 
-/* COMANDOS ELITE */
+/* COMANDOS ORIGIN */
 
 .command-intro{margin-bottom:20px!important}
 
@@ -426,11 +428,11 @@ h1 span{
     min-width:0;
     margin-top:0;
     padding:23px;
-    border:1px solid rgba(145,186,255,.42);
+    border:1px solid rgba(77,141,255,.42);
     border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 0%,rgba(121,170,255,.14),transparent 55%),
-        linear-gradient(135deg,rgba(45,91,160,.25),rgba(16,24,39,.96) 70%);
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(30,56,102,.25),rgba(26,20,41,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
 }
@@ -442,7 +444,7 @@ h1 span{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(#4d8dff,#91baff);
+    background:linear-gradient(#4d8dff,#ff6de1);
     box-shadow:0 0 15px rgba(77,141,255,.25);
 }
 
@@ -460,7 +462,7 @@ h1 span{
 }
 
 .command-card:hover{
-    border-color:rgba(217,232,255,.8);
+    border-color:rgba(229,217,255,.8);
     transform:translateY(-4px);
     box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(77,141,255,.12);
 }
@@ -480,17 +482,17 @@ h1 span{
     width:32px;
     height:32px;
     border-radius:9px;
-    color:#e5f0ff;
+    color:#d9e8ff;
     background:rgba(77,141,255,.24);
-    border:1px solid rgba(145,186,255,.32);
+    border:1px solid rgba(77,141,255,.32);
     font-size:12px;
     font-weight:950;
 }
 
 .command-tag{
-    color:#d0e3ff;
+    color:#d9e8ff;
     background:rgba(77,141,255,.09);
-    border:1px solid rgba(145,186,255,.25);
+    border:1px solid rgba(77,141,255,.25);
     border-radius:5px;
     padding:6px 9px;
     font-size:9px;
@@ -513,7 +515,7 @@ h1 span{
 
 .command-description{
     margin:0!important;
-    color:#d0dbea!important;
+    color:#d0c9df!important;
     font-size:14px;
     line-height:1.85!important;
 }
@@ -521,11 +523,11 @@ h1 span{
 .command-note{
     margin-top:20px;
     padding:18px 20px;
-    border:1px solid rgba(145,186,255,.25);
-    border-left:4px solid var(--blue);
+    border:1px solid rgba(77,141,255,.25);
+    border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(77,141,255,.14),rgba(121,170,255,.035));
-    color:#c4cede;
+    background:linear-gradient(100deg,rgba(77,141,255,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
     font-size:13px;
     line-height:1.9;
 }
@@ -534,16 +536,18 @@ h1 span{
 
 /* PIE */
 
+.gear-title{margin:26px 0 14px!important;font-size:18px!important;color:#f4f4ff!important}
+.gear-title:first-of-type{margin-top:6px!important}
 footer{
     text-align:center;
     padding:30px 20px;
-    color:#8d9bb0;
+    color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(145,186,255,.18);
-    background:rgba(8,11,19,.72);
+    border-top:1px solid rgba(77,141,255,.18);
+    background:rgba(8,6,13,.72);
 }
 
-footer span{color:#a9caff}
+footer span{color:#91baff}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
