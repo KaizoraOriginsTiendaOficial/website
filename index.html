@@ -304,6 +304,15 @@ button { font: inherit; }
 .rank-description { color: #c1b5ca; font-size: .77rem; line-height: 1.7; min-height: 55px; position: relative; z-index: 1; }
 .rank-price { margin: 21px 0 19px; padding-top: 15px; border-top: 1px solid color-mix(in srgb, var(--rank-color) 25%, transparent); position: relative; z-index: 1; }
 .rank-price strong { color: white; font-size: 1.75rem; font-weight: 900; letter-spacing: -.8px; }
+
+.price-soon { display: block; margin: 0 0 4px; font-style: normal; font-size: .68rem; font-weight: 800; color: var(--rank-color); }
+.price-soon:empty { display: none; }
+
+.price-old { display: block; font-size: .95rem; font-weight: 800; color: #ff5a6a; text-decoration: line-through; text-decoration-thickness: 2px; margin-bottom: 2px; }
+.price-off { display: inline-block; margin-left: 8px; padding: 2px 7px; border-radius: 6px; background: rgba(52,211,110,.15); border: 1px solid rgba(52,211,110,.5); color: #4ade80; font-size: .62rem; font-weight: 900; letter-spacing: 1px; text-decoration: none; vertical-align: middle; }
+.rank-price span.price-old { display: block; margin: 0 0 2px; font-size: .95rem; font-weight: 800; color: #ff5a6a; text-decoration: line-through; text-decoration-thickness: 2px; }
+.rank-price span.price-off { display: inline-block; margin: 0 0 0 8px; padding: 2px 7px; color: #4ade80; font-size: .62rem; font-weight: 900; text-decoration: none; }
+.compare-table s { color: #ff5a6a; margin-left: 8px; font-weight: 700; text-decoration-thickness: 2px; }
 .rank-price span { display: block; color: #b0a2b8; font-size: .69rem; margin-top: 3px; }
 
 .rank-actions {
@@ -333,6 +342,46 @@ button { font: inherit; }
 .rank-buy { background: var(--rank-color); color: #160d19; }
 .rank-buy:hover { filter: brightness(1.15); }
 .rank-note { text-align: center; color: #ad9fb5; font-size: .78rem; margin-top: 27px; }
+
+
+
+.featured { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; margin-bottom: 34px; }
+.feat { display: block; padding: 22px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); background: linear-gradient(145deg, color-mix(in srgb, var(--c) 14%, #1c1226), #140d1b); text-decoration: none; color: #fff; transition: transform .2s; }
+.feat:hover { transform: translateY(-4px); }
+.feat small { display: block; color: var(--c); font-size: .66rem; font-weight: 900; letter-spacing: 1.5px; margin-bottom: 8px; }
+.feat strong { display: block; font-size: 1.35rem; font-weight: 900; margin-bottom: 6px; }
+.feat span { display: block; color: var(--muted); font-size: .82rem; margin-bottom: 12px; }
+.feat em { font-style: normal; font-weight: 900; color: var(--c); }
+@media (max-width: 760px) { .featured { grid-template-columns: 1fr; } }
+.rank-temp { display: block; margin-top: 10px; padding: 9px 10px; text-align: center; font-size: .7rem; font-weight: 800; letter-spacing: .4px; color: var(--rank-color); border: 1px dashed color-mix(in srgb, var(--rank-color) 45%, transparent); border-radius: 10px; text-decoration: none; position: relative; z-index: 1; }
+.rank-temp:hover { background: color-mix(in srgb, var(--rank-color) 12%, transparent); }
+.rank-perks { list-style: none; margin: 14px 0 0; display: grid; gap: 6px; position: relative; z-index: 1; }
+.rank-perks li { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding-bottom: 5px; font-size: .7rem; color: #b8abc1; border-bottom: 1px dashed color-mix(in srgb, var(--rank-color) 22%, transparent); }
+.rank-perks li:last-child { border-bottom: 0; }
+.rank-perks b { color: #fff; font-weight: 800; text-align: right; overflow-wrap: anywhere; }
+
+.compare-wrap { margin-top: 56px; }
+.compare-wrap h3 { text-align: center; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 900; letter-spacing: -.8px; margin-bottom: 8px; }
+.compare-wrap > p { text-align: center; color: var(--muted); font-size: .85rem; margin-bottom: 22px; }
+.compare-scroll { overflow-x: auto; border: 1px solid rgba(255,109,225,.25); border-radius: 16px; background: linear-gradient(145deg, rgba(43,27,51,.8), rgba(23,15,31,.9)); }
+.compare-table { width: 100%; border-collapse: collapse; min-width: 700px; font-size: .84rem; }
+.compare-table th, .compare-table td { padding: 13px 16px; text-align: left; border-bottom: 1px solid rgba(255,255,255,.07); white-space: nowrap; }
+.compare-table th { color: var(--pink2); font-size: .68rem; letter-spacing: 1.4px; text-transform: uppercase; font-weight: 900; }
+.compare-table td:first-child { font-weight: 900; }
+.compare-table td:nth-child(2) { color: var(--pink2); font-weight: 900; }
+.compare-table td:last-child { color: var(--muted); white-space: normal; }
+.compare-table tbody tr:last-child td { border-bottom: 0; }
+.compare-table tbody tr:hover { background: rgba(255,109,225,.06); }
+.compare-table .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 9px; background: var(--c); box-shadow: 0 0 10px var(--c); }
+
+.how-buy { margin-top: 56px; }
+.how-buy h3 { text-align: center; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 900; letter-spacing: -.8px; margin-bottom: 22px; }
+.how-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+.how-step { padding: 24px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px; background: linear-gradient(145deg, rgba(40,25,48,.9), rgba(22,14,29,.94)); }
+.how-step .num { width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: 14px; border-radius: 11px; border: 1px solid rgba(255,109,225,.4); background: rgba(255,109,225,.1); color: var(--pink); font-weight: 900; }
+.how-step h4 { font-size: 1.02rem; font-weight: 900; margin-bottom: 7px; }
+.how-step p { color: var(--muted); font-size: .84rem; }
+.how-cta { display: flex; justify-content: center; margin-top: 26px; }
 
 /* TIENDA */
 .shop-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 23px; }
@@ -442,6 +491,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
   .nav-links { gap: 13px; }
   .nav-links a { font-size: .76rem; }
   .rank-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .how-grid { grid-template-columns: 1fr; }
   .social-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -480,6 +530,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
   .rank-description { font-size: .72rem; min-height: 0; }
   .rank-price strong { font-size: 1.45rem; }
   .rank-tag { font-size: .53rem; }
+  .rank-perks li { font-size: .64rem; }
   .rank-actions { gap: 5px; }
   .rank-button { font-size: .61rem; padding: 6px 3px; }
   .social-grid { gap: 10px; }
@@ -623,15 +674,25 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
     <div class="rank-grid">
 
       <article class="rank-card origin reveal">
-        <div class="rank-topline"><span class="rank-index">RANGO 01</span></div>
+        <div class="rank-topline">
+          <span class="rank-index">RANGO 01</span>
+          
+        </div>
         <div class="rank-emblem">O</div>
         <h3>Origin</h3>
         <p class="rank-description">El comienzo de tu historia dentro de Kaizora.</p>
-        <div class="rank-price"><strong>$4.99</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>VI</b></li>
+          <li><span>Protección</span><b>20×20</b></li>
+          <li><span>Dinero</span><b>+4M</b></li>
+          <li><span>Comandos</span><b>/me · /recipe · /depth</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$7.99<span class="price-off">-38%</span></span><strong>$4.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-origin.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-origin.html">⏱ Probar 7 o 14 días · desde $1.49</a>
       </article>
 
       <article class="rank-card ascendente reveal">
@@ -642,11 +703,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">A</div>
         <h3>Ascendente</h3>
         <p class="rank-description">Eleva tu aventura, destaca entre los demás y demuestra hasta dónde puedes llegar en Kaizora Origins.</p>
-        <div class="rank-price"><strong>$9.99</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>VI-VII</b></li>
+          <li><span>Protección</span><b>20×20</b></li>
+          <li><span>Dinero</span><b>+7M</b></li>
+          <li><span>Comandos</span><b>/hat · /ptime</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$9.99<span class="price-off">-20%</span></span><strong>$7.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-ascendente.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-ascendente.html">⏱ Probar 7 o 14 días · desde $1.99</a>
       </article>
 
       <article class="rank-card elite reveal">
@@ -654,23 +722,40 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">E</div>
         <h3>Elite</h3>
         <p class="rank-description">Da el siguiente paso y destaca en tu aventura.</p>
-        <div class="rank-price"><strong>$14.99</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>VII</b></li>
+          <li><span>Protección</span><b>30×30</b></li>
+          <li><span>Dinero</span><b>+10M</b></li>
+          <li><span>Comandos</span><b>/extinguish · /itemname</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$14.99<span class="price-off">-13%</span></span><strong>$12.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-elite.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-elite.html">⏱ Probar 7 o 14 días · desde $2.99</a>
       </article>
 
       <article class="rank-card celestial reveal">
-        <div class="rank-topline"><span class="rank-index">RANGO 04</span></div>
+        <div class="rank-topline">
+          <span class="rank-index">RANGO 04</span>
+          <span class="rank-tag">PREMIO DEL EVENTO</span>
+        </div>
         <div class="rank-emblem">✧</div>
         <h3>Celestial</h3>
         <p class="rank-description">Continúa creciendo y lleva tu progreso más lejos.</p>
-        <div class="rank-price"><strong>$19.99</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>VII-VIII</b></li>
+          <li><span>Protección</span><b>30×30</b></li>
+          <li><span>Dinero</span><b>+13M</b></li>
+          <li><span>Comandos</span><b>/craft</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$19.99<span class="price-off">-15%</span></span><strong>$16.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-celestial.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-celestial.html">⏱ Probar 7 o 14 días · desde $3.99</a>
       </article>
 
       <article class="rank-card astral reveal">
@@ -681,11 +766,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">✦</div>
         <h3>Astral</h3>
         <p class="rank-description">Desata tu potencial, alcanza un nuevo nivel y deja tu huella entre las estrellas de Kaizora.</p>
-        <div class="rank-price"><strong>$24.99</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>VIII</b></li>
+          <li><span>Protección</span><b>30×30</b></li>
+          <li><span>Dinero</span><b>+16M</b></li>
+          <li><span>Comandos</span><b>/anvil · /pweather</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$24.99<span class="price-off">-8%</span></span><strong>$22.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-astral.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-astral.html">⏱ Probar 7 o 14 días · desde $5.49</a>
       </article>
 
       <article class="rank-card majestad recommended reveal">
@@ -696,11 +788,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">♛</div>
         <h3>Majestad</h3>
         <p class="rank-description">Una elección destacada para dar un gran salto.</p>
-        <div class="rank-price"><strong>$29.99</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>VIII-IX</b></li>
+          <li><span>Protección</span><b>30×30</b></li>
+          <li><span>Dinero</span><b>+20M</b></li>
+          <li><span>Comandos</span><b>/ec</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$29.99<span class="price-off">-13%</span></span><strong>$25.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-majestad.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-majestad.html">⏱ Probar 7 o 14 días · desde $6.99</a>
       </article>
 
       <article class="rank-card guardian reveal">
@@ -708,11 +807,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">⬡</div>
         <h3>Guardian</h3>
         <p class="rank-description">Refuerza tu presencia y sigue construyendo tu legado.</p>
-        <div class="rank-price"><strong>$34.99 - Sin Info Aun</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>IX</b></li>
+          <li><span>Protección</span><b>40×40</b></li>
+          <li><span>Dinero</span><b>+24M</b></li>
+          <li><span>Comandos</span><b>/condense · /skull</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$34.99<span class="price-off">-6%</span></span><strong>$32.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
-          <a class="rank-button" href="minijuego-kaizora.html">VER INFO</a>
+          <a class="rank-button" href="rango-guardian.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-guardian.html">⏱ Probar 7 o 14 días · desde $9.49</a>
       </article>
 
       <article class="rank-card semidios reveal">
@@ -720,11 +826,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">✦</div>
         <h3>SemiDios</h3>
         <p class="rank-description">Acércate a los niveles más altos de Kaizora.</p>
-        <div class="rank-price"><strong>$39.99 - Sin Info Aun</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>IX-X</b></li>
+          <li><span>Protección</span><b>40×40</b></li>
+          <li><span>Dinero</span><b>+28M</b></li>
+          <li><span>Comandos</span><b>/near · /tpahere</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$44.99<span class="price-off">-16%</span></span><strong>$37.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
-          <a class="rank-button" href="minijuego-kaizora.html">VER INFO</a>
+          <a class="rank-button" href="rango-semidios.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-semidios.html">⏱ Probar 7 o 14 días · desde $11.99</a>
       </article>
 
       <article class="rank-card dios reveal">
@@ -732,11 +845,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">✹</div>
         <h3>Dios</h3>
         <p class="rank-description">Un rango de alto nivel para jugadores ambiciosos.</p>
-        <div class="rank-price"><strong>$44.99 - Sin Info Aun</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>X</b></li>
+          <li><span>Protección</span><b>50×50</b></li>
+          <li><span>Dinero</span><b>+32M</b></li>
+          <li><span>Comandos</span><b>/fly</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$49.99<span class="price-off">-14%</span></span><strong>$42.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
-          <a class="rank-button" href="minijuego-kaizora.html">VER INFO</a>
+          <a class="rank-button" href="rango-dios.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-dios.html">⏱ Probar 7 o 14 días · desde $14.49</a>
       </article>
 
       <article class="rank-card eterno reveal">
@@ -747,11 +867,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">∞</div>
         <h3>Eterno</h3>
         <p class="rank-description">Un rango para quienes superan todos los límites y construyen un legado que perdura.</p>
-        <div class="rank-price"><strong>$49.99 - Sin Info Aun</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>X-XI</b></li>
+          <li><span>Protección</span><b>50×50</b></li>
+          <li><span>Dinero</span><b>+35M</b></li>
+          <li><span>Comandos</span><b>/nick · /itemlore</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$54.99<span class="price-off">-11%</span></span><strong>$48.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
-          <a class="rank-button" href="minijuego-kaizora.html">VER INFO</a>
+          <a class="rank-button" href="rango-eterno.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-eterno.html">⏱ Probar 7 o 14 días · desde $17.99</a>
       </article>
 
       <article class="rank-card primordial reveal">
@@ -762,11 +889,18 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">P</div>
         <h3>Primordial</h3>
         <p class="rank-description">Representa el poder del origen y alcanza uno de los niveles más exclusivos de Kaizora Origins.</p>
-        <div class="rank-price"><strong>$59.99 - Sin Info Aun</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>XI</b></li>
+          <li><span>Protección</span><b>60×60</b></li>
+          <li><span>Dinero</span><b>+38M</b></li>
+          <li><span>Comandos</span><b>/grindstone · /smithingtable</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$64.99<span class="price-off">-15%</span></span><strong>$54.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
-          <a class="rank-button" href="minijuego-kaizora.html">VER INFO</a>
+          <a class="rank-button" href="rango-primordial.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-primordial.html">⏱ Probar 7 o 14 días · desde $21.49</a>
       </article>
 
       <article class="rank-card kaizora reveal">
@@ -777,16 +911,34 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
         <div class="rank-emblem">K</div>
         <h3>Kaizora</h3>
         <p class="rank-description">El rango definitivo de la colección. Alcanza la cima.</p>
-        <div class="rank-price"><strong>$69.99 - Sin Info Aun</strong><span>Pago único</span></div>
+        <ul class="rank-perks">
+          <li><span>Netherite</span><b>XI-XII</b></li>
+          <li><span>Protección</span><b>70×70</b></li>
+          <li><span>Dinero</span><b>+45M</b></li>
+          <li><span>Comandos</span><b>/repair</b></li>
+        </ul>
+        <div class="rank-price"><span class="price-old">$79.99<span class="price-off">-19%</span></span><strong>$64.99</strong><span>Pago único</span></div>
         <div class="rank-actions">
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
-          <a class="rank-button" href="minijuego-kaizora.html">VER INFO</a>
+          <a class="rank-button" href="rango-kaizora.html">VER INFO</a>
         </div>
+        <a class="rank-temp" href="temporal-kaizora.html">⏱ Probar 7 o 14 días · desde $24.99</a>
       </article>
 
     </div>
 
-    <p class="rank-note reveal">Consulta cada rango para conocer sus ventajas y detalles.</p>
+
+    <div class="how-buy reveal">
+      <h3>Cómo conseguir tu rango</h3>
+      <div class="how-grid">
+        <div class="how-step"><div class="num">1</div><h4>Entra al Discord</h4><p>Únete al Discord oficial y dinos qué rango quieres.</p></div>
+        <div class="how-step"><div class="num">2</div><h4>Paga por PayPal</h4><p>El pago se realiza por PayPal. Es un pago único, sin suscripciones.</p></div>
+        <div class="how-step"><div class="num">3</div><h4>Recibe tu rango</h4><p>Reclama tu kit con <strong>/kit</strong> dentro del servidor y empieza a disfrutarlo.</p></div>
+      </div>
+      <div class="how-cta"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="btn btn-primary">COMPRAR POR DISCORD ↗</a></div>
+    </div>
+
+    <p class="rank-note reveal">Pulsa «VER INFO» en cada rango para ver el kit completo, los encantamientos y los comandos. ¿No quieres pagar el permanente? Cada rango tiene también opción temporal de 7 o 14 días.</p>
   </div>
 </section>
 
