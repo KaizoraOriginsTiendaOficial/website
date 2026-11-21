@@ -543,10 +543,97 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
   .countdown { grid-template-columns: repeat(2, minmax(0, 100px)); }
   .community-card .btn { width: 100%; }
 }
+
+/* ====== MEJORAS VISUALES v5 ====== */
+.brand-mark { position: relative; overflow: visible; background: none; border: 0; box-shadow: none; padding: 0; }
+.brand-mark svg { width: 100%; height: 100%; filter: drop-shadow(0 0 10px rgba(255,109,225,.45)); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.brand:hover .brand-mark svg { transform: rotate(-8deg) scale(1.1); }
+.navbar { transition: box-shadow .3s, background .3s; }
+.navbar.scrolled { background: rgba(16,11,23,.96); box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+.navbar.scrolled .nav-inner { min-height: 64px; }
+.nav-inner { transition: min-height .3s; }
+.nav-links a:not(.discord-link) { position: relative; }
+.nav-links a:not(.discord-link)::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:var(--pink); transform:scaleX(0); transform-origin:left; transition:transform .25s; border-radius:2px; }
+.nav-links a.active, .nav-links a:not(.discord-link):hover { color: var(--pink); }
+.nav-links a.active::after, .nav-links a:not(.discord-link):hover::after { transform: scaleX(1); }
+#scrollBar { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 2000; background: linear-gradient(90deg,#9B5DE5,#ff6de1,#ffd34d); box-shadow: 0 0 12px rgba(255,109,225,.6); }
+
+/* Título con brillo animado */
+.hero h1 span {
+  background: linear-gradient(100deg,#ff6de1 0%,#ffb3f1 30%,#ffffff 45%,#ff6de1 60%,#9B5DE5 100%);
+  background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite; text-shadow: none; filter: drop-shadow(0 0 26px rgba(255,109,225,.28));
+}
+@keyframes shine { 0% { background-position: 100% 0; } 100% { background-position: -150% 0; } }
+.hero h1 { animation: heroIn .9s cubic-bezier(.2,.8,.2,1) both; }
+.hero .status { animation: heroIn .7s .05s both; }
+.hero-description { animation: heroIn .9s .2s both; }
+.hero-buttons { animation: heroIn .9s .35s both; }
+.hero-stats { animation: heroIn .9s .5s both; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.status-dot { animation: dotPulse 1.8s infinite; }
+@keyframes dotPulse { 0%{ box-shadow:0 0 0 0 rgba(98,229,156,.6);} 70%{ box-shadow:0 0 0 10px rgba(98,229,156,0);} 100%{ box-shadow:0 0 0 0 rgba(98,229,156,0);} }
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::after { content:""; position:absolute; top:0; left:-80%; width:50%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg); animation: btnShine 4s 1.5s infinite; }
+@keyframes btnShine { 0%{ left:-80%; } 30%,100%{ left:160%; } }
+
+/* Cubos flotantes 3D */
+.cubes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; perspective: 900px; }
+.cube { position: absolute; transform-style: preserve-3d; animation: cubeSpin var(--dur,22s) linear infinite, cubeBob var(--bob,7s) ease-in-out infinite; opacity: .75; }
+.cube i { position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--c) 70%, transparent); background: color-mix(in srgb, var(--c) 10%, transparent); box-shadow: inset 0 0 14px color-mix(in srgb, var(--c) 25%, transparent); }
+.cube i:nth-child(1){ transform: translateZ(calc(var(--s)/2)); }
+.cube i:nth-child(2){ transform: rotateY(180deg) translateZ(calc(var(--s)/2)); }
+.cube i:nth-child(3){ transform: rotateY(90deg) translateZ(calc(var(--s)/2)); }
+.cube i:nth-child(4){ transform: rotateY(-90deg) translateZ(calc(var(--s)/2)); }
+.cube i:nth-child(5){ transform: rotateX(90deg) translateZ(calc(var(--s)/2)); }
+.cube i:nth-child(6){ transform: rotateX(-90deg) translateZ(calc(var(--s)/2)); }
+@keyframes cubeSpin { from { rotate: x 20deg y 0deg; } to { rotate: x 380deg y 360deg; } }
+@keyframes cubeBob { 0%,100% { translate: 0 0; } 50% { translate: 0 -24px; } }
+canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* Marquesina de rangos */
+.ticker { overflow: hidden; border-block: 1px solid var(--border); background: rgba(255,255,255,.025); padding: 13px 0; -webkit-mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image: linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+.ticker-track { display: flex; gap: 38px; width: max-content; animation: tick 38s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker span { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: .82rem; letter-spacing: 2px; color: #e7dcee; white-space: nowrap; }
+.ticker span::before { content:""; width: 10px; height: 10px; background: var(--c); transform: rotate(45deg); box-shadow: 0 0 12px var(--c); }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* Tarjetas de rango: brillo que sigue al cursor */
+.rank-card .glow { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(260px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--rank-color) 22%, transparent), transparent 65%); }
+.rank-card:hover .glow { opacity: 1; }
+.rank-card .rank-emblem { transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .3s; }
+.rank-card:hover .rank-emblem { transform: scale(1.12) rotate(-6deg); box-shadow: 0 0 26px color-mix(in srgb, var(--rank-color) 55%, transparent); }
+.rank-card.recommended { animation: recPulse 3.2s ease-in-out infinite; }
+@keyframes recPulse { 0%,100% { box-shadow: inset 0 1px rgba(255,255,255,.055), 0 12px 28px rgba(0,0,0,.12), 0 0 0 0 rgba(255,211,77,0); } 50% { box-shadow: inset 0 1px rgba(255,255,255,.055), 0 12px 34px rgba(0,0,0,.12), 0 0 30px 0 rgba(255,211,77,.22); } }
+.rank-grid .reveal:nth-child(4n+2) { transition-delay: .08s; }
+.rank-grid .reveal:nth-child(4n+3) { transition-delay: .16s; }
+.rank-grid .reveal:nth-child(4n+4) { transition-delay: .24s; }
+
+/* Cuenta atrás y evento */
+.countdown-item strong.pop { animation: pop .35s; }
+@keyframes pop { 40% { transform: scale(1.18); text-shadow: 0 0 18px var(--pink); } }
+.event-card { position: relative; animation: evGlow 4s ease-in-out infinite; }
+@keyframes evGlow { 0%,100% { box-shadow: 0 0 0 rgba(255,109,225,0); } 50% { box-shadow: 0 0 55px rgba(255,109,225,.16); } }
+
+/* Subir arriba */
+#toTop { position: fixed; right: 18px; bottom: 18px; width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--pink); background: rgba(25,13,28,.92); color: var(--pink); font-size: 1.2rem; font-weight: 900; cursor: pointer; z-index: 1500; opacity: 0; transform: translateY(14px); pointer-events: none; transition: .3s; }
+#toTop.show { opacity: 1; transform: none; pointer-events: auto; }
+#toTop:hover { background: var(--pink); color: #190b18; }
+
+@media (max-width: 760px) { .cube.hide-m { display: none; } .ticker-track { gap: 26px; } }
+@media (prefers-reduced-motion: reduce) {
+  .cube, .ticker-track, .hero h1 span, .btn-primary::after, .rank-card.recommended, .event-card, .status-dot { animation: none !important; }
+  .hero h1, .hero .status, .hero-description, .hero-buttons, .hero-stats { animation: none !important; }
+  canvas#fx { display: none; }
+}
 </style>
 </head>
 
 <body>
+<div id="scrollBar"></div>
+<button id="toTop" aria-label="Volver arriba">↑</button>
+
 
 <!-- FONDO CON K, BLOQUES Y PARTÍCULAS -->
 <div class="background-art" aria-hidden="true">
@@ -567,7 +654,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
 <header class="navbar">
   <div class="container nav-inner">
     <a href="#inicio" class="brand" aria-label="Kaizora Origins">
-      <span class="brand-mark">K</span>
+      <span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb3f1"/><stop offset="1" stop-color="#9B5DE5"/></linearGradient></defs><polygon points="24,3 43,14 43,34 24,45 5,34 5,14" fill="rgba(255,109,225,.12)" stroke="#ff6de1" stroke-width="2.2" stroke-linejoin="round"/><polyline points="5,14 24,25 43,14" fill="none" stroke="#ff6de1" stroke-opacity=".5" stroke-width="1.4"/><line x1="24" y1="25" x2="24" y2="45" stroke="#ff6de1" stroke-opacity=".5" stroke-width="1.4"/><path d="M17 15v18M17 24l9-9M18.5 23l9 10" fill="none" stroke="url(#lg1)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 0)"/></svg></span>
       <span class="brand-name">KAIZORA ORIGINS<small>MINECRAFT NETWORK</small></span>
     </a>
 
@@ -588,6 +675,8 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
 <main>
 
 <section class="hero" id="inicio">
+  <canvas id="fx"></canvas>
+  <div class="cubes" id="cubes"></div>
   <div class="container hero-content">
     <div class="status"><span class="status-dot"></span> TU PRÓXIMA AVENTURA COMIENZA AQUÍ</div>
 
@@ -612,6 +701,7 @@ footer { border-top: 1px solid rgba(255,255,255,.1); padding: 30px 0; background
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span style="--c:#ffffff">ORIGIN</span><span style="--c:#45D6C5">ASCENDENTE</span><span style="--c:#4d8dff">ELITE</span><span style="--c:#2bd7f5">CELESTIAL</span><span style="--c:#9B5DE5">ASTRAL</span><span style="--c:#ffd34d">MAJESTAD</span><span style="--c:#42dc82">GUARDIÁN</span><span style="--c:#d75aff">SEMIDIÓS</span><span style="--c:#ff5363">DIOS</span><span style="--c:#FF7800">ETERNO</span><span style="--c:#9a5fe0">PRIMORDIAL</span><span style="--c:#ff6de1">KAIZORA</span><span style="--c:#ffffff">ORIGIN</span><span style="--c:#45D6C5">ASCENDENTE</span><span style="--c:#4d8dff">ELITE</span><span style="--c:#2bd7f5">CELESTIAL</span><span style="--c:#9B5DE5">ASTRAL</span><span style="--c:#ffd34d">MAJESTAD</span><span style="--c:#42dc82">GUARDIÁN</span><span style="--c:#d75aff">SEMIDIÓS</span><span style="--c:#ff5363">DIOS</span><span style="--c:#FF7800">ETERNO</span><span style="--c:#9a5fe0">PRIMORDIAL</span><span style="--c:#ff6de1">KAIZORA</span></div></div>
 <div class="section-line"></div>
 
 <section class="section" id="servidor">
@@ -1204,5 +1294,79 @@ updateCountdown();
 const countdownTimer = setInterval(updateCountdown, 1000);
 </script>
 
+
+<script>
+/* ====== MEJORAS VISUALES v5 ====== */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (q,r=document)=>r.querySelector(q), $$ = (q,r=document)=>[...r.querySelectorAll(q)];
+
+  // Barra de progreso, navbar compacta, botón subir
+  const bar=$('#scrollBar'), nav=$('.navbar'), top=$('#toTop');
+  function onScroll(){
+    const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?h.scrollTop/max*100:0)+'%';
+    nav.classList.toggle('scrolled',h.scrollTop>30);
+    top.classList.toggle('show',h.scrollTop>700);
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  top.addEventListener('click',()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+
+  // Sección activa en el menú
+  const links=$$('.nav-links a[href^="#"]');
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  if('IntersectionObserver' in window){
+    const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=map.get(e.target.id);if(a)a.classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+    map.forEach((a,id)=>{const el=document.getElementById(id);if(el)so.observe(el);});
+  }
+
+  // Cubos flotantes
+  const wrap=$('#cubes');
+  if(wrap && !reduce){
+    const cols=['#ff6de1','#9B5DE5','#45D6C5','#ffd34d','#4d8dff','#ff5363'];
+    const cfg=[[7,12,46],[88,18,34],[14,68,28],[80,70,52],[48,6,22],[93,45,24],[3,42,30],[62,82,26]];
+    cfg.forEach((c,i)=>{
+      const d=document.createElement('div'); d.className='cube'+(i>3?' hide-m':'');
+      d.style.cssText=`left:${c[0]}%;top:${c[1]}%;width:${c[2]}px;height:${c[2]}px;--s:${c[2]}px;--c:${cols[i%cols.length]};--dur:${18+i*3}s;--bob:${6+i}s;animation-delay:-${i*3}s`;
+      d.innerHTML='<i></i><i></i><i></i><i></i><i></i><i></i>'; wrap.appendChild(d);
+    });
+  }
+
+  // Partículas con canvas + parallax suave del ratón
+  const cv=$('#fx');
+  if(cv && !reduce && cv.getContext){
+    const ctx=cv.getContext('2d'); let W,H,pts=[],mx=.5,my=.5,run=true;
+    const hero=$('#inicio');
+    function size(){const r=hero.getBoundingClientRect();W=cv.width=r.width;H=cv.height=r.height;const n=Math.min(70,Math.round(W*H/16000));pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,r:Math.random()*1.6+.6}));}
+    size(); addEventListener('resize',size);
+    hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width;my=(e.clientY-r.top)/r.height;if(wrap)wrap.style.transform=`translate(${(mx-.5)*-18}px,${(my-.5)*-12}px)`;});
+    new IntersectionObserver(es=>{run=es[0].isIntersecting;if(run)loop();}).observe(hero);
+    function loop(){
+      if(!run)return; ctx.clearRect(0,0,W,H);
+      for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+      for(let i=0;i<pts.length;i++){const a=pts[i];
+        ctx.fillStyle='rgba(255,170,240,.7)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,6.283);ctx.fill();
+        for(let j=i+1;j<pts.length;j++){const b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
+          if(d<9500){ctx.strokeStyle=`rgba(255,109,225,${(1-d/9500)*.18})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+        const mdx=a.x-mx*W,mdy=a.y-my*H;if(mdx*mdx+mdy*mdy<16000){ctx.strokeStyle='rgba(255,255,255,.18)';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mx*W,my*H);ctx.stroke();}
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  // Brillo que sigue al cursor en tarjetas de rango
+  $$('.rank-card').forEach(c=>{
+    const g=document.createElement('div'); g.className='glow'; c.prepend(g);
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
+
+  // Animación al cambiar los números de la cuenta atrás
+  ['days','hours','minutes','seconds'].forEach(id=>{
+    const el=document.getElementById(id); if(!el||!('MutationObserver' in window))return;
+    new MutationObserver(()=>{el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}).observe(el,{childList:true,characterData:true,subtree:true});
+  });
+})();
+</script>
 </body>
 </html>
