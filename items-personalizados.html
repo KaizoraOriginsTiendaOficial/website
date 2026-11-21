@@ -174,19 +174,72 @@ footer strong{color:#ddc5f5}
   .discount-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cart-fab{right:12px;bottom:12px}
 }
+
+/* ====== MEJORAS VISUALES ====== */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,#9b5de5,#ff6de1,#ffd34d);box-shadow:0 0 12px #ff6de199}
+header{transition:box-shadow .3s,background .3s}header.scrolled{background:#09070efa;box-shadow:0 10px 30px #0007}
+.nav{transition:min-height .3s}header.scrolled .nav{min-height:60px}
+.logo{display:flex;align-items:center;gap:10px}
+.cube-logo{width:34px;height:34px;filter:drop-shadow(0 0 8px #ff6de180);transition:transform .5s cubic-bezier(.2,.8,.2,1)}.logo:hover .cube-logo{transform:rotate(-8deg) scale(1.12)}
+.navlinks a{position:relative}
+.navlinks a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .25s;border-radius:2px}
+.navlinks a.active,.navlinks a:hover{color:var(--pink)}.navlinks a.active:after,.navlinks a:hover:after{transform:scaleX(1)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--border);background:#1b1226;color:#fff;border-radius:10px;font-size:20px}
+.bg-cubes{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bgc{position:absolute;border:1px solid color-mix(in srgb,var(--c) 55%,transparent);background:color-mix(in srgb,var(--c) 8%,transparent);opacity:.5;animation:floaty 18s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(15deg)}50%{transform:translateY(-30px) rotate(60deg)}}
+header,main,footer{position:relative;z-index:1}header{z-index:20}
+.hero .eyebrow,.hero h1,.hero p,.hero-actions{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero h1{animation-delay:.08s}.hero p{animation-delay:.2s}.hero-actions{animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.gradient-text{background:linear-gradient(100deg,#c9a0ff,#ff6de1,#fff,#ff6de1,#c9a0ff);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;animation:shine 6s linear infinite,rise .8s .08s both}
+@keyframes shine{0%{background-position:100% 0}100%{background-position:-150% 0}}
+.hero{position:relative;overflow-x:clip}
+html{overflow-x:hidden}
+.hero:before{content:"";position:absolute;width:520px;height:520px;left:50%;top:-230px;transform:translateX(-50%);background:#ff6de11c;filter:blur(110px);border-radius:50%;pointer-events:none;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.55;transform:translateX(-50%) scale(1.12)}}
+.gradient-btn{position:relative;overflow:hidden}
+.gradient-btn:after,.checkout-btn:after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffff8c,transparent);transform:skewX(-20deg);animation:btnShine 4.5s 1.5s infinite}
+.checkout-btn{position:relative;overflow:hidden}
+@keyframes btnShine{0%{left:-80%}30%,100%{left:160%}}
+.stat{transition:border-color .2s,transform .2s}.stat:hover{border-color:#9b5de577;transform:translateY(-3px)}
+.card{position:relative}
+.card:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),#ff6de120,transparent 65%)}
+.card:hover:before{opacity:1}.card summary,.card-body{position:relative;z-index:1}
+.glyph{transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .3s}.card:hover .glyph{transform:scale(1.12) rotate(-6deg);box-shadow:0 0 18px #ff6de144}
+.card[open]{border-color:#9b5de577}
+.card-body{animation:openIn .35s ease}@keyframes openIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.add-btn{transition:background .2s,transform .2s}.add-btn:hover{transform:translateY(-2px)}
+.discount{transition:border-color .2s,transform .2s}.discount:hover{border-color:#a8f3c699;transform:translateY(-3px)}
+.cart-fab{animation:fabGlow 3.5s ease-in-out infinite}@keyframes fabGlow{50%{box-shadow:0 8px 35px #0009,0 0 28px #bc439d55}}
+.cart-count.pop{animation:cpop .35s}@keyframes cpop{40%{transform:scale(1.4)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+#toTop{position:fixed;left:18px;bottom:20px;width:46px;height:46px;border-radius:12px;border:1px solid var(--pink);background:#190d1cf2;color:var(--pink);font-size:19px;font-weight:900;z-index:45;opacity:0;transform:translateY(14px);pointer-events:none;transition:.3s}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}#toTop:hover{background:var(--pink);color:#190b18}
+@media(max-width:850px){
+  .menu-btn{display:grid;place-items:center}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px 18px 14px;background:#09070ef8;border-bottom:1px solid var(--border)}
+  .navlinks.open{display:flex}.navlinks a{padding:13px 4px;border-bottom:1px solid #ffffff10;font-size:13px}.navlinks a:after{display:none}
+  .nav>.discord{margin-left:auto}
+}
+@media(max-width:560px){.nav{gap:8px}.logo{font-size:15px;gap:7px;min-width:0}.cube-logo{width:28px;height:28px}.discord{padding:10px 11px;font-size:10px;white-space:nowrap}.bgc:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){.bgc,.gradient-text,.hero:before,.gradient-btn:after,.checkout-btn:after,.cart-fab,.hero .eyebrow,.hero h1,.hero p,.hero-actions,.card-body{animation:none!important}.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
+<div id="bar"></div>
+<div class="bg-cubes" id="bgCubes" aria-hidden="true"></div>
 
 <header>
   <div class="wrap nav">
-    <a href="index.html" class="logo"><span>KAIZORA</span> ORIGINS</a>
+    <a href="index.html" class="logo"><svg class="cube-logo" viewBox="0 0 48 48" aria-hidden="true"><polygon points="24,3 43,14 43,34 24,45 5,34 5,14" fill="rgba(255,109,225,.14)" stroke="#ff6de1" stroke-width="2.4" stroke-linejoin="round"/><polyline points="5,14 24,25 43,14" fill="none" stroke="#ff6de1" stroke-opacity=".55" stroke-width="1.4"/><line x1="24" y1="25" x2="24" y2="45" stroke="#ff6de1" stroke-opacity=".55" stroke-width="1.4"/><path d="M19 17v14M19 24l7-7M20 23.5l7 7.5" fill="none" stroke="#ffb3f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lt"><span>KAIZORA</span> ORIGINS</span></a>
     <nav class="navlinks">
       <a href="#especiales">Especiales</a>
       <a href="#vanilla">Vanilla+</a>
       <a href="#descuentos">Descuentos</a>
     </nav>
     <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener">DISCORD ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -309,6 +362,7 @@ footer strong{color:#ddc5f5}
   </div>
 </aside>
 
+<button id="toTop" aria-label="Volver arriba">↑</button>
 <script>
 "use strict";
 
@@ -735,6 +789,39 @@ document.getElementById("checkout").addEventListener("click",()=>{
   }
 });
 renderCart();
+
+/* ====== MEJORAS VISUALES ====== */
+(function(){
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $=function(q,r){return (r||document).querySelector(q)},$$=function(q,r){return Array.prototype.slice.call((r||document).querySelectorAll(q))};
+  var bar=$("#bar"),head=$("header"),top=$("#toTop");
+  function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";head.classList.toggle("scrolled",h.scrollTop>30);top.classList.toggle("show",h.scrollTop>700)}
+  addEventListener("scroll",sc,{passive:true});sc();
+  top.addEventListener("click",function(){scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
+  var mb=$("#menuBtn"),nl=$(".navlinks");
+  mb.addEventListener("click",function(){var o=nl.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+  $$(".navlinks a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open")})});
+  var links=$$(".navlinks a[href^=\"#\"]");
+  if("IntersectionObserver" in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove("active")});var a=$(".navlinks a[href=\"#"+e.target.id+"\"]");if(a)a.classList.add("active")}})},{rootMargin:"-45% 0px -50% 0px"});
+    $$("main section[id]").forEach(function(x){so.observe(x)});
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target)}})},{threshold:.1});
+    $$(".stat,.section-heading,.notice,.toolbar,.discount,.discount-panel").forEach(function(el,i){el.classList.add("reveal");el.style.transitionDelay=(i%4)*70+"ms";ro.observe(el)});
+  }
+  if(!reduce&&matchMedia("(hover: hover)").matches){
+    ["specialGrid","vanillaGrid"].forEach(function(id){
+      var g=document.getElementById(id);
+      g.addEventListener("mousemove",function(e){var c=e.target.closest(".card");if(!c)return;var r=c.getBoundingClientRect();c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px")});
+    });
+  }
+  var bg=$("#bgCubes");
+  if(bg&&!reduce){
+    var cols=["#ff6de1","#9b5de5","#45D6C5","#ffd34d","#4d8dff"],cfg=[[6,14,40],[90,22,30],[10,70,26],[84,64,44],[50,8,20]];
+    cfg.forEach(function(c,i){var d=document.createElement("div");d.className="bgc";d.style.cssText="left:"+c[0]+"%;top:"+c[1]+"%;width:"+c[2]+"px;height:"+c[2]+"px;--c:"+cols[i%cols.length]+";animation-delay:-"+i*3+"s;animation-duration:"+(16+i*3)+"s";bg.appendChild(d)});
+  }
+  var cc=$("#cartCount");
+  if(cc&&"MutationObserver" in window)new MutationObserver(function(){cc.classList.remove("pop");void cc.offsetWidth;cc.classList.add("pop")}).observe(cc,{childList:true,characterData:true,subtree:true});
+})();
 </script>
 </body>
 </html>
