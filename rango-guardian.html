@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
 <title>GUARDIAN | Kaizora Origins</title>
-<meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins: kit con equipamiento Netherite nivel IX, esencias y protección de terreno.">
+<meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins: comandos /condense y /skull, kit de Netherite nivel IX, esencias y protección de terreno de 40 × 40.">
 
 <style>
 :root{
@@ -611,6 +611,8 @@ footer span{color:#b0ffd0}
         transition:none!important;
     }
 }
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);color:#fff;font-size:12px;font-weight:900;letter-spacing:.4px}
 </style>
 </head>
 
@@ -647,10 +649,18 @@ footer span{color:#b0ffd0}
         <h1><span>GUARDIAN</span></h1>
 
         <p class="desc">
-            Refuerza tu presencia y sigue construyendo tu legado. Un kit completo
-            de equipamiento Netherite encantado a nivel IX, esencias especiales
-            y una protección de terreno más grande para tu base.
+            Refuerza tu presencia y sigue construyendo tu legado. GUARDIAN te da equipamiento de Netherite
+            con encantamientos a nivel IX, una zona protegida más amplia, esencias y recursos exclusivos para proteger lo que has construido.
         </p>
+
+                <div class="quick">
+            <span>Netherite nivel IX</span>
+            <span>Protección 40 × 40</span>
+            <span>+24M</span>
+            <span>/condense · /skull</span>
+            <span>+1 casa</span>
+            <span>Llave Guardian ×1</span>
+        </div>
 
         <div class="hero-bottom">
 
@@ -661,8 +671,8 @@ footer span{color:#b0ffd0}
                 </div>
 
                 <div class="price-note">
-                    Poder y protección.<br>
-                    Lleva tu aventura más lejos.
+                    Refuerza tu presencia.<br>
+                    Construye tu legado.
                 </div>
             </div>
 
@@ -692,28 +702,92 @@ footer span{color:#b0ffd0}
 
         <h2>Información del rango</h2>
 
+        <!-- 01: COMANDOS EXCLUSIVOS -->
+
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
-                    <h3>/kit Guardian</h3>
-                    <p>Tu equipamiento exclusivo de rango</p>
+                    <h3 class="kit-title">Comandos exclusivos de GUARDIAN</h3>
+                    <p>Gestiona mejor tu inventario y tus construcciones</p>
                 </div>
             </div>
 
-            <p>
-                El kit exclusivo del rango GUARDIAN incluye equipamiento
-                completo de Netherite encantado a nivel IX, armas, herramientas,
-                esencias especiales y una protección de terreno de 40 × 40 bloques.
+            <p class="command-intro">
+                Desbloquea comandos exclusivos para ahorrar espacio, mantener tu inventario ordenado
+                y personalizar tus construcciones. Estos comandos forman parte de los permisos propios del rango GUARDIAN.
             </p>
 
+            <div class="command-grid">
+
+                <div class="command-card">
+
+                    <div class="command-top">
+                        <span class="command-number">01</span>
+                        <span class="command-tag">Inventario</span>
+                    </div>
+
+                    <span class="command-name">/condense</span>
+
+                    <p class="command-description">
+                        Condensa tus materiales en bloques compactos para liberar espacio en el inventario y transportar más recursos.
+                    </p>
+
+                </div>
+
+                <div class="command-card">
+
+                    <div class="command-top">
+                        <span class="command-number">02</span>
+                        <span class="command-tag">Personalización</span>
+                    </div>
+
+                    <span class="command-name">/skull</span>
+
+                    <p class="command-description">
+                        Obtén la cabeza de un jugador para decorar tus construcciones y darles un toque único.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="command-note">
+                <strong>VENTAJA GUARDIAN</strong><br>
+                Los comandos <strong>/condense</strong> y <strong>/skull</strong> están disponibles desde el rango GUARDIAN y no están
+                disponibles en rangos inferiores. Las funciones disponibles pueden depender
+                de la configuración de los plugins del servidor.
+            </div>
+
         </div>
+
+        <!-- 02: KIT ORIGIN -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">02</div>
+                <div>
+                    <h3 class="kit-title">/kit Guardian</h3>
+                    <p>Tu equipamiento exclusivo de rango</p>
+                </div>
+            </div>
+
+            <p>
+                El kit exclusivo del rango GUARDIAN incluye equipamiento completo de Netherite encantado a nivel IX, armas, herramientas, esencias especiales y una protección de terreno de 40 × 40 bloques.
+                GUARDIAN incluye todos los beneficios de MAJESTAD y suma <strong>+1 casa</strong>
+                (/sethome) más dinero inicial.
+            </p>
+
+        </div>
+
+        <!-- 03: ARMADURA NETHERITE -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">03</div>
                 <div>
                     <h3>Full Armor Netherite</h3>
                     <p>Protección avanzada para tus aventuras</p>
@@ -724,37 +798,34 @@ footer span{color:#b0ffd0}
 
                 <li>
                     <span class="item-name">Casco de Netherite</span><br>
-                    <span class="item-details">
-                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Respiración IX · Afinidad acuática IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Respiración IX · Afinidad acuática IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pechera de Netherite</span><br>
-                    <span class="item-details">
-                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pantalones de Netherite</span><br>
-                    <span class="item-details">
-                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Sigilo veloz IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Sigilo veloz IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Botas de Netherite</span><br>
-                    <span class="item-details">
-                        Paso helado IX · Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Caída de pluma IX · Velocidad del alma IX · Agilidad acuática IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Paso helado IX · Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Caída de pluma IX · Velocidad del alma IX · Agilidad acuática IX · Irrompibilidad IX · Reparación</span>
                 </li>
 
             </ul>
 
         </div>
 
+        <!-- 04: HERRAMIENTAS Y ARMAS -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">03</div>
+                <div class="section-icon">04</div>
                 <div>
                     <h3>Herramientas y armas de Netherite</h3>
                     <p>Equipo encantado para combatir y recolectar recursos</p>
@@ -765,49 +836,49 @@ footer span{color:#b0ffd0}
 
                 <li>
                     <span class="item-name">Espada de Netherite</span><br>
-                    <span class="item-details">
-                        Filo IX · Golpeo IX · Perdición de los artrópodos IX · Barrido IX · Aspecto ígneo IX · Empuje IX · Botín IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Filo IX · Golpeo IX · Perdición de los artrópodos IX · Barrido IX · Aspecto ígneo IX · Empuje IX · Botín IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pico de Netherite</span><br>
-                    <span class="item-details">
-                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Hacha de Netherite</span><br>
-                    <span class="item-details">
-                        Filo IX · Golpeo IX · Perdición de los artrópodos IX · Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Filo IX · Golpeo IX · Perdición de los artrópodos IX · Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pala de Netherite</span><br>
-                    <span class="item-details">
-                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
+                <li>
+                    <span class="item-name">Azada de Netherite</span><br>
+                    <span class="item-details">Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación</span>
+                </li>
+
                 <li>
                     <span class="item-name">Maza</span><br>
-                    <span class="item-details">
-                        Aeroimpulso IX · Golpeo IX · Perdición de los artrópodos IX · Densidad IX · Fisura IX · Aspecto ígneo IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Aeroimpulso IX · Golpeo IX · Perdición de los artrópodos IX · Densidad IX · Fisura IX · Aspecto ígneo IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Escudo</span><br>
-                    <span class="item-details">
-                        Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Irrompibilidad IX · Reparación</span>
                 </li>
 
             </ul>
 
         </div>
 
+        <!-- 05: ESENCIAS -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">04</div>
+                <div class="section-icon">05</div>
                 <div>
                     <h3>Esencias y objetos especiales</h3>
                     <p>Recursos exclusivos incluidos en el kit Guardian</p>
@@ -820,30 +891,37 @@ footer span{color:#b0ffd0}
                     <span class="item-name">Esencia Arcana</span><br>
                     <span class="item-details">×26</span>
                 </li>
+
                 <li>
                     <span class="item-name">Nexo Prismático</span><br>
                     <span class="item-details">×24</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
                     <span class="item-details">×22</span>
                 </li>
+
                 <li>
                     <span class="item-name">Cristal Acuático</span><br>
                     <span class="item-details">×20</span>
                 </li>
+
                 <li>
                     <span class="item-name">Vértice Cósmico</span><br>
                     <span class="item-details">×18</span>
                 </li>
+
                 <li>
                     <span class="item-name">Polvo Solar</span><br>
                     <span class="item-details">×16</span>
                 </li>
+
                 <li>
                     <span class="item-name">Semilla Natural</span><br>
                     <span class="item-details">×16</span>
                 </li>
+
                 <li>
                     <span class="item-name">Llave Guardian</span><br>
                     <span class="item-details">×1</span>
@@ -853,10 +931,12 @@ footer span{color:#b0ffd0}
 
         </div>
 
+        <!-- 06: PROTECCIÓN -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">05</div>
+                <div class="section-icon">06</div>
                 <div>
                     <h3>Piedra de Protección</h3>
                     <p>Una zona protegida para tu construcción</p>
@@ -882,12 +962,12 @@ footer span{color:#b0ffd0}
 
             <strong>RESUMEN DEL RANGO GUARDIAN</strong><br>
 
-            GUARDIAN cuenta con un kit con armadura completa de Netherite
-            encantada a nivel IX, espada, pico, hacha, pala, maza y escudo.
-            También incluye Esencia Arcana ×26, Nexo Prismático ×24,
-            Esencia Eléctrica ×22, Cristal Acuático ×20, Vértice Cósmico ×18,
-            Polvo Solar ×16, Semilla Natural ×16, Llave Guardian ×1 y
-            protección de terreno de <strong>40 × 40 bloques</strong>.
+            GUARDIAN incluye los beneficios de MAJESTAD y cuenta con los comandos exclusivos
+            <strong>/condense</strong> y <strong>/skull</strong>, +1 casa, un kit con armadura completa de Netherite
+            encantada a nivel IX, espada, pico, hacha, pala, azada, maza y escudo.
+            También incluye Esencia Arcana ×26, Nexo Prismático ×24, Esencia Eléctrica ×22, Cristal Acuático ×20,
+            Vértice Cósmico ×18, Polvo Solar ×16, Semilla Natural ×16, Llave Guardian ×1 y protección de terreno
+            de <strong>40 × 40 bloques</strong>.
 
             <br><br>
 
