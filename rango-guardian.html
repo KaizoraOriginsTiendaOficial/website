@@ -3,27 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08080d">
-<meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins, sus comandos exclusivos, equipamiento y beneficios.">
+<meta name="theme-color" content="#09070e">
 <title>GUARDIAN | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango GUARDIAN de Kaizora Origins: kit con equipamiento Netherite nivel IX, esencias y protección de terreno.">
 
 <style>
 :root{
-    --bg:#08080d;
-    --panel:#101322;
+    --bg:#09070e;
+    --panel:#12101c;
     --rank:#42dc82;
     --rank-light:#b0ffd0;
     --rank-pale:#e0ffec;
-    --purple:#9365ff;
     --pink:#ff6de1;
     --white:#fff;
-    --text:#e8eaff;
-    --muted:#b8bbcb;
-    --border:rgba(66,220,130,.25);
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(66,220,130,.30);
 }
 
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -41,12 +39,11 @@ a{color:inherit}
     position:fixed;
     inset:0;
     z-index:-2;
-    pointer-events:none;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.20),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(66,220,130,.10),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.08),transparent 40%),
-        #08080d;
+        radial-gradient(ellipse at 12% 12%,rgba(66,220,130,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(30,140,80,.14),transparent 40%),
+        #09070e;
 }
 
 .bg::after{
@@ -69,10 +66,9 @@ nav{
     justify-content:space-between;
     gap:16px;
     padding:14px 7%;
-    border-bottom:1px solid rgba(66,220,130,.18);
-    background:rgba(8,8,13,.87);
+    border-bottom:1px solid rgba(66,220,130,.2);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
     position:relative;
     z-index:5;
 }
@@ -81,16 +77,15 @@ nav{
     font-size:21px;
     font-weight:950;
     letter-spacing:1.5px;
-    white-space:nowrap;
 }
 
 .logo span{color:var(--rank-light)}
 
 nav a{
     text-decoration:none;
-    color:#d4d2de;
+    color:#e0d8ef;
     font-size:13px;
-    font-weight:850;
+    font-weight:800;
 }
 
 nav a.home:hover{color:white}
@@ -98,16 +93,16 @@ nav a.home:hover{color:white}
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#7050df,#9365ff);
+    background:linear-gradient(110deg,#2fae66,#42dc82);
     color:white!important;
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 5px 24px rgba(147,101,255,.25);
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(66,220,130,.28);
     transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 32px rgba(147,101,255,.4);
+    box-shadow:0 8px 32px rgba(66,220,130,.45);
 }
 
 /* HERO */
@@ -131,12 +126,12 @@ main{
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
-    margin-bottom:25px;
+    margin-bottom:19px;
     padding:9px 13px;
-    border:1px solid rgba(66,220,130,.4);
+    border:1px solid rgba(66,220,130,.48);
     border-radius:6px;
-    background:rgba(66,220,130,.09);
-    box-shadow:0 0 25px rgba(66,220,130,.08);
+    background:rgba(66,220,130,.14);
+    box-shadow:0 0 25px rgba(66,220,130,.1);
 }
 
 .label::before{
@@ -144,33 +139,29 @@ main{
     width:7px;
     height:7px;
     border-radius:50%;
-    background:var(--rank);
-    box-shadow:0 0 13px var(--rank);
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
 }
 
 h1{
-    font-size:clamp(52px,10vw,100px);
+    font-size:clamp(58px,10vw,104px);
     line-height:.95;
     margin:0 0 25px;
     letter-spacing:-5px;
     font-weight:1000;
-    overflow-wrap:anywhere;
-    background:linear-gradient(
-        100deg,
-        #fff 5%,
-        var(--rank-pale) 30%,
-        var(--rank) 65%,
-        #8bffb5 95%
-    );
+    text-shadow:0 0 42px rgba(66,220,130,.24);
+}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#e0ffec 45%,#b0ffd0 80%,#ff6de1);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
-    filter:drop-shadow(0 0 25px rgba(66,220,130,.13));
 }
 
 .desc{
-    max-width:780px;
-    color:#c4c9dc;
+    max-width:680px;
+    color:#c8c1d6;
     font-size:17px;
     line-height:1.85;
     margin:0;
@@ -194,26 +185,25 @@ h1{
 
 .price-label{
     display:block;
-    color:#b8b7c4;
+    color:#aaa1bd;
     font-size:10px;
     letter-spacing:2px;
     font-weight:900;
-    margin-bottom:7px;
+    margin-bottom:5px;
 }
 
 .price{
     font-size:46px;
     font-weight:1000;
     letter-spacing:-2px;
-    line-height:1;
-    color:var(--rank);
-    text-shadow:0 0 25px rgba(66,220,130,.23);
+    color:var(--rank-light);
+    text-shadow:0 0 25px rgba(66,220,130,.3);
 }
 
 .price-note{
-    color:#c1bdcb;
+    color:#bcb4ce;
     font-size:12px;
-    line-height:1.8;
+    line-height:1.6;
 }
 
 .actions{
@@ -239,24 +229,24 @@ h1{
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
-    color:#07160d;
-    border-color:var(--rank-light);
-    background:linear-gradient(110deg,var(--rank),var(--rank-light));
-    box-shadow:0 5px 24px rgba(66,220,130,.2);
+    color:#100a1b;
+    border-color:#e0ffec;
+    background:linear-gradient(110deg,#b0ffd0,#e0ffec);
+    box-shadow:0 5px 24px rgba(66,220,130,.25);
 }
 
 .primary:hover{
-    box-shadow:0 8px 32px rgba(66,220,130,.35);
+    box-shadow:0 8px 32px rgba(66,220,130,.45);
 }
 
 .back{
-    color:#e2eaff;
+    color:#e2fff0;
     background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:var(--purple);
-    background:rgba(147,101,255,.1);
+    border-color:var(--rank-light);
+    background:rgba(66,220,130,.1);
 }
 
 /* PANEL PRINCIPAL */
@@ -267,8 +257,8 @@ h1{
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(17,18,30,.97),rgba(9,10,21,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(66,220,130,.035);
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(66,220,130,.06);
     overflow:hidden;
     animation:appear .8s ease both;
 }
@@ -280,7 +270,7 @@ h1{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent);
+    background:linear-gradient(90deg,transparent,#42dc82,#ff6de1,transparent);
 }
 
 .box h2{
@@ -297,14 +287,14 @@ h1{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(var(--rank),var(--purple));
-    box-shadow:0 0 16px rgba(66,220,130,.3);
+    background:linear-gradient(#42dc82,#ff6de1);
+    box-shadow:0 0 16px rgba(66,220,130,.5);
     flex-shrink:0;
 }
 
 .box h3{
     margin:0 0 14px;
-    color:#f4f4ff;
+    color:#f8f4ff;
     font-size:18px;
     font-weight:950;
 }
@@ -313,7 +303,6 @@ h1{
     color:var(--muted);
     line-height:1.8;
     margin:9px 0;
-    font-size:14px;
 }
 
 /* SECCIONES */
@@ -321,7 +310,7 @@ h1{
 .section{
     margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(66,220,130,.15);
+    border-top:1px solid rgba(66,220,130,.18);
 }
 
 .section:first-of-type{
@@ -337,45 +326,32 @@ h1{
     margin-bottom:16px;
 }
 
-.section-number{
+.section-icon{
     display:flex;
     align-items:center;
     justify-content:center;
     flex-shrink:0;
-    width:46px;
-    height:46px;
+    width:42px;
+    height:42px;
     border-radius:12px;
-    border:1px solid rgba(66,220,130,.35);
-    background:linear-gradient(145deg,rgba(66,220,130,.17),rgba(147,101,255,.13));
-    color:var(--rank-pale);
-    font-size:16px;
+    border:1px solid rgba(66,220,130,.4);
+    background:linear-gradient(145deg,rgba(66,220,130,.25),rgba(255,109,225,.1));
+    color:#e0ffec;
+    font-size:15px;
     font-weight:950;
-    box-shadow:inset 0 0 16px rgba(66,220,130,.05);
+    box-shadow:inset 0 0 16px rgba(66,220,130,.08);
 }
-
-.section-heading-text{min-width:0}
 
 .section-heading h3{
     margin:0;
-    font-size:clamp(17px,2.6vw,21px);
-    line-height:1.4;
+    font-size:18px;
 }
 
-.section-subtitle{
-    margin:5px 0 0!important;
-    font-size:12px!important;
-    color:#aeb8d0!important;
-    line-height:1.6!important;
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a99fbc;
 }
-
-.section-intro{
-    margin-bottom:20px!important;
-    color:#c4c9dc!important;
-    font-size:14px!important;
-    line-height:1.85!important;
-}
-
-/* TARJETAS DE INFORMACIÓN */
 
 .info-list{
     list-style:none;
@@ -386,50 +362,58 @@ h1{
     gap:9px;
 }
 
+.info-list li.wide{grid-column:1/-1}
 .info-list li{
-    position:relative;
     min-width:0;
-    padding:14px 15px 14px 18px;
-    border:1px solid rgba(66,220,130,.17);
+    padding:14px 15px;
+    border:1px solid rgba(66,220,130,.2);
     border-radius:10px;
-    background:linear-gradient(120deg,rgba(66,220,130,.055),rgba(147,101,255,.035),rgba(255,255,255,.018));
-    color:#cbd7eb;
+    background:linear-gradient(120deg,rgba(66,220,130,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
     line-height:1.7;
-    font-size:13px;
-    overflow-wrap:anywhere;
     transition:border-color .2s,background .2s,transform .2s;
-}
-
-.info-list li::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:12px;
-    bottom:12px;
-    width:3px;
-    border-radius:0 4px 4px 0;
-    background:linear-gradient(var(--rank),var(--purple));
+    overflow-wrap:anywhere;
 }
 
 .info-list li:hover{
-    border-color:rgba(66,220,130,.55);
-    background:rgba(66,220,130,.07);
+    border-color:rgba(229,217,255,.65);
+    background:rgba(66,220,130,.14);
     transform:translateY(-1px);
 }
 
 .item-name{
-    color:#f4f5ff;
+    color:#f5efff;
     font-weight:900;
     overflow-wrap:anywhere;
 }
 
 .item-details{
-    color:var(--rank-light);
+    color:#8bffb5;
     font-size:13px;
     font-weight:700;
 }
 
-/* TARJETAS DE COMANDOS */
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(66,220,130,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(66,220,130,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(66,220,130,.04);
+}
+
+.inherit strong{color:#e0ffec}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4edff!important;
+}
+
+/* COMANDOS ORIGIN */
+
+.command-intro{margin-bottom:20px!important}
 
 .command-grid{
     display:grid;
@@ -442,12 +426,13 @@ h1{
     position:relative;
     overflow:hidden;
     min-width:0;
+    margin-top:0;
     padding:23px;
-    border:1px solid rgba(66,220,130,.35);
+    border:1px solid rgba(66,220,130,.42);
     border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
-        linear-gradient(135deg,rgba(25,112,75,.16),rgba(15,17,34,.96) 70%);
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(25,112,75,.25),rgba(26,20,41,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
 }
@@ -459,8 +444,8 @@ h1{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(var(--rank),var(--purple));
-    box-shadow:0 0 15px rgba(66,220,130,.2);
+    background:linear-gradient(#42dc82,#ff6de1);
+    box-shadow:0 0 15px rgba(66,220,130,.25);
 }
 
 .command-card::after{
@@ -471,15 +456,15 @@ h1{
     right:-55px;
     bottom:-55px;
     border-radius:50%;
-    background:rgba(147,101,255,.15);
+    background:rgba(66,220,130,.16);
     filter:blur(12px);
     pointer-events:none;
 }
 
 .command-card:hover{
-    border-color:rgba(66,220,130,.75);
+    border-color:rgba(229,217,255,.8);
     transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(66,220,130,.08);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(66,220,130,.12);
 }
 
 .command-top{
@@ -494,173 +479,73 @@ h1{
     display:flex;
     align-items:center;
     justify-content:center;
-    width:36px;
-    height:36px;
-    flex-shrink:0;
-    border-radius:10px;
-    color:var(--rank-pale);
-    background:rgba(66,220,130,.12);
-    border:1px solid rgba(66,220,130,.3);
-    font-size:13px;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#e0ffec;
+    background:rgba(66,220,130,.24);
+    border:1px solid rgba(66,220,130,.32);
+    font-size:12px;
     font-weight:950;
 }
 
 .command-tag{
     color:#d8ffe7;
-    background:rgba(147,101,255,.1);
-    border:1px solid rgba(147,101,255,.3);
+    background:rgba(66,220,130,.09);
+    border:1px solid rgba(66,220,130,.25);
     border-radius:5px;
     padding:6px 9px;
     font-size:9px;
     font-weight:950;
     letter-spacing:1.3px;
     text-transform:uppercase;
-    text-align:center;
 }
 
 .command-name{
     display:block;
-    position:relative;
-    z-index:1;
     margin-bottom:11px;
     color:#8bffb5;
     font-size:25px;
     line-height:1.25;
     font-weight:1000;
-    letter-spacing:.1px;
+    letter-spacing:.2px;
     overflow-wrap:anywhere;
-    text-shadow:0 0 22px rgba(66,220,130,.2);
-    font-family:Arial,Helvetica,sans-serif;
+    text-shadow:0 0 22px rgba(66,220,130,.23);
 }
 
 .command-description{
-    position:relative;
-    z-index:1;
     margin:0!important;
-    color:#d0dced!important;
-    font-size:14px!important;
+    color:#d0c9df!important;
+    font-size:14px;
     line-height:1.85!important;
 }
 
-/* HERENCIA Y AVISOS */
-
-.inherit{
+.command-note{
     margin-top:20px;
-    padding:20px;
-    border:1px solid rgba(66,220,130,.22);
+    padding:18px 20px;
+    border:1px solid rgba(66,220,130,.25);
     border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(66,220,130,.09),rgba(147,101,255,.045));
-    color:#c0cde0;
+    background:linear-gradient(100deg,rgba(66,220,130,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
     font-size:13px;
     line-height:1.9;
 }
 
-.inherit strong{
-    color:var(--rank-pale);
-    font-weight:950;
-}
+.command-note strong{color:#e0ffec}
 
-.inherit p{margin:12px 0 0!important}
-
-.kit-title{
-    font-size:21px!important;
-    color:#f4f8ff!important;
-}
-
-/* DESPLEGABLES */
-
-details{
-    margin-top:15px;
-    border:1px solid rgba(66,220,130,.25);
-    border-radius:12px;
-    background:rgba(8,12,14,.5);
-    overflow:hidden;
-    transition:border-color .2s,background .2s;
-}
-
-details:hover{border-color:rgba(66,220,130,.5)}
-
-summary{
-    cursor:pointer;
-    list-style:none;
-    padding:18px 20px;
-    font-weight:950;
-    color:var(--rank-light);
-    font-size:14px;
-    user-select:none;
-    transition:background .2s;
-}
-
-summary::-webkit-details-marker{display:none}
-
-summary::after{
-    content:"+";
-    float:right;
-    margin-left:12px;
-    font-size:22px;
-    line-height:14px;
-    color:var(--rank);
-}
-
-details[open] summary::after{content:"−"}
-
-summary:hover{background:rgba(66,220,130,.055)}
-
-.shulker-content{
-    padding:5px 20px 23px;
-    border-top:1px solid rgba(255,255,255,.075);
-}
-
-.shulker-content h3{
-    margin:25px 0 12px;
-    color:var(--rank-light);
-    font-size:16px;
-    font-weight:950;
-}
-
-.shulker-content p{
-    color:#d4d9df;
-    font-weight:750;
-}
-
-.shulker-content ul{
-    list-style:none;
-    padding:0;
-    margin:0;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
-}
-
-.shulker-content li{
-    min-width:0;
-    padding:12px 13px;
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:8px;
-    background:rgba(255,255,255,.025);
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-    overflow-wrap:anywhere;
-}
-
-.shulker-content li strong{color:#fff}
-
-/* PIE DE PÁGINA */
+/* PIE */
 
 footer{
     text-align:center;
     padding:30px 20px;
-    color:#8b98af;
+    color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(66,220,130,.15);
-    background:rgba(6,7,16,.72);
+    border-top:1px solid rgba(66,220,130,.18);
+    background:rgba(8,6,13,.72);
 }
 
-footer span{color:var(--rank-light)}
-
-/* ANIMACIONES */
+footer span{color:#b0ffd0}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
@@ -675,11 +560,7 @@ footer span{color:var(--rank-light)}
         flex-wrap:wrap;
     }
 
-    .logo{
-        font-size:17px;
-        letter-spacing:.7px;
-    }
-
+    .logo{font-size:17px}
     nav a.home{display:none}
 
     nav a.discord{
@@ -688,7 +569,6 @@ footer span{color:var(--rank-light)}
     }
 
     main{padding:62px 5% 70px}
-
     h1{letter-spacing:-3px}
     .desc{font-size:15px}
 
@@ -698,7 +578,6 @@ footer span{color:var(--rank-light)}
     }
 
     .price{font-size:40px}
-
     .actions{width:100%}
 
     .btn{
@@ -720,14 +599,7 @@ footer span{color:var(--rank-light)}
     }
 
     .command-card{padding:20px}
-    .command-name{font-size:24px}
-
     .section-heading h3{font-size:16px}
-
-    .shulker-content{padding:5px 12px 18px}
-    .shulker-content ul{grid-template-columns:1fr}
-
-    .inherit{padding:16px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -768,33 +640,30 @@ footer span{color:var(--rank-light)}
 
     <!-- HERO DEL RANGO -->
 
-    <header class="hero">
+    <section class="hero">
 
         <div class="label">RANGO EXCLUSIVO</div>
 
-        <h1>GUARDIAN</h1>
+        <h1><span>GUARDIAN</span></h1>
 
         <p class="desc">
-            Uno de los rangos superiores de Kaizora Origins. Obtén equipamiento
-            avanzado, herramientas adicionales y protección para tus
-            construcciones, mientras disfrutas de beneficios exclusivos
-            que te ayudarán a llevar tu aventura al siguiente nivel.
+            Refuerza tu presencia y sigue construyendo tu legado. Un kit completo
+            de equipamiento Netherite encantado a nivel IX, esencias especiales
+            y una protección de terreno más grande para tu base.
         </p>
 
         <div class="hero-bottom">
 
             <div class="price-wrap">
-
                 <div>
                     <span class="price-label">PRECIO DEL RANGO</span>
-                    <div class="price">$15.99</div>
+                    <div class="price">$34.99</div>
                 </div>
 
                 <div class="price-note">
                     Poder y protección.<br>
                     Lleva tu aventura más lejos.
                 </div>
-
             </div>
 
             <div class="actions">
@@ -815,215 +684,133 @@ footer span{color:var(--rank-light)}
 
         </div>
 
-    </header>
+    </section>
 
     <!-- INFORMACIÓN COMPLETA -->
 
     <div class="box">
 
-        <h2>Beneficios y ventajas de GUARDIAN</h2>
+        <h2>Información del rango</h2>
 
-        <!-- 01: HERENCIA -->
-
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">01</div>
-                <div class="section-heading-text">
-                    <h3>Beneficios de rangos anteriores</h3>
-                    <p class="section-subtitle">
-                        Tus ventajas anteriores siguen contigo
-                    </p>
+                <div class="section-icon">01</div>
+                <div>
+                    <h3>/kit Guardian</h3>
+                    <p>Tu equipamiento exclusivo de rango</p>
                 </div>
             </div>
 
-            <p class="section-intro">
-                GUARDIAN incluye los permisos, comandos, kits y beneficios
-                de los rangos anteriores, además de sus propias ventajas
-                exclusivas.
+            <p>
+                El kit exclusivo del rango GUARDIAN incluye equipamiento
+                completo de Netherite encantado a nivel IX, armas, herramientas,
+                esencias especiales y una protección de terreno de 40 × 40 bloques.
             </p>
 
-            <div class="inherit">
-                <strong>VENTAJAS HEREDADAS</strong><br>
-                Conservas los beneficios correspondientes a los rangos
-                anteriores de la progresión, junto con los permisos y
-                ventajas que ya hayas desbloqueado.
-                <br><br>
-                <strong>Tu ascenso no elimina los beneficios anteriores.</strong>
-            </div>
+        </div>
 
-        </section>
-
-        <!-- 02: COMANDO EXCLUSIVO -->
-
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">02</div>
-                <div class="section-heading-text">
-                    <h3>Comando exclusivo de GUARDIAN</h3>
-                    <p class="section-subtitle">
-                        Compacta materiales y organiza tus recursos
-                    </p>
-                </div>
-            </div>
-
-            <p class="section-intro">
-                GUARDIAN incorpora una herramienta para compactar materiales
-                compatibles de tu inventario y facilitar la organización
-                de tus recursos.
-            </p>
-
-            <div class="command-grid">
-
-                <article class="command-card">
-
-                    <div class="command-top">
-                        <span class="command-number">01</span>
-                        <span class="command-tag">Utilidad y recursos</span>
-                    </div>
-
-                    <span class="command-name">/condense</span>
-
-                    <p class="command-description">
-                        Convierte materiales compatibles de tu inventario
-                        en sus bloques compactos correspondientes, como
-                        lingotes de hierro u oro en bloques, siempre que
-                        el plugin y los materiales sean compatibles.
-                    </p>
-
-                </article>
-
-            </div>
-
-            <div class="inherit">
-                <strong>VENTAJA GUARDIAN</strong><br>
-                Este comando se añade a los beneficios de los rangos anteriores.
-                Su disponibilidad depende de los permisos y de la configuración
-                del servidor.
-            </div>
-
-        </section>
-
-        <!-- 03: SHULKER 1 -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">03</div>
-                <div class="section-heading-text">
-                    <h3>Shulker #1</h3>
-                    <p class="section-subtitle">
-                        Armaduras, herramientas, comida y recursos
-                    </p>
-                </div>
-            </div>
-
-            <p class="section-intro">
-                La primera Shulker reúne equipamiento avanzado, suministros
-                y materiales para tus aventuras.
-            </p>
-
-            <details>
-                <summary>Ver contenido de la Shulker #1</summary>
-
-                <div class="shulker-content">
-
-                    <h3>Armaduras</h3>
-
-                    <p>2 armaduras completas de diamante.</p>
-
-                    <ul>
-                        <li>Protección VIII</li>
-                        <li>Protección contra proyectiles VIII</li>
-                        <li>Reparación</li>
-                        <li>Irrompibilidad VIII</li>
-                    </ul>
-
-                    <h3>Herramientas de diamante</h3>
-
-                    <ul>
-                        <li><strong>Espada:</strong> Filo VI, Aspecto Ígneo IV, Irrompibilidad VII, Reparación</li>
-                        <li><strong>Pico:</strong> Eficiencia VII, Irrompibilidad VIII, Fortuna IV, Reparación</li>
-                        <li><strong>Hacha:</strong> Eficiencia VIII, Irrompibilidad VII, Reparación</li>
-                        <li><strong>Pala:</strong> Eficiencia VIII, Irrompibilidad VII, Reparación</li>
-                        <li><strong>Escudo:</strong> Protección VII, Irrompibilidad VIII, Reparación</li>
-                        <li><strong>Arco:</strong> Irrompibilidad VII, Fuego II, Infinidad, Reparación</li>
-                        <li><strong>Ballesta:</strong> Irrompibilidad VII, Reparación, Carga rápida VII</li>
-                    </ul>
-
-                    <h3>Comida</h3>
-
-                    <ul>
-                        <li>Manzanas encantadas ×64</li>
-                        <li>Manzanas doradas ×64 — 3 stacks</li>
-                        <li>Zanahorias doradas ×64 — 2 stacks</li>
-                    </ul>
-
-                    <h3>Minerales</h3>
-
-                    <ul>
-                        <li>Bloques de oro ×16</li>
-                        <li>Bloques de diamante ×32</li>
-                        <li>Bloques de esmeralda ×8</li>
-                    </ul>
-
-                    <h3>Añadidos</h3>
-
-                    <ul>
-                        <li>Tótem de la Inmortalidad ×1</li>
-                        <li>Cristal del End ×64</li>
-                        <li>Carga de viento ×64</li>
-                    </ul>
-
-                </div>
-            </details>
-
-        </section>
-
-        <!-- 04: SHULKER 2 -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">04</div>
-                <div class="section-heading-text">
-                    <h3>Shulker #2</h3>
-                    <p class="section-subtitle">
-                        Pociones y munición adicional
-                    </p>
+                <div class="section-icon">02</div>
+                <div>
+                    <h3>Full Armor Netherite</h3>
+                    <p>Protección avanzada para tus aventuras</p>
                 </div>
             </div>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Shulker llena de pociones</span><br>
+                    <span class="item-name">Casco de Netherite</span><br>
                     <span class="item-details">
-                        Contenido: pociones variadas
+                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Respiración IX · Afinidad acuática IX · Irrompibilidad IX · Reparación
                     </span>
                 </li>
-
                 <li>
-                    <span class="item-name">Flechas</span><br>
-                    <span class="item-details">×64 — 3 stacks</span>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">
+                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">
+                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Sigilo veloz IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">
+                        Paso helado IX · Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Caída de pluma IX · Velocidad del alma IX · Agilidad acuática IX · Irrompibilidad IX · Reparación
+                    </span>
                 </li>
 
             </ul>
 
-        </section>
+        </div>
 
-        <!-- 05: POLVOS Y MATERIALES ESPECIALES -->
-
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">05</div>
-                <div class="section-heading-text">
-                    <h3>Polvos y materiales especiales</h3>
-                    <p class="section-subtitle">
-                        Recursos adicionales incluidos en el rango
-                    </p>
+                <div class="section-icon">03</div>
+                <div>
+                    <h3>Herramientas y armas de Netherite</h3>
+                    <p>Equipo encantado para combatir y recolectar recursos</p>
+                </div>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Espada de Netherite</span><br>
+                    <span class="item-details">
+                        Filo IX · Golpeo IX · Perdición de los artrópodos IX · Barrido IX · Aspecto ígneo IX · Empuje IX · Botín IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Pico de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Hacha de Netherite</span><br>
+                    <span class="item-details">
+                        Filo IX · Golpeo IX · Perdición de los artrópodos IX · Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Pala de Netherite</span><br>
+                    <span class="item-details">
+                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Maza</span><br>
+                    <span class="item-details">
+                        Aeroimpulso IX · Golpeo IX · Perdición de los artrópodos IX · Densidad IX · Fisura IX · Aspecto ígneo IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+                <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">
+                        Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">04</div>
+                <div>
+                    <h3>Esencias y objetos especiales</h3>
+                    <p>Recursos exclusivos incluidos en el kit Guardian</p>
                 </div>
             </div>
 
@@ -1031,111 +818,80 @@ footer span{color:var(--rank-light)}
 
                 <li>
                     <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">×6</span>
+                    <span class="item-details">×26</span>
                 </li>
-
+                <li>
+                    <span class="item-name">Nexo Prismático</span><br>
+                    <span class="item-details">×24</span>
+                </li>
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">×2</span>
+                    <span class="item-details">×22</span>
                 </li>
-
                 <li>
                     <span class="item-name">Cristal Acuático</span><br>
-                    <span class="item-details">×2</span>
+                    <span class="item-details">×20</span>
                 </li>
-
                 <li>
-                    <span class="item-name">Polvo Celestial</span><br>
-                    <span class="item-details">×4</span>
+                    <span class="item-name">Vértice Cósmico</span><br>
+                    <span class="item-details">×18</span>
                 </li>
-
+                <li>
+                    <span class="item-name">Polvo Solar</span><br>
+                    <span class="item-details">×16</span>
+                </li>
                 <li>
                     <span class="item-name">Semilla Natural</span><br>
-                    <span class="item-details">×6</span>
+                    <span class="item-details">×16</span>
+                </li>
+                <li>
+                    <span class="item-name">Llave Guardian</span><br>
+                    <span class="item-details">×1</span>
                 </li>
 
             </ul>
 
-        </section>
+        </div>
 
-        <!-- 06: PROTECCIÓN -->
-
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">06</div>
-                <div class="section-heading-text">
-                    <h3>Piedra de protección</h3>
-                    <p class="section-subtitle">
-                        Protege una zona de tu construcción
-                    </p>
+                <div class="section-icon">05</div>
+                <div>
+                    <h3>Piedra de Protección</h3>
+                    <p>Una zona protegida para tu construcción</p>
                 </div>
             </div>
-
-            <p class="section-intro">
-                El rango incluye una piedra de protección para delimitar
-                una zona de construcción, de acuerdo con la configuración
-                del plugin de protección del servidor.
-            </p>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Mena de esmeralda</span><br>
+                    <span class="item-name">Mena de Redstone</span><br>
                     <span class="item-details">
-                        Área de protección: 60 × 60 bloques
+                        Protección de 40 × 40 bloques
                     </span>
                 </li>
 
             </ul>
 
-        </section>
-
-        <!-- 07: COMPRA -->
-
-        <section class="section">
-
-            <div class="section-heading">
-                <div class="section-number">07</div>
-                <div class="section-heading-text">
-                    <h3>Compra del rango</h3>
-                    <p class="section-subtitle">
-                        Obtén GUARDIAN mediante nuestro Discord oficial
-                    </p>
-                </div>
-            </div>
-
-            <p class="section-intro">
-                Para adquirir GUARDIAN, entra en el Discord oficial de
-                Kaizora Origins y consulta el procedimiento de compra
-                disponible.
-            </p>
-
-            <div class="actions">
-
-                <a class="btn primary"
-                   href="https://discord.gg/sHvWgW7AE4"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Entrar al Discord oficial ↗
-                </a>
-
-            </div>
-
-        </section>
+        </div>
 
         <!-- RESUMEN -->
 
         <div class="inherit">
+
             <strong>RESUMEN DEL RANGO GUARDIAN</strong><br>
-            GUARDIAN incluye beneficios heredados, el comando exclusivo
-            <strong>/condense</strong>, dos Shulkers con equipamiento y
-            suministros, materiales especiales y una piedra de protección
-            de 60 × 60 bloques.
+
+            GUARDIAN cuenta con un kit con armadura completa de Netherite
+            encantada a nivel IX, espada, pico, hacha, pala, maza y escudo.
+            También incluye Esencia Arcana ×26, Nexo Prismático ×24,
+            Esencia Eléctrica ×22, Cristal Acuático ×20, Vértice Cósmico ×18,
+            Polvo Solar ×16, Semilla Natural ×16, Llave Guardian ×1 y
+            protección de terreno de <strong>40 × 40 bloques</strong>.
+
             <br><br>
-            <strong>Nota:</strong> los comandos, encantamientos, objetos
-            personalizados y protecciones dependen de los permisos,
-            la configuración del servidor y los plugins instalados.
+
+            <strong>Nota:</strong> Este rango trae un agregado de +24M dentro del servidor.
         </div>
 
     </div>
