@@ -1,26 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08080d">
-<meta name="description" content="Descubre el rango MAJESTAD de Kaizora Origins, sus comandos exclusivos y su kit avanzado.">
+<meta name="theme-color" content="#09070e">
 <title>MAJESTAD | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango MAJESTAD de Kaizora Origins, sus comandos exclusivos y su kit avanzado.">
 
 <style>
 :root{
-    --bg:#08080d;
-    --panel:#101322;
+    --bg:#09070e;
+    --panel:#12101c;
     --rank:#ffd34d;
     --rank-light:#fff0a6;
     --rank-pale:#fff8d9;
-    --purple:#9365ff;
     --pink:#ff6de1;
     --white:#fff;
-    --text:#e8eaff;
-    --muted:#b8bbcb;
-    --border:rgba(255,211,77,.25);
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(255,211,77,.30);
 }
 
 *{box-sizing:border-box}
@@ -41,12 +39,11 @@ a{color:inherit}
     position:fixed;
     inset:0;
     z-index:-2;
-    pointer-events:none;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.20),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(255,211,77,.10),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.08),transparent 40%),
-        #08080d;
+        radial-gradient(ellipse at 12% 12%,rgba(255,211,77,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(178,147,53,.14),transparent 40%),
+        #09070e;
 }
 
 .bg::after{
@@ -69,10 +66,9 @@ nav{
     justify-content:space-between;
     gap:16px;
     padding:14px 7%;
-    border-bottom:1px solid rgba(255,211,77,.18);
-    background:rgba(8,8,13,.87);
+    border-bottom:1px solid rgba(255,211,77,.2);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
     position:relative;
     z-index:5;
 }
@@ -81,16 +77,15 @@ nav{
     font-size:21px;
     font-weight:950;
     letter-spacing:1.5px;
-    white-space:nowrap;
 }
 
 .logo span{color:var(--rank-light)}
 
 nav a{
     text-decoration:none;
-    color:#d4d2de;
+    color:#e0d8ef;
     font-size:13px;
-    font-weight:850;
+    font-weight:800;
 }
 
 nav a.home:hover{color:white}
@@ -98,16 +93,16 @@ nav a.home:hover{color:white}
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#7050df,#9365ff);
+    background:linear-gradient(110deg,#b29436,#ffd34d);
     color:white!important;
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 5px 24px rgba(147,101,255,.25);
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(255,211,77,.28);
     transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 32px rgba(147,101,255,.4);
+    box-shadow:0 8px 32px rgba(255,211,77,.45);
 }
 
 /* HERO */
@@ -131,12 +126,12 @@ main{
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
-    margin-bottom:25px;
+    margin-bottom:19px;
     padding:9px 13px;
-    border:1px solid rgba(255,211,77,.4);
+    border:1px solid rgba(255,211,77,.48);
     border-radius:6px;
-    background:rgba(255,211,77,.09);
-    box-shadow:0 0 25px rgba(255,211,77,.08);
+    background:rgba(255,211,77,.14);
+    box-shadow:0 0 25px rgba(255,211,77,.1);
 }
 
 .label::before{
@@ -144,33 +139,29 @@ main{
     width:7px;
     height:7px;
     border-radius:50%;
-    background:var(--rank);
-    box-shadow:0 0 13px var(--rank);
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
 }
 
 h1{
-    font-size:clamp(52px,10vw,100px);
+    font-size:clamp(58px,10vw,104px);
     line-height:.95;
     margin:0 0 25px;
     letter-spacing:-5px;
     font-weight:1000;
-    overflow-wrap:anywhere;
-    background:linear-gradient(
-        100deg,
-        #fff 5%,
-        var(--rank-pale) 30%,
-        var(--rank) 65%,
-        #ffb85c 95%
-    );
+    text-shadow:0 0 42px rgba(255,211,77,.24);
+}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#fff8d9 45%,#fff0a6 80%,#ff6de1);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
-    filter:drop-shadow(0 0 25px rgba(255,211,77,.12));
 }
 
 .desc{
-    max-width:780px;
-    color:#c4c9dc;
+    max-width:680px;
+    color:#c8c1d6;
     font-size:17px;
     line-height:1.85;
     margin:0;
@@ -194,37 +185,25 @@ h1{
 
 .price-label{
     display:block;
-    color:#b8b7c4;
+    color:#aaa1bd;
     font-size:10px;
     letter-spacing:2px;
     font-weight:900;
-    margin-bottom:7px;
+    margin-bottom:5px;
 }
 
 .price{
     font-size:46px;
     font-weight:1000;
     letter-spacing:-2px;
-    line-height:1;
-    color:var(--rank);
-    text-shadow:0 0 25px rgba(255,211,77,.23);
+    color:var(--rank-light);
+    text-shadow:0 0 25px rgba(255,211,77,.3);
 }
 
 .price-note{
-    color:#c1bdcb;
+    color:#bcb4ce;
     font-size:12px;
-    line-height:1.8;
-}
-
-.price-tag{
-    padding:8px 12px;
-    border-radius:6px;
-    border:1px solid rgba(255,211,77,.28);
-    background:rgba(255,211,77,.08);
-    color:var(--rank-pale);
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:1.2px;
+    line-height:1.6;
 }
 
 .actions{
@@ -250,24 +229,24 @@ h1{
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
-    color:#171104;
-    border-color:var(--rank-light);
-    background:linear-gradient(110deg,var(--rank),var(--rank-light));
-    box-shadow:0 5px 24px rgba(255,211,77,.2);
+    color:#100a1b;
+    border-color:#fff8d9;
+    background:linear-gradient(110deg,#fff0a6,#fff8d9);
+    box-shadow:0 5px 24px rgba(255,211,77,.25);
 }
 
 .primary:hover{
-    box-shadow:0 8px 32px rgba(255,211,77,.35);
+    box-shadow:0 8px 32px rgba(255,211,77,.45);
 }
 
 .back{
-    color:#e2eaff;
+    color:#fff8d9;
     background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:var(--purple);
-    background:rgba(147,101,255,.1);
+    border-color:var(--rank-light);
+    background:rgba(255,211,77,.1);
 }
 
 /* PANEL PRINCIPAL */
@@ -278,8 +257,8 @@ h1{
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(17,18,30,.97),rgba(9,10,21,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(255,211,77,.035);
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(255,211,77,.06);
     overflow:hidden;
     animation:appear .8s ease both;
 }
@@ -291,7 +270,7 @@ h1{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,var(--rank),var(--purple),transparent);
+    background:linear-gradient(90deg,transparent,#ffd34d,#ff6de1,transparent);
 }
 
 .box h2{
@@ -308,14 +287,14 @@ h1{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(var(--rank),var(--purple));
-    box-shadow:0 0 16px rgba(255,211,77,.3);
+    background:linear-gradient(#ffd34d,#ff6de1);
+    box-shadow:0 0 16px rgba(255,211,77,.5);
     flex-shrink:0;
 }
 
 .box h3{
     margin:0 0 14px;
-    color:#f4f4ff;
+    color:#f8f4ff;
     font-size:18px;
     font-weight:950;
 }
@@ -324,7 +303,6 @@ h1{
     color:var(--muted);
     line-height:1.8;
     margin:9px 0;
-    font-size:14px;
 }
 
 /* SECCIONES */
@@ -332,7 +310,7 @@ h1{
 .section{
     margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(255,211,77,.15);
+    border-top:1px solid rgba(255,211,77,.18);
 }
 
 .section:first-of-type{
@@ -348,45 +326,32 @@ h1{
     margin-bottom:16px;
 }
 
-.section-number{
+.section-icon{
     display:flex;
     align-items:center;
     justify-content:center;
     flex-shrink:0;
-    width:46px;
-    height:46px;
+    width:42px;
+    height:42px;
     border-radius:12px;
-    border:1px solid rgba(255,211,77,.35);
-    background:linear-gradient(145deg,rgba(255,211,77,.17),rgba(147,101,255,.13));
-    color:var(--rank-pale);
-    font-size:16px;
+    border:1px solid rgba(255,211,77,.4);
+    background:linear-gradient(145deg,rgba(255,211,77,.25),rgba(255,109,225,.1));
+    color:#fff8d9;
+    font-size:15px;
     font-weight:950;
-    box-shadow:inset 0 0 16px rgba(255,211,77,.05);
+    box-shadow:inset 0 0 16px rgba(255,211,77,.08);
 }
-
-.section-heading-text{min-width:0}
 
 .section-heading h3{
     margin:0;
-    font-size:clamp(17px,2.6vw,21px);
-    line-height:1.4;
+    font-size:18px;
 }
 
-.section-subtitle{
-    margin:5px 0 0!important;
-    font-size:12px!important;
-    color:#aeb8d0!important;
-    line-height:1.6!important;
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a99fbc;
 }
-
-.section-intro{
-    margin-bottom:20px!important;
-    color:#c4c9dc!important;
-    font-size:14px!important;
-    line-height:1.85!important;
-}
-
-/* TARJETAS */
 
 .info-list{
     list-style:none;
@@ -397,50 +362,56 @@ h1{
     gap:9px;
 }
 
+.info-list li.wide{grid-column:1/-1}
 .info-list li{
-    position:relative;
     min-width:0;
-    padding:14px 15px 14px 18px;
-    border:1px solid rgba(255,211,77,.17);
+    padding:14px 15px;
+    border:1px solid rgba(255,211,77,.2);
     border-radius:10px;
-    background:linear-gradient(120deg,rgba(255,211,77,.055),rgba(147,101,255,.035),rgba(255,255,255,.018));
-    color:#cbd7eb;
+    background:linear-gradient(120deg,rgba(255,211,77,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
     line-height:1.7;
-    font-size:13px;
-    overflow-wrap:anywhere;
     transition:border-color .2s,background .2s,transform .2s;
-}
-
-.info-list li::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:12px;
-    bottom:12px;
-    width:3px;
-    border-radius:0 4px 4px 0;
-    background:linear-gradient(var(--rank),var(--purple));
+    overflow-wrap:anywhere;
 }
 
 .info-list li:hover{
-    border-color:rgba(255,211,77,.55);
-    background:rgba(255,211,77,.07);
+    border-color:rgba(229,217,255,.65);
+    background:rgba(255,211,77,.14);
     transform:translateY(-1px);
 }
 
 .item-name{
-    color:#f4f5ff;
+    color:#f5efff;
     font-weight:900;
     overflow-wrap:anywhere;
 }
 
 .item-details{
-    color:#e7d99e;
+    color:#fff0a6;
     font-size:13px;
     font-weight:700;
 }
 
-/* COMANDOS */
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(255,211,77,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(255,211,77,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(255,211,77,.04);
+}
+
+.inherit strong{color:#fff8d9}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4edff!important;
+}
+
+/* COMANDOS ORIGIN */
 
 .command-intro{margin-bottom:20px!important}
 
@@ -455,12 +426,13 @@ h1{
     position:relative;
     overflow:hidden;
     min-width:0;
+    margin-top:0;
     padding:23px;
-    border:1px solid rgba(255,211,77,.35);
+    border:1px solid rgba(255,211,77,.42);
     border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
-        linear-gradient(135deg,rgba(105,83,28,.16),rgba(15,17,34,.96) 70%);
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(102,84,30,.25),rgba(26,20,41,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
 }
@@ -472,8 +444,8 @@ h1{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(var(--rank),var(--purple));
-    box-shadow:0 0 15px rgba(255,211,77,.2);
+    background:linear-gradient(#ffd34d,#ff6de1);
+    box-shadow:0 0 15px rgba(255,211,77,.25);
 }
 
 .command-card::after{
@@ -484,15 +456,15 @@ h1{
     right:-55px;
     bottom:-55px;
     border-radius:50%;
-    background:rgba(147,101,255,.15);
+    background:rgba(255,211,77,.16);
     filter:blur(12px);
     pointer-events:none;
 }
 
 .command-card:hover{
-    border-color:rgba(255,211,77,.75);
+    border-color:rgba(229,217,255,.8);
     transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(255,211,77,.08);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(255,211,77,.12);
 }
 
 .command-top{
@@ -507,165 +479,73 @@ h1{
     display:flex;
     align-items:center;
     justify-content:center;
-    width:36px;
-    height:36px;
-    flex-shrink:0;
-    border-radius:10px;
-    color:var(--rank-pale);
-    background:rgba(255,211,77,.12);
-    border:1px solid rgba(255,211,77,.3);
-    font-size:13px;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#fff8d9;
+    background:rgba(255,211,77,.24);
+    border:1px solid rgba(255,211,77,.32);
+    font-size:12px;
     font-weight:950;
 }
 
 .command-tag{
-    color:#e4d7ff;
-    background:rgba(147,101,255,.1);
-    border:1px solid rgba(147,101,255,.3);
+    color:#fff8d9;
+    background:rgba(255,211,77,.09);
+    border:1px solid rgba(255,211,77,.25);
     border-radius:5px;
     padding:6px 9px;
     font-size:9px;
     font-weight:950;
     letter-spacing:1.3px;
     text-transform:uppercase;
-    text-align:center;
 }
 
 .command-name{
     display:block;
-    position:relative;
-    z-index:1;
     margin-bottom:11px;
-    color:var(--rank);
+    color:#fff0a6;
     font-size:25px;
     line-height:1.25;
     font-weight:1000;
-    font-style:normal;
-    letter-spacing:.1px;
+    letter-spacing:.2px;
     overflow-wrap:anywhere;
-    text-shadow:0 0 22px rgba(255,211,77,.2);
-    font-family:Arial,Helvetica,sans-serif;
+    text-shadow:0 0 22px rgba(255,211,77,.23);
 }
 
 .command-description{
-    position:relative;
-    z-index:1;
     margin:0!important;
-    color:#d0dced!important;
-    font-size:14px!important;
+    color:#d0c9df!important;
+    font-size:14px;
     line-height:1.85!important;
 }
 
-/* AVISOS */
-
-.inherit{
+.command-note{
     margin-top:20px;
-    padding:20px;
-    border:1px solid rgba(255,211,77,.22);
+    padding:18px 20px;
+    border:1px solid rgba(255,211,77,.25);
     border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(255,211,77,.09),rgba(147,101,255,.045));
-    color:#c0cde0;
+    background:linear-gradient(100deg,rgba(255,211,77,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
     font-size:13px;
     line-height:1.9;
 }
 
-.inherit strong{
-    color:var(--rank-pale);
-    font-weight:950;
-}
-
-.inherit p{margin:12px 0 0!important}
-
-.kit-title{
-    font-size:21px!important;
-    color:#f4f8ff!important;
-}
-
-/* RESUMEN */
-
-.rank-summary{
-    margin-top:36px;
-    padding:25px;
-    border:1px solid rgba(255,211,77,.32);
-    border-radius:15px;
-    background:
-        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.12),transparent 55%),
-        linear-gradient(135deg,rgba(255,211,77,.075),rgba(15,17,34,.96));
-}
-
-.summary-heading{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:15px;
-}
-
-.summary-number{
-    width:42px;
-    height:42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    border-radius:11px;
-    border:1px solid rgba(255,211,77,.35);
-    background:rgba(255,211,77,.12);
-    color:var(--rank-pale);
-    font-weight:950;
-}
-
-.summary-heading h3{
-    margin:0;
-    color:var(--rank-pale);
-    font-size:19px;
-}
-
-.summary-text{
-    color:#cbd3e6;
-    font-size:14px;
-    line-height:1.9;
-}
-
-.money-note{
-    margin-top:18px;
-    padding:20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-    border:1px solid rgba(255,211,77,.4);
-    border-radius:12px;
-    background:linear-gradient(100deg,rgba(255,211,77,.13),rgba(147,101,255,.09));
-}
-
-.money-label{
-    color:#e6dfc4;
-    font-size:12px;
-    font-weight:950;
-    letter-spacing:1.5px;
-}
-
-.money-value{
-    color:var(--rank);
-    font-size:30px;
-    font-weight:1000;
-    text-shadow:0 0 20px rgba(255,211,77,.22);
-}
+.command-note strong{color:#fff8d9}
 
 /* PIE */
 
 footer{
     text-align:center;
     padding:30px 20px;
-    color:#8b98af;
+    color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(255,211,77,.15);
-    background:rgba(6,7,16,.72);
+    border-top:1px solid rgba(255,211,77,.18);
+    background:rgba(8,6,13,.72);
 }
 
-footer span{color:var(--rank-light)}
+footer span{color:#fff0a6}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
@@ -680,11 +560,7 @@ footer span{color:var(--rank-light)}
         flex-wrap:wrap;
     }
 
-    .logo{
-        font-size:17px;
-        letter-spacing:.7px;
-    }
-
+    .logo{font-size:17px}
     nav a.home{display:none}
 
     nav a.discord{
@@ -693,7 +569,6 @@ footer span{color:var(--rank-light)}
     }
 
     main{padding:62px 5% 70px}
-
     h1{letter-spacing:-3px}
     .desc{font-size:15px}
 
@@ -703,7 +578,6 @@ footer span{color:var(--rank-light)}
     }
 
     .price{font-size:40px}
-
     .actions{width:100%}
 
     .btn{
@@ -770,7 +644,7 @@ footer span{color:var(--rank-light)}
 
         <div class="label">RANGO EXCLUSIVO</div>
 
-        <h1>MAJESTAD</h1>
+        <h1><span>MAJESTAD</span></h1>
 
         <p class="desc">
             Prestigio, reconocimiento y ventajas exclusivas dentro de
@@ -822,13 +696,13 @@ footer span{color:var(--rank-light)}
 
         <!-- 01: PERMISOS -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">01</div>
-                <div class="section-heading-text">
+                <div class="section-icon">01</div>
+                <div>
                     <h3>Permisos y derechos de MAJESTAD</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Beneficios exclusivos de este rango
                     </p>
                 </div>
@@ -848,17 +722,17 @@ footer span{color:var(--rank-light)}
                 <strong>MAJESTAD no hereda permisos, ventajas ni beneficios de otros rangos.</strong>
             </div>
 
-        </section>
+        </div>
 
         <!-- 02: COMANDOS -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">02</div>
-                <div class="section-heading-text">
+                <div class="section-icon">02</div>
+                <div>
                     <h3>Comandos exclusivos de MAJESTAD</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Accede a tu almacenamiento personal
                     </p>
                 </div>
@@ -909,17 +783,17 @@ footer span{color:var(--rank-light)}
                 Son dos formas de ejecutar la misma función.
             </div>
 
-        </section>
+        </div>
 
         <!-- 03: KIT -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">03</div>
-                <div class="section-heading-text">
+                <div class="section-icon">03</div>
+                <div>
                     <h3 class="kit-title">/kit Majestad</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Equipamiento avanzado y recursos exclusivos
                     </p>
                 </div>
@@ -931,17 +805,17 @@ footer span{color:var(--rank-light)}
                 especiales y objetos adicionales para tus aventuras.
             </p>
 
-        </section>
+        </div>
 
         <!-- 04: ARMADURAS -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">04</div>
-                <div class="section-heading-text">
+                <div class="section-icon">04</div>
+                <div>
                     <h3>Armaduras de diamante</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Equipamiento con encantamientos avanzados
                     </p>
                 </div>
@@ -990,17 +864,17 @@ footer span{color:var(--rank-light)}
 
             </ul>
 
-        </section>
+        </div>
 
         <!-- 05: HERRAMIENTAS -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">05</div>
-                <div class="section-heading-text">
+                <div class="section-icon">05</div>
+                <div>
                     <h3>Herramientas y armas</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Equipamiento encantado exclusivo de MAJESTAD
                     </p>
                 </div>
@@ -1073,17 +947,17 @@ footer span{color:var(--rank-light)}
 
             </ul>
 
-        </section>
+        </div>
 
         <!-- 06: RECURSOS ESPECIALES -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">06</div>
-                <div class="section-heading-text">
+                <div class="section-icon">06</div>
+                <div>
                     <h3>Recursos especiales</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Objetos personalizados y llave exclusiva de MAJESTAD
                     </p>
                 </div>
@@ -1128,17 +1002,17 @@ footer span{color:var(--rank-light)}
 
             </ul>
 
-        </section>
+        </div>
 
         <!-- 07: PROTECCIÓN -->
 
-        <section class="section">
+        <div class="section">
 
             <div class="section-heading">
-                <div class="section-number">07</div>
-                <div class="section-heading-text">
+                <div class="section-icon">07</div>
+                <div>
                     <h3>Piedra de protección</h3>
-                    <p class="section-subtitle">
+                    <p>
                         Protección para tu zona y construcciones
                     </p>
                 </div>
@@ -1155,44 +1029,36 @@ footer span{color:var(--rank-light)}
 
             </ul>
 
-        </section>
+        </div>
 
         <!-- RESUMEN -->
 
-        <section class="rank-summary">
+        <!-- RESUMEN -->
 
-            <div class="summary-heading">
-                <div class="summary-number">08</div>
-                <h3>Resumen de beneficios</h3>
-            </div>
+        <div class="inherit">
 
-            <div class="summary-text">
-                MAJESTAD incluye permisos y derechos exclusivos,
-                comandos de almacenamiento personal, un kit avanzado
-                con armaduras de diamante encantadas, herramientas,
-                armas, escudo, arco, ballesta y mazo.
+            <strong>RESUMEN DEL RANGO MAJESTAD</strong><br>
 
-                <br><br>
+            MAJESTAD incluye permisos y derechos exclusivos,
+            comandos de almacenamiento personal (<strong>/ec</strong> y
+            <strong>/enderchest</strong>), un kit avanzado con armaduras de
+            diamante encantadas, herramientas, armas, escudo, arco, ballesta y mazo.
 
-                También incorpora manzanas doradas ×64, manzanas
-                encantadas ×64, zanahorias doradas ×64, pan ×64,
-                papas ×64, bloques de oro ×8, bloques de diamante ×8,
-                esmeraldas ×64 y fragmentos de Netherite ×12.
+            <br><br>
 
-                <br><br>
+            También incorpora manzanas doradas ×64, manzanas encantadas ×64,
+            zanahorias doradas ×64, pan ×64, papas ×64, bloques de oro ×8,
+            bloques de diamante ×8, esmeraldas ×64 y fragmentos de Netherite ×12.
 
-                El kit se completa con carga de viento ×64,
-                una Shulker MAJESTAD con 27 pociones y una
-                piedra de protección de 30 × 30 bloques.
-            </div>
+            <br><br>
 
-        </section>
+            El kit se completa con carga de viento ×64, una Shulker MAJESTAD
+            con 27 pociones y una piedra de protección de
+            <strong>30 × 30 bloques</strong>.
 
-        <!-- DINERO ADICIONAL -->
+            <br><br>
 
-        <div class="money-note">
-            <span class="money-label">DINERO ADICIONAL DEL RANGO</span>
-            <span class="money-value">+20M</span>
+            <strong>Nota:</strong> Este rango trae un agregado de +20M dentro del servidor.
         </div>
 
     </div>
