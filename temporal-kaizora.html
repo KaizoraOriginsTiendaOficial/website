@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
-<title>Primordial Temporal · Kaizora Origins</title>
-<meta name="description" content="Descubre el rango PRIMORDIAL de Kaizora Origins: comandos /grindstone y /smithingtable, kit de Netherite nivel XI y protección de terreno de 60 × 60.">
+<title>Kaizora Temporal · Kaizora Origins</title>
+<meta name="description" content="Descubre el rango KAIZORA, el más exclusivo de Kaizora Origins: comando /repair, kit de Netherite niveles XI y XII y protección de terreno de 70 × 70.">
 
 <style>
 :root{
     --bg:#09070e;
     --panel:#12101c;
-    --rank:#7133ad;
-    --rank-light:#b899d6;
-    --rank-pale:#eae0f3;
-    --pink:#ff6de1;
+    --rank:#ff6de1;
+    --rank-light:#ffb6f0;
+    --rank-pale:#ffe2f9;
+    --pink:#9b5de5;
     --white:#fff;
     --text:#e8e4f0;
     --muted:#b7b1c5;
-    --border:rgba(113,51,173,.30);
+    --border:rgba(255,109,225,.30);
 }
 
 *{box-sizing:border-box}
@@ -40,9 +40,9 @@ a{color:inherit}
     inset:0;
     z-index:-2;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(113,51,173,.25),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(74,31,115,.14),transparent 40%),
+        radial-gradient(ellipse at 12% 12%,rgba(255,109,225,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(155,93,229,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(150,50,130,.14),transparent 40%),
         #09070e;
 }
 
@@ -66,7 +66,7 @@ nav{
     justify-content:space-between;
     gap:16px;
     padding:14px 7%;
-    border-bottom:1px solid rgba(113,51,173,.2);
+    border-bottom:1px solid rgba(255,109,225,.2);
     background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
     position:relative;
@@ -93,16 +93,16 @@ nav a.home:hover{color:white}
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#4a1f73,#7133ad);
+    background:linear-gradient(110deg,#b3479e,#ff6de1);
     color:white!important;
     border:1px solid rgba(255,255,255,.23);
-    box-shadow:0 5px 24px rgba(113,51,173,.28);
+    box-shadow:0 5px 24px rgba(255,109,225,.28);
     transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 32px rgba(113,51,173,.45);
+    box-shadow:0 8px 32px rgba(255,109,225,.45);
 }
 
 /* HERO */
@@ -128,10 +128,10 @@ main{
     letter-spacing:3px;
     margin-bottom:19px;
     padding:9px 13px;
-    border:1px solid rgba(113,51,173,.48);
+    border:1px solid rgba(255,109,225,.48);
     border-radius:6px;
-    background:rgba(113,51,173,.14);
-    box-shadow:0 0 25px rgba(113,51,173,.1);
+    background:rgba(255,109,225,.14);
+    box-shadow:0 0 25px rgba(255,109,225,.1);
 }
 
 .label::before{
@@ -149,11 +149,11 @@ h1{
     margin:0 0 25px;
     letter-spacing:-5px;
     font-weight:1000;
-    text-shadow:0 0 42px rgba(113,51,173,.24);
+    text-shadow:0 0 42px rgba(255,109,225,.24);
 }
 
 h1 span{
-    background:linear-gradient(100deg,#fff 5%,#eae0f3 45%,#b899d6 80%,#ff6de1);
+    background:linear-gradient(100deg,#fff 5%,#ffe2f9 45%,#ffb6f0 80%,#9b5de5);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
@@ -197,7 +197,7 @@ h1 span{
     font-weight:1000;
     letter-spacing:-2px;
     color:var(--rank-light);
-    text-shadow:0 0 25px rgba(113,51,173,.3);
+    text-shadow:0 0 25px rgba(255,109,225,.3);
 }
 
 
@@ -234,23 +234,23 @@ h1 span{
 
 .primary{
     color:#100a1b;
-    border-color:#eae0f3;
-    background:linear-gradient(110deg,#b899d6,#eae0f3);
-    box-shadow:0 5px 24px rgba(113,51,173,.25);
+    border-color:#ffe2f9;
+    background:linear-gradient(110deg,#ffb6f0,#ffe2f9);
+    box-shadow:0 5px 24px rgba(255,109,225,.25);
 }
 
 .primary:hover{
-    box-shadow:0 8px 32px rgba(113,51,173,.45);
+    box-shadow:0 8px 32px rgba(255,109,225,.45);
 }
 
 .back{
-    color:#eae0f3;
+    color:#ffe2f9;
     background:rgba(255,255,255,.035);
 }
 
 .back:hover{
     border-color:var(--rank-light);
-    background:rgba(113,51,173,.1);
+    background:rgba(255,109,225,.1);
 }
 
 /* PANEL PRINCIPAL */
@@ -262,7 +262,7 @@ h1 span{
     border:1px solid var(--border);
     border-radius:20px;
     background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(113,51,173,.06);
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(255,109,225,.06);
     overflow:hidden;
     animation:appear .8s ease both;
 }
@@ -274,7 +274,7 @@ h1 span{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,#7133ad,#ff6de1,transparent);
+    background:linear-gradient(90deg,transparent,#ff6de1,#9b5de5,transparent);
 }
 
 .box h2{
@@ -291,8 +291,8 @@ h1 span{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(#7133ad,#ff6de1);
-    box-shadow:0 0 16px rgba(113,51,173,.5);
+    background:linear-gradient(#ff6de1,#9b5de5);
+    box-shadow:0 0 16px rgba(255,109,225,.5);
     flex-shrink:0;
 }
 
@@ -314,7 +314,7 @@ h1 span{
 .section{
     margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(113,51,173,.18);
+    border-top:1px solid rgba(255,109,225,.18);
 }
 
 .section:first-of-type{
@@ -338,12 +338,12 @@ h1 span{
     width:42px;
     height:42px;
     border-radius:12px;
-    border:1px solid rgba(113,51,173,.4);
-    background:linear-gradient(145deg,rgba(113,51,173,.25),rgba(255,109,225,.1));
-    color:#eae0f3;
+    border:1px solid rgba(255,109,225,.4);
+    background:linear-gradient(145deg,rgba(255,109,225,.25),rgba(155,93,229,.1));
+    color:#ffe2f9;
     font-size:15px;
     font-weight:950;
-    box-shadow:inset 0 0 16px rgba(113,51,173,.08);
+    box-shadow:inset 0 0 16px rgba(255,109,225,.08);
 }
 
 .section-heading h3{
@@ -370,9 +370,9 @@ h1 span{
 .info-list li{
     min-width:0;
     padding:14px 15px;
-    border:1px solid rgba(113,51,173,.2);
+    border:1px solid rgba(255,109,225,.2);
     border-radius:10px;
-    background:linear-gradient(120deg,rgba(113,51,173,.1),rgba(255,255,255,.018));
+    background:linear-gradient(120deg,rgba(255,109,225,.1),rgba(255,255,255,.018));
     color:#d1c8df;
     line-height:1.7;
     transition:border-color .2s,background .2s,transform .2s;
@@ -381,7 +381,7 @@ h1 span{
 
 .info-list li:hover{
     border-color:rgba(229,217,255,.65);
-    background:rgba(113,51,173,.14);
+    background:rgba(255,109,225,.14);
     transform:translateY(-1px);
 }
 
@@ -392,7 +392,7 @@ h1 span{
 }
 
 .item-details{
-    color:#b899d6;
+    color:#ffb6f0;
     font-size:13px;
     font-weight:700;
 }
@@ -400,15 +400,15 @@ h1 span{
 .inherit{
     margin-top:19px;
     padding:20px;
-    border:1px solid rgba(113,51,173,.36);
+    border:1px solid rgba(255,109,225,.36);
     border-radius:12px;
-    background:linear-gradient(110deg,rgba(113,51,173,.17),rgba(255,109,225,.055));
+    background:linear-gradient(110deg,rgba(255,109,225,.17),rgba(155,93,229,.055));
     color:#d0c7e0;
     line-height:1.9;
-    box-shadow:inset 0 0 24px rgba(113,51,173,.04);
+    box-shadow:inset 0 0 24px rgba(255,109,225,.04);
 }
 
-.inherit strong{color:#eae0f3}
+.inherit strong{color:#ffe2f9}
 
 .kit-title{
     font-size:21px!important;
@@ -432,10 +432,10 @@ h1 span{
     min-width:0;
     margin-top:0;
     padding:23px;
-    border:1px solid rgba(113,51,173,.42);
+    border:1px solid rgba(255,109,225,.42);
     border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        radial-gradient(ellipse at 100% 0%,rgba(155,93,229,.14),transparent 55%),
         linear-gradient(135deg,rgba(102,48,0,.25),rgba(26,20,41,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
@@ -448,8 +448,8 @@ h1 span{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(#7133ad,#ff6de1);
-    box-shadow:0 0 15px rgba(113,51,173,.25);
+    background:linear-gradient(#ff6de1,#9b5de5);
+    box-shadow:0 0 15px rgba(255,109,225,.25);
 }
 
 .command-card::after{
@@ -460,7 +460,7 @@ h1 span{
     right:-55px;
     bottom:-55px;
     border-radius:50%;
-    background:rgba(113,51,173,.16);
+    background:rgba(255,109,225,.16);
     filter:blur(12px);
     pointer-events:none;
 }
@@ -468,7 +468,7 @@ h1 span{
 .command-card:hover{
     border-color:rgba(229,217,255,.8);
     transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(113,51,173,.12);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(255,109,225,.12);
 }
 
 .command-top{
@@ -486,17 +486,17 @@ h1 span{
     width:32px;
     height:32px;
     border-radius:9px;
-    color:#eae0f3;
-    background:rgba(113,51,173,.24);
-    border:1px solid rgba(113,51,173,.32);
+    color:#ffe2f9;
+    background:rgba(255,109,225,.24);
+    border:1px solid rgba(255,109,225,.32);
     font-size:12px;
     font-weight:950;
 }
 
 .command-tag{
-    color:#eae0f3;
-    background:rgba(113,51,173,.09);
-    border:1px solid rgba(113,51,173,.25);
+    color:#ffe2f9;
+    background:rgba(255,109,225,.09);
+    border:1px solid rgba(255,109,225,.25);
     border-radius:5px;
     padding:6px 9px;
     font-size:9px;
@@ -508,13 +508,13 @@ h1 span{
 .command-name{
     display:block;
     margin-bottom:11px;
-    color:#b899d6;
+    color:#ffb6f0;
     font-size:25px;
     line-height:1.25;
     font-weight:1000;
     letter-spacing:.2px;
     overflow-wrap:anywhere;
-    text-shadow:0 0 22px rgba(113,51,173,.23);
+    text-shadow:0 0 22px rgba(255,109,225,.23);
 }
 
 .command-description{
@@ -527,16 +527,16 @@ h1 span{
 .command-note{
     margin-top:20px;
     padding:18px 20px;
-    border:1px solid rgba(113,51,173,.25);
+    border:1px solid rgba(255,109,225,.25);
     border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(113,51,173,.14),rgba(255,109,225,.035));
+    background:linear-gradient(100deg,rgba(255,109,225,.14),rgba(155,93,229,.035));
     color:#c4bbd5;
     font-size:13px;
     line-height:1.9;
 }
 
-.command-note strong{color:#eae0f3}
+.command-note strong{color:#ffe2f9}
 
 /* PIE */
 
@@ -545,11 +545,11 @@ footer{
     padding:30px 20px;
     color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(113,51,173,.18);
+    border-top:1px solid rgba(255,109,225,.18);
     background:rgba(8,6,13,.72);
 }
 
-footer span{color:#b899d6}
+footer span{color:#ffb6f0}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
@@ -681,30 +681,30 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
 
     <section class="hero">
         <div class="label">RANGO TEMPORAL</div>
-        <h1><span>PRIMORDIAL</span></h1>
+        <h1><span>KAIZORA</span></h1>
         <p class="desc">
-            ¿Quieres probar Primordial sin comprarlo para siempre? Elige 7 o 14 días de rango y reclama
+            ¿Quieres probar Kaizora sin comprarlo para siempre? Elige 7 o 14 días de rango y reclama
             tu kit y también los kits de todos los rangos inferiores. Usa todos sus comandos mientras dure. Al terminar el tiempo vuelves a tu rango anterior y te quedas
             con todo lo que conseguiste.
         </p>
         <div class="quick">
-            <span>7 días · $35.99</span>
-            <span>14 días · $45.49</span>
-            <span>11 kits en 7 días</span>
-            <span>/grindstone · /smithingtable</span>
+            <span>7 días · $42.49</span>
+            <span>14 días · $53.49</span>
+            <span>12 kits en 7 días</span>
+            <span>/repair</span>
             <span>1 compra cada 3 meses</span>
         </div>
         <div class="hero-bottom">
             <div class="price-wrap">
                 <div>
                     <span class="price-label">DESDE</span>
-                    <div class="price">$35.99</div>
+                    <div class="price">$42.49</div>
                 </div>
                 <div class="price-note">Pago único por periodo.<br>Sin suscripciones.</div>
             </div>
             <div class="actions">
                 <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar temporal ↗</a>
-                <a class="btn back" href="rango-primordial.html">Ver rango permanente</a>
+                <a class="btn back" href="rango-kaizora.html">Ver rango permanente</a>
             </div>
         </div>
     </section>
@@ -718,9 +718,9 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div><h3>Tres pasos</h3><p>Rápido y sin complicaciones</p></div>
             </div>
             <div class="t-steps">
-                <div class="t-step"><b>1</b><h4>Elige tu duración</h4><p>7 días o 14 días de Primordial. Solo puedes comprar un temporal cada 3 meses, así que elige bien.</p></div>
+                <div class="t-step"><b>1</b><h4>Elige tu duración</h4><p>7 días o 14 días de Kaizora. Solo puedes comprar un temporal cada 3 meses, así que elige bien.</p></div>
                 <div class="t-step"><b>2</b><h4>Paga por Discord</h4><p>Abre un ticket en el Discord oficial, indica tu usuario y el periodo que quieres, y paga por PayPal.</p></div>
-                <div class="t-step"><b>3</b><h4>Disfruta tu rango</h4><p>Se activa Primordial en tu cuenta. Reclama <strong>/kit Primordial</strong> y los kits de los rangos inferiores, y usa sus comandos hasta que termine el tiempo.</p></div>
+                <div class="t-step"><b>3</b><h4>Disfruta tu rango</h4><p>Se activa Kaizora en tu cuenta. Reclama <strong>/kit Kaizora</strong> y los kits de los rangos inferiores, y usa sus comandos hasta que termine el tiempo.</p></div>
             </div>
         </div>
 
@@ -733,12 +733,12 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div class="t-plan">
                     <small>OPCIÓN 1</small>
                     <div class="days">7 días</div>
-                    <div class="amount">$35.99</div>
-                    <div class="per">11 kits en total · $3.27 por kit</div>
+                    <div class="amount">$42.49</div>
+                    <div class="per">12 kits en total · $3.54 por kit</div>
                     <ul>
-                        <li>/kit Primordial y los kits de todos los rangos inferiores</li>
-                        <li>11 kits reclamables en total</li>
-                        <li>Comandos exclusivos de Primordial</li>
+                        <li>/kit Kaizora y los kits de todos los rangos inferiores</li>
+                        <li>12 kits reclamables en total</li>
+                        <li>Comandos exclusivos de Kaizora</li>
                         <li>Comandos de los rangos inferiores</li>
                     </ul>
                     <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 7 días ↗</a>
@@ -746,12 +746,12 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div class="t-plan">
                     <small>OPCIÓN 2 · MÁS AHORRO POR SEMANA</small>
                     <div class="days">14 días</div>
-                    <div class="amount">$45.49</div>
-                    <div class="per">19 kits en total · $2.39 por kit</div>
+                    <div class="amount">$53.49</div>
+                    <div class="per">20 kits en total · $2.67 por kit</div>
                     <ul>
-                        <li>/kit Primordial y los kits de todos los rangos inferiores</li>
-                        <li>19 kits reclamables en total (los de menor espera se reclaman dos veces)</li>
-                        <li>Comandos exclusivos de Primordial</li>
+                        <li>/kit Kaizora y los kits de todos los rangos inferiores</li>
+                        <li>20 kits reclamables en total (los de menor espera se reclaman dos veces)</li>
+                        <li>Comandos exclusivos de Kaizora</li>
                         <li>Comandos de los rangos inferiores</li>
                     </ul>
                     <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 14 días ↗</a>
@@ -760,8 +760,8 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
             <div class="t-compare">
                 El rango temporal incluye lo mismo que el permanente, pero dura solo 7 o 14 días y
                 <strong>solo se puede comprar una vez cada 3 meses por cuenta</strong>. El rango permanente
-                cuesta <strong>$54.99</strong> y es tuyo para siempre, sin límite de compra.
-                <a href="rango-primordial.html" style="color:var(--rank-light);font-weight:800">Ver rango permanente →</a>
+                cuesta <strong>$64.99</strong> y es tuyo para siempre, sin límite de compra.
+                <a href="rango-kaizora.html" style="color:var(--rank-light);font-weight:800">Ver rango permanente →</a>
             </div>
         </div>
 
@@ -771,7 +771,7 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div><h3>Kits que puedes reclamar</h3><p>Tu rango abre también los kits de todos los rangos inferiores</p></div>
             </div>
             <p style="margin-top:16px">Cada kit tiene su propio tiempo de espera. Si tu rango dura más que esa espera, puedes reclamarlo otra vez.</p>
-            <div class="t-scroll"><table class="t-kits"><thead><tr><th>Kit</th><th>Se reclama cada</th><th>En 7 días</th><th>En 14 días</th></tr></thead><tbody><tr class="own"><td>/kit Primordial</td><td>21 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit Eterno</td><td>14 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit Dios</td><td>14 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit SemiDios</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Guardian</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Majestad</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Astral</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Celestial</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Elite</td><td>7 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Ascendente</td><td>7 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Origin</td><td>7 días</td><td>1</td><td>2</td></tr></tbody><tfoot><tr><td>Total de kits</td><td></td><td>11</td><td>19</td></tr></tfoot></table></div>
+            <div class="t-scroll"><table class="t-kits"><thead><tr><th>Kit</th><th>Se reclama cada</th><th>En 7 días</th><th>En 14 días</th></tr></thead><tbody><tr class="own"><td>/kit Kaizora</td><td>30 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit Primordial</td><td>21 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit Eterno</td><td>14 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit Dios</td><td>14 días</td><td>1</td><td>1</td></tr><tr class=""><td>/kit SemiDios</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Guardian</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Majestad</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Astral</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Celestial</td><td>10 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Elite</td><td>7 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Ascendente</td><td>7 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Origin</td><td>7 días</td><td>1</td><td>2</td></tr></tbody><tfoot><tr><td>Total de kits</td><td></td><td>12</td><td>20</td></tr></tfoot></table></div>
         </div>
 
         <div class="section">
@@ -783,9 +783,9 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div class="t-list yes">
                     <h4>Incluye</h4>
                     <ul>
-                        <li>Todo lo que trae el rango permanente Primordial: kit Netherite XI, esencias y objetos, Piedra de Protección</li>
-                        <li>El dinero del rango: +38M</li>
-                        <li>Comandos exclusivos: /grindstone · /smithingtable</li>
+                        <li>Todo lo que trae el rango permanente Kaizora: kit Netherite XI-XII, esencias y objetos, Piedra de Protección</li>
+                        <li>El dinero del rango: +45M</li>
+                        <li>Comandos exclusivos: /repair</li>
                         <li>Los kits, comandos y ventajas de todos los rangos inferiores</li>
                         <li>Los objetos que reclames son tuyos para siempre, aunque el rango termine</li>
                     </ul>
@@ -807,10 +807,10 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div><h3>Preguntas frecuentes</h3><p>Lo que más preguntan</p></div>
             </div>
             <details class="t-faq"><summary>¿Cuándo empieza a contar el tiempo?</summary><p>Desde el momento en que el staff te activa el rango. Reclama tu kit en cuanto lo recibas.</p></details>
-            <details class="t-faq"><summary>¿Qué pasa cuando termina?</summary><p>Vuelves a tu rango anterior. Conservas los objetos del kit y todo lo que hayas conseguido jugando, pero pierdes los comandos exclusivos de Primordial.</p></details>
+            <details class="t-faq"><summary>¿Qué pasa cuando termina?</summary><p>Vuelves a tu rango anterior. Conservas los objetos del kit y todo lo que hayas conseguido jugando, pero pierdes los comandos exclusivos de Kaizora.</p></details>
             <details class="t-faq"><summary>¿Puedo comprar 7 días y luego 14?</summary><p>No. Solo puedes comprar un rango temporal una vez cada 3 meses por cuenta, así que tienes que elegir entre 7 y 14 días.</p></details>
             <details class="t-faq"><summary>¿Cuándo puedo reclamar un kit otra vez?</summary><p>Cuando pase su tiempo de espera (7, 10, 14, 21 o 30 días según el kit) y tu rango temporal siga activo. La tabla de arriba muestra cuántas veces puedes reclamar cada uno en 7 y en 14 días.</p></details>
-            <details class="t-faq"><summary>¿Puedo reclamar los kits de rangos inferiores?</summary><p>Sí. Todos los rangos pueden reclamar los kits de los rangos que están por debajo, y Primordial los incluye todos.</p></details>
+            <details class="t-faq"><summary>¿Puedo reclamar los kits de rangos inferiores?</summary><p>Sí. Todos los rangos pueden reclamar los kits de los rangos que están por debajo, y Kaizora los incluye todos.</p></details>
             <details class="t-faq"><summary>¿Cómo pago?</summary><p>Por PayPal, abriendo un ticket en el Discord oficial. Indica tu usuario de Minecraft y el periodo que eliges.</p></details>
         </div>
     </div>
