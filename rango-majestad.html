@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
 <title>MAJESTAD | Kaizora Origins</title>
-<meta name="description" content="Descubre el rango MAJESTAD de Kaizora Origins, sus comandos exclusivos y su kit avanzado.">
+<meta name="description" content="Descubre el rango MAJESTAD de Kaizora Origins: acceso a /ec, armadura de Netherite nivel IX, Shulker de pociones, recursos y protección de terreno de 30 × 30.">
 
 <style>
 :root{
@@ -611,6 +611,8 @@ footer span{color:#fff0a6}
         transition:none!important;
     }
 }
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);color:#fff;font-size:12px;font-weight:900;letter-spacing:.4px}
 </style>
 </head>
 
@@ -647,12 +649,20 @@ footer span{color:#fff0a6}
         <h1><span>MAJESTAD</span></h1>
 
         <p class="desc">
-            Prestigio, reconocimiento y ventajas exclusivas dentro de
-            Kaizora Origins. Equípate con armaduras y herramientas
-            encantadas, accede a tu almacenamiento personal y disfruta
-            de un kit avanzado con recursos especiales para continuar
-            construyendo tu historia.
+            Poder y prestigio. MAJESTAD te da equipamiento de Netherite con encantamientos avanzados,
+            acceso a tu almacenamiento personal y un kit completo de recursos especiales
+            para continuar construyendo tu historia.
         </p>
+
+                <div class="quick">
+            <span>Netherite nivel IX</span>
+            <span>Protección 30 × 30</span>
+            <span>+20M</span>
+            <span>/ec</span>
+            <span>+1 casa</span>
+            <span>Shulker con 27 pociones</span>
+            <span>Llave Majestad ×1</span>
+        </div>
 
         <div class="hero-bottom">
 
@@ -692,60 +702,29 @@ footer span{color:#fff0a6}
 
     <div class="box">
 
-        <h2>Beneficios y ventajas de MAJESTAD</h2>
+        <h2>Información del rango</h2>
 
-        <!-- 01: PERMISOS -->
+        <!-- 01: COMANDOS EXCLUSIVOS -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
-                    <h3>Permisos y derechos de MAJESTAD</h3>
-                    <p>
-                        Beneficios exclusivos de este rango
-                    </p>
+                    <h3 class="kit-title">Comandos exclusivos de MAJESTAD</h3>
+                    <p>Accede a tu almacenamiento personal</p>
                 </div>
             </div>
 
-            <p class="section-intro">
-                MAJESTAD cuenta exclusivamente con los permisos,
-                comandos, derechos y beneficios asignados a este rango
-                dentro de Kaizora Origins.
-            </p>
-
-            <div class="inherit">
-                <strong>BENEFICIOS EXCLUSIVOS</strong><br>
-                Todos los privilegios de MAJESTAD corresponden únicamente
-                a este rango y a las características establecidas para él.
-                <br><br>
-                <strong>MAJESTAD no hereda permisos, ventajas ni beneficios de otros rangos.</strong>
-            </div>
-
-        </div>
-
-        <!-- 02: COMANDOS -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">02</div>
-                <div>
-                    <h3>Comandos exclusivos de MAJESTAD</h3>
-                    <p>
-                        Accede a tu almacenamiento personal
-                    </p>
-                </div>
-            </div>
-
-            <p class="section-intro">
-                Abre tu cofre de Ender personal desde donde te encuentres,
-                sin necesidad de buscar un cofre físico.
+            <p class="command-intro">
+                Abre tu cofre de Ender personal desde donde te encuentres, sin necesidad de
+                buscar un cofre físico. Este comando forma parte de los permisos propios del rango MAJESTAD.
             </p>
 
             <div class="command-grid">
 
-                <article class="command-card">
+                <div class="command-card">
+
                     <div class="command-top">
                         <span class="command-number">01</span>
                         <span class="command-tag">Almacenamiento</span>
@@ -754,194 +733,166 @@ footer span{color:#fff0a6}
                     <span class="command-name">/ec</span>
 
                     <p class="command-description">
-                        Abre tu cofre de Ender personal para guardar
-                        y consultar tus objetos desde cualquier lugar
-                        donde puedas ejecutar el comando.
+                        Abre tu cofre de Ender personal para guardar y consultar tus objetos desde
+                        cualquier lugar donde puedas ejecutar el comando. También puedes usar
+                        <strong>/enderchest</strong>, que hace exactamente lo mismo. No funciona en combate.
                     </p>
-                </article>
 
-                <article class="command-card">
-                    <div class="command-top">
-                        <span class="command-number">02</span>
-                        <span class="command-tag">Almacenamiento</span>
-                    </div>
-
-                    <span class="command-name">/enderchest</span>
-
-                    <p class="command-description">
-                        Accede a tu cofre de Ender personal mediante
-                        el comando completo. Guarda y consulta tus
-                        objetos sin buscar un cofre físico.
-                    </p>
-                </article>
+                </div>
 
             </div>
 
-            <div class="inherit">
+            <div class="command-note">
                 <strong>VENTAJA MAJESTAD</strong><br>
-                Ambos comandos permiten acceder al cofre de Ender personal.
-                Son dos formas de ejecutar la misma función.
+                El comando <strong>/ec</strong> está disponible desde el rango MAJESTAD y no está
+                disponible en rangos inferiores. Las funciones disponibles pueden depender
+                de la configuración de los plugins del servidor.
             </div>
 
         </div>
 
-        <!-- 03: KIT -->
+        <!-- 02: KIT ORIGIN -->
+
+        <div class="section">
+
+            <div class="section-heading">
+                <div class="section-icon">02</div>
+                <div>
+                    <h3 class="kit-title">/kit Majestad</h3>
+                    <p>Tu equipamiento exclusivo de rango</p>
+                </div>
+            </div>
+
+            <p>
+                El kit exclusivo del rango MAJESTAD reúne armadura de Netherite encantada a nivel IX,
+                herramientas y armas, alimentos, minerales, recursos especiales y una Shulker con pociones.
+                MAJESTAD incluye todos los beneficios de ASTRAL y suma <strong>+1 casa</strong>
+                (/sethome) más dinero inicial.
+            </p>
+
+        </div>
+
+        <!-- 03: ARMADURA NETHERITE -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">03</div>
                 <div>
-                    <h3 class="kit-title">/kit Majestad</h3>
-                    <p>
-                        Equipamiento avanzado y recursos exclusivos
-                    </p>
+                    <h3>Full Armor Netherite</h3>
+                    <p>Protección avanzada para tus aventuras</p>
                 </div>
             </div>
 
-            <p class="section-intro">
-                El kit exclusivo MAJESTAD reúne armaduras encantadas,
-                herramientas, armas, alimentos, minerales, recursos
-                especiales y objetos adicionales para tus aventuras.
-            </p>
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Casco de Netherite</span><br>
+                    <span class="item-details">
+                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Respiración IX · Afinidad acuática IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">
+                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">
+                        Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Sigilo veloz IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+
+                <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">
+                        Paso helado IX · Protección IX · Protección contra explosiones IX · Protección contra el fuego IX · Protección contra proyectiles IX · Caída de pluma IX · Velocidad del alma IX · Agilidad acuática IX · Irrompibilidad IX · Reparación
+                    </span>
+                </li>
+
+            </ul>
 
         </div>
 
-        <!-- 04: ARMADURAS -->
+        <!-- 04: HERRAMIENTAS Y ARMAS -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">04</div>
                 <div>
-                    <h3>Armaduras de diamante</h3>
-                    <p>
-                        Equipamiento con encantamientos avanzados
-                    </p>
+                    <h3>Herramientas y armas de Netherite</h3>
+                    <p>Equipo encantado para combatir y recolectar recursos</p>
                 </div>
             </div>
 
             <ul class="info-list">
 
                 <li>
-                    <span class="item-name">Casco de diamante</span><br>
+                    <span class="item-name">Espada de Netherite</span><br>
                     <span class="item-details">
-                        Protección VIII · Protección contra explosiones VIII ·
-                        Protección contra el fuego IX · Protección contra proyectiles IX ·
-                        Respiración VIII · Afinidad acuática IX ·
-                        Irrompibilidad VIII · Reparación
+                        Filo IX · Golpeo IX · Perdición de los artrópodos IX · Filo arrasador IX · Aspecto ígneo IX · Empuje IX · Botín IX · Irrompibilidad IX · Reparación
                     </span>
                 </li>
 
                 <li>
-                    <span class="item-name">Pechera de diamante</span><br>
+                    <span class="item-name">Pico de Netherite</span><br>
                     <span class="item-details">
-                        Protección VIII · Protección contra explosiones VIII ·
-                        Protección contra el fuego IX · Protección contra proyectiles IX ·
-                        Irrompibilidad VIII · Reparación
+                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
                     </span>
                 </li>
 
                 <li>
-                    <span class="item-name">Pantalones de diamante</span><br>
+                    <span class="item-name">Hacha de Netherite</span><br>
                     <span class="item-details">
-                        Protección VIII · Protección contra explosiones VIII ·
-                        Protección contra el fuego IX · Protección contra proyectiles IX ·
-                        Sigilo veloz VIII · Irrompibilidad IX · Reparación
+                        Filo IX · Golpeo IX · Perdición de los artrópodos IX · Eficiencia IX · Irrompibilidad IX · Reparación
                     </span>
                 </li>
 
                 <li>
-                    <span class="item-name">Botas de diamante</span><br>
+                    <span class="item-name">Pala de Netherite</span><br>
                     <span class="item-details">
-                        Paso helado VIII · Protección VIII ·
-                        Protección contra explosiones VIII · Protección contra el fuego IX ·
-                        Protección contra proyectiles IX · Caída de pluma VIII ·
-                        Velocidad del alma IX · Agilidad acuática IX ·
-                        Irrompibilidad VIII · Reparación
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-        <!-- 05: HERRAMIENTAS -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">05</div>
-                <div>
-                    <h3>Herramientas y armas</h3>
-                    <p>
-                        Equipamiento encantado exclusivo de MAJESTAD
-                    </p>
-                </div>
-            </div>
-
-            <ul class="info-list">
-
-                <li>
-                    <span class="item-name">Espada de diamante</span><br>
-                    <span class="item-details">
-                        Filo VIII · Castigo IX ·
-                        Perdición de los artrópodos VIII ·
-                        Filo arrasador VIII · Aspecto ígneo VIII ·
-                        Empuje IX · Botín IX ·
-                        Irrompibilidad IX · Reparación
+                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
                     </span>
                 </li>
 
                 <li>
-                    <span class="item-name">Pico de diamante</span><br>
+                    <span class="item-name">Azada de Netherite</span><br>
                     <span class="item-details">
-                        Fortuna IX · Eficiencia VIII ·
-                        Irrompibilidad VIII · Reparación
-                    </span>
-                </li>
-
-                <li>
-                    <span class="item-name">Hacha de diamante</span><br>
-                    <span class="item-details">
-                        Filo VIII · Castigo IX ·
-                        Perdición de los artrópodos VIII ·
-                        Eficiencia VIII · Irrompibilidad IX · Reparación
-                    </span>
-                </li>
-
-                <li>
-                    <span class="item-name">Pala de diamante</span><br>
-                    <span class="item-details">
-                        Eficiencia VIII · Irrompibilidad VIII · Reparación
+                        Fortuna IX · Eficiencia IX · Irrompibilidad IX · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Escudo</span><br>
                     <span class="item-details">
-                        Irrompibilidad VIII · Reparación
+                        Irrompibilidad IX · Reparación
                     </span>
                 </li>
 
+            
                 <li>
                     <span class="item-name">Arco</span><br>
                     <span class="item-details">
-                        Irrompibilidad VII · Reparación
+                        Irrompibilidad VIII · Reparación
                     </span>
                 </li>
 
                 <li>
                     <span class="item-name">Ballesta</span><br>
                     <span class="item-details">
-                        Irrompibilidad VII · Reparación
+                        Irrompibilidad VIII · Reparación
                     </span>
                 </li>
 
                 <li>
-                    <span class="item-name">Mazo</span><br>
+                    <span class="item-name">Maza</span><br>
                     <span class="item-details">
-                        Irrompibilidad VII · Reparación
+                        Irrompibilidad VIII · Reparación
                     </span>
                 </li>
 
@@ -949,17 +900,15 @@ footer span{color:#fff0a6}
 
         </div>
 
-        <!-- 06: RECURSOS ESPECIALES -->
+        <!-- 05: ESENCIAS -->
 
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">06</div>
+                <div class="section-icon">05</div>
                 <div>
-                    <h3>Recursos especiales</h3>
-                    <p>
-                        Objetos personalizados y llave exclusiva de MAJESTAD
-                    </p>
+                    <h3>Esencias y objetos especiales</h3>
+                    <p>Recursos exclusivos incluidos en el kit Majestad</p>
                 </div>
             </div>
 
@@ -967,54 +916,72 @@ footer span{color:#fff0a6}
 
                 <li>
                     <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">Cantidad: ×24</span>
+                    <span class="item-details">×24</span>
                 </li>
 
                 <li>
                     <span class="item-name">Nexo Prismático</span><br>
-                    <span class="item-details">Cantidad: ×22</span>
+                    <span class="item-details">×22</span>
                 </li>
 
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">Cantidad: ×20</span>
+                    <span class="item-details">×20</span>
                 </li>
 
                 <li>
                     <span class="item-name">Cristal Acuático</span><br>
-                    <span class="item-details">Cantidad: ×18</span>
+                    <span class="item-details">×18</span>
                 </li>
 
                 <li>
                     <span class="item-name">Vértice Cósmico</span><br>
-                    <span class="item-details">Cantidad: ×16</span>
+                    <span class="item-details">×16</span>
                 </li>
 
                 <li>
                     <span class="item-name">Polvo Solar</span><br>
-                    <span class="item-details">Cantidad: ×14</span>
+                    <span class="item-details">×14</span>
+                </li>
+
+                <li class="wide">
+                    <span class="item-name">Alimentos</span><br>
+                    <span class="item-details">Manzanas doradas ×64 · Manzanas encantadas ×16 · Zanahorias doradas ×64 · Pan ×64 · Papas ×64</span>
+                </li>
+
+                <li class="wide">
+                    <span class="item-name">Minerales</span><br>
+                    <span class="item-details">Bloques de oro ×8 · Bloques de diamante ×8 · Esmeraldas ×64 · Fragmentos de Netherite ×12</span>
                 </li>
 
                 <li>
-                    <span class="item-name">Llave MAJESTAD</span><br>
-                    <span class="item-details">Cantidad: ×1</span>
+                    <span class="item-name">Carga de viento</span><br>
+                    <span class="item-details">×64</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Shulker Majestad</span><br>
+                    <span class="item-details">27 pociones</span>
+                </li>
+
+                <li>
+                    <span class="item-name">Llave Majestad</span><br>
+                    <span class="item-details">×1</span>
                 </li>
 
             </ul>
 
         </div>
 
-        <!-- 07: PROTECCIÓN -->
+        <!-- 06: PROTECCIÓN -->
 
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">07</div>
+                <div class="section-icon">06</div>
                 <div>
-                    <h3>Piedra de protección</h3>
-                    <p>
-                        Protección para tu zona y construcciones
-                    </p>
+                    <h3>Piedra de Protección</h3>
+                    <p>Una zona protegida para tu construcción</p>
                 </div>
             </div>
 
@@ -1023,7 +990,7 @@ footer span{color:#fff0a6}
                 <li>
                     <span class="item-name">Mena de oro</span><br>
                     <span class="item-details">
-                        Área de protección: 30 × 30 bloques · Cantidad: ×1
+                        Protección de 30 × 30 bloques
                     </span>
                 </li>
 
@@ -1033,28 +1000,17 @@ footer span{color:#fff0a6}
 
         <!-- RESUMEN -->
 
-        <!-- RESUMEN -->
-
         <div class="inherit">
 
             <strong>RESUMEN DEL RANGO MAJESTAD</strong><br>
 
-            MAJESTAD incluye permisos y derechos exclusivos,
-            comandos de almacenamiento personal (<strong>/ec</strong> y
-            <strong>/enderchest</strong>), un kit avanzado con armaduras de
-            diamante encantadas, herramientas, armas, escudo, arco, ballesta y mazo.
-
-            <br><br>
-
-            También incorpora manzanas doradas ×64, manzanas encantadas ×64,
-            zanahorias doradas ×64, pan ×64, papas ×64, bloques de oro ×8,
-            bloques de diamante ×8, esmeraldas ×64 y fragmentos de Netherite ×12.
-
-            <br><br>
-
-            El kit se completa con carga de viento ×64, una Shulker MAJESTAD
-            con 27 pociones y una piedra de protección de
-            <strong>30 × 30 bloques</strong>.
+            MAJESTAD incluye los beneficios de ASTRAL y cuenta con el comando exclusivo
+            <strong>/ec</strong> (también <strong>/enderchest</strong>), +1 casa, un kit con armadura completa de Netherite
+            encantada a nivel IX, espada, pico, hacha, pala, azada, escudo, arco, ballesta y maza.
+            También incorpora manzanas doradas ×64, manzanas encantadas ×16, zanahorias doradas ×64, pan ×64,
+            papas ×64, bloques de oro ×8, bloques de diamante ×8, esmeraldas ×64 y fragmentos de Netherite ×12,
+            carga de viento ×64, una Shulker Majestad con 27 pociones, Llave Majestad ×1 y una protección
+            de terreno de <strong>30 × 30 bloques</strong>.
 
             <br><br>
 
