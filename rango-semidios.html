@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
 <title>SEMIDIOS | Kaizora Origins</title>
-<meta name="description" content="Descubre el rango SEMIDIOS de Kaizora Origins: comandos exclusivos, kit de Netherite y protección de terreno.">
+<meta name="description" content="Descubre el rango SEMIDIOS de Kaizora Origins: comandos /near y /tpahere, kit de Netherite niveles IX y X y protección de terreno de 40 × 40.">
 
 <style>
 :root{
@@ -611,6 +611,8 @@ footer span{color:#efbaff}
         transition:none!important;
     }
 }
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);color:#fff;font-size:12px;font-weight:900;letter-spacing:.4px}
 </style>
 </head>
 
@@ -647,15 +649,21 @@ footer span{color:#efbaff}
         <h1><span>SEMIDIOS</span></h1>
 
         <p class="desc">
-            Un nivel reservado para quienes han llevado su aventura mucho más lejos.
-            Equípate, explora y disfruta de beneficios exclusivos que amplían tu experiencia
-            dentro de Kaizora Origins.
+            Un nivel reservado para quienes han llevado su aventura mucho más lejos. Equípate, explora y disfruta de beneficios exclusivos que amplían tu experiencia dentro de Kaizora Origins.
         </p>
+
+                <div class="quick">
+            <span>Kit Netherite nivel IX-X</span>
+            <span>Protección 40 × 40</span>
+            <span>+28M</span>
+            <span>/near · /tpahere</span>
+            <span>+1 casa</span>
+            <span>Llave SemiDios ×1</span>
+        </div>
 
         <div class="hero-bottom">
 
             <div class="price-wrap">
-
                 <div>
                     <span class="price-label">PRECIO DEL RANGO</span>
                     <div class="price">$39.99</div>
@@ -665,7 +673,6 @@ footer span{color:#efbaff}
                     Poder y equipamiento.<br>
                     Lleva tu aventura más lejos.
                 </div>
-
             </div>
 
             <div class="actions">
@@ -694,78 +701,40 @@ footer span{color:#efbaff}
 
         <h2>Información del rango</h2>
 
-        <!-- 01: HERENCIA -->
+        <!-- 01: COMANDOS EXCLUSIVOS -->
 
         <div class="section">
 
             <div class="section-heading">
                 <div class="section-icon">01</div>
                 <div>
-                    <h3>Beneficios de rangos anteriores</h3>
-                    <p>
-                        Tus ventajas anteriores siguen contigo
-                    </p>
+                    <h3 class="kit-title">Comandos exclusivos de SEMIDIOS</h3>
+                    <p>Más cerca de tus aliados</p>
                 </div>
             </div>
 
-            <p>
-                SEMIDIOS incluye todos los permisos, comandos, kits y beneficios
-                de todos los rangos anteriores, además de sus propias ventajas
-                exclusivas.
-            </p>
-
-            <div class="inherit">
-                <strong>VENTAJAS HEREDADAS</strong><br>
-                Conservas los beneficios correspondientes a los rangos
-                anteriores de la progresión, junto con los permisos y
-                ventajas que ya hayas desbloqueado.
-                <br><br>
-                <strong>Tu ascenso no elimina los beneficios anteriores.</strong>
-            </div>
-
-        </div>
-
-        <!-- 02: COMANDOS EXCLUSIVOS -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">02</div>
-                <div>
-                    <h3>Comandos exclusivos de SEMIDIOS</h3>
-                    <p>
-                        Explora tu entorno y facilita los encuentros
-                    </p>
-                </div>
-            </div>
-
-            <p>
-                SEMIDIOS incorpora herramientas adicionales para localizar
-                jugadores cercanos y facilitar los encuentros dentro del
-                servidor. Estos comandos se suman a los beneficios de tus
-                rangos anteriores.
+            <p class="command-intro">
+                Desbloquea comandos para ubicar jugadores cercanos y pedirles que se reúnan contigo. Estos comandos forman parte de los permisos propios del rango SEMIDIOS.
             </p>
 
             <div class="command-grid">
 
-                <article class="command-card">
+                <div class="command-card">
 
                     <div class="command-top">
                         <span class="command-number">01</span>
-                        <span class="command-tag">Exploración</span>
+                        <span class="command-tag">Información</span>
                     </div>
 
                     <span class="command-name">/near</span>
 
                     <p class="command-description">
-                        Consulta qué jugadores se encuentran cerca de tu posición.
-                        Una herramienta útil para localizar compañeros, encontrar
-                        jugadores próximos o saber quién está explorando por tu zona.
+                        Muestra qué jugadores están cerca de ti para que sepas quién anda por tu zona. No funciona en minijuegos.
                     </p>
 
-                </article>
+                </div>
 
-                <article class="command-card">
+                <div class="command-card">
 
                     <div class="command-top">
                         <span class="command-number">02</span>
@@ -775,44 +744,48 @@ footer span{color:#efbaff}
                     <span class="command-name">/tpahere</span>
 
                     <p class="command-description">
-                        Envía una solicitud de teletransporte a otro jugador para
-                        que pueda venir hasta tu ubicación. El jugador deberá
-                        aceptar la solicitud si el sistema lo requiere.
+                        Envía una solicitud de teletransporte a otro jugador para que venga hasta tu ubicación. El jugador deberá aceptar la solicitud si el sistema lo requiere.
                     </p>
 
-                </article>
+                </div>
 
             </div>
 
-            <div class="inherit">
+            <div class="command-note">
                 <strong>VENTAJA SEMIDIOS</strong><br>
-                Estos comandos se añaden a los beneficios de los rangos anteriores.
-                Su funcionamiento depende de los permisos y de la configuración
-                de los plugins del servidor.
+                Los comandos <strong>/near</strong> y <strong>/tpahere</strong> están disponibles desde el rango SEMIDIOS y no están disponibles en rangos inferiores. Las funciones disponibles pueden depender
+                de la configuración de los plugins del servidor.
             </div>
 
         </div>
 
+        <!-- 02: KIT ORIGIN -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">03</div>
+                <div class="section-icon">02</div>
                 <div>
-                    <h3>/kit SemiDios</h3>
+                    <h3 class="kit-title">/kit SemiDios</h3>
                     <p>Tu equipamiento exclusivo de rango</p>
                 </div>
             </div>
 
             <p>
-                El kit exclusivo del rango SEMIDIOS incluye equipamiento completo de Netherite encantado a niveles IX y X, armas, herramientas, esencias especiales y una protección de terreno de 40 × 40 bloques.
+                El kit exclusivo del rango SEMIDIOS incluye equipamiento completo de Netherite encantado a niveles IX y X, armas, herramientas,
+                esencias especiales y una protección de terreno de 40 × 40 bloques.
+                SEMIDIOS incluye todos los beneficios de GUARDIAN y suma <strong>+1 casa</strong>
+                (/sethome) más dinero inicial.
             </p>
 
         </div>
 
+        <!-- 03: ARMADURA NETHERITE -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">04</div>
+                <div class="section-icon">03</div>
                 <div>
                     <h3>Full Armor Netherite</h3>
                     <p>Protección avanzada para tus aventuras</p>
@@ -823,37 +796,34 @@ footer span{color:#efbaff}
 
                 <li>
                     <span class="item-name">Casco de Netherite</span><br>
-                    <span class="item-details">
-                        Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Respiración IX · Afinidad acuática X · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Respiración IX · Afinidad acuática X · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pechera de Netherite</span><br>
-                    <span class="item-details">
-                        Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pantalones de Netherite</span><br>
-                    <span class="item-details">
-                        Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Sigilo veloz IX · Irrompibilidad X · Reparación
-                    </span>
+                    <span class="item-details">Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Sigilo veloz IX · Irrompibilidad X · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Botas de Netherite</span><br>
-                    <span class="item-details">
-                        Paso helado IX · Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Caída de pluma IX · Velocidad del alma X · Agilidad acuática X · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Paso helado IX · Protección IX · Protección contra explosiones IX · Protección contra el fuego X · Protección contra proyectiles X · Caída de pluma IX · Velocidad del alma X · Agilidad acuática X · Irrompibilidad IX · Reparación</span>
                 </li>
 
             </ul>
 
         </div>
 
+        <!-- 04: HERRAMIENTAS Y ARMAS -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">05</div>
+                <div class="section-icon">04</div>
                 <div>
                     <h3>Herramientas y armas de Netherite</h3>
                     <p>Equipo encantado para combatir y recolectar recursos</p>
@@ -864,49 +834,49 @@ footer span{color:#efbaff}
 
                 <li>
                     <span class="item-name">Espada de Netherite</span><br>
-                    <span class="item-details">
-                        Filo IX · Golpeo X · Perdición de los artrópodos IX · Barrido IX · Aspecto ígneo IX · Empuje X · Botín X · Irrompibilidad X · Reparación
-                    </span>
+                    <span class="item-details">Filo IX · Golpeo X · Perdición de los artrópodos IX · Barrido IX · Aspecto ígneo IX · Empuje X · Botín X · Irrompibilidad X · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pico de Netherite</span><br>
-                    <span class="item-details">
-                        Fortuna X · Eficiencia IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Fortuna X · Eficiencia IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Hacha de Netherite</span><br>
-                    <span class="item-details">
-                        Filo IX · Golpeo X · Perdición de los artrópodos IX · Fortuna X · Eficiencia IX · Irrompibilidad X · Reparación
-                    </span>
+                    <span class="item-details">Filo IX · Golpeo X · Perdición de los artrópodos IX · Fortuna X · Eficiencia IX · Irrompibilidad X · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Pala de Netherite</span><br>
-                    <span class="item-details">
-                        Fortuna X · Eficiencia IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Fortuna X · Eficiencia IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
+                <li>
+                    <span class="item-name">Azada de Netherite</span><br>
+                    <span class="item-details">Fortuna X · Eficiencia IX · Irrompibilidad IX · Reparación</span>
+                </li>
+
                 <li>
                     <span class="item-name">Maza</span><br>
-                    <span class="item-details">
-                        Aeroimpulso X · Golpeo IX · Perdición de los artrópodos X · Densidad IX · Fisura X · Aspecto ígneo IX · Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Aeroimpulso X · Golpeo IX · Perdición de los artrópodos X · Densidad IX · Fisura X · Aspecto ígneo IX · Irrompibilidad IX · Reparación</span>
                 </li>
+
                 <li>
                     <span class="item-name">Escudo</span><br>
-                    <span class="item-details">
-                        Irrompibilidad IX · Reparación
-                    </span>
+                    <span class="item-details">Irrompibilidad IX · Reparación</span>
                 </li>
 
             </ul>
 
         </div>
 
+        <!-- 05: ESENCIAS -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">06</div>
+                <div class="section-icon">05</div>
                 <div>
                     <h3>Esencias y objetos especiales</h3>
                     <p>Recursos exclusivos incluidos en el kit SemiDios</p>
@@ -917,36 +887,44 @@ footer span{color:#efbaff}
 
                 <li>
                     <span class="item-name">Esencia Arcana</span><br>
-                    <span class="item-details">28 (falta confirmar)</span>
+                    <span class="item-details">×28</span>
                 </li>
+
                 <li>
                     <span class="item-name">Nexo Prismático</span><br>
-                    <span class="item-details">26 (falta confirmar)</span>
+                    <span class="item-details">×26</span>
                 </li>
+
                 <li>
                     <span class="item-name">Esencia Eléctrica</span><br>
-                    <span class="item-details">24 (falta confirmar)</span>
+                    <span class="item-details">×24</span>
                 </li>
+
                 <li>
                     <span class="item-name">Cristal Acuático</span><br>
-                    <span class="item-details">22 (falta confirmar)</span>
+                    <span class="item-details">×22</span>
                 </li>
+
                 <li>
                     <span class="item-name">Vértice Cósmico</span><br>
-                    <span class="item-details">20 (falta confirmar)</span>
+                    <span class="item-details">×20</span>
                 </li>
+
                 <li>
                     <span class="item-name">Polvo Solar</span><br>
-                    <span class="item-details">18 (falta confirmar)</span>
+                    <span class="item-details">×18</span>
                 </li>
+
                 <li>
                     <span class="item-name">Semilla Natural</span><br>
-                    <span class="item-details">16 (falta confirmar)</span>
+                    <span class="item-details">×16</span>
                 </li>
+
                 <li>
                     <span class="item-name">Polvo Espectral</span><br>
-                    <span class="item-details">14 (falta confirmar)</span>
+                    <span class="item-details">×14</span>
                 </li>
+
                 <li>
                     <span class="item-name">Llave SemiDios</span><br>
                     <span class="item-details">×1</span>
@@ -956,10 +934,12 @@ footer span{color:#efbaff}
 
         </div>
 
+        <!-- 06: PROTECCIÓN -->
+
         <div class="section">
 
             <div class="section-heading">
-                <div class="section-icon">07</div>
+                <div class="section-icon">06</div>
                 <div>
                     <h3>Piedra de Protección</h3>
                     <p>Una zona protegida para tu construcción</p>
@@ -979,50 +959,16 @@ footer span{color:#efbaff}
 
         </div>
 
-        <!-- 07: COMPRA -->
-
-        <div class="section">
-
-            <div class="section-heading">
-                <div class="section-icon">08</div>
-                <div>
-                    <h3>Compra del rango</h3>
-                    <p>
-                        Obtén SEMIDIOS mediante nuestro Discord oficial
-                    </p>
-                </div>
-            </div>
-
-            <p>
-                Para adquirir SEMIDIOS, entra en el Discord oficial de
-                Kaizora Origins y consulta el procedimiento de compra
-                disponible.
-            </p>
-
-            <div class="actions">
-
-                <a class="btn primary"
-                   href="https://discord.gg/sHvWgW7AE4"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Entrar al Discord oficial ↗
-                </a>
-
-            </div>
-
-        </div>
-
         <!-- RESUMEN -->
 
         <div class="inherit">
 
             <strong>RESUMEN DEL RANGO SEMIDIOS</strong><br>
 
-            SEMIDIOS incluye los beneficios de los rangos anteriores, los comandos exclusivos
-            <strong>/near</strong> y <strong>/tpahere</strong>, un kit con armadura completa de Netherite
-            encantada a niveles IX y X, espada, pico, hacha, pala, maza y escudo. También incluye
-            esencias y materiales especiales, Llave SemiDios ×1 y una protección de terreno de
-            <strong>40 × 40 bloques</strong>.
+            SEMIDIOS incluye los beneficios de GUARDIAN y cuenta con los comandos exclusivos
+            <strong>/near</strong> y <strong>/tpahere</strong>, +1 casa, un kit con armadura completa de Netherite encantada a niveles IX y X,
+            espada, pico, hacha, pala, azada, maza y escudo. También incluye Esencia Arcana ×28, Nexo Prismático ×26, Esencia Eléctrica ×24, Cristal Acuático ×22, Vértice Cósmico ×20, Polvo Solar ×18, Semilla Natural ×16, Polvo Espectral ×14, Llave SemiDios ×1
+            y protección de terreno de <strong>40 × 40 bloques</strong>.
 
             <br><br>
 
