@@ -1,23 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAIZORA | Kaizora Origins</title>
 <meta name="theme-color" content="#09070e">
-<meta name="description" content="Descubre el rango KAIZORA, el rango más exclusivo de Kaizora Origins, con equipamiento personalizado y beneficios únicos.">
+<title>ETERNO | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango KAIZORA, el más exclusivo de Kaizora Origins: kit de Netherite nivel XI y XII, esencias, fragmentos y protección de terreno de 70 × 70.">
 
 <style>
 :root{
     --bg:#09070e;
-    --purple:#9b5de5;
-    --magenta:#ff6de1;
-    --pink:#ff9aea;
-    --white:#f7f5fb;
-    --muted:#bcb7c7;
-    --border:rgba(255,109,225,.22);
-    --card-bg:linear-gradient(135deg,#17121f,#101116);
+    --panel:#12101c;
+    --rank:#ff6de1;
+    --rank-light:#ffb6f0;
+    --rank-pale:#ffe2f9;
+    --pink:#9b5de5;
+    --white:#fff;
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(255,109,225,.30);
 }
 
 *{box-sizing:border-box}
@@ -38,11 +39,10 @@ a{color:inherit}
     position:fixed;
     inset:0;
     z-index:-2;
-    pointer-events:none;
     background:
-        radial-gradient(ellipse at 18% 12%,rgba(155,93,229,.19),transparent 38%),
-        radial-gradient(ellipse at 83% 38%,rgba(255,109,225,.14),transparent 36%),
-        radial-gradient(ellipse at 50% 95%,rgba(255,109,225,.07),transparent 38%),
+        radial-gradient(ellipse at 12% 12%,rgba(255,109,225,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(155,93,229,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(150,50,130,.14),transparent 40%),
         #09070e;
 }
 
@@ -50,192 +50,161 @@ a{color:inherit}
     content:"";
     position:absolute;
     inset:0;
-    opacity:.13;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:42px 42px;
+    opacity:.16;
+    background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
+    background-size:27px 27px;
     mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
 }
 
 /* NAVEGACIÓN */
 
 nav{
-    position:sticky;
-    top:0;
-    z-index:20;
     min-height:76px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:18px;
-    padding:0 7%;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(9,7,14,.88);
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(255,109,225,.2);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    position:relative;
+    z-index:5;
 }
 
 .logo{
     font-size:21px;
     font-weight:950;
     letter-spacing:1.5px;
-    white-space:nowrap;
 }
 
-.logo span{
-    background:linear-gradient(90deg,var(--purple),var(--magenta));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
+.logo span{color:var(--rank-light)}
 
 nav a{
     text-decoration:none;
-    color:#d5d0df;
+    color:#e0d8ef;
     font-size:13px;
-    font-weight:850;
+    font-weight:800;
 }
 
-nav a.home{
-    margin-left:auto;
-    transition:color .2s;
-}
-
-nav a.home:hover{color:var(--magenta)}
+nav a.home:hover{color:white}
 
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#7950ed,#c34de7);
+    background:linear-gradient(110deg,#b3479e,#ff6de1);
     color:white!important;
-    border:1px solid rgba(255,255,255,.15);
-    box-shadow:0 5px 22px rgba(155,93,229,.2);
-    transition:transform .2s,box-shadow .2s;
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(255,109,225,.28);
+    transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 30px rgba(255,109,225,.3);
+    box-shadow:0 8px 32px rgba(255,109,225,.45);
 }
 
-/* CONTENIDO PRINCIPAL */
+/* HERO */
 
 main{
     max-width:1100px;
     margin:0 auto;
-    padding:88px 6% 100px;
+    padding:85px 6% 100px;
 }
 
 .hero{
-    position:relative;
-    padding:10px 0 38px;
+    padding-bottom:38px;
     animation:appear .65s ease both;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    width:350px;
-    height:240px;
-    top:-45px;
-    left:-60px;
-    background:radial-gradient(ellipse,rgba(155,93,229,.15),transparent 70%);
-    pointer-events:none;
-}
-
-/* TÍTULO KAIZORA */
-
-h1{
-    display:block;
-    width:fit-content;
-    max-width:100%;
-    margin:0 0 20px;
-    font-size:clamp(52px,10vw,100px);
-    line-height:.98;
-    font-weight:1000;
-    letter-spacing:-5px;
-    background:linear-gradient(
-        110deg,
-        #ffffff 5%,
-        #e5caff 30%,
-        var(--purple) 58%,
-        var(--magenta) 88%
-    );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    filter:drop-shadow(0 0 25px rgba(255,109,225,.16));
 }
 
 .label{
     display:inline-flex;
     align-items:center;
-    gap:10px;
-    margin-bottom:20px;
-    color:var(--magenta);
+    gap:9px;
+    color:var(--rank-pale);
     font-size:11px;
     font-weight:950;
-    letter-spacing:4px;
-    text-transform:uppercase;
+    letter-spacing:3px;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(255,109,225,.48);
+    border-radius:6px;
+    background:rgba(255,109,225,.14);
+    box-shadow:0 0 25px rgba(255,109,225,.1);
 }
 
 .label::before{
     content:"";
-    width:24px;
-    height:2px;
-    background:linear-gradient(90deg,var(--purple),var(--magenta));
-    box-shadow:0 0 12px rgba(255,109,225,.5);
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
+}
+
+h1{
+    font-size:clamp(58px,10vw,104px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-shadow:0 0 42px rgba(255,109,225,.24);
+}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#ffe2f9 45%,#ffb6f0 80%,#9b5de5);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .desc{
-    max-width:720px;
-    color:var(--muted);
+    max-width:680px;
+    color:#c8c1d6;
     font-size:17px;
     line-height:1.85;
     margin:0;
 }
 
-/* PRECIO Y BOTONES */
-
 .hero-bottom{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:25px;
     flex-wrap:wrap;
-    gap:24px;
     margin-top:30px;
 }
 
 .price-wrap{
     display:flex;
     align-items:center;
+    gap:14px;
     flex-wrap:wrap;
-    gap:15px;
+}
+
+.price-label{
+    display:block;
+    color:#aaa1bd;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
 }
 
 .price{
     font-size:46px;
-    line-height:1;
     font-weight:1000;
-    letter-spacing:-1.5px;
-    color:var(--magenta);
-    text-shadow:0 0 24px rgba(255,109,225,.2);
+    letter-spacing:-2px;
+    color:var(--rank-light);
+    text-shadow:0 0 25px rgba(255,109,225,.3);
 }
 
-.price-tag{
-    padding:8px 12px;
-    border-radius:6px;
-    border:1px solid rgba(255,109,225,.25);
-    background:rgba(255,109,225,.07);
-    color:#ffd1f7;
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:1.4px;
+.price-note{
+    color:#bcb4ce;
+    font-size:12px;
+    line-height:1.6;
 }
-
-/* BOTONES */
 
 .actions{
     display:flex;
@@ -245,61 +214,52 @@ h1{
 
 .btn{
     display:inline-flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     padding:15px 22px;
-    min-height:48px;
     border-radius:9px;
     text-decoration:none;
     font-weight:950;
     font-size:12px;
     letter-spacing:.4px;
-    border:1px solid rgba(255,255,255,.14);
-    transition:transform .2s,background .2s,border-color .2s,box-shadow .2s;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
 }
 
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
-    color:#19091e;
-    background:linear-gradient(100deg,#c17aff,#ff8ce9);
-    border-color:transparent;
-    box-shadow:0 6px 24px rgba(255,109,225,.15);
+    color:#100a1b;
+    border-color:#ffe2f9;
+    background:linear-gradient(110deg,#ffb6f0,#ffe2f9);
+    box-shadow:0 5px 24px rgba(255,109,225,.25);
 }
 
 .primary:hover{
-    box-shadow:0 8px 30px rgba(255,109,225,.3);
+    box-shadow:0 8px 32px rgba(255,109,225,.45);
 }
 
 .back{
-    color:#e2ddec;
-    background:rgba(255,255,255,.025);
+    color:#ffe2f9;
+    background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:rgba(255,109,225,.55);
-    background:rgba(255,109,225,.05);
-}
-
-.hero-divider{
-    width:100%;
-    height:1px;
-    margin-top:54px;
-    background:linear-gradient(90deg,rgba(155,93,229,.4),rgba(255,109,225,.3),transparent);
+    border-color:var(--rank-light);
+    background:rgba(255,109,225,.1);
 }
 
 /* PANEL PRINCIPAL */
 
 .box{
     position:relative;
-    margin-top:42px;
+    margin-top:30px;
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(22,14,30,.96),rgba(12,10,18,.96));
-    box-shadow:0 22px 70px rgba(0,0,0,.25);
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(255,109,225,.06);
     overflow:hidden;
-    counter-reset:kaizora-section;
     animation:appear .8s ease both;
 }
 
@@ -310,42 +270,47 @@ h1{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,var(--purple),var(--magenta),transparent);
-    opacity:.9;
+    background:linear-gradient(90deg,transparent,#ff6de1,#9b5de5,transparent);
 }
 
 .box h2{
-    margin:0 0 30px;
-    font-size:clamp(24px,4vw,31px);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
     font-weight:950;
-    letter-spacing:-.8px;
 }
 
-.box h2::after{
+.box h2::before{
     content:"";
-    display:block;
-    width:48px;
-    height:3px;
-    margin-top:15px;
-    border-radius:5px;
-    background:linear-gradient(90deg,var(--purple),var(--magenta));
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(#ff6de1,#9b5de5);
+    box-shadow:0 0 16px rgba(255,109,225,.5);
+    flex-shrink:0;
+}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f8f4ff;
+    font-size:18px;
+    font-weight:950;
 }
 
 .box p{
     color:var(--muted);
-    line-height:1.85;
-    margin:8px 0;
-    font-size:14px;
+    line-height:1.8;
+    margin:9px 0;
 }
 
-/* SECCIONES NUMERADAS */
+/* SECCIONES */
 
 .section{
-    counter-increment:kaizora-section;
-    position:relative;
-    margin-top:36px;
+    margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(255,255,255,.075);
+    border-top:1px solid rgba(255,109,225,.18);
 }
 
 .section:first-of-type{
@@ -354,326 +319,295 @@ h1{
     border-top:none;
 }
 
-.section > h3{
+.section-heading{
     display:flex;
     align-items:center;
-    gap:16px;
-    margin:0 0 24px;
-    color:#f7f5fb;
-    font-size:clamp(21px,3vw,30px);
-    font-weight:950;
-    letter-spacing:-.6px;
+    gap:12px;
+    margin-bottom:16px;
 }
 
-.section > h3::before{
-    content:counter(kaizora-section,decimal-leading-zero);
+.section-icon{
     display:flex;
     align-items:center;
     justify-content:center;
     flex-shrink:0;
-    width:54px;
-    height:54px;
-    border:1px solid rgba(155,93,229,.45);
-    border-radius:16px;
-    background:linear-gradient(135deg,rgba(155,93,229,.16),rgba(255,109,225,.09));
-    color:#f2c5ff;
-    font-size:23px;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:1px solid rgba(255,109,225,.4);
+    background:linear-gradient(145deg,rgba(255,109,225,.25),rgba(155,93,229,.1));
+    color:#ffe2f9;
+    font-size:15px;
     font-weight:950;
+    box-shadow:inset 0 0 16px rgba(255,109,225,.08);
 }
 
-/* COMANDOS KAIZORA: MORADO, MAGENTA Y ROSA */
+.section-heading h3{
+    margin:0;
+    font-size:18px;
+}
+
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a99fbc;
+}
+
+.info-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+}
+
+.info-list li.wide{grid-column:1/-1}
+.info-list li{
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(255,109,225,.2);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(255,109,225,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
+    line-height:1.7;
+    transition:border-color .2s,background .2s,transform .2s;
+    overflow-wrap:anywhere;
+}
+
+.info-list li:hover{
+    border-color:rgba(229,217,255,.65);
+    background:rgba(255,109,225,.14);
+    transform:translateY(-1px);
+}
+
+.item-name{
+    color:#f5efff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:#ffb6f0;
+    font-size:13px;
+    font-weight:700;
+}
+
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(255,109,225,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(255,109,225,.17),rgba(155,93,229,.055));
+    color:#d0c7e0;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(255,109,225,.04);
+}
+
+.inherit strong{color:#ffe2f9}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4edff!important;
+}
+
+/* COMANDOS ORIGIN */
+
+.command-intro{margin-bottom:20px!important}
 
 .command-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:0;
-    margin-top:26px;
-    border:1px solid rgba(255,109,225,.24);
-    border-radius:12px;
-    overflow:hidden;
-    background:#100c14;
+    gap:15px;
+    margin-top:19px;
 }
 
 .command-card{
     position:relative;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    min-width:0;
-    min-height:90px;
-    padding:20px 24px;
-    border:0;
-    border-left:4px solid var(--purple);
-    border-radius:0;
-    background:linear-gradient(110deg,rgba(155,93,229,.12),rgba(21,12,23,.96));
-    transition:background .2s,filter .2s;
     overflow:hidden;
+    min-width:0;
+    margin-top:0;
+    padding:23px;
+    border:1px solid rgba(255,109,225,.42);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(155,93,229,.14),transparent 55%),
+        linear-gradient(135deg,rgba(102,48,0,.25),rgba(26,20,41,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
 }
 
-.command-card + .command-card{
-    border-left:4px solid var(--magenta);
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(#ff6de1,#9b5de5);
+    box-shadow:0 0 15px rgba(255,109,225,.25);
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(255,109,225,.16);
+    filter:blur(12px);
+    pointer-events:none;
 }
 
 .command-card:hover{
-    background:linear-gradient(110deg,rgba(255,109,225,.16),rgba(28,14,30,.98));
-    filter:brightness(1.1);
+    border-color:rgba(229,217,255,.8);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(255,109,225,.12);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.command-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#ffe2f9;
+    background:rgba(255,109,225,.24);
+    border:1px solid rgba(255,109,225,.32);
+    font-size:12px;
+    font-weight:950;
 }
 
 .command-tag{
-    display:block;
-    margin-bottom:8px;
-    color:#d8b5ff;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.5px;
+    color:#ffe2f9;
+    background:rgba(255,109,225,.09);
+    border:1px solid rgba(255,109,225,.25);
+    border-radius:5px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:1.3px;
     text-transform:uppercase;
 }
 
 .command-name{
     display:block;
-    margin:0;
-    color:var(--pink);
-    font-size:clamp(23px,3vw,29px);
+    margin-bottom:11px;
+    color:#ffb6f0;
+    font-size:25px;
+    line-height:1.25;
     font-weight:1000;
-    line-height:1.15;
-    letter-spacing:-.7px;
+    letter-spacing:.2px;
     overflow-wrap:anywhere;
-    font-family:Arial,Helvetica,sans-serif;
-    text-shadow:0 0 14px rgba(255,109,225,.18);
+    text-shadow:0 0 22px rgba(255,109,225,.23);
 }
 
 .command-description{
-    margin:12px 0 0!important;
-    color:#c9c3d2!important;
-    font-size:13px!important;
-    line-height:1.75!important;
+    margin:0!important;
+    color:#d0c9df!important;
+    font-size:14px;
+    line-height:1.85!important;
 }
 
-/* DESPLEGABLES */
-
-details{
-    margin-top:18px;
-    border:1px solid rgba(155,93,229,.3);
-    border-radius:15px;
-    background:var(--card-bg);
-    overflow:hidden;
-    transition:border-color .2s,background .2s;
-}
-
-details:hover{
-    border-color:rgba(255,109,225,.55);
-}
-
-summary{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    cursor:pointer;
-    list-style:none;
+.command-note{
+    margin-top:20px;
     padding:18px 20px;
-    font-weight:950;
-    color:var(--pink);
-    font-size:14px;
-    user-select:none;
-    background:transparent;
-    transition:background .2s;
-}
-
-summary::-webkit-details-marker{display:none}
-
-summary::after{
-    content:"+";
-    display:grid;
-    place-items:center;
-    flex:0 0 28px;
-    width:28px;
-    height:28px;
-    border:1px solid rgba(255,109,225,.3);
-    border-radius:7px;
-    margin-left:12px;
-    font-size:21px;
-    line-height:1;
-    color:var(--magenta);
-}
-
-details[open] summary::after{content:"−"}
-
-summary:hover{
-    background:rgba(155,93,229,.07);
-}
-
-details[open] summary{
-    background:rgba(155,93,229,.06);
-    border-bottom:1px solid rgba(255,109,225,.2);
-}
-
-/* CONTENIDO DESPLEGABLE */
-
-.shulker-content{
-    padding:5px 22px 24px;
-    border-top:1px solid rgba(255,255,255,.035);
-}
-
-.shulker-content h3{
-    margin-top:25px;
-    margin-bottom:12px;
-    color:#efc8ff;
-    font-size:16px;
-}
-
-.shulker-content h3:first-child{margin-top:22px}
-
-.shulker-content p{
-    color:#fff;
-    font-weight:750;
-}
-
-.shulker-content ul{
-    list-style:none;
-    padding:0;
-    margin:0 0 15px;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
-}
-
-.shulker-content li{
-    position:relative;
-    min-width:0;
-    padding:12px 13px;
-    border:1px solid rgba(155,93,229,.2);
-    border-radius:9px;
-    background:linear-gradient(135deg,rgba(155,93,229,.055),rgba(255,109,225,.025));
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.75;
-    overflow-wrap:anywhere;
-    transition:border-color .2s,transform .2s,background .2s;
-}
-
-.shulker-content li:hover{
-    border-color:rgba(255,109,225,.48);
-    background:rgba(255,109,225,.055);
-    transform:translateY(-2px);
-}
-
-.shulker-content li strong{color:#fff}
-
-/* AVISO FINAL */
-
-.notice{
-    margin-top:35px;
-    padding:23px 25px;
     border:1px solid rgba(255,109,225,.25);
-    border-left:4px solid var(--magenta);
-    border-radius:0 15px 15px 0;
-    background:linear-gradient(135deg,rgba(155,93,229,.09),rgba(255,109,225,.035),#111116);
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.85;
+    border-left:4px solid var(--rank);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(255,109,225,.14),rgba(155,93,229,.035));
+    color:#c4bbd5;
+    font-size:13px;
+    line-height:1.9;
 }
 
-.notice strong{color:#fff}
+.command-note strong{color:#ffe2f9}
 
-/* PIE DE PÁGINA */
+/* PIE */
 
 footer{
     text-align:center;
-    padding:32px 20px;
-    color:#85808d;
+    padding:30px 20px;
+    color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(255,255,255,.075);
-    background:rgba(5,7,9,.35);
+    border-top:1px solid rgba(255,109,225,.18);
+    background:rgba(8,6,13,.72);
 }
 
-footer span{
-    color:var(--magenta);
-    font-weight:800;
-}
-
-/* ANIMACIONES */
+footer span{color:#ffb6f0}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
     to{opacity:1;transform:translateY(0)}
 }
 
-/* DISEÑO RESPONSIVE */
+/* MÓVILES */
 
 @media(max-width:650px){
     nav{
-        padding:0 5%;
-        gap:10px;
-        min-height:68px;
+        padding:14px 5%;
+        flex-wrap:wrap;
     }
 
-    .logo{
-        font-size:16px;
-        letter-spacing:.7px;
-    }
-
-    nav a{font-size:11px}
+    .logo{font-size:17px}
     nav a.home{display:none}
 
-    .discord{
-        padding:11px 12px;
-        font-size:10px;
-        text-align:center;
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
     }
 
-    main{padding:65px 5% 75px}
-    h1{letter-spacing:-2.5px}
+    main{padding:62px 5% 70px}
+    h1{letter-spacing:-3px}
     .desc{font-size:15px}
-    .price{font-size:40px}
 
     .hero-bottom{
         align-items:flex-start;
         flex-direction:column;
     }
 
+    .price{font-size:40px}
     .actions{width:100%}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
 
     .box{
         padding:23px 17px;
         border-radius:15px;
     }
 
-    .section > h3{
-        gap:10px;
-        font-size:21px;
+    .box h2{font-size:23px}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
     }
 
-    .section > h3::before{
-        width:42px;
-        height:42px;
-        border-radius:12px;
-        font-size:18px;
-    }
-
-    .command-grid{grid-template-columns:1fr}
-
-    .command-card{
-        min-height:76px;
-        padding:18px 20px;
-    }
-
-    .command-card + .command-card{
-        border-top:1px solid rgba(155,93,229,.2);
-    }
-
-    .shulker-content{padding:5px 14px 18px}
-    .shulker-content ul{grid-template-columns:1fr}
-    .btn{width:100%}
-    .hero-divider{margin-top:38px}
+    .command-card{padding:20px}
+    .section-heading h3{font-size:16px}
 }
 
 @media(prefers-reduced-motion:reduce){
     *,
     *::before,
     *::after{
-        scroll-behavior:auto!important;
         animation:none!important;
+        scroll-behavior:auto!important;
         transition:none!important;
     }
 }
@@ -685,7 +619,9 @@ footer span{
 <div class="bg"></div>
 
 <nav>
-    <div class="logo">KAIZORA <span>ORIGINS</span></div>
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
 
     <a class="home"
        href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
@@ -702,22 +638,30 @@ footer span{
 
 <main>
 
-    <header class="hero">
+    <!-- HERO DEL RANGO -->
 
-        <h1>KAIZORA</h1>
+    <section class="hero">
 
         <div class="label">RANGO MÁXIMO</div>
 
+        <h1><span>KAIZORA</span></h1>
+
         <p class="desc">
-            El rango más exclusivo y poderoso de Kaizora Origins,
-            reservado para quienes quieren llevar su experiencia al máximo.
+            El rango más exclusivo y poderoso de Kaizora Origins, reservado para quienes quieren llevar su experiencia al máximo. Todo el contenido de los rangos anteriores, más equipamiento de Netherite a nivel XI y XII y la mayor protección de terreno.
         </p>
 
         <div class="hero-bottom">
 
             <div class="price-wrap">
-                <div class="price">$49.99</div>
-                <div class="price-tag">EXCLUSIVIDAD · PODER · PRESTIGIO</div>
+                <div>
+                    <span class="price-label">PRECIO DEL RANGO</span>
+                    <div class="price">$69.99</div>
+                </div>
+
+                <div class="price-note">
+                    Exclusividad · Poder · Prestigio.<br>
+                    El rango definitivo.
+                </div>
             </div>
 
             <div class="actions">
@@ -738,9 +682,9 @@ footer span{
 
         </div>
 
-        <div class="hero-divider"></div>
+    </section>
 
-    </header>
+    <!-- INFORMACIÓN COMPLETA -->
 
     <div class="box">
 
@@ -748,224 +692,286 @@ footer span{
 
         <div class="section">
 
-            <h3>El rango definitivo</h3>
+            <div class="section-heading">
+                <div class="section-icon">01</div>
+                <div>
+                    <h3>El rango definitivo</h3>
+                    <p>Todo Kaizora Origins, en un solo rango</p>
+                </div>
+            </div>
 
             <p>
-                KAIZORA es el rango más alto de todo Kaizora Origins.
-                Al obtenerlo, recibirás todos los permisos, comandos, kits
-                y beneficios de todos los rangos existentes del servidor,
-                desde USER hasta DIOS, incluyendo todo el contenido y ventajas
-                de cada rango anterior.
+                KAIZORA es el rango más alto de todo Kaizora Origins. Al obtenerlo, recibirás todos los permisos, comandos, kits y beneficios de todos los rangos existentes del servidor, desde USER hasta DIOS, incluyendo todo el contenido y ventajas de cada rango anterior.
             </p>
 
             <p>
-                Además de todo lo anterior, KAIZORA incluye los siguientes
-                beneficios exclusivos.
+                Además de todo lo anterior, KAIZORA incluye su propio kit exclusivo (<strong>/kit Kaizora</strong>) con equipamiento completo de Netherite encantado a niveles XI y XII, esencias, fragmentos, estrellas de intercambio y una protección de terreno de 70 × 70 bloques.
             </p>
 
         </div>
 
         <div class="section">
 
-            <h3>Comandos exclusivos de KAIZORA</h3>
+            <div class="section-heading">
+                <div class="section-icon">02</div>
+                <div>
+                    <h3>Comandos exclusivos de KAIZORA</h3>
+                    <p>Personaliza tu identidad y reúne a otros jugadores</p>
+                </div>
+            </div>
 
-            <p>
-                Personaliza tu identidad dentro del servidor y reúne a otros
-                jugadores en tu ubicación.
+            <p class="command-intro">
+                Personaliza tu identidad dentro del servidor y reúne a otros jugadores en tu ubicación.
             </p>
 
             <div class="command-grid">
 
                 <div class="command-card">
-                    <span class="command-tag">Personalización</span>
+
+                    <div class="command-top">
+                        <span class="command-number">01</span>
+                        <span class="command-tag">Personalización</span>
+                    </div>
+
                     <span class="command-name">/nick</span>
 
                     <p class="command-description">
-                        Cambia tu apodo visible dentro del servidor para
-                        personalizar tu identidad y destacar con un nombre
-                        diferente al de tu usuario original, según las
-                        opciones permitidas por la configuración.
+                        Cambia tu apodo visible dentro del servidor para personalizar tu identidad y destacar con un nombre diferente al de tu usuario original, según las opciones permitidas por la configuración.
                     </p>
+
                 </div>
 
                 <div class="command-card">
-                    <span class="command-tag">Teletransporte</span>
+
+                    <div class="command-top">
+                        <span class="command-number">02</span>
+                        <span class="command-tag">Teletransporte</span>
+                    </div>
+
                     <span class="command-name">/tpahere</span>
 
                     <p class="command-description">
-                        Envía una solicitud de teletransporte a otro jugador
-                        para que venga hasta tu ubicación. El jugador deberá
-                        aceptar la solicitud si el sistema lo requiere.
+                        Envía una solicitud de teletransporte a otro jugador para que venga hasta tu ubicación. El jugador deberá aceptar la solicitud si el sistema lo requiere.
                     </p>
+
                 </div>
 
+            </div>
+
+            <div class="command-note">
+                <strong>COMANDOS EXCLUSIVOS DE KAIZORA</strong><br>
+                Los comandos <strong>/nick</strong> y <strong>/tpahere</strong> son exclusivos de este rango.
+                <br><br>
+                <strong>Importante:</strong> los comandos disponibles dependen de los permisos y plugins instalados en el servidor.
             </div>
 
         </div>
 
         <div class="section">
 
-            <h3>Dos sets de herramientas de Netherite</h3>
-
-            <details>
-                <summary>Ver contenido de los 2 sets de herramientas</summary>
-
-                <div class="shulker-content">
-
-                    <p>Todos los siguientes objetos se entregan en cantidad ×2.</p>
-
-                    <h3>Espada de Netherite</h3>
-                    <ul>
-                        <li>Filo X (10)</li>
-                        <li>Golpeo X</li>
-                        <li>Aspecto Ígneo VIII</li>
-                        <li>Irrompibilidad X</li>
-                        <li>Reparación</li>
-                    </ul>
-
-                    <h3>Pico de Netherite</h3>
-                    <ul>
-                        <li>Fortuna VIII</li>
-                        <li>Eficiencia X</li>
-                        <li>Irrompibilidad X</li>
-                    </ul>
-
-                    <h3>Hacha de Netherite</h3>
-                    <ul>
-                        <li>Eficiencia X</li>
-                        <li>Irrompibilidad X</li>
-                        <li>Reparación</li>
-                    </ul>
-
-                    <h3>Pala de Netherite</h3>
-                    <ul>
-                        <li>Eficiencia X</li>
-                        <li>Irrompibilidad X</li>
-                        <li>Reparación</li>
-                    </ul>
-
+            <div class="section-heading">
+                <div class="section-icon">03</div>
+                <div>
+                    <h3>Full Armor Netherite</h3>
+                    <p>Protección avanzada para tus aventuras</p>
                 </div>
-            </details>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Casco de Netherite</span><br>
+                    <span class="item-details">Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Respiración XI · Afinidad acuática XII · Irrompibilidad XI · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Irrompibilidad XI · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Sigilo veloz XI · Irrompibilidad XII · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">Paso helado XI · Protección XI · Protección contra explosiones XI · Protección contra el fuego XII · Protección contra proyectiles XII · Caída de pluma XI · Velocidad del alma XII · Agilidad acuática XII · Irrompibilidad XI · Reparación</span>
+                </li>
+
+            </ul>
 
         </div>
 
         <div class="section">
 
-            <h3>Dos sets de armaduras de Netherite</h3>
-
-            <details>
-                <summary>Ver contenido de los 2 sets de armaduras</summary>
-
-                <div class="shulker-content">
-
-                    <p>Cada pieza de armadura se entrega en cantidad ×2.</p>
-
-                    <h3>Casco de Netherite</h3>
-                    <ul>
-                        <li>Protección X</li>
-                        <li>Protección contra proyectiles X</li>
-                        <li>Espinas VIII</li>
-                        <li>Irrompibilidad IX</li>
-                        <li>Reparación</li>
-                    </ul>
-
-                    <h3>Pechera de Netherite</h3>
-                    <ul>
-                        <li>Protección X</li>
-                        <li>Protección contra proyectiles X</li>
-                        <li>Espinas VIII</li>
-                        <li>Irrompibilidad IX</li>
-                        <li>Reparación</li>
-                    </ul>
-
-                    <h3>Pantalón de Netherite</h3>
-                    <ul>
-                        <li>Protección X</li>
-                        <li>Protección contra proyectiles X</li>
-                        <li>Espinas VIII</li>
-                        <li>Irrompibilidad IX</li>
-                        <li>Reparación</li>
-                    </ul>
-
-                    <h3>Botas de Netherite</h3>
-                    <ul>
-                        <li>Protección X</li>
-                        <li>Protección contra proyectiles X</li>
-                        <li>Espinas VIII</li>
-                        <li>Irrompibilidad IX</li>
-                        <li>Reparación</li>
-                    </ul>
-
+            <div class="section-heading">
+                <div class="section-icon">04</div>
+                <div>
+                    <h3>Herramientas y armas de Netherite</h3>
+                    <p>Equipo encantado para combatir y recolectar recursos</p>
                 </div>
-            </details>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Espada de Netherite</span><br>
+                    <span class="item-details">Filo XI · Golpeo XII · Perdición de los artrópodos XI · Barrido XI · Aspecto ígneo XI · Empuje XII · Botín XII · Irrompibilidad XII · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Pico de Netherite</span><br>
+                    <span class="item-details">Fortuna XII · Eficiencia XI · Irrompibilidad XI · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Hacha de Netherite</span><br>
+                    <span class="item-details">Filo XI · Golpeo XII · Perdición de los artrópodos XI · Fortuna XII · Eficiencia XI · Irrompibilidad XII · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Pala de Netherite</span><br>
+                    <span class="item-details">Fortuna XII · Eficiencia XI · Irrompibilidad XI · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Maza</span><br>
+                    <span class="item-details">Aeroimpulso XII · Golpeo XI · Perdición de los artrópodos XII · Densidad XI · Fisura XII · Aspecto ígneo XI · Irrompibilidad XI · Reparación</span>
+                </li>
+                <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">Irrompibilidad XI · Reparación</span>
+                </li>
+
+            </ul>
 
         </div>
 
         <div class="section">
 
-            <h3>+2 tótems personalizados</h3>
-
-            <details>
-                <summary>Ver contenido de los tótems</summary>
-
-                <div class="shulker-content">
-                    <ul>
-                        <li>Tótems de la Inmortalidad ×2</li>
-                        <li>
-                            Tótems personalizados con una bonificación de
-                            <strong>+2 corazones</strong> al ser sostenidos en la mano.
-                        </li>
-                        <li>
-                            Con esta bonificación se alcanza un total de
-                            <strong>12 corazones</strong>.
-                        </li>
-                    </ul>
+            <div class="section-heading">
+                <div class="section-icon">05</div>
+                <div>
+                    <h3>Esencias y objetos especiales</h3>
+                    <p>Recursos exclusivos incluidos en el kit Kaizora</p>
                 </div>
-            </details>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Esencia Arcana</span><br>
+                    <span class="item-details">×40</span>
+                </li>
+                <li>
+                    <span class="item-name">Nexo Prismático</span><br>
+                    <span class="item-details">×36</span>
+                </li>
+                <li>
+                    <span class="item-name">Esencia Eléctrica</span><br>
+                    <span class="item-details">×34</span>
+                </li>
+                <li>
+                    <span class="item-name">Cristal Acuático</span><br>
+                    <span class="item-details">×32</span>
+                </li>
+                <li>
+                    <span class="item-name">Vértice Cósmico</span><br>
+                    <span class="item-details">×30</span>
+                </li>
+                <li>
+                    <span class="item-name">Polvo Solar</span><br>
+                    <span class="item-details">×28</span>
+                </li>
+                <li>
+                    <span class="item-name">Semilla Natural</span><br>
+                    <span class="item-details">×26</span>
+                </li>
+                <li>
+                    <span class="item-name">Polvo Espectral</span><br>
+                    <span class="item-details">×24</span>
+                </li>
+                <li>
+                    <span class="item-name">Núcleo Ígneo</span><br>
+                    <span class="item-details">×22</span>
+                </li>
+                <li>
+                    <span class="item-name">Reliquia Dorada</span><br>
+                    <span class="item-details">×20</span>
+                </li>
+                <li>
+                    <span class="item-name">Génesis Oscuro</span><br>
+                    <span class="item-details">×18</span>
+                </li>
+                <li>
+                    <span class="item-name">Fragmento Cósmico</span><br>
+                    <span class="item-details">×16</span>
+                </li>
+                <li>
+                    <span class="item-name">Fragmento Lunar</span><br>
+                    <span class="item-details">×14</span>
+                </li>
+                <li>
+                    <span class="item-name">Estrella Intercambiadora</span><br>
+                    <span class="item-details">×10 · se usan para intercambiar llaves</span>
+                </li>
+                <li>
+                    <span class="item-name">Llave Kaizora</span><br>
+                    <span class="item-details">×1</span>
+                </li>
+
+            </ul>
 
         </div>
 
         <div class="section">
 
-            <h3>+2 escudos personalizados</h3>
-
-            <details>
-                <summary>Ver contenido de los escudos</summary>
-
-                <div class="shulker-content">
-
-                    <p>Escudos personalizados ×2.</p>
-
-                    <ul>
-                        <li>Protección X</li>
-                        <li>Protección contra proyectiles X</li>
-                        <li>Espinas X</li>
-                    </ul>
-
+            <div class="section-heading">
+                <div class="section-icon">06</div>
+                <div>
+                    <h3>Piedra de Protección</h3>
+                    <p>Una zona protegida para tu construcción</p>
                 </div>
-            </details>
+            </div>
+
+            <ul class="info-list">
+
+                <li>
+                    <span class="item-name">Mena de protección</span><br>
+                    <span class="item-details">Protección de 70 × 70 bloques</span>
+                </li>
+
+            </ul>
 
         </div>
 
         <div class="section">
 
-            <h3>+1 llave Kaizora</h3>
-
-            <details>
-                <summary>Ver contenido de la llave Kaizora</summary>
-
-                <div class="shulker-content">
-                    <ul>
-                        <li>Llave Kaizora ×1</li>
-                    </ul>
+            <div class="section-heading">
+                <div class="section-icon">07</div>
+                <div>
+                    <h3>Compra del rango</h3>
+                    <p>Obtén KAIZORA mediante nuestro Discord oficial</p>
                 </div>
-            </details>
+            </div>
+
+            <p>
+                Para adquirir KAIZORA, entra en el Discord oficial de Kaizora Origins y consulta el procedimiento de compra disponible. Las compras y la gestión del rango se realizan directamente mediante nuestro Discord.
+            </p>
+
+            <div class="actions">
+                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">
+                    Entrar al Discord oficial ↗
+                </a>
+            </div>
 
         </div>
 
-        <div class="notice">
-            Las compras y la gestión del rango se realizan directamente
-            mediante nuestro <strong>Discord oficial</strong>.
+        <!-- RESUMEN -->
+
+        <div class="inherit">
+
+            <strong>RESUMEN DEL RANGO KAIZORA</strong><br>
+
+            KAIZORA incluye todo el contenido de los rangos anteriores, comandos exclusivos (/nick y /tpahere), un kit con armadura completa de Netherite, espada, pico, hacha, pala, maza y escudo encantados a niveles XI y XII, esencias y materiales especiales, Fragmento Cósmico ×16, Fragmento Lunar ×14, Estrella Intercambiadora ×10, Llave Kaizora ×1 y una protección de terreno de <strong>70 × 70 bloques</strong>.
+
+            <br><br>
+
+            <strong>Nota:</strong> Este rango trae un agregado de +45M dentro del servidor.
         </div>
 
     </div>
