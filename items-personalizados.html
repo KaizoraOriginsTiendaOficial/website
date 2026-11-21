@@ -97,8 +97,8 @@ section{padding:35px 0}
   background:linear-gradient(140deg,#9b5de52c,#ff6de116);
   border:1px solid #9b5de54a;
 }
-.card-title{font-size:13px;font-weight:950;line-height:1.4}
-.card-sub{margin-top:4px;color:var(--muted);font-size:10px}
+.card-title{display:block;font-size:13px;font-weight:950;line-height:1.4}
+.card-sub{display:block;margin-top:4px;color:var(--muted);font-size:10px}
 .chevron{margin-left:auto;color:#d8b9ff;font-size:17px}
 .card[open] .chevron{transform:rotate(180deg)}
 .card-body{padding:0 16px 16px;border-top:1px solid #ffffff0c}
@@ -201,7 +201,7 @@ footer strong{color:#ddc5f5}
     </div>
     <div class="stats">
       <div class="stat"><strong>100</strong><small>Nivel máximo Vanilla+</small></div>
-      <div class="stat"><strong>30+</strong><small>Mejoras especiales</small></div>
+      <div class="stat"><strong>60+</strong><small>Mejoras especiales</small></div>
       <div class="stat"><strong>✦</strong><small>Descuento por combinar</small></div>
     </div>
   </section>
@@ -351,6 +351,34 @@ const specialEnchants = [
  {name:"GodMode",cat:"Especiales",icon:"✦",rarity:"Divino",max:1,price:35,items:["Casco","Pechera","Pantalones","Botas"],desc:"Habilidad defensiva de duración limitada.",effect:"Duración configurada: 5; cooldown: 60 segundos."}
  ,{name:"SoulBound III",cat:"Especiales",icon:"♜",rarity:"Legendario",max:1,level:3,price:25,items:["Espada","Hacha","Pico","Pala","Azada","Casco","Pechera","Pantalones","Botas","Arco","Ballesta","Tridente","Maza","Elytra"],desc:"Conserva el objeto vinculado al jugador al morir, según la configuración del servidor.",effect:"Nivel fijo III. El equipo debe confirmar que SoulBound está habilitado para el objeto elegido.",specialType:"soulbound"}
  ,{name:"Corazones extra",cat:"Especiales",icon:"♥",rarity:"Especial",max:20,price:4,items:["Pechera","Casco","Pantalones","Botas","Amuleto / objeto especial"],desc:"Solicita corazones extra para tu personaje mediante una mejora compatible del servidor.",effect:"Selecciona cuántos corazones extra quieres añadir. Cada corazón cuesta $4.00.",specialType:"hearts"}
+ ,{name:"AutoSell",cat:"Picos",icon:"$",rarity:"Legendario",max:1,price:1,items:["Pico"],desc:"Al hacer clic derecho con el pico marcado, vende automáticamente los objetos del inventario.",effect:"Nivel único. Ejecuta el comando de venta configurado, con enfriamiento y mundos bloqueados definidos por el servidor."}
+ ,{name:"Veneno",cat:"Armas",icon:"☠",rarity:"Poco común",max:5,price:1,items:["Espada","Hacha","Tridente"],desc:"Probabilidad de envenenar al enemigo al golpearlo.",effect:"Probabilidad de 20% a 40% según el nivel; veneno I a III durante 3 a 5 segundos."}
+ ,{name:"Congelar",cat:"Armas",icon:"❄",rarity:"Raro",max:3,price:1,items:["Espada","Hacha","Tridente"],desc:"Probabilidad de ralentizar al enemigo al golpearlo.",effect:"Probabilidad de 15% a 25%; lentitud II a IV durante 2 a 3 segundos."}
+ ,{name:"Quemadura",cat:"Armas",icon:"♨",rarity:"Poco común",max:3,price:1,items:["Espada","Hacha","Tridente"],desc:"Probabilidad de prender fuego al enemigo al golpearlo.",effect:"Probabilidad de 15% a 25%; fuego durante 3 a 5 segundos."}
+ ,{name:"Aturdir",cat:"Armas",icon:"✺",rarity:"Raro",max:3,price:1,items:["Espada","Hacha","Maza"],desc:"Probabilidad de marear al enemigo al golpearlo.",effect:"Probabilidad de 10% a 20%; náusea durante 3 a 5 segundos."}
+ ,{name:"Onda",cat:"Armas",icon:"◈",rarity:"Común",max:3,price:1,items:["Espada","Hacha","Maza"],desc:"Probabilidad de empujar con fuerza al enemigo al golpearlo.",effect:"Probabilidad de 20% a 30%; empuje de 0,8 a 1,4."}
+ ,{name:"Impulso",cat:"Armas",icon:"➤",rarity:"Épico",max:3,price:1,items:["Espada","Hacha"],desc:"Habilidad activa: te lanza hacia delante al hacer clic derecho.",effect:"Fuerza de 1,4 a 2,2; enfriamiento de 8 a 4 segundos."}
+ ,{name:"Curación",cat:"Armas",icon:"♥",rarity:"Legendario",max:3,price:1,items:["Espada","Hacha"],desc:"Habilidad activa: te cura al hacer clic derecho.",effect:"Cura de 4 a 8 de vida; enfriamiento de 30 a 20 segundos."}
+ ,{name:"Evasión",cat:"Armaduras",icon:"≋",rarity:"Raro",max:5,price:1,items:["Pechera","Pantalones","Botas"],desc:"Probabilidad de esquivar por completo un golpe recibido.",effect:"Probabilidad de 4% a 16% según el nivel."}
+ ,{name:"Temple",cat:"Armaduras",icon:"⬢",rarity:"Épico",max:3,price:1,items:["Casco","Pechera"],desc:"Probabilidad de ganar resistencia al recibir daño.",effect:"Probabilidad de 10% a 20%; resistencia I a II durante 3 a 5 segundos; enfriamiento de 12 segundos."}
+ ,{name:"Ignífugo",cat:"Armaduras",icon:"♨",rarity:"Poco común",max:1,price:1,items:["Pantalones"],desc:"Resistencia al fuego permanente mientras llevas el objeto puesto.",effect:"Nivel único."}
+ ,{name:"Vitalidad",cat:"Armaduras",icon:"♥",rarity:"Legendario",max:3,price:1,items:["Pechera"],desc:"Aumenta tu vida máxima mientras llevas el objeto puesto.",effect:"Vida extra aumentada por nivel mientras lo llevas puesto."}
+ ,{name:"Visión Nocturna",cat:"Armaduras",icon:"◉",rarity:"Poco común",max:1,price:1,items:["Casco"],desc:"Visión nocturna permanente mientras llevas el objeto puesto.",effect:"Nivel único."}
+ ,{name:"Branquias",cat:"Armaduras",icon:"≈",rarity:"Poco común",max:1,price:1,items:["Casco"],desc:"Respiración bajo el agua permanente mientras llevas el objeto puesto.",effect:"Nivel único."}
+ ,{name:"Experiencia",cat:"Picos",icon:"✦",rarity:"Raro",max:3,price:1,items:["Pico"],desc:"Aumenta la experiencia obtenida al minar.",effect:"Experiencia extra de 25% a 75% según el nivel."}
+ ,{name:"Rayo",cat:"Armas",icon:"ϟ",rarity:"Raro",max:5,price:1,items:["Espada","Hacha","Maza","Tridente"],desc:"Probabilidad de invocar un rayo sobre el enemigo al golpearlo.",effect:"Probabilidad de 6% a 20% y daño de 3 a 8 según el nivel."}
+ ,{name:"Vampirismo",cat:"Armas",icon:"♥",rarity:"Épico",max:3,price:1,items:["Espada","Hacha"],desc:"Recuperas vida al golpear, según el daño que infliges.",effect:"Curas entre el 10% y el 20% del daño causado."}
+ ,{name:"Verdugo",cat:"Armas",icon:"⚔",rarity:"Legendario",max:3,price:1,items:["Espada","Hacha","Maza"],desc:"Daño extra contra enemigos con poca vida.",effect:"Cuando el enemigo tiene menos del 50% de vida, +15% a +35% de daño."}
+ ,{name:"Salto Dimensional",cat:"Armas",icon:"✧",rarity:"Mítico",max:3,price:1,items:["Espada"],desc:"Habilidad activa: te teletransportas hacia donde miras al hacer clic derecho.",effect:"Alcance de 15 a 35 bloques; enfriamiento de 10 a 6 segundos."}
+ ,{name:"Espinas",cat:"Armaduras",icon:"❖",rarity:"Raro",max:3,price:1,items:["Casco","Pechera","Pantalones","Botas"],desc:"Devuelve parte del daño al atacante cuando te golpean.",effect:"Probabilidad de 20% a 40%; devuelve del 15% al 35% del daño."}
+ ,{name:"Escudo",cat:"Armaduras",icon:"⬡",rarity:"Épico",max:3,price:1,items:["Pechera"],desc:"Probabilidad de reducir el daño que recibes.",effect:"Probabilidad de 15% a 25%; reduce del 10% al 20% del daño."}
+ ,{name:"Velocidad",cat:"Botas",icon:"➤",rarity:"Común",max:3,price:1,items:["Botas"],desc:"Velocidad permanente mientras llevas las botas puestas.",effect:"Velocidad I a III según el nivel."}
+ ,{name:"Salto",cat:"Botas",icon:"↟",rarity:"Común",max:3,price:1,items:["Botas"],desc:"Salto mejorado permanente mientras llevas las botas puestas.",effect:"Salto I a III según el nivel."}
+ ,{name:"Pluma",cat:"Botas",icon:"↓",rarity:"Épico",max:1,price:1,items:["Botas"],desc:"Anula el daño por caída mientras llevas las botas puestas.",effect:"Nivel único."}
+ ,{name:"Prisa",cat:"Picos",icon:"➤",rarity:"Común",max:3,price:1,items:["Pico","Hacha","Pala","Azada","Tijeras"],desc:"Velocidad de minería extra mientras sostienes la herramienta.",effect:"Prisa I a III según el nivel."}
+ ,{name:"Fundición",cat:"Picos",icon:"♨",rarity:"Poco común",max:1,price:1,items:["Pico","Pala"],desc:"Funde automáticamente los minerales al extraerlos.",effect:"Nivel único."}
+ ,{name:"Imán",cat:"Picos",icon:"✧",rarity:"Épico",max:1,price:1,items:["Pico","Hacha","Pala","Azada","Tijeras"],desc:"Los objetos extraídos van directamente a tu inventario.",effect:"Nivel único."}
+ ,{name:"Excavadora",cat:"Picos",icon:"▦",rarity:"Épico",max:2,price:1,items:["Pico","Pala"],desc:"Rompe un área de bloques alrededor del que minas.",effect:"Nivel 1: área 3×3. Nivel 2: área 5×5."}
 ];
 
 /* Las listas de objetos permitidos son específicas para cada encantamiento. */
@@ -397,7 +425,6 @@ const vanillaEnchants = [
 
  {name:"Suerte marina",cat:"Otros",max:3,price:1.50,items:["Caña de pescar"],desc:"Aumenta la probabilidad de obtener tesoros al pescar.",effect:"Los niveles extra pueden mejorar la probabilidad compatible."},
  {name:"Atracción",cat:"Otros",max:3,price:1.50,items:["Caña de pescar"],desc:"Reduce el tiempo de espera al pescar.",effect:"Los niveles extra pueden reducir la espera."},
- {name:"Sigilo veloz",cat:"Movimiento",max:3,price:2,items:["Pantalones"],desc:"Encantamiento relacionado con la velocidad al agacharse; requiere soporte de la versión o plugin.",effect:"No es universal en todas las ediciones y versiones."},
 
  {name:"Maldición de desaparición",cat:"Otros",max:1,price:1,items:["Espada","Hacha","Pico","Pala","Azada","Casco","Pechera","Pantalones","Botas","Arco","Ballesta","Tridente","Caña de pescar","Tijeras","Escudo","Elytra","Maza"],desc:"Hace que el objeto desaparezca al morir su portador.",effect:"No se recomienda superar el nivel I."},
 
@@ -480,6 +507,34 @@ const specialPricing={
   "TimeWarp":{base:38,top:38,curve:1},
   "GodMode":{base:50,top:50,curve:1},
   "SoulBound III":{base:25,top:25,curve:1},
+  "AutoSell":{base:20,top:20,curve:1},
+  "Veneno":{base:8,top:24,curve:1.25},
+  "Congelar":{base:12,top:26,curve:1.2},
+  "Quemadura":{base:8,top:18,curve:1.2},
+  "Aturdir":{base:10,top:22,curve:1.2},
+  "Onda":{base:7,top:16,curve:1.2},
+  "Impulso":{base:12,top:28,curve:1.2},
+  "Curación":{base:16,top:34,curve:1.25},
+  "Evasión":{base:10,top:34,curve:1.3},
+  "Temple":{base:12,top:26,curve:1.2},
+  "Ignífugo":{base:8,top:8,curve:1},
+  "Vitalidad":{base:12,top:32,curve:1.25},
+  "Visión Nocturna":{base:6,top:6,curve:1},
+  "Branquias":{base:5,top:5,curve:1},
+  "Experiencia":{base:10,top:24,curve:1.2},
+  "Rayo":{base:12,top:32,curve:1.25},
+  "Vampirismo":{base:16,top:36,curve:1.3},
+  "Verdugo":{base:18,top:36,curve:1.25},
+  "Salto Dimensional":{base:20,top:42,curve:1.25},
+  "Espinas":{base:9,top:24,curve:1.25},
+  "Escudo":{base:14,top:30,curve:1.25},
+  "Velocidad":{base:8,top:18,curve:1.2},
+  "Salto":{base:6,top:14,curve:1.2},
+  "Pluma":{base:10,top:10,curve:1},
+  "Prisa":{base:9,top:20,curve:1.2},
+  "Fundición":{base:8,top:8,curve:1},
+  "Imán":{base:9,top:9,curve:1},
+  "Excavadora":{base:12,top:24,curve:1},
   "Corazones extra":{base:4,top:4,curve:1}
 };
 const cart=[];
