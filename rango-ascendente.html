@@ -4,302 +4,613 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#09070e">
-<meta name="description" content="Descubre el rango ASCENDENTE de Kaizora Origins, su equipamiento y beneficios exclusivos.">
 <title>ASCENDENTE | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango ASCENDENTE de Kaizora Origins, su equipamiento y beneficios exclusivos.">
 
 <style>
 :root{
     --bg:#09070e;
-    --panel:#131019;
-    --rank:#9B5DE5;
-    --rank-light:#C18AFF;
-    --rank-pale:#E3C8FF;
-    --purple:#7436C5;
-    --pink:#FF6DE1;
+    --panel:#12101c;
+    --rank:#45d6c5;
+    --rank-light:#abede5;
+    --rank-pale:#def8f5;
+    --pink:#ff6de1;
     --white:#fff;
-    --text:#f0eafa;
-    --muted:#bcb7c7;
-    --border:rgba(155,93,229,.25);
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(69,214,197,.30);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-    margin:0;background:var(--bg);color:var(--white);
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
     font-family:Arial,Helvetica,sans-serif;
-    min-height:100vh;overflow-x:hidden
+    min-height:100vh;
+    overflow-x:hidden;
 }
+
 a{color:inherit}
+
 .bg{
-    position:fixed;inset:0;z-index:-2;pointer-events:none;
+    position:fixed;
+    inset:0;
+    z-index:-2;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(155,93,229,.20),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.10),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(116,54,197,.10),transparent 40%),
-        #09070e
+        radial-gradient(ellipse at 12% 12%,rgba(69,214,197,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(48,149,137,.14),transparent 40%),
+        #09070e;
 }
+
 .bg::after{
-    content:"";position:absolute;inset:0;opacity:.16;
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.16;
     background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
     background-size:27px 27px;
     mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
 }
 
 /* NAVEGACIÓN */
+
 nav{
-    min-height:76px;display:flex;align-items:center;
-    justify-content:space-between;gap:16px;padding:14px 7%;
-    border-bottom:1px solid rgba(155,93,229,.18);
-    background:rgba(9,7,14,.87);
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(69,214,197,.2);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    position:relative;z-index:5
+    position:relative;
+    z-index:5;
 }
-.logo{font-size:21px;font-weight:950;letter-spacing:1.5px;white-space:nowrap}
+
+.logo{
+    font-size:21px;
+    font-weight:950;
+    letter-spacing:1.5px;
+}
+
 .logo span{color:var(--rank-light)}
-nav a{text-decoration:none;color:#d4d2de;font-size:13px;font-weight:850}
-.discord{
-    padding:12px 18px;border-radius:9px;
-    background:linear-gradient(110deg,#7436C5,#9B5DE5,#FF6DE1);
-    color:white!important;border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 5px 24px rgba(155,93,229,.20);
-    transition:.25s
+
+nav a{
+    text-decoration:none;
+    color:#e0d8ef;
+    font-size:13px;
+    font-weight:800;
 }
-.discord:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(155,93,229,.35)}
+
+nav a.home:hover{color:white}
+
+.discord{
+    padding:12px 18px;
+    border-radius:9px;
+    background:linear-gradient(110deg,#30968a,#45d6c5);
+    color:white!important;
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(69,214,197,.28);
+    transition:.25s;
+}
+
+.discord:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 32px rgba(69,214,197,.45);
+}
 
 /* HERO */
-main{max-width:1100px;margin:0 auto;padding:85px 6% 100px}
-.hero{padding-bottom:38px;animation:appear .65s ease both}
+
+main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:85px 6% 100px;
+}
+
+.hero{
+    padding-bottom:38px;
+    animation:appear .65s ease both;
+}
+
 .label{
-    display:inline-flex;align-items:center;gap:9px;
-    color:var(--rank-pale);font-size:11px;font-weight:950;
-    letter-spacing:3px;margin-bottom:25px;padding:9px 13px;
-    border:1px solid rgba(155,93,229,.4);border-radius:6px;
-    background:rgba(155,93,229,.09);
-    box-shadow:0 0 25px rgba(155,93,229,.08)
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--rank-pale);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:3px;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(69,214,197,.48);
+    border-radius:6px;
+    background:rgba(69,214,197,.14);
+    box-shadow:0 0 25px rgba(69,214,197,.1);
 }
+
 .label::before{
-    content:"";width:7px;height:7px;border-radius:50%;
-    background:var(--rank);
-    box-shadow:0 0 13px var(--rank)
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
 }
+
 h1{
-    font-size:clamp(52px,10vw,100px);
-    line-height:.95;margin:0 0 25px;
-    letter-spacing:-5px;font-weight:1000;
-    overflow-wrap:anywhere;
-    background:linear-gradient(100deg,#fff 5%,var(--rank-pale) 30%,var(--rank) 65%,var(--pink) 95%);
-    background-clip:text;-webkit-background-clip:text;color:transparent;
-    filter:drop-shadow(0 0 25px rgba(155,93,229,.13))
+    font-size:clamp(58px,10vw,104px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-shadow:0 0 42px rgba(69,214,197,.24);
 }
-.desc{max-width:780px;color:#c4c9dc;font-size:17px;line-height:1.85;margin:0}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#def8f5 45%,#abede5 80%,#ff6de1);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.desc{
+    max-width:680px;
+    color:#c8c1d6;
+    font-size:17px;
+    line-height:1.85;
+    margin:0;
+}
+
 .hero-bottom{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:25px;flex-wrap:wrap;margin-top:30px
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
-.price-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+.price-wrap{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
 .price-label{
-    display:block;color:#b8b7c4;font-size:10px;
-    letter-spacing:2px;font-weight:900;margin-bottom:7px
+    display:block;
+    color:#aaa1bd;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
 }
+
 .price{
-    font-size:39px;font-weight:1000;
-    letter-spacing:-2px;line-height:1;color:var(--rank);
-    text-shadow:0 0 25px rgba(155,93,229,.23)
+    font-size:46px;
+    font-weight:1000;
+    letter-spacing:-2px;
+    color:var(--rank-light);
+    text-shadow:0 0 25px rgba(69,214,197,.3);
 }
-.price-note{color:#c1bdcb;font-size:12px;line-height:1.8}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.price-note{
+    color:#bcb4ce;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
 .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:15px 22px;border-radius:9px;text-decoration:none;
-    font-weight:950;font-size:12px;letter-spacing:.4px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:950;
+    font-size:12px;
+    letter-spacing:.4px;
     border:1px solid rgba(255,255,255,.17);
-    transition:transform .2s,box-shadow .2s,background .2s
+    transition:transform .2s,box-shadow .2s,background .2s;
 }
+
 .btn:hover{transform:translateY(-2px)}
+
 .primary{
-    color:white;border-color:var(--rank-light);
-    background:linear-gradient(110deg,#7436C5,#9B5DE5,#FF6DE1);
-    box-shadow:0 5px 24px rgba(155,93,229,.2)
+    color:#100a1b;
+    border-color:#def8f5;
+    background:linear-gradient(110deg,#abede5,#def8f5);
+    box-shadow:0 5px 24px rgba(69,214,197,.25);
 }
-.primary:hover{box-shadow:0 8px 32px rgba(155,93,229,.35)}
-.back{color:#e2eaff;background:rgba(255,255,255,.035)}
-.back:hover{border-color:var(--rank);background:rgba(155,93,229,.1)}
+
+.primary:hover{
+    box-shadow:0 8px 32px rgba(69,214,197,.45);
+}
+
+.back{
+    color:#def8f5;
+    background:rgba(255,255,255,.035);
+}
+
+.back:hover{
+    border-color:var(--rank-light);
+    background:rgba(69,214,197,.1);
+}
 
 /* PANEL PRINCIPAL */
+
 .box{
-    position:relative;margin-top:30px;
+    position:relative;
+    margin-top:30px;
     padding:clamp(22px,4vw,38px);
-    border:1px solid var(--border);border-radius:20px;
-    background:linear-gradient(145deg,rgba(28,20,38,.97),rgba(12,9,19,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(155,93,229,.035);
-    overflow:hidden;animation:appear .8s ease both
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(69,214,197,.06);
+    overflow:hidden;
+    animation:appear .8s ease both;
 }
+
 .box::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,#9B5DE5,#7436C5,#FF6DE1,#C18AFF,#9B5DE5);
-    background-size:250% 100%;
-    animation:rankBar 5s linear infinite
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#45d6c5,#ff6de1,transparent);
 }
+
 .box h2{
-    display:flex;align-items:center;gap:12px;
-    margin:0 0 20px;font-size:clamp(23px,4vw,30px);
-    font-weight:950
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
+    font-weight:950;
 }
+
 .box h2::before{
-    content:"";width:5px;height:28px;border-radius:8px;
-    background:linear-gradient(var(--rank),var(--pink));
-    box-shadow:0 0 16px rgba(155,93,229,.3);
-    flex-shrink:0
+    content:"";
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(#45d6c5,#ff6de1);
+    box-shadow:0 0 16px rgba(69,214,197,.5);
+    flex-shrink:0;
 }
-.box h3{margin:0 0 14px;color:#f4f4ff;font-size:18px;font-weight:950}
-.box p{color:var(--muted);line-height:1.8;margin:9px 0;font-size:14px}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f8f4ff;
+    font-size:18px;
+    font-weight:950;
+}
+
+.box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:9px 0;
+}
 
 /* SECCIONES */
-.section{margin-top:34px;padding-top:30px;border-top:1px solid rgba(155,93,229,.15)}
-.section:first-of-type{margin-top:0;padding-top:0;border-top:none}
-.section-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.section-number{
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;width:46px;height:46px;border-radius:12px;
-    border:1px solid rgba(155,93,229,.35);
-    background:linear-gradient(145deg,rgba(155,93,229,.17),rgba(255,109,225,.09));
-    color:var(--rank-pale);font-size:16px;font-weight:950;
-    box-shadow:inset 0 0 16px rgba(155,93,229,.05)
-}
-.section-heading-text{min-width:0}
-.section-heading h3{margin:0;font-size:clamp(17px,2.6vw,21px);line-height:1.4}
-.section-subtitle{
-    margin:5px 0 0!important;font-size:12px!important;
-    color:#c7b4db!important;line-height:1.6!important
-}
-.section-intro{
-    margin-bottom:20px!important;color:#c4c9dc!important;
-    font-size:14px!important;line-height:1.85!important
+
+.section{
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid rgba(69,214,197,.18);
 }
 
-/* LISTAS */
+.section:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+}
+
+.section-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:1px solid rgba(69,214,197,.4);
+    background:linear-gradient(145deg,rgba(69,214,197,.25),rgba(255,109,225,.1));
+    color:#def8f5;
+    font-size:15px;
+    font-weight:950;
+    box-shadow:inset 0 0 16px rgba(69,214,197,.08);
+}
+
+.section-heading h3{
+    margin:0;
+    font-size:18px;
+}
+
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a99fbc;
+}
+
 .info-list{
-    list-style:none;padding:0;margin:0;
-    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px
-}
-.info-list li{
-    position:relative;min-width:0;padding:14px 15px 14px 18px;
-    border:1px solid rgba(155,93,229,.17);border-radius:10px;
-    background:linear-gradient(120deg,rgba(155,93,229,.055),rgba(255,109,225,.025),rgba(255,255,255,.018));
-    color:#cbd7eb;line-height:1.7;font-size:13px;
-    overflow-wrap:anywhere;transition:.2s
-}
-.info-list li::before{
-    content:"";position:absolute;left:0;top:12px;bottom:12px;
-    width:3px;border-radius:0 4px 4px 0;
-    background:linear-gradient(var(--rank),var(--pink))
-}
-.info-list li:hover{
-    border-color:rgba(155,93,229,.55);
-    background:rgba(155,93,229,.07);transform:translateY(-1px)
-}
-.item-name{color:#f4f5ff;font-weight:900;overflow-wrap:anywhere}
-.item-details{color:var(--rank-light);font-size:13px;font-weight:700}
-
-/* TARJETAS DE EQUIPAMIENTO */
-.gear-subsection{margin-top:28px}
-.gear-subsection:first-child{margin-top:0}
-.gear-title{
-    margin:0 0 15px!important;
-    color:#f4f4ff!important;
-    font-size:18px!important;
-    font-weight:950!important
-}
-.gear-grid{
+    list-style:none;
+    padding:0;
+    margin:0;
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px
-}
-.gear-card{
-    min-width:0;
-    padding:16px 15px;
-    border:1px solid rgba(155,93,229,.25);
-    border-radius:10px;
-    background:linear-gradient(120deg,rgba(155,93,229,.09),rgba(255,109,225,.025),rgba(255,255,255,.025));
-    transition:transform .2s,border-color .2s,background .2s
-}
-.gear-card:hover{
-    transform:translateY(-2px);
-    border-color:rgba(193,138,255,.65);
-    background:rgba(155,93,229,.09)
-}
-.gear-card h4{
-    margin:0 0 8px;
-    color:#f4f5ff;
-    font-size:15px;
-    font-weight:950
-}
-.gear-card p{
-    margin:0!important;
-    color:var(--rank-light)!important;
-    font-size:13px!important;
-    line-height:1.85!important;
-    font-weight:750
+    gap:9px;
 }
 
-/* AVISOS */
+.info-list li.wide{grid-column:1/-1}
+.info-list li{
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(69,214,197,.2);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(69,214,197,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
+    line-height:1.7;
+    transition:border-color .2s,background .2s,transform .2s;
+    overflow-wrap:anywhere;
+}
+
+.info-list li:hover{
+    border-color:rgba(229,217,255,.65);
+    background:rgba(69,214,197,.14);
+    transform:translateY(-1px);
+}
+
+.item-name{
+    color:#f5efff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:#abede5;
+    font-size:13px;
+    font-weight:700;
+}
+
 .inherit{
-    margin-top:20px;padding:20px;
-    border:1px solid rgba(155,93,229,.22);
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(69,214,197,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(69,214,197,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(69,214,197,.04);
+}
+
+.inherit strong{color:#def8f5}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4edff!important;
+}
+
+/* COMANDOS ORIGIN */
+
+.command-intro{margin-bottom:20px!important}
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+    margin-top:19px;
+}
+
+.command-card{
+    position:relative;
+    overflow:hidden;
+    min-width:0;
+    margin-top:0;
+    padding:23px;
+    border:1px solid rgba(69,214,197,.42);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(27,85,78,.25),rgba(26,20,41,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(#45d6c5,#ff6de1);
+    box-shadow:0 0 15px rgba(69,214,197,.25);
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(69,214,197,.16);
+    filter:blur(12px);
+    pointer-events:none;
+}
+
+.command-card:hover{
+    border-color:rgba(229,217,255,.8);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(69,214,197,.12);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.command-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#def8f5;
+    background:rgba(69,214,197,.24);
+    border:1px solid rgba(69,214,197,.32);
+    font-size:12px;
+    font-weight:950;
+}
+
+.command-tag{
+    color:#def8f5;
+    background:rgba(69,214,197,.09);
+    border:1px solid rgba(69,214,197,.25);
+    border-radius:5px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.command-name{
+    display:block;
+    margin-bottom:11px;
+    color:#abede5;
+    font-size:25px;
+    line-height:1.25;
+    font-weight:1000;
+    letter-spacing:.2px;
+    overflow-wrap:anywhere;
+    text-shadow:0 0 22px rgba(69,214,197,.23);
+}
+
+.command-description{
+    margin:0!important;
+    color:#d0c9df!important;
+    font-size:14px;
+    line-height:1.85!important;
+}
+
+.command-note{
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(69,214,197,.25);
     border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(155,93,229,.09),rgba(116,54,197,.045));
-    color:#c0cde0;font-size:13px;line-height:1.9
-}
-.inherit strong{color:var(--rank-pale);font-weight:950}
-.inherit p{margin:12px 0 0!important}
-
-/* BARRA ANIMADA */
-@keyframes rankBar{
-    from{background-position:0% 50%}
-    to{background-position:250% 50%}
+    background:linear-gradient(100deg,rgba(69,214,197,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
+    font-size:13px;
+    line-height:1.9;
 }
 
-/* PIE DE PÁGINA */
+.command-note strong{color:#def8f5}
+
+/* PIE */
+
+.gear-title{margin:26px 0 14px!important;font-size:18px!important;color:#f4f4ff!important}
+.gear-title:first-of-type{margin-top:6px!important}
 footer{
-    text-align:center;padding:30px 20px;
-    color:#8b8298;font-size:12px;
-    border-top:1px solid rgba(155,93,229,.15);
-    background:rgba(6,5,12,.72)
+    text-align:center;
+    padding:30px 20px;
+    color:#8d849f;
+    font-size:12px;
+    border-top:1px solid rgba(69,214,197,.18);
+    background:rgba(8,6,13,.72);
 }
-footer span{color:var(--rank-light)}
 
-/* ANIMACIONES */
+footer span{color:#abede5}
+
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
     to{opacity:1;transform:translateY(0)}
 }
 
 /* MÓVILES */
+
 @media(max-width:650px){
-    nav{padding:14px 5%;flex-wrap:wrap}
-    .logo{font-size:17px;letter-spacing:.7px}
+    nav{
+        padding:14px 5%;
+        flex-wrap:wrap;
+    }
+
+    .logo{font-size:17px}
     nav a.home{display:none}
-    nav a.discord{font-size:11px;padding:10px 12px}
+
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
+    }
+
     main{padding:62px 5% 70px}
     h1{letter-spacing:-3px}
     .desc{font-size:15px}
-    .hero-bottom{align-items:flex-start;flex-direction:column}
-    .price{font-size:35px}
+
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .price{font-size:40px}
     .actions{width:100%}
-    .btn{flex:1 1 auto;text-align:center;padding:14px 15px}
-    .box{padding:23px 17px;border-radius:15px}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
+
+    .box{
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
     .box h2{font-size:23px}
-    .gear-grid,.info-list{grid-template-columns:1fr}
-    .gear-card{padding:15px}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
+    }
+
+    .command-card{padding:20px}
     .section-heading h3{font-size:16px}
-    .inherit{padding:16px}
 }
+
 @media(prefers-reduced-motion:reduce){
-    *,*::before,*::after{
+    *,
+    *::before,
+    *::after{
         animation:none!important;
         scroll-behavior:auto!important;
-        transition:none!important
+        transition:none!important;
     }
 }
 </style>
@@ -317,9 +628,9 @@ footer span{color:var(--rank-light)}
 <main>
 
     <!-- HERO -->
-    <header class="hero">
+    <section class="hero">
         <div class="label">RANGO EXCLUSIVO</div>
-        <h1>ASCENDENTE</h1>
+        <h1><span>ASCENDENTE</span></h1>
         <p class="desc">
             Un nuevo nivel de poder comienza aquí. ASCENDENTE representa
             la evolución de tu aventura en Kaizora Origins, con un
@@ -348,23 +659,23 @@ footer span{color:var(--rank-light)}
                 </a>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- PANEL PRINCIPAL -->
     <div class="box">
-        <h2>Informacion del rango</h2>
+        <h2>Información del rango</h2>
 
         <!-- 01: PERMISOS Y DERECHOS -->
-        <section class="section">
+        <div class="section">
             <div class="section-heading">
-                <div class="section-number">01</div>
-                <div class="section-heading-text">
+                <div class="section-icon">01</div>
+                <div>
                     <h3>Permisos y derechos del rango</h3>
-                    <p class="section-subtitle">Beneficios propios de ASCENDENTE</p>
+                    <p>Beneficios propios de ASCENDENTE</p>
                 </div>
             </div>
 
-            <p class="section-intro">
+            <p>
                 ASCENDENTE cuenta exclusivamente con los permisos,
                 derechos y beneficios asignados a este rango dentro
                 de Kaizora Origins.
@@ -377,135 +688,116 @@ footer span{color:var(--rank-light)}
                 <br><br>
                 <strong>ASCENDENTE no hereda permisos, ventajas ni beneficios de otros rangos.</strong>
             </div>
-        </section>
+        </div>
 
         <!-- 02: EQUIPAMIENTO -->
-        <section class="section">
+        <div class="section">
             <div class="section-heading">
-                <div class="section-number">02</div>
-                <div class="section-heading-text">
+                <div class="section-icon">02</div>
+                <div>
                     <h3>Equipamiento Ascendente</h3>
-                    <p class="section-subtitle">Armadura y herramientas de Netherite</p>
+                    <p>Armadura y herramientas de Netherite</p>
                 </div>
             </div>
 
-            <p class="section-intro">
+            <p>
                 Un conjunto completo de equipamiento de Netherite con
                 encantamientos alternados entre los niveles VI y VII
                 para afrontar combates, exploraciones y desafíos.
             </p>
 
-            <div class="gear-subsection">
-                <h3 class="gear-title">Full Armor Netherite</h3>
+            <h3 class="gear-title">Full Armor Netherite</h3>
+            <ul class="info-list">
 
-                <div class="gear-grid">
-                    <div class="gear-card">
-                        <h4>Casco de Netherite</h4>
-                        <p>
-                            Protección VII · Protección contra el fuego VI ·
-                            Protección contra explosiones VII · Protección contra
-                            proyectiles VI · Irrompibilidad VII · Reparación I ·
-                            Respiración VI · Afinidad acuática VII
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Casco de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VII · Protección contra el fuego VI · Protección contra explosiones VII · Protección contra proyectiles VI · Irrompibilidad VII · Reparación I · Respiración VI · Afinidad acuática VII
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Pechera de Netherite</h4>
-                        <p>
-                            Protección VI · Protección contra el fuego VII ·
-                            Protección contra explosiones VI · Protección contra
-                            proyectiles VII · Irrompibilidad VI · Reparación I
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Pechera de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VI · Protección contra el fuego VII · Protección contra explosiones VI · Protección contra proyectiles VII · Irrompibilidad VI · Reparación I
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Pantalones de Netherite</h4>
-                        <p>
-                            Protección VII · Protección contra el fuego VI ·
-                            Protección contra explosiones VII · Protección contra
-                            proyectiles VI · Irrompibilidad VII · Reparación I ·
-                            Sigilo veloz VI
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Pantalones de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VII · Protección contra el fuego VI · Protección contra explosiones VII · Protección contra proyectiles VI · Irrompibilidad VII · Reparación I · Sigilo veloz VI
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Botas de Netherite</h4>
-                        <p>
-                            Protección VI · Protección contra el fuego VII ·
-                            Protección contra explosiones VI · Protección contra
-                            proyectiles VII · Irrompibilidad VI · Reparación I ·
-                            Caída de pluma VII · Agilidad acuática VI ·
-                            Paso helado VII · Velocidad de alma VI
-                        </p>
-                    </div>
-                </div>
-            </div>
+                    <li>
+                    <span class="item-name">Botas de Netherite</span><br>
+                    <span class="item-details">
+                        Protección VI · Protección contra el fuego VII · Protección contra explosiones VI · Protección contra proyectiles VII · Irrompibilidad VI · Reparación I · Caída de pluma VII · Agilidad acuática VI · Paso helado VII · Velocidad de alma VI
+                    </span>
+                </li>
+                
+            </ul>
 
-            <div class="gear-subsection">
-                <h3 class="gear-title">Herramientas y armas de Netherite</h3>
+            <h3 class="gear-title">Herramientas y armas de Netherite</h3>
+            <ul class="info-list">
 
-                <div class="gear-grid">
-                    <div class="gear-card">
-                        <h4>Espada de Netherite</h4>
-                        <p>
-                            Filo VII · Castigo VI · Perdición de los artrópodos VII ·
-                            Empuje VI · Aspecto ígneo VII · Botín VI ·
-                            Filo arrasador VII · Irrompibilidad VI · Reparación I
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Espada de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VII · Castigo VI · Perdición de los artrópodos VII · Empuje VI · Aspecto ígneo VII · Botín VI · Filo arrasador VII · Irrompibilidad VI · Reparación I
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Pico de Netherite</h4>
-                        <p>
-                            Eficiencia VII · Toque de seda VI ·
-                            Fortuna VII · Irrompibilidad VI · Reparación I
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Pico de Netherite</span><br>
+                    <span class="item-details">
+                        Eficiencia VII · Toque de seda VI · Fortuna VII · Irrompibilidad VI · Reparación I
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Hacha de Netherite</h4>
-                        <p>
-                            Filo VII · Castigo VI · Perdición de los artrópodos VII ·
-                            Eficiencia VI · Toque de seda VII ·
-                            Irrompibilidad VI · Reparación I
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Hacha de Netherite</span><br>
+                    <span class="item-details">
+                        Filo VII · Castigo VI · Perdición de los artrópodos VII · Eficiencia VI · Toque de seda VII · Irrompibilidad VI · Reparación I
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Pala de Netherite</h4>
-                        <p>
-                            Eficiencia VII · Toque de seda VI ·
-                            Irrompibilidad VII · Reparación I
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Pala de Netherite</span><br>
+                    <span class="item-details">
+                        Eficiencia VII · Toque de seda VI · Irrompibilidad VII · Reparación I
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Azada de Netherite</h4>
-                        <p>
-                            Eficiencia VII · Fortuna VI · Toque de seda VII ·
-                            Irrompibilidad VI · Reparación I
-                        </p>
-                    </div>
+                    <li>
+                    <span class="item-name">Azada de Netherite</span><br>
+                    <span class="item-details">
+                        Eficiencia VII · Fortuna VI · Toque de seda VII · Irrompibilidad VI · Reparación I
+                    </span>
+                </li>
 
-                    <div class="gear-card">
-                        <h4>Escudo</h4>
-                        <p>Irrompibilidad VI · Reparación I</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <li>
+                    <span class="item-name">Escudo</span><br>
+                    <span class="item-details">
+                        Irrompibilidad VI · Reparación I
+                    </span>
+                </li>
+                
+            </ul>
+        </div>
 
         <!-- 03: RECURSOS ESPECIALES -->
-        <section class="section">
+        <div class="section">
             <div class="section-heading">
-                <div class="section-number">03</div>
-                <div class="section-heading-text">
+                <div class="section-icon">03</div>
+                <div>
                     <h3>Recursos exclusivos</h3>
-                    <p class="section-subtitle">Objetos especiales incluidos en ASCENDENTE</p>
+                    <p>Objetos especiales incluidos en ASCENDENTE</p>
                 </div>
             </div>
 
-            <p class="section-intro">
+            <p>
                 ASCENDENTE también incluye recursos especiales para
                 complementar tu progreso y acceder a contenido del servidor.
             </p>
@@ -524,19 +816,19 @@ footer span{color:var(--rank-light)}
                     <span class="item-details">Cantidad: ×1</span>
                 </li>
             </ul>
-        </section>
+        </div>
 
         <!-- 04: PROTECCIÓN -->
-        <section class="section">
+        <div class="section">
             <div class="section-heading">
-                <div class="section-number">04</div>
-                <div class="section-heading-text">
+                <div class="section-icon">04</div>
+                <div>
                     <h3>Protección de terreno</h3>
-                    <p class="section-subtitle">Un espacio propio para construir y progresar</p>
+                    <p>Un espacio propio para construir y progresar</p>
                 </div>
             </div>
 
-            <p class="section-intro">
+            <p>
                 El rango ASCENDENTE incluye una protección de terreno
                 para delimitar y proteger tu espacio de construcción.
             </p>
@@ -547,19 +839,19 @@ footer span{color:var(--rank-light)}
                     <span class="item-details">Área: 20 × 20 bloques</span>
                 </li>
             </ul>
-        </section>
+        </div>
 
         <!-- 05: COMPRA -->
-        <section class="section">
+        <div class="section">
             <div class="section-heading">
-                <div class="section-number">05</div>
-                <div class="section-heading-text">
+                <div class="section-icon">05</div>
+                <div>
                     <h3>Compra del rango</h3>
-                    <p class="section-subtitle">Asciende al siguiente nivel de Kaizora Origins</p>
+                    <p>Asciende al siguiente nivel de Kaizora Origins</p>
                 </div>
             </div>
 
-            <p class="section-intro">
+            <p>
                 Para adquirir ASCENDENTE, entra en nuestro Discord oficial
                 y consulta el procedimiento de compra disponible.
                 Nuestro equipo podrá ayudarte con el proceso.
@@ -573,7 +865,7 @@ footer span{color:var(--rank-light)}
                     Entrar al Discord ↗
                 </a>
             </div>
-        </section>
+        </div>
 
         <!-- RESUMEN -->
         <div class="inherit">
@@ -585,7 +877,7 @@ footer span{color:var(--rank-light)}
             Nexo Prismático ×10, Llave Ascendente ×1 y una protección
             de terreno de <strong>20 × 20 bloques</strong>.
             <br><br>
-            <strong>Nota:</strong> Este rango trae un agregado de +5m dentro del servidor.
+            <strong>Nota:</strong> Este rango trae un agregado de +5M dentro del servidor.
         </div>
 
     </div>
