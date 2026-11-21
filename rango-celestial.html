@@ -1,26 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070711">
-<meta name="description" content="Descubre el rango CELESTIAL de Kaizora Origins. Equipamiento exclusivo, comandos y beneficios para tu aventura.">
+<meta name="theme-color" content="#09070e">
 <title>CELESTIAL | Kaizora Origins</title>
+<meta name="description" content="Descubre el rango CELESTIAL de Kaizora Origins. Equipamiento exclusivo, comandos y beneficios para tu aventura.">
 
 <style>
 :root{
-    --bg:#070711;
-    --panel:#101322;
-    --cyan:#2bd7f5;
-    --cyan-light:#8beeff;
-    --cyan-pale:#d9faff;
-    --purple:#9365ff;
+    --bg:#09070e;
+    --panel:#12101c;
+    --rank:#2bd7f5;
+    --rank-light:#8beeff;
+    --rank-pale:#d9faff;
     --pink:#ff6de1;
     --white:#fff;
-    --text:#e8eaff;
-    --muted:#b8bbcb;
-    --border:rgba(43,215,245,.25);
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(43,215,245,.30);
 }
 
 *{box-sizing:border-box}
@@ -41,12 +39,11 @@ a{color:inherit}
     position:fixed;
     inset:0;
     z-index:-2;
-    pointer-events:none;
     background:
-        radial-gradient(ellipse at 12% 12%,rgba(147,101,255,.23),transparent 38%),
-        radial-gradient(ellipse at 88% 38%,rgba(43,215,245,.14),transparent 35%),
-        radial-gradient(ellipse at 50% 100%,rgba(255,109,225,.10),transparent 40%),
-        #070711;
+        radial-gradient(ellipse at 12% 12%,rgba(43,215,245,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(30,150,171,.14),transparent 40%),
+        #09070e;
 }
 
 .bg::after{
@@ -69,10 +66,9 @@ nav{
     justify-content:space-between;
     gap:16px;
     padding:14px 7%;
-    border-bottom:1px solid rgba(43,215,245,.18);
-    background:rgba(7,7,17,.87);
+    border-bottom:1px solid rgba(43,215,245,.2);
+    background:rgba(9,7,14,.85);
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
     position:relative;
     z-index:5;
 }
@@ -81,16 +77,15 @@ nav{
     font-size:21px;
     font-weight:950;
     letter-spacing:1.5px;
-    white-space:nowrap;
 }
 
-.logo span{color:var(--cyan-light)}
+.logo span{color:var(--rank-light)}
 
 nav a{
     text-decoration:none;
-    color:#d4d9eb;
+    color:#e0d8ef;
     font-size:13px;
-    font-weight:850;
+    font-weight:800;
 }
 
 nav a.home:hover{color:white}
@@ -98,16 +93,16 @@ nav a.home:hover{color:white}
 .discord{
     padding:12px 18px;
     border-radius:9px;
-    background:linear-gradient(110deg,#7050df,#9365ff);
+    background:linear-gradient(110deg,#1e96ac,#2bd7f5);
     color:white!important;
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 5px 24px rgba(147,101,255,.25);
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(43,215,245,.28);
     transition:.25s;
 }
 
 .discord:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 32px rgba(147,101,255,.4);
+    box-shadow:0 8px 32px rgba(43,215,245,.45);
 }
 
 /* HERO */
@@ -127,16 +122,16 @@ main{
     display:inline-flex;
     align-items:center;
     gap:9px;
-    color:var(--cyan-pale);
+    color:var(--rank-pale);
     font-size:11px;
     font-weight:950;
     letter-spacing:3px;
     margin-bottom:19px;
     padding:9px 13px;
-    border:1px solid rgba(43,215,245,.4);
+    border:1px solid rgba(43,215,245,.48);
     border-radius:6px;
-    background:rgba(43,215,245,.09);
-    box-shadow:0 0 25px rgba(43,215,245,.08);
+    background:rgba(43,215,245,.14);
+    box-shadow:0 0 25px rgba(43,215,245,.1);
 }
 
 .label::before{
@@ -144,30 +139,29 @@ main{
     width:7px;
     height:7px;
     border-radius:50%;
-    background:var(--cyan);
-    box-shadow:0 0 13px var(--cyan);
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
 }
 
 h1{
-    font-size:clamp(52px,10vw,100px);
+    font-size:clamp(58px,10vw,104px);
     line-height:.95;
     margin:0 0 25px;
     letter-spacing:-5px;
     font-weight:1000;
-    text-shadow:0 0 42px rgba(43,215,245,.12);
-    overflow-wrap:anywhere;
+    text-shadow:0 0 42px rgba(43,215,245,.24);
 }
 
 h1 span{
-    background:linear-gradient(100deg,#fff 5%,#d9faff 35%,#2bd7f5 65%,#a88aff 92%);
+    background:linear-gradient(100deg,#fff 5%,#d9faff 45%,#8beeff 80%,#ff6de1);
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
 }
 
 .desc{
-    max-width:700px;
-    color:#c4c9dc;
+    max-width:680px;
+    color:#c8c1d6;
     font-size:17px;
     line-height:1.85;
     margin:0;
@@ -191,7 +185,7 @@ h1 span{
 
 .price-label{
     display:block;
-    color:#aeb9d7;
+    color:#aaa1bd;
     font-size:10px;
     letter-spacing:2px;
     font-weight:900;
@@ -202,25 +196,14 @@ h1 span{
     font-size:46px;
     font-weight:1000;
     letter-spacing:-2px;
-    color:var(--cyan);
-    text-shadow:0 0 25px rgba(43,215,245,.25);
+    color:var(--rank-light);
+    text-shadow:0 0 25px rgba(43,215,245,.3);
 }
 
 .price-note{
-    color:#b6c4dc;
+    color:#bcb4ce;
     font-size:12px;
     line-height:1.6;
-}
-
-.price-tag{
-    padding:8px 12px;
-    border-radius:6px;
-    border:1px solid rgba(43,215,245,.28);
-    background:rgba(43,215,245,.08);
-    color:#baf6ff;
-    font-size:10px;
-    font-weight:950;
-    letter-spacing:1.2px;
 }
 
 .actions{
@@ -246,24 +229,24 @@ h1 span{
 .btn:hover{transform:translateY(-2px)}
 
 .primary{
-    color:#06121a;
-    border-color:var(--cyan-light);
-    background:linear-gradient(110deg,var(--cyan),var(--cyan-light));
-    box-shadow:0 5px 24px rgba(43,215,245,.2);
+    color:#100a1b;
+    border-color:#d9faff;
+    background:linear-gradient(110deg,#8beeff,#d9faff);
+    box-shadow:0 5px 24px rgba(43,215,245,.25);
 }
 
 .primary:hover{
-    box-shadow:0 8px 32px rgba(43,215,245,.35);
+    box-shadow:0 8px 32px rgba(43,215,245,.45);
 }
 
 .back{
-    color:#e2eaff;
+    color:#d9faff;
     background:rgba(255,255,255,.035);
 }
 
 .back:hover{
-    border-color:var(--purple);
-    background:rgba(147,101,255,.1);
+    border-color:var(--rank-light);
+    background:rgba(43,215,245,.1);
 }
 
 /* PANEL PRINCIPAL */
@@ -274,8 +257,8 @@ h1 span{
     padding:clamp(22px,4vw,38px);
     border:1px solid var(--border);
     border-radius:20px;
-    background:linear-gradient(145deg,rgba(17,20,35,.97),rgba(9,10,21,.98));
-    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(43,215,245,.045);
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(43,215,245,.06);
     overflow:hidden;
     animation:appear .8s ease both;
 }
@@ -287,7 +270,7 @@ h1 span{
     left:8%;
     right:8%;
     height:2px;
-    background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),transparent);
+    background:linear-gradient(90deg,transparent,#2bd7f5,#ff6de1,transparent);
 }
 
 .box h2{
@@ -304,14 +287,14 @@ h1 span{
     width:5px;
     height:28px;
     border-radius:8px;
-    background:linear-gradient(var(--cyan),var(--purple));
-    box-shadow:0 0 16px rgba(43,215,245,.35);
+    background:linear-gradient(#2bd7f5,#ff6de1);
+    box-shadow:0 0 16px rgba(43,215,245,.5);
     flex-shrink:0;
 }
 
 .box h3{
     margin:0 0 14px;
-    color:#f4f8ff;
+    color:#f8f4ff;
     font-size:18px;
     font-weight:950;
 }
@@ -320,7 +303,6 @@ h1 span{
     color:var(--muted);
     line-height:1.8;
     margin:9px 0;
-    font-size:14px;
 }
 
 /* SECCIONES */
@@ -328,7 +310,7 @@ h1 span{
 .section{
     margin-top:34px;
     padding-top:30px;
-    border-top:1px solid rgba(43,215,245,.15);
+    border-top:1px solid rgba(43,215,245,.18);
 }
 
 .section:first-of-type{
@@ -352,12 +334,12 @@ h1 span{
     width:42px;
     height:42px;
     border-radius:12px;
-    border:1px solid rgba(43,215,245,.35);
-    background:linear-gradient(145deg,rgba(43,215,245,.17),rgba(147,101,255,.13));
-    color:#c9f7ff;
+    border:1px solid rgba(43,215,245,.4);
+    background:linear-gradient(145deg,rgba(43,215,245,.25),rgba(255,109,225,.1));
+    color:#d9faff;
     font-size:15px;
     font-weight:950;
-    box-shadow:inset 0 0 16px rgba(43,215,245,.06);
+    box-shadow:inset 0 0 16px rgba(43,215,245,.08);
 }
 
 .section-heading h3{
@@ -368,7 +350,7 @@ h1 span{
 .section-heading p{
     margin:5px 0 0;
     font-size:12px;
-    color:#a7b8d4;
+    color:#a99fbc;
 }
 
 .info-list{
@@ -380,31 +362,33 @@ h1 span{
     gap:9px;
 }
 
+.info-list li.wide{grid-column:1/-1}
 .info-list li{
     min-width:0;
     padding:14px 15px;
-    border:1px solid rgba(43,215,245,.17);
+    border:1px solid rgba(43,215,245,.2);
     border-radius:10px;
-    background:linear-gradient(120deg,rgba(43,215,245,.055),rgba(255,255,255,.018));
-    color:#cbd7eb;
+    background:linear-gradient(120deg,rgba(43,215,245,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
     line-height:1.7;
     transition:border-color .2s,background .2s,transform .2s;
+    overflow-wrap:anywhere;
 }
 
 .info-list li:hover{
-    border-color:rgba(147,101,255,.55);
-    background:rgba(43,215,245,.09);
+    border-color:rgba(229,217,255,.65);
+    background:rgba(43,215,245,.14);
     transform:translateY(-1px);
 }
 
 .item-name{
-    color:#f2f7ff;
+    color:#f5efff;
     font-weight:900;
     overflow-wrap:anywhere;
 }
 
 .item-details{
-    color:#a9eaf6;
+    color:#8beeff;
     font-size:13px;
     font-weight:700;
 }
@@ -412,22 +396,22 @@ h1 span{
 .inherit{
     margin-top:19px;
     padding:20px;
-    border:1px solid rgba(147,101,255,.32);
+    border:1px solid rgba(43,215,245,.36);
     border-radius:12px;
-    background:linear-gradient(110deg,rgba(147,101,255,.13),rgba(43,215,245,.055));
-    color:#d0ddf2;
+    background:linear-gradient(110deg,rgba(43,215,245,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
     line-height:1.9;
-    box-shadow:inset 0 0 24px rgba(43,215,245,.025);
+    box-shadow:inset 0 0 24px rgba(43,215,245,.04);
 }
 
 .inherit strong{color:#d9faff}
 
 .kit-title{
     font-size:21px!important;
-    color:#f4f8ff!important;
+    color:#f4edff!important;
 }
 
-/* COMANDOS CELESTIAL */
+/* COMANDOS ORIGIN */
 
 .command-intro{margin-bottom:20px!important}
 
@@ -442,12 +426,13 @@ h1 span{
     position:relative;
     overflow:hidden;
     min-width:0;
+    margin-top:0;
     padding:23px;
-    border:1px solid rgba(43,215,245,.35);
+    border:1px solid rgba(43,215,245,.42);
     border-radius:14px;
     background:
-        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
-        linear-gradient(135deg,rgba(25,112,145,.18),rgba(15,17,34,.96) 70%);
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(17,86,98,.25),rgba(26,20,41,.96) 70%);
     box-shadow:inset 0 1px rgba(255,255,255,.04);
     transition:transform .25s,border-color .25s,box-shadow .25s;
 }
@@ -459,8 +444,8 @@ h1 span{
     left:0;
     width:4px;
     height:100%;
-    background:linear-gradient(var(--cyan),var(--purple));
-    box-shadow:0 0 15px rgba(43,215,245,.2);
+    background:linear-gradient(#2bd7f5,#ff6de1);
+    box-shadow:0 0 15px rgba(43,215,245,.25);
 }
 
 .command-card::after{
@@ -471,15 +456,15 @@ h1 span{
     right:-55px;
     bottom:-55px;
     border-radius:50%;
-    background:rgba(147,101,255,.15);
+    background:rgba(43,215,245,.16);
     filter:blur(12px);
     pointer-events:none;
 }
 
 .command-card:hover{
-    border-color:rgba(43,215,245,.75);
+    border-color:rgba(229,217,255,.8);
     transform:translateY(-4px);
-    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(43,215,245,.09);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(43,215,245,.12);
 }
 
 .command-top{
@@ -497,17 +482,17 @@ h1 span{
     width:32px;
     height:32px;
     border-radius:9px;
-    color:#e2faff;
-    background:rgba(43,215,245,.13);
-    border:1px solid rgba(43,215,245,.3);
+    color:#d9faff;
+    background:rgba(43,215,245,.24);
+    border:1px solid rgba(43,215,245,.32);
     font-size:12px;
     font-weight:950;
 }
 
 .command-tag{
-    color:#c8eaff;
-    background:rgba(147,101,255,.1);
-    border:1px solid rgba(147,101,255,.3);
+    color:#d9faff;
+    background:rgba(43,215,245,.09);
+    border:1px solid rgba(43,215,245,.25);
     border-radius:5px;
     padding:6px 9px;
     font-size:9px;
@@ -519,19 +504,18 @@ h1 span{
 .command-name{
     display:block;
     margin-bottom:11px;
-    color:var(--cyan);
-    font-family:Arial,Helvetica,sans-serif;
+    color:#8beeff;
     font-size:25px;
     line-height:1.25;
     font-weight:1000;
-    letter-spacing:0;
+    letter-spacing:.2px;
     overflow-wrap:anywhere;
-    text-shadow:0 0 22px rgba(43,215,245,.2);
+    text-shadow:0 0 22px rgba(43,215,245,.23);
 }
 
 .command-description{
     margin:0!important;
-    color:#d0dced!important;
+    color:#d0c9df!important;
     font-size:14px;
     line-height:1.85!important;
 }
@@ -539,118 +523,31 @@ h1 span{
 .command-note{
     margin-top:20px;
     padding:18px 20px;
-    border:1px solid rgba(43,215,245,.22);
-    border-left:4px solid var(--cyan);
+    border:1px solid rgba(43,215,245,.25);
+    border-left:4px solid var(--rank);
     border-radius:0 11px 11px 0;
-    background:linear-gradient(100deg,rgba(43,215,245,.09),rgba(147,101,255,.04));
-    color:#c0cde0;
+    background:linear-gradient(100deg,rgba(43,215,245,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
     font-size:13px;
     line-height:1.9;
 }
 
 .command-note strong{color:#d9faff}
 
-/* RESUMEN DEL RANGO */
-
-.rank-summary{
-    position:relative;
-    overflow:hidden;
-    margin-top:34px;
-    padding:25px;
-    border:1px solid rgba(43,215,245,.3);
-    border-radius:14px;
-    background:
-        radial-gradient(ellipse at 100% 0%,rgba(147,101,255,.14),transparent 55%),
-        linear-gradient(125deg,rgba(43,215,245,.09),rgba(15,17,34,.94) 65%);
-    box-shadow:inset 0 1px rgba(255,255,255,.035),0 10px 35px rgba(0,0,0,.16);
-}
-
-.rank-summary::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:4px;
-    height:100%;
-    background:linear-gradient(var(--cyan),var(--purple),var(--pink));
-    box-shadow:0 0 18px rgba(43,215,245,.25);
-}
-
-.summary-heading{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:15px;
-}
-
-.summary-number{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:40px;
-    height:40px;
-    flex-shrink:0;
-    border-radius:11px;
-    color:#e2faff;
-    background:rgba(43,215,245,.13);
-    border:1px solid rgba(43,215,245,.3);
-    font-size:14px;
-    font-weight:950;
-}
-
-.summary-heading h3{
-    margin:0;
-    color:#eafaff;
-    font-size:19px;
-    font-weight:950;
-}
-
-.summary-heading p{
-    margin:5px 0 0;
-    color:#a7b8d4;
-    font-size:12px;
-}
-
-.summary-text{
-    margin:0!important;
-    color:#d0dced!important;
-    font-size:14px!important;
-    line-height:1.95!important;
-}
-
-.summary-text strong{
-    color:#d9faff;
-    font-weight:950;
-}
-
-.money-note{
-    position:relative;
-    margin-top:15px;
-    padding:17px 20px;
-    border:1px solid rgba(147,101,255,.32);
-    border-radius:10px;
-    background:linear-gradient(105deg,rgba(147,101,255,.15),rgba(43,215,245,.055));
-    color:#d0ddf2;
-    font-size:13px;
-    line-height:1.9;
-}
-
-.money-note strong{color:#e1d5ff}
-
 /* PIE */
 
+.gear-title{margin:26px 0 14px!important;font-size:18px!important;color:#f4f4ff!important}
+.gear-title:first-of-type{margin-top:6px!important}
 footer{
     text-align:center;
     padding:30px 20px;
-    color:#8b98af;
+    color:#8d849f;
     font-size:12px;
-    border-top:1px solid rgba(43,215,245,.15);
-    background:rgba(6,7,16,.72);
+    border-top:1px solid rgba(43,215,245,.18);
+    background:rgba(8,6,13,.72);
 }
 
-footer span{color:var(--cyan-light)}
-
-/* ANIMACIONES */
+footer span{color:#8beeff}
 
 @keyframes appear{
     from{opacity:0;transform:translateY(12px)}
@@ -665,11 +562,7 @@ footer span{color:var(--cyan-light)}
         flex-wrap:wrap;
     }
 
-    .logo{
-        font-size:17px;
-        letter-spacing:.7px;
-    }
-
+    .logo{font-size:17px}
     nav a.home{display:none}
 
     nav a.discord{
@@ -678,9 +571,7 @@ footer span{color:var(--cyan-light)}
     }
 
     main{padding:62px 5% 70px}
-
     h1{letter-spacing:-3px}
-
     .desc{font-size:15px}
 
     .hero-bottom{
@@ -689,7 +580,6 @@ footer span{color:var(--cyan-light)}
     }
 
     .price{font-size:40px}
-
     .actions{width:100%}
 
     .btn{
@@ -711,10 +601,7 @@ footer span{color:var(--cyan-light)}
     }
 
     .command-card{padding:20px}
-
     .section-heading h3{font-size:16px}
-
-    .rank-summary{padding:21px 17px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1082,34 +969,17 @@ footer span{color:var(--cyan-light)}
 
         </div>
 
-        <!-- RESUMEN DEL RANGO -->
+                <!-- RESUMEN -->
 
-        <div class="rank-summary">
+        <div class="inherit">
 
-            <div class="summary-heading">
-                <div class="summary-number">08</div>
-                <div>
-                    <h3>RESUMEN DEL RANGO CELESTIAL</h3>
-                    <p>Todo lo que recibes al adquirir CELESTIAL</p>
-                </div>
-            </div>
+            <strong>RESUMEN DEL RANGO CELESTIAL</strong><br>
 
-            <p class="summary-text">
-                CELESTIAL cuenta con el comando exclusivo
-                <strong>/craft</strong>, un kit con armadura completa de
-                Netherite encantada a niveles avanzados, espada, pico,
-                hacha, pala y escudo. También incluye una Shulker con
-                9 pociones de nivel I, flechas, flechas espectrales,
-                manzanas doradas, manzanas encantadas, zanahorias doradas,
-                fragmentos de Netherite y una protección de terreno de
-                <strong>30 × 30 bloques</strong>.
-            </p>
+            CELESTIAL cuenta con el comando exclusivo <strong>/craft</strong>, un kit con armadura completa de Netherite encantada a niveles avanzados, espada, pico, hacha, pala y escudo. También incluye una Shulker con 9 pociones de nivel I, flechas, flechas espectrales, manzanas doradas, manzanas encantadas, zanahorias doradas, fragmentos de Netherite y una protección de terreno de <strong>30 × 30 bloques</strong>.
 
-            <div class="money-note">
-                <strong>NOTA:</strong> Este rango trae un agregado de
-                <strong>+12M</strong> dentro del servidor.
-            </div>
+            <br><br>
 
+            <strong>Nota:</strong> Este rango trae un agregado de +12M dentro del servidor.
         </div>
 
     </div>
