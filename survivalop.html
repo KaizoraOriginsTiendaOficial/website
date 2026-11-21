@@ -1054,21 +1054,98 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* ====== MEJORAS VISUALES ====== */
+        #bar { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 300; background: linear-gradient(90deg, #7037dc, #ff6de1, #ffd34d); box-shadow: 0 0 12px rgba(255,109,225,.6); }
+        nav { transition: box-shadow .3s, background .3s, min-height .3s; }
+        nav.scrolled { min-height: 64px; background: rgba(5,7,8,.97); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .cube-logo { width: 34px; height: 34px; filter: drop-shadow(0 0 8px rgba(255,109,225,.5)); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+        .logo:hover .cube-logo { transform: rotate(-8deg) scale(1.12); }
+        nav ul a { position: relative; }
+        nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--pink); transform: scaleX(0); transform-origin: left; transition: transform .25s; border-radius: 2px; }
+        nav ul a.active, nav ul a:hover { color: var(--pink); }
+        nav ul a.active::after, nav ul a:hover::after { transform: scaleX(1); }
+        .menu-btn { display: none; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.12); background: #1b1226; color: #fff; border-radius: 9px; font-size: 20px; cursor: pointer; }
+
+        .survival-hero { position: relative; }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-cubes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; perspective: 900px; }
+        .hcube { position: absolute; transform-style: preserve-3d; opacity: .7; animation: cubeSpin var(--dur,22s) linear infinite, cubeBob var(--bob,7s) ease-in-out infinite; }
+        .hcube i { position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--c) 70%, transparent); background: color-mix(in srgb, var(--c) 10%, transparent); box-shadow: inset 0 0 14px color-mix(in srgb, var(--c) 25%, transparent); }
+        .hcube i:nth-child(1){ transform: translateZ(calc(var(--s)/2)); }
+        .hcube i:nth-child(2){ transform: rotateY(180deg) translateZ(calc(var(--s)/2)); }
+        .hcube i:nth-child(3){ transform: rotateY(90deg) translateZ(calc(var(--s)/2)); }
+        .hcube i:nth-child(4){ transform: rotateY(-90deg) translateZ(calc(var(--s)/2)); }
+        .hcube i:nth-child(5){ transform: rotateX(90deg) translateZ(calc(var(--s)/2)); }
+        .hcube i:nth-child(6){ transform: rotateX(-90deg) translateZ(calc(var(--s)/2)); }
+        @keyframes cubeSpin { from { rotate: x 20deg y 0deg; } to { rotate: x 380deg y 360deg; } }
+        @keyframes cubeBob { 0%,100% { translate: 0 0; } 50% { translate: 0 -24px; } }
+
+        .hero-title span { background: linear-gradient(100deg, #ff6de1, #ffb3f1, #ffffff, #ff6de1, #a982ff); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 6s linear infinite; filter: drop-shadow(0 0 24px rgba(255,109,225,.28)); }
+        @keyframes shine { 0% { background-position: 100% 0; } 100% { background-position: -150% 0; } }
+        .hero-label, .hero-title, .hero-description, .hero-buttons { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
+        .hero-title { animation-delay: .08s; } .hero-description { animation-delay: .2s; } .hero-buttons { animation-delay: .32s; }
+        @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+        .hero-button.primary, .kit-button, .product-buy { position: relative; overflow: hidden; }
+        .hero-button.primary::after, .kit-button::after { content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,.5), transparent); transform: skewX(-20deg); animation: btnShine 4.5s 1.5s infinite; }
+        @keyframes btnShine { 0% { left: -80%; } 30%, 100% { left: 160%; } }
+
+        .product-card, .kit-card, .how-card, .rank-step, .rank-rule { position: relative; }
+        .product-card::after, .kit-card::after, .how-card::after, .rank-step::after, .rank-rule::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(255,109,225,.13), transparent 65%); }
+        .product-card:hover::after, .kit-card:hover::after, .how-card:hover::after, .rank-step:hover::after, .rank-rule:hover::after { opacity: 1; }
+
+        #items .key-image::before, #estrellas .key-image::before { content: ""; position: absolute; left: 50%; top: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; z-index: 1; background-repeat: no-repeat; background-position: center; background-size: contain; filter: drop-shadow(0 2px 5px rgba(0,0,0,.45)); transition: transform .45s cubic-bezier(.2,.8,.2,1); animation: iconFloat 4s ease-in-out infinite; }
+        #items .key-image::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='19' cy='32' r='11'/%3E%3Cpath d='M30 32h27M49 32v10M40 32v8'/%3E%3C/svg%3E"); transform: rotate(-35deg); }
+        #estrellas .key-image::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='white' stroke='white' stroke-width='3' stroke-linejoin='round'%3E%3Cpath d='M32 6l7.5 17.5L58 25l-14 12.500L48 56 32 46 16 56l4-18.500L6 25l18.5-1.500z'/%3E%3C/svg%3E"); }
+        #items .product-card:hover .key-image::before { transform: rotate(-35deg) scale(1.18); }
+        #estrellas .product-card:hover .key-image::before { transform: rotate(20deg) scale(1.18); }
+        .key-image::after { background: radial-gradient(circle at center, rgba(255,255,255,.18), transparent 62%), linear-gradient(115deg, transparent 40%, rgba(255,255,255,.28) 50%, transparent 60%); background-size: 100% 100%, 250% 100%; animation: sheen 5s ease-in-out infinite; }
+        @keyframes sheen { 0% { background-position: 0 0, 150% 0; } 60%, 100% { background-position: 0 0, -150% 0; } }
+        @keyframes iconFloat { 50% { translate: 0 -5px; } }
+        .money-card.featured { animation: featGlow 3.5s ease-in-out infinite; }
+        @keyframes featGlow { 50% { box-shadow: 0 0 38px rgba(255,109,225,.2); } }
+        .rank-warning { animation: warnPulse 4s ease-in-out infinite; }
+        @keyframes warnPulse { 50% { box-shadow: 0 0 32px rgba(255,109,225,.1); } }
+        .kit-card:hover, .how-card:hover { box-shadow: 0 15px 45px rgba(0,0,0,.3); }
+        .section-divider { position: relative; overflow: visible; }
+        .section-divider::before { content: ""; position: absolute; left: 0; top: -1px; height: 3px; width: 18%; background: linear-gradient(90deg, transparent, #ff6de1, transparent); animation: travel 7s ease-in-out infinite alternate; border-radius: 3px; }
+        .section-divider::after { content: ""; position: absolute; left: 50%; top: -4px; width: 9px; height: 9px; background: #ff6de1; transform: translateX(-50%) rotate(45deg); box-shadow: 0 0 12px rgba(255,109,225,.7); animation: dia 3s ease-in-out infinite; }
+        @keyframes travel { from { left: 0; } to { left: 82%; } }
+        @keyframes dia { 50% { transform: translateX(-50%) rotate(225deg) scale(1.2); } }
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease, border-color .25s, box-shadow .25s; }
+        .reveal.visible { opacity: 1; transform: none; }
+        .product-card.reveal.visible:hover, .kit-card.reveal.visible:hover { transform: translateY(-5px); }
+        .how-card.reveal.visible:hover, .rank-step.reveal.visible:hover { transform: translateY(-4px); }
+        #toTop { position: fixed; right: 18px; bottom: 18px; width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--pink); background: rgba(25,13,28,.95); color: var(--pink); font-size: 19px; font-weight: 900; cursor: pointer; z-index: 90; opacity: 0; transform: translateY(14px); pointer-events: none; transition: .3s; }
+        #toTop.show { opacity: 1; transform: none; pointer-events: auto; }
+        #toTop:hover { background: var(--pink); color: #190b18; }
+        @media (max-width: 1000px) {
+            .menu-btn { display: grid; place-items: center; margin-left: auto; }
+            nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; margin: 0; padding: 8px 6% 14px; background: rgba(5,7,8,.98); border-bottom: 1px solid rgba(255,255,255,.08); }
+            nav ul.open { display: flex; }
+            nav ul li a { display: block; padding: 13px 4px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 13px; }
+            nav ul a::after { display: none; }
+        }
+        @media (max-width: 650px) { .cube-logo { width: 28px; height: 28px; } .logo { gap: 7px; } .hcube.hide-m { display: none; } nav { gap: 8px; } }
+        @media (prefers-reduced-motion: reduce) {
+            .hcube, .hero-title span, .hero-button.primary::after, .kit-button::after, .money-card.featured, .rank-warning, .section-divider::before, .section-divider::after, .key-image::after, #items .key-image::before, #estrellas .key-image::before, .hero-label, .hero-title, .hero-description, .hero-buttons { animation: none !important; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
     </style>
 </head>
 
 <body>
+    <div id="bar"></div>
     <div class="minecraft-background"></div>
     <div class="light-effect" id="light"></div>
 
     <!-- NAVBAR -->
 
     <nav>
-        <a href="index.html" class="logo">
-            KAIZORA <span>ORIGINS</span>
-        </a>
+        <a href="index.html" class="logo"><svg class="cube-logo" viewBox="0 0 48 48" aria-hidden="true"><polygon points="24,3 43,14 43,34 24,45 5,34 5,14" fill="rgba(255,109,225,.14)" stroke="#ff6de1" stroke-width="2.4" stroke-linejoin="round"/><polyline points="5,14 24,25 43,14" fill="none" stroke="#ff6de1" stroke-opacity=".55" stroke-width="1.4"/><line x1="24" y1="25" x2="24" y2="45" stroke="#ff6de1" stroke-opacity=".55" stroke-width="1.4"/><path d="M19 17v14M19 24l7-7M20 23.5l7 7.5" fill="none" stroke="#ffb3f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lt">KAIZORA <span>ORIGINS</span></span></a>
 
-        <ul>
+        <ul id="navList">
             <li><a href="#banco">Banco</a></li>
             <li><a href="#rankeos">Rankeos</a></li>
             <li><a href="#items">Crates</a></li>
@@ -1077,13 +1154,15 @@
             <li><a href="#como-se-juega">Cómo jugar</a></li>
         </ul>
 
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
         <div class="modality-dropdown">
             <button class="modality-button" type="button" aria-label="Abrir modalidades">
-                Mas Opciones <span>⌄</span>
+                Más opciones <span>⌄</span>
             </button>
 
             <div class="modality-menu">
-                <a href="index.html">PAGINA PRINCIPAL</a>
+                <a href="index.html">PÁGINA PRINCIPAL</a>
                 <a href="precios.html">PRECIOS</a>
             </div>
         </div>
@@ -1093,6 +1172,7 @@
         <!-- HERO -->
 
         <section class="survival-hero">
+            <div class="hero-cubes" id="heroCubes" aria-hidden="true"></div>
             <div class="hero-content">
                 <div class="hero-label">MODALIDAD · SURVIVALOP</div>
 
@@ -1149,7 +1229,7 @@
                 <div>
                     <strong>Equivalencia económica</strong>
                     <p>
-                        <b style="color:#ff6de1;">1 USD = 1.000.000 de monedas.</b>
+                        <b style="color:#ff6de1;">1 USD = 1.0.000 de monedas.</b>
                         Los paquetes de esta sección representan dinero
                         del juego. Para solicitar una compra, abre un ticket
                         en el Discord oficial e indica tu nombre de jugador
@@ -1162,7 +1242,7 @@
                 <div class="product-card money-card">
                     <div class="money-symbol">$</div>
                     <h3>Capital inicial</h3>
-                    <div class="money-amount">1.000.000 monedas</div>
+                    <div class="money-amount">1.0.000 monedas</div>
                     <p>Esto es solo un ejemplo, no se vende este paquete!!.</p>
                     <div class="product-bottom">
                         <div class="product-price">$1 USD</div>
@@ -1175,7 +1255,7 @@
                 <div class="product-card money-card">
                     <div class="money-symbol">$</div>
                     <h3>Capital avanzado</h3>
-                    <div class="money-amount">5.000.000 monedas</div>
+                    <div class="money-amount">5.0.000 monedas</div>
                     <p>Más capital para comerciar, invertir y mejorar tu equipamiento.</p>
                     <div class="product-bottom">
                         <div class="product-price">$4 USD</div>
@@ -1189,7 +1269,7 @@
                     <div class="popular-tag">PAQUETE DESTACADO</div>
                     <div class="money-symbol">$</div>
                     <h3>Capital de élite</h3>
-                    <div class="money-amount">10.000.000 monedas</div>
+                    <div class="money-amount">10.0.000 monedas</div>
                     <p>Una inversión considerable para tus próximos objetivos.</p>
                     <div class="product-bottom">
                         <div class="product-price">$8 USD</div>
@@ -1202,7 +1282,7 @@
                 <div class="product-card money-card">
                     <div class="money-symbol">$</div>
                     <h3>Capital superior</h3>
-                    <div class="money-amount">20.000.000 monedas</div>
+                    <div class="money-amount">20.0.000 monedas</div>
                     <p>Para jugadores que buscan disponer de más recursos económicos.</p>
                     <div class="product-bottom">
                         <div class="product-price">$16 USD</div>
@@ -1215,7 +1295,7 @@
                 <div class="product-card money-card">
                     <div class="money-symbol">$</div>
                     <h3>Capital máximo</h3>
-                    <div class="money-amount">50.000.000 monedas</div>
+                    <div class="money-amount">50.0.000 monedas</div>
                     <p>El paquete más grande de dinero disponible en esta selección.</p>
                     <div class="product-bottom">
                         <div class="product-price">$40 USD</div>
@@ -1262,7 +1342,7 @@
                     Un jugador acuerda con otro el traspaso de un rango
                     de tienda a cambio de una cantidad de dinero del juego.
                     Por ejemplo, pueden acordar que un rango Origin se
-                    transfiera a cambio de 3.000.000 o 4.000.000 de monedas.
+                    transfiera a cambio de 3.0.000 o 4.0.000 de monedas.
                     El importe depende del acuerdo entre ambos jugadores:
                     no existe una tarifa fija establecida por el servidor.
                 </p>
@@ -1305,11 +1385,11 @@
 
             <div class="rank-example">
                 <div class="rank-example-label">EJEMPLO DE UN TRASPASO</div>
-                <h3>Rango Origin a cambio de 3.000.000 de monedas</h3>
+                <h3>Rango Origin a cambio de 3.0.000 de monedas</h3>
                 <p>
                     <strong>Jugador 1:</strong> paga el rango Origin
                     en la tienda oficial y, después de completar el
-                    procedimiento autorizado, recibe los 3.000.000
+                    procedimiento autorizado, recibe los 3.0.000
                     de monedas acordados.
                 </p>
                 <p style="margin-top:10px;">
@@ -1803,6 +1883,7 @@
         </div>
     </footer>
 
+    <button id="toTop" aria-label="Volver arriba">↑</button>
     <script>
         const background = document.querySelector('.minecraft-background');
         const light = document.getElementById('light');
@@ -1820,6 +1901,72 @@
             light.style.left = event.clientX + 'px';
             light.style.top = event.clientY + 'px';
         });
+
+        /* ====== MEJORAS VISUALES ====== */
+        (function () {
+            var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var $ = function (q, r) { return (r || document).querySelector(q); };
+            var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
+            var bar = $('#bar'), nav = $('nav'), top = $('#toTop');
+            function sc() {
+                var h = document.documentElement, m = h.scrollHeight - h.clientHeight;
+                bar.style.width = (m > 0 ? h.scrollTop / m * 100 : 0) + '%';
+                nav.classList.toggle('scrolled', h.scrollTop > 30);
+                top.classList.toggle('show', h.scrollTop > 700);
+            }
+            addEventListener('scroll', sc, { passive: true }); sc();
+            top.addEventListener('click', function () { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+            var mb = $('#menuBtn'), list = $('#navList');
+            mb.addEventListener('click', function () { var o = list.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+            $$('#navList a').forEach(function (a) { a.addEventListener('click', function () { list.classList.remove('open'); }); });
+
+            var links = $$('#navList a[href^="#"]');
+            if ('IntersectionObserver' in window) {
+                var so = new IntersectionObserver(function (es) {
+                    es.forEach(function (e) {
+                        if (e.isIntersecting) {
+                            links.forEach(function (l) { l.classList.remove('active'); });
+                            var a = $('#navList a[href="#' + e.target.id + '"]');
+                            if (a) a.classList.add('active');
+                        }
+                    });
+                }, { rootMargin: '-45% 0px -50% 0px' });
+                $$('main section[id]').forEach(function (x) { so.observe(x); });
+
+                var ro = new IntersectionObserver(function (es) {
+                    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+                }, { threshold: 0.08 });
+                $$('.section-header, .bank-notice, .product-card, .rank-intro, .rank-step, .rank-example, .rank-rule, .rank-warning, .kit-card, .how-card').forEach(function (el, i) {
+                    el.classList.add('reveal');
+                    el.style.transitionDelay = (i % 4) * 70 + 'ms';
+                    ro.observe(el);
+                });
+            }
+
+            if (!reduce && matchMedia('(hover: hover)').matches) {
+                $$('.product-card, .kit-card, .how-card, .rank-step, .rank-rule').forEach(function (c) {
+                    c.addEventListener('mousemove', function (e) {
+                        var r = c.getBoundingClientRect();
+                        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+                        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                    });
+                });
+            }
+
+            var hc = $('#heroCubes');
+            if (hc && !reduce) {
+                var cols = ['#ff6de1', '#a982ff', '#45D6C5', '#ffd34d', '#4d8dff', '#ff5363'];
+                var cfg = [[62, 12, 54], [88, 30, 34], [74, 62, 44], [52, 80, 26], [93, 8, 24], [40, 18, 20]];
+                cfg.forEach(function (c, i) {
+                    var d = document.createElement('div');
+                    d.className = 'hcube' + (i > 2 ? ' hide-m' : '');
+                    d.style.cssText = 'left:' + c[0] + '%;top:' + c[1] + '%;width:' + c[2] + 'px;height:' + c[2] + 'px;--s:' + c[2] + 'px;--c:' + cols[i % cols.length] + ';--dur:' + (18 + i * 3) + 's;--bob:' + (6 + i) + 's;animation-delay:-' + (i * 3) + 's';
+                    d.innerHTML = '<i></i><i></i><i></i><i></i><i></i><i></i>';
+                    hc.appendChild(d);
+                });
+            }
+        })();
     </script>
 </body>
 </html>
