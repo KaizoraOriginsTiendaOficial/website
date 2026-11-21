@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09070e">
+<title>Ascendente Temporal · Kaizora Origins</title>
+<meta name="description" content="Descubre el rango ASCENDENTE de Kaizora Origins: comandos exclusivos, kit de Netherite nivel VI y VII y protección de terreno de 20 × 20.">
+
+<style>
+:root{
+    --bg:#09070e;
+    --panel:#12101c;
+    --rank:#45d6c5;
+    --rank-light:#abede5;
+    --rank-pale:#def8f5;
+    --pink:#ff6de1;
+    --white:#fff;
+    --text:#e8e4f0;
+    --muted:#b7b1c5;
+    --border:rgba(69,214,197,.30);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+a{color:inherit}
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+        radial-gradient(ellipse at 12% 12%,rgba(69,214,197,.25),transparent 38%),
+        radial-gradient(ellipse at 88% 38%,rgba(255,109,225,.13),transparent 35%),
+        radial-gradient(ellipse at 50% 100%,rgba(48,149,137,.14),transparent 40%),
+        #09070e;
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.16;
+    background-image:radial-gradient(rgba(255,255,255,.6) .7px,transparent .7px);
+    background-size:27px 27px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+    pointer-events:none;
+}
+
+/* NAVEGACIÓN */
+
+nav{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 7%;
+    border-bottom:1px solid rgba(69,214,197,.2);
+    background:rgba(9,7,14,.85);
+    backdrop-filter:blur(18px);
+    position:relative;
+    z-index:5;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:950;
+    letter-spacing:1.5px;
+}
+
+.logo span{color:var(--rank-light)}
+
+nav a{
+    text-decoration:none;
+    color:#e0d8ef;
+    font-size:13px;
+    font-weight:800;
+}
+
+nav a.home:hover{color:white}
+
+.discord{
+    padding:12px 18px;
+    border-radius:9px;
+    background:linear-gradient(110deg,#30968a,#45d6c5);
+    color:white!important;
+    border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(69,214,197,.28);
+    transition:.25s;
+}
+
+.discord:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 32px rgba(69,214,197,.45);
+}
+
+/* HERO */
+
+main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:85px 6% 100px;
+}
+
+.hero{
+    padding-bottom:38px;
+    animation:appear .65s ease both;
+}
+
+.label{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--rank-pale);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:3px;
+    margin-bottom:19px;
+    padding:9px 13px;
+    border:1px solid rgba(69,214,197,.48);
+    border-radius:6px;
+    background:rgba(69,214,197,.14);
+    box-shadow:0 0 25px rgba(69,214,197,.1);
+}
+
+.label::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--rank-light);
+    box-shadow:0 0 13px var(--rank-light);
+}
+
+h1{
+    font-size:clamp(58px,10vw,104px);
+    line-height:.95;
+    margin:0 0 25px;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-shadow:0 0 42px rgba(69,214,197,.24);
+}
+
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#def8f5 45%,#abede5 80%,#ff6de1);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.desc{
+    max-width:680px;
+    color:#c8c1d6;
+    font-size:17px;
+    line-height:1.85;
+    margin:0;
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.price-wrap{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.price-label{
+    display:block;
+    color:#aaa1bd;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.price{
+    font-size:46px;
+    font-weight:1000;
+    letter-spacing:-2px;
+    color:var(--rank-light);
+    text-shadow:0 0 25px rgba(69,214,197,.3);
+}
+
+
+.price-old{display:block;font-size:20px;font-weight:800;color:#ff5a6a;text-decoration:line-through;text-decoration-thickness:2px;letter-spacing:-.5px;margin-bottom:2px}
+.price-off{display:inline-block;margin-left:10px;padding:3px 8px;border-radius:7px;background:rgba(52,211,110,.15);border:1px solid rgba(52,211,110,.5);color:#4ade80;font-size:11px;font-weight:900;letter-spacing:1px;vertical-align:middle;text-decoration:none}
+.price-old+.price{margin-top:0}
+.price-note{
+    color:#bcb4ce;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:950;
+    font-size:12px;
+    letter-spacing:.4px;
+    border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.primary{
+    color:#100a1b;
+    border-color:#def8f5;
+    background:linear-gradient(110deg,#abede5,#def8f5);
+    box-shadow:0 5px 24px rgba(69,214,197,.25);
+}
+
+.primary:hover{
+    box-shadow:0 8px 32px rgba(69,214,197,.45);
+}
+
+.back{
+    color:#def8f5;
+    background:rgba(255,255,255,.035);
+}
+
+.back:hover{
+    border-color:var(--rank-light);
+    background:rgba(69,214,197,.1);
+}
+
+/* PANEL PRINCIPAL */
+
+.box{
+    position:relative;
+    margin-top:30px;
+    padding:clamp(22px,4vw,38px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(27,23,41,.97),rgba(13,11,21,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.28),0 0 40px rgba(69,214,197,.06);
+    overflow:hidden;
+    animation:appear .8s ease both;
+}
+
+.box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:8%;
+    right:8%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#45d6c5,#ff6de1,transparent);
+}
+
+.box h2{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+    font-size:clamp(23px,4vw,30px);
+    font-weight:950;
+}
+
+.box h2::before{
+    content:"";
+    width:5px;
+    height:28px;
+    border-radius:8px;
+    background:linear-gradient(#45d6c5,#ff6de1);
+    box-shadow:0 0 16px rgba(69,214,197,.5);
+    flex-shrink:0;
+}
+
+.box h3{
+    margin:0 0 14px;
+    color:#f8f4ff;
+    font-size:18px;
+    font-weight:950;
+}
+
+.box p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:9px 0;
+}
+
+/* SECCIONES */
+
+.section{
+    margin-top:34px;
+    padding-top:30px;
+    border-top:1px solid rgba(69,214,197,.18);
+}
+
+.section:first-of-type{
+    margin-top:0;
+    padding-top:0;
+    border-top:none;
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+}
+
+.section-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:1px solid rgba(69,214,197,.4);
+    background:linear-gradient(145deg,rgba(69,214,197,.25),rgba(255,109,225,.1));
+    color:#def8f5;
+    font-size:15px;
+    font-weight:950;
+    box-shadow:inset 0 0 16px rgba(69,214,197,.08);
+}
+
+.section-heading h3{
+    margin:0;
+    font-size:18px;
+}
+
+.section-heading p{
+    margin:5px 0 0;
+    font-size:12px;
+    color:#a99fbc;
+}
+
+.info-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+}
+
+.info-list li.wide{grid-column:1/-1}
+.info-list li{
+    min-width:0;
+    padding:14px 15px;
+    border:1px solid rgba(69,214,197,.2);
+    border-radius:10px;
+    background:linear-gradient(120deg,rgba(69,214,197,.1),rgba(255,255,255,.018));
+    color:#d1c8df;
+    line-height:1.7;
+    transition:border-color .2s,background .2s,transform .2s;
+    overflow-wrap:anywhere;
+}
+
+.info-list li:hover{
+    border-color:rgba(229,217,255,.65);
+    background:rgba(69,214,197,.14);
+    transform:translateY(-1px);
+}
+
+.item-name{
+    color:#f5efff;
+    font-weight:900;
+    overflow-wrap:anywhere;
+}
+
+.item-details{
+    color:#abede5;
+    font-size:13px;
+    font-weight:700;
+}
+
+.inherit{
+    margin-top:19px;
+    padding:20px;
+    border:1px solid rgba(69,214,197,.36);
+    border-radius:12px;
+    background:linear-gradient(110deg,rgba(69,214,197,.17),rgba(255,109,225,.055));
+    color:#d0c7e0;
+    line-height:1.9;
+    box-shadow:inset 0 0 24px rgba(69,214,197,.04);
+}
+
+.inherit strong{color:#def8f5}
+
+.kit-title{
+    font-size:21px!important;
+    color:#f4edff!important;
+}
+
+/* COMANDOS ORIGIN */
+
+.command-intro{margin-bottom:20px!important}
+
+.command-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+    margin-top:19px;
+}
+
+.command-card{
+    position:relative;
+    overflow:hidden;
+    min-width:0;
+    margin-top:0;
+    padding:23px;
+    border:1px solid rgba(69,214,197,.42);
+    border-radius:14px;
+    background:
+        radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.14),transparent 55%),
+        linear-gradient(135deg,rgba(27,85,78,.25),rgba(26,20,41,.96) 70%);
+    box-shadow:inset 0 1px rgba(255,255,255,.04);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+
+.command-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(#45d6c5,#ff6de1);
+    box-shadow:0 0 15px rgba(69,214,197,.25);
+}
+
+.command-card::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-55px;
+    bottom:-55px;
+    border-radius:50%;
+    background:rgba(69,214,197,.16);
+    filter:blur(12px);
+    pointer-events:none;
+}
+
+.command-card:hover{
+    border-color:rgba(229,217,255,.8);
+    transform:translateY(-4px);
+    box-shadow:0 12px 32px rgba(0,0,0,.22),0 0 26px rgba(69,214,197,.12);
+}
+
+.command-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.command-number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:9px;
+    color:#def8f5;
+    background:rgba(69,214,197,.24);
+    border:1px solid rgba(69,214,197,.32);
+    font-size:12px;
+    font-weight:950;
+}
+
+.command-tag{
+    color:#def8f5;
+    background:rgba(69,214,197,.09);
+    border:1px solid rgba(69,214,197,.25);
+    border-radius:5px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.command-name{
+    display:block;
+    margin-bottom:11px;
+    color:#abede5;
+    font-size:25px;
+    line-height:1.25;
+    font-weight:1000;
+    letter-spacing:.2px;
+    overflow-wrap:anywhere;
+    text-shadow:0 0 22px rgba(69,214,197,.23);
+}
+
+.command-description{
+    margin:0!important;
+    color:#d0c9df!important;
+    font-size:14px;
+    line-height:1.85!important;
+}
+
+.command-note{
+    margin-top:20px;
+    padding:18px 20px;
+    border:1px solid rgba(69,214,197,.25);
+    border-left:4px solid var(--rank);
+    border-radius:0 11px 11px 0;
+    background:linear-gradient(100deg,rgba(69,214,197,.14),rgba(255,109,225,.035));
+    color:#c4bbd5;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.command-note strong{color:#def8f5}
+
+/* PIE */
+
+.gear-title{margin:26px 0 14px!important;font-size:18px!important;color:#f4f4ff!important}
+.gear-title:first-of-type{margin-top:6px!important}
+footer{
+    text-align:center;
+    padding:30px 20px;
+    color:#8d849f;
+    font-size:12px;
+    border-top:1px solid rgba(69,214,197,.18);
+    background:rgba(8,6,13,.72);
+}
+
+footer span{color:#abede5}
+
+@keyframes appear{
+    from{opacity:0;transform:translateY(12px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* MÓVILES */
+
+@media(max-width:650px){
+    nav{
+        padding:14px 5%;
+        flex-wrap:wrap;
+    }
+
+    .logo{font-size:17px}
+    nav a.home{display:none}
+
+    nav a.discord{
+        font-size:11px;
+        padding:10px 12px;
+    }
+
+    main{padding:62px 5% 70px}
+    h1{letter-spacing:-3px}
+    .desc{font-size:15px}
+
+    .hero-bottom{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .price{font-size:40px}
+    .actions{width:100%}
+
+    .btn{
+        flex:1 1 auto;
+        text-align:center;
+        padding:14px 15px;
+    }
+
+    .box{
+        padding:23px 17px;
+        border-radius:15px;
+    }
+
+    .box h2{font-size:23px}
+
+    .command-grid,
+    .info-list{
+        grid-template-columns:1fr;
+    }
+
+    .command-card{padding:20px}
+    .section-heading h3{font-size:16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
+}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);color:#fff;font-size:12px;font-weight:900;letter-spacing:.4px}
+
+.t-kits{width:100%;border-collapse:collapse;margin-top:20px;font-size:13px}
+.t-kits th,.t-kits td{padding:11px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+.t-kits th{font-size:10.5px;letter-spacing:1.5px;color:var(--rank-light);font-weight:900;text-transform:uppercase}
+.t-kits td{color:#d8d0e6}.t-kits td:first-child{font-weight:800;color:#fff}
+.t-kits tr.own td{background:color-mix(in srgb,var(--rank) 14%,transparent)}
+.t-kits tfoot td{font-weight:900;color:#fff;border-bottom:0}
+.t-scroll{overflow-x:auto}
+
+.t-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.t-step{padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.t-step b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;margin-bottom:12px;background:color-mix(in srgb,var(--rank) 18%,transparent);border:1px solid color-mix(in srgb,var(--rank) 55%,transparent);color:var(--rank-light);font-weight:900}
+.t-step h4{font-size:15px;font-weight:900;margin-bottom:6px;color:#fff}
+.t-step p{font-size:13px;color:#bcb4ce;line-height:1.6;margin:0}
+.t-plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.t-plan{padding:26px;border-radius:16px;border:1px solid color-mix(in srgb,var(--rank) 45%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--rank) 12%,#1a1124),#120b19);display:flex;flex-direction:column}
+.t-plan small{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--rank-light)}
+.t-plan .days{font-size:30px;font-weight:900;color:#fff;margin:6px 0 2px}
+.t-plan .amount{font-size:40px;font-weight:900;letter-spacing:-1.5px;color:var(--rank-light);margin:6px 0 4px}
+.t-plan .per{font-size:12px;color:#aaa1bd;margin-bottom:16px}
+.t-plan ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px;font-size:13px;color:#d8d0e6}
+.t-plan li::before{content:"✓";color:var(--rank-light);font-weight:900;margin-right:8px}
+.t-plan .btn{margin-top:auto;text-align:center;justify-content:center}
+.t-compare{margin-top:18px;padding:18px 20px;border-radius:14px;border:1px dashed color-mix(in srgb,var(--rank) 50%,transparent);font-size:13.5px;color:#d8d0e6;line-height:1.7}
+.t-compare strong{color:#fff}
+.t-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.t-list{padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.t-list h4{font-size:14px;font-weight:900;color:#fff;margin-bottom:12px}
+.t-list ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:13px;color:#d8d0e6;line-height:1.5}
+.t-list.yes li::before{content:"✓";color:#4ade80;font-weight:900;margin-right:8px}
+.t-list.no li::before{content:"✕";color:#ff5a6a;font-weight:900;margin-right:8px}
+details.t-faq{margin-top:12px;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+details.t-faq summary{cursor:pointer;font-weight:800;color:#fff;font-size:14px}
+details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
+@media(max-width:760px){.t-steps,.t-plans,.t-two{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<nav>
+    <div class="logo">
+        KAIZORA <span>ORIGINS</span>
+    </div>
+
+    <a class="home"
+       href="https://kaizoraoriginstiendaoficial.github.io/website/#inicio">
+        Inicio
+    </a>
+
+    <a class="discord"
+       href="https://discord.gg/sHvWgW7AE4"
+       target="_blank"
+       rel="noopener noreferrer">
+        Comprar por Discord
+    </a>
+</nav>
+
+<main>
+
+    <section class="hero">
+        <div class="label">RANGO TEMPORAL</div>
+        <h1><span>ASCENDENTE</span></h1>
+        <p class="desc">
+            ¿Quieres probar Ascendente sin comprarlo para siempre? Elige 7 o 14 días de rango y reclama
+            tu kit y también los kits de todos los rangos inferiores. Usa todos sus comandos mientras dure. Al terminar el tiempo vuelves a tu rango anterior y te quedas
+            con todo lo que conseguiste.
+        </p>
+        <div class="quick">
+            <span>7 días · $4.49</span>
+            <span>14 días · $5.99</span>
+            <span>2 kits en 7 días</span>
+            <span>/hat · /ptime</span>
+            <span>1 compra cada 3 meses</span>
+        </div>
+        <div class="hero-bottom">
+            <div class="price-wrap">
+                <div>
+                    <span class="price-label">DESDE</span>
+                    <div class="price">$4.49</div>
+                </div>
+                <div class="price-note">Pago único por periodo.<br>Sin suscripciones.</div>
+            </div>
+            <div class="actions">
+                <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar temporal ↗</a>
+                <a class="btn back" href="rango-ascendente.html">Ver rango permanente</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="box">
+        <h2>Cómo funciona el rango temporal</h2>
+
+        <div class="section">
+            <div class="section-heading">
+                <div class="section-icon">01</div>
+                <div><h3>Tres pasos</h3><p>Rápido y sin complicaciones</p></div>
+            </div>
+            <div class="t-steps">
+                <div class="t-step"><b>1</b><h4>Elige tu duración</h4><p>7 días o 14 días de Ascendente. Solo puedes comprar un temporal cada 3 meses, así que elige bien.</p></div>
+                <div class="t-step"><b>2</b><h4>Paga por Discord</h4><p>Abre un ticket en el Discord oficial, indica tu usuario y el periodo que quieres, y paga por PayPal.</p></div>
+                <div class="t-step"><b>3</b><h4>Disfruta tu rango</h4><p>Se activa Ascendente en tu cuenta. Reclama <strong>/kit Ascendente</strong> y los kits de los rangos inferiores, y usa sus comandos hasta que termine el tiempo.</p></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-heading">
+                <div class="section-icon">02</div>
+                <div><h3>Elige tu periodo</h3><p>Cuanto más largo, menos pagas por semana</p></div>
+            </div>
+            <div class="t-plans">
+                <div class="t-plan">
+                    <small>OPCIÓN 1</small>
+                    <div class="days">7 días</div>
+                    <div class="amount">$4.49</div>
+                    <div class="per">2 kits en total · $2.25 por kit</div>
+                    <ul>
+                        <li>/kit Ascendente y los kits de todos los rangos inferiores</li>
+                        <li>2 kits reclamables en total</li>
+                        <li>Comandos exclusivos de Ascendente</li>
+                        <li>Comandos de los rangos inferiores</li>
+                    </ul>
+                    <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 7 días ↗</a>
+                </div>
+                <div class="t-plan">
+                    <small>OPCIÓN 2 · MÁS AHORRO POR SEMANA</small>
+                    <div class="days">14 días</div>
+                    <div class="amount">$5.99</div>
+                    <div class="per">4 kits en total · $1.50 por kit</div>
+                    <ul>
+                        <li>/kit Ascendente y los kits de todos los rangos inferiores</li>
+                        <li>4 kits reclamables en total (los de menor espera se reclaman dos veces)</li>
+                        <li>Comandos exclusivos de Ascendente</li>
+                        <li>Comandos de los rangos inferiores</li>
+                    </ul>
+                    <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 14 días ↗</a>
+                </div>
+            </div>
+            <div class="t-compare">
+                El rango temporal incluye lo mismo que el permanente, pero dura solo 7 o 14 días y
+                <strong>solo se puede comprar una vez cada 3 meses por cuenta</strong>. El rango permanente
+                cuesta <strong>$7.99</strong> y es tuyo para siempre, sin límite de compra.
+                <a href="rango-ascendente.html" style="color:var(--rank-light);font-weight:800">Ver rango permanente →</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-heading">
+                <div class="section-icon">03</div>
+                <div><h3>Kits que puedes reclamar</h3><p>Tu rango abre también los kits de todos los rangos inferiores</p></div>
+            </div>
+            <p style="margin-top:16px">Cada kit tiene su propio tiempo de espera. Si tu rango dura más que esa espera, puedes reclamarlo otra vez.</p>
+            <div class="t-scroll"><table class="t-kits"><thead><tr><th>Kit</th><th>Se reclama cada</th><th>En 7 días</th><th>En 14 días</th></tr></thead><tbody><tr class="own"><td>/kit Ascendente</td><td>7 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Origin</td><td>7 días</td><td>1</td><td>2</td></tr></tbody><tfoot><tr><td>Total de kits</td><td></td><td>2</td><td>4</td></tr></tfoot></table></div>
+        </div>
+
+        <div class="section">
+            <div class="section-heading">
+                <div class="section-icon">04</div>
+                <div><h3>Qué incluye y condiciones</h3><p>Para que sepas exactamente qué compras</p></div>
+            </div>
+            <div class="t-two">
+                <div class="t-list yes">
+                    <h4>Incluye</h4>
+                    <ul>
+                        <li>Todo lo que trae el rango permanente Ascendente: kit Netherite VI-VII, esencias y objetos, Piedra de Protección</li>
+                        <li>El dinero del rango: +7M</li>
+                        <li>Comandos exclusivos: /hat · /ptime</li>
+                        <li>Los kits, comandos y ventajas de todos los rangos inferiores</li>
+                        <li>Los objetos que reclames son tuyos para siempre, aunque el rango termine</li>
+                    </ul>
+                </div>
+                <div class="t-list no">
+                    <h4>Condiciones</h4>
+                    <ul>
+                        <li>Sin descuentos ni promociones: el precio del temporal es fijo</li>
+                        <li>Solo se puede comprar 1 vez cada 3 meses por cuenta</li>
+                        <li>Al terminar el tiempo se pierden los comandos y permisos del rango</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-heading">
+                <div class="section-icon">05</div>
+                <div><h3>Preguntas frecuentes</h3><p>Lo que más preguntan</p></div>
+            </div>
+            <details class="t-faq"><summary>¿Cuándo empieza a contar el tiempo?</summary><p>Desde el momento en que el staff te activa el rango. Reclama tu kit en cuanto lo recibas.</p></details>
+            <details class="t-faq"><summary>¿Qué pasa cuando termina?</summary><p>Vuelves a tu rango anterior. Conservas los objetos del kit y todo lo que hayas conseguido jugando, pero pierdes los comandos exclusivos de Ascendente.</p></details>
+            <details class="t-faq"><summary>¿Puedo comprar 7 días y luego 14?</summary><p>No. Solo puedes comprar un rango temporal una vez cada 3 meses por cuenta, así que tienes que elegir entre 7 y 14 días.</p></details>
+            <details class="t-faq"><summary>¿Cuándo puedo reclamar un kit otra vez?</summary><p>Cuando pase su tiempo de espera (7, 10, 14, 21 o 30 días según el kit) y tu rango temporal siga activo. La tabla de arriba muestra cuántas veces puedes reclamar cada uno en 7 y en 14 días.</p></details>
+            <details class="t-faq"><summary>¿Puedo reclamar los kits de rangos inferiores?</summary><p>Sí. Todos los rangos pueden reclamar los kits de los rangos que están por debajo, y Ascendente los incluye todos.</p></details>
+            <details class="t-faq"><summary>¿Cómo pago?</summary><p>Por PayPal, abriendo un ticket en el Discord oficial. Indica tu usuario de Minecraft y el periodo que eliges.</p></details>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
+</footer>
+
+</body>
+</html>
