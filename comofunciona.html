@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -242,13 +241,76 @@ footer a:hover{color:var(--pink)}
   .prohibited{grid-template-columns:1fr}
   .section-heading h2{font-size:22px}
 }
+
+/* ====== MEJORAS VISUALES ====== */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,#9b5de5,#ff6de1,#ffd34d);box-shadow:0 0 12px #ff6de199}
+header{transition:box-shadow .3s,background .3s}
+header.scrolled{background:#09070efa;box-shadow:0 10px 30px #0006}
+.nav{transition:min-height .3s}header.scrolled .nav{min-height:60px}
+.logo{display:flex;align-items:center;gap:10px}
+.cube-logo{width:34px;height:34px;filter:drop-shadow(0 0 8px #ff6de180);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.logo:hover .cube-logo{transform:rotate(-8deg) scale(1.12)}
+.navlinks a{position:relative}
+.navlinks a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .25s;border-radius:2px}
+.navlinks a.active,.navlinks a:hover{color:var(--pink)}
+.navlinks a.active:after,.navlinks a:hover:after{transform:scaleX(1)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--border);background:#1b1226;color:#fff;border-radius:10px;font-size:20px;cursor:pointer}
+.hero{position:relative;overflow-x:clip}
+html{overflow-x:hidden}
+.hero:before{content:"";position:absolute;width:560px;height:560px;left:50%;top:-240px;transform:translateX(-50%);background:#ff6de11c;filter:blur(110px);border-radius:50%;pointer-events:none;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.55;transform:translateX(-50%) scale(1.12)}}
+.gradient-text{background:linear-gradient(100deg,#c9a0ff,#ff6de1,#fff,#ff6de1,#c9a0ff);background-size:250% 100%;background-clip:text;-webkit-background-clip:text;animation:shine 6s linear infinite}
+@keyframes shine{0%{background-position:100% 0}100%{background-position:-150% 0}}
+.eyebrow,h1,.hero>p,.hero-actions,.quick{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+h1{animation-delay:.08s}.hero>p{animation-delay:.2s}.hero-actions{animation-delay:.3s}.quick{animation-delay:.42s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.main-btn{position:relative;overflow:hidden}
+.main-btn:after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffff8c,transparent);transform:skewX(-20deg);animation:btnShine 4.5s 1.5s infinite}
+@keyframes btnShine{0%{left:-80%}30%,100%{left:160%}}
+.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:820px;margin:34px auto 0;text-align:left}
+.quick-item{position:relative;overflow:hidden;padding:16px 16px 15px;border:1px solid #9b5de544;border-radius:13px;background:linear-gradient(145deg,#1b1427,#100d17)}
+.quick-item b{display:block;color:var(--pink);font-size:11px;letter-spacing:1.5px;margin-bottom:6px}
+.quick-item strong{display:block;font-size:14px;margin-bottom:4px}
+.quick-item span{display:block;color:var(--muted);font-size:12px;line-height:1.6}
+.info-card,.step,.quick-item{position:relative}
+.info-card:before,.step:before,.quick-item:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),#ff6de120,transparent 65%)}
+.info-card:hover:before,.step:hover:before,.quick-item:hover:before{opacity:1}
+.card-icon{transition:transform .4s cubic-bezier(.2,.8,.2,1)}.info-card:hover .card-icon{transform:scale(1.12) rotate(-6deg)}
+.step{transition:border-color .2s,transform .2s}.step:hover{border-color:#9b5de566;transform:translateX(4px)}
+.warning{animation:warnGlow 4s ease-in-out infinite}
+@keyframes warnGlow{0%,100%{box-shadow:0 12px 45px #0003,0 0 0 #ff405500}50%{box-shadow:0 12px 45px #0003,0 0 40px #ff405522}}
+.warning-icon{animation:pulseIcon 2.4s ease-in-out infinite}
+@keyframes pulseIcon{50%{transform:scale(1.1);box-shadow:0 0 18px #ff405577}}
+.faq details{transition:border-color .2s,background .2s}.faq details[open]{border-color:#9b5de566;background:#ffffff08}
+.faq summary:hover{color:var(--pink)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.final-cta{animation:ctaGlow 4s ease-in-out infinite}
+@keyframes ctaGlow{50%{box-shadow:0 0 50px #ff6de120}}
+#toTop{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:12px;border:1px solid var(--pink);background:#190d1cf2;color:var(--pink);font-size:19px;font-weight:900;cursor:pointer;z-index:60;opacity:0;transform:translateY(14px);pointer-events:none;transition:.3s}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}#toTop:hover{background:var(--pink);color:#190b18}
+@media(max-width:700px){
+  .menu-btn{display:grid;place-items:center}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px 18px 14px;background:#09070ef8;border-bottom:1px solid var(--border)}
+  .navlinks.open{display:flex}
+  .navlinks a{padding:13px 4px;border-bottom:1px solid #ffffff10;font-size:13px}.navlinks a:after{display:none}
+  .quick{grid-template-columns:1fr;gap:9px}
+  .discord{padding:10px 11px;font-size:10px;white-space:nowrap}
+  .nav{gap:8px}.logo{font-size:15px;gap:7px;min-width:0}.cube-logo{width:28px;height:28px}
+  .nav>.discord{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero:before,.gradient-text,.main-btn:after,.warning,.warning-icon,.final-cta,.eyebrow,h1,.hero>p,.hero-actions,.quick{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+}
 </style>
 </head>
 
 <body>
+<div id="bar"></div>
 <header>
   <div class="wrap nav">
-    <a href="index.html" class="logo"><span>KAIZORA</span> ORIGINS</a>
+    <a href="index.html" class="logo"><svg class="cube-logo" viewBox="0 0 48 48" aria-hidden="true"><polygon points="24,3 43,14 43,34 24,45 5,34 5,14" fill="rgba(255,109,225,.14)" stroke="#ff6de1" stroke-width="2.4" stroke-linejoin="round"/><polyline points="5,14 24,25 43,14" fill="none" stroke="#ff6de1" stroke-opacity=".55" stroke-width="1.4"/><line x1="24" y1="25" x2="24" y2="45" stroke="#ff6de1" stroke-opacity=".55" stroke-width="1.4"/><path d="M19 17v14M19 24l7-7M20 23.5l7 7.5" fill="none" stroke="#ffb3f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="lt"><span>KAIZORA</span> ORIGINS</span></a>
 
     <nav class="navlinks">
       <a href="#normas">Normas</a>
@@ -259,6 +321,7 @@ footer a:hover{color:var(--pink)}
 
     <a class="discord" href="https://discord.gg/sHvWgW7AE4"
        target="_blank" rel="noopener">DISCORD ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -278,6 +341,12 @@ footer a:hover{color:var(--pink)}
     <div class="hero-actions">
       <a class="main-btn" href="#normas">LEER LAS NORMAS ↓</a>
       <a class="secondary-btn" href="#catalogo">CONOCER EL CATÁLOGO</a>
+    </div>
+
+    <div class="quick">
+      <div class="quick-item"><b>01</b><strong>Uso personal</strong><span>Lo que compras es para tu cuenta.</span></div>
+      <div class="quick-item"><b>02</b><strong>Sin comercio</strong><span>No se vende, presta, alquila ni intercambia.</span></div>
+      <div class="quick-item"><b>03</b><strong>Lo confirma el equipo</strong><span>El presupuesto es orientativo, no un cobro.</span></div>
     </div>
   </section>
 
@@ -410,8 +479,9 @@ footer a:hover{color:var(--pink)}
           </div>
         </div>
         <p>
-          Incluyen habilidades como <strong>Lifesteal</strong>,
-          <strong>LightningStrike</strong>, <strong>Bleed</strong>,
+          Incluyen habilidades como <strong>AutoSell</strong>,
+          <strong>Lifesteal</strong>, <strong>LightningStrike</strong>,
+          <strong>Veneno</strong>, <strong>Excavadora</strong>, <strong>Bleed</strong>,
           <strong>Mining3x3</strong>, <strong>Mining5x5</strong>,
           <strong>VeinMiner</strong>, <strong>FreezeAura</strong>,
           <strong>FireAura</strong>, <strong>NoFallDamage</strong>,
@@ -638,8 +708,11 @@ footer a:hover{color:var(--pink)}
       con el equipo cualquier duda antes de confirmar tu pedido.
       Tu poder, tus decisiones y las normas de Kaizora Origins.
     </p>
-    <a class="main-btn" href="https://discord.gg/sHvWgW7AE4"
-       target="_blank" rel="noopener">IR AL DISCORD OFICIAL ↗</a>
+    <div class="hero-actions" style="margin-top:0">
+      <a class="main-btn" href="items-personalizados.html">VER EL CATÁLOGO →</a>
+      <a class="secondary-btn" href="https://discord.gg/sHvWgW7AE4"
+         target="_blank" rel="noopener">IR AL DISCORD OFICIAL ↗</a>
+    </div>
   </div>
 </main>
 
@@ -660,5 +733,29 @@ footer a:hover{color:var(--pink)}
     </div>
   </div>
 </footer>
+<button id="toTop" aria-label="Volver arriba">↑</button>
+<script>
+(function(){
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $=function(q,r){return (r||document).querySelector(q)},$$=function(q,r){return Array.prototype.slice.call((r||document).querySelectorAll(q))};
+  var bar=$("#bar"),top=$("#toTop"),head=$("header");
+  function sc(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.width=(m>0?h.scrollTop/m*100:0)+"%";head.classList.toggle("scrolled",h.scrollTop>30);top.classList.toggle("show",h.scrollTop>600)}
+  addEventListener("scroll",sc,{passive:true});sc();
+  top.addEventListener("click",function(){scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
+  var mb=$("#menuBtn"),nl=$(".navlinks");
+  mb.addEventListener("click",function(){var o=nl.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+  $$(".navlinks a").forEach(function(a){a.addEventListener("click",function(){nl.classList.remove("open")})});
+  var links=$$(".navlinks a[href^=\"#\"]");
+  if("IntersectionObserver" in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove("active")});var a=$(".navlinks a[href=\"#"+e.target.id+"\"]");if(a)a.classList.add("active")}})},{rootMargin:"-45% 0px -50% 0px"});
+    $$("main section[id]").forEach(function(x){so.observe(x)});
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target)}})},{threshold:.12});
+    $$(".warning,.section-heading,.info-card,.step,.note,.faq details,.final-cta,.quick-item").forEach(function(el,i){el.classList.add("reveal");el.style.transitionDelay=(i%4)*70+"ms";ro.observe(el)});
+  }
+  if(!reduce&&matchMedia("(hover: hover)").matches){
+    $$(".info-card,.step,.quick-item").forEach(function(c){c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect();c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px")})});
+  }
+})();
+</script>
 </body>
 </html>
