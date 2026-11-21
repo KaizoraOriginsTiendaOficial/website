@@ -253,7 +253,7 @@ html{overflow-x:hidden}
       <a class="secondary-btn" href="#como-funciona">¿CÓMO FUNCIONA?</a>
     </div>
     <div class="stats">
-      <div class="stat"><strong>100</strong><small>Nivel máximo Vanilla+</small></div>
+      <div class="stat"><strong>120</strong><small>Nivel máximo Vanilla+</small></div>
       <div class="stat"><strong>60+</strong><small>Mejoras especiales</small></div>
       <div class="stat"><strong>✦</strong><small>Descuento por combinar</small></div>
     </div>
@@ -284,10 +284,10 @@ html{overflow-x:hidden}
   <section id="vanilla">
     <div class="section-heading">
       <div><h2>✧ Encantamientos Minecraft Vanilla+</h2><p>Encantamientos originales con selección de niveles superiores a los normales.</p></div>
-      <span class="tag">HASTA NIVEL 100*</span>
+      <span class="tag">HASTA NIVEL 120*</span>
     </div>
     <div class="notice">
-      <strong>¿Qué significa Vanilla+?</strong> Puedes solicitar niveles superiores al máximo habitual. Por ejemplo, Eficiencia V normalmente es el máximo y aquí podrás solicitar Eficiencia VI o superior. El nivel 100 es un límite de solicitud, no una garantía de que todos los niveles funcionen en cualquier plugin.
+      <strong>¿Qué significa Vanilla+?</strong> Puedes solicitar niveles superiores al máximo habitual. Por ejemplo, Eficiencia V normalmente es el máximo y aquí podrás solicitar Eficiencia VI o superior. El nivel 120 es un límite de solicitud, no una garantía de que todos los niveles funcionen en cualquier plugin.
       <br><br>Cada tarjeta explica el efecto del encantamiento y qué podría cambiar al subir de nivel. Los resultados dependen de cómo se implemente el encantamiento en el servidor.
     </div>
     <div class="toolbar">
@@ -489,6 +489,7 @@ const vanillaEnchants = [
 
 // Precios progresivos: los primeros niveles extra deben seguir siendo comprables.
 // La curva se basa en el nivel inicial ofrecido y sube de forma más marcada desde IX-XI.
+// Los niveles 101-120 son un tramo premium: el 120 cuesta 1,5 veces el 100.
 const vanillaPricing={
   // base = primer nivel por encima del vanilla; l9/l11/l30/top = precios de referencia.
   // Protección nivel XXX: $40 por pieza, aproximadamente $160 por set completo.
@@ -524,7 +525,17 @@ const vanillaPricing={
   "Carga rápida":{base:2.5,l9:6,l11:9,l30:28,top:105},
   "Densidad":{base:4,l9:9,l11:14,l30:45,top:170},
   "Brecha":{base:4,l9:9,l11:14,l30:45,top:170},
-  "Ráfaga de viento":{base:4,l9:9,l11:14,l30:45,top:170}
+  "Ráfaga de viento":{base:4,l9:9,l11:14,l30:45,top:170},
+  "Espinas":{base:3,l9:7,l11:10,l30:30,top:115},
+  "Filo arrasador":{base:3.5,l9:8,l11:12,l30:38,top:145},
+  "Retroceso de flechas":{base:1.5,l9:4,l11:6,l30:17,top:62},
+  "Lealtad":{base:2,l9:5,l11:7,l30:20,top:75},
+  "Propulsión acuática":{base:3,l9:7,l11:10,l30:30,top:115},
+  "Conductividad":{base:3,l9:6,l11:9,l30:26,top:95},
+  "Empalamiento":{base:2.5,l9:6,l11:9,l30:28,top:105},
+  "Suerte marina":{base:2,l9:4.5,l11:6.5,l30:18,top:65},
+  "Atracción":{base:2,l9:4.5,l11:6.5,l30:18,top:65},
+  "Maldición de desaparición":{base:1.5,l9:2,l11:2.5,l30:4,top:8}
 };
 const specialPricing={
   // Los precios especiales se basan en la ventaja real: combate, supervivencia o bloques afectados.
@@ -612,9 +623,13 @@ function levelPrice(item,level,kind="vanilla"){
       price=at9+(at11-at9)*((level-9)/2);
     }else if(level<=30){
       price=at11+(at30-at11)*((level-11)/19);
-    }else{
+    }else if(level<=100){
       const progress=Math.min(1,(level-30)/70);
       price=at30+(top-at30)*Math.pow(progress,1.2);
+    }else{
+      // Niveles 101-120: tramo premium. El nivel 120 cuesta 1,5 veces el nivel 100.
+      const progress=Math.min(1,(level-100)/20);
+      price=top+(top*0.5)*Math.pow(progress,1.15);
     }
     return Number(Math.max(1.5,price).toFixed(2));
   }
@@ -648,7 +663,7 @@ function makeSpecial(item,index){
 }
 
 function makeVanilla(item,index){
-  const levels=Array.from({length:Math.max(1,100-item.max)},(_,i)=>{
+  const levels=Array.from({length:Math.max(1,120-item.max)},(_,i)=>{
     const level=item.max+i+1;
     return `<option value="${level}" ${level===item.max+1?"selected":""}>Nivel ${level} — ${money(levelPrice(item,level,"vanilla"))}</option>`;
   }).join("");
