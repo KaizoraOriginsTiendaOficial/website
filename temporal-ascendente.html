@@ -633,15 +633,15 @@ footer span{color:#abede5}
 .t-step b{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;margin-bottom:12px;background:color-mix(in srgb,var(--rank) 18%,transparent);border:1px solid color-mix(in srgb,var(--rank) 55%,transparent);color:var(--rank-light);font-weight:900}
 .t-step h4{font-size:15px;font-weight:900;margin-bottom:6px;color:#fff}
 .t-step p{font-size:13px;color:#bcb4ce;line-height:1.6;margin:0}
-.t-plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
-.t-plan{padding:26px;border-radius:16px;border:1px solid color-mix(in srgb,var(--rank) 45%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--rank) 12%,#1a1124),#120b19);display:flex;flex-direction:column}
+.t-plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:22px}
+.t-plan{padding:22px;border-radius:16px;border:1px solid color-mix(in srgb,var(--rank) 45%,transparent);background:linear-gradient(145deg,color-mix(in srgb,var(--rank) 12%,#1a1124),#120b19);display:flex;flex-direction:column}
 .t-plan small{font-size:11px;font-weight:900;letter-spacing:2px;color:var(--rank-light)}
 .t-plan .days{font-size:30px;font-weight:900;color:#fff;margin:6px 0 2px}
-.t-plan .amount{font-size:40px;font-weight:900;letter-spacing:-1.5px;color:var(--rank-light);margin:6px 0 4px}
+.t-plan .amount{font-size:34px;font-weight:900;letter-spacing:-1.5px;color:var(--rank-light);margin:6px 0 4px}
 .t-plan .per{font-size:12px;color:#aaa1bd;margin-bottom:16px}
 .t-plan ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px;font-size:13px;color:#d8d0e6}
 .t-plan li::before{content:"✓";color:var(--rank-light);font-weight:900;margin-right:8px}
-.t-plan .btn{margin-top:auto;text-align:center;justify-content:center}
+.t-plan .btn{margin-top:auto;white-space:nowrap;padding-left:12px;padding-right:12px;font-size:13px;text-align:center;justify-content:center}
 .t-compare{margin-top:18px;padding:18px 20px;border-radius:14px;border:1px dashed color-mix(in srgb,var(--rank) 50%,transparent);font-size:13.5px;color:#d8d0e6;line-height:1.7}
 .t-compare strong{color:#fff}
 .t-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
@@ -653,6 +653,7 @@ footer span{color:#abede5}
 details.t-faq{margin-top:12px;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
 details.t-faq summary{cursor:pointer;font-weight:800;color:#fff;font-size:14px}
 details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
+@media(max-width:1000px){.t-plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.t-steps,.t-plans,.t-two{grid-template-columns:1fr}}
 </style>
 </head>
@@ -685,13 +686,15 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
         <div class="label">RANGO TEMPORAL</div>
         <h1><span>ASCENDENTE</span></h1>
         <p class="desc">
-            ¿Quieres probar Ascendente sin comprarlo para siempre? Elige 7 o 14 días de rango y reclama
+            ¿Quieres probar Ascendente sin comprarlo para siempre? Elige 7, 14, 21 o 30 días de rango y reclama
             tu kit y también los kits de todos los rangos inferiores. Usa todos sus comandos mientras dure. Al terminar el tiempo vuelves a tu rango anterior y te quedas
             con todo lo que conseguiste.
         </p>
         <div class="quick">
             <span>7 días · $4.49</span>
             <span>14 días · $5.99</span>
+            <span>21 días · $6.49</span>
+            <span>30 días · $6.99</span>
             <span>2 kits en 7 días</span>
             <span>/hat · /ptime</span>
             <span>1 compra cada 3 meses</span>
@@ -720,7 +723,7 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div><h3>Tres pasos</h3><p>Rápido y sin complicaciones</p></div>
             </div>
             <div class="t-steps">
-                <div class="t-step"><b>1</b><h4>Elige tu duración</h4><p>7 días o 14 días de Ascendente. Solo puedes comprar un temporal cada 3 meses, así que elige bien.</p></div>
+                <div class="t-step"><b>1</b><h4>Elige tu duración</h4><p>7, 14, 21 o 30 días de Ascendente. Solo puedes comprar un temporal cada 3 meses, así que elige bien.</p></div>
                 <div class="t-step"><b>2</b><h4>Paga por Discord</h4><p>Abre un ticket en el Discord oficial, indica tu usuario y el periodo que quieres, y paga por PayPal.</p></div>
                 <div class="t-step"><b>3</b><h4>Disfruta tu rango</h4><p>Se activa Ascendente en tu cuenta. Reclama <strong>/kit Ascendente</strong> y los kits de los rangos inferiores, y usa sus comandos hasta que termine el tiempo.</p></div>
             </div>
@@ -729,14 +732,14 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
         <div class="section">
             <div class="section-heading">
                 <div class="section-icon">02</div>
-                <div><h3>Elige tu periodo</h3><p>Cuanto más largo, menos pagas por semana</p></div>
+                <div><h3>Elige tu periodo</h3><p>Cuanto más largo, más kits reclamas y menos pagas por semana</p></div>
             </div>
             <div class="t-plans">
                 <div class="t-plan">
                     <small>OPCIÓN 1</small>
                     <div class="days">7 días</div>
                     <div class="amount">$4.49</div>
-                    <div class="per">2 kits en total</div>
+                    <div class="per">2 kits en total · $2.25 por kit</div>
                     <ul>
                         <li>/kit Ascendente y los kits de todos los rangos inferiores</li>
                         <li>2 kits reclamables en total</li>
@@ -746,10 +749,10 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                     <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 7 días ↗</a>
                 </div>
                 <div class="t-plan">
-                    <small>OPCIÓN 2 · MÁS AHORRO POR SEMANA</small>
+                    <small>OPCIÓN 2</small>
                     <div class="days">14 días</div>
                     <div class="amount">$5.99</div>
-                    <div class="per">4 kits en total</div>
+                    <div class="per">4 kits en total · $1.50 por kit</div>
                     <ul>
                         <li>/kit Ascendente y los kits de todos los rangos inferiores</li>
                         <li>4 kits reclamables en total (los de menor espera se reclaman dos veces)</li>
@@ -758,9 +761,35 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                     </ul>
                     <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 14 días ↗</a>
                 </div>
+                <div class="t-plan">
+                    <small>OPCIÓN 3</small>
+                    <div class="days">21 días</div>
+                    <div class="amount">$6.49</div>
+                    <div class="per">6 kits en total · $1.08 por kit</div>
+                    <ul>
+                        <li>/kit Ascendente y los kits de todos los rangos inferiores</li>
+                        <li>6 kits reclamables en total (los de menor espera se reclaman varias veces)</li>
+                        <li>Comandos exclusivos de Ascendente</li>
+                        <li>Comandos de los rangos inferiores</li>
+                    </ul>
+                    <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 21 días ↗</a>
+                </div>
+                <div class="t-plan">
+                    <small>OPCIÓN 4</small>
+                    <div class="days">30 días</div>
+                    <div class="amount">$6.99</div>
+                    <div class="per">10 kits en total · $0.70 por kit</div>
+                    <ul>
+                        <li>/kit Ascendente y los kits de todos los rangos inferiores</li>
+                        <li>10 kits reclamables en total (incluye otra vez los kits de espera larga)</li>
+                        <li>Comandos exclusivos de Ascendente</li>
+                        <li>Comandos de los rangos inferiores</li>
+                    </ul>
+                    <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Comprar 30 días ↗</a>
+                </div>
             </div>
             <div class="t-compare">
-                El rango temporal incluye lo mismo que el permanente, pero dura solo 7 o 14 días y
+                El rango temporal incluye lo mismo que el permanente, pero dura solo 7, 14, 21 o 30 días, según el periodo que elijas, y
                 <strong>solo se puede comprar una vez cada 3 meses por cuenta</strong>. El rango permanente
                 cuesta <strong>$7.99</strong> y es tuyo para siempre, sin límite de compra.
                 <a href="rango-ascendente.html" style="color:var(--rank-light);font-weight:800">Ver rango permanente →</a>
@@ -773,7 +802,7 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
                 <div><h3>Kits que puedes reclamar</h3><p>Tu rango abre también los kits de todos los rangos inferiores</p></div>
             </div>
             <p style="margin-top:16px">Cada kit tiene su propio tiempo de espera. Si tu rango dura más que esa espera, puedes reclamarlo otra vez.</p>
-            <div class="t-scroll"><table class="t-kits"><thead><tr><th>Kit</th><th>Se reclama cada</th><th>En 7 días</th><th>En 14 días</th></tr></thead><tbody><tr class="own"><td>/kit Ascendente</td><td>7 días</td><td>1</td><td>2</td></tr><tr class=""><td>/kit Origin</td><td>7 días</td><td>1</td><td>2</td></tr></tbody><tfoot><tr><td>Total de kits</td><td></td><td>2</td><td>4</td></tr></tfoot></table></div>
+            <div class="t-scroll"><table class="t-kits"><thead><tr><th>Kit</th><th>Se reclama cada</th><th>En 7 días</th><th>En 14 días</th><th>En 21 días</th><th>En 30 días</th></tr></thead><tbody><tr class="own"><td>/kit Ascendente</td><td>7 días</td><td>1</td><td>2</td><td>3</td><td>5</td></tr><tr class=""><td>/kit Origin</td><td>7 días</td><td>1</td><td>2</td><td>3</td><td>5</td></tr></tbody><tfoot><tr><td>Total de kits</td><td></td><td>2</td><td>4</td><td>6</td><td>10</td></tr></tfoot></table></div>
         </div>
 
         <div class="section">
@@ -810,8 +839,8 @@ details.t-faq p{margin:10px 0 0;font-size:13px;color:#bcb4ce;line-height:1.7}
             </div>
             <details class="t-faq"><summary>¿Cuándo empieza a contar el tiempo?</summary><p>Desde el momento en que el staff te activa el rango. Reclama tu kit en cuanto lo recibas.</p></details>
             <details class="t-faq"><summary>¿Qué pasa cuando termina?</summary><p>Vuelves a tu rango anterior. Conservas los objetos del kit y todo lo que hayas conseguido jugando, pero pierdes los comandos exclusivos de Ascendente.</p></details>
-            <details class="t-faq"><summary>¿Puedo comprar 7 días y luego 14?</summary><p>No. Solo puedes comprar un rango temporal una vez cada 3 meses por cuenta, así que tienes que elegir entre 7 y 14 días.</p></details>
-            <details class="t-faq"><summary>¿Cuándo puedo reclamar un kit otra vez?</summary><p>Cuando pase su tiempo de espera (7, 10, 14, 21 o 30 días según el kit) y tu rango temporal siga activo. La tabla de arriba muestra cuántas veces puedes reclamar cada uno en 7 y en 14 días.</p></details>
+            <details class="t-faq"><summary>¿Puedo comprar 7 días y luego ampliar?</summary><p>No. Solo puedes comprar un rango temporal una vez cada 3 meses por cuenta, así que elige bien entre 7, 14, 21 o 30 días.</p></details>
+            <details class="t-faq"><summary>¿Cuándo puedo reclamar un kit otra vez?</summary><p>Cuando pase su tiempo de espera (7, 10, 14, 21 o 30 días según el kit) y tu rango temporal siga activo. La tabla de arriba muestra cuántas veces puedes reclamar cada uno en 7, 14, 21 y 30 días.</p></details>
             <details class="t-faq"><summary>¿Puedo reclamar los kits de rangos inferiores?</summary><p>Sí. Todos los rangos pueden reclamar los kits de los rangos que están por debajo, y Ascendente los incluye todos.</p></details>
             <details class="t-faq"><summary>¿Cómo pago?</summary><p>Por PayPal, abriendo un ticket en el Discord oficial. Indica tu usuario de Minecraft y el periodo que eliges.</p></details>
         </div>
