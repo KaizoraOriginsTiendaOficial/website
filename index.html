@@ -643,8 +643,8 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
 .ladder.visible li span { opacity: 1; }
 .ladder li:hover b { filter: brightness(1.4); }
 @media (max-width: 760px) {
-  .ladder { height: 130px; gap: 4px; }
-  .ladder li span { writing-mode: vertical-rl; transform: rotate(180deg); bottom: 8px; color: #fff; font-size: .55rem; text-shadow: 0 1px 4px #000; }
+  .ladder { height: 240px; padding-top: 100px; gap: 4px; box-sizing: border-box; }
+  .ladder li span { writing-mode: vertical-rl; transform: rotate(180deg); bottom: calc(var(--h) + 6px); color: var(--c); font-size: .6rem; text-shadow: 0 1px 4px #000; }
 }
 
 .section-line { position: relative; height: 1px; overflow: visible; }
@@ -834,52 +834,58 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
         <p>El mundo principal. Todo lo que ves aquí abajo se juega desde dentro de él.</p>
         <span class="mode-more">Ver SurvivalOP ↗</span>
       </a>
-      <article class="mode-card reveal" style="--c:#ff5363;--i:1">
-        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V8M3 14h18v4M21 14v-2a3 3 0 00-3-3h-7v5" fill="currentColor" fill-opacity=".15"/><circle cx="7" cy="11" r="1.6"/></svg></div>
-        <h3>BedWars</h3>
-        <p>Mapa de camas dentro de SurvivalOP: defiende la tuya y destruye las de los demás.</p>
+      <article class="mode-card reveal" style="--c:#42dc82;--i:1">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" fill="currentColor" fill-opacity=".15"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
+        <h3>Farming / Gens</h3>
+        <p>Genera recursos, mejora tus generadores y farmea para crecer más rápido.</p>
         <span class="mode-more soon">Dentro de SurvivalOP</span>
       </article>
-      <article class="mode-card reveal" style="--c:#45D6C5;--i:2">
-        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h8l-2 4M13 15h8" /><path d="M7 15V9l5-5 5 5v6" fill="currentColor" fill-opacity=".15"/></svg></div>
-        <h3>SkyWars</h3>
-        <p>Mapa de islas en el cielo dentro de SurvivalOP: cofres, combate y un solo ganador.</p>
+      <article class="mode-card reveal" style="--c:#ffd34d;--i:2">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" fill="currentColor" fill-opacity=".18"/><path d="M12 3v18M4 7.5l16 9M20 7.5l-16 9" stroke-opacity=".5"/></svg></div>
+        <h3>OneBlock</h3>
+        <p>Empiezas con un solo bloque: rómpelo y aparece otro. Tu isla es solo tuya.</p>
         <span class="mode-more soon">Dentro de SurvivalOP</span>
       </article>
-      <article class="mode-card reveal" style="--c:#4d8dff;--i:3">
+      <article class="mode-card reveal" style="--c:#2bd7f5;--i:3">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></div>
+        <h3>Practice</h3>
+        <p>Entrena y mejora tu combate con calma, sin presión.</p>
+        <span class="mode-more soon">Dentro de SurvivalOP</span>
+      </article>
+      <article class="mode-card reveal" style="--c:#4d8dff;--i:4">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19L18 6M18 6h-4M18 6v4M19 19L6 6M6 6h4M6 6v4"/></svg></div>
         <h3>Duels</h3>
-        <p>Desafía a otro jugador a un duelo desde dentro de SurvivalOP.</p>
+        <p>Desafía a otro jugador a un duelo.</p>
         <span class="mode-more soon">Dentro de SurvivalOP</span>
       </article>
-      <article class="mode-card reveal" style="--c:#ffd34d;--i:4">
-        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h16M4 18L3 8l5 4 4-7 4 7 5-4-1 10z" fill="currentColor" fill-opacity=".18"/></svg></div>
-        <h3>KOTH</h3>
-        <p>Conquista la zona y defiéndela para ganar recompensas, dentro de SurvivalOP.</p>
+      <article class="mode-card reveal" style="--c:#ff5363;--i:5">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V8M3 14h18v4M21 14v-2a3 3 0 00-3-3h-7v5" fill="currentColor" fill-opacity=".15"/><circle cx="7" cy="11" r="1.6"/></svg></div>
+        <h3>BedWars</h3>
+        <p>Defiende tu cama y destruye las de los demás.</p>
         <span class="mode-more soon">Dentro de SurvivalOP</span>
       </article>
-      <article class="mode-card reveal" style="--c:#d75aff;--i:5">
-        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4.4 0 8 3 8 7.5 0 2.4-1 4-2.5 5.2V19h-3v-2h-5v2h-3v-3.3C4.9 14.5 4 12.9 4 10.5 4 6 7.6 3 12 3z" fill="currentColor" fill-opacity=".15"/><circle cx="9" cy="10.5" r="1.6"/><circle cx="15" cy="10.5" r="1.6"/></svg></div>
-        <h3>Bosses</h3>
-        <p>Jefes con habilidades propias que aparecen dentro de SurvivalOP.</p>
+      <article class="mode-card reveal" style="--c:#45D6C5;--i:6">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h8l-2 4M13 15h8" /><path d="M7 15V9l5-5 5 5v6" fill="currentColor" fill-opacity=".15"/></svg></div>
+        <h3>SkyWars</h3>
+        <p>Islas en el cielo: cofres, combate y un solo ganador.</p>
         <span class="mode-more soon">Dentro de SurvivalOP</span>
       </article>
-      <article class="mode-card reveal" style="--c:#FF7800;--i:6">
-        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6v14M4 6h12l-2 3 2 3H4" fill="currentColor" fill-opacity=".15"/></svg></div>
-        <h3>Carreras de autos</h3>
-        <p>Pista de carreras dentro de SurvivalOP: cruza la meta primero.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
-      </article>
-      <article class="mode-card reveal" style="--c:#42dc82;--i:7">
-        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="11" rx="4" fill="currentColor" fill-opacity=".12"/><path d="M8 10v5M5.5 12.5h5"/><circle cx="15.5" cy="11.5" r="1"/><circle cx="18" cy="14" r="1"/></svg></div>
-        <h3>Minijuegos</h3>
-        <p>Partidas rápidas con amigos, accesibles desde SurvivalOP.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
-      </article>
-      <article class="mode-card reveal" style="--c:#2bd7f5;--i:8">
+      <article class="mode-card reveal" style="--c:#2bd7f5;--i:7">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-4h5v-4h5V8h3" /><path d="M16 4l2 3 3-1" stroke-opacity=".6"/></svg></div>
         <h3>Parkour</h3>
-        <p>Recorridos de saltos dentro de SurvivalOP: mejora tu tiempo.</p>
+        <p>Recorridos de saltos: mejora tu tiempo.</p>
+        <span class="mode-more soon">Dentro de SurvivalOP</span>
+      </article>
+      <article class="mode-card reveal" style="--c:#d75aff;--i:8">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c0-4 3.5-7 8-7s8 3 8 7v7H4z" fill="currentColor" fill-opacity=".15"/><circle cx="9" cy="11" r="1.3"/><circle cx="15" cy="11" r="1.3"/><path d="M9 15.5h6"/></svg></div>
+        <h3>Steal A Mob</h3>
+        <p>Roba mobs a otros jugadores y protege los tuyos.</p>
+        <span class="mode-more soon">Dentro de SurvivalOP</span>
+      </article>
+      <article class="mode-card reveal" style="--c:#FF7800;--i:9">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z" fill="currentColor" fill-opacity=".18"/></svg></div>
+        <h3>Habilidades</h3>
+        <p>Retos en solitario para mejorar en Minecraft: puentes, torres, caídas y más.</p>
         <span class="mode-more soon">Dentro de SurvivalOP</span>
       </article>
     </div>
@@ -920,7 +926,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-origin.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-origin.html">⏱ Probar 7 o 14 días · desde $3.49</a>
+        <a class="rank-temp" href="temporal-origin.html">⏱ Probar 7, 14, 21 o 30 días · desde $3.49</a>
       </article>
 
       <article class="rank-card ascendente reveal">
@@ -942,7 +948,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-ascendente.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-ascendente.html">⏱ Probar 7 o 14 días · desde $4.49</a>
+        <a class="rank-temp" href="temporal-ascendente.html">⏱ Probar 7, 14, 21 o 30 días · desde $4.49</a>
       </article>
 
       <article class="rank-card elite reveal">
@@ -961,7 +967,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-elite.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-elite.html">⏱ Probar 7 o 14 días · desde $7.49</a>
+        <a class="rank-temp" href="temporal-elite.html">⏱ Probar 7, 14, 21 o 30 días · desde $7.49</a>
       </article>
 
       <article class="rank-card celestial reveal">
@@ -983,7 +989,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-celestial.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-celestial.html">⏱ Probar 7 o 14 días · desde $11.49</a>
+        <a class="rank-temp" href="temporal-celestial.html">⏱ Probar 7, 14, 21 o 30 días · desde $11.49</a>
       </article>
 
       <article class="rank-card astral reveal">
@@ -1005,7 +1011,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-astral.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-astral.html">⏱ Probar 7 o 14 días · desde $14.99</a>
+        <a class="rank-temp" href="temporal-astral.html">⏱ Probar 7, 14, 21 o 30 días · desde $14.99</a>
       </article>
 
       <article class="rank-card majestad recommended reveal">
@@ -1027,7 +1033,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-majestad.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-majestad.html">⏱ Probar 7 o 14 días · desde $16.99</a>
+        <a class="rank-temp" href="temporal-majestad.html">⏱ Probar 7, 14, 21 o 30 días · desde $16.99</a>
       </article>
 
       <article class="rank-card guardian reveal">
@@ -1046,7 +1052,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-guardian.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-guardian.html">⏱ Probar 7 o 14 días · desde $21.49</a>
+        <a class="rank-temp" href="temporal-guardian.html">⏱ Probar 7, 14, 21 o 30 días · desde $21.49</a>
       </article>
 
       <article class="rank-card semidios reveal">
@@ -1065,7 +1071,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-semidios.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-semidios.html">⏱ Probar 7 o 14 días · desde $24.99</a>
+        <a class="rank-temp" href="temporal-semidios.html">⏱ Probar 7, 14, 21 o 30 días · desde $24.99</a>
       </article>
 
       <article class="rank-card dios reveal">
@@ -1084,7 +1090,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-dios.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-dios.html">⏱ Probar 7 o 14 días · desde $27.99</a>
+        <a class="rank-temp" href="temporal-dios.html">⏱ Probar 7, 14, 21 o 30 días · desde $27.99</a>
       </article>
 
       <article class="rank-card eterno reveal">
@@ -1106,7 +1112,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-eterno.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-eterno.html">⏱ Probar 7 o 14 días · desde $31.99</a>
+        <a class="rank-temp" href="temporal-eterno.html">⏱ Probar 7, 14, 21 o 30 días · desde $31.99</a>
       </article>
 
       <article class="rank-card primordial reveal">
@@ -1128,7 +1134,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-primordial.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-primordial.html">⏱ Probar 7 o 14 días · desde $35.99</a>
+        <a class="rank-temp" href="temporal-primordial.html">⏱ Probar 7, 14, 21 o 30 días · desde $35.99</a>
       </article>
 
       <article class="rank-card kaizora reveal">
@@ -1150,7 +1156,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           <a class="rank-button rank-buy" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">COMPRAR ↗</a>
           <a class="rank-button" href="rango-kaizora.html">VER INFO</a>
         </div>
-        <a class="rank-temp" href="temporal-kaizora.html">⏱ Probar 7 o 14 días · desde $42.49</a>
+        <a class="rank-temp" href="temporal-kaizora.html">⏱ Probar 7, 14, 21 o 30 días · desde $42.49</a>
       </article>
 
     </div>
@@ -1166,7 +1172,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
       <div class="how-cta"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="btn btn-primary">COMPRAR POR DISCORD ↗</a></div>
     </div>
 
-    <p class="rank-note reveal">Pulsa «VER INFO» en cada rango para ver el kit completo, los encantamientos y los comandos. ¿No quieres pagar el permanente? Cada rango tiene también opción temporal de 7 o 14 días.</p>
+    <p class="rank-note reveal">Pulsa «VER INFO» en cada rango para ver el kit completo, los encantamientos y los comandos. ¿No quieres pagar el permanente? Cada rango tiene también opción temporal de 7, 14, 21 o 30 días.</p>
   </div>
 </section>
 
