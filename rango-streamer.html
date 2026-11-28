@@ -137,6 +137,23 @@ h1 span{
 .perk .big{display:block;margin:9px 0 8px;font-size:24px;line-height:1.2;font-weight:900;color:#e9d5ff;text-shadow:0 0 22px rgba(168,85,247,.3);overflow-wrap:anywhere}
 .perk p{margin:0;color:#c9bfd9;font-size:14px;line-height:1.7}
 
+.plats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.plat{position:relative;overflow:hidden;padding:22px 20px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));transition:transform .25s,border-color .25s,box-shadow .25s}
+.plat::before{content:"";position:absolute;right:-45px;top:-55px;width:120px;height:120px;border-radius:50%;background:var(--pc);opacity:.25;filter:blur(14px)}
+.plat:hover{transform:translateY(-4px);border-color:var(--pc);box-shadow:0 12px 32px rgba(0,0,0,.25)}
+.plat-top{display:flex;align-items:center;gap:12px;position:relative}
+.plat-logo{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;font-size:20px;font-weight:900;color:#fff;background:var(--pc);box-shadow:0 0 18px color-mix(in srgb,var(--pc) 45%,transparent)}
+.plat-name{font-size:19px;font-weight:900}
+.plat-num{position:relative;margin-top:18px;font-size:36px;font-weight:900;letter-spacing:-1px;color:#fff}
+.plat-num small{display:block;margin-top:2px;color:#9f95b2;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.must{margin-top:22px;padding:26px;border-radius:18px;border:1px solid rgba(192,132,252,.5);background:radial-gradient(ellipse at 0% 0%,rgba(168,85,247,.26),transparent 60%),linear-gradient(135deg,rgba(168,85,247,.13),rgba(255,255,255,.02))}
+.must h3{margin:0 0 8px;color:var(--rank-light);font-size:21px}
+.must>p{margin:0 0 20px;color:#c9bfd9;line-height:1.7;font-size:14px}
+.acts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.act{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.22)}
+.act-num{flex-shrink:0;min-width:46px;height:46px;display:grid;place-items:center;padding:0 8px;border-radius:12px;font-size:22px;font-weight:900;color:#f0e1ff;background:rgba(168,85,247,.28);border:1px solid rgba(192,132,252,.5)}
+.act strong{display:block;font-size:17px;margin-bottom:5px}
+.act span{color:#a99fbb;font-size:13px;line-height:1.55}
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:6px}
 .step{padding:22px 20px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
 .num{
@@ -163,7 +180,7 @@ footer span{color:var(--rank-light)}
 @keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-@media(max-width:850px){.perks,.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:850px){.perks,.steps{grid-template-columns:1fr 1fr}.plats{grid-template-columns:1fr 1fr}}
 @media(max-width:650px){
     nav{padding:14px 5%}
     .logo{font-size:17px}
@@ -173,7 +190,7 @@ footer span{color:var(--rank-light)}
     .desc{font-size:15px}
     .actions .btn{flex:1 1 auto}
     .box{padding:22px 17px;border-radius:16px}
-    .perks,.steps{grid-template-columns:1fr}
+    .perks,.steps,.plats,.acts{grid-template-columns:1fr}
     .same{flex-wrap:wrap}
     .same a.btn{width:100%}
 }
@@ -198,8 +215,8 @@ footer span{color:var(--rank-light)}
         <h1><span>STREAMER</span></h1>
         <p class="desc">
             El rango para los creadores de contenido de la comunidad de Kaizora Origins.
-            Muestra el servidor al mundo y juega con el equipamiento, los comandos y
-            los privilegios del rango ELITE.
+            Cumple los requisitos de una de nuestras plataformas, mantén una actividad
+            constante y juega con el equipamiento, los comandos y los privilegios del rango ELITE.
         </p>
         <div class="quick">
             <span class="hl">Beneficios de ELITE</span>
@@ -214,6 +231,25 @@ footer span{color:var(--rank-light)}
             <a class="btn ghost" href="index.html#rangos">VER TODOS LOS RANGOS</a>
         </div>
     </section>
+
+    <div class="box">
+        <h2>Requisitos</h2>
+        <p class="sub">Debes alcanzar el mínimo de seguidores en <strong>al menos una</strong> de estas plataformas.</p>
+        <div class="plats">
+            <article class="plat" style="--pc:#9146ff"><div class="plat-top"><div class="plat-logo">T</div><div class="plat-name">Twitch</div></div><div class="plat-num">200<small>seguidores</small></div></article>
+            <article class="plat" style="--pc:#1fae3f"><div class="plat-top"><div class="plat-logo">K</div><div class="plat-name">Kick</div></div><div class="plat-num">100<small>seguidores</small></div></article>
+            <article class="plat" style="--pc:#ff2d3d"><div class="plat-top"><div class="plat-logo">▶</div><div class="plat-name">YouTube</div></div><div class="plat-num">150<small>seguidores</small></div></article>
+            <article class="plat" style="--pc:#ff2d95"><div class="plat-top"><div class="plat-logo">♪</div><div class="plat-name">TikTok</div></div><div class="plat-num">500<small>seguidores</small></div></article>
+        </div>
+        <div class="must">
+            <h3>Requisito obligatorio para mantener el rango</h3>
+            <p>Para conservar el rango Streamer y sus beneficios, debes mantener una actividad mínima semanal en tus plataformas de contenido.</p>
+            <div class="acts">
+                <div class="act"><div class="act-num">1</div><div><strong>1 publicación por semana</strong><span>Video largo o stream.</span></div></div>
+                <div class="act"><div class="act-num">4</div><div><strong>4 videos cortos por semana</strong><span>Shorts, TikToks o Reels.</span></div></div>
+            </div>
+        </div>
+    </div>
 
     <div class="box">
         <h2>Beneficios del rango</h2>
@@ -269,11 +305,11 @@ footer span{color:var(--rank-light)}
         <p class="sub">El rango se pide y se gestiona por el Discord oficial.</p>
         <div class="steps">
             <div class="step"><div class="num">1</div><h4>Entra al Discord</h4><p>Únete al Discord oficial de Kaizora Origins.</p></div>
-            <div class="step"><div class="num">2</div><h4>Pide el rango</h4><p>Dinos en el Discord que quieres el rango STREAMER.</p></div>
+            <div class="step"><div class="num">2</div><h4>Pide el rango</h4><p>Dinos en el Discord que quieres el rango STREAMER y demuestra que cumples los requisitos.</p></div>
             <div class="step"><div class="num">3</div><h4>Reclama tu kit</h4><p>Una vez activado, reclámalo con <strong>/kit</strong> dentro del servidor.</p></div>
         </div>
         <div class="note">
-            <strong>Nota:</strong> La solicitud se gestiona mediante el Discord oficial de ventas.
+            <strong>Nota:</strong> La solicitud y la comprobación de requisitos se gestionan mediante el Discord oficial de ventas.
         </div>
     </div>
 
