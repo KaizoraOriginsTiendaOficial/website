@@ -692,6 +692,56 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
 #loader svg { width: min(34vw, 150px); height: auto; animation: ldPulse 1.6s ease-in-out infinite; filter: drop-shadow(0 0 26px rgba(255,109,225,.55)); }
 #loader .ld-name { font-weight: 900; font-size: clamp(1.1rem, 4.5vw, 1.7rem); letter-spacing: .32em; margin-right: -.32em; text-align: center; }
 #loader .ld-sub { margin-top: -14px; font-weight: 800; font-size: .68rem; letter-spacing: .4em; margin-right: -.4em; color: #c7b5cc; text-align: center; }
+
+/* ====== MODALIDADES (menú + tarjeta) ====== */
+.nav-drop { position: relative; }
+.nav-drop .drop-btn { font: inherit; font-size: .81rem; font-weight: 800; cursor: pointer; border: 0; display: inline-flex; align-items: center; gap: 6px; }
+.nav-drop .caret { display: inline-block; transition: transform .2s; font-size: .8em; }
+.nav-drop.open .caret, .nav-drop:hover .caret { transform: rotate(180deg); }
+.drop-menu { position: absolute; right: 0; top: calc(100% + 10px); width: 250px; padding: 8px; display: none; flex-direction: column;
+  max-height: min(78vh, 560px); overflow-y: auto; border: 1px solid rgba(255,109,225,.3); border-radius: 14px;
+  background: rgba(22,14,30,.98); backdrop-filter: blur(16px); box-shadow: 0 18px 50px rgba(0,0,0,.5); z-index: 60; }
+.drop-menu::before { content:""; position:absolute; left:0; right:0; top:-12px; height:12px; }
+.nav-drop:hover .drop-menu, .nav-drop.open .drop-menu, .nav-drop:focus-within .drop-menu { display: flex; }
+.nav-links .drop-menu a { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 9px; color: #eadff0; font-size: .82rem; font-weight: 800; border: 0; }
+.nav-links .drop-menu a::after { display: none !important; }
+.nav-links .drop-menu a i { width: 9px; height: 9px; border-radius: 3px; background: var(--c); box-shadow: 0 0 10px var(--c); flex-shrink: 0; }
+.nav-links .drop-menu a:hover { background: rgba(255,109,225,.12); color: #fff; }
+.server-modes { grid-column: 1 / -1; margin-top: 6px; }
+.modes-title { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; color: var(--pink); font-size: .72rem; font-weight: 900; letter-spacing: 3px; }
+.modes-title i { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,109,225,.4), transparent); }
+.modes-grid.in-card { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+.modes-grid.in-card .mode-card { padding: 18px 16px 16px; gap: 8px; scroll-margin-top: 110px; }
+.modes-grid.in-card .mode-icon { width: 42px; height: 42px; border-radius: 12px; }
+.modes-grid.in-card .mode-icon svg { width: 23px; height: 23px; }
+.modes-grid.in-card .mode-card h3 { font-size: 1.05rem; }
+.modes-grid.in-card .mode-card p { font-size: .8rem; line-height: 1.5; }
+.modes-grid.in-card .mode-more { font-size: .65rem; }
+.mode-card.flash { animation: modeflash 1.6s ease; }
+@keyframes modeflash { 0%,100% { box-shadow: none; } 25% { box-shadow: 0 0 0 2px var(--c), 0 0 34px color-mix(in srgb, var(--c) 55%, transparent); } }
+@media (max-width: 1000px) { .modes-grid.in-card { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 760px) {
+  .nav-drop { border-bottom: 0; }
+  .nav-drop .drop-btn { width: 100%; justify-content: center; margin-top: 12px; padding: 12px 15px; }
+  .drop-menu { position: static; width: 100%; max-height: none; margin-top: 8px; background: rgba(255,255,255,.03); box-shadow: none; }
+  .nav-drop:hover .drop-menu { display: none; }
+  .nav-drop.open .drop-menu { display: flex; }
+  .modes-grid.in-card { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 480px) { .modes-grid.in-card { grid-template-columns: 1fr; } }
+
+/* ====== BANNER STREAMER ====== */
+.streamer-banner { display: flex; align-items: center; gap: 18px; margin-top: 30px; padding: 20px 24px; border-radius: 18px; border: 1px solid rgba(192,132,252,.4);
+  background: radial-gradient(ellipse at 0% 0%, rgba(168,85,247,.25), transparent 60%), linear-gradient(120deg, rgba(168,85,247,.12), rgba(255,109,225,.07));
+  transition: transform .25s, border-color .25s, box-shadow .25s; }
+.streamer-banner:hover { transform: translateY(-3px); border-color: #c084fc; box-shadow: 0 14px 40px rgba(168,85,247,.22); }
+.sb-icon { width: 54px; height: 54px; flex-shrink: 0; display: grid; place-items: center; border-radius: 15px; color: #e9d5ff; border: 1px solid rgba(192,132,252,.5); background: rgba(168,85,247,.2); }
+.sb-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.sb-text small { color: #c084fc; font-size: .66rem; font-weight: 900; letter-spacing: 3px; }
+.sb-text strong { font-size: 1.1rem; font-weight: 900; }
+.sb-text em { font-style: normal; color: var(--muted); font-size: .85rem; }
+.sb-go { color: #e9d5ff; font-size: .75rem; font-weight: 900; letter-spacing: 1px; white-space: nowrap; }
+@media (max-width: 640px) { .streamer-banner { flex-wrap: wrap; padding: 18px; } .sb-go { width: 100%; } }
 </style>
 </head>
 
@@ -729,12 +779,27 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
     <nav class="nav-links" id="navLinks">
       <a href="#inicio">Inicio</a>
       <a href="#servidor">Servidor</a>
-      <a href="#modos">Dentro</a>
       <a href="#rangos">Rangos</a>
       <a href="#tienda">Tienda</a>
       <a href="#evento">Evento</a>
       <a href="#redes">Redes</a>
-      <a class="discord-link" href="survivalop.html" target="_blank" rel="noopener noreferrer">SURVIVALOP ↗</a>
+      <div class="nav-drop" id="navDrop">
+        <button class="discord-link drop-btn" id="dropBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="dropMenu">MODALIDADES <span class="caret">▾</span></button>
+        <div class="drop-menu" id="dropMenu" role="menu">
+        <a href="survivalop.html" target="_blank" rel="noopener noreferrer" role="menuitem"><i style="--c:#ff6de1"></i>SurvivalOP</a>
+        <a href="#m-gens" role="menuitem"><i style="--c:#42dc82"></i>Farming / Gens</a>
+        <a href="#m-oneblock" role="menuitem"><i style="--c:#ffd34d"></i>OneBlock</a>
+        <a href="#m-practice" role="menuitem"><i style="--c:#2bd7f5"></i>Practice</a>
+        <a href="#m-duels" role="menuitem"><i style="--c:#4d8dff"></i>Duels</a>
+        <a href="#m-bedwars" role="menuitem"><i style="--c:#ff5363"></i>BedWars</a>
+        <a href="#m-skywars" role="menuitem"><i style="--c:#45D6C5"></i>SkyWars</a>
+        <a href="#m-parkour" role="menuitem"><i style="--c:#2bd7f5"></i>Parkour</a>
+        <a href="robamob.html" target="_blank" rel="noopener noreferrer" role="menuitem"><i style="--c:#d75aff"></i>Steal A Mob</a>
+        <a href="#m-habilidades" role="menuitem"><i style="--c:#FF7800"></i>Habilidades</a>
+        <a href="#m-boxpvp" role="menuitem"><i style="--c:#ff3d81"></i>BoxPvP</a>
+        <a href="#m-creativo" role="menuitem"><i style="--c:#a3e635"></i>Creativo</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -776,7 +841,7 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
     <div class="section-heading reveal">
       <span class="eyebrow">Entra al mundo</span>
       <h2>Tu aventura <span>empieza aquí.</span></h2>
-      <p>Conéctate a SurvivalOP y comparte la aventura con jugadores de Java y Bedrock.</p>
+      <p>Conéctate al servidor y comparte la aventura con jugadores de Java y Bedrock.</p>
     </div>
 
     <div class="server-card reveal">
@@ -788,7 +853,6 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           en una referencia dentro del servidor. Tu progreso depende de ti.
         </p>
         <div class="server-badges">
-          <span class="server-badge">SURVIVALOP</span>
           <span class="server-badge">JAVA</span>
           <span class="server-badge">BEDROCK</span>
           <span class="server-badge">COMUNIDAD</span>
@@ -813,81 +877,84 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
           En Java, utiliza la dirección indicada.
         </p>
       </div>
-    </div>
-  </div>
-</section>
 
-<div class="section-line"></div>
-
-<!-- MODOS DE JUEGO -->
-<section class="section" id="modos">
-  <div class="container">
-    <div class="section-heading reveal">
-      <span class="eyebrow">Todo en un solo mundo</span>
-      <h2>Dentro del <span>servidor.</span></h2>
-      <p>No son servidores aparte: son mapas, comandos y actividades que encuentras dentro de SurvivalOP.</p>
-    </div>
-    <div class="modes-grid">
-      <a class="mode-card reveal" href="survivalop.html" target="_blank" rel="noopener noreferrer" style="--c:#ff6de1;--i:0">
+      <div class="server-modes">
+        <div class="modes-title"><span>MODALIDADES</span><i></i></div>
+        <div class="modes-grid in-card">
+      <a class="mode-card reveal" id="m-survivalop" href="survivalop.html" target="_blank" rel="noopener noreferrer" style="--c:#ff6de1;--i:0">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l6 6-9.5 9.5H4.5v-6z" fill="currentColor" fill-opacity=".18"/><path d="M12.5 5.5l6 6"/></svg></div>
         <h3>SurvivalOP</h3>
-        <p>El mundo principal. Todo lo que ves aquí abajo se juega desde dentro de él.</p>
+        <p>El mundo principal: economía, rangos, crates, minas y progresión.</p>
         <span class="mode-more">Ver SurvivalOP ↗</span>
       </a>
-      <article class="mode-card reveal" style="--c:#42dc82;--i:1">
+      <article class="mode-card reveal" id="m-gens" style="--c:#42dc82;--i:1">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" fill="currentColor" fill-opacity=".15"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
         <h3>Farming / Gens</h3>
         <p>Genera recursos, mejora tus generadores y farmea para crecer más rápido.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#ffd34d;--i:2">
+      <article class="mode-card reveal" id="m-oneblock" style="--c:#ffd34d;--i:2">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" fill="currentColor" fill-opacity=".18"/><path d="M12 3v18M4 7.5l16 9M20 7.5l-16 9" stroke-opacity=".5"/></svg></div>
         <h3>OneBlock</h3>
         <p>Empiezas con un solo bloque: rómpelo y aparece otro. Tu isla es solo tuya.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#2bd7f5;--i:3">
+      <article class="mode-card reveal" id="m-practice" style="--c:#2bd7f5;--i:3">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></div>
         <h3>Practice</h3>
         <p>Entrena y mejora tu combate con calma, sin presión.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#4d8dff;--i:4">
+      <article class="mode-card reveal" id="m-duels" style="--c:#4d8dff;--i:4">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19L18 6M18 6h-4M18 6v4M19 19L6 6M6 6h4M6 6v4"/></svg></div>
         <h3>Duels</h3>
         <p>Desafía a otro jugador a un duelo.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#ff5363;--i:5">
+      <article class="mode-card reveal" id="m-bedwars" style="--c:#ff5363;--i:5">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18V8M3 14h18v4M21 14v-2a3 3 0 00-3-3h-7v5" fill="currentColor" fill-opacity=".15"/><circle cx="7" cy="11" r="1.6"/></svg></div>
         <h3>BedWars</h3>
         <p>Defiende tu cama y destruye las de los demás.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#45D6C5;--i:6">
+      <article class="mode-card reveal" id="m-skywars" style="--c:#45D6C5;--i:6">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15h8l-2 4M13 15h8" /><path d="M7 15V9l5-5 5 5v6" fill="currentColor" fill-opacity=".15"/></svg></div>
         <h3>SkyWars</h3>
         <p>Islas en el cielo: cofres, combate y un solo ganador.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#2bd7f5;--i:7">
+      <article class="mode-card reveal" id="m-parkour" style="--c:#2bd7f5;--i:7">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-4h5v-4h5V8h3" /><path d="M16 4l2 3 3-1" stroke-opacity=".6"/></svg></div>
         <h3>Parkour</h3>
         <p>Recorridos de saltos: mejora tu tiempo.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
-      <article class="mode-card reveal" style="--c:#d75aff;--i:8">
+      <a class="mode-card reveal" id="m-robamob" href="robamob.html" target="_blank" rel="noopener noreferrer" style="--c:#d75aff;--i:8">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12c0-4 3.5-7 8-7s8 3 8 7v7H4z" fill="currentColor" fill-opacity=".15"/><circle cx="9" cy="11" r="1.3"/><circle cx="15" cy="11" r="1.3"/><path d="M9 15.5h6"/></svg></div>
         <h3>Steal A Mob</h3>
         <p>Roba mobs a otros jugadores y protege los tuyos.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
-      </article>
-      <article class="mode-card reveal" style="--c:#FF7800;--i:9">
+        <span class="mode-more">Ver Steal A Mob ↗</span>
+      </a>
+      <article class="mode-card reveal" id="m-habilidades" style="--c:#FF7800;--i:9">
         <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z" fill="currentColor" fill-opacity=".18"/></svg></div>
         <h3>Habilidades</h3>
         <p>Retos en solitario para mejorar en Minecraft: puentes, torres, caídas y más.</p>
-        <span class="mode-more soon">Dentro de SurvivalOP</span>
+        <span class="mode-more soon">En el servidor</span>
       </article>
+      <article class="mode-card reveal" id="m-boxpvp" style="--c:#ff3d81;--i:10">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V8a7 7 0 0114 0v13" fill="currentColor" fill-opacity=".12"/><path d="M9 9v12M12 9v12M15 9v12"/></svg></div>
+        <h3>BoxPvP</h3>
+        <p>Prisión de minas: mina, sube de tier, abre crates y pelea por el control.</p>
+        <span class="mode-more soon">En el servidor</span>
+      </article>
+      <article class="mode-card reveal" id="m-creativo" style="--c:#a3e635;--i:11">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4c-5 1-9 5-10 9l3 3c4-1 8-5 9-10z" fill="currentColor" fill-opacity=".18"/><path d="M9 14c-3 0-4 2-4 4 0 1-1 2-2 2 4 1 8 0 8-4"/></svg></div>
+        <h3>Creativo</h3>
+        <p>Tu propia parcela de 50×50 para construir sin límites en modo creativo.</p>
+        <span class="mode-more soon">En el servidor</span>
+      </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1171,6 +1238,12 @@ canvas#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-eve
       </div>
       <div class="how-cta"><a href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer" class="btn btn-primary">COMPRAR POR DISCORD ↗</a></div>
     </div>
+
+    <a class="streamer-banner reveal" href="rango-streamer.html">
+      <span class="sb-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2.5" fill="currentColor" fill-opacity=".15"/><path d="M10 9.5l4.5 2.5-4.5 2.5z" fill="currentColor"/><path d="M8 21h8M12 17v4"/></svg></span>
+      <span class="sb-text"><small>RANGO ESPECIAL</small><strong>¿Creas contenido? Consigue el rango Streamer</strong><em>Mismos beneficios que ELITE para los creadores de la comunidad.</em></span>
+      <span class="sb-go">VER RANGO →</span>
+    </a>
 
     <p class="rank-note reveal">Pulsa «VER INFO» en cada rango para ver el kit completo, los encantamientos y los comandos. ¿No quieres pagar el permanente? Cada rango tiene también opción temporal de 7, 14, 21 o 30 días.</p>
   </div>
@@ -1524,6 +1597,21 @@ const countdownTimer = setInterval(updateCountdown, 1000);
     });
     c.addEventListener('mouseleave',()=>{c.classList.remove('tilting');c.style.removeProperty('--rx');c.style.removeProperty('--ry');});
   });
+})();
+</script>
+<script>
+/* Menú de modalidades */
+(function(){
+  const d=document.getElementById('navDrop'), b=document.getElementById('dropBtn'); if(!d||!b) return;
+  const set=o=>{d.classList.toggle('open',o); b.setAttribute('aria-expanded',o?'true':'false');};
+  b.addEventListener('click',e=>{e.stopPropagation(); set(!d.classList.contains('open'));});
+  document.addEventListener('click',e=>{ if(!d.contains(e.target)) set(false); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') set(false); });
+  d.querySelectorAll('.drop-menu a').forEach(a=>a.addEventListener('click',()=>{
+    set(false);
+    const nl=document.getElementById('navLinks'); if(nl) nl.classList.remove('open');
+    const h=a.getAttribute('href'); if(h&&h.charAt(0)==='#'){ const t=document.querySelector(h); if(t){ t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash'); } }
+  }));
 })();
 </script>
 </body>
