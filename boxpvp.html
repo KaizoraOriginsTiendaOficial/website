@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0614">
+<title>BoxPvP | Kaizora Origins</title>
+<meta name="description" content="BoxPvP en Kaizora Origins: una prisión de minas por rangos, cajas con llaves, compresor y combate.">
+
+<style>
+
+:root{--rgb:255,61,129;--bg:#0b0614;--c:#ff3d81;--c2:#ff94ba;--pink:#ff94ba;--muted:#bbb1cb;--border:rgba(var(--rgb),.34)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 12% 6%,rgba(var(--rgb),.28),transparent 40%),radial-gradient(ellipse at 92% 30%,rgba(255,148,186,.14),transparent 36%),radial-gradient(ellipse at 50% 100%,rgba(140,34,71,.16),transparent 42%),#0b0614}
+.bg::after{content:"";position:absolute;inset:0;opacity:.14;background-image:radial-gradient(rgba(255,255,255,.65) .7px,transparent .7px);background-size:27px 27px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+
+nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 7%;border-bottom:1px solid rgba(var(--rgb),.22);background:rgba(11,6,20,.86);backdrop-filter:blur(18px);position:sticky;top:0;z-index:10}
+.logo{font-size:21px;font-weight:900;letter-spacing:1.5px}.logo span{color:var(--c2)}
+.nav-right{display:flex;align-items:center;gap:18px}
+nav a.home{color:#e8dcf5;font-size:13px;font-weight:800}nav a.home:hover{color:#fff}
+.discord{padding:12px 18px;border-radius:9px;color:#fff;font-size:13px;font-weight:800;background:linear-gradient(110deg,#a62854,#ff3d81);border:1px solid rgba(255,255,255,.23);box-shadow:0 5px 24px rgba(var(--rgb),.3);transition:.25s}
+.discord:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(var(--rgb),.5)}
+
+main{max-width:1100px;margin:0 auto;padding:80px 6% 100px}
+.hero{padding-bottom:26px;animation:appear .65s ease both}
+.label{display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;padding:9px 14px;color:#ffe2ec;font-size:11px;font-weight:900;letter-spacing:3px;border:1px solid rgba(var(--rgb),.55);border-radius:6px;background:rgba(var(--rgb),.15)}
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c2);box-shadow:0 0 13px var(--c2);animation:pulse 2s infinite}
+h1{font-size:clamp(46px,9.5vw,96px);line-height:.98;margin:0 0 24px;letter-spacing:-4px;font-weight:900;text-shadow:0 0 50px rgba(var(--rgb),.35)}
+h1 span{background:linear-gradient(100deg,#fff 5%,#ffe2ec 35%,#ff3d81 72%,#ff94ba);background-clip:text;-webkit-background-clip:text;color:transparent}
+.desc{max-width:720px;color:#d2c8e0;font-size:17px;line-height:1.85;margin:0}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);font-size:12px;font-weight:900;letter-spacing:.4px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:10px;font-weight:900;font-size:12px;letter-spacing:.6px;border:1px solid rgba(255,255,255,.17);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{border-color:#ff94ba;background:linear-gradient(110deg,#a62854,#ff3d81);box-shadow:0 5px 26px rgba(var(--rgb),.35)}
+.ghost{background:rgba(255,255,255,.04);color:#ffe2ec}.ghost:hover{border-color:var(--c2);background:rgba(var(--rgb),.12)}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 0}
+.toc a{padding:8px 13px;border-radius:999px;border:1px solid rgba(var(--rgb),.3);background:rgba(var(--rgb),.07);color:#ffe2ec;font-size:12px;font-weight:800;transition:.2s}
+.toc a:hover{background:rgba(var(--rgb),.22);border-color:var(--c2)}
+
+.box{position:relative;margin-top:34px;padding:clamp(22px,4vw,40px);border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,rgba(32,20,50,.97),rgba(14,9,24,.98));box-shadow:0 20px 65px rgba(0,0,0,.3),0 0 44px rgba(var(--rgb),.07);overflow:hidden}
+.box::before{content:"";position:absolute;top:0;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,#ff3d81,#ff94ba,transparent)}
+.box h2{display:flex;align-items:center;gap:12px;margin:0 0 8px;font-size:clamp(23px,4vw,30px);font-weight:900}
+.box h2::before{content:"";width:5px;height:28px;border-radius:8px;background:linear-gradient(#ff3d81,#ff94ba);box-shadow:0 0 16px rgba(var(--rgb),.55);flex-shrink:0}
+.sub{color:var(--muted);line-height:1.75;margin:0 0 24px}
+.sub strong,.note strong,p strong{color:#ffe2ec}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.step{padding:22px 18px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.num{width:36px;height:36px;display:grid;place-items:center;margin-bottom:14px;border-radius:10px;font-weight:900;color:#ffe2ec;background:rgba(var(--rgb),.25);border:1px solid rgba(255,148,186,.5)}
+.step h4{margin:0 0 6px;font-size:16px}.step p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tier{position:relative;overflow:hidden;padding:20px 18px;border-radius:15px;border:1px solid color-mix(in srgb,var(--c) 50%,transparent);background:radial-gradient(ellipse at 0% 0%,color-mix(in srgb,var(--c) 18%,transparent),transparent 62%),linear-gradient(155deg,color-mix(in srgb,var(--c) 6%,#20152a),#160f1f 70%);transition:transform .25s,box-shadow .25s}
+.tier:hover{transform:translateY(-4px);box-shadow:0 14px 36px color-mix(in srgb,var(--c) 22%,transparent)}
+.t-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.t-top b{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;font-size:13px;color:#14091c;background:var(--c)}
+.t-top span{font-size:18px;font-weight:900;color:var(--c)}
+.t-inc{font-size:22px;font-weight:900;margin-bottom:8px}.t-inc small{display:block;color:#9d92ad;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.tier p{margin:0;color:#c9bfd9;font-size:13px;line-height:1.6}
+
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{position:relative;overflow:hidden;padding:22px 20px;border-radius:15px;border:1px solid rgba(var(--rgb),.38);background:radial-gradient(ellipse at 100% 0%,rgba(255,148,186,.13),transparent 55%),linear-gradient(135deg,rgba(76,18,39,.3),rgba(24,16,40,.96) 70%);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(#ff3d81,#ff94ba)}
+.card:hover{transform:translateY(-4px);border-color:rgba(251,232,255,.8);box-shadow:0 12px 32px rgba(0,0,0,.25),0 0 26px rgba(var(--rgb),.16)}
+.card .tag{color:var(--c2);font-size:10px;font-weight:900;letter-spacing:2px}
+.card .big{display:block;margin:9px 0 8px;font-size:22px;line-height:1.2;font-weight:900;color:#ffe2ec;overflow-wrap:anywhere}
+.card p{margin:0;color:#cbc1da;font-size:14px;line-height:1.7}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{padding:22px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.panel h3{margin:0 0 10px;font-size:18px;color:#ffe2ec}
+.panel p{margin:0 0 8px;color:var(--muted);font-size:14px;line-height:1.75}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.list li{padding:12px 14px;border-radius:10px;border:1px solid rgba(var(--rgb),.22);background:linear-gradient(120deg,rgba(var(--rgb),.1),rgba(255,255,255,.018));line-height:1.55;font-size:14px;color:#d4c9e3}
+.list li .n{display:block;color:#fff;font-weight:900}.list li .d{color:#b3a7c4;font-size:13px}
+.shop{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.games{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.game{padding:16px;border-radius:12px;border:1px solid rgba(var(--rgb),.3);background:rgba(var(--rgb),.07)}
+.game strong{display:block;margin-bottom:6px;color:#fff}.game span{color:#bdb2cd;font-size:13px;line-height:1.55}
+
+.event{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;padding:26px;border-radius:18px;border:1px solid rgba(255,148,186,.5);background:radial-gradient(ellipse at 100% 0%,rgba(255,148,186,.22),transparent 55%),linear-gradient(120deg,rgba(var(--rgb),.16),rgba(20,12,34,.95))}
+.event h3{margin:0 0 8px;font-size:24px}.event p{margin:0 0 10px;color:#d5cae3;line-height:1.75;font-size:14px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,148,186,.5);background:rgba(255,148,186,.12);font-size:12px;font-weight:900;color:#ffe2ec}
+
+.cmds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cmd{padding:14px 16px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.25)}
+.cmd code{display:block;color:var(--c2);font-weight:900;font-size:14px;margin-bottom:4px;overflow-wrap:anywhere;font-family:Consolas,Menlo,monospace}
+.cmd span{color:#b9aeca;font-size:13px}
+
+.note{margin-top:22px;padding:16px 20px;border:1px solid rgba(var(--rgb),.28);border-left:4px solid var(--c);border-radius:0 11px 11px 0;background:linear-gradient(100deg,rgba(var(--rgb),.14),rgba(255,148,186,.03));color:#cbc1da;font-size:13px;line-height:1.8}
+.cta{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px;border-radius:20px;border:1px solid rgba(255,148,186,.45);background:radial-gradient(ellipse at 100% 0%,rgba(255,148,186,.18),transparent 55%),linear-gradient(120deg,rgba(var(--rgb),.2),rgba(20,12,34,.95))}
+.cta h3{margin:0 0 4px;font-size:22px}.cta p{margin:0;color:var(--muted);font-size:14px}
+footer{text-align:center;padding:30px 20px;color:#8d849f;font-size:12px;border-top:1px solid rgba(var(--rgb),.2);background:rgba(8,5,14,.72)}footer span{color:var(--c2)}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:950px){.tiers,.games,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.event,.two{grid-template-columns:1fr}}
+@media(max-width:650px){nav{padding:14px 5%}.logo{font-size:17px}nav a.home{display:none}main{padding:60px 5% 70px}h1{letter-spacing:-2.5px}.desc{font-size:15px}.actions .btn{flex:1 1 auto}.box{padding:22px 16px;border-radius:16px}.tiers,.games,.steps,.cards,.cmds,.shop{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.big-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.zones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.zone{padding:16px;border-radius:12px;border:1px solid rgba(var(--rgb),.3);background:rgba(var(--rgb),.07)}
+.zone b{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 6px;margin-bottom:8px;border-radius:8px;font-size:13px;color:#10081a;background:var(--c)}
+.zone strong{display:block;margin-bottom:4px;color:#fff}.zone span{color:#bdb2cd;font-size:13px;line-height:1.55}
+.more{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.more a{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);font-size:13px;font-weight:800;transition:.2s}
+.more a i{width:9px;height:9px;border-radius:3px;background:var(--mc);box-shadow:0 0 10px var(--mc)}
+.more a:hover{border-color:var(--mc);background:rgba(255,255,255,.08);transform:translateY(-2px)}
+@media(max-width:950px){.zones{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.zones,.big-list{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav>
+    <a class="logo" href="index.html">KAIZORA <span>ORIGINS</span></a>
+    <div class="nav-right">
+        <a class="home" href="index.html#servidor">Modalidades</a>
+        <a class="home" href="index.html">Inicio</a>
+        <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Entrar al Discord</a>
+    </div>
+</nav>
+
+<main>
+    <section class="hero">
+        <div class="label">MODALIDAD</div>
+        <h1><span>BOXPVP</span></h1>
+        <p class="desc">Una <strong>prisión de 12 minas</strong>, una por rango. Mina, comprime tus bloques, mejora tu equipo por tiers, abre cajas con llaves y pelea en las minas más peligrosas.</p>
+        <div class="quick"><span>12 minas por rango</span><span>PvP por niveles</span><span>8 cajas con llaves</span><span>Compresor</span><span>Tiers 1-12</span><span>Top 10</span></div>
+        <div class="actions">
+            <a class="btn primary" href="#como">CÓMO SE JUEGA</a>
+            <a class="btn ghost" href="index.html#servidor">VER LAS IPS DEL SERVIDOR</a>
+        </div>
+        <div class="toc"><a href="#como">Cómo se juega</a><a href="#minas">Las 12 minas</a><a href="#pvp">PvP por niveles</a><a href="#economia">Economía y aldeanos</a><a href="#cajas">Cajas y llaves</a><a href="#celdas">Celdas y mochila</a><a href="#comandos">Comandos</a></div>
+    </section>
+
+    <div class="box" id="como"><h2>Cómo se juega</h2><p class="sub">Entras por el NPC del lobby. Tu inventario del servidor se guarda y se te devuelve intacto al salir. Lo que ganas en BoxPvP se guarda en una mochila aparte.</p><div class="steps"><div class="step"><div class="num">1</div><h4>Entra</h4><p>Habla con el NPC <strong>BoxPvP</strong> del lobby. Baja a la arena sin daño de caída y reclama tu kit gratis.</p></div><div class="step"><div class="num">2</div><h4>Mina</h4><p>Rompe bloques en las minas. Van directo a tu inventario.</p></div><div class="step"><div class="num">3</div><h4>Comprime y vende</h4><p>Comprime tus bloques en el <strong>Compresor</strong> y úsalos para comprar mejoras con los aldeanos.</p></div><div class="step"><div class="num">4</div><h4>Sube</h4><p>Mejora tu equipo por tiers, abre cajas y entra a las minas de rangos más altos.</p></div></div></div><div class="box" id="minas"><h2>Las 12 minas</h2><p class="sub">Cada mina es de un rango y tiene su propio material. Las minas se reinician solas y los hologramas muestran cuánto falta.</p><div class="zones"><div class="zone"><b>1</b><strong>Origin</strong><span>Troncos de roble y abedul.</span></div><div class="zone"><b>2</b><strong>Ascendente</strong><span>Piedra y arenisca.</span></div><div class="zone"><b>3</b><strong>Elite</strong><span>Mena de carbón.</span></div><div class="zone"><b>4</b><strong>Celestial</strong><span>Mena de cobre.</span></div><div class="zone"><b>5</b><strong>Astral</strong><span>Mena de hierro.</span></div><div class="zone"><b>6</b><strong>Majestad</strong><span>Mena de oro.</span></div><div class="zone"><b>7</b><strong>Guardián</strong><span>Mena de redstone.</span></div><div class="zone"><b>8</b><strong>Semidiós</strong><span>Mena de lapislázuli.</span></div><div class="zone"><b>9</b><strong>Dios</strong><span>Mena de diamante.</span></div><div class="zone"><b>10</b><strong>Eterno</strong><span>Mena de esmeralda.</span></div><div class="zone"><b>11</b><strong>Primordial</strong><span>Obsidiana.</span></div><div class="zone"><b>12</b><strong>Kaizora</strong><span>Restos antiguos.</span></div></div><div class="note">Escribe <strong>/minas</strong> para ver la lista en orden, con su número, su bloque y el tiempo que falta para el reinicio.</div></div><div class="box" id="pvp"><h2>PvP por niveles</h2><p class="sub">El combate se activa según la mina.</p><div class="cards"><article class="card"><span class="tag">MINAS 1-4</span><span class="big">Sin PvP</span><p>Para minar con calma al empezar.</p></article><article class="card"><span class="tag">MINAS 5-8</span><span class="big">PvP por turnos</span><p>Periodos con PvP activado; el holograma de cada mina te dice cuándo.</p></article><article class="card"><span class="tag">MINAS 9-12</span><span class="big">PvP siempre</span><p>Alto riesgo, alta recompensa. Quien está cerca brilla.</p></article></div><div class="note">Mientras estás en combate no puedes usar <strong>/spawn</strong> ni <strong>/s</strong> durante unos segundos.</div></div><div class="box" id="economia"><h2>Economía y aldeanos</h2><p class="sub">Todo se compra con lo que minas y con tres monedas.</p><div class="two"><div class="panel"><h3>Aldeanos del spawn</h3><ul class="list"><li><span class="n">Kit Gratis</span><span class="d">Se reclama cada 5 minutos.</span></li><li><span class="n">Compresor</span><span class="d">Comprime bloques en comprimidos.</span></li><li><span class="n">Herrero de picos</span><span class="d">Picos de todos los tiers.</span></li><li><span class="n">Tesorero Girasol</span><span class="d">Cambia comprimidos por Monedas Girasol.</span></li><li><span class="n">Llaves de Caja</span><span class="d">Compra las llaves de las cajas.</span></li><li><span class="n">Tienda Especial</span><span class="d">Premios especiales.</span></li><li><span class="n">Cohetes de Vuelo</span><span class="d">Cohetes para volar.</span></li></ul></div><div class="panel"><h3>Monedas</h3><ul class="list"><li><span class="n">Girasol</span><span class="d">La más fácil de conseguir.</span></li><li><span class="n">Moneda Kaizora</span><span class="d">Para tiers y llaves intermedias.</span></li><li><span class="n">Panal Kaizora</span><span class="d">La mejor: 1 panal = 9 Monedas Kaizora. Se usa en los tiers 9-12 y en las llaves Mítica y Kaizora.</span></li></ul></div></div><div class="note">Cada mina tiene su <strong>Mercader</strong> y su <strong>Compresor</strong>, con las llaves de su nivel. Los papeles de aldeano de <strong>Suministros</strong> dan utilidades sueltas; los tiers 1-12 son armaduras, armas y herramientas.</div></div><div class="box" id="cajas"><h2>Cajas y llaves</h2><p class="sub">Hay 8 cajas, cada una con su llave.</p><div class="cards"><article class="card"><span class="tag">CAJAS 1-4</span><span class="big">Común · Rara · Épica · Legendaria</span><p>Con llaves que se pagan con Monedas Girasol.</p></article><article class="card"><span class="tag">CAJAS 5-6</span><span class="big">Minera · Guerrera</span><p>Llaves que piden Moneda Kaizora.</p></article><article class="card"><span class="tag">CAJAS 7-8</span><span class="big">Mítica · Kaizora</span><p>Las más difíciles: piden Panal Kaizora.</p></article></div></div><div class="box" id="celdas"><h2>Celdas y mochila</h2><div class="two"><div class="panel"><h3>Celdas</h3><ul class="list"><li><span class="n">Celda propia</span><span class="d">En el hub hay 6 celdas con puerta de hierro. Al entrar alguien, la puerta se cierra y nadie más puede abrirla hasta que salga.</span></li><li><span class="n">Shulker segura</span><span class="d">Cada celda tiene una hornacina en la pared para tu shulker, a salvo.</span></li></ul></div><div class="panel"><h3>Mochila y Top</h3><ul class="list"><li><span class="n">/pb</span><span class="d">Mochila propia de BoxPvP.</span></li><li><span class="n">Top 10</span><span class="d">Panel con los mejores jugadores del modo.</span></li></ul></div></div></div><div class="box" id="comandos"><h2>Comandos</h2><p class="sub">Dentro funcionan estos comandos (y el login).</p><div class="cmds"><div class="cmd"><code>/minas</code><span>Lista de minas, con su número y el reinicio.</span></div><div class="cmd"><code>/boxpvp top</code><span>Mira el Top 10.</span></div><div class="cmd"><code>/boxpvp stats</code><span>Tus estadísticas.</span></div><div class="cmd"><code>/pb  ·  /bp</code><span>Tu mochila de BoxPvP.</span></div><div class="cmd"><code>/spawn</code><span>Vuelve al spawn (fuera de combate).</span></div><div class="cmd"><code>/s</code><span>Sal del modo. Tu inventario vuelve intacto.</span></div></div></div>
+
+    <div class="box" id="otras">
+        <h2>Otras modalidades</h2>
+        <p class="sub">Todo esto se juega dentro de Kaizora Origins.</p>
+        <div class="more"><a href="survivalop.html" style="--mc:#ff6de1"><i></i>SurvivalOP</a><a href="gens.html" style="--mc:#42dc82"><i></i>Farming / Gens</a><a href="oneblock.html" style="--mc:#ffd34d"><i></i>OneBlock</a><a href="practice.html" style="--mc:#2bd7f5"><i></i>Practice</a><a href="duels.html" style="--mc:#4d8dff"><i></i>Duels</a><a href="bedwars.html" style="--mc:#ff5363"><i></i>BedWars</a><a href="skywars.html" style="--mc:#45D6C5"><i></i>SkyWars</a><a href="parkour.html" style="--mc:#2bd7f5"><i></i>Parkour</a><a href="robamob.html" style="--mc:#d75aff"><i></i>Steal A Mob</a><a href="habilidades.html" style="--mc:#FF7800"><i></i>Habilidades</a><a href="creativo.html" style="--mc:#a3e635"><i></i>Creativo</a></div>
+    </div>
+
+    <div class="cta">
+        <div>
+            <h3>¿Listo para la prisión?</h3>
+            <p>Entra al servidor y habla con el NPC del lobby.</p>
+        </div>
+        <a class="btn primary" href="index.html#servidor">VER IP DEL SERVIDOR</a>
+    </div>
+</main>
+
+<footer>
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
+</footer>
+</body>
+</html>
