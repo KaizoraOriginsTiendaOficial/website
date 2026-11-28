@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0614">
+<title>Steal A Mob | Kaizora Origins</title>
+<meta name="description" content="Steal A Mob (Roba un Mob) en Kaizora Origins: recoge mobs en el pasillo, esquiva las olas, defiende tu base y haz Rebirth.">
+
+<style>
+:root{--bg:#0b0614;--c:#d75aff;--c2:#f0abfc;--pink:#ff6de1;--muted:#bbb1cb;--border:rgba(215,90,255,.34)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 12% 6%,rgba(215,90,255,.28),transparent 40%),radial-gradient(ellipse at 92% 30%,rgba(255,109,225,.14),transparent 36%),radial-gradient(ellipse at 50% 100%,rgba(120,60,200,.16),transparent 42%),#0b0614}
+.bg::after{content:"";position:absolute;inset:0;opacity:.14;background-image:radial-gradient(rgba(255,255,255,.65) .7px,transparent .7px);background-size:27px 27px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+
+nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 7%;border-bottom:1px solid rgba(215,90,255,.22);background:rgba(11,6,20,.86);backdrop-filter:blur(18px);position:sticky;top:0;z-index:10}
+.logo{font-size:21px;font-weight:900;letter-spacing:1.5px}.logo span{color:var(--c2)}
+.nav-right{display:flex;align-items:center;gap:18px}
+nav a.home{color:#e8dcf5;font-size:13px;font-weight:800}nav a.home:hover{color:#fff}
+.discord{padding:12px 18px;border-radius:9px;color:#fff;font-size:13px;font-weight:800;background:linear-gradient(110deg,#9b3fd0,#d75aff);border:1px solid rgba(255,255,255,.23);box-shadow:0 5px 24px rgba(215,90,255,.3);transition:.25s}
+.discord:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(215,90,255,.5)}
+
+main{max-width:1100px;margin:0 auto;padding:80px 6% 100px}
+.hero{padding-bottom:26px;animation:appear .65s ease both}
+.label{display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;padding:9px 14px;color:#fbe8ff;font-size:11px;font-weight:900;letter-spacing:3px;border:1px solid rgba(215,90,255,.55);border-radius:6px;background:rgba(215,90,255,.15)}
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c2);box-shadow:0 0 13px var(--c2);animation:pulse 2s infinite}
+h1{font-size:clamp(46px,9.5vw,96px);line-height:.98;margin:0 0 24px;letter-spacing:-4px;font-weight:900;text-shadow:0 0 50px rgba(215,90,255,.35)}
+h1 span{background:linear-gradient(100deg,#fff 5%,#fbe8ff 35%,#d75aff 72%,#ff6de1);background-clip:text;-webkit-background-clip:text;color:transparent}
+.desc{max-width:720px;color:#d2c8e0;font-size:17px;line-height:1.85;margin:0}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.quick span{padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:rgba(255,255,255,.07);font-size:12px;font-weight:900;letter-spacing:.4px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:10px;font-weight:900;font-size:12px;letter-spacing:.6px;border:1px solid rgba(255,255,255,.17);transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{border-color:#e7a5ff;background:linear-gradient(110deg,#9b3fd0,#d75aff);box-shadow:0 5px 26px rgba(215,90,255,.35)}
+.ghost{background:rgba(255,255,255,.04);color:#fbe8ff}.ghost:hover{border-color:var(--c2);background:rgba(215,90,255,.12)}
+
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 0}
+.toc a{padding:8px 13px;border-radius:999px;border:1px solid rgba(215,90,255,.3);background:rgba(215,90,255,.07);color:#f2d9ff;font-size:12px;font-weight:800;transition:.2s}
+.toc a:hover{background:rgba(215,90,255,.22);border-color:var(--c2)}
+
+.box{position:relative;margin-top:34px;padding:clamp(22px,4vw,40px);border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,rgba(32,20,50,.97),rgba(14,9,24,.98));box-shadow:0 20px 65px rgba(0,0,0,.3),0 0 44px rgba(215,90,255,.07);overflow:hidden}
+.box::before{content:"";position:absolute;top:0;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,#d75aff,#ff6de1,transparent)}
+.box h2{display:flex;align-items:center;gap:12px;margin:0 0 8px;font-size:clamp(23px,4vw,30px);font-weight:900}
+.box h2::before{content:"";width:5px;height:28px;border-radius:8px;background:linear-gradient(#d75aff,#ff6de1);box-shadow:0 0 16px rgba(215,90,255,.55);flex-shrink:0}
+.sub{color:var(--muted);line-height:1.75;margin:0 0 24px}
+.sub strong,.note strong,p strong{color:#fbe8ff}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.step{padding:22px 18px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.num{width:36px;height:36px;display:grid;place-items:center;margin-bottom:14px;border-radius:10px;font-weight:900;color:#fbe8ff;background:rgba(215,90,255,.25);border:1px solid rgba(231,165,255,.5)}
+.step h4{margin:0 0 6px;font-size:16px}.step p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tier{position:relative;overflow:hidden;padding:20px 18px;border-radius:15px;border:1px solid color-mix(in srgb,var(--c) 50%,transparent);background:radial-gradient(ellipse at 0% 0%,color-mix(in srgb,var(--c) 18%,transparent),transparent 62%),linear-gradient(155deg,color-mix(in srgb,var(--c) 6%,#20152a),#160f1f 70%);transition:transform .25s,box-shadow .25s}
+.tier:hover{transform:translateY(-4px);box-shadow:0 14px 36px color-mix(in srgb,var(--c) 22%,transparent)}
+.t-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.t-top b{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;font-size:13px;color:#14091c;background:var(--c)}
+.t-top span{font-size:18px;font-weight:900;color:var(--c)}
+.t-inc{font-size:22px;font-weight:900;margin-bottom:8px}.t-inc small{display:block;color:#9d92ad;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.tier p{margin:0;color:#c9bfd9;font-size:13px;line-height:1.6}
+
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{position:relative;overflow:hidden;padding:22px 20px;border-radius:15px;border:1px solid rgba(215,90,255,.38);background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.13),transparent 55%),linear-gradient(135deg,rgba(70,30,100,.3),rgba(24,16,40,.96) 70%);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(#d75aff,#ff6de1)}
+.card:hover{transform:translateY(-4px);border-color:rgba(251,232,255,.8);box-shadow:0 12px 32px rgba(0,0,0,.25),0 0 26px rgba(215,90,255,.16)}
+.card .tag{color:var(--c2);font-size:10px;font-weight:900;letter-spacing:2px}
+.card .big{display:block;margin:9px 0 8px;font-size:22px;line-height:1.2;font-weight:900;color:#f3d6ff;overflow-wrap:anywhere}
+.card p{margin:0;color:#cbc1da;font-size:14px;line-height:1.7}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{padding:22px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.panel h3{margin:0 0 10px;font-size:18px;color:#fbe8ff}
+.panel p{margin:0 0 8px;color:var(--muted);font-size:14px;line-height:1.75}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.list li{padding:12px 14px;border-radius:10px;border:1px solid rgba(215,90,255,.22);background:linear-gradient(120deg,rgba(215,90,255,.1),rgba(255,255,255,.018));line-height:1.55;font-size:14px;color:#d4c9e3}
+.list li .n{display:block;color:#fff;font-weight:900}.list li .d{color:#b3a7c4;font-size:13px}
+.shop{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.games{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.game{padding:16px;border-radius:12px;border:1px solid rgba(215,90,255,.3);background:rgba(215,90,255,.07)}
+.game strong{display:block;margin-bottom:6px;color:#fff}.game span{color:#bdb2cd;font-size:13px;line-height:1.55}
+
+.event{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;padding:26px;border-radius:18px;border:1px solid rgba(255,109,225,.5);background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.22),transparent 55%),linear-gradient(120deg,rgba(215,90,255,.16),rgba(20,12,34,.95))}
+.event h3{margin:0 0 8px;font-size:24px}.event p{margin:0 0 10px;color:#d5cae3;line-height:1.75;font-size:14px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,109,225,.5);background:rgba(255,109,225,.12);font-size:12px;font-weight:900;color:#ffd6f6}
+
+.cmds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cmd{padding:14px 16px;border-radius:11px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.25)}
+.cmd code{display:block;color:var(--c2);font-weight:900;font-size:14px;margin-bottom:4px;overflow-wrap:anywhere;font-family:Consolas,Menlo,monospace}
+.cmd span{color:#b9aeca;font-size:13px}
+
+.note{margin-top:22px;padding:16px 20px;border:1px solid rgba(215,90,255,.28);border-left:4px solid var(--c);border-radius:0 11px 11px 0;background:linear-gradient(100deg,rgba(215,90,255,.14),rgba(255,109,225,.03));color:#cbc1da;font-size:13px;line-height:1.8}
+.cta{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:28px;border-radius:20px;border:1px solid rgba(231,165,255,.45);background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.18),transparent 55%),linear-gradient(120deg,rgba(215,90,255,.2),rgba(20,12,34,.95))}
+.cta h3{margin:0 0 4px;font-size:22px}.cta p{margin:0;color:var(--muted);font-size:14px}
+footer{text-align:center;padding:30px 20px;color:#8d849f;font-size:12px;border-top:1px solid rgba(215,90,255,.2);background:rgba(8,5,14,.72)}footer span{color:var(--c2)}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:950px){.tiers,.games,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.event,.two{grid-template-columns:1fr}}
+@media(max-width:650px){nav{padding:14px 5%}.logo{font-size:17px}nav a.home{display:none}main{padding:60px 5% 70px}h1{letter-spacing:-2.5px}.desc{font-size:15px}.actions .btn{flex:1 1 auto}.box{padding:22px 16px;border-radius:16px}.tiers,.games,.steps,.cards,.cmds,.shop{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav>
+    <a class="logo" href="index.html">KAIZORA <span>ORIGINS</span></a>
+    <div class="nav-right">
+        <a class="home" href="index.html#servidor">Modalidades</a>
+        <a class="home" href="index.html">Inicio</a>
+        <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Entrar al Discord</a>
+    </div>
+</nav>
+
+<main>
+    <section class="hero">
+        <div class="label">MODALIDAD</div>
+        <h1><span>STEAL A MOB</span></h1>
+        <p class="desc">
+            Recoge mobs en un pasillo lleno de peligros, llévalos a tu base y haz que te den dinero
+            cada segundo. Esquiva las olas, defiende tus pedestales, roba los mobs de los demás
+            y sube con Rebirths hasta lo más alto. <strong>Nadie pierde vida en este modo.</strong>
+        </p>
+        <div class="quick">
+            <span>8 tramos de rareza</span>
+            <span>12 jugadores por mapa</span>
+            <span>Mobs con nivel hasta 25</span>
+            <span>Rebirths</span>
+            <span>Mercado y cambios</span>
+            <span>7 minijuegos</span>
+            <span>Evento semanal Admin Abuse</span>
+        </div>
+        <div class="actions">
+            <a class="btn primary" href="#como">CÓMO SE JUEGA</a>
+            <a class="btn ghost" href="index.html#servidor">VER LAS IPS DEL SERVIDOR</a>
+        </div>
+        <div class="toc">
+            <a href="#como">Cómo se juega</a><a href="#tramos">Tramos</a><a href="#base">Tu base</a><a href="#mobs">Mobs y niveles</a>
+            <a href="#rebirth">Rebirth</a><a href="#tienda">Tienda</a><a href="#mercado">Mercado</a><a href="#minijuegos">Minijuegos</a>
+            <a href="#abuse">Admin Abuse</a><a href="#comandos">Comandos</a>
+        </div>
+    </section>
+
+    <div class="box" id="como">
+        <h2>Cómo se juega</h2>
+        <p class="sub">Entras por el NPC del lobby. Tu inventario se guarda y se te devuelve al salir; tus mobs, tu dinero, mejoras, niveles y Rebirths también.</p>
+        <div class="steps">
+            <div class="step"><div class="num">1</div><h4>Entra</h4><p>Habla con el NPC <strong>Roba un Mob</strong> del lobby. Cada mapa admite 12 jugadores, uno por base.</p></div>
+            <div class="step"><div class="num">2</div><h4>Caza</h4><p>Sal al pasillo y agarra un mob. Cuanto más lejos, más raro y más dinero da.</p></div>
+            <div class="step"><div class="num">3</div><h4>Esquiva</h4><p>Cada ~25 s viene una ola desde el fondo. Si te toca, vuelves a tu base y sueltas el mob.</p></div>
+            <div class="step"><div class="num">4</div><h4>Cobra</h4><p>Pon el mob en un pedestal de tu base y empieza a ganar dinero por segundo.</p></div>
+        </div>
+        <div class="note">
+            <strong>Zona segura:</strong> las bases y el pasillo entre ellas son seguros: no salen mobs, no hay PvP y la ola nunca llega.
+            Mientras llevas un mob vas con Lentitud II. Si llevas 1 o 5 mobs, la lentitud es la misma.
+        </div>
+    </div>
+
+    <div class="box" id="tramos">
+        <h2>Los 8 tramos del pasillo</h2>
+        <p class="sub">Desde las bases hacia el fondo, el pasillo se hace más ancho, más largo y más rico. Cada tramo tiene sus mobs y su dinero por segundo (antes de niveles, Rebirths y eventos).</p>
+        <div class="tiers"><div class="tier" style="--c:#4ade80"><div class="t-top"><b>1</b><span>Común</span></div><div class="t-inc">$8 – 12<small>por segundo</small></div><p>Pollo, cerdo, vaca, oveja, abeja, rana, loro…</p></div><div class="tier" style="--c:#60a5fa"><div class="t-top"><b>2</b><span>Raro</span></div><div class="t-inc">$90 – 130<small>por segundo</small></div><p>Lobo, zorro, gato, aldeano, caballo, zombi, creeper…</p></div><div class="tier" style="--c:#a855f7"><div class="t-top"><b>3</b><span>Épico</span></div><div class="t-inc">$1K – 1.5K<small>por segundo</small></div><p>Panda, oso polar, allay, camello, sniffer, slime…</p></div><div class="tier" style="--c:#f87171"><div class="t-top"><b>4</b><span>Mítico</span></div><div class="t-inc">$14K – 20K<small>por segundo</small></div><p>Golem de hierro, ravager, enderman, blaze, hoglin…</p></div><div class="tier" style="--c:#fb923c"><div class="t-top"><b>5</b><span>Secreto</span></div><div class="t-inc">$220K – 320K<small>por segundo</small></div><p>Bruja, evoker, esqueleto wither, warden, shulker…</p></div><div class="tier" style="--c:#67e8f9"><div class="t-top"><b>6</b><span>Divino</span></div><div class="t-inc">$3.4M – 5M<small>por segundo</small></div><p>Guardián, phantom, vex, creaking, strider…</p></div><div class="tier" style="--c:#f0abfc"><div class="t-top"><b>7</b><span>Celestial</span></div><div class="t-inc">$52M – 75M<small>por segundo</small></div><p>Guardián anciano, caballos esqueleto y zombi, mercader errante…</p></div><div class="tier" style="--c:#ffffff"><div class="t-top"><b>8</b><span>Cósmico</span></div><div class="t-inc">$800M – 1.1B<small>por segundo</small></div><p>Warden y guardián anciano: lo más raro del pasillo.</p></div></div>
+        <div class="note"><strong>Ojo:</strong> cuanto más al fondo, menos mobs hay a la vez en cada mapa y más lejos estás de la zona segura.</div>
+    </div>
+
+    <div class="box" id="base">
+        <h2>Tu base</h2>
+        <p class="sub">Cada jugador tiene una base con pedestales donde se colocan los mobs que generan dinero.</p>
+        <div class="cards">
+            <article class="card"><span class="tag">PEDESTALES</span><span class="big">6 → 36</span><p>Empiezas con 6. El primer piso se amplía con dinero; los otros dos pisos se abren con Rebirth (+2 por Rebirth) o con la Llave de piso.</p></article>
+            <article class="card"><span class="tag">BLOQUEADOR</span><span class="big">60 s → 180 s</span><p>El escudo de tu base dura más cuantos más Rebirths tengas, y la espera para ponerlo de nuevo baja hasta un mínimo de 30 s.</p></article>
+            <article class="card"><span class="tag">CARGA</span><span class="big">Hasta 5 mobs</span><p>Puedes cargar más mobs a la vez con Rebirth 3, 6, 10 y 15 (y mucho dinero). El mob cargado sale como su huevo en tu inventario.</p></article>
+        </div>
+        <div class="note"><strong>Amigos:</strong> con <strong>/robamob amigo dar &lt;jugador&gt;</strong> dejas entrar a alguien a tu base; con <strong>quitar</strong> se lo quitas.</div>
+    </div>
+
+    <div class="box" id="mobs">
+        <h2>Mobs, niveles y protección</h2>
+        <p class="sub">Haz clic derecho a un mob tuyo (o usa <strong>/robamob mobs</strong>) para subirlo de nivel, moverlo o venderlo.</p>
+        <div class="two">
+            <div class="panel"><h3>Niveles (1 – 25)</h3>
+                <p>Cada nivel hace que el mob dé más dinero y sea un 4% más grande. En el nivel 25 da x13 y es casi el doble de grande.</p>
+                <p>Subir de nivel cuesta más cada vez. También puedes vender un mob y recibir dinero según su ingreso y su nivel.</p></div>
+            <div class="panel"><h3>Robos y defensa</h3>
+                <p>Puedes robar mobs de las bases de otros. Para defender los tuyos tienes el <strong>bloqueador</strong>, la <strong>trampa de base</strong> y el <strong>Palo de defensa</strong>.</p>
+                <p>Un mob con <strong>Sello de protección</strong> (🔒) queda protegido para siempre: nadie lo puede robar, ni cambiar.</p></div>
+        </div>
+    </div>
+
+    <div class="box" id="rebirth">
+        <h2>Rebirth</h2>
+        <p class="sub">Reinicia tu progreso para ganar más: pierdes tus mobs y tu dinero, pero cada Rebirth es permanente y sube tus ganancias.</p>
+        <div class="cards">
+            <article class="card"><span class="tag">GANANCIAS</span><span class="big">+0.5 por Rebirth</span><p>Cada Rebirth suma a tu multiplicador de dinero: x1.5, x2.0, x2.5…</p></article>
+            <article class="card"><span class="tag">COSTE</span><span class="big">25M · x4</span><p>El primer Rebirth cuesta 25M y cada uno cuesta cuatro veces más que el anterior.</p></article>
+            <article class="card"><span class="tag">REQUISITOS</span><span class="big">Dinero + mobs</span><p>Además del dinero, necesitas tener en tus pedestales mobs de cierto nivel y rareza; cada Rebirth pide un poco más.</p></article>
+        </div>
+        <div class="note"><strong>Ejemplo:</strong> el Rebirth 1 pide 2 mobs de cualquier tipo; el Rebirth 4 pide 3 mobs Raro o mejor de nivel 5+; el Rebirth 8 pide 4 mobs Épico o mejor de nivel 11+.</div>
+    </div>
+
+    <div class="box" id="tienda">
+        <h2>Tienda del modo</h2>
+        <p class="sub">Con el dinero del modo compras mejoras y objetos. Se abre con la estrella de tu base o con <strong>/robamob tienda</strong>.</p>
+        <div class="two">
+            <div class="panel"><h3>Mejoras</h3>
+                <ul class="list">
+                    <li><span class="n">Velocidad</span><span class="d">5 niveles para recorrer el pasillo más rápido.</span></li>
+                    <li><span class="n">Escudo</span><span class="d">Hasta 5 mejoras: baja la espera del bloqueador.</span></li>
+                    <li><span class="n">Pedestales</span><span class="d">Más espacio para tus mobs.</span></li>
+                    <li><span class="n">Salto I – V</span><span class="d">Con el nivel 2 o más saltas las olas bajas.</span></li>
+                    <li><span class="n">Visión nocturna</span><span class="d">Ve claro incluso de noche.</span></li>
+                </ul></div>
+            <div class="panel"><h3>Objetos</h3>
+                <ul class="list">
+                    <li><span class="n">Invisibilidad</span><span class="d">10 segundos para pasar sin que te vean.</span></li>
+                    <li><span class="n">Trampa de base</span><span class="d">Ármala en tu base contra los ladrones.</span></li>
+                    <li><span class="n">Anti-empuje</span><span class="d">15 segundos sin que nadie te empuje.</span></li>
+                    <li><span class="n">Tótem de inmunidad</span><span class="d">5 segundos de inmunidad a olas y golpes en el pasillo.</span></li>
+                    <li><span class="n">Inmunidad de ola</span><span class="d">Te salva de la primera ola que te toque.</span></li>
+                </ul></div>
+        </div>
+        <h3 style="margin:28px 0 12px;font-size:19px">Tienda del servidor</h3>
+        <p class="sub" style="margin-bottom:16px">Objetos especiales que se piden por el Discord oficial y se entregan directamente a tu cuenta.</p>
+        <ul class="list shop"><li><span class="n">Llave maestra</span><span class="d">Queda armada y abre una puerta protegida con escudo.</span></li><li><span class="n">Derribar puerta</span><span class="d">Durante 60 s la base queda sin escudo para todos.</span></li><li><span class="n">Limpieza personal</span><span class="d">Las olas no te afectan durante 90 s.</span></li><li><span class="n">Limpieza del mapa</span><span class="d">Olas desactivadas 90 s para todos los de tu mapa.</span></li><li><span class="n">Llave de piso</span><span class="d">Abre un piso extra de pedestales en tu base.</span></li><li><span class="n">Sello de protección</span><span class="d">Protege un mob tuyo para siempre: nadie lo puede robar.</span></li><li><span class="n">Escudo +5 / +10 / +20 min</span><span class="d">Suma tiempo a tu bloqueador de base.</span></li><li><span class="n">Velocidad permanente</span><span class="d">Más velocidad para recorrer el pasillo.</span></li><li><span class="n">Salto permanente</span><span class="d">Más niveles de Salto para pasar las olas bajas.</span></li><li><span class="n">Palo de empuje MAX</span><span class="d">Al que golpeas lo manda a su base y su mob queda en el suelo.</span></li><li><span class="n">Armadura permanente</span><span class="d">Nadie te empuja, siempre.</span></li><li><span class="n">Más mobs</span><span class="d">Lleva de 2 a 5 mobs a la vez.</span></li><li><span class="n">Trampa mejorada</span><span class="d">Tu trampa de base es mucho más fuerte y dura más.</span></li></ul>
+    </div>
+
+    <div class="box" id="mercado">
+        <h2>Mercado y cambios</h2>
+        <p class="sub">Los mobs también se comercian entre jugadores.</p>
+        <div class="cards">
+            <article class="card"><span class="tag">MERCADO</span><span class="big">Compra y vende</span><p>Pon un mob a la venta con <strong>/robamob publicar</strong> y mira lo que venden otros en <strong>/robamob mercado</strong>.</p></article>
+            <article class="card"><span class="tag">CAMBIOS</span><span class="big">Mob por mob</span><p>Con <strong>/robamob cambiar</strong> le propones a alguien tu mob por el suyo; si acepta, se intercambian.</p></article>
+            <article class="card"><span class="tag">TRADEO</span><span class="big">Directo</span><p>Con <strong>/robamob tradear</strong> haces un intercambio directo con otro jugador, con aceptar y rechazar.</p></article>
+        </div>
+    </div>
+
+    <div class="box" id="minijuegos">
+        <h2>Plataforma de minijuegos</h2>
+        <p class="sub">Una plataforma enorme con mesas. Siéntate con otro jugador, elijan juego y qué mob apostar. Se llega por el cartel del fondo del pasillo o con <strong>/robamob minijuegos</strong>.</p>
+        <div class="games"><div class="game"><strong>Cara o cruz</strong><span>Suerte pura: 50% / 50%.</span></div><div class="game"><strong>Dados</strong><span>2 dados cada uno: gana el mayor.</span></div><div class="game"><strong>Piedra, papel o tijera</strong><span>Cada uno elige: gana el que le gane al otro.</span></div><div class="game"><strong>Tres en raya</strong><span>Tres en línea en un tablero de 3×3.</span></div><div class="game"><strong>Cuatro en raya</strong><span>Junta 4 fichas en línea soltándolas por columnas.</span></div><div class="game"><strong>Cajas con bombas</strong><span>15 cajas con 3 bombas: quien abre una bomba, pierde.</span></div><div class="game"><strong>Veintiuno</strong><span>Pide cartas sin pasarte de 21: gana el que más se acerque.</span></div></div>
+    </div>
+
+    <div class="box" id="abuse">
+        <h2>Evento semanal: Admin Abuse</h2>
+        <div class="event">
+            <div>
+                <h3>Todos los jueves</h3>
+                <p>A las <strong>12:00 (hora de Las Vegas)</strong> el modo entra en Admin Abuse durante <strong>45 minutos</strong>. Se avisa 5 minutos antes.</p>
+                <p>Es el momento de ganar más rápido… y también el más peligroso.</p>
+            </div>
+            <div class="pills">
+                <span>Ganancias x3</span><span>Más mobs en el pasillo</span><span>Mobs que brillan</span><span>MUTANTES</span>
+                <span>Olas extra desde el fondo</span><span>Lluvia de dinero</span><span>Noche</span><span>Barra con el tiempo</span>
+            </div>
+        </div>
+        <div class="note"><strong>Mutantes:</strong> son más grandes, brillan y tienen nivel alto. Solo existen durante el evento y dan mucho más que un mob normal de su tramo.</div>
+    </div>
+
+    <div class="box" id="comandos">
+        <h2>Comandos</h2>
+        <p class="sub">Dentro del modo solo funcionan estos comandos (y /sit, /lobby, /discord, /store y el login). También puedes usar <strong>/rb</strong> o <strong>/rmob</strong>.</p>
+        <div class="cmds"><div class="cmd"><code>/robamob tienda</code><span>Abre la tienda de mejoras y objetos.</span></div><div class="cmd"><code>/robamob mobs</code><span>Tus mobs: sube de nivel, mueve y vende.</span></div><div class="cmd"><code>/robamob escudo</code><span>Pon el bloqueador de tu base.</span></div><div class="cmd"><code>/robamob mercado</code><span>Compra y vende mobs a otros jugadores.</span></div><div class="cmd"><code>/robamob publicar <pedestal> <precio></code><span>Pon un mob tuyo a la venta.</span></div><div class="cmd"><code>/robamob cambiar <jugador> <tu#> <su#></code><span>Propón cambiar tu mob por el suyo.</span></div><div class="cmd"><code>/robamob tradear <jugador></code><span>Intercambio directo con otro jugador.</span></div><div class="cmd"><code>/robamob minijuegos</code><span>Ve a la plataforma de minijuegos.</span></div><div class="cmd"><code>/robamob base</code><span>Vuelve a tu base.</span></div><div class="cmd"><code>/robamob saldo</code><span>Mira tu dinero.</span></div><div class="cmd"><code>/robamob salir</code><span>Sal del modo. Tu progreso se guarda.</span></div><div class="cmd"><code>/robamob amigo dar|quitar <jugador></code><span>Deja entrar o no a amigos a tu base.</span></div></div>
+        <div class="note"><strong>Chat:</strong> lo que escribes dentro lo ven solo los jugadores que están dentro del modo.</div>
+    </div>
+
+    <div class="cta">
+        <div>
+            <h3>¿Listo para robar mobs?</h3>
+            <p>Entra al servidor y habla con el NPC del lobby.</p>
+        </div>
+        <a class="btn primary" href="index.html#servidor">VER IP DEL SERVIDOR</a>
+    </div>
+</main>
+
+<footer>
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
+</footer>
+</body>
+</html>
