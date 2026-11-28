@@ -3,328 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Streamer | Kaizora Origins</title>
+<meta name="theme-color" content="#0a0612">
+<title>STREAMER | Kaizora Origins</title>
+<meta name="description" content="Rango STREAMER de Kaizora Origins: el rango especial para creadores de contenido, con los mismos beneficios que ELITE.">
+
 <style>
+:root{
+    --bg:#0a0612;
+    --rank:#a855f7;
+    --rank-light:#c084fc;
+    --rank-pale:#f0e1ff;
+    --pink:#ff6de1;
+    --muted:#b9b0c9;
+    --border:rgba(168,85,247,.34);
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
     margin:0;
-    min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
     color:#fff;
-    background:
-        radial-gradient(circle at 50% 0%,rgba(150,80,255,.20),transparent 42%),
-        linear-gradient(180deg,#08090d 0%,#0b0712 100%);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-.nav{
-    height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(5,6,9,.78);
-    backdrop-filter:blur(14px);
+
+.bg{
+    position:fixed;inset:0;z-index:-2;
+    background:
+        radial-gradient(ellipse at 14% 8%,rgba(168,85,247,.30),transparent 40%),
+        radial-gradient(ellipse at 90% 34%,rgba(255,109,225,.15),transparent 36%),
+        radial-gradient(ellipse at 50% 100%,rgba(120,60,200,.16),transparent 42%),
+        #0a0612;
 }
-.logo{
-    font-size:18px;
-    font-weight:900;
-    letter-spacing:2px;
+.bg::after{
+    content:"";position:absolute;inset:0;opacity:.15;
+    background-image:radial-gradient(rgba(255,255,255,.65) .7px,transparent .7px);
+    background-size:27px 27px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
 }
-.nav-links{display:flex;gap:12px;align-items:center}
-.nav-links a{
-    padding:10px 16px;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:9px;
-    font-size:13px;
-    font-weight:800;
+
+/* NAV */
+nav{
+    min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:14px 7%;border-bottom:1px solid rgba(168,85,247,.22);
+    background:rgba(10,6,18,.85);backdrop-filter:blur(18px);position:sticky;top:0;z-index:10;
 }
-.nav-links a:hover{border-color:#a855f7;background:rgba(168,85,247,.10)}
-.container{width:min(1080px,88%);margin:0 auto;padding:72px 0 90px}
-.badge{
-    display:inline-block;
-    color:#b98aff;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:4px;
-    margin-bottom:18px;
+.logo{font-size:21px;font-weight:900;letter-spacing:1.5px}
+.logo span{color:var(--rank-light)}
+.nav-right{display:flex;align-items:center;gap:18px}
+nav a.home{color:#e6dcf5;font-size:13px;font-weight:800}
+nav a.home:hover{color:#fff}
+.discord{
+    padding:12px 18px;border-radius:9px;color:#fff;font-size:13px;font-weight:800;
+    background:linear-gradient(110deg,#7134d8,#a855f7);border:1px solid rgba(255,255,255,.23);
+    box-shadow:0 5px 24px rgba(168,85,247,.3);transition:.25s;
 }
+.discord:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(168,85,247,.5)}
+
+main{max-width:1100px;margin:0 auto;padding:80px 6% 100px}
+
+/* HERO */
+.hero{position:relative;padding-bottom:30px;animation:appear .65s ease both}
+.label{
+    display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;padding:9px 14px;
+    color:var(--rank-pale);font-size:11px;font-weight:900;letter-spacing:3px;
+    border:1px solid rgba(168,85,247,.55);border-radius:6px;background:rgba(168,85,247,.15);
+}
+.label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rank-light);box-shadow:0 0 13px var(--rank-light);animation:pulse 2s infinite}
 h1{
-    margin:0;
-    font-size:clamp(48px,8vw,86px);
-    line-height:.95;
-    font-weight:950;
-    letter-spacing:-4px;
-    background:linear-gradient(135deg,#fff 15%,#c084fc 70%,#a855f7);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    font-size:clamp(54px,11vw,112px);line-height:.95;margin:0 0 24px;letter-spacing:-5px;font-weight:900;
+    text-shadow:0 0 50px rgba(168,85,247,.35);
 }
-.intro{
-    max-width:760px;
-    margin:24px 0 42px;
-    color:#a4a4ad;
-    font-size:17px;
-    line-height:1.75;
+h1 span{
+    background:linear-gradient(100deg,#fff 5%,#f0e1ff 35%,#c084fc 70%,#ff6de1);
+    background-clip:text;-webkit-background-clip:text;color:transparent;
 }
-.section-title{
-    margin:52px 0 18px;
-    font-size:25px;
-    font-weight:900;
+.desc{max-width:680px;color:#cfc6de;font-size:17px;line-height:1.85;margin:0}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.quick span{
+    padding:8px 13px;border:1px solid rgba(255,255,255,.22);border-radius:8px;
+    background:rgba(255,255,255,.07);font-size:12px;font-weight:900;letter-spacing:.4px;
 }
-.section-subtitle{
-    color:#8f9099;
-    margin:0 0 24px;
-    line-height:1.6;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:16px;
-}
-.card{
-    position:relative;
-    overflow:hidden;
-    padding:25px;
-    min-height:155px;
-    border:1px solid rgba(255,255,255,.11);
-    border-radius:17px;
-    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
-    box-shadow:0 15px 45px rgba(0,0,0,.18);
-}
-.card:before{
-    content:"";
-    position:absolute;
-    width:120px;
-    height:120px;
-    right:-45px;
-    top:-55px;
-    border-radius:50%;
-    background:rgba(168,85,247,.12);
-    filter:blur(10px);
-}
-.platform{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    position:relative;
-}
-.platform-logo{
-    width:46px;
-    height:46px;
-    border-radius:13px;
-    display:grid;
-    place-items:center;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.12);
-    font-size:22px;
-    font-weight:950;
-}
-.platform-name{
-    font-size:20px;
-    font-weight:900;
-}
-.followers{
-    margin-top:20px;
-    font-size:28px;
-    font-weight:950;
-    color:#fff;
-}
-.followers span{
-    display:block;
-    margin-top:4px;
-    color:#8f9099;
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-.required{
-    margin-top:28px;
-    padding:28px;
-    border:1px solid rgba(168,85,247,.32);
-    border-radius:18px;
-    background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(255,255,255,.025));
-}
-.required h3{
-    margin:0 0 10px;
-    color:#c084fc;
-    font-size:22px;
-}
-.required p{
-    margin:0 0 24px;
-    color:#aaaab3;
-    line-height:1.65;
-}
-.activities{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-}
-.activity{
-    padding:20px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,.10);
-    background:rgba(0,0,0,.20);
-}
-.activity strong{
-    display:block;
-    color:#fff;
-    font-size:18px;
-    margin-bottom:7px;
-}
-.activity span{
-    color:#999aa3;
-    line-height:1.5;
-    font-size:14px;
-}
-.benefits{
-    margin-top:18px;
-    padding:24px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.10);
-    background:rgba(255,255,255,.025);
-}
-.benefits strong{color:#fff}
-.benefits p{
-    margin:9px 0 0;
-    color:#a0a0aa;
-    line-height:1.6;
-}
-.actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:42px;
-}
+.quick span.hl{border-color:rgba(192,132,252,.7);background:rgba(168,85,247,.22);color:var(--rank-pale)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:46px;
-    padding:0 22px;
-    border-radius:10px;
-    font-size:13px;
-    font-weight:900;
-    border:1px solid rgba(255,255,255,.18);
+    display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:10px;
+    font-weight:900;font-size:12px;letter-spacing:.6px;border:1px solid rgba(255,255,255,.17);
+    transition:transform .2s,box-shadow .2s,background .2s;
 }
-.btn-primary{
-    background:linear-gradient(135deg,#7134d8,#a855f7);
-    border-color:#b778ff;
+.btn:hover{transform:translateY(-2px)}
+.primary{color:#fff;border-color:#c99bff;background:linear-gradient(110deg,#7134d8,#a855f7);box-shadow:0 5px 26px rgba(168,85,247,.35)}
+.primary:hover{box-shadow:0 8px 34px rgba(168,85,247,.55)}
+.ghost{background:rgba(255,255,255,.04);color:var(--rank-pale)}
+.ghost:hover{border-color:var(--rank-light);background:rgba(168,85,247,.12)}
+
+/* PANEL */
+.box{
+    position:relative;margin-top:36px;padding:clamp(22px,4vw,40px);border:1px solid var(--border);border-radius:22px;
+    background:linear-gradient(145deg,rgba(30,20,48,.97),rgba(14,9,24,.98));
+    box-shadow:0 20px 65px rgba(0,0,0,.3),0 0 44px rgba(168,85,247,.07);overflow:hidden;animation:appear .8s ease both;
 }
-.btn-secondary{background:rgba(255,255,255,.035)}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
-.note{
-    margin-top:20px;
-    color:#777983;
-    font-size:12px;
-    line-height:1.6;
+.box::before{content:"";position:absolute;top:0;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,#a855f7,#ff6de1,transparent)}
+.box h2{display:flex;align-items:center;gap:12px;margin:0 0 8px;font-size:clamp(23px,4vw,30px);font-weight:900}
+.box h2::before{content:"";width:5px;height:28px;border-radius:8px;background:linear-gradient(#a855f7,#ff6de1);box-shadow:0 0 16px rgba(168,85,247,.55)}
+.box>p.sub{color:var(--muted);line-height:1.7;margin:0 0 26px}
+
+/* IGUAL QUE ELITE */
+.same{
+    display:flex;align-items:center;gap:18px;padding:22px;border-radius:16px;margin-bottom:24px;
+    border:1px solid rgba(192,132,252,.5);
+    background:radial-gradient(ellipse at 0% 0%,rgba(168,85,247,.28),transparent 60%),linear-gradient(110deg,rgba(168,85,247,.16),rgba(255,109,225,.06));
 }
-@media(max-width:700px){
-    .nav{padding:0 5%}
-    .nav-links a{padding:9px 11px}
-    .container{width:90%;padding-top:55px}
-    .grid,.activities{grid-template-columns:1fr}
-    h1{letter-spacing:-2px}
+.same-icon{
+    width:58px;height:58px;flex-shrink:0;display:grid;place-items:center;border-radius:16px;
+    color:#f0e1ff;border:1px solid rgba(192,132,252,.55);background:rgba(168,85,247,.22);
 }
+.same-text{flex:1;min-width:0;line-height:1.7;color:#d9cfe9}
+.same-text strong{display:block;color:#fff;font-size:19px;margin-bottom:2px}
+.same a.btn{white-space:nowrap}
+
+.perks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.perk{
+    position:relative;overflow:hidden;padding:22px 20px;border-radius:15px;
+    border:1px solid rgba(168,85,247,.38);
+    background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.13),transparent 55%),linear-gradient(135deg,rgba(60,30,100,.3),rgba(24,16,40,.96) 70%);
+    transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.perk::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(#a855f7,#ff6de1)}
+.perk:hover{transform:translateY(-4px);border-color:rgba(240,225,255,.8);box-shadow:0 12px 32px rgba(0,0,0,.25),0 0 26px rgba(168,85,247,.16)}
+.perk .tag{color:var(--rank-light);font-size:10px;font-weight:900;letter-spacing:2px}
+.perk .big{display:block;margin:9px 0 8px;font-size:24px;line-height:1.2;font-weight:900;color:#e9d5ff;text-shadow:0 0 22px rgba(168,85,247,.3);overflow-wrap:anywhere}
+.perk p{margin:0;color:#c9bfd9;font-size:14px;line-height:1.7}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:6px}
+.step{padding:22px 20px;border-radius:15px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03)}
+.num{
+    width:36px;height:36px;display:grid;place-items:center;margin-bottom:14px;border-radius:10px;
+    font-weight:900;color:#f0e1ff;background:rgba(168,85,247,.25);border:1px solid rgba(192,132,252,.5);
+}
+.step h4{margin:0 0 6px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+
+.note{margin-top:24px;padding:16px 20px;border:1px solid rgba(168,85,247,.28);border-left:4px solid var(--rank);border-radius:0 11px 11px 0;background:linear-gradient(100deg,rgba(168,85,247,.14),rgba(255,109,225,.03));color:#c9bfd9;font-size:13px;line-height:1.8}
+.note strong{color:var(--rank-pale)}
+
+.cta{
+    margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    padding:28px;border-radius:20px;border:1px solid rgba(192,132,252,.45);
+    background:radial-gradient(ellipse at 100% 0%,rgba(255,109,225,.18),transparent 55%),linear-gradient(120deg,rgba(168,85,247,.2),rgba(20,12,34,.95));
+}
+.cta h3{margin:0 0 4px;font-size:22px}
+.cta p{margin:0;color:var(--muted);font-size:14px}
+
+footer{text-align:center;padding:30px 20px;color:#8d849f;font-size:12px;border-top:1px solid rgba(168,85,247,.2);background:rgba(8,5,14,.72)}
+footer span{color:var(--rank-light)}
+
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+@media(max-width:850px){.perks,.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){
+    nav{padding:14px 5%}
+    .logo{font-size:17px}
+    nav a.home{display:none}
+    main{padding:60px 5% 70px}
+    h1{letter-spacing:-3px}
+    .desc{font-size:15px}
+    .actions .btn{flex:1 1 auto}
+    .box{padding:22px 17px;border-radius:16px}
+    .perks,.steps{grid-template-columns:1fr}
+    .same{flex-wrap:wrap}
+    .same a.btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div class="bg"></div>
 
-<nav class="nav">
-    <a class="logo" href="https://kaizoraoriginstiendaoficial.github.io/website/">KAIZORA ORIGINS</a>
-    <div class="nav-links">
-        <a href="https://kaizoraoriginstiendaoficial.github.io/website/">Inicio</a>
-        <a href="https://discord.gg/sHvWgW7AE4">Discord</a>
+<nav>
+    <a class="logo" href="index.html">KAIZORA <span>ORIGINS</span></a>
+    <div class="nav-right">
+        <a class="home" href="index.html#rangos">Rangos</a>
+        <a class="home" href="index.html">Inicio</a>
+        <a class="discord" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">Solicitar por Discord</a>
     </div>
 </nav>
 
-<main class="container">
-    <div class="badge">RANGO ESPECIAL</div>
-    <h1>STREAMER</h1>
-
-    <p class="intro">
-        El rango para creadores de contenido que forman parte de la comunidad de Kaizora Origins.
-        Cumple los requisitos de una de nuestras plataformas y mantén una actividad constante para
-        conservar el rango y sus beneficios.
-    </p>
-
-    <h2 class="section-title">Requisitos</h2>
-    <p class="section-subtitle">
-        Debes alcanzar el mínimo de seguidores en al menos una de las siguientes plataformas.
-    </p>
-
-    <section class="grid">
-        <article class="card">
-            <div class="platform">
-                <div class="platform-logo">T</div>
-                <div class="platform-name">Twitch</div>
-            </div>
-            <div class="followers">200 <span>seguidores</span></div>
-        </article>
-
-        <article class="card">
-            <div class="platform">
-                <div class="platform-logo">K</div>
-                <div class="platform-name">Kick</div>
-            </div>
-            <div class="followers">100 <span>seguidores</span></div>
-        </article>
-
-        <article class="card">
-            <div class="platform">
-                <div class="platform-logo">▶</div>
-                <div class="platform-name">YouTube</div>
-            </div>
-            <div class="followers">150 <span>seguidores</span></div>
-        </article>
-
-        <article class="card">
-            <div class="platform">
-                <div class="platform-logo">♪</div>
-                <div class="platform-name">TikTok</div>
-            </div>
-            <div class="followers">500 <span>seguidores</span></div>
-        </article>
-    </section>
-
-    <section class="required">
-        <h3>Requisito obligatorio para mantener el rango</h3>
-        <p>
-            Para mantener el rango Streamer y conservar sus beneficios, deberás mantener una
-            actividad mínima semanal en tus plataformas de contenido.
+<main>
+    <section class="hero">
+        <div class="label">RANGO ESPECIAL</div>
+        <h1><span>STREAMER</span></h1>
+        <p class="desc">
+            El rango para los creadores de contenido de la comunidad de Kaizora Origins.
+            Muestra el servidor al mundo y juega con el equipamiento, los comandos y
+            los privilegios del rango ELITE.
         </p>
-
-        <div class="activities">
-            <div class="activity">
-                <strong>1 publicación por semana</strong>
-                <span>Video largo o stream.</span>
-            </div>
-            <div class="activity">
-                <strong>4 videos cortos por semana</strong>
-                <span>Shorts, TikToks o Reels.</span>
-            </div>
+        <div class="quick">
+            <span class="hl">Beneficios de ELITE</span>
+            <span>Kit Netherite nivel VII</span>
+            <span>Protección 30 × 30</span>
+            <span>+10M</span>
+            <span>/extinguish · /itemname</span>
+            <span>+1 casa</span>
         </div>
-
-        <div class="benefits">
-            <strong>Beneficios del rango</strong>
-            <p>
-                Los beneficios del rango Streamer son los mismos que los del
-                <strong>rango Elite</strong>.
-            </p>
+        <div class="actions">
+            <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">SOLICITAR RANGO ↗</a>
+            <a class="btn ghost" href="index.html#rangos">VER TODOS LOS RANGOS</a>
         </div>
     </section>
 
-    <div class="actions">
-        <a class="btn btn-primary" href="https://discord.gg/sHvWgW7AE4">SOLICITAR RANGO</a>
-        <a class="btn btn-secondary" href="https://kaizoraoriginstiendaoficial.github.io/website/">VOLVER A LA WEB</a>
+    <div class="box">
+        <h2>Beneficios del rango</h2>
+        <p class="sub">Todo lo que incluye STREAMER, igual que el rango ELITE.</p>
+
+        <div class="same">
+            <div class="same-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 6-8 12L4 9z" fill="currentColor" fill-opacity=".16"/><path d="M4 9h16M9 9l3 12 3-12M9 9l3-6 3 6"/></svg>
+            </div>
+            <div class="same-text">
+                <strong>Mismos beneficios que ELITE</strong>
+                STREAMER incluye todo lo de ELITE, que a su vez incluye los beneficios de ASCENDENTE.
+            </div>
+            <a class="btn ghost" href="rango-elite.html">VER DETALLE DE ELITE →</a>
+        </div>
+
+        <div class="perks">
+            <article class="perk">
+                <span class="tag">KIT</span>
+                <span class="big">Netherite VII</span>
+                <p>Armadura completa, espada, pico, hacha, pala, azada y escudo con encantamientos de nivel VII.</p>
+            </article>
+            <article class="perk">
+                <span class="tag">COMANDOS</span>
+                <span class="big">/extinguish · /itemname</span>
+                <p>Apaga el fuego de tu personaje y cambia el nombre de los objetos que llevas en la mano.</p>
+            </article>
+            <article class="perk">
+                <span class="tag">TERRENO</span>
+                <span class="big">Protección 30 × 30</span>
+                <p>Una zona protegida para construir con tranquilidad, con Piedra de Protección incluida.</p>
+            </article>
+            <article class="perk">
+                <span class="tag">HOGAR</span>
+                <span class="big">+1 casa</span>
+                <p>Una casa extra con <strong>/sethome</strong> para moverte más rápido por el mundo.</p>
+            </article>
+            <article class="perk">
+                <span class="tag">DINERO</span>
+                <span class="big">+10M</span>
+                <p>Dinero inicial dentro del servidor para empezar con ventaja.</p>
+            </article>
+            <article class="perk">
+                <span class="tag">ESENCIAS</span>
+                <span class="big">Llave Elite ×1</span>
+                <p>Esencia Arcana ×18, Nexo Prismático ×14 y Esencia Eléctrica ×10 incluidos en el kit.</p>
+            </article>
+        </div>
     </div>
 
-    <div class="note">
-        La solicitud y comprobación de requisitos se gestionan mediante el Discord oficial de ventas.
+    <div class="box">
+        <h2>Cómo solicitarlo</h2>
+        <p class="sub">El rango se pide y se gestiona por el Discord oficial.</p>
+        <div class="steps">
+            <div class="step"><div class="num">1</div><h4>Entra al Discord</h4><p>Únete al Discord oficial de Kaizora Origins.</p></div>
+            <div class="step"><div class="num">2</div><h4>Pide el rango</h4><p>Dinos en el Discord que quieres el rango STREAMER.</p></div>
+            <div class="step"><div class="num">3</div><h4>Reclama tu kit</h4><p>Una vez activado, reclámalo con <strong>/kit</strong> dentro del servidor.</p></div>
+        </div>
+        <div class="note">
+            <strong>Nota:</strong> La solicitud se gestiona mediante el Discord oficial de ventas.
+        </div>
+    </div>
+
+    <div class="cta">
+        <div>
+            <h3>¿Listo para ser Streamer?</h3>
+            <p>Pídelo en el Discord y empieza hoy.</p>
+        </div>
+        <a class="btn primary" href="https://discord.gg/sHvWgW7AE4" target="_blank" rel="noopener noreferrer">SOLICITAR RANGO ↗</a>
     </div>
 </main>
 
+<footer>
+    © 2026 <span>Kaizora Origins</span> · Servidor de Minecraft independiente.
+</footer>
 </body>
 </html>
